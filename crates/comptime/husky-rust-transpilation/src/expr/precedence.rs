@@ -89,12 +89,15 @@ impl RustPrecedenceRange {
             HirEagerExprRole::Subexpr {
                 outermost_precedence_range,
             } => outermost_precedence_range,
+            // ad hoc
+            HirEagerExprRole::AssignSelfArgument => Self::GEQ_PREFIX,
         }
     }
 
     fn from_binding(binding: RustBinding) -> Self {
         match binding {
             RustBinding::Deref
+            | RustBinding::DerefMut
             | RustBinding::DerefCustomed
             | RustBinding::Reref
             | RustBinding::RerefMut

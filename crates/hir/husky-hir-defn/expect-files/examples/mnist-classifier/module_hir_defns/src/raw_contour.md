@@ -1173,7 +1173,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -1238,7 +1238,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -1271,7 +1271,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1293,7 +1293,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1509,7 +1509,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -1547,7 +1547,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1626,7 +1626,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1648,7 +1648,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1819,7 +1819,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -1890,7 +1890,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1908,7 +1908,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1927,7 +1927,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1945,7 +1945,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1991,7 +1991,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2009,7 +2009,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2055,7 +2055,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2073,7 +2073,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2119,7 +2119,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2137,7 +2137,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2183,7 +2183,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2203,7 +2203,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2274,7 +2274,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2341,7 +2341,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2361,7 +2361,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2432,7 +2432,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2452,7 +2452,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2478,7 +2478,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2498,7 +2498,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2525,7 +2525,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2550,7 +2550,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2596,7 +2596,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2677,7 +2677,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2699,7 +2699,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2725,7 +2725,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2752,7 +2752,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2777,7 +2777,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2823,7 +2823,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2904,7 +2904,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2926,7 +2926,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2952,7 +2952,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -2979,7 +2979,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -3004,7 +3004,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3050,7 +3050,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3131,7 +3131,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3153,7 +3153,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3179,7 +3179,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -3206,7 +3206,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -3231,7 +3231,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3277,7 +3277,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3358,7 +3358,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3380,7 +3380,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3406,7 +3406,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -3443,7 +3443,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -3528,7 +3528,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3554,7 +3554,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -3591,7 +3591,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -3676,7 +3676,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3742,7 +3742,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -3764,7 +3764,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4148,7 +4148,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -4219,7 +4219,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4280,7 +4280,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4298,7 +4298,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4317,7 +4317,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4366,7 +4366,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4386,7 +4386,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -4456,7 +4456,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4529,7 +4529,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4551,7 +4551,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4723,7 +4723,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4739,7 +4739,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4759,7 +4759,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -4830,7 +4830,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4897,7 +4897,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4923,7 +4923,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -4994,7 +4994,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5014,7 +5014,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -5037,7 +5037,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5061,7 +5061,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5080,7 +5080,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5100,7 +5100,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -5171,7 +5171,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5191,7 +5191,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -5217,7 +5217,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5237,7 +5237,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -5262,7 +5262,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5308,7 +5308,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5326,7 +5326,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5372,7 +5372,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5400,7 +5400,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5440,7 +5440,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5458,7 +5458,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5504,7 +5504,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5522,7 +5522,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5568,7 +5568,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5596,7 +5596,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5636,7 +5636,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5660,7 +5660,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5684,7 +5684,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5710,7 +5710,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -5781,7 +5781,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5801,7 +5801,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -5872,7 +5872,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5939,7 +5939,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5955,7 +5955,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5979,7 +5979,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -5998,7 +5998,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6018,7 +6018,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -6089,7 +6089,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6107,7 +6107,7 @@
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6126,7 +6126,7 @@
                                                     place_idx: None,
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6146,7 +6146,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -6171,7 +6171,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6217,7 +6217,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6235,7 +6235,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6281,7 +6281,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6309,7 +6309,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6349,7 +6349,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6367,7 +6367,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6413,7 +6413,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6431,7 +6431,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6477,7 +6477,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6505,7 +6505,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6545,7 +6545,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6569,7 +6569,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6593,7 +6593,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6619,7 +6619,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -6652,7 +6652,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -7042,7 +7042,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7107,7 +7107,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7185,7 +7185,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -7205,7 +7205,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7270,7 +7270,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7297,7 +7297,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7324,7 +7324,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7359,7 +7359,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -7382,7 +7382,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7409,7 +7409,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7474,7 +7474,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7501,7 +7501,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7528,7 +7528,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7563,7 +7563,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: true,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -7586,7 +7586,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7615,7 +7615,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7644,7 +7644,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -7740,7 +7740,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -7762,7 +7762,7 @@
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable_before_coercion: false,
+                                            is_always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },

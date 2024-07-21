@@ -13,6 +13,7 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 #[derive(Debug, Clone, Copy)]
 pub(crate) enum HirEagerExprRole<'db> {
     SimpleSelfArgument,
+    AssignSelfArgument,
     SelfArgumentWithIndirection {
         indirections: &'db HirIndirections,
     },
@@ -31,8 +32,12 @@ impl<'db> HirEagerExprRole<'db> {
     /// generate self subexpr on site
     /// `self` refers to the parent expr on site
     /// this excludes self argument of memoized field, where things are more complicated so that we have to use associated form for calling
-    pub(crate) fn simple_self_argument(has_self_value_binding: bool) -> Self {
+    pub(crate) fn simple_self_argument() -> Self {
         HirEagerExprRole::SimpleSelfArgument
+    }
+
+    pub(crate) fn assign_self_argument() -> Self {
+        HirEagerExprRole::AssignSelfArgument
     }
 
     pub(crate) fn self_argument_with_indirections(indirections: &'db HirIndirections) -> Self {
@@ -52,14 +57,6 @@ impl<'db> HirEagerExprRole<'db> {
         HirEagerExprRole::Subexpr {
             outermost_precedence_range,
         }
-    }
-
-    pub(crate) fn new(rust_precedence_range: RustPrecedenceRange) -> Self {
-        // Self {
-        //     rust_precedence_range,
-        //     rust_bindings: Default::default(),
-        // }
-        todo!()
     }
 
     #[track_caller]
