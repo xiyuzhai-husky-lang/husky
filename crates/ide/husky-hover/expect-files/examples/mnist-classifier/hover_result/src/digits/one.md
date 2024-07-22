@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::major_connected_component`\n\ncoercion = None\n\ntype = `Leash ConnectedComponent @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nentity `mnist_classifier::major::major_connected_component`\n\ncoercion = None\n\ntype = `Leash ConnectedComponent @ Some(Transient)`",
                         },
                     ),
                     range: Some(

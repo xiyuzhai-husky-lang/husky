@@ -32,7 +32,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
             end += 1
         }
         if end > start + 1 {
-            concave_components.push(crate::line_segment_sketch::concave_component::ConcaveComponent::__constructor(line_segment_sketch, line_segment_sketch.strokes.cyclic_slice_leashed(start, end)))
+            concave_components.push(crate::line_segment_sketch::concave_component::ConcaveComponent::__constructor(line_segment_sketch, <Vec<crate::line_segment_sketch::LineSegmentStroke>>::cyclic_slice_leashed(Leash(&line_segment_sketch.deleash().strokes), start, end)))
         }
         start = end;
         end = start + 1
@@ -62,12 +62,12 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 17)]
     pub fn hausdorff_norm(&'static self) -> f32 {
         let mut hausdorff_norm = 0.0f32;
-        let curve_start = __self.deleash().strokes.deleash().first().unwrap().deleash().start;
+        let curve_start = &__self.deleash().strokes.deleash().first().unwrap().deleash().start;
         let curve_ls = __self.deleash().line_segment();
         let dp_norm = curve_ls.displacement().norm();
         for i in __self.deleash().strokes.deleash().start()..__self.deleash().strokes.deleash().end() {
-            let point = __self.deleash().strokes[i as usize].end;
-            let point_dist = curve_ls.dist_to_point(point.deleash());
+            let point = &__self.deleash().strokes.deleash()[i as usize].end;
+            let point_dist = curve_ls.dist_to_point(point);
             if point_dist > hausdorff_norm {
                 hausdorff_norm = point_dist
             }
@@ -78,9 +78,9 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 18)]
     pub fn angle_change(&'static self) -> f32 {
         let mut angle_change = 0.0f32;
-        let mut dp0 = __self.deleash().strokes[__self.deleash().strokes.deleash().start() as usize].displacement();
+        let mut dp0 = __self.deleash().strokes.deleash()[__self.deleash().strokes.deleash().start() as usize].displacement();
         for i in (__self.deleash().strokes.deleash().start() + 1)..__self.deleash().strokes.deleash().end() {
-            let dp = __self.deleash().strokes[i as usize].displacement();
+            let dp = __self.deleash().strokes.deleash()[i as usize].displacement();
             angle_change += dp0.angle_to(&dp, true);
             dp0 = dp
         }
@@ -89,24 +89,24 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 19, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = __self.deleash().strokes.deleash().first().unwrap().deleash().start;
-        let mut xmin = start_point.deleash().x;
-        let mut xmax = start_point.deleash().x;
-        let mut ymin = start_point.deleash().y;
-        let mut ymax = start_point.deleash().y;
+        let start_point = &__self.deleash().strokes.deleash().first().unwrap().deleash().start;
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
         for i in __self.deleash().strokes.deleash().start()..__self.deleash().strokes.deleash().end() {
-            let point = __self.deleash().strokes[i as usize].end;
-            xmin = xmin.min(point.deleash().x);
-            xmax = xmax.max(point.deleash().x);
-            ymin = ymin.min(point.deleash().y);
-            ymax = ymax.max(point.deleash().y)
+            let point = &__self.deleash().strokes.deleash()[i as usize].end;
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 20, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(__self.line_segment_sketch.deleash()).relative_bounding_box(<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(__self))
+        <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(__self.deleash().line_segment_sketch).deleash().relative_bounding_box(<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(__self).deleash())
     }
 
     pub fn line_segment(&self) -> crate::line_segment_sketch::line_segment::LineSegment {

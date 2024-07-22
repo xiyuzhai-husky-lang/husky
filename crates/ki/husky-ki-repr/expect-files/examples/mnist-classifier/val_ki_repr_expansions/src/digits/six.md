@@ -108,8 +108,17 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                        template_arguments: [],
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
                                     },
                                     field: Props {
                                         ident: Ident(
@@ -1134,8 +1143,17 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                        template_arguments: [],
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
                                     },
                                     field: Props {
                                         ident: Ident(
@@ -1733,8 +1751,17 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                        template_arguments: [],
+                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                        template_arguments: [
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
+                                                ),
+                                            ),
+                                        ],
                                     },
                                     field: Props {
                                         ident: Ident(

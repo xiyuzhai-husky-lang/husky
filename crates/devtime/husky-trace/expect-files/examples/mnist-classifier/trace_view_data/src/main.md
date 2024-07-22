@@ -547,7 +547,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                34,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -564,7 +566,7 @@
     (
         Trace(
             Id {
-                value: 35,
+                value: 36,
             },
         ),
         TraceViewData {
@@ -583,7 +585,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                41,
+                                42,
                             ),
                         },
                         TraceViewTokenData {
@@ -597,7 +599,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                42,
+                                43,
                             ),
                         },
                         TraceViewTokenData {
@@ -611,51 +613,8 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                43,
-                            ),
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 36,
-            },
-        ),
-        TraceViewData {
-            trace_kind: LazyStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 8,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "n",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
                                 44,
                             ),
-                        },
-                        TraceViewTokenData {
-                            text: "<",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "1.5",
-                            token_class: Literal,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
                         },
                     ],
                 },
@@ -681,11 +640,56 @@
                             assoc_trace_id: None,
                         },
                         TraceViewTokenData {
+                            text: "n",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                45,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "<",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "1.5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                46,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 38,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 8,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
                             text: "open_one_match",
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                45,
+                                47,
                             ),
                         },
                         TraceViewTokenData {
@@ -699,7 +703,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                46,
+                                48,
                             ),
                         },
                         TraceViewTokenData {
@@ -712,7 +716,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                49,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -759,7 +765,7 @@
     (
         Trace(
             Id {
-                value: 38,
+                value: 39,
             },
         ),
         TraceViewData {
@@ -778,7 +784,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                47,
+                                50,
                             ),
                         },
                         TraceViewTokenData {
@@ -792,7 +798,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                48,
+                                51,
                             ),
                         },
                         TraceViewTokenData {
@@ -817,7 +823,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                52,
+                            ),
                         },
                     ],
                 },
@@ -828,7 +836,7 @@
     (
         Trace(
             Id {
-                value: 39,
+                value: 40,
             },
         ),
         TraceViewData {
@@ -847,7 +855,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                49,
+                                53,
                             ),
                         },
                         TraceViewTokenData {
@@ -861,7 +869,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                50,
+                                54,
                             ),
                         },
                         TraceViewTokenData {
@@ -875,7 +883,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                51,
+                                55,
                             ),
                         },
                         TraceViewTokenData {
@@ -888,7 +896,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                56,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -913,7 +923,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                52,
+                                57,
                             ),
                         },
                         TraceViewTokenData {
@@ -939,7 +949,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                53,
+                                58,
                             ),
                         },
                         TraceViewTokenData {
@@ -963,7 +973,7 @@
     (
         Trace(
             Id {
-                value: 40,
+                value: 41,
             },
         ),
         TraceViewData {
@@ -982,7 +992,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                54,
+                                59,
                             ),
                         },
                         TraceViewTokenData {
@@ -995,7 +1005,9 @@
                             text: "5.5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                60,
+                            ),
                         },
                     ],
                 },
@@ -1006,7 +1018,7 @@
     (
         Trace(
             Id {
-                value: 41,
+                value: 42,
             },
         ),
         TraceViewData {
@@ -1200,6 +1212,29 @@
     (
         Trace(
             Id {
+                value: 35,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
                 value: 20,
             },
         ),
@@ -1219,7 +1254,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                55,
+                                61,
                             ),
                         },
                         TraceViewTokenData {
@@ -1239,7 +1274,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                56,
+                                62,
                             ),
                         },
                         TraceViewTokenData {
@@ -1247,7 +1282,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                57,
+                                63,
                             ),
                         },
                         TraceViewTokenData {
@@ -1273,7 +1308,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                56,
+                                62,
                             ),
                         },
                     ],
@@ -1285,7 +1320,7 @@
     (
         Trace(
             Id {
-                value: 56,
+                value: 62,
             },
         ),
         TraceViewData {
@@ -1308,7 +1343,7 @@
     (
         Trace(
             Id {
-                value: 57,
+                value: 63,
             },
         ),
         TraceViewData {
@@ -1367,7 +1402,7 @@
     (
         Trace(
             Id {
-                value: 58,
+                value: 64,
             },
         ),
         TraceViewData {
@@ -1438,7 +1473,7 @@
     (
         Trace(
             Id {
-                value: 57,
+                value: 63,
             },
         ),
         TraceViewData {
@@ -1516,7 +1551,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                58,
+                                64,
                             ),
                         },
                     ],
@@ -1528,7 +1563,7 @@
                             token_class: Variable,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                59,
+                                65,
                             ),
                         },
                         TraceViewTokenData {
@@ -1542,7 +1577,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                60,
+                                66,
                             ),
                         },
                         TraceViewTokenData {
@@ -1560,7 +1595,7 @@
                             token_class: Variable,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                61,
+                                67,
                             ),
                         },
                         TraceViewTokenData {
@@ -1574,7 +1609,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                62,
+                                68,
                             ),
                         },
                         TraceViewTokenData {
@@ -1592,7 +1627,7 @@
                             token_class: Variable,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                63,
+                                69,
                             ),
                         },
                         TraceViewTokenData {
@@ -1606,7 +1641,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                64,
+                                70,
                             ),
                         },
                         TraceViewTokenData {
@@ -1635,7 +1670,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                71,
+                            ),
                         },
                     ],
                 },
@@ -1646,7 +1683,7 @@
                             token_class: Punctuation,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                58,
+                                64,
                             ),
                         },
                         TraceViewTokenData {
@@ -1664,7 +1701,7 @@
     (
         Trace(
             Id {
-                value: 59,
+                value: 65,
             },
         ),
         TraceViewData {
@@ -1809,7 +1846,7 @@
     (
         Trace(
             Id {
-                value: 60,
+                value: 66,
             },
         ),
         TraceViewData {
@@ -1832,7 +1869,7 @@
     (
         Trace(
             Id {
-                value: 61,
+                value: 67,
             },
         ),
         TraceViewData {
@@ -1867,7 +1904,7 @@
     (
         Trace(
             Id {
-                value: 62,
+                value: 68,
             },
         ),
         TraceViewData {
@@ -1890,7 +1927,7 @@
     (
         Trace(
             Id {
-                value: 63,
+                value: 69,
             },
         ),
         TraceViewData {
@@ -1925,7 +1962,7 @@
     (
         Trace(
             Id {
-                value: 64,
+                value: 70,
             },
         ),
         TraceViewData {
@@ -1948,7 +1985,7 @@
     (
         Trace(
             Id {
-                value: 65,
+                value: 71,
             },
         ),
         TraceViewData {
@@ -1983,7 +2020,30 @@
     (
         Trace(
             Id {
-                value: 59,
+                value: 72,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 65,
             },
         ),
         TraceViewData {
@@ -2147,7 +2207,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                65,
+                                72,
                             ),
                         },
                         TraceViewTokenData {
@@ -2161,7 +2221,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                66,
+                                73,
                             ),
                         },
                         TraceViewTokenData {
@@ -2174,7 +2234,9 @@
                             text: "3.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                74,
+                            ),
                         },
                     ],
                 },
@@ -2185,7 +2247,7 @@
     (
         Trace(
             Id {
-                value: 66,
+                value: 73,
             },
         ),
         TraceViewData {
@@ -2208,7 +2270,7 @@
     (
         Trace(
             Id {
-                value: 67,
+                value: 74,
             },
         ),
         TraceViewData {
@@ -2232,6 +2294,29 @@
                             text: "norm",
                             token_class: Field,
                             spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 75,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "3.0",
+                            token_class: Literal,
+                            spaces_before: 1,
                             assoc_trace_id: None,
                         },
                     ],
@@ -2262,7 +2347,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                67,
+                                75,
                             ),
                         },
                         TraceViewTokenData {
@@ -2276,7 +2361,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                68,
+                                76,
                             ),
                         },
                         TraceViewTokenData {
@@ -2290,7 +2375,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                69,
+                                77,
                             ),
                         },
                         TraceViewTokenData {
@@ -2303,7 +2388,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                78,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -2332,7 +2419,7 @@
     (
         Trace(
             Id {
-                value: 68,
+                value: 76,
             },
         ),
         TraceViewData {
@@ -2391,7 +2478,7 @@
     (
         Trace(
             Id {
-                value: 69,
+                value: 77,
             },
         ),
         TraceViewData {
@@ -2426,7 +2513,7 @@
     (
         Trace(
             Id {
-                value: 70,
+                value: 78,
             },
         ),
         TraceViewData {
@@ -2461,6 +2548,29 @@
                         TraceViewTokenData {
                             text: "matches",
                             token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 79,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
                             spaces_before: 0,
                             assoc_trace_id: None,
                         },
@@ -2492,7 +2602,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                70,
+                                79,
                             ),
                         },
                         TraceViewTokenData {
@@ -2506,7 +2616,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                71,
+                                80,
                             ),
                         },
                         TraceViewTokenData {
@@ -2520,7 +2630,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                72,
+                                81,
                             ),
                         },
                         TraceViewTokenData {
@@ -2533,7 +2643,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                82,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -2580,7 +2692,7 @@
     (
         Trace(
             Id {
-                value: 71,
+                value: 80,
             },
         ),
         TraceViewData {
@@ -2639,7 +2751,7 @@
     (
         Trace(
             Id {
-                value: 72,
+                value: 81,
             },
         ),
         TraceViewData {
@@ -2674,7 +2786,7 @@
     (
         Trace(
             Id {
-                value: 73,
+                value: 82,
             },
         ),
         TraceViewData {
@@ -2709,6 +2821,29 @@
                         TraceViewTokenData {
                             text: "matches",
                             token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 83,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
                             spaces_before: 0,
                             assoc_trace_id: None,
                         },
@@ -2740,7 +2875,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                73,
+                                83,
                             ),
                         },
                         TraceViewTokenData {
@@ -2754,7 +2889,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                74,
+                                84,
                             ),
                         },
                         TraceViewTokenData {
@@ -2768,7 +2903,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                75,
+                                85,
                             ),
                         },
                         TraceViewTokenData {
@@ -2782,7 +2917,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                76,
+                                86,
                             ),
                         },
                         TraceViewTokenData {
@@ -2795,7 +2930,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                87,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -2812,7 +2949,7 @@
     (
         Trace(
             Id {
-                value: 74,
+                value: 84,
             },
         ),
         TraceViewData {
@@ -2835,7 +2972,7 @@
     (
         Trace(
             Id {
-                value: 75,
+                value: 85,
             },
         ),
         TraceViewData {
@@ -2894,7 +3031,7 @@
     (
         Trace(
             Id {
-                value: 76,
+                value: 86,
             },
         ),
         TraceViewData {
@@ -2929,7 +3066,7 @@
     (
         Trace(
             Id {
-                value: 77,
+                value: 87,
             },
         ),
         TraceViewData {
@@ -2976,6 +3113,29 @@
     (
         Trace(
             Id {
+                value: 88,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
                 value: 26,
             },
         ),
@@ -2995,7 +3155,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                77,
+                                88,
                             ),
                         },
                         TraceViewTokenData {
@@ -3009,7 +3169,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                78,
+                                89,
                             ),
                         },
                         TraceViewTokenData {
@@ -3029,7 +3189,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                79,
+                                90,
                             ),
                         },
                         TraceViewTokenData {
@@ -3043,7 +3203,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                80,
+                                91,
                             ),
                         },
                         TraceViewTokenData {
@@ -3069,7 +3229,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                81,
+                                92,
                             ),
                         },
                         TraceViewTokenData {
@@ -3089,7 +3249,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                82,
+                                93,
                             ),
                         },
                         TraceViewTokenData {
@@ -3103,7 +3263,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                83,
+                                94,
                             ),
                         },
                         TraceViewTokenData {
@@ -3127,7 +3287,7 @@
     (
         Trace(
             Id {
-                value: 78,
+                value: 89,
             },
         ),
         TraceViewData {
@@ -3150,7 +3310,7 @@
     (
         Trace(
             Id {
-                value: 79,
+                value: 90,
             },
         ),
         TraceViewData {
@@ -3173,7 +3333,7 @@
     (
         Trace(
             Id {
-                value: 80,
+                value: 91,
             },
         ),
         TraceViewData {
@@ -3214,7 +3374,7 @@
     (
         Trace(
             Id {
-                value: 81,
+                value: 92,
             },
         ),
         TraceViewData {
@@ -3279,7 +3439,7 @@
     (
         Trace(
             Id {
-                value: 82,
+                value: 93,
             },
         ),
         TraceViewData {
@@ -3302,7 +3462,7 @@
     (
         Trace(
             Id {
-                value: 83,
+                value: 94,
             },
         ),
         TraceViewData {
@@ -3343,7 +3503,7 @@
     (
         Trace(
             Id {
-                value: 84,
+                value: 95,
             },
         ),
         TraceViewData {
@@ -3427,7 +3587,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                84,
+                                95,
                             ),
                         },
                         TraceViewTokenData {
@@ -3441,7 +3601,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                85,
+                                96,
                             ),
                         },
                         TraceViewTokenData {
@@ -3455,7 +3615,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                86,
+                                97,
                             ),
                         },
                         TraceViewTokenData {
@@ -3469,7 +3629,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                87,
+                                98,
                             ),
                         },
                         TraceViewTokenData {
@@ -3495,7 +3655,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                88,
+                                99,
                             ),
                         },
                         TraceViewTokenData {
@@ -3509,7 +3669,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                89,
+                                100,
                             ),
                         },
                         TraceViewTokenData {
@@ -3523,7 +3683,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                90,
+                                101,
                             ),
                         },
                         TraceViewTokenData {
@@ -3547,7 +3707,7 @@
     (
         Trace(
             Id {
-                value: 85,
+                value: 96,
             },
         ),
         TraceViewData {
@@ -3570,7 +3730,7 @@
     (
         Trace(
             Id {
-                value: 86,
+                value: 97,
             },
         ),
         TraceViewData {
@@ -3629,7 +3789,7 @@
     (
         Trace(
             Id {
-                value: 87,
+                value: 98,
             },
         ),
         TraceViewData {
@@ -3664,7 +3824,7 @@
     (
         Trace(
             Id {
-                value: 88,
+                value: 99,
             },
         ),
         TraceViewData {
@@ -3723,7 +3883,7 @@
     (
         Trace(
             Id {
-                value: 89,
+                value: 100,
             },
         ),
         TraceViewData {
@@ -3782,7 +3942,7 @@
     (
         Trace(
             Id {
-                value: 90,
+                value: 101,
             },
         ),
         TraceViewData {
@@ -3817,7 +3977,7 @@
     (
         Trace(
             Id {
-                value: 91,
+                value: 102,
             },
         ),
         TraceViewData {
@@ -3895,7 +4055,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                91,
+                                102,
                             ),
                         },
                         TraceViewTokenData {
@@ -3909,7 +4069,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                92,
+                                103,
                             ),
                         },
                         TraceViewTokenData {
@@ -3923,7 +4083,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                93,
+                                104,
                             ),
                         },
                     ],
@@ -3935,7 +4095,7 @@
     (
         Trace(
             Id {
-                value: 92,
+                value: 103,
             },
         ),
         TraceViewData {
@@ -3958,7 +4118,7 @@
     (
         Trace(
             Id {
-                value: 93,
+                value: 104,
             },
         ),
         TraceViewData {
@@ -3981,7 +4141,7 @@
     (
         Trace(
             Id {
-                value: 94,
+                value: 105,
             },
         ),
         TraceViewData {
@@ -4023,7 +4183,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                94,
+                                105,
                             ),
                         },
                         TraceViewTokenData {
@@ -4036,6 +4196,31 @@
                             text: "0.4",
                             token_class: Literal,
                             spaces_before: 1,
+                            assoc_trace_id: Some(
+                                106,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 106,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "ratio",
+                            token_class: Variable,
+                            spaces_before: 1,
                             assoc_trace_id: None,
                         },
                     ],
@@ -4047,7 +4232,7 @@
     (
         Trace(
             Id {
-                value: 95,
+                value: 107,
             },
         ),
         TraceViewData {
@@ -4056,8 +4241,8 @@
                 TraceViewLineData {
                     tokens_data: [
                         TraceViewTokenData {
-                            text: "ratio",
-                            token_class: Variable,
+                            text: "0.4",
+                            token_class: Literal,
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
@@ -4089,7 +4274,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                95,
+                                107,
                             ),
                         },
                         TraceViewTokenData {
@@ -4103,7 +4288,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                96,
+                                108,
                             ),
                         },
                         TraceViewTokenData {
@@ -4117,7 +4302,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                97,
+                                109,
                             ),
                         },
                     ],
@@ -4129,7 +4314,7 @@
     (
         Trace(
             Id {
-                value: 96,
+                value: 108,
             },
         ),
         TraceViewData {
@@ -4152,7 +4337,7 @@
     (
         Trace(
             Id {
-                value: 97,
+                value: 109,
             },
         ),
         TraceViewData {
@@ -4175,7 +4360,7 @@
     (
         Trace(
             Id {
-                value: 98,
+                value: 110,
             },
         ),
         TraceViewData {
@@ -4274,7 +4459,7 @@
     (
         Trace(
             Id {
-                value: 99,
+                value: 111,
             },
         ),
         TraceViewData {
@@ -4321,7 +4506,7 @@
     (
         Trace(
             Id {
-                value: 101,
+                value: 113,
             },
         ),
         TraceViewData {
@@ -4340,7 +4525,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                101,
+                                113,
                             ),
                         },
                         TraceViewTokenData {
@@ -4348,7 +4533,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                102,
+                                114,
                             ),
                         },
                         TraceViewTokenData {
@@ -4404,7 +4589,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                101,
+                                113,
                             ),
                         },
                     ],
@@ -4416,7 +4601,7 @@
     (
         Trace(
             Id {
-                value: 102,
+                value: 114,
             },
         ),
         TraceViewData {
@@ -4505,7 +4690,7 @@
     (
         Trace(
             Id {
-                value: 103,
+                value: 115,
             },
         ),
         TraceViewData {
@@ -4576,7 +4761,7 @@
     (
         Trace(
             Id {
-                value: 102,
+                value: 114,
             },
         ),
         TraceViewData {
@@ -4665,7 +4850,7 @@
     (
         Trace(
             Id {
-                value: 100,
+                value: 112,
             },
         ),
         TraceViewData {
@@ -4742,7 +4927,7 @@
     (
         Trace(
             Id {
-                value: 104,
+                value: 116,
             },
         ),
         TraceViewData {
@@ -4761,7 +4946,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                107,
+                                119,
                             ),
                         },
                     ],
@@ -4773,7 +4958,7 @@
                             token_class: ValEntity,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                108,
+                                120,
                             ),
                         },
                         TraceViewTokenData {
@@ -4787,7 +4972,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                109,
+                                121,
                             ),
                         },
                         TraceViewTokenData {
@@ -4805,7 +4990,7 @@
                             token_class: ValEntity,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                110,
+                                122,
                             ),
                         },
                         TraceViewTokenData {
@@ -4834,7 +5019,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                123,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -4851,7 +5038,7 @@
                             token_class: Punctuation,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                107,
+                                119,
                             ),
                         },
                         TraceViewTokenData {
@@ -4869,7 +5056,7 @@
     (
         Trace(
             Id {
-                value: 108,
+                value: 120,
             },
         ),
         TraceViewData {
@@ -4980,7 +5167,7 @@
     (
         Trace(
             Id {
-                value: 109,
+                value: 121,
             },
         ),
         TraceViewData {
@@ -5039,7 +5226,7 @@
     (
         Trace(
             Id {
-                value: 110,
+                value: 122,
             },
         ),
         TraceViewData {
@@ -5074,7 +5261,7 @@
     (
         Trace(
             Id {
-                value: 111,
+                value: 123,
             },
         ),
         TraceViewData {
@@ -5127,7 +5314,30 @@
     (
         Trace(
             Id {
-                value: 108,
+                value: 124,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 120,
             },
         ),
         TraceViewData {
@@ -5238,7 +5448,7 @@
     (
         Trace(
             Id {
-                value: 105,
+                value: 117,
             },
         ),
         TraceViewData {
@@ -5257,7 +5467,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                111,
+                                124,
                             ),
                         },
                         TraceViewTokenData {
@@ -5277,7 +5487,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                112,
+                                125,
                             ),
                         },
                         TraceViewTokenData {
@@ -5285,7 +5495,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                113,
+                                126,
                             ),
                         },
                         TraceViewTokenData {
@@ -5311,7 +5521,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                112,
+                                125,
                             ),
                         },
                     ],
@@ -5323,7 +5533,7 @@
     (
         Trace(
             Id {
-                value: 112,
+                value: 125,
             },
         ),
         TraceViewData {
@@ -5346,7 +5556,7 @@
     (
         Trace(
             Id {
-                value: 113,
+                value: 126,
             },
         ),
         TraceViewData {
@@ -5405,7 +5615,7 @@
     (
         Trace(
             Id {
-                value: 114,
+                value: 127,
             },
         ),
         TraceViewData {
@@ -5476,7 +5686,7 @@
     (
         Trace(
             Id {
-                value: 113,
+                value: 126,
             },
         ),
         TraceViewData {
@@ -5535,7 +5745,7 @@
     (
         Trace(
             Id {
-                value: 106,
+                value: 118,
             },
         ),
         TraceViewData {
@@ -5554,7 +5764,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                114,
+                                127,
                             ),
                         },
                         TraceViewTokenData {
@@ -5568,7 +5778,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                115,
+                                128,
                             ),
                         },
                         TraceViewTokenData {
@@ -5581,7 +5791,9 @@
                             text: "3.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                129,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -5598,7 +5810,7 @@
     (
         Trace(
             Id {
-                value: 117,
+                value: 131,
             },
         ),
         TraceViewData {
@@ -5617,7 +5829,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                119,
+                                133,
                             ),
                         },
                     ],
@@ -5629,7 +5841,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                120,
+                                134,
                             ),
                         },
                         TraceViewTokenData {
@@ -5643,7 +5855,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                121,
+                                135,
                             ),
                         },
                         TraceViewTokenData {
@@ -5672,7 +5884,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                136,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -5689,7 +5903,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                119,
+                                133,
                             ),
                         },
                         TraceViewTokenData {
@@ -5707,7 +5921,7 @@
     (
         Trace(
             Id {
-                value: 118,
+                value: 132,
             },
         ),
         TraceViewData {
@@ -5726,7 +5940,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                122,
+                                137,
                             ),
                         },
                         TraceViewTokenData {
@@ -5740,7 +5954,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                123,
+                                138,
                             ),
                         },
                         TraceViewTokenData {
@@ -5753,7 +5967,9 @@
                             text: "6.5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                139,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -5770,7 +5986,7 @@
     (
         Trace(
             Id {
-                value: 119,
+                value: 133,
             },
         ),
         TraceViewData {
@@ -5805,7 +6021,7 @@
     (
         Trace(
             Id {
-                value: 115,
+                value: 128,
             },
         ),
         TraceViewData {
@@ -5828,7 +6044,7 @@
     (
         Trace(
             Id {
-                value: 116,
+                value: 129,
             },
         ),
         TraceViewData {
@@ -5863,7 +6079,30 @@
     (
         Trace(
             Id {
-                value: 107,
+                value: 130,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "3.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 119,
             },
         ),
         TraceViewData {
@@ -5892,7 +6131,7 @@
     (
         Trace(
             Id {
-                value: 125,
+                value: 141,
             },
         ),
         TraceViewData {
@@ -5911,7 +6150,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                150,
+                                166,
                             ),
                         },
                         TraceViewTokenData {
@@ -5925,7 +6164,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                151,
+                                167,
                             ),
                         },
                         TraceViewTokenData {
@@ -5938,7 +6177,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                168,
+                            ),
                         },
                     ],
                 },
@@ -5949,7 +6190,7 @@
     (
         Trace(
             Id {
-                value: 126,
+                value: 142,
             },
         ),
         TraceViewData {
@@ -5968,7 +6209,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                152,
+                                169,
                             ),
                         },
                         TraceViewTokenData {
@@ -5981,7 +6222,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                170,
+                            ),
                         },
                     ],
                 },
@@ -5992,7 +6235,7 @@
     (
         Trace(
             Id {
-                value: 127,
+                value: 143,
             },
         ),
         TraceViewData {
@@ -6011,7 +6254,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                153,
+                                171,
                             ),
                         },
                         TraceViewTokenData {
@@ -6025,7 +6268,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                154,
+                                172,
                             ),
                         },
                         TraceViewTokenData {
@@ -6039,7 +6282,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                155,
+                                173,
                             ),
                         },
                         TraceViewTokenData {
@@ -6052,7 +6295,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                174,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -6069,7 +6314,7 @@
     (
         Trace(
             Id {
-                value: 128,
+                value: 144,
             },
         ),
         TraceViewData {
@@ -6088,7 +6333,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                156,
+                                175,
                             ),
                         },
                         TraceViewTokenData {
@@ -6102,7 +6347,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                157,
+                                176,
                             ),
                         },
                         TraceViewTokenData {
@@ -6116,7 +6361,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                158,
+                                177,
                             ),
                         },
                         TraceViewTokenData {
@@ -6129,7 +6374,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                178,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -6146,7 +6393,7 @@
     (
         Trace(
             Id {
-                value: 129,
+                value: 145,
             },
         ),
         TraceViewData {
@@ -6165,7 +6412,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                159,
+                                179,
                             ),
                         },
                         TraceViewTokenData {
@@ -6179,7 +6426,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                160,
+                                180,
                             ),
                         },
                         TraceViewTokenData {
@@ -6193,7 +6440,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                161,
+                                181,
                             ),
                         },
                         TraceViewTokenData {
@@ -6206,7 +6453,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                182,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -6223,7 +6472,7 @@
     (
         Trace(
             Id {
-                value: 130,
+                value: 146,
             },
         ),
         TraceViewData {
@@ -6242,7 +6491,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                162,
+                                183,
                             ),
                         },
                         TraceViewTokenData {
@@ -6272,7 +6521,7 @@
     (
         Trace(
             Id {
-                value: 131,
+                value: 147,
             },
         ),
         TraceViewData {
@@ -6291,7 +6540,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                163,
+                                184,
                             ),
                         },
                         TraceViewTokenData {
@@ -6305,7 +6554,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                164,
+                                185,
                             ),
                         },
                         TraceViewTokenData {
@@ -6325,7 +6574,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                165,
+                                186,
                             ),
                         },
                         TraceViewTokenData {
@@ -6339,7 +6588,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                166,
+                                187,
                             ),
                         },
                         TraceViewTokenData {
@@ -6365,7 +6614,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                167,
+                                188,
                             ),
                         },
                         TraceViewTokenData {
@@ -6385,7 +6634,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                168,
+                                189,
                             ),
                         },
                         TraceViewTokenData {
@@ -6399,7 +6648,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                169,
+                                190,
                             ),
                         },
                         TraceViewTokenData {
@@ -6423,7 +6672,7 @@
     (
         Trace(
             Id {
-                value: 132,
+                value: 148,
             },
         ),
         TraceViewData {
@@ -6442,7 +6691,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                170,
+                                191,
                             ),
                         },
                         TraceViewTokenData {
@@ -6456,7 +6705,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                171,
+                                192,
                             ),
                         },
                         TraceViewTokenData {
@@ -6469,7 +6718,9 @@
                             text: "1.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                193,
+                            ),
                         },
                     ],
                 },
@@ -6480,7 +6731,7 @@
     (
         Trace(
             Id {
-                value: 133,
+                value: 149,
             },
         ),
         TraceViewData {
@@ -6499,7 +6750,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                172,
+                                194,
                             ),
                         },
                     ],
@@ -6511,7 +6762,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                173,
+                                195,
                             ),
                         },
                         TraceViewTokenData {
@@ -6525,7 +6776,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                174,
+                                196,
                             ),
                         },
                         TraceViewTokenData {
@@ -6538,7 +6789,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                197,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -6561,7 +6814,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                175,
+                                198,
                             ),
                         },
                         TraceViewTokenData {
@@ -6575,7 +6828,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                176,
+                                199,
                             ),
                         },
                         TraceViewTokenData {
@@ -6593,7 +6846,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                177,
+                                200,
                             ),
                         },
                         TraceViewTokenData {
@@ -6607,7 +6860,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                178,
+                                201,
                             ),
                         },
                         TraceViewTokenData {
@@ -6625,7 +6878,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                179,
+                                202,
                             ),
                         },
                         TraceViewTokenData {
@@ -6639,7 +6892,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                180,
+                                203,
                             ),
                         },
                         TraceViewTokenData {
@@ -6668,7 +6921,9 @@
                             text: "12",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                204,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -6685,7 +6940,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                172,
+                                194,
                             ),
                         },
                         TraceViewTokenData {
@@ -6703,7 +6958,7 @@
     (
         Trace(
             Id {
-                value: 134,
+                value: 150,
             },
         ),
         TraceViewData {
@@ -6722,7 +6977,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                181,
+                                205,
                             ),
                         },
                     ],
@@ -6734,7 +6989,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                182,
+                                206,
                             ),
                         },
                         TraceViewTokenData {
@@ -6748,7 +7003,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                183,
+                                207,
                             ),
                         },
                         TraceViewTokenData {
@@ -6761,7 +7016,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                208,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -6786,7 +7043,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                184,
+                                209,
                             ),
                         },
                         TraceViewTokenData {
@@ -6804,7 +7061,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                185,
+                                210,
                             ),
                         },
                         TraceViewTokenData {
@@ -6818,7 +7075,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                186,
+                                211,
                             ),
                         },
                         TraceViewTokenData {
@@ -6831,7 +7088,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                212,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -6856,7 +7115,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                187,
+                                213,
                             ),
                         },
                         TraceViewTokenData {
@@ -6870,7 +7129,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                188,
+                                214,
                             ),
                         },
                         TraceViewTokenData {
@@ -6911,7 +7170,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                215,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -6928,7 +7189,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                181,
+                                205,
                             ),
                         },
                         TraceViewTokenData {
@@ -6946,7 +7207,7 @@
     (
         Trace(
             Id {
-                value: 135,
+                value: 151,
             },
         ),
         TraceViewData {
@@ -6965,7 +7226,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                189,
+                                216,
                             ),
                         },
                         TraceViewTokenData {
@@ -7013,7 +7274,7 @@
     (
         Trace(
             Id {
-                value: 136,
+                value: 152,
             },
         ),
         TraceViewData {
@@ -7032,7 +7293,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                190,
+                                217,
                             ),
                         },
                         TraceViewTokenData {
@@ -7080,7 +7341,7 @@
     (
         Trace(
             Id {
-                value: 137,
+                value: 153,
             },
         ),
         TraceViewData {
@@ -7099,7 +7360,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                191,
+                                218,
                             ),
                         },
                         TraceViewTokenData {
@@ -7112,7 +7373,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                219,
+                            ),
                         },
                     ],
                 },
@@ -7123,7 +7386,7 @@
     (
         Trace(
             Id {
-                value: 138,
+                value: 154,
             },
         ),
         TraceViewData {
@@ -7142,7 +7405,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                192,
+                                220,
                             ),
                         },
                         TraceViewTokenData {
@@ -7156,7 +7419,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                193,
+                                221,
                             ),
                         },
                         TraceViewTokenData {
@@ -7176,7 +7439,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                194,
+                                222,
                             ),
                         },
                         TraceViewTokenData {
@@ -7190,7 +7453,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                195,
+                                223,
                             ),
                         },
                         TraceViewTokenData {
@@ -7210,7 +7473,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                196,
+                                224,
                             ),
                         },
                         TraceViewTokenData {
@@ -7224,7 +7487,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                197,
+                                225,
                             ),
                         },
                         TraceViewTokenData {
@@ -7254,7 +7517,7 @@
     (
         Trace(
             Id {
-                value: 139,
+                value: 155,
             },
         ),
         TraceViewData {
@@ -7273,7 +7536,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                198,
+                                226,
                             ),
                         },
                         TraceViewTokenData {
@@ -7287,7 +7550,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                199,
+                                227,
                             ),
                         },
                         TraceViewTokenData {
@@ -7301,7 +7564,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                200,
+                                228,
                             ),
                         },
                         TraceViewTokenData {
@@ -7325,7 +7588,7 @@
     (
         Trace(
             Id {
-                value: 140,
+                value: 156,
             },
         ),
         TraceViewData {
@@ -7344,7 +7607,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                201,
+                                229,
                             ),
                         },
                         TraceViewTokenData {
@@ -7358,7 +7621,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                202,
+                                230,
                             ),
                         },
                         TraceViewTokenData {
@@ -7378,7 +7641,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                203,
+                                231,
                             ),
                         },
                         TraceViewTokenData {
@@ -7392,7 +7655,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                204,
+                                232,
                             ),
                         },
                         TraceViewTokenData {
@@ -7412,7 +7675,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                205,
+                                233,
                             ),
                         },
                         TraceViewTokenData {
@@ -7426,7 +7689,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                206,
+                                234,
                             ),
                         },
                         TraceViewTokenData {
@@ -7451,7 +7714,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                235,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -7468,7 +7733,7 @@
     (
         Trace(
             Id {
-                value: 141,
+                value: 157,
             },
         ),
         TraceViewData {
@@ -7487,7 +7752,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                207,
+                                236,
                             ),
                         },
                         TraceViewTokenData {
@@ -7501,7 +7766,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                208,
+                                237,
                             ),
                         },
                         TraceViewTokenData {
@@ -7515,7 +7780,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                209,
+                                238,
                             ),
                         },
                         TraceViewTokenData {
@@ -7539,7 +7804,7 @@
     (
         Trace(
             Id {
-                value: 142,
+                value: 158,
             },
         ),
         TraceViewData {
@@ -7558,7 +7823,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                210,
+                                239,
                             ),
                         },
                     ],
@@ -7570,7 +7835,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                211,
+                                240,
                             ),
                         },
                         TraceViewTokenData {
@@ -7584,7 +7849,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                212,
+                                241,
                             ),
                         },
                         TraceViewTokenData {
@@ -7602,7 +7867,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                213,
+                                242,
                             ),
                         },
                         TraceViewTokenData {
@@ -7616,7 +7881,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                214,
+                                243,
                             ),
                         },
                         TraceViewTokenData {
@@ -7645,7 +7910,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                244,
+                            ),
                         },
                     ],
                 },
@@ -7656,7 +7923,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                210,
+                                239,
                             ),
                         },
                         TraceViewTokenData {
@@ -7674,7 +7941,7 @@
     (
         Trace(
             Id {
-                value: 143,
+                value: 159,
             },
         ),
         TraceViewData {
@@ -7693,7 +7960,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                215,
+                                245,
                             ),
                         },
                         TraceViewTokenData {
@@ -7706,7 +7973,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                246,
+                            ),
                         },
                     ],
                 },
@@ -7717,7 +7986,7 @@
     (
         Trace(
             Id {
-                value: 144,
+                value: 160,
             },
         ),
         TraceViewData {
@@ -7736,7 +8005,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                216,
+                                247,
                             ),
                         },
                         TraceViewTokenData {
@@ -7750,7 +8019,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                217,
+                                248,
                             ),
                         },
                         TraceViewTokenData {
@@ -7764,7 +8033,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                218,
+                                249,
                             ),
                         },
                     ],
@@ -7776,7 +8045,7 @@
     (
         Trace(
             Id {
-                value: 145,
+                value: 161,
             },
         ),
         TraceViewData {
@@ -7795,7 +8064,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                219,
+                                250,
                             ),
                         },
                         TraceViewTokenData {
@@ -7809,7 +8078,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                220,
+                                251,
                             ),
                         },
                         TraceViewTokenData {
@@ -7823,7 +8092,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                221,
+                                252,
                             ),
                         },
                     ],
@@ -7835,7 +8104,7 @@
     (
         Trace(
             Id {
-                value: 146,
+                value: 162,
             },
         ),
         TraceViewData {
@@ -7854,7 +8123,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                222,
+                                253,
                             ),
                         },
                         TraceViewTokenData {
@@ -7868,7 +8137,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                223,
+                                254,
                             ),
                         },
                         TraceViewTokenData {
@@ -7882,7 +8151,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                224,
+                                255,
                             ),
                         },
                     ],
@@ -7894,7 +8163,7 @@
     (
         Trace(
             Id {
-                value: 147,
+                value: 163,
             },
         ),
         TraceViewData {
@@ -7913,7 +8182,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                225,
+                                256,
                             ),
                         },
                         TraceViewTokenData {
@@ -7927,7 +8196,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                226,
+                                257,
                             ),
                         },
                         TraceViewTokenData {
@@ -7941,7 +8210,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                227,
+                                258,
                             ),
                         },
                     ],
@@ -7953,7 +8222,7 @@
     (
         Trace(
             Id {
-                value: 148,
+                value: 164,
             },
         ),
         TraceViewData {
@@ -7972,7 +8241,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                228,
+                                259,
                             ),
                         },
                         TraceViewTokenData {
@@ -7991,7 +8260,9 @@
                             text: "10.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                260,
+                            ),
                         },
                     ],
                 },
@@ -8002,7 +8273,7 @@
     (
         Trace(
             Id {
-                value: 149,
+                value: 165,
             },
         ),
         TraceViewData {
@@ -8021,7 +8292,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                229,
+                                261,
                             ),
                         },
                         TraceViewTokenData {
@@ -8034,7 +8305,9 @@
                             text: "20.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                262,
+                            ),
                         },
                     ],
                 },
@@ -8045,7 +8318,7 @@
     (
         Trace(
             Id {
-                value: 150,
+                value: 166,
             },
         ),
         TraceViewData {
@@ -8109,7 +8382,7 @@
     (
         Trace(
             Id {
-                value: 231,
+                value: 264,
             },
         ),
         TraceViewData {
@@ -8156,7 +8429,7 @@
     (
         Trace(
             Id {
-                value: 234,
+                value: 267,
             },
         ),
         TraceViewData {
@@ -8175,7 +8448,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                234,
+                                267,
                             ),
                         },
                         TraceViewTokenData {
@@ -8183,7 +8456,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                235,
+                                268,
                             ),
                         },
                         TraceViewTokenData {
@@ -8215,7 +8488,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                234,
+                                267,
                             ),
                         },
                     ],
@@ -8227,7 +8500,7 @@
     (
         Trace(
             Id {
-                value: 235,
+                value: 268,
             },
         ),
         TraceViewData {
@@ -8292,7 +8565,7 @@
     (
         Trace(
             Id {
-                value: 236,
+                value: 269,
             },
         ),
         TraceViewData {
@@ -8363,7 +8636,7 @@
     (
         Trace(
             Id {
-                value: 235,
+                value: 268,
             },
         ),
         TraceViewData {
@@ -8428,7 +8701,7 @@
     (
         Trace(
             Id {
-                value: 232,
+                value: 265,
             },
         ),
         TraceViewData {
@@ -8475,7 +8748,7 @@
     (
         Trace(
             Id {
-                value: 237,
+                value: 270,
             },
         ),
         TraceViewData {
@@ -8494,7 +8767,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                237,
+                                270,
                             ),
                         },
                         TraceViewTokenData {
@@ -8502,7 +8775,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                238,
+                                271,
                             ),
                         },
                         TraceViewTokenData {
@@ -8546,7 +8819,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                237,
+                                270,
                             ),
                         },
                     ],
@@ -8558,7 +8831,7 @@
     (
         Trace(
             Id {
-                value: 238,
+                value: 271,
             },
         ),
         TraceViewData {
@@ -8635,7 +8908,7 @@
     (
         Trace(
             Id {
-                value: 239,
+                value: 272,
             },
         ),
         TraceViewData {
@@ -8706,7 +8979,7 @@
     (
         Trace(
             Id {
-                value: 238,
+                value: 271,
             },
         ),
         TraceViewData {
@@ -8783,7 +9056,7 @@
     (
         Trace(
             Id {
-                value: 233,
+                value: 266,
             },
         ),
         TraceViewData {
@@ -8878,7 +9151,7 @@
     (
         Trace(
             Id {
-                value: 240,
+                value: 273,
             },
         ),
         TraceViewData {
@@ -8897,7 +9170,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                250,
+                                283,
                             ),
                         },
                         TraceViewTokenData {
@@ -8911,7 +9184,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                251,
+                                284,
                             ),
                         },
                         TraceViewTokenData {
@@ -8925,7 +9198,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                252,
+                                285,
                             ),
                         },
                         TraceViewTokenData {
@@ -8938,7 +9211,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                286,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -8955,7 +9230,7 @@
     (
         Trace(
             Id {
-                value: 251,
+                value: 284,
             },
         ),
         TraceViewData {
@@ -8978,7 +9253,7 @@
     (
         Trace(
             Id {
-                value: 252,
+                value: 285,
             },
         ),
         TraceViewData {
@@ -9025,7 +9300,7 @@
     (
         Trace(
             Id {
-                value: 253,
+                value: 286,
             },
         ),
         TraceViewData {
@@ -9060,7 +9335,30 @@
     (
         Trace(
             Id {
-                value: 241,
+                value: 287,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 274,
             },
         ),
         TraceViewData {
@@ -9079,7 +9377,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                253,
+                                287,
                             ),
                         },
                         TraceViewTokenData {
@@ -9121,7 +9419,7 @@
     (
         Trace(
             Id {
-                value: 254,
+                value: 288,
             },
         ),
         TraceViewData {
@@ -9144,7 +9442,7 @@
     (
         Trace(
             Id {
-                value: 242,
+                value: 275,
             },
         ),
         TraceViewData {
@@ -9163,7 +9461,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                254,
+                                288,
                             ),
                         },
                         TraceViewTokenData {
@@ -9177,7 +9475,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                255,
+                                289,
                             ),
                         },
                         TraceViewTokenData {
@@ -9191,7 +9489,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                256,
+                                290,
                             ),
                         },
                     ],
@@ -9203,7 +9501,7 @@
     (
         Trace(
             Id {
-                value: 255,
+                value: 289,
             },
         ),
         TraceViewData {
@@ -9226,7 +9524,7 @@
     (
         Trace(
             Id {
-                value: 256,
+                value: 290,
             },
         ),
         TraceViewData {
@@ -9285,7 +9583,7 @@
     (
         Trace(
             Id {
-                value: 257,
+                value: 291,
             },
         ),
         TraceViewData {
@@ -9320,7 +9618,7 @@
     (
         Trace(
             Id {
-                value: 243,
+                value: 276,
             },
         ),
         TraceViewData {
@@ -9339,7 +9637,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                257,
+                                291,
                             ),
                         },
                         TraceViewTokenData {
@@ -9353,7 +9651,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                258,
+                                292,
                             ),
                         },
                         TraceViewTokenData {
@@ -9367,7 +9665,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                259,
+                                293,
                             ),
                         },
                         TraceViewTokenData {
@@ -9381,7 +9679,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                260,
+                                294,
                             ),
                         },
                         TraceViewTokenData {
@@ -9395,7 +9693,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                261,
+                                295,
                             ),
                         },
                     ],
@@ -9407,7 +9705,7 @@
     (
         Trace(
             Id {
-                value: 258,
+                value: 292,
             },
         ),
         TraceViewData {
@@ -9430,7 +9728,7 @@
     (
         Trace(
             Id {
-                value: 259,
+                value: 293,
             },
         ),
         TraceViewData {
@@ -9489,7 +9787,7 @@
     (
         Trace(
             Id {
-                value: 260,
+                value: 294,
             },
         ),
         TraceViewData {
@@ -9524,7 +9822,7 @@
     (
         Trace(
             Id {
-                value: 261,
+                value: 295,
             },
         ),
         TraceViewData {
@@ -9583,7 +9881,7 @@
     (
         Trace(
             Id {
-                value: 262,
+                value: 296,
             },
         ),
         TraceViewData {
@@ -9618,7 +9916,7 @@
     (
         Trace(
             Id {
-                value: 244,
+                value: 277,
             },
         ),
         TraceViewData {
@@ -9637,7 +9935,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                262,
+                                296,
                             ),
                         },
                         TraceViewTokenData {
@@ -9651,7 +9949,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                263,
+                                297,
                             ),
                         },
                         TraceViewTokenData {
@@ -9664,7 +9962,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                298,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -9699,7 +9999,7 @@
     (
         Trace(
             Id {
-                value: 265,
+                value: 300,
             },
         ),
         TraceViewData {
@@ -9718,7 +10018,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                276,
+                                311,
                             ),
                         },
                     ],
@@ -9730,7 +10030,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                277,
+                                312,
                             ),
                         },
                         TraceViewTokenData {
@@ -9744,7 +10044,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                278,
+                                313,
                             ),
                         },
                         TraceViewTokenData {
@@ -9762,7 +10062,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                279,
+                                314,
                             ),
                         },
                         TraceViewTokenData {
@@ -9776,7 +10076,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                280,
+                                315,
                             ),
                         },
                         TraceViewTokenData {
@@ -9805,7 +10105,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                316,
+                            ),
                         },
                     ],
                 },
@@ -9816,7 +10118,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                276,
+                                311,
                             ),
                         },
                         TraceViewTokenData {
@@ -9834,7 +10136,7 @@
     (
         Trace(
             Id {
-                value: 266,
+                value: 301,
             },
         ),
         TraceViewData {
@@ -9853,7 +10155,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                281,
+                                317,
                             ),
                         },
                         TraceViewTokenData {
@@ -9867,7 +10169,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                282,
+                                318,
                             ),
                         },
                         TraceViewTokenData {
@@ -9881,7 +10183,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                283,
+                                319,
                             ),
                         },
                         TraceViewTokenData {
@@ -9894,7 +10196,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                320,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -9911,7 +10215,7 @@
     (
         Trace(
             Id {
-                value: 267,
+                value: 302,
             },
         ),
         TraceViewData {
@@ -9930,7 +10234,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                284,
+                                321,
                             ),
                         },
                         TraceViewTokenData {
@@ -9944,7 +10248,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                285,
+                                322,
                             ),
                         },
                         TraceViewTokenData {
@@ -9964,7 +10268,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                286,
+                                323,
                             ),
                         },
                         TraceViewTokenData {
@@ -9988,7 +10292,7 @@
     (
         Trace(
             Id {
-                value: 268,
+                value: 303,
             },
         ),
         TraceViewData {
@@ -10007,7 +10311,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                287,
+                                324,
                             ),
                         },
                         TraceViewTokenData {
@@ -10021,7 +10325,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                288,
+                                325,
                             ),
                         },
                         TraceViewTokenData {
@@ -10035,7 +10339,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                289,
+                                326,
                             ),
                         },
                     ],
@@ -10047,7 +10351,7 @@
     (
         Trace(
             Id {
-                value: 269,
+                value: 304,
             },
         ),
         TraceViewData {
@@ -10066,7 +10370,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                290,
+                                327,
                             ),
                         },
                         TraceViewTokenData {
@@ -10080,7 +10384,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                291,
+                                328,
                             ),
                         },
                         TraceViewTokenData {
@@ -10100,7 +10404,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                292,
+                                329,
                             ),
                         },
                         TraceViewTokenData {
@@ -10126,7 +10430,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                293,
+                                330,
                             ),
                         },
                     ],
@@ -10138,7 +10442,7 @@
     (
         Trace(
             Id {
-                value: 270,
+                value: 305,
             },
         ),
         TraceViewData {
@@ -10157,7 +10461,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                294,
+                                331,
                             ),
                         },
                         TraceViewTokenData {
@@ -10171,7 +10475,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                295,
+                                332,
                             ),
                         },
                         TraceViewTokenData {
@@ -10185,7 +10489,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                296,
+                                333,
                             ),
                         },
                     ],
@@ -10197,7 +10501,7 @@
     (
         Trace(
             Id {
-                value: 271,
+                value: 306,
             },
         ),
         TraceViewData {
@@ -10216,7 +10520,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                297,
+                                334,
                             ),
                         },
                         TraceViewTokenData {
@@ -10230,7 +10534,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                298,
+                                335,
                             ),
                         },
                         TraceViewTokenData {
@@ -10243,7 +10547,9 @@
                             text: "1.8",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                336,
+                            ),
                         },
                     ],
                 },
@@ -10254,7 +10560,7 @@
     (
         Trace(
             Id {
-                value: 272,
+                value: 307,
             },
         ),
         TraceViewData {
@@ -10273,7 +10579,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                299,
+                                337,
                             ),
                         },
                         TraceViewTokenData {
@@ -10321,7 +10627,7 @@
     (
         Trace(
             Id {
-                value: 273,
+                value: 308,
             },
         ),
         TraceViewData {
@@ -10340,7 +10646,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                300,
+                                338,
                             ),
                         },
                         TraceViewTokenData {
@@ -10354,7 +10660,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                301,
+                                339,
                             ),
                         },
                         TraceViewTokenData {
@@ -10368,7 +10674,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                302,
+                                340,
                             ),
                         },
                         TraceViewTokenData {
@@ -10382,7 +10688,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                303,
+                                341,
                             ),
                         },
                         TraceViewTokenData {
@@ -10400,7 +10706,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                304,
+                                342,
                             ),
                         },
                         TraceViewTokenData {
@@ -10420,7 +10726,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                305,
+                                343,
                             ),
                         },
                         TraceViewTokenData {
@@ -10454,7 +10760,7 @@
     (
         Trace(
             Id {
-                value: 274,
+                value: 309,
             },
         ),
         TraceViewData {
@@ -10473,7 +10779,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                306,
+                                344,
                             ),
                         },
                     ],
@@ -10485,7 +10791,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                307,
+                                345,
                             ),
                         },
                         TraceViewTokenData {
@@ -10503,7 +10809,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                308,
+                                346,
                             ),
                         },
                         TraceViewTokenData {
@@ -10521,7 +10827,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                309,
+                                347,
                             ),
                         },
                         TraceViewTokenData {
@@ -10539,7 +10845,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                310,
+                                348,
                             ),
                         },
                         TraceViewTokenData {
@@ -10553,7 +10859,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                311,
+                                349,
                             ),
                         },
                         TraceViewTokenData {
@@ -10566,7 +10872,9 @@
                             text: "6",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                350,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -10600,7 +10908,9 @@
                             text: "15",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                351,
+                            ),
                         },
                     ],
                 },
@@ -10611,7 +10921,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                306,
+                                344,
                             ),
                         },
                         TraceViewTokenData {
@@ -10629,7 +10939,7 @@
     (
         Trace(
             Id {
-                value: 275,
+                value: 310,
             },
         ),
         TraceViewData {
@@ -10648,7 +10958,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                312,
+                                352,
                             ),
                         },
                         TraceViewTokenData {
@@ -10662,7 +10972,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                313,
+                                353,
                             ),
                         },
                         TraceViewTokenData {
@@ -10675,7 +10985,9 @@
                             text: "0.7",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                354,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -10692,7 +11004,7 @@
     (
         Trace(
             Id {
-                value: 276,
+                value: 311,
             },
         ),
         TraceViewData {
@@ -10733,7 +11045,7 @@
     (
         Trace(
             Id {
-                value: 263,
+                value: 297,
             },
         ),
         TraceViewData {
@@ -10756,7 +11068,7 @@
     (
         Trace(
             Id {
-                value: 264,
+                value: 298,
             },
         ),
         TraceViewData {
@@ -10791,7 +11103,30 @@
     (
         Trace(
             Id {
-                value: 245,
+                value: 299,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 278,
             },
         ),
         TraceViewData {
@@ -10810,7 +11145,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                314,
+                                355,
                             ),
                         },
                     ],
@@ -10822,7 +11157,7 @@
                             token_class: ValEntity,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                315,
+                                356,
                             ),
                         },
                         TraceViewTokenData {
@@ -10836,7 +11171,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                316,
+                                357,
                             ),
                         },
                         TraceViewTokenData {
@@ -10865,7 +11200,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                358,
+                            ),
                         },
                     ],
                 },
@@ -10876,7 +11213,7 @@
                             token_class: Punctuation,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                314,
+                                355,
                             ),
                         },
                         TraceViewTokenData {
@@ -10894,7 +11231,7 @@
     (
         Trace(
             Id {
-                value: 315,
+                value: 356,
             },
         ),
         TraceViewData {
@@ -10983,7 +11320,7 @@
     (
         Trace(
             Id {
-                value: 316,
+                value: 357,
             },
         ),
         TraceViewData {
@@ -11030,7 +11367,7 @@
     (
         Trace(
             Id {
-                value: 317,
+                value: 358,
             },
         ),
         TraceViewData {
@@ -11065,7 +11402,30 @@
     (
         Trace(
             Id {
-                value: 315,
+                value: 359,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 356,
             },
         ),
         TraceViewData {
@@ -11154,7 +11514,7 @@
     (
         Trace(
             Id {
-                value: 246,
+                value: 279,
             },
         ),
         TraceViewData {
@@ -11173,7 +11533,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                317,
+                                359,
                             ),
                         },
                         TraceViewTokenData {
@@ -11187,7 +11547,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                318,
+                                360,
                             ),
                         },
                         TraceViewTokenData {
@@ -11200,7 +11560,9 @@
                             text: "1.8",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                361,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -11217,7 +11579,7 @@
     (
         Trace(
             Id {
-                value: 320,
+                value: 363,
             },
         ),
         TraceViewData {
@@ -11236,7 +11598,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                320,
+                                363,
                             ),
                         },
                         TraceViewTokenData {
@@ -11250,7 +11612,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                321,
+                                364,
                             ),
                         },
                         TraceViewTokenData {
@@ -11263,7 +11625,9 @@
                             text: "1.8",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                365,
+                            ),
                         },
                     ],
                 },
@@ -11274,7 +11638,7 @@
     (
         Trace(
             Id {
-                value: 318,
+                value: 360,
             },
         ),
         TraceViewData {
@@ -11321,7 +11685,7 @@
     (
         Trace(
             Id {
-                value: 319,
+                value: 361,
             },
         ),
         TraceViewData {
@@ -11356,7 +11720,30 @@
     (
         Trace(
             Id {
-                value: 247,
+                value: 362,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1.8",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 280,
             },
         ),
         TraceViewData {
@@ -11375,7 +11762,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                322,
+                                366,
                             ),
                         },
                         TraceViewTokenData {
@@ -11389,7 +11776,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                323,
+                                367,
                             ),
                         },
                         TraceViewTokenData {
@@ -11402,7 +11789,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                368,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -11427,7 +11816,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                324,
+                                369,
                             ),
                         },
                         TraceViewTokenData {
@@ -11441,7 +11830,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                325,
+                                370,
                             ),
                         },
                         TraceViewTokenData {
@@ -11466,7 +11855,9 @@
                             text: "0.75",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                371,
+                            ),
                         },
                     ],
                 },
@@ -11477,7 +11868,7 @@
     (
         Trace(
             Id {
-                value: 323,
+                value: 367,
             },
         ),
         TraceViewData {
@@ -11500,7 +11891,7 @@
     (
         Trace(
             Id {
-                value: 324,
+                value: 368,
             },
         ),
         TraceViewData {
@@ -11535,7 +11926,30 @@
     (
         Trace(
             Id {
-                value: 325,
+                value: 369,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 370,
             },
         ),
         TraceViewData {
@@ -11606,7 +12020,7 @@
     (
         Trace(
             Id {
-                value: 326,
+                value: 371,
             },
         ),
         TraceViewData {
@@ -11701,7 +12115,30 @@
     (
         Trace(
             Id {
-                value: 248,
+                value: 372,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.75",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 281,
             },
         ),
         TraceViewData {
@@ -11720,7 +12157,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                326,
+                                372,
                             ),
                         },
                         TraceViewTokenData {
@@ -11734,7 +12171,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                327,
+                                373,
                             ),
                         },
                         TraceViewTokenData {
@@ -11747,7 +12184,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                374,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -11800,7 +12239,7 @@
     (
         Trace(
             Id {
-                value: 329,
+                value: 376,
             },
         ),
         TraceViewData {
@@ -11819,7 +12258,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                329,
+                                376,
                             ),
                         },
                         TraceViewTokenData {
@@ -11833,7 +12272,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                330,
+                                377,
                             ),
                         },
                         TraceViewTokenData {
@@ -11846,7 +12285,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                378,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -11871,7 +12312,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                331,
+                                379,
                             ),
                         },
                         TraceViewTokenData {
@@ -11885,7 +12326,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                332,
+                                380,
                             ),
                         },
                         TraceViewTokenData {
@@ -11910,7 +12351,9 @@
                             text: "0.75",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                381,
+                            ),
                         },
                     ],
                 },
@@ -11921,7 +12364,7 @@
     (
         Trace(
             Id {
-                value: 327,
+                value: 373,
             },
         ),
         TraceViewData {
@@ -11944,7 +12387,7 @@
     (
         Trace(
             Id {
-                value: 328,
+                value: 374,
             },
         ),
         TraceViewData {
@@ -11979,7 +12422,30 @@
     (
         Trace(
             Id {
-                value: 249,
+                value: 375,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 282,
             },
         ),
         TraceViewData {
@@ -11998,7 +12464,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                333,
+                                382,
                             ),
                         },
                         TraceViewTokenData {
@@ -12011,7 +12477,9 @@
                             text: "15.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                383,
+                            ),
                         },
                     ],
                 },
@@ -12022,7 +12490,7 @@
     (
         Trace(
             Id {
-                value: 334,
+                value: 383,
             },
         ),
         TraceViewData {
@@ -12045,7 +12513,30 @@
     (
         Trace(
             Id {
-                value: 250,
+                value: 384,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "15.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 283,
             },
         ),
         TraceViewData {
@@ -12109,7 +12600,7 @@
     (
         Trace(
             Id {
-                value: 335,
+                value: 385,
             },
         ),
         TraceViewData {
@@ -12156,7 +12647,7 @@
     (
         Trace(
             Id {
-                value: 337,
+                value: 387,
             },
         ),
         TraceViewData {
@@ -12175,7 +12666,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                337,
+                                387,
                             ),
                         },
                         TraceViewTokenData {
@@ -12183,7 +12674,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                338,
+                                388,
                             ),
                         },
                         TraceViewTokenData {
@@ -12239,7 +12730,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                337,
+                                387,
                             ),
                         },
                     ],
@@ -12251,7 +12742,7 @@
     (
         Trace(
             Id {
-                value: 338,
+                value: 388,
             },
         ),
         TraceViewData {
@@ -12340,7 +12831,7 @@
     (
         Trace(
             Id {
-                value: 339,
+                value: 389,
             },
         ),
         TraceViewData {
@@ -12411,7 +12902,7 @@
     (
         Trace(
             Id {
-                value: 338,
+                value: 388,
             },
         ),
         TraceViewData {
@@ -12500,7 +12991,7 @@
     (
         Trace(
             Id {
-                value: 336,
+                value: 386,
             },
         ),
         TraceViewData {
@@ -12595,7 +13086,7 @@
     (
         Trace(
             Id {
-                value: 340,
+                value: 390,
             },
         ),
         TraceViewData {
@@ -12614,7 +13105,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                356,
+                                406,
                             ),
                         },
                         TraceViewTokenData {
@@ -12628,7 +13119,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                357,
+                                407,
                             ),
                         },
                         TraceViewTokenData {
@@ -12653,3382 +13144,14 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 357,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "pub",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "~",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "ConcaveComponent",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 358,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "ilen",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 341,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
                             assoc_trace_id: Some(
-                                358,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "ilen",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                359,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "<=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "4",
-                            token_class: Literal,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 359,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "pub",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "~",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "ConcaveComponent",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 360,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "ilen",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 342,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "let",
-                            token_class: OtherKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                360,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                361,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "matches",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                362,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "0",
-                            token_class: Literal,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 361,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 362,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "FermiMatchResult",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 363,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "matches",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 343,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "let",
-                            token_class: OtherKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "uparc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                363,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                364,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "matches",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                365,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "1",
-                            token_class: Literal,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 364,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "uparc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 365,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "FermiMatchResult",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 366,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "matches",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 344,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "let",
-                            token_class: OtherKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "back",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                366,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                367,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "matches",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                368,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "2",
-                            token_class: Literal,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 367,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "back",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 368,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "FermiMatchResult",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 369,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "matches",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 345,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                369,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "be",
-                            token_class: WordOpr,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "Some",
-                            token_class: TypeVariantEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "_",
-                            token_class: Ident,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 370,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 346,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                370,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "norm",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                371,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ">",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "3.0",
-                            token_class: Literal,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 371,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 372,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "norm",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 347,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "uparc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                372,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "be",
-                            token_class: WordOpr,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "Some",
-                            token_class: TypeVariantEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "_",
-                            token_class: Ident,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 373,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "uparc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 348,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "let",
-                            token_class: OtherKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "de",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                373,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                374,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "end_tangent",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                375,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "angle",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                376,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "true",
-                            token_class: Literal,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 374,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "de",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 375,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 376,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "end_tangent",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 377,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "end_tangent",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "angle",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "true",
-                            token_class: Literal,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 349,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "de",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                377,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ">",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "0.0",
-                            token_class: Literal,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "or",
-                            token_class: WordOpr,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "de",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                378,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "<",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "-",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "100.0",
-                            token_class: Literal,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 378,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "de",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 379,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "de",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 350,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "let",
-                            token_class: OtherKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc_enpoint",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                379,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                380,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "end",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                381,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 380,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc_enpoint",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 381,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 382,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "end",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 351,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "let",
-                            token_class: OtherKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "uparc_startpoint",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                382,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "uparc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                383,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "start",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                384,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 383,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "uparc_startpoint",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 384,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "uparc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 385,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "uparc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "start",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 352,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "let",
-                            token_class: OtherKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "distance",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                385,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc_enpoint",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                386,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "dist",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                387,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "uparc_startpoint",
-                            token_class: Variable,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                388,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 386,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "distance",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 387,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc_enpoint",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 388,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc_enpoint",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "dist",
-                            token_class: Method,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "uparc_startpoint",
-                            token_class: Variable,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 389,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "uparc_startpoint",
-                            token_class: Variable,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 353,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "distance",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                389,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "<",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "20.0",
-                            token_class: Literal,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 390,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "distance",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 354,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                390,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "norm",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                391,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "<",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "2.5",
-                            token_class: Literal,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 391,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "FermiMatchResult",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 392,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "three_fermi_match",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "norm",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 355,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "require",
-                            token_class: ControlFlowKeyword,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: Some(
-                                392,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "angle_change",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                393,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "<",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "-",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "100.0",
-                            token_class: Literal,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 393,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 394,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "angle_change",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 356,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "OneVsAll",
-                            token_class: TypeEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "::",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "Yes",
-                            token_class: TypeVariantEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 8,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Submodule,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "mod",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "four",
-                            token_class: ModuleEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 395,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "left_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "FermiMatchResult",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 399,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                399,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                400,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "left_coordinate_max",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "left_coordinate_max",
-                            token_class: FunctionEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                399,
+                                408,
                             ),
                         },
                     ],
                 },
             ],
             have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 400,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "left_coordinate_max",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "left_coordinate_max",
-                            token_class: FunctionEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 401,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "pub",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "~",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "ConcaveComponent",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 400,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "left_coordinate_max",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "left_coordinate_max",
-                            token_class: FunctionEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 396,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "components_max_downwards",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "FermiMatchResult",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 402,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                402,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                403,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "displacement_downwards",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                402,
-                            ),
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 403,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "displacement_downwards",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 404,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "pub",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "~",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "ConcaveComponent",
-                            token_class: TypeEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 403,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "displacement_downwards",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 397,
-            },
-        ),
-        TraceViewData {
-            trace_kind: Val,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "val",
-                            token_class: OtherKeyword,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "components_max_heights",
-                            token_class: ValEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ":",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "FermiMatchResult",
-                            token_class: TypeEntity,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "=",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 405,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerStmt,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                405,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                406,
-                            ),
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "cc_box_heights",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: Some(
-                                405,
-                            ),
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 406,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "fermi_match",
-                            token_class: FunctionEntity,
-                            spaces_before: 4,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "(",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "major_concave_components",
-                            token_class: ValEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ",",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "[",
-                            token_class: Punctuation,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "cc_box_heights",
-                            token_class: FunctionEntity,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "]",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ")",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: true,
         },
     ),
     (
@@ -16105,7 +13228,3539 @@
     (
         Trace(
             Id {
+                value: 408,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "ilen",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 409,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 391,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                409,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "ilen",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                410,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "<=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "4",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                411,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 410,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "pub",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "~",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "ConcaveComponent",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 411,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "ilen",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 412,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "4",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 392,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "let",
+                            token_class: OtherKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                412,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                413,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "matches",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                414,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                415,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 413,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 414,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "FermiMatchResult",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 415,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "matches",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 416,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 393,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "let",
+                            token_class: OtherKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "uparc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                416,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                417,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "matches",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                418,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                419,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 417,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "uparc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 418,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "FermiMatchResult",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 419,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "matches",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 420,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 394,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "let",
+                            token_class: OtherKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "back",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                420,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                421,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "matches",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                422,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                423,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 421,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "back",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 422,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "FermiMatchResult",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 423,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "matches",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 424,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 395,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                424,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "be",
+                            token_class: WordOpr,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "Some",
+                            token_class: TypeVariantEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "_",
+                            token_class: Ident,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 425,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 396,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                425,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "norm",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                426,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ">",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "3.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                427,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 426,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 427,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "norm",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 428,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "3.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 397,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "uparc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                428,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "be",
+                            token_class: WordOpr,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "Some",
+                            token_class: TypeVariantEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "_",
+                            token_class: Ident,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 429,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "uparc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 398,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "let",
+                            token_class: OtherKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "de",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                429,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                430,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "end_tangent",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                431,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "angle",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                432,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "true",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                433,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 430,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "de",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 431,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 432,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "end_tangent",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 433,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "end_tangent",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "angle",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "true",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 434,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "true",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 399,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "de",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                434,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ">",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "0.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                435,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "or",
+                            token_class: WordOpr,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "de",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                436,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "<",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "-",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "100.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                437,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 435,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "de",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 436,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 437,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "de",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 438,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "100.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 400,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "let",
+                            token_class: OtherKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc_enpoint",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                438,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                439,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "end",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                440,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 439,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc_enpoint",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 440,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 441,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "end",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 401,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "let",
+                            token_class: OtherKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "uparc_startpoint",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                441,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "uparc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                442,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "start",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                443,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 442,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "uparc_startpoint",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 443,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "uparc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 444,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "uparc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "start",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 402,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "let",
+                            token_class: OtherKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "distance",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                444,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc_enpoint",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                445,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "dist",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                446,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "uparc_startpoint",
+                            token_class: Variable,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                447,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 445,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "distance",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 446,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc_enpoint",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 447,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc_enpoint",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "dist",
+                            token_class: Method,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "uparc_startpoint",
+                            token_class: Variable,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 448,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "uparc_startpoint",
+                            token_class: Variable,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 403,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "distance",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                448,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "<",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "20.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                449,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 449,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "distance",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 450,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "20.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 404,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                450,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "norm",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                451,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "<",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "2.5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                452,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 451,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "FermiMatchResult",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 452,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "three_fermi_match",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "norm",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 453,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2.5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 405,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "require",
+                            token_class: ControlFlowKeyword,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                453,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "angle_change",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                454,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "<",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "-",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "100.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                455,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 454,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 455,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "angle_change",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 456,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "100.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
                 value: 406,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "OneVsAll",
+                            token_class: TypeEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "::",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "Yes",
+                            token_class: TypeVariantEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 8,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Submodule,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "mod",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "four",
+                            token_class: ModuleEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 457,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "left_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "FermiMatchResult",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 461,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                461,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                462,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "left_coordinate_max",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "left_coordinate_max",
+                            token_class: FunctionEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                461,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 462,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "left_coordinate_max",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "left_coordinate_max",
+                            token_class: FunctionEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 463,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "pub",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "~",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "ConcaveComponent",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 462,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "left_coordinate_max",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "left_coordinate_max",
+                            token_class: FunctionEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 458,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "components_max_downwards",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "FermiMatchResult",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 464,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                464,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                465,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "displacement_downwards",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                464,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 465,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "displacement_downwards",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 466,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "pub",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "~",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "ConcaveComponent",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 465,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "displacement_downwards",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 459,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "components_max_heights",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "FermiMatchResult",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 467,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerStmt,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                467,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                468,
+                            ),
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "cc_box_heights",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                467,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 468,
             },
         ),
         TraceViewData {
@@ -16170,7 +16825,143 @@
     (
         Trace(
             Id {
-                value: 398,
+                value: 469,
+            },
+        ),
+        TraceViewData {
+            trace_kind: Val,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "pub",
+                            token_class: OtherKeyword,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "val",
+                            token_class: OtherKeyword,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ":",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "~",
+                            token_class: TypeEntity,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "ConcaveComponent",
+                            token_class: TypeEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "=",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 468,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "fermi_match",
+                            token_class: FunctionEntity,
+                            spaces_before: 4,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "(",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "major_concave_components",
+                            token_class: ValEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ",",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "[",
+                            token_class: Punctuation,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "cc_box_heights",
+                            token_class: FunctionEntity,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "]",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ")",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: true,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 460,
             },
         ),
         TraceViewData {
@@ -16241,7 +17032,7 @@
     (
         Trace(
             Id {
-                value: 408,
+                value: 470,
             },
         ),
         TraceViewData {
@@ -16260,7 +17051,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                418,
+                                480,
                             ),
                         },
                         TraceViewTokenData {
@@ -16274,7 +17065,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                419,
+                                481,
                             ),
                         },
                         TraceViewTokenData {
@@ -16287,7 +17078,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                482,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -16334,7 +17127,7 @@
     (
         Trace(
             Id {
-                value: 419,
+                value: 481,
             },
         ),
         TraceViewData {
@@ -16381,7 +17174,7 @@
     (
         Trace(
             Id {
-                value: 420,
+                value: 482,
             },
         ),
         TraceViewData {
@@ -16416,7 +17209,30 @@
     (
         Trace(
             Id {
-                value: 409,
+                value: 483,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 471,
             },
         ),
         TraceViewData {
@@ -16435,7 +17251,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                420,
+                                483,
                             ),
                         },
                         TraceViewTokenData {
@@ -16449,7 +17265,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                421,
+                                484,
                             ),
                         },
                         TraceViewTokenData {
@@ -16462,7 +17278,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                485,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -16509,7 +17327,7 @@
     (
         Trace(
             Id {
-                value: 421,
+                value: 484,
             },
         ),
         TraceViewData {
@@ -16556,7 +17374,7 @@
     (
         Trace(
             Id {
-                value: 422,
+                value: 485,
             },
         ),
         TraceViewData {
@@ -16591,7 +17409,30 @@
     (
         Trace(
             Id {
-                value: 410,
+                value: 486,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 472,
             },
         ),
         TraceViewData {
@@ -16610,7 +17451,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                422,
+                                486,
                             ),
                         },
                         TraceViewTokenData {
@@ -16624,7 +17465,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                423,
+                                487,
                             ),
                         },
                         TraceViewTokenData {
@@ -16638,7 +17479,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                424,
+                                488,
                             ),
                         },
                     ],
@@ -16650,7 +17491,7 @@
     (
         Trace(
             Id {
-                value: 423,
+                value: 487,
             },
         ),
         TraceViewData {
@@ -16673,7 +17514,7 @@
     (
         Trace(
             Id {
-                value: 424,
+                value: 488,
             },
         ),
         TraceViewData {
@@ -16732,7 +17573,7 @@
     (
         Trace(
             Id {
-                value: 425,
+                value: 489,
             },
         ),
         TraceViewData {
@@ -16767,7 +17608,7 @@
     (
         Trace(
             Id {
-                value: 411,
+                value: 473,
             },
         ),
         TraceViewData {
@@ -16786,7 +17627,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                425,
+                                489,
                             ),
                         },
                         TraceViewTokenData {
@@ -16800,7 +17641,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                426,
+                                490,
                             ),
                         },
                         TraceViewTokenData {
@@ -16813,7 +17654,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                491,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -16842,7 +17685,7 @@
     (
         Trace(
             Id {
-                value: 426,
+                value: 490,
             },
         ),
         TraceViewData {
@@ -16865,7 +17708,7 @@
     (
         Trace(
             Id {
-                value: 427,
+                value: 491,
             },
         ),
         TraceViewData {
@@ -16900,7 +17743,30 @@
     (
         Trace(
             Id {
-                value: 412,
+                value: 492,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 474,
             },
         ),
         TraceViewData {
@@ -16919,7 +17785,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                427,
+                                492,
                             ),
                         },
                         TraceViewTokenData {
@@ -16933,7 +17799,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                428,
+                                493,
                             ),
                         },
                         TraceViewTokenData {
@@ -16947,7 +17813,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                429,
+                                494,
                             ),
                         },
                         TraceViewTokenData {
@@ -16960,7 +17826,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                495,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -16977,7 +17845,7 @@
     (
         Trace(
             Id {
-                value: 428,
+                value: 493,
             },
         ),
         TraceViewData {
@@ -17000,7 +17868,7 @@
     (
         Trace(
             Id {
-                value: 429,
+                value: 494,
             },
         ),
         TraceViewData {
@@ -17047,7 +17915,7 @@
     (
         Trace(
             Id {
-                value: 430,
+                value: 495,
             },
         ),
         TraceViewData {
@@ -17082,7 +17950,30 @@
     (
         Trace(
             Id {
-                value: 413,
+                value: 496,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 475,
             },
         ),
         TraceViewData {
@@ -17101,7 +17992,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                430,
+                                496,
                             ),
                         },
                         TraceViewTokenData {
@@ -17143,7 +18034,7 @@
     (
         Trace(
             Id {
-                value: 431,
+                value: 497,
             },
         ),
         TraceViewData {
@@ -17166,7 +18057,7 @@
     (
         Trace(
             Id {
-                value: 414,
+                value: 476,
             },
         ),
         TraceViewData {
@@ -17185,7 +18076,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                431,
+                                497,
                             ),
                         },
                         TraceViewTokenData {
@@ -17199,7 +18090,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                432,
+                                498,
                             ),
                         },
                         TraceViewTokenData {
@@ -17219,7 +18110,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                433,
+                                499,
                             ),
                         },
                         TraceViewTokenData {
@@ -17245,7 +18136,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                434,
+                                500,
                             ),
                         },
                     ],
@@ -17257,7 +18148,7 @@
     (
         Trace(
             Id {
-                value: 432,
+                value: 498,
             },
         ),
         TraceViewData {
@@ -17280,7 +18171,7 @@
     (
         Trace(
             Id {
-                value: 433,
+                value: 499,
             },
         ),
         TraceViewData {
@@ -17303,7 +18194,7 @@
     (
         Trace(
             Id {
-                value: 434,
+                value: 500,
             },
         ),
         TraceViewData {
@@ -17356,7 +18247,7 @@
     (
         Trace(
             Id {
-                value: 435,
+                value: 501,
             },
         ),
         TraceViewData {
@@ -17421,7 +18312,7 @@
     (
         Trace(
             Id {
-                value: 415,
+                value: 477,
             },
         ),
         TraceViewData {
@@ -17440,7 +18331,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                435,
+                                501,
                             ),
                         },
                         TraceViewTokenData {
@@ -17454,7 +18345,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                436,
+                                502,
                             ),
                         },
                         TraceViewTokenData {
@@ -17468,7 +18359,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                437,
+                                503,
                             ),
                         },
                         TraceViewTokenData {
@@ -17482,7 +18373,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                438,
+                                504,
                             ),
                         },
                         TraceViewTokenData {
@@ -17496,7 +18387,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                439,
+                                505,
                             ),
                         },
                     ],
@@ -17508,7 +18399,7 @@
     (
         Trace(
             Id {
-                value: 436,
+                value: 502,
             },
         ),
         TraceViewData {
@@ -17531,7 +18422,7 @@
     (
         Trace(
             Id {
-                value: 437,
+                value: 503,
             },
         ),
         TraceViewData {
@@ -17590,7 +18481,7 @@
     (
         Trace(
             Id {
-                value: 438,
+                value: 504,
             },
         ),
         TraceViewData {
@@ -17625,7 +18516,7 @@
     (
         Trace(
             Id {
-                value: 439,
+                value: 505,
             },
         ),
         TraceViewData {
@@ -17684,7 +18575,7 @@
     (
         Trace(
             Id {
-                value: 440,
+                value: 506,
             },
         ),
         TraceViewData {
@@ -17719,7 +18610,7 @@
     (
         Trace(
             Id {
-                value: 416,
+                value: 478,
             },
         ),
         TraceViewData {
@@ -17738,7 +18629,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                440,
+                                506,
                             ),
                         },
                         TraceViewTokenData {
@@ -17751,7 +18642,9 @@
                             text: "7.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                507,
+                            ),
                         },
                     ],
                 },
@@ -17762,7 +18655,7 @@
     (
         Trace(
             Id {
-                value: 441,
+                value: 507,
             },
         ),
         TraceViewData {
@@ -17785,7 +18678,30 @@
     (
         Trace(
             Id {
-                value: 417,
+                value: 508,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "7.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 479,
             },
         ),
         TraceViewData {
@@ -17804,7 +18720,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                441,
+                                508,
                             ),
                         },
                         TraceViewTokenData {
@@ -17818,7 +18734,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                442,
+                                509,
                             ),
                         },
                         TraceViewTokenData {
@@ -17831,7 +18747,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                510,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -17866,7 +18784,7 @@
     (
         Trace(
             Id {
-                value: 444,
+                value: 512,
             },
         ),
         TraceViewData {
@@ -17885,7 +18803,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                457,
+                                525,
                             ),
                         },
                         TraceViewTokenData {
@@ -17899,7 +18817,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                458,
+                                526,
                             ),
                         },
                         TraceViewTokenData {
@@ -17924,7 +18842,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                527,
+                            ),
                         },
                     ],
                 },
@@ -17935,7 +18855,7 @@
     (
         Trace(
             Id {
-                value: 445,
+                value: 513,
             },
         ),
         TraceViewData {
@@ -17954,7 +18874,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                459,
+                                528,
                             ),
                         },
                         TraceViewTokenData {
@@ -17968,7 +18888,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                460,
+                                529,
                             ),
                         },
                         TraceViewTokenData {
@@ -17982,7 +18902,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                461,
+                                530,
                             ),
                         },
                         TraceViewTokenData {
@@ -17995,7 +18915,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                531,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -18012,7 +18934,7 @@
     (
         Trace(
             Id {
-                value: 446,
+                value: 514,
             },
         ),
         TraceViewData {
@@ -18031,7 +18953,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                462,
+                                532,
                             ),
                         },
                         TraceViewTokenData {
@@ -18073,7 +18995,7 @@
     (
         Trace(
             Id {
-                value: 447,
+                value: 515,
             },
         ),
         TraceViewData {
@@ -18092,7 +19014,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                463,
+                                533,
                             ),
                         },
                         TraceViewTokenData {
@@ -18106,7 +19028,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                464,
+                                534,
                             ),
                         },
                         TraceViewTokenData {
@@ -18119,7 +19041,9 @@
                             text: "1.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                535,
+                            ),
                         },
                     ],
                 },
@@ -18130,7 +19054,7 @@
     (
         Trace(
             Id {
-                value: 448,
+                value: 516,
             },
         ),
         TraceViewData {
@@ -18149,7 +19073,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                465,
+                                536,
                             ),
                         },
                         TraceViewTokenData {
@@ -18163,7 +19087,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                466,
+                                537,
                             ),
                         },
                         TraceViewTokenData {
@@ -18177,7 +19101,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                467,
+                                538,
                             ),
                         },
                         TraceViewTokenData {
@@ -18191,7 +19115,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                468,
+                                539,
                             ),
                         },
                         TraceViewTokenData {
@@ -18205,7 +19129,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                469,
+                                540,
                             ),
                         },
                     ],
@@ -18217,7 +19141,7 @@
     (
         Trace(
             Id {
-                value: 449,
+                value: 517,
             },
         ),
         TraceViewData {
@@ -18236,7 +19160,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                470,
+                                541,
                             ),
                         },
                         TraceViewTokenData {
@@ -18250,7 +19174,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                471,
+                                542,
                             ),
                         },
                         TraceViewTokenData {
@@ -18264,7 +19188,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                472,
+                                543,
                             ),
                         },
                         TraceViewTokenData {
@@ -18277,7 +19201,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                544,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -18294,7 +19220,7 @@
     (
         Trace(
             Id {
-                value: 450,
+                value: 518,
             },
         ),
         TraceViewData {
@@ -18313,7 +19239,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                473,
+                                545,
                             ),
                         },
                         TraceViewTokenData {
@@ -18355,7 +19281,7 @@
     (
         Trace(
             Id {
-                value: 451,
+                value: 519,
             },
         ),
         TraceViewData {
@@ -18374,7 +19300,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                474,
+                                546,
                             ),
                         },
                         TraceViewTokenData {
@@ -18394,7 +19320,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                475,
+                                547,
                             ),
                         },
                         TraceViewTokenData {
@@ -18420,7 +19346,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                476,
+                                548,
                             ),
                         },
                         TraceViewTokenData {
@@ -18433,7 +19359,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                549,
+                            ),
                         },
                     ],
                 },
@@ -18444,7 +19372,7 @@
     (
         Trace(
             Id {
-                value: 452,
+                value: 520,
             },
         ),
         TraceViewData {
@@ -18463,7 +19391,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                477,
+                                550,
                             ),
                         },
                         TraceViewTokenData {
@@ -18483,7 +19411,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                478,
+                                551,
                             ),
                         },
                         TraceViewTokenData {
@@ -18502,7 +19430,9 @@
                             text: "110.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                552,
+                            ),
                         },
                     ],
                 },
@@ -18513,7 +19443,7 @@
     (
         Trace(
             Id {
-                value: 453,
+                value: 521,
             },
         ),
         TraceViewData {
@@ -18532,7 +19462,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                479,
+                                553,
                             ),
                         },
                         TraceViewTokenData {
@@ -18546,7 +19476,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                480,
+                                554,
                             ),
                         },
                         TraceViewTokenData {
@@ -18559,7 +19489,9 @@
                             text: "9.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                555,
+                            ),
                         },
                     ],
                 },
@@ -18570,7 +19502,7 @@
     (
         Trace(
             Id {
-                value: 454,
+                value: 522,
             },
         ),
         TraceViewData {
@@ -18589,7 +19521,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                481,
+                                556,
                             ),
                         },
                         TraceViewTokenData {
@@ -18603,7 +19535,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                482,
+                                557,
                             ),
                         },
                         TraceViewTokenData {
@@ -18617,7 +19549,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                483,
+                                558,
                             ),
                         },
                         TraceViewTokenData {
@@ -18630,7 +19562,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                559,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -18647,7 +19581,7 @@
     (
         Trace(
             Id {
-                value: 455,
+                value: 523,
             },
         ),
         TraceViewData {
@@ -18666,7 +19600,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                484,
+                                560,
                             ),
                         },
                         TraceViewTokenData {
@@ -18679,7 +19613,9 @@
                             text: "22.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                561,
+                            ),
                         },
                     ],
                 },
@@ -18690,7 +19626,7 @@
     (
         Trace(
             Id {
-                value: 456,
+                value: 524,
             },
         ),
         TraceViewData {
@@ -18709,7 +19645,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                485,
+                                562,
                             ),
                         },
                         TraceViewTokenData {
@@ -18722,7 +19658,9 @@
                             text: "9.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                563,
+                            ),
                         },
                     ],
                 },
@@ -18733,7 +19671,7 @@
     (
         Trace(
             Id {
-                value: 457,
+                value: 525,
             },
         ),
         TraceViewData {
@@ -18774,7 +19712,7 @@
     (
         Trace(
             Id {
-                value: 442,
+                value: 509,
             },
         ),
         TraceViewData {
@@ -18797,7 +19735,7 @@
     (
         Trace(
             Id {
-                value: 443,
+                value: 510,
             },
         ),
         TraceViewData {
@@ -18832,7 +19770,30 @@
     (
         Trace(
             Id {
-                value: 418,
+                value: 511,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 480,
             },
         ),
         TraceViewData {
@@ -18896,7 +19857,7 @@
     (
         Trace(
             Id {
-                value: 487,
+                value: 565,
             },
         ),
         TraceViewData {
@@ -18991,7 +19952,7 @@
     (
         Trace(
             Id {
-                value: 488,
+                value: 566,
             },
         ),
         TraceViewData {
@@ -19055,7 +20016,7 @@
     (
         Trace(
             Id {
-                value: 489,
+                value: 567,
             },
         ),
         TraceViewData {
@@ -19102,7 +20063,7 @@
     (
         Trace(
             Id {
-                value: 492,
+                value: 570,
             },
         ),
         TraceViewData {
@@ -19121,7 +20082,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                492,
+                                570,
                             ),
                         },
                         TraceViewTokenData {
@@ -19129,7 +20090,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                493,
+                                571,
                             ),
                         },
                         TraceViewTokenData {
@@ -19161,7 +20122,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                492,
+                                570,
                             ),
                         },
                     ],
@@ -19173,7 +20134,7 @@
     (
         Trace(
             Id {
-                value: 493,
+                value: 571,
             },
         ),
         TraceViewData {
@@ -19238,7 +20199,7 @@
     (
         Trace(
             Id {
-                value: 494,
+                value: 572,
             },
         ),
         TraceViewData {
@@ -19309,7 +20270,7 @@
     (
         Trace(
             Id {
-                value: 493,
+                value: 571,
             },
         ),
         TraceViewData {
@@ -19374,7 +20335,7 @@
     (
         Trace(
             Id {
-                value: 490,
+                value: 568,
             },
         ),
         TraceViewData {
@@ -19421,7 +20382,7 @@
     (
         Trace(
             Id {
-                value: 495,
+                value: 573,
             },
         ),
         TraceViewData {
@@ -19440,7 +20401,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                495,
+                                573,
                             ),
                         },
                         TraceViewTokenData {
@@ -19448,7 +20409,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                496,
+                                574,
                             ),
                         },
                         TraceViewTokenData {
@@ -19492,7 +20453,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                495,
+                                573,
                             ),
                         },
                     ],
@@ -19504,7 +20465,7 @@
     (
         Trace(
             Id {
-                value: 496,
+                value: 574,
             },
         ),
         TraceViewData {
@@ -19581,7 +20542,7 @@
     (
         Trace(
             Id {
-                value: 497,
+                value: 575,
             },
         ),
         TraceViewData {
@@ -19652,7 +20613,7 @@
     (
         Trace(
             Id {
-                value: 496,
+                value: 574,
             },
         ),
         TraceViewData {
@@ -19729,7 +20690,7 @@
     (
         Trace(
             Id {
-                value: 491,
+                value: 569,
             },
         ),
         TraceViewData {
@@ -19824,7 +20785,7 @@
     (
         Trace(
             Id {
-                value: 498,
+                value: 576,
             },
         ),
         TraceViewData {
@@ -19843,7 +20804,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                505,
+                                583,
                             ),
                         },
                         TraceViewTokenData {
@@ -19857,7 +20818,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                506,
+                                584,
                             ),
                         },
                         TraceViewTokenData {
@@ -19870,7 +20831,9 @@
                             text: "0.",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                585,
+                            ),
                         },
                     ],
                 },
@@ -19881,7 +20844,7 @@
     (
         Trace(
             Id {
-                value: 506,
+                value: 584,
             },
         ),
         TraceViewData {
@@ -19940,7 +20903,7 @@
     (
         Trace(
             Id {
-                value: 507,
+                value: 585,
             },
         ),
         TraceViewData {
@@ -19975,7 +20938,30 @@
     (
         Trace(
             Id {
-                value: 499,
+                value: 586,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 577,
             },
         ),
         TraceViewData {
@@ -19994,7 +20980,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                507,
+                                586,
                             ),
                         },
                         TraceViewTokenData {
@@ -20008,7 +20994,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                508,
+                                587,
                             ),
                         },
                         TraceViewTokenData {
@@ -20022,7 +21008,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                509,
+                                588,
                             ),
                         },
                     ],
@@ -20034,7 +21020,7 @@
     (
         Trace(
             Id {
-                value: 508,
+                value: 587,
             },
         ),
         TraceViewData {
@@ -20057,7 +21043,7 @@
     (
         Trace(
             Id {
-                value: 509,
+                value: 588,
             },
         ),
         TraceViewData {
@@ -20104,7 +21090,7 @@
     (
         Trace(
             Id {
-                value: 510,
+                value: 589,
             },
         ),
         TraceViewData {
@@ -20139,7 +21125,7 @@
     (
         Trace(
             Id {
-                value: 500,
+                value: 578,
             },
         ),
         TraceViewData {
@@ -20158,7 +21144,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                510,
+                                589,
                             ),
                         },
                         TraceViewTokenData {
@@ -20171,7 +21157,9 @@
                             text: "1.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                590,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -20188,7 +21176,7 @@
     (
         Trace(
             Id {
-                value: 512,
+                value: 592,
             },
         ),
         TraceViewData {
@@ -20207,7 +21195,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                515,
+                                595,
                             ),
                         },
                         TraceViewTokenData {
@@ -20221,7 +21209,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                516,
+                                596,
                             ),
                         },
                         TraceViewTokenData {
@@ -20234,7 +21222,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                597,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -20281,7 +21271,7 @@
     (
         Trace(
             Id {
-                value: 513,
+                value: 593,
             },
         ),
         TraceViewData {
@@ -20300,7 +21290,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                517,
+                                598,
                             ),
                         },
                         TraceViewTokenData {
@@ -20314,7 +21304,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                518,
+                                599,
                             ),
                         },
                         TraceViewTokenData {
@@ -20328,7 +21318,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                519,
+                                600,
                             ),
                         },
                         TraceViewTokenData {
@@ -20342,7 +21332,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                520,
+                                601,
                             ),
                         },
                         TraceViewTokenData {
@@ -20356,7 +21346,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                521,
+                                602,
                             ),
                         },
                     ],
@@ -20368,7 +21358,7 @@
     (
         Trace(
             Id {
-                value: 514,
+                value: 594,
             },
         ),
         TraceViewData {
@@ -20387,7 +21377,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                522,
+                                603,
                             ),
                         },
                         TraceViewTokenData {
@@ -20400,7 +21390,9 @@
                             text: "10.",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                604,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -20417,7 +21409,7 @@
     (
         Trace(
             Id {
-                value: 515,
+                value: 595,
             },
         ),
         TraceViewData {
@@ -20458,7 +21450,7 @@
     (
         Trace(
             Id {
-                value: 511,
+                value: 590,
             },
         ),
         TraceViewData {
@@ -20481,7 +21473,30 @@
     (
         Trace(
             Id {
-                value: 501,
+                value: 591,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 579,
             },
         ),
         TraceViewData {
@@ -20500,7 +21515,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                523,
+                                605,
                             ),
                         },
                         TraceViewTokenData {
@@ -20513,7 +21528,9 @@
                             text: "4.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                606,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -20530,7 +21547,7 @@
     (
         Trace(
             Id {
-                value: 525,
+                value: 608,
             },
         ),
         TraceViewData {
@@ -20549,7 +21566,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                527,
+                                610,
                             ),
                         },
                         TraceViewTokenData {
@@ -20563,7 +21580,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                528,
+                                611,
                             ),
                         },
                         TraceViewTokenData {
@@ -20577,7 +21594,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                529,
+                                612,
                             ),
                         },
                         TraceViewTokenData {
@@ -20591,7 +21608,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                530,
+                                613,
                             ),
                         },
                         TraceViewTokenData {
@@ -20605,7 +21622,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                531,
+                                614,
                             ),
                         },
                     ],
@@ -20617,7 +21634,7 @@
     (
         Trace(
             Id {
-                value: 526,
+                value: 609,
             },
         ),
         TraceViewData {
@@ -20636,7 +21653,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                532,
+                                615,
                             ),
                         },
                         TraceViewTokenData {
@@ -20649,7 +21666,9 @@
                             text: "10.",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                616,
+                            ),
                         },
                     ],
                 },
@@ -20660,7 +21679,7 @@
     (
         Trace(
             Id {
-                value: 527,
+                value: 610,
             },
         ),
         TraceViewData {
@@ -20701,7 +21720,7 @@
     (
         Trace(
             Id {
-                value: 524,
+                value: 606,
             },
         ),
         TraceViewData {
@@ -20724,7 +21743,30 @@
     (
         Trace(
             Id {
-                value: 502,
+                value: 607,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "4.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 580,
             },
         ),
         TraceViewData {
@@ -20743,7 +21785,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                533,
+                                617,
                             ),
                         },
                         TraceViewTokenData {
@@ -20757,7 +21799,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                534,
+                                618,
                             ),
                         },
                         TraceViewTokenData {
@@ -20770,7 +21812,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                619,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -20817,7 +21861,7 @@
     (
         Trace(
             Id {
-                value: 534,
+                value: 618,
             },
         ),
         TraceViewData {
@@ -20864,7 +21908,7 @@
     (
         Trace(
             Id {
-                value: 535,
+                value: 619,
             },
         ),
         TraceViewData {
@@ -20899,7 +21943,30 @@
     (
         Trace(
             Id {
-                value: 503,
+                value: 620,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 581,
             },
         ),
         TraceViewData {
@@ -20918,7 +21985,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                535,
+                                620,
                             ),
                         },
                         TraceViewTokenData {
@@ -20932,7 +21999,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                536,
+                                621,
                             ),
                         },
                         TraceViewTokenData {
@@ -20946,7 +22013,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                537,
+                                622,
                             ),
                         },
                     ],
@@ -20958,7 +22025,7 @@
     (
         Trace(
             Id {
-                value: 536,
+                value: 621,
             },
         ),
         TraceViewData {
@@ -20981,7 +22048,7 @@
     (
         Trace(
             Id {
-                value: 537,
+                value: 622,
             },
         ),
         TraceViewData {
@@ -21028,7 +22095,7 @@
     (
         Trace(
             Id {
-                value: 538,
+                value: 623,
             },
         ),
         TraceViewData {
@@ -21063,7 +22130,7 @@
     (
         Trace(
             Id {
-                value: 504,
+                value: 582,
             },
         ),
         TraceViewData {
@@ -21081,6 +22148,31 @@
                             text: "false",
                             token_class: Literal,
                             spaces_before: 1,
+                            assoc_trace_id: Some(
+                                623,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 624,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "false",
+                            token_class: Literal,
+                            spaces_before: 1,
                             assoc_trace_id: None,
                         },
                     ],
@@ -21092,7 +22184,7 @@
     (
         Trace(
             Id {
-                value: 505,
+                value: 583,
             },
         ),
         TraceViewData {
@@ -21156,7 +22248,7 @@
     (
         Trace(
             Id {
-                value: 539,
+                value: 625,
             },
         ),
         TraceViewData {
@@ -21203,7 +22295,7 @@
     (
         Trace(
             Id {
-                value: 541,
+                value: 627,
             },
         ),
         TraceViewData {
@@ -21222,7 +22314,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                541,
+                                627,
                             ),
                         },
                         TraceViewTokenData {
@@ -21230,7 +22322,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                542,
+                                628,
                             ),
                         },
                         TraceViewTokenData {
@@ -21262,7 +22354,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                541,
+                                627,
                             ),
                         },
                     ],
@@ -21274,7 +22366,7 @@
     (
         Trace(
             Id {
-                value: 542,
+                value: 628,
             },
         ),
         TraceViewData {
@@ -21339,7 +22431,7 @@
     (
         Trace(
             Id {
-                value: 543,
+                value: 629,
             },
         ),
         TraceViewData {
@@ -21410,7 +22502,7 @@
     (
         Trace(
             Id {
-                value: 542,
+                value: 628,
             },
         ),
         TraceViewData {
@@ -21475,7 +22567,7 @@
     (
         Trace(
             Id {
-                value: 540,
+                value: 626,
             },
         ),
         TraceViewData {
@@ -21570,7 +22662,7 @@
     (
         Trace(
             Id {
-                value: 544,
+                value: 630,
             },
         ),
         TraceViewData {
@@ -21589,7 +22681,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                546,
+                                632,
                             ),
                         },
                         TraceViewTokenData {
@@ -21603,7 +22695,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                547,
+                                633,
                             ),
                         },
                         TraceViewTokenData {
@@ -21617,7 +22709,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                548,
+                                634,
                             ),
                         },
                         TraceViewTokenData {
@@ -21631,7 +22723,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                549,
+                                635,
                             ),
                         },
                         TraceViewTokenData {
@@ -21645,7 +22737,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                550,
+                                636,
                             ),
                         },
                     ],
@@ -21657,7 +22749,7 @@
     (
         Trace(
             Id {
-                value: 547,
+                value: 633,
             },
         ),
         TraceViewData {
@@ -21680,7 +22772,7 @@
     (
         Trace(
             Id {
-                value: 548,
+                value: 634,
             },
         ),
         TraceViewData {
@@ -21739,7 +22831,7 @@
     (
         Trace(
             Id {
-                value: 549,
+                value: 635,
             },
         ),
         TraceViewData {
@@ -21774,7 +22866,7 @@
     (
         Trace(
             Id {
-                value: 550,
+                value: 636,
             },
         ),
         TraceViewData {
@@ -21833,7 +22925,7 @@
     (
         Trace(
             Id {
-                value: 551,
+                value: 637,
             },
         ),
         TraceViewData {
@@ -21868,7 +22960,7 @@
     (
         Trace(
             Id {
-                value: 545,
+                value: 631,
             },
         ),
         TraceViewData {
@@ -21887,7 +22979,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                551,
+                                637,
                             ),
                         },
                         TraceViewTokenData {
@@ -21901,7 +22993,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                552,
+                                638,
                             ),
                         },
                         TraceViewTokenData {
@@ -21915,7 +23007,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                553,
+                                639,
                             ),
                         },
                         TraceViewTokenData {
@@ -21928,7 +23020,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                640,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -21963,7 +23057,7 @@
     (
         Trace(
             Id {
-                value: 555,
+                value: 642,
             },
         ),
         TraceViewData {
@@ -21982,7 +23076,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                556,
+                                643,
                             ),
                         },
                         TraceViewTokenData {
@@ -21996,7 +23090,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                557,
+                                644,
                             ),
                         },
                         TraceViewTokenData {
@@ -22010,7 +23104,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                558,
+                                645,
                             ),
                         },
                         TraceViewTokenData {
@@ -22023,7 +23117,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                646,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -22058,7 +23154,7 @@
     (
         Trace(
             Id {
-                value: 556,
+                value: 643,
             },
         ),
         TraceViewData {
@@ -22076,7 +23172,9 @@
                             text: "false",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                647,
+                            ),
                         },
                     ],
                 },
@@ -22087,7 +23185,7 @@
     (
         Trace(
             Id {
-                value: 552,
+                value: 638,
             },
         ),
         TraceViewData {
@@ -22146,7 +23244,7 @@
     (
         Trace(
             Id {
-                value: 553,
+                value: 639,
             },
         ),
         TraceViewData {
@@ -22181,7 +23279,7 @@
     (
         Trace(
             Id {
-                value: 554,
+                value: 640,
             },
         ),
         TraceViewData {
@@ -22228,7 +23326,30 @@
     (
         Trace(
             Id {
-                value: 546,
+                value: 641,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 632,
             },
         ),
         TraceViewData {
@@ -22292,7 +23413,7 @@
     (
         Trace(
             Id {
-                value: 560,
+                value: 649,
             },
         ),
         TraceViewData {
@@ -22339,7 +23460,7 @@
     (
         Trace(
             Id {
-                value: 563,
+                value: 652,
             },
         ),
         TraceViewData {
@@ -22358,7 +23479,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                563,
+                                652,
                             ),
                         },
                         TraceViewTokenData {
@@ -22366,7 +23487,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                564,
+                                653,
                             ),
                         },
                         TraceViewTokenData {
@@ -22398,7 +23519,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                563,
+                                652,
                             ),
                         },
                     ],
@@ -22410,7 +23531,7 @@
     (
         Trace(
             Id {
-                value: 564,
+                value: 653,
             },
         ),
         TraceViewData {
@@ -22475,7 +23596,7 @@
     (
         Trace(
             Id {
-                value: 565,
+                value: 654,
             },
         ),
         TraceViewData {
@@ -22546,7 +23667,7 @@
     (
         Trace(
             Id {
-                value: 564,
+                value: 653,
             },
         ),
         TraceViewData {
@@ -22611,7 +23732,7 @@
     (
         Trace(
             Id {
-                value: 561,
+                value: 650,
             },
         ),
         TraceViewData {
@@ -22658,7 +23779,7 @@
     (
         Trace(
             Id {
-                value: 566,
+                value: 655,
             },
         ),
         TraceViewData {
@@ -22677,7 +23798,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                566,
+                                655,
                             ),
                         },
                         TraceViewTokenData {
@@ -22685,7 +23806,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                567,
+                                656,
                             ),
                         },
                         TraceViewTokenData {
@@ -22717,7 +23838,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                566,
+                                655,
                             ),
                         },
                     ],
@@ -22729,7 +23850,7 @@
     (
         Trace(
             Id {
-                value: 567,
+                value: 656,
             },
         ),
         TraceViewData {
@@ -22794,7 +23915,7 @@
     (
         Trace(
             Id {
-                value: 568,
+                value: 657,
             },
         ),
         TraceViewData {
@@ -22865,7 +23986,7 @@
     (
         Trace(
             Id {
-                value: 567,
+                value: 656,
             },
         ),
         TraceViewData {
@@ -22930,7 +24051,7 @@
     (
         Trace(
             Id {
-                value: 562,
+                value: 651,
             },
         ),
         TraceViewData {
@@ -23025,7 +24146,7 @@
     (
         Trace(
             Id {
-                value: 569,
+                value: 658,
             },
         ),
         TraceViewData {
@@ -23044,7 +24165,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                577,
+                                666,
                             ),
                         },
                         TraceViewTokenData {
@@ -23058,7 +24179,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                578,
+                                667,
                             ),
                         },
                         TraceViewTokenData {
@@ -23072,7 +24193,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                579,
+                                668,
                             ),
                         },
                     ],
@@ -23084,7 +24205,7 @@
     (
         Trace(
             Id {
-                value: 578,
+                value: 667,
             },
         ),
         TraceViewData {
@@ -23107,7 +24228,7 @@
     (
         Trace(
             Id {
-                value: 579,
+                value: 668,
             },
         ),
         TraceViewData {
@@ -23166,7 +24287,7 @@
     (
         Trace(
             Id {
-                value: 580,
+                value: 669,
             },
         ),
         TraceViewData {
@@ -23201,7 +24322,7 @@
     (
         Trace(
             Id {
-                value: 570,
+                value: 659,
             },
         ),
         TraceViewData {
@@ -23220,7 +24341,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                580,
+                                669,
                             ),
                         },
                         TraceViewTokenData {
@@ -23234,7 +24355,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                581,
+                                670,
                             ),
                         },
                         TraceViewTokenData {
@@ -23247,7 +24368,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                671,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -23276,7 +24399,7 @@
     (
         Trace(
             Id {
-                value: 581,
+                value: 670,
             },
         ),
         TraceViewData {
@@ -23299,7 +24422,7 @@
     (
         Trace(
             Id {
-                value: 582,
+                value: 671,
             },
         ),
         TraceViewData {
@@ -23334,7 +24457,30 @@
     (
         Trace(
             Id {
-                value: 571,
+                value: 672,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 660,
             },
         ),
         TraceViewData {
@@ -23353,7 +24499,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                582,
+                                672,
                             ),
                         },
                         TraceViewTokenData {
@@ -23367,7 +24513,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                583,
+                                673,
                             ),
                         },
                         TraceViewTokenData {
@@ -23381,7 +24527,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                584,
+                                674,
                             ),
                         },
                         TraceViewTokenData {
@@ -23394,7 +24540,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                675,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -23411,7 +24559,7 @@
     (
         Trace(
             Id {
-                value: 583,
+                value: 673,
             },
         ),
         TraceViewData {
@@ -23434,7 +24582,7 @@
     (
         Trace(
             Id {
-                value: 584,
+                value: 674,
             },
         ),
         TraceViewData {
@@ -23481,7 +24629,7 @@
     (
         Trace(
             Id {
-                value: 585,
+                value: 675,
             },
         ),
         TraceViewData {
@@ -23516,7 +24664,30 @@
     (
         Trace(
             Id {
-                value: 572,
+                value: 676,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 661,
             },
         ),
         TraceViewData {
@@ -23535,7 +24706,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                585,
+                                676,
                             ),
                         },
                         TraceViewTokenData {
@@ -23577,7 +24748,7 @@
     (
         Trace(
             Id {
-                value: 586,
+                value: 677,
             },
         ),
         TraceViewData {
@@ -23600,7 +24771,7 @@
     (
         Trace(
             Id {
-                value: 573,
+                value: 662,
             },
         ),
         TraceViewData {
@@ -23619,7 +24790,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                586,
+                                677,
                             ),
                         },
                         TraceViewTokenData {
@@ -23633,7 +24804,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                587,
+                                678,
                             ),
                         },
                         TraceViewTokenData {
@@ -23653,7 +24824,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                588,
+                                679,
                             ),
                         },
                         TraceViewTokenData {
@@ -23679,7 +24850,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                589,
+                                680,
                             ),
                         },
                     ],
@@ -23691,7 +24862,7 @@
     (
         Trace(
             Id {
-                value: 587,
+                value: 678,
             },
         ),
         TraceViewData {
@@ -23714,7 +24885,7 @@
     (
         Trace(
             Id {
-                value: 588,
+                value: 679,
             },
         ),
         TraceViewData {
@@ -23737,7 +24908,7 @@
     (
         Trace(
             Id {
-                value: 589,
+                value: 680,
             },
         ),
         TraceViewData {
@@ -23790,7 +24961,7 @@
     (
         Trace(
             Id {
-                value: 590,
+                value: 681,
             },
         ),
         TraceViewData {
@@ -23855,7 +25026,7 @@
     (
         Trace(
             Id {
-                value: 574,
+                value: 663,
             },
         ),
         TraceViewData {
@@ -23874,7 +25045,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                590,
+                                681,
                             ),
                         },
                         TraceViewTokenData {
@@ -23888,7 +25059,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                591,
+                                682,
                             ),
                         },
                         TraceViewTokenData {
@@ -23902,7 +25073,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                592,
+                                683,
                             ),
                         },
                         TraceViewTokenData {
@@ -23916,7 +25087,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                593,
+                                684,
                             ),
                         },
                         TraceViewTokenData {
@@ -23930,7 +25101,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                594,
+                                685,
                             ),
                         },
                     ],
@@ -23942,7 +25113,7 @@
     (
         Trace(
             Id {
-                value: 591,
+                value: 682,
             },
         ),
         TraceViewData {
@@ -23965,7 +25136,7 @@
     (
         Trace(
             Id {
-                value: 592,
+                value: 683,
             },
         ),
         TraceViewData {
@@ -24024,7 +25195,7 @@
     (
         Trace(
             Id {
-                value: 593,
+                value: 684,
             },
         ),
         TraceViewData {
@@ -24059,7 +25230,7 @@
     (
         Trace(
             Id {
-                value: 594,
+                value: 685,
             },
         ),
         TraceViewData {
@@ -24118,7 +25289,7 @@
     (
         Trace(
             Id {
-                value: 595,
+                value: 686,
             },
         ),
         TraceViewData {
@@ -24153,7 +25324,7 @@
     (
         Trace(
             Id {
-                value: 575,
+                value: 664,
             },
         ),
         TraceViewData {
@@ -24172,7 +25343,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                595,
+                                686,
                             ),
                         },
                         TraceViewTokenData {
@@ -24185,7 +25356,9 @@
                             text: "7.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                687,
+                            ),
                         },
                     ],
                 },
@@ -24196,7 +25369,7 @@
     (
         Trace(
             Id {
-                value: 596,
+                value: 687,
             },
         ),
         TraceViewData {
@@ -24219,7 +25392,30 @@
     (
         Trace(
             Id {
-                value: 576,
+                value: 688,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "7.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 665,
             },
         ),
         TraceViewData {
@@ -24238,7 +25434,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                596,
+                                688,
                             ),
                         },
                         TraceViewTokenData {
@@ -24252,7 +25448,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                597,
+                                689,
                             ),
                         },
                         TraceViewTokenData {
@@ -24265,7 +25461,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                690,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -24300,7 +25498,7 @@
     (
         Trace(
             Id {
-                value: 599,
+                value: 692,
             },
         ),
         TraceViewData {
@@ -24319,7 +25517,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                612,
+                                705,
                             ),
                         },
                         TraceViewTokenData {
@@ -24333,7 +25531,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                613,
+                                706,
                             ),
                         },
                         TraceViewTokenData {
@@ -24358,7 +25556,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                707,
+                            ),
                         },
                     ],
                 },
@@ -24369,7 +25569,7 @@
     (
         Trace(
             Id {
-                value: 600,
+                value: 693,
             },
         ),
         TraceViewData {
@@ -24388,7 +25588,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                614,
+                                708,
                             ),
                         },
                         TraceViewTokenData {
@@ -24402,7 +25602,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                615,
+                                709,
                             ),
                         },
                         TraceViewTokenData {
@@ -24416,7 +25616,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                616,
+                                710,
                             ),
                         },
                         TraceViewTokenData {
@@ -24429,7 +25629,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                711,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -24446,7 +25648,7 @@
     (
         Trace(
             Id {
-                value: 601,
+                value: 694,
             },
         ),
         TraceViewData {
@@ -24465,7 +25667,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                617,
+                                712,
                             ),
                         },
                         TraceViewTokenData {
@@ -24507,7 +25709,7 @@
     (
         Trace(
             Id {
-                value: 602,
+                value: 695,
             },
         ),
         TraceViewData {
@@ -24526,7 +25728,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                618,
+                                713,
                             ),
                         },
                         TraceViewTokenData {
@@ -24540,7 +25742,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                619,
+                                714,
                             ),
                         },
                         TraceViewTokenData {
@@ -24553,7 +25755,9 @@
                             text: "1.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                715,
+                            ),
                         },
                     ],
                 },
@@ -24564,7 +25768,7 @@
     (
         Trace(
             Id {
-                value: 603,
+                value: 696,
             },
         ),
         TraceViewData {
@@ -24583,7 +25787,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                620,
+                                716,
                             ),
                         },
                         TraceViewTokenData {
@@ -24597,7 +25801,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                621,
+                                717,
                             ),
                         },
                         TraceViewTokenData {
@@ -24611,7 +25815,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                622,
+                                718,
                             ),
                         },
                         TraceViewTokenData {
@@ -24625,7 +25829,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                623,
+                                719,
                             ),
                         },
                         TraceViewTokenData {
@@ -24639,7 +25843,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                624,
+                                720,
                             ),
                         },
                     ],
@@ -24651,7 +25855,7 @@
     (
         Trace(
             Id {
-                value: 604,
+                value: 697,
             },
         ),
         TraceViewData {
@@ -24670,7 +25874,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                625,
+                                721,
                             ),
                         },
                         TraceViewTokenData {
@@ -24684,7 +25888,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                626,
+                                722,
                             ),
                         },
                         TraceViewTokenData {
@@ -24698,7 +25902,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                627,
+                                723,
                             ),
                         },
                         TraceViewTokenData {
@@ -24711,7 +25915,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                724,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -24728,7 +25934,7 @@
     (
         Trace(
             Id {
-                value: 605,
+                value: 698,
             },
         ),
         TraceViewData {
@@ -24747,7 +25953,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                628,
+                                725,
                             ),
                         },
                         TraceViewTokenData {
@@ -24789,7 +25995,7 @@
     (
         Trace(
             Id {
-                value: 606,
+                value: 699,
             },
         ),
         TraceViewData {
@@ -24808,7 +26014,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                629,
+                                726,
                             ),
                         },
                         TraceViewTokenData {
@@ -24828,7 +26034,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                630,
+                                727,
                             ),
                         },
                         TraceViewTokenData {
@@ -24854,7 +26060,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                631,
+                                728,
                             ),
                         },
                         TraceViewTokenData {
@@ -24867,7 +26073,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                729,
+                            ),
                         },
                     ],
                 },
@@ -24878,7 +26086,7 @@
     (
         Trace(
             Id {
-                value: 607,
+                value: 700,
             },
         ),
         TraceViewData {
@@ -24897,7 +26105,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                632,
+                                730,
                             ),
                         },
                         TraceViewTokenData {
@@ -24917,7 +26125,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                633,
+                                731,
                             ),
                         },
                         TraceViewTokenData {
@@ -24936,7 +26144,9 @@
                             text: "110.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                732,
+                            ),
                         },
                     ],
                 },
@@ -24947,7 +26157,7 @@
     (
         Trace(
             Id {
-                value: 608,
+                value: 701,
             },
         ),
         TraceViewData {
@@ -24966,7 +26176,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                634,
+                                733,
                             ),
                         },
                         TraceViewTokenData {
@@ -24980,7 +26190,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                635,
+                                734,
                             ),
                         },
                         TraceViewTokenData {
@@ -24993,7 +26203,9 @@
                             text: "9.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                735,
+                            ),
                         },
                     ],
                 },
@@ -25004,7 +26216,7 @@
     (
         Trace(
             Id {
-                value: 609,
+                value: 702,
             },
         ),
         TraceViewData {
@@ -25023,7 +26235,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                636,
+                                736,
                             ),
                         },
                         TraceViewTokenData {
@@ -25037,7 +26249,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                637,
+                                737,
                             ),
                         },
                         TraceViewTokenData {
@@ -25051,7 +26263,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                638,
+                                738,
                             ),
                         },
                         TraceViewTokenData {
@@ -25064,7 +26276,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                739,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -25081,7 +26295,7 @@
     (
         Trace(
             Id {
-                value: 610,
+                value: 703,
             },
         ),
         TraceViewData {
@@ -25100,7 +26314,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                639,
+                                740,
                             ),
                         },
                         TraceViewTokenData {
@@ -25113,7 +26327,9 @@
                             text: "22.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                741,
+                            ),
                         },
                     ],
                 },
@@ -25124,7 +26340,7 @@
     (
         Trace(
             Id {
-                value: 611,
+                value: 704,
             },
         ),
         TraceViewData {
@@ -25143,7 +26359,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                640,
+                                742,
                             ),
                         },
                         TraceViewTokenData {
@@ -25156,7 +26372,9 @@
                             text: "9.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                743,
+                            ),
                         },
                     ],
                 },
@@ -25167,7 +26385,7 @@
     (
         Trace(
             Id {
-                value: 612,
+                value: 705,
             },
         ),
         TraceViewData {
@@ -25208,7 +26426,7 @@
     (
         Trace(
             Id {
-                value: 597,
+                value: 689,
             },
         ),
         TraceViewData {
@@ -25231,7 +26449,7 @@
     (
         Trace(
             Id {
-                value: 598,
+                value: 690,
             },
         ),
         TraceViewData {
@@ -25266,7 +26484,30 @@
     (
         Trace(
             Id {
-                value: 577,
+                value: 691,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 666,
             },
         ),
         TraceViewData {
@@ -25330,7 +26571,7 @@
     (
         Trace(
             Id {
-                value: 642,
+                value: 745,
             },
         ),
         TraceViewData {
@@ -25377,7 +26618,7 @@
     (
         Trace(
             Id {
-                value: 644,
+                value: 747,
             },
         ),
         TraceViewData {
@@ -25396,7 +26637,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                644,
+                                747,
                             ),
                         },
                         TraceViewTokenData {
@@ -25404,7 +26645,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                645,
+                                748,
                             ),
                         },
                         TraceViewTokenData {
@@ -25460,7 +26701,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                644,
+                                747,
                             ),
                         },
                     ],
@@ -25472,7 +26713,7 @@
     (
         Trace(
             Id {
-                value: 645,
+                value: 748,
             },
         ),
         TraceViewData {
@@ -25561,7 +26802,7 @@
     (
         Trace(
             Id {
-                value: 646,
+                value: 749,
             },
         ),
         TraceViewData {
@@ -25632,7 +26873,7 @@
     (
         Trace(
             Id {
-                value: 645,
+                value: 748,
             },
         ),
         TraceViewData {
@@ -25721,7 +26962,7 @@
     (
         Trace(
             Id {
-                value: 643,
+                value: 746,
             },
         ),
         TraceViewData {
@@ -25816,7 +27057,7 @@
     (
         Trace(
             Id {
-                value: 647,
+                value: 750,
             },
         ),
         TraceViewData {
@@ -25835,7 +27076,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                658,
+                                761,
                             ),
                         },
                         TraceViewTokenData {
@@ -25849,7 +27090,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                659,
+                                762,
                             ),
                         },
                         TraceViewTokenData {
@@ -25863,7 +27104,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                660,
+                                763,
                             ),
                         },
                         TraceViewTokenData {
@@ -25887,7 +27128,7 @@
     (
         Trace(
             Id {
-                value: 659,
+                value: 762,
             },
         ),
         TraceViewData {
@@ -25910,7 +27151,7 @@
     (
         Trace(
             Id {
-                value: 660,
+                value: 763,
             },
         ),
         TraceViewData {
@@ -25981,7 +27222,7 @@
     (
         Trace(
             Id {
-                value: 661,
+                value: 764,
             },
         ),
         TraceViewData {
@@ -26028,7 +27269,7 @@
     (
         Trace(
             Id {
-                value: 648,
+                value: 751,
             },
         ),
         TraceViewData {
@@ -26047,7 +27288,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                661,
+                                764,
                             ),
                         },
                         TraceViewTokenData {
@@ -26061,7 +27302,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                662,
+                                765,
                             ),
                         },
                         TraceViewTokenData {
@@ -26075,7 +27316,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                663,
+                                766,
                             ),
                         },
                     ],
@@ -26087,7 +27328,7 @@
     (
         Trace(
             Id {
-                value: 662,
+                value: 765,
             },
         ),
         TraceViewData {
@@ -26110,7 +27351,7 @@
     (
         Trace(
             Id {
-                value: 663,
+                value: 766,
             },
         ),
         TraceViewData {
@@ -26169,7 +27410,7 @@
     (
         Trace(
             Id {
-                value: 664,
+                value: 767,
             },
         ),
         TraceViewData {
@@ -26204,7 +27445,7 @@
     (
         Trace(
             Id {
-                value: 649,
+                value: 752,
             },
         ),
         TraceViewData {
@@ -26223,7 +27464,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                664,
+                                767,
                             ),
                         },
                         TraceViewTokenData {
@@ -26237,7 +27478,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                665,
+                                768,
                             ),
                         },
                         TraceViewTokenData {
@@ -26250,7 +27491,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                769,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -26279,7 +27522,7 @@
     (
         Trace(
             Id {
-                value: 665,
+                value: 768,
             },
         ),
         TraceViewData {
@@ -26302,7 +27545,7 @@
     (
         Trace(
             Id {
-                value: 666,
+                value: 769,
             },
         ),
         TraceViewData {
@@ -26337,7 +27580,30 @@
     (
         Trace(
             Id {
-                value: 650,
+                value: 770,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 753,
             },
         ),
         TraceViewData {
@@ -26356,7 +27622,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                666,
+                                770,
                             ),
                         },
                         TraceViewTokenData {
@@ -26370,7 +27636,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                667,
+                                771,
                             ),
                         },
                         TraceViewTokenData {
@@ -26384,7 +27650,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                668,
+                                772,
                             ),
                         },
                         TraceViewTokenData {
@@ -26397,7 +27663,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                773,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -26414,7 +27682,7 @@
     (
         Trace(
             Id {
-                value: 667,
+                value: 771,
             },
         ),
         TraceViewData {
@@ -26437,7 +27705,7 @@
     (
         Trace(
             Id {
-                value: 668,
+                value: 772,
             },
         ),
         TraceViewData {
@@ -26484,7 +27752,7 @@
     (
         Trace(
             Id {
-                value: 669,
+                value: 773,
             },
         ),
         TraceViewData {
@@ -26519,7 +27787,30 @@
     (
         Trace(
             Id {
-                value: 651,
+                value: 774,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 754,
             },
         ),
         TraceViewData {
@@ -26538,7 +27829,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                669,
+                                774,
                             ),
                         },
                         TraceViewTokenData {
@@ -26552,7 +27843,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                670,
+                                775,
                             ),
                         },
                         TraceViewTokenData {
@@ -26566,7 +27857,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                671,
+                                776,
                             ),
                         },
                         TraceViewTokenData {
@@ -26579,7 +27870,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                777,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -26596,7 +27889,7 @@
     (
         Trace(
             Id {
-                value: 670,
+                value: 775,
             },
         ),
         TraceViewData {
@@ -26619,7 +27912,7 @@
     (
         Trace(
             Id {
-                value: 671,
+                value: 776,
             },
         ),
         TraceViewData {
@@ -26666,7 +27959,7 @@
     (
         Trace(
             Id {
-                value: 672,
+                value: 777,
             },
         ),
         TraceViewData {
@@ -26701,7 +27994,30 @@
     (
         Trace(
             Id {
-                value: 652,
+                value: 778,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 755,
             },
         ),
         TraceViewData {
@@ -26720,7 +28036,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                672,
+                                778,
                             ),
                         },
                         TraceViewTokenData {
@@ -26734,7 +28050,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                673,
+                                779,
                             ),
                         },
                         TraceViewTokenData {
@@ -26748,7 +28064,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                674,
+                                780,
                             ),
                         },
                         TraceViewTokenData {
@@ -26761,7 +28077,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                781,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -26778,7 +28096,7 @@
     (
         Trace(
             Id {
-                value: 673,
+                value: 779,
             },
         ),
         TraceViewData {
@@ -26801,7 +28119,7 @@
     (
         Trace(
             Id {
-                value: 674,
+                value: 780,
             },
         ),
         TraceViewData {
@@ -26848,7 +28166,7 @@
     (
         Trace(
             Id {
-                value: 675,
+                value: 781,
             },
         ),
         TraceViewData {
@@ -26883,7 +28201,30 @@
     (
         Trace(
             Id {
-                value: 653,
+                value: 782,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 756,
             },
         ),
         TraceViewData {
@@ -26902,7 +28243,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                675,
+                                782,
                             ),
                         },
                         TraceViewTokenData {
@@ -26911,6 +28252,54 @@
                             spaces_before: 0,
                             assoc_trace_id: None,
                         },
+                        TraceViewTokenData {
+                            text: "3",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                783,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 783,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "cc_num",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 784,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
                         TraceViewTokenData {
                             text: "3",
                             token_class: Literal,
@@ -26926,30 +28315,7 @@
     (
         Trace(
             Id {
-                value: 676,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "cc_num",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 654,
+                value: 757,
             },
         ),
         TraceViewData {
@@ -26968,7 +28334,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                676,
+                                784,
                             ),
                         },
                         TraceViewTokenData {
@@ -26982,7 +28348,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                677,
+                                785,
                             ),
                         },
                         TraceViewTokenData {
@@ -26996,7 +28362,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                678,
+                                786,
                             ),
                         },
                         TraceViewTokenData {
@@ -27010,7 +28376,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                679,
+                                787,
                             ),
                         },
                         TraceViewTokenData {
@@ -27024,7 +28390,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                680,
+                                788,
                             ),
                         },
                     ],
@@ -27036,7 +28402,7 @@
     (
         Trace(
             Id {
-                value: 677,
+                value: 785,
             },
         ),
         TraceViewData {
@@ -27059,7 +28425,7 @@
     (
         Trace(
             Id {
-                value: 678,
+                value: 786,
             },
         ),
         TraceViewData {
@@ -27118,7 +28484,7 @@
     (
         Trace(
             Id {
-                value: 679,
+                value: 787,
             },
         ),
         TraceViewData {
@@ -27153,7 +28519,7 @@
     (
         Trace(
             Id {
-                value: 680,
+                value: 788,
             },
         ),
         TraceViewData {
@@ -27212,7 +28578,7 @@
     (
         Trace(
             Id {
-                value: 681,
+                value: 789,
             },
         ),
         TraceViewData {
@@ -27247,7 +28613,7 @@
     (
         Trace(
             Id {
-                value: 655,
+                value: 758,
             },
         ),
         TraceViewData {
@@ -27266,7 +28632,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                681,
+                                789,
                             ),
                         },
                         TraceViewTokenData {
@@ -27279,7 +28645,9 @@
                             text: "10.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                790,
+                            ),
                         },
                     ],
                 },
@@ -27290,7 +28658,7 @@
     (
         Trace(
             Id {
-                value: 682,
+                value: 790,
             },
         ),
         TraceViewData {
@@ -27313,7 +28681,30 @@
     (
         Trace(
             Id {
-                value: 656,
+                value: 791,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "10.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 759,
             },
         ),
         TraceViewData {
@@ -27332,7 +28723,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                682,
+                                791,
                             ),
                         },
                         TraceViewTokenData {
@@ -27345,7 +28736,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                792,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -27362,7 +28755,7 @@
     (
         Trace(
             Id {
-                value: 684,
+                value: 794,
             },
         ),
         TraceViewData {
@@ -27381,7 +28774,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                697,
+                                807,
                             ),
                         },
                         TraceViewTokenData {
@@ -27423,7 +28816,7 @@
     (
         Trace(
             Id {
-                value: 685,
+                value: 795,
             },
         ),
         TraceViewData {
@@ -27442,7 +28835,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                698,
+                                808,
                             ),
                         },
                         TraceViewTokenData {
@@ -27484,7 +28877,7 @@
     (
         Trace(
             Id {
-                value: 686,
+                value: 796,
             },
         ),
         TraceViewData {
@@ -27503,7 +28896,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                699,
+                                809,
                             ),
                         },
                         TraceViewTokenData {
@@ -27517,7 +28910,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                700,
+                                810,
                             ),
                         },
                         TraceViewTokenData {
@@ -27537,7 +28930,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                701,
+                                811,
                             ),
                         },
                     ],
@@ -27549,7 +28942,7 @@
     (
         Trace(
             Id {
-                value: 687,
+                value: 797,
             },
         ),
         TraceViewData {
@@ -27568,7 +28961,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                702,
+                                812,
                             ),
                         },
                         TraceViewTokenData {
@@ -27587,7 +28980,9 @@
                             text: "180.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                813,
+                            ),
                         },
                     ],
                 },
@@ -27598,7 +28993,7 @@
     (
         Trace(
             Id {
-                value: 688,
+                value: 798,
             },
         ),
         TraceViewData {
@@ -27617,7 +29012,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                703,
+                                814,
                             ),
                         },
                         TraceViewTokenData {
@@ -27631,7 +29026,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                704,
+                                815,
                             ),
                         },
                         TraceViewTokenData {
@@ -27651,7 +29046,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                705,
+                                816,
                             ),
                         },
                         TraceViewTokenData {
@@ -27677,7 +29072,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                706,
+                                817,
                             ),
                         },
                         TraceViewTokenData {
@@ -27690,7 +29085,9 @@
                             text: "true",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                818,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -27707,7 +29104,7 @@
     (
         Trace(
             Id {
-                value: 689,
+                value: 799,
             },
         ),
         TraceViewData {
@@ -27726,7 +29123,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                707,
+                                819,
                             ),
                         },
                         TraceViewTokenData {
@@ -27740,7 +29137,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                708,
+                                820,
                             ),
                         },
                         TraceViewTokenData {
@@ -27760,7 +29157,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                709,
+                                821,
                             ),
                         },
                         TraceViewTokenData {
@@ -27786,7 +29183,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                710,
+                                822,
                             ),
                         },
                     ],
@@ -27798,7 +29195,7 @@
     (
         Trace(
             Id {
-                value: 690,
+                value: 800,
             },
         ),
         TraceViewData {
@@ -27817,7 +29214,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                711,
+                                823,
                             ),
                         },
                         TraceViewTokenData {
@@ -27831,7 +29228,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                712,
+                                824,
                             ),
                         },
                         TraceViewTokenData {
@@ -27851,7 +29248,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                713,
+                                825,
                             ),
                         },
                         TraceViewTokenData {
@@ -27877,7 +29274,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                714,
+                                826,
                             ),
                         },
                     ],
@@ -27889,7 +29286,7 @@
     (
         Trace(
             Id {
-                value: 691,
+                value: 801,
             },
         ),
         TraceViewData {
@@ -27908,7 +29305,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                715,
+                                827,
                             ),
                         },
                         TraceViewTokenData {
@@ -27922,7 +29319,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                716,
+                                828,
                             ),
                         },
                         TraceViewTokenData {
@@ -27942,7 +29339,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                717,
+                                829,
                             ),
                         },
                         TraceViewTokenData {
@@ -27956,7 +29353,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                718,
+                                830,
                             ),
                         },
                         TraceViewTokenData {
@@ -27980,7 +29377,7 @@
     (
         Trace(
             Id {
-                value: 692,
+                value: 802,
             },
         ),
         TraceViewData {
@@ -27999,7 +29396,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                719,
+                                831,
                             ),
                         },
                         TraceViewTokenData {
@@ -28013,7 +29410,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                720,
+                                832,
                             ),
                         },
                         TraceViewTokenData {
@@ -28033,7 +29430,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                721,
+                                833,
                             ),
                         },
                         TraceViewTokenData {
@@ -28047,7 +29444,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                722,
+                                834,
                             ),
                         },
                         TraceViewTokenData {
@@ -28071,7 +29468,7 @@
     (
         Trace(
             Id {
-                value: 693,
+                value: 803,
             },
         ),
         TraceViewData {
@@ -28090,7 +29487,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                723,
+                                835,
                             ),
                         },
                         TraceViewTokenData {
@@ -28110,7 +29507,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                724,
+                                836,
                             ),
                         },
                         TraceViewTokenData {
@@ -28124,7 +29521,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                725,
+                                837,
                             ),
                         },
                         TraceViewTokenData {
@@ -28143,7 +29540,9 @@
                             text: "2.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                838,
+                            ),
                         },
                     ],
                 },
@@ -28154,7 +29553,7 @@
     (
         Trace(
             Id {
-                value: 694,
+                value: 804,
             },
         ),
         TraceViewData {
@@ -28173,7 +29572,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                726,
+                                839,
                             ),
                         },
                         TraceViewTokenData {
@@ -28187,7 +29586,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                727,
+                                840,
                             ),
                         },
                         TraceViewTokenData {
@@ -28207,7 +29606,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                728,
+                                841,
                             ),
                         },
                         TraceViewTokenData {
@@ -28221,7 +29620,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                729,
+                                842,
                             ),
                         },
                         TraceViewTokenData {
@@ -28245,7 +29644,7 @@
     (
         Trace(
             Id {
-                value: 695,
+                value: 805,
             },
         ),
         TraceViewData {
@@ -28264,7 +29663,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                730,
+                                843,
                             ),
                         },
                         TraceViewTokenData {
@@ -28278,7 +29677,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                731,
+                                844,
                             ),
                         },
                         TraceViewTokenData {
@@ -28298,7 +29697,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                732,
+                                845,
                             ),
                         },
                         TraceViewTokenData {
@@ -28312,7 +29711,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                733,
+                                846,
                             ),
                         },
                         TraceViewTokenData {
@@ -28336,7 +29735,7 @@
     (
         Trace(
             Id {
-                value: 696,
+                value: 806,
             },
         ),
         TraceViewData {
@@ -28355,7 +29754,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                734,
+                                847,
                             ),
                         },
                         TraceViewTokenData {
@@ -28375,7 +29774,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                735,
+                                848,
                             ),
                         },
                         TraceViewTokenData {
@@ -28389,7 +29788,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                736,
+                                849,
                             ),
                         },
                         TraceViewTokenData {
@@ -28408,7 +29807,9 @@
                             text: "2.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                850,
+                            ),
                         },
                     ],
                 },
@@ -28419,7 +29820,7 @@
     (
         Trace(
             Id {
-                value: 697,
+                value: 807,
             },
         ),
         TraceViewData {
@@ -28438,7 +29839,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                737,
+                                851,
                             ),
                         },
                         TraceViewTokenData {
@@ -28452,7 +29853,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                738,
+                                852,
                             ),
                         },
                     ],
@@ -28464,7 +29865,7 @@
     (
         Trace(
             Id {
-                value: 683,
+                value: 792,
             },
         ),
         TraceViewData {
@@ -28487,7 +29888,30 @@
     (
         Trace(
             Id {
-                value: 657,
+                value: 793,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 760,
             },
         ),
         TraceViewData {
@@ -28506,7 +29930,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                739,
+                                853,
                             ),
                         },
                         TraceViewTokenData {
@@ -28519,7 +29943,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                854,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -28536,7 +29962,7 @@
     (
         Trace(
             Id {
-                value: 741,
+                value: 856,
             },
         ),
         TraceViewData {
@@ -28555,7 +29981,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                745,
+                                860,
                             ),
                         },
                         TraceViewTokenData {
@@ -28597,7 +30023,7 @@
     (
         Trace(
             Id {
-                value: 742,
+                value: 857,
             },
         ),
         TraceViewData {
@@ -28616,7 +30042,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                746,
+                                861,
                             ),
                         },
                         TraceViewTokenData {
@@ -28658,7 +30084,7 @@
     (
         Trace(
             Id {
-                value: 743,
+                value: 858,
             },
         ),
         TraceViewData {
@@ -28677,7 +30103,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                747,
+                                862,
                             ),
                         },
                         TraceViewTokenData {
@@ -28719,7 +30145,7 @@
     (
         Trace(
             Id {
-                value: 744,
+                value: 859,
             },
         ),
         TraceViewData {
@@ -28738,7 +30164,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                748,
+                                863,
                             ),
                         },
                         TraceViewTokenData {
@@ -28758,7 +30184,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                749,
+                                864,
                             ),
                         },
                         TraceViewTokenData {
@@ -28772,7 +30198,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                750,
+                                865,
                             ),
                         },
                         TraceViewTokenData {
@@ -28797,7 +30223,9 @@
                             text: "0.4",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                866,
+                            ),
                         },
                     ],
                 },
@@ -28808,7 +30236,7 @@
     (
         Trace(
             Id {
-                value: 745,
+                value: 860,
             },
         ),
         TraceViewData {
@@ -28827,7 +30255,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                751,
+                                867,
                             ),
                         },
                         TraceViewTokenData {
@@ -28841,7 +30269,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                752,
+                                868,
                             ),
                         },
                         TraceViewTokenData {
@@ -28861,7 +30289,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                753,
+                                869,
                             ),
                         },
                     ],
@@ -28873,7 +30301,7 @@
     (
         Trace(
             Id {
-                value: 740,
+                value: 854,
             },
         ),
         TraceViewData {
@@ -28896,7 +30324,30 @@
     (
         Trace(
             Id {
-                value: 658,
+                value: 855,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "3",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 761,
             },
         ),
         TraceViewData {
@@ -28960,7 +30411,7 @@
     (
         Trace(
             Id {
-                value: 755,
+                value: 871,
             },
         ),
         TraceViewData {
@@ -29025,7 +30476,7 @@
     (
         Trace(
             Id {
-                value: 762,
+                value: 878,
             },
         ),
         TraceViewData {
@@ -29044,7 +30495,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                762,
+                                878,
                             ),
                         },
                         TraceViewTokenData {
@@ -29052,7 +30503,7 @@
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                763,
+                                879,
                             ),
                         },
                         TraceViewTokenData {
@@ -29060,7 +30511,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                762,
+                                878,
                             ),
                         },
                     ],
@@ -29072,7 +30523,7 @@
     (
         Trace(
             Id {
-                value: 763,
+                value: 879,
             },
         ),
         TraceViewData {
@@ -29113,7 +30564,7 @@
     (
         Trace(
             Id {
-                value: 765,
+                value: 881,
             },
         ),
         TraceViewData {
@@ -29136,7 +30587,7 @@
     (
         Trace(
             Id {
-                value: 766,
+                value: 882,
             },
         ),
         TraceViewData {
@@ -29231,7 +30682,7 @@
     (
         Trace(
             Id {
-                value: 764,
+                value: 880,
             },
         ),
         TraceViewData {
@@ -29284,7 +30735,7 @@
     (
         Trace(
             Id {
-                value: 763,
+                value: 879,
             },
         ),
         TraceViewData {
@@ -29325,7 +30776,7 @@
     (
         Trace(
             Id {
-                value: 765,
+                value: 881,
             },
         ),
         TraceViewData {
@@ -29348,7 +30799,7 @@
     (
         Trace(
             Id {
-                value: 766,
+                value: 882,
             },
         ),
         TraceViewData {
@@ -29443,7 +30894,7 @@
     (
         Trace(
             Id {
-                value: 756,
+                value: 872,
             },
         ),
         TraceViewData {
@@ -29502,7 +30953,7 @@
     (
         Trace(
             Id {
-                value: 767,
+                value: 883,
             },
         ),
         TraceViewData {
@@ -29527,7 +30978,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                770,
+                                886,
                             ),
                         },
                         TraceViewTokenData {
@@ -29536,6 +30987,60 @@
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                887,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 887,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerPattern,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "mut",
+                            token_class: OtherKeyword,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "i0",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 888,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
                         TraceViewTokenData {
                             text: "0",
                             token_class: Literal,
@@ -29551,36 +31056,7 @@
     (
         Trace(
             Id {
-                value: 771,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerPattern,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "mut",
-                            token_class: OtherKeyword,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "i0",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 768,
+                value: 884,
             },
         ),
         TraceViewData {
@@ -29605,7 +31081,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                771,
+                                888,
                             ),
                         },
                         TraceViewTokenData {
@@ -29618,7 +31094,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                889,
+                            ),
                         },
                     ],
                 },
@@ -29629,7 +31107,7 @@
     (
         Trace(
             Id {
-                value: 772,
+                value: 889,
             },
         ),
         TraceViewData {
@@ -29658,7 +31136,30 @@
     (
         Trace(
             Id {
-                value: 769,
+                value: 890,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 885,
             },
         ),
         TraceViewData {
@@ -29677,7 +31178,7 @@
                             token_class: LoopVariable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                772,
+                                890,
                             ),
                         },
                         TraceViewTokenData {
@@ -29691,7 +31192,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                773,
+                                891,
                             ),
                         },
                         TraceViewTokenData {
@@ -29705,7 +31206,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                774,
+                                892,
                             ),
                         },
                         TraceViewTokenData {
@@ -29735,7 +31236,7 @@
     (
         Trace(
             Id {
-                value: 776,
+                value: 894,
             },
         ),
         TraceViewData {
@@ -29754,7 +31255,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                777,
+                                895,
                             ),
                         },
                         TraceViewTokenData {
@@ -29768,7 +31269,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                778,
+                                896,
                             ),
                         },
                         TraceViewTokenData {
@@ -29782,7 +31283,7 @@
                             token_class: LoopVariable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                779,
+                                897,
                             ),
                         },
                         TraceViewTokenData {
@@ -29802,7 +31303,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                780,
+                                898,
                             ),
                         },
                     ],
@@ -29814,7 +31315,7 @@
     (
         Trace(
             Id {
-                value: 778,
+                value: 896,
             },
         ),
         TraceViewData {
@@ -29837,7 +31338,7 @@
     (
         Trace(
             Id {
-                value: 779,
+                value: 897,
             },
         ),
         TraceViewData {
@@ -29902,7 +31403,7 @@
     (
         Trace(
             Id {
-                value: 780,
+                value: 898,
             },
         ),
         TraceViewData {
@@ -29925,7 +31426,7 @@
     (
         Trace(
             Id {
-                value: 781,
+                value: 899,
             },
         ),
         TraceViewData {
@@ -29978,7 +31479,7 @@
     (
         Trace(
             Id {
-                value: 777,
+                value: 895,
             },
         ),
         TraceViewData {
@@ -29997,7 +31498,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                781,
+                                899,
                             ),
                         },
                         TraceViewTokenData {
@@ -30011,7 +31512,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                782,
+                                900,
                             ),
                         },
                         TraceViewTokenData {
@@ -30029,7 +31530,7 @@
     (
         Trace(
             Id {
-                value: 784,
+                value: 902,
             },
         ),
         TraceViewData {
@@ -30042,7 +31543,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                785,
+                                903,
                             ),
                         },
                         TraceViewTokenData {
@@ -30056,7 +31557,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                786,
+                                904,
                             ),
                         },
                     ],
@@ -30068,7 +31569,7 @@
     (
         Trace(
             Id {
-                value: 785,
+                value: 903,
             },
         ),
         TraceViewData {
@@ -30081,7 +31582,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                787,
+                                905,
                             ),
                         },
                         TraceViewTokenData {
@@ -30095,7 +31596,7 @@
                             token_class: LoopVariable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                788,
+                                906,
                             ),
                         },
                     ],
@@ -30107,7 +31608,7 @@
     (
         Trace(
             Id {
-                value: 782,
+                value: 900,
             },
         ),
         TraceViewData {
@@ -30130,7 +31631,7 @@
     (
         Trace(
             Id {
-                value: 783,
+                value: 901,
             },
         ),
         TraceViewData {
@@ -30153,7 +31654,7 @@
     (
         Trace(
             Id {
-                value: 773,
+                value: 891,
             },
         ),
         TraceViewData {
@@ -30176,7 +31677,7 @@
     (
         Trace(
             Id {
-                value: 774,
+                value: 892,
             },
         ),
         TraceViewData {
@@ -30241,7 +31742,7 @@
     (
         Trace(
             Id {
-                value: 790,
+                value: 908,
             },
         ),
         TraceViewData {
@@ -30260,7 +31761,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                790,
+                                908,
                             ),
                         },
                         TraceViewTokenData {
@@ -30268,7 +31769,7 @@
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                791,
+                                909,
                             ),
                         },
                         TraceViewTokenData {
@@ -30276,7 +31777,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                790,
+                                908,
                             ),
                         },
                     ],
@@ -30288,7 +31789,7 @@
     (
         Trace(
             Id {
-                value: 775,
+                value: 893,
             },
         ),
         TraceViewData {
@@ -30335,7 +31836,7 @@
     (
         Trace(
             Id {
-                value: 793,
+                value: 911,
             },
         ),
         TraceViewData {
@@ -30400,7 +31901,7 @@
     (
         Trace(
             Id {
-                value: 770,
+                value: 886,
             },
         ),
         TraceViewData {
@@ -30419,7 +31920,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                793,
+                                911,
                             ),
                         },
                         TraceViewTokenData {
@@ -30433,7 +31934,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                794,
+                                912,
                             ),
                         },
                         TraceViewTokenData {
@@ -30451,7 +31952,7 @@
     (
         Trace(
             Id {
-                value: 794,
+                value: 912,
             },
         ),
         TraceViewData {
@@ -30516,7 +32017,7 @@
     (
         Trace(
             Id {
-                value: 796,
+                value: 914,
             },
         ),
         TraceViewData {
@@ -30535,7 +32036,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                796,
+                                914,
                             ),
                         },
                         TraceViewTokenData {
@@ -30543,7 +32044,7 @@
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                797,
+                                915,
                             ),
                         },
                         TraceViewTokenData {
@@ -30551,7 +32052,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                796,
+                                914,
                             ),
                         },
                     ],
@@ -30563,7 +32064,7 @@
     (
         Trace(
             Id {
-                value: 795,
+                value: 913,
             },
         ),
         TraceViewData {
@@ -30586,7 +32087,7 @@
     (
         Trace(
             Id {
-                value: 757,
+                value: 873,
             },
         ),
         TraceViewData {
@@ -30639,7 +32140,7 @@
     (
         Trace(
             Id {
-                value: 799,
+                value: 917,
             },
         ),
         TraceViewData {
@@ -30664,7 +32165,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                801,
+                                919,
                             ),
                         },
                         TraceViewTokenData {
@@ -30677,7 +32178,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                920,
+                            ),
                         },
                     ],
                 },
@@ -30688,7 +32191,7 @@
     (
         Trace(
             Id {
-                value: 802,
+                value: 920,
             },
         ),
         TraceViewData {
@@ -30717,7 +32220,30 @@
     (
         Trace(
             Id {
-                value: 800,
+                value: 921,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 918,
             },
         ),
         TraceViewData {
@@ -30736,7 +32262,7 @@
                             token_class: LoopVariable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                802,
+                                921,
                             ),
                         },
                         TraceViewTokenData {
@@ -30750,7 +32276,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                803,
+                                922,
                             ),
                         },
                         TraceViewTokenData {
@@ -30764,7 +32290,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                804,
+                                923,
                             ),
                         },
                         TraceViewTokenData {
@@ -30794,7 +32320,7 @@
     (
         Trace(
             Id {
-                value: 806,
+                value: 925,
             },
         ),
         TraceViewData {
@@ -30807,7 +32333,7 @@
                             token_class: Variable,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                806,
+                                925,
                             ),
                         },
                         TraceViewTokenData {
@@ -30821,7 +32347,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                807,
+                                926,
                             ),
                         },
                         TraceViewTokenData {
@@ -30835,7 +32361,7 @@
                             token_class: LoopVariable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                808,
+                                927,
                             ),
                         },
                         TraceViewTokenData {
@@ -30855,7 +32381,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                809,
+                                928,
                             ),
                         },
                     ],
@@ -30867,7 +32393,7 @@
     (
         Trace(
             Id {
-                value: 807,
+                value: 926,
             },
         ),
         TraceViewData {
@@ -30890,7 +32416,7 @@
     (
         Trace(
             Id {
-                value: 808,
+                value: 927,
             },
         ),
         TraceViewData {
@@ -30955,7 +32481,7 @@
     (
         Trace(
             Id {
-                value: 809,
+                value: 928,
             },
         ),
         TraceViewData {
@@ -30978,7 +32504,7 @@
     (
         Trace(
             Id {
-                value: 810,
+                value: 929,
             },
         ),
         TraceViewData {
@@ -31031,7 +32557,7 @@
     (
         Trace(
             Id {
-                value: 803,
+                value: 922,
             },
         ),
         TraceViewData {
@@ -31054,7 +32580,7 @@
     (
         Trace(
             Id {
-                value: 804,
+                value: 923,
             },
         ),
         TraceViewData {
@@ -31119,7 +32645,7 @@
     (
         Trace(
             Id {
-                value: 811,
+                value: 930,
             },
         ),
         TraceViewData {
@@ -31138,7 +32664,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                811,
+                                930,
                             ),
                         },
                         TraceViewTokenData {
@@ -31146,7 +32672,7 @@
                             token_class: StaticVarEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                812,
+                                931,
                             ),
                         },
                         TraceViewTokenData {
@@ -31154,7 +32680,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                811,
+                                930,
                             ),
                         },
                     ],
@@ -31166,7 +32692,7 @@
     (
         Trace(
             Id {
-                value: 805,
+                value: 924,
             },
         ),
         TraceViewData {
@@ -31213,7 +32739,7 @@
     (
         Trace(
             Id {
-                value: 814,
+                value: 933,
             },
         ),
         TraceViewData {
@@ -31278,7 +32804,7 @@
     (
         Trace(
             Id {
-                value: 801,
+                value: 919,
             },
         ),
         TraceViewData {
@@ -31297,7 +32823,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                814,
+                                933,
                             ),
                         },
                         TraceViewTokenData {
@@ -31311,7 +32837,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                815,
+                                934,
                             ),
                         },
                         TraceViewTokenData {
@@ -31325,7 +32851,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                816,
+                                935,
                             ),
                         },
                     ],
@@ -31337,7 +32863,7 @@
     (
         Trace(
             Id {
-                value: 815,
+                value: 934,
             },
         ),
         TraceViewData {
@@ -31360,7 +32886,7 @@
     (
         Trace(
             Id {
-                value: 816,
+                value: 935,
             },
         ),
         TraceViewData {
@@ -31419,7 +32945,7 @@
     (
         Trace(
             Id {
-                value: 818,
+                value: 937,
             },
         ),
         TraceViewData {
@@ -31444,7 +32970,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                821,
+                                940,
                             ),
                         },
                         TraceViewTokenData {
@@ -31457,7 +32983,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                941,
+                            ),
                         },
                     ],
                 },
@@ -31468,7 +32996,7 @@
     (
         Trace(
             Id {
-                value: 819,
+                value: 938,
             },
         ),
         TraceViewData {
@@ -31493,7 +33021,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                822,
+                                942,
                             ),
                         },
                         TraceViewTokenData {
@@ -31506,7 +33034,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                943,
+                            ),
                         },
                     ],
                 },
@@ -31517,7 +33047,7 @@
     (
         Trace(
             Id {
-                value: 820,
+                value: 939,
             },
         ),
         TraceViewData {
@@ -31536,7 +33066,7 @@
                             token_class: LoopVariable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                823,
+                                944,
                             ),
                         },
                         TraceViewTokenData {
@@ -31550,7 +33080,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                824,
+                                945,
                             ),
                         },
                         TraceViewTokenData {
@@ -31564,7 +33094,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                825,
+                                946,
                             ),
                         },
                         TraceViewTokenData {
@@ -31594,7 +33124,7 @@
     (
         Trace(
             Id {
-                value: 821,
+                value: 940,
             },
         ),
         TraceViewData {
@@ -31613,7 +33143,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                826,
+                                947,
                             ),
                         },
                         TraceViewTokenData {
@@ -31627,7 +33157,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                827,
+                                948,
                             ),
                         },
                         TraceViewTokenData {
@@ -31645,7 +33175,7 @@
     (
         Trace(
             Id {
-                value: 817,
+                value: 936,
             },
         ),
         TraceViewData {
@@ -31680,7 +33210,7 @@
     (
         Trace(
             Id {
-                value: 758,
+                value: 874,
             },
         ),
         TraceViewData {
@@ -31751,7 +33281,7 @@
     (
         Trace(
             Id {
-                value: 829,
+                value: 950,
             },
         ),
         TraceViewData {
@@ -31764,7 +33294,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                829,
+                                950,
                             ),
                         },
                         TraceViewTokenData {
@@ -31778,7 +33308,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                830,
+                                951,
                             ),
                         },
                     ],
@@ -31790,7 +33320,7 @@
     (
         Trace(
             Id {
-                value: 830,
+                value: 951,
             },
         ),
         TraceViewData {
@@ -31849,7 +33379,7 @@
     (
         Trace(
             Id {
-                value: 832,
+                value: 953,
             },
         ),
         TraceViewData {
@@ -31874,7 +33404,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                835,
+                                956,
                             ),
                         },
                         TraceViewTokenData {
@@ -31887,7 +33417,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                957,
+                            ),
                         },
                     ],
                 },
@@ -31898,7 +33430,7 @@
     (
         Trace(
             Id {
-                value: 833,
+                value: 954,
             },
         ),
         TraceViewData {
@@ -31923,7 +33455,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                836,
+                                958,
                             ),
                         },
                         TraceViewTokenData {
@@ -31936,7 +33468,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                959,
+                            ),
                         },
                     ],
                 },
@@ -31947,7 +33481,7 @@
     (
         Trace(
             Id {
-                value: 834,
+                value: 955,
             },
         ),
         TraceViewData {
@@ -31966,7 +33500,7 @@
                             token_class: LoopVariable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                837,
+                                960,
                             ),
                         },
                         TraceViewTokenData {
@@ -31980,7 +33514,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                838,
+                                961,
                             ),
                         },
                         TraceViewTokenData {
@@ -31994,7 +33528,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                839,
+                                962,
                             ),
                         },
                         TraceViewTokenData {
@@ -32024,7 +33558,7 @@
     (
         Trace(
             Id {
-                value: 835,
+                value: 956,
             },
         ),
         TraceViewData {
@@ -32043,7 +33577,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                840,
+                                963,
                             ),
                         },
                         TraceViewTokenData {
@@ -32057,7 +33591,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                841,
+                                964,
                             ),
                         },
                         TraceViewTokenData {
@@ -32075,7 +33609,7 @@
     (
         Trace(
             Id {
-                value: 831,
+                value: 952,
             },
         ),
         TraceViewData {
@@ -32110,7 +33644,7 @@
     (
         Trace(
             Id {
-                value: 759,
+                value: 875,
             },
         ),
         TraceViewData {
@@ -32169,7 +33703,7 @@
     (
         Trace(
             Id {
-                value: 843,
+                value: 966,
             },
         ),
         TraceViewData {
@@ -32182,7 +33716,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                843,
+                                966,
                             ),
                         },
                         TraceViewTokenData {
@@ -32196,7 +33730,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                844,
+                                967,
                             ),
                         },
                         TraceViewTokenData {
@@ -32209,7 +33743,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                968,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -32226,7 +33762,7 @@
     (
         Trace(
             Id {
-                value: 844,
+                value: 967,
             },
         ),
         TraceViewData {
@@ -32285,7 +33821,7 @@
     (
         Trace(
             Id {
-                value: 846,
+                value: 970,
             },
         ),
         TraceViewData {
@@ -32310,7 +33846,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                849,
+                                973,
                             ),
                         },
                         TraceViewTokenData {
@@ -32323,7 +33859,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                974,
+                            ),
                         },
                     ],
                 },
@@ -32334,7 +33872,7 @@
     (
         Trace(
             Id {
-                value: 847,
+                value: 971,
             },
         ),
         TraceViewData {
@@ -32359,7 +33897,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                850,
+                                975,
                             ),
                         },
                         TraceViewTokenData {
@@ -32372,7 +33910,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                976,
+                            ),
                         },
                     ],
                 },
@@ -32383,7 +33923,7 @@
     (
         Trace(
             Id {
-                value: 848,
+                value: 972,
             },
         ),
         TraceViewData {
@@ -32402,7 +33942,7 @@
                             token_class: LoopVariable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                851,
+                                977,
                             ),
                         },
                         TraceViewTokenData {
@@ -32416,7 +33956,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                852,
+                                978,
                             ),
                         },
                         TraceViewTokenData {
@@ -32430,7 +33970,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                853,
+                                979,
                             ),
                         },
                         TraceViewTokenData {
@@ -32460,7 +34000,7 @@
     (
         Trace(
             Id {
-                value: 849,
+                value: 973,
             },
         ),
         TraceViewData {
@@ -32479,7 +34019,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                854,
+                                980,
                             ),
                         },
                         TraceViewTokenData {
@@ -32493,7 +34033,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                855,
+                                981,
                             ),
                         },
                         TraceViewTokenData {
@@ -32511,7 +34051,7 @@
     (
         Trace(
             Id {
-                value: 845,
+                value: 968,
             },
         ),
         TraceViewData {
@@ -32546,7 +34086,30 @@
     (
         Trace(
             Id {
-                value: 760,
+                value: 969,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 876,
             },
         ),
         TraceViewData {
@@ -32605,7 +34168,7 @@
     (
         Trace(
             Id {
-                value: 857,
+                value: 983,
             },
         ),
         TraceViewData {
@@ -32618,7 +34181,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                857,
+                                983,
                             ),
                         },
                         TraceViewTokenData {
@@ -32632,7 +34195,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                858,
+                                984,
                             ),
                         },
                     ],
@@ -32644,7 +34207,7 @@
     (
         Trace(
             Id {
-                value: 858,
+                value: 984,
             },
         ),
         TraceViewData {
@@ -32703,7 +34266,7 @@
     (
         Trace(
             Id {
-                value: 860,
+                value: 986,
             },
         ),
         TraceViewData {
@@ -32716,7 +34279,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                860,
+                                986,
                             ),
                         },
                         TraceViewTokenData {
@@ -32730,7 +34293,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                861,
+                                987,
                             ),
                         },
                         TraceViewTokenData {
@@ -32743,7 +34306,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                988,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -32760,7 +34325,7 @@
     (
         Trace(
             Id {
-                value: 859,
+                value: 985,
             },
         ),
         TraceViewData {
@@ -32795,7 +34360,7 @@
     (
         Trace(
             Id {
-                value: 761,
+                value: 877,
             },
         ),
         TraceViewData {
@@ -32866,7 +34431,7 @@
     (
         Trace(
             Id {
-                value: 863,
+                value: 990,
             },
         ),
         TraceViewData {
@@ -32879,7 +34444,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                863,
+                                990,
                             ),
                         },
                         TraceViewTokenData {
@@ -32893,7 +34458,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                864,
+                                991,
                             ),
                         },
                     ],
@@ -32905,7 +34470,7 @@
     (
         Trace(
             Id {
-                value: 864,
+                value: 991,
             },
         ),
         TraceViewData {
@@ -32964,7 +34529,7 @@
     (
         Trace(
             Id {
-                value: 866,
+                value: 993,
             },
         ),
         TraceViewData {
@@ -32977,7 +34542,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                866,
+                                993,
                             ),
                         },
                         TraceViewTokenData {
@@ -32991,7 +34556,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                867,
+                                994,
                             ),
                         },
                     ],
@@ -33003,7 +34568,7 @@
     (
         Trace(
             Id {
-                value: 865,
+                value: 992,
             },
         ),
         TraceViewData {
@@ -33091,7 +34656,7 @@
     (
         Trace(
             Id {
-                value: 869,
+                value: 996,
             },
         ),
         TraceViewData {
@@ -33104,7 +34669,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                878,
+                                1005,
                             ),
                         },
                         TraceViewTokenData {
@@ -33122,7 +34687,7 @@
     (
         Trace(
             Id {
-                value: 879,
+                value: 1006,
             },
         ),
         TraceViewData {
@@ -33199,7 +34764,7 @@
     (
         Trace(
             Id {
-                value: 880,
+                value: 1007,
             },
         ),
         TraceViewData {
@@ -33218,7 +34783,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                883,
+                                1010,
                             ),
                         },
                     ],
@@ -33230,7 +34795,7 @@
                             token_class: ValEntity,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                884,
+                                1011,
                             ),
                         },
                         TraceViewTokenData {
@@ -33244,7 +34809,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                885,
+                                1012,
                             ),
                         },
                         TraceViewTokenData {
@@ -33262,7 +34827,7 @@
                             token_class: ValEntity,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                886,
+                                1013,
                             ),
                         },
                         TraceViewTokenData {
@@ -33291,7 +34856,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1014,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -33308,7 +34875,7 @@
                             token_class: Punctuation,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                883,
+                                1010,
                             ),
                         },
                         TraceViewTokenData {
@@ -33326,7 +34893,7 @@
     (
         Trace(
             Id {
-                value: 884,
+                value: 1011,
             },
         ),
         TraceViewData {
@@ -33437,7 +35004,7 @@
     (
         Trace(
             Id {
-                value: 885,
+                value: 1012,
             },
         ),
         TraceViewData {
@@ -33496,7 +35063,7 @@
     (
         Trace(
             Id {
-                value: 886,
+                value: 1013,
             },
         ),
         TraceViewData {
@@ -33531,7 +35098,7 @@
     (
         Trace(
             Id {
-                value: 887,
+                value: 1014,
             },
         ),
         TraceViewData {
@@ -33584,7 +35151,30 @@
     (
         Trace(
             Id {
-                value: 884,
+                value: 1015,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1011,
             },
         ),
         TraceViewData {
@@ -33695,7 +35285,7 @@
     (
         Trace(
             Id {
-                value: 881,
+                value: 1008,
             },
         ),
         TraceViewData {
@@ -33714,7 +35304,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                887,
+                                1015,
                             ),
                         },
                         TraceViewTokenData {
@@ -33734,7 +35324,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                888,
+                                1016,
                             ),
                         },
                         TraceViewTokenData {
@@ -33742,7 +35332,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                889,
+                                1017,
                             ),
                         },
                         TraceViewTokenData {
@@ -33768,7 +35358,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                888,
+                                1016,
                             ),
                         },
                     ],
@@ -33780,7 +35370,7 @@
     (
         Trace(
             Id {
-                value: 888,
+                value: 1016,
             },
         ),
         TraceViewData {
@@ -33803,7 +35393,7 @@
     (
         Trace(
             Id {
-                value: 889,
+                value: 1017,
             },
         ),
         TraceViewData {
@@ -33862,7 +35452,7 @@
     (
         Trace(
             Id {
-                value: 890,
+                value: 1018,
             },
         ),
         TraceViewData {
@@ -33933,7 +35523,7 @@
     (
         Trace(
             Id {
-                value: 889,
+                value: 1017,
             },
         ),
         TraceViewData {
@@ -33992,7 +35582,7 @@
     (
         Trace(
             Id {
-                value: 882,
+                value: 1009,
             },
         ),
         TraceViewData {
@@ -34011,7 +35601,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                890,
+                                1018,
                             ),
                         },
                         TraceViewTokenData {
@@ -34025,7 +35615,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                891,
+                                1019,
                             ),
                         },
                         TraceViewTokenData {
@@ -34038,7 +35628,9 @@
                             text: "3.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1020,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -34055,7 +35647,7 @@
     (
         Trace(
             Id {
-                value: 893,
+                value: 1022,
             },
         ),
         TraceViewData {
@@ -34074,7 +35666,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                895,
+                                1024,
                             ),
                         },
                     ],
@@ -34086,7 +35678,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                896,
+                                1025,
                             ),
                         },
                         TraceViewTokenData {
@@ -34100,7 +35692,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                897,
+                                1026,
                             ),
                         },
                         TraceViewTokenData {
@@ -34129,7 +35721,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1027,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -34146,7 +35740,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                895,
+                                1024,
                             ),
                         },
                         TraceViewTokenData {
@@ -34164,7 +35758,7 @@
     (
         Trace(
             Id {
-                value: 894,
+                value: 1023,
             },
         ),
         TraceViewData {
@@ -34183,7 +35777,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                898,
+                                1028,
                             ),
                         },
                         TraceViewTokenData {
@@ -34197,7 +35791,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                899,
+                                1029,
                             ),
                         },
                         TraceViewTokenData {
@@ -34210,7 +35804,9 @@
                             text: "6.5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1030,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -34227,7 +35823,7 @@
     (
         Trace(
             Id {
-                value: 895,
+                value: 1024,
             },
         ),
         TraceViewData {
@@ -34262,7 +35858,7 @@
     (
         Trace(
             Id {
-                value: 891,
+                value: 1019,
             },
         ),
         TraceViewData {
@@ -34285,7 +35881,7 @@
     (
         Trace(
             Id {
-                value: 892,
+                value: 1020,
             },
         ),
         TraceViewData {
@@ -34320,7 +35916,30 @@
     (
         Trace(
             Id {
-                value: 883,
+                value: 1021,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "3.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1010,
             },
         ),
         TraceViewData {
@@ -34349,7 +35968,7 @@
     (
         Trace(
             Id {
-                value: 901,
+                value: 1032,
             },
         ),
         TraceViewData {
@@ -34368,7 +35987,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                926,
+                                1057,
                             ),
                         },
                         TraceViewTokenData {
@@ -34382,7 +36001,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                927,
+                                1058,
                             ),
                         },
                         TraceViewTokenData {
@@ -34395,7 +36014,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1059,
+                            ),
                         },
                     ],
                 },
@@ -34406,7 +36027,7 @@
     (
         Trace(
             Id {
-                value: 902,
+                value: 1033,
             },
         ),
         TraceViewData {
@@ -34425,7 +36046,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                928,
+                                1060,
                             ),
                         },
                         TraceViewTokenData {
@@ -34438,7 +36059,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1061,
+                            ),
                         },
                     ],
                 },
@@ -34449,7 +36072,7 @@
     (
         Trace(
             Id {
-                value: 903,
+                value: 1034,
             },
         ),
         TraceViewData {
@@ -34468,7 +36091,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                929,
+                                1062,
                             ),
                         },
                         TraceViewTokenData {
@@ -34482,7 +36105,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                930,
+                                1063,
                             ),
                         },
                         TraceViewTokenData {
@@ -34496,7 +36119,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                931,
+                                1064,
                             ),
                         },
                         TraceViewTokenData {
@@ -34509,7 +36132,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1065,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -34526,7 +36151,7 @@
     (
         Trace(
             Id {
-                value: 904,
+                value: 1035,
             },
         ),
         TraceViewData {
@@ -34545,7 +36170,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                932,
+                                1066,
                             ),
                         },
                         TraceViewTokenData {
@@ -34559,7 +36184,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                933,
+                                1067,
                             ),
                         },
                         TraceViewTokenData {
@@ -34573,7 +36198,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                934,
+                                1068,
                             ),
                         },
                         TraceViewTokenData {
@@ -34586,7 +36211,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1069,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -34603,7 +36230,7 @@
     (
         Trace(
             Id {
-                value: 905,
+                value: 1036,
             },
         ),
         TraceViewData {
@@ -34622,7 +36249,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                935,
+                                1070,
                             ),
                         },
                         TraceViewTokenData {
@@ -34636,7 +36263,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                936,
+                                1071,
                             ),
                         },
                         TraceViewTokenData {
@@ -34650,7 +36277,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                937,
+                                1072,
                             ),
                         },
                         TraceViewTokenData {
@@ -34663,7 +36290,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1073,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -34680,7 +36309,7 @@
     (
         Trace(
             Id {
-                value: 906,
+                value: 1037,
             },
         ),
         TraceViewData {
@@ -34699,7 +36328,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                938,
+                                1074,
                             ),
                         },
                         TraceViewTokenData {
@@ -34729,7 +36358,7 @@
     (
         Trace(
             Id {
-                value: 907,
+                value: 1038,
             },
         ),
         TraceViewData {
@@ -34748,7 +36377,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                939,
+                                1075,
                             ),
                         },
                         TraceViewTokenData {
@@ -34762,7 +36391,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                940,
+                                1076,
                             ),
                         },
                         TraceViewTokenData {
@@ -34782,7 +36411,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                941,
+                                1077,
                             ),
                         },
                         TraceViewTokenData {
@@ -34796,7 +36425,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                942,
+                                1078,
                             ),
                         },
                         TraceViewTokenData {
@@ -34822,7 +36451,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                943,
+                                1079,
                             ),
                         },
                         TraceViewTokenData {
@@ -34842,7 +36471,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                944,
+                                1080,
                             ),
                         },
                         TraceViewTokenData {
@@ -34856,7 +36485,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                945,
+                                1081,
                             ),
                         },
                         TraceViewTokenData {
@@ -34880,7 +36509,7 @@
     (
         Trace(
             Id {
-                value: 908,
+                value: 1039,
             },
         ),
         TraceViewData {
@@ -34899,7 +36528,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                946,
+                                1082,
                             ),
                         },
                         TraceViewTokenData {
@@ -34913,7 +36542,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                947,
+                                1083,
                             ),
                         },
                         TraceViewTokenData {
@@ -34926,7 +36555,9 @@
                             text: "1.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1084,
+                            ),
                         },
                     ],
                 },
@@ -34937,7 +36568,7 @@
     (
         Trace(
             Id {
-                value: 909,
+                value: 1040,
             },
         ),
         TraceViewData {
@@ -34956,7 +36587,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                948,
+                                1085,
                             ),
                         },
                     ],
@@ -34968,7 +36599,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                949,
+                                1086,
                             ),
                         },
                         TraceViewTokenData {
@@ -34982,7 +36613,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                950,
+                                1087,
                             ),
                         },
                         TraceViewTokenData {
@@ -34995,7 +36626,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1088,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -35018,7 +36651,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                951,
+                                1089,
                             ),
                         },
                         TraceViewTokenData {
@@ -35032,7 +36665,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                952,
+                                1090,
                             ),
                         },
                         TraceViewTokenData {
@@ -35050,7 +36683,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                953,
+                                1091,
                             ),
                         },
                         TraceViewTokenData {
@@ -35064,7 +36697,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                954,
+                                1092,
                             ),
                         },
                         TraceViewTokenData {
@@ -35082,7 +36715,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                955,
+                                1093,
                             ),
                         },
                         TraceViewTokenData {
@@ -35096,7 +36729,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                956,
+                                1094,
                             ),
                         },
                         TraceViewTokenData {
@@ -35125,7 +36758,9 @@
                             text: "12",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1095,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -35142,7 +36777,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                948,
+                                1085,
                             ),
                         },
                         TraceViewTokenData {
@@ -35160,7 +36795,7 @@
     (
         Trace(
             Id {
-                value: 910,
+                value: 1041,
             },
         ),
         TraceViewData {
@@ -35179,7 +36814,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                957,
+                                1096,
                             ),
                         },
                     ],
@@ -35191,7 +36826,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                958,
+                                1097,
                             ),
                         },
                         TraceViewTokenData {
@@ -35205,7 +36840,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                959,
+                                1098,
                             ),
                         },
                         TraceViewTokenData {
@@ -35218,7 +36853,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1099,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -35243,7 +36880,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                960,
+                                1100,
                             ),
                         },
                         TraceViewTokenData {
@@ -35261,7 +36898,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                961,
+                                1101,
                             ),
                         },
                         TraceViewTokenData {
@@ -35275,7 +36912,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                962,
+                                1102,
                             ),
                         },
                         TraceViewTokenData {
@@ -35288,7 +36925,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1103,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -35313,7 +36952,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                963,
+                                1104,
                             ),
                         },
                         TraceViewTokenData {
@@ -35327,7 +36966,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                964,
+                                1105,
                             ),
                         },
                         TraceViewTokenData {
@@ -35368,7 +37007,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1106,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ",",
@@ -35385,7 +37026,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                957,
+                                1096,
                             ),
                         },
                         TraceViewTokenData {
@@ -35403,7 +37044,7 @@
     (
         Trace(
             Id {
-                value: 911,
+                value: 1042,
             },
         ),
         TraceViewData {
@@ -35422,7 +37063,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                965,
+                                1107,
                             ),
                         },
                         TraceViewTokenData {
@@ -35470,7 +37111,7 @@
     (
         Trace(
             Id {
-                value: 912,
+                value: 1043,
             },
         ),
         TraceViewData {
@@ -35489,7 +37130,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                966,
+                                1108,
                             ),
                         },
                         TraceViewTokenData {
@@ -35537,7 +37178,7 @@
     (
         Trace(
             Id {
-                value: 913,
+                value: 1044,
             },
         ),
         TraceViewData {
@@ -35556,7 +37197,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                967,
+                                1109,
                             ),
                         },
                         TraceViewTokenData {
@@ -35569,7 +37210,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1110,
+                            ),
                         },
                     ],
                 },
@@ -35580,7 +37223,7 @@
     (
         Trace(
             Id {
-                value: 914,
+                value: 1045,
             },
         ),
         TraceViewData {
@@ -35599,7 +37242,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                968,
+                                1111,
                             ),
                         },
                         TraceViewTokenData {
@@ -35613,7 +37256,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                969,
+                                1112,
                             ),
                         },
                         TraceViewTokenData {
@@ -35633,7 +37276,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                970,
+                                1113,
                             ),
                         },
                         TraceViewTokenData {
@@ -35647,7 +37290,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                971,
+                                1114,
                             ),
                         },
                         TraceViewTokenData {
@@ -35667,7 +37310,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                972,
+                                1115,
                             ),
                         },
                         TraceViewTokenData {
@@ -35681,7 +37324,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                973,
+                                1116,
                             ),
                         },
                         TraceViewTokenData {
@@ -35711,7 +37354,7 @@
     (
         Trace(
             Id {
-                value: 915,
+                value: 1046,
             },
         ),
         TraceViewData {
@@ -35730,7 +37373,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                974,
+                                1117,
                             ),
                         },
                         TraceViewTokenData {
@@ -35744,7 +37387,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                975,
+                                1118,
                             ),
                         },
                         TraceViewTokenData {
@@ -35758,7 +37401,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                976,
+                                1119,
                             ),
                         },
                         TraceViewTokenData {
@@ -35782,7 +37425,7 @@
     (
         Trace(
             Id {
-                value: 916,
+                value: 1047,
             },
         ),
         TraceViewData {
@@ -35801,7 +37444,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                977,
+                                1120,
                             ),
                         },
                         TraceViewTokenData {
@@ -35815,7 +37458,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                978,
+                                1121,
                             ),
                         },
                         TraceViewTokenData {
@@ -35835,7 +37478,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                979,
+                                1122,
                             ),
                         },
                         TraceViewTokenData {
@@ -35849,7 +37492,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                980,
+                                1123,
                             ),
                         },
                         TraceViewTokenData {
@@ -35869,7 +37512,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                981,
+                                1124,
                             ),
                         },
                         TraceViewTokenData {
@@ -35883,7 +37526,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                982,
+                                1125,
                             ),
                         },
                         TraceViewTokenData {
@@ -35908,7 +37551,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1126,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -35925,7 +37570,7 @@
     (
         Trace(
             Id {
-                value: 917,
+                value: 1048,
             },
         ),
         TraceViewData {
@@ -35944,7 +37589,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                983,
+                                1127,
                             ),
                         },
                         TraceViewTokenData {
@@ -35958,7 +37603,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                984,
+                                1128,
                             ),
                         },
                         TraceViewTokenData {
@@ -35972,7 +37617,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                985,
+                                1129,
                             ),
                         },
                         TraceViewTokenData {
@@ -35996,7 +37641,7 @@
     (
         Trace(
             Id {
-                value: 918,
+                value: 1049,
             },
         ),
         TraceViewData {
@@ -36015,7 +37660,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                986,
+                                1130,
                             ),
                         },
                     ],
@@ -36027,7 +37672,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                987,
+                                1131,
                             ),
                         },
                         TraceViewTokenData {
@@ -36041,7 +37686,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                988,
+                                1132,
                             ),
                         },
                         TraceViewTokenData {
@@ -36059,7 +37704,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                989,
+                                1133,
                             ),
                         },
                         TraceViewTokenData {
@@ -36073,7 +37718,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                990,
+                                1134,
                             ),
                         },
                         TraceViewTokenData {
@@ -36102,7 +37747,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1135,
+                            ),
                         },
                     ],
                 },
@@ -36113,7 +37760,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                986,
+                                1130,
                             ),
                         },
                         TraceViewTokenData {
@@ -36131,7 +37778,7 @@
     (
         Trace(
             Id {
-                value: 919,
+                value: 1050,
             },
         ),
         TraceViewData {
@@ -36150,7 +37797,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                991,
+                                1136,
                             ),
                         },
                         TraceViewTokenData {
@@ -36163,7 +37810,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1137,
+                            ),
                         },
                     ],
                 },
@@ -36174,7 +37823,7 @@
     (
         Trace(
             Id {
-                value: 920,
+                value: 1051,
             },
         ),
         TraceViewData {
@@ -36193,7 +37842,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                992,
+                                1138,
                             ),
                         },
                         TraceViewTokenData {
@@ -36207,7 +37856,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                993,
+                                1139,
                             ),
                         },
                         TraceViewTokenData {
@@ -36221,7 +37870,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                994,
+                                1140,
                             ),
                         },
                     ],
@@ -36233,7 +37882,7 @@
     (
         Trace(
             Id {
-                value: 921,
+                value: 1052,
             },
         ),
         TraceViewData {
@@ -36252,7 +37901,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                995,
+                                1141,
                             ),
                         },
                         TraceViewTokenData {
@@ -36266,7 +37915,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                996,
+                                1142,
                             ),
                         },
                         TraceViewTokenData {
@@ -36280,7 +37929,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                997,
+                                1143,
                             ),
                         },
                     ],
@@ -36292,7 +37941,7 @@
     (
         Trace(
             Id {
-                value: 922,
+                value: 1053,
             },
         ),
         TraceViewData {
@@ -36311,7 +37960,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                998,
+                                1144,
                             ),
                         },
                         TraceViewTokenData {
@@ -36325,7 +37974,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                999,
+                                1145,
                             ),
                         },
                         TraceViewTokenData {
@@ -36339,7 +37988,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1000,
+                                1146,
                             ),
                         },
                     ],
@@ -36351,7 +38000,7 @@
     (
         Trace(
             Id {
-                value: 923,
+                value: 1054,
             },
         ),
         TraceViewData {
@@ -36370,7 +38019,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1001,
+                                1147,
                             ),
                         },
                         TraceViewTokenData {
@@ -36384,7 +38033,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1002,
+                                1148,
                             ),
                         },
                         TraceViewTokenData {
@@ -36398,7 +38047,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1003,
+                                1149,
                             ),
                         },
                     ],
@@ -36410,7 +38059,7 @@
     (
         Trace(
             Id {
-                value: 924,
+                value: 1055,
             },
         ),
         TraceViewData {
@@ -36429,7 +38078,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1004,
+                                1150,
                             ),
                         },
                         TraceViewTokenData {
@@ -36448,7 +38097,9 @@
                             text: "10.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1151,
+                            ),
                         },
                     ],
                 },
@@ -36459,7 +38110,7 @@
     (
         Trace(
             Id {
-                value: 925,
+                value: 1056,
             },
         ),
         TraceViewData {
@@ -36478,7 +38129,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1005,
+                                1152,
                             ),
                         },
                         TraceViewTokenData {
@@ -36491,7 +38142,9 @@
                             text: "20.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1153,
+                            ),
                         },
                     ],
                 },
@@ -36502,7 +38155,7 @@
     (
         Trace(
             Id {
-                value: 926,
+                value: 1057,
             },
         ),
         TraceViewData {
@@ -36537,7 +38190,7 @@
     (
         Trace(
             Id {
-                value: 870,
+                value: 997,
             },
         ),
         TraceViewData {
@@ -36550,7 +38203,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1006,
+                                1154,
                             ),
                         },
                         TraceViewTokenData {
@@ -36568,7 +38221,7 @@
     (
         Trace(
             Id {
-                value: 1007,
+                value: 1155,
             },
         ),
         TraceViewData {
@@ -36663,7 +38316,7 @@
     (
         Trace(
             Id {
-                value: 1008,
+                value: 1156,
             },
         ),
         TraceViewData {
@@ -36682,7 +38335,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1018,
+                                1166,
                             ),
                         },
                         TraceViewTokenData {
@@ -36696,7 +38349,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1019,
+                                1167,
                             ),
                         },
                         TraceViewTokenData {
@@ -36710,7 +38363,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1020,
+                                1168,
                             ),
                         },
                         TraceViewTokenData {
@@ -36723,7 +38376,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1169,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -36740,7 +38395,7 @@
     (
         Trace(
             Id {
-                value: 1019,
+                value: 1167,
             },
         ),
         TraceViewData {
@@ -36763,7 +38418,7 @@
     (
         Trace(
             Id {
-                value: 1020,
+                value: 1168,
             },
         ),
         TraceViewData {
@@ -36810,7 +38465,7 @@
     (
         Trace(
             Id {
-                value: 1021,
+                value: 1169,
             },
         ),
         TraceViewData {
@@ -36845,7 +38500,30 @@
     (
         Trace(
             Id {
-                value: 1009,
+                value: 1170,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1157,
             },
         ),
         TraceViewData {
@@ -36864,7 +38542,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1021,
+                                1170,
                             ),
                         },
                         TraceViewTokenData {
@@ -36906,7 +38584,7 @@
     (
         Trace(
             Id {
-                value: 1022,
+                value: 1171,
             },
         ),
         TraceViewData {
@@ -36929,7 +38607,7 @@
     (
         Trace(
             Id {
-                value: 1010,
+                value: 1158,
             },
         ),
         TraceViewData {
@@ -36948,7 +38626,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1022,
+                                1171,
                             ),
                         },
                         TraceViewTokenData {
@@ -36962,7 +38640,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1023,
+                                1172,
                             ),
                         },
                         TraceViewTokenData {
@@ -36976,7 +38654,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1024,
+                                1173,
                             ),
                         },
                     ],
@@ -36988,7 +38666,7 @@
     (
         Trace(
             Id {
-                value: 1023,
+                value: 1172,
             },
         ),
         TraceViewData {
@@ -37011,7 +38689,7 @@
     (
         Trace(
             Id {
-                value: 1024,
+                value: 1173,
             },
         ),
         TraceViewData {
@@ -37070,7 +38748,7 @@
     (
         Trace(
             Id {
-                value: 1025,
+                value: 1174,
             },
         ),
         TraceViewData {
@@ -37105,7 +38783,7 @@
     (
         Trace(
             Id {
-                value: 1011,
+                value: 1159,
             },
         ),
         TraceViewData {
@@ -37124,7 +38802,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1025,
+                                1174,
                             ),
                         },
                         TraceViewTokenData {
@@ -37138,7 +38816,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1026,
+                                1175,
                             ),
                         },
                         TraceViewTokenData {
@@ -37152,7 +38830,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1027,
+                                1176,
                             ),
                         },
                         TraceViewTokenData {
@@ -37166,7 +38844,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1028,
+                                1177,
                             ),
                         },
                         TraceViewTokenData {
@@ -37180,7 +38858,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1029,
+                                1178,
                             ),
                         },
                     ],
@@ -37192,7 +38870,7 @@
     (
         Trace(
             Id {
-                value: 1026,
+                value: 1175,
             },
         ),
         TraceViewData {
@@ -37215,7 +38893,7 @@
     (
         Trace(
             Id {
-                value: 1027,
+                value: 1176,
             },
         ),
         TraceViewData {
@@ -37274,7 +38952,7 @@
     (
         Trace(
             Id {
-                value: 1028,
+                value: 1177,
             },
         ),
         TraceViewData {
@@ -37309,7 +38987,7 @@
     (
         Trace(
             Id {
-                value: 1029,
+                value: 1178,
             },
         ),
         TraceViewData {
@@ -37368,7 +39046,7 @@
     (
         Trace(
             Id {
-                value: 1030,
+                value: 1179,
             },
         ),
         TraceViewData {
@@ -37403,7 +39081,7 @@
     (
         Trace(
             Id {
-                value: 1012,
+                value: 1160,
             },
         ),
         TraceViewData {
@@ -37422,7 +39100,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1030,
+                                1179,
                             ),
                         },
                         TraceViewTokenData {
@@ -37436,7 +39114,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1031,
+                                1180,
                             ),
                         },
                         TraceViewTokenData {
@@ -37449,7 +39127,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1181,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -37484,7 +39164,7 @@
     (
         Trace(
             Id {
-                value: 1033,
+                value: 1183,
             },
         ),
         TraceViewData {
@@ -37503,7 +39183,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1044,
+                                1194,
                             ),
                         },
                     ],
@@ -37515,7 +39195,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                1045,
+                                1195,
                             ),
                         },
                         TraceViewTokenData {
@@ -37529,7 +39209,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1046,
+                                1196,
                             ),
                         },
                         TraceViewTokenData {
@@ -37547,7 +39227,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                1047,
+                                1197,
                             ),
                         },
                         TraceViewTokenData {
@@ -37561,7 +39241,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1048,
+                                1198,
                             ),
                         },
                         TraceViewTokenData {
@@ -37590,7 +39270,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1199,
+                            ),
                         },
                     ],
                 },
@@ -37601,7 +39283,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                1044,
+                                1194,
                             ),
                         },
                         TraceViewTokenData {
@@ -37619,7 +39301,7 @@
     (
         Trace(
             Id {
-                value: 1034,
+                value: 1184,
             },
         ),
         TraceViewData {
@@ -37638,7 +39320,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1049,
+                                1200,
                             ),
                         },
                         TraceViewTokenData {
@@ -37652,7 +39334,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1050,
+                                1201,
                             ),
                         },
                         TraceViewTokenData {
@@ -37666,7 +39348,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1051,
+                                1202,
                             ),
                         },
                         TraceViewTokenData {
@@ -37679,7 +39361,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1203,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -37696,7 +39380,7 @@
     (
         Trace(
             Id {
-                value: 1035,
+                value: 1185,
             },
         ),
         TraceViewData {
@@ -37715,7 +39399,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1052,
+                                1204,
                             ),
                         },
                         TraceViewTokenData {
@@ -37729,7 +39413,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1053,
+                                1205,
                             ),
                         },
                         TraceViewTokenData {
@@ -37749,7 +39433,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1054,
+                                1206,
                             ),
                         },
                         TraceViewTokenData {
@@ -37773,7 +39457,7 @@
     (
         Trace(
             Id {
-                value: 1036,
+                value: 1186,
             },
         ),
         TraceViewData {
@@ -37792,7 +39476,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1055,
+                                1207,
                             ),
                         },
                         TraceViewTokenData {
@@ -37806,7 +39490,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1056,
+                                1208,
                             ),
                         },
                         TraceViewTokenData {
@@ -37820,7 +39504,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1057,
+                                1209,
                             ),
                         },
                     ],
@@ -37832,7 +39516,7 @@
     (
         Trace(
             Id {
-                value: 1037,
+                value: 1187,
             },
         ),
         TraceViewData {
@@ -37851,7 +39535,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1058,
+                                1210,
                             ),
                         },
                         TraceViewTokenData {
@@ -37865,7 +39549,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1059,
+                                1211,
                             ),
                         },
                         TraceViewTokenData {
@@ -37885,7 +39569,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1060,
+                                1212,
                             ),
                         },
                         TraceViewTokenData {
@@ -37911,7 +39595,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1061,
+                                1213,
                             ),
                         },
                     ],
@@ -37923,7 +39607,7 @@
     (
         Trace(
             Id {
-                value: 1038,
+                value: 1188,
             },
         ),
         TraceViewData {
@@ -37942,7 +39626,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1062,
+                                1214,
                             ),
                         },
                         TraceViewTokenData {
@@ -37956,7 +39640,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1063,
+                                1215,
                             ),
                         },
                         TraceViewTokenData {
@@ -37970,7 +39654,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1064,
+                                1216,
                             ),
                         },
                     ],
@@ -37982,7 +39666,7 @@
     (
         Trace(
             Id {
-                value: 1039,
+                value: 1189,
             },
         ),
         TraceViewData {
@@ -38001,7 +39685,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1065,
+                                1217,
                             ),
                         },
                         TraceViewTokenData {
@@ -38015,7 +39699,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1066,
+                                1218,
                             ),
                         },
                         TraceViewTokenData {
@@ -38028,7 +39712,9 @@
                             text: "1.8",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1219,
+                            ),
                         },
                     ],
                 },
@@ -38039,7 +39725,7 @@
     (
         Trace(
             Id {
-                value: 1040,
+                value: 1190,
             },
         ),
         TraceViewData {
@@ -38058,7 +39744,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1067,
+                                1220,
                             ),
                         },
                         TraceViewTokenData {
@@ -38106,7 +39792,7 @@
     (
         Trace(
             Id {
-                value: 1041,
+                value: 1191,
             },
         ),
         TraceViewData {
@@ -38125,7 +39811,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1068,
+                                1221,
                             ),
                         },
                         TraceViewTokenData {
@@ -38139,7 +39825,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1069,
+                                1222,
                             ),
                         },
                         TraceViewTokenData {
@@ -38153,7 +39839,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1070,
+                                1223,
                             ),
                         },
                         TraceViewTokenData {
@@ -38167,7 +39853,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1071,
+                                1224,
                             ),
                         },
                         TraceViewTokenData {
@@ -38185,7 +39871,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                1072,
+                                1225,
                             ),
                         },
                         TraceViewTokenData {
@@ -38205,7 +39891,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1073,
+                                1226,
                             ),
                         },
                         TraceViewTokenData {
@@ -38239,7 +39925,7 @@
     (
         Trace(
             Id {
-                value: 1042,
+                value: 1192,
             },
         ),
         TraceViewData {
@@ -38258,7 +39944,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1074,
+                                1227,
                             ),
                         },
                     ],
@@ -38270,7 +39956,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                1075,
+                                1228,
                             ),
                         },
                         TraceViewTokenData {
@@ -38288,7 +39974,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                1076,
+                                1229,
                             ),
                         },
                         TraceViewTokenData {
@@ -38306,7 +39992,7 @@
                             token_class: Variable,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                1077,
+                                1230,
                             ),
                         },
                         TraceViewTokenData {
@@ -38324,7 +40010,7 @@
                             token_class: ValEntity,
                             spaces_before: 12,
                             assoc_trace_id: Some(
-                                1078,
+                                1231,
                             ),
                         },
                         TraceViewTokenData {
@@ -38338,7 +40024,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1079,
+                                1232,
                             ),
                         },
                         TraceViewTokenData {
@@ -38351,7 +40037,9 @@
                             text: "6",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1233,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -38385,7 +40073,9 @@
                             text: "15",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1234,
+                            ),
                         },
                     ],
                 },
@@ -38396,7 +40086,7 @@
                             token_class: Punctuation,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                1074,
+                                1227,
                             ),
                         },
                         TraceViewTokenData {
@@ -38414,7 +40104,7 @@
     (
         Trace(
             Id {
-                value: 1043,
+                value: 1193,
             },
         ),
         TraceViewData {
@@ -38433,7 +40123,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1080,
+                                1235,
                             ),
                         },
                         TraceViewTokenData {
@@ -38447,7 +40137,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1081,
+                                1236,
                             ),
                         },
                         TraceViewTokenData {
@@ -38460,7 +40150,9 @@
                             text: "0.7",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1237,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -38477,7 +40169,7 @@
     (
         Trace(
             Id {
-                value: 1044,
+                value: 1194,
             },
         ),
         TraceViewData {
@@ -38518,7 +40210,7 @@
     (
         Trace(
             Id {
-                value: 1031,
+                value: 1180,
             },
         ),
         TraceViewData {
@@ -38541,7 +40233,7 @@
     (
         Trace(
             Id {
-                value: 1032,
+                value: 1181,
             },
         ),
         TraceViewData {
@@ -38576,7 +40268,30 @@
     (
         Trace(
             Id {
-                value: 1013,
+                value: 1182,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1161,
             },
         ),
         TraceViewData {
@@ -38595,7 +40310,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1082,
+                                1238,
                             ),
                         },
                     ],
@@ -38607,7 +40322,7 @@
                             token_class: ValEntity,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                1083,
+                                1239,
                             ),
                         },
                         TraceViewTokenData {
@@ -38621,7 +40336,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1084,
+                                1240,
                             ),
                         },
                         TraceViewTokenData {
@@ -38650,7 +40365,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1241,
+                            ),
                         },
                     ],
                 },
@@ -38661,7 +40378,7 @@
                             token_class: Punctuation,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1082,
+                                1238,
                             ),
                         },
                         TraceViewTokenData {
@@ -38679,7 +40396,7 @@
     (
         Trace(
             Id {
-                value: 1083,
+                value: 1239,
             },
         ),
         TraceViewData {
@@ -38768,7 +40485,7 @@
     (
         Trace(
             Id {
-                value: 1084,
+                value: 1240,
             },
         ),
         TraceViewData {
@@ -38815,7 +40532,7 @@
     (
         Trace(
             Id {
-                value: 1085,
+                value: 1241,
             },
         ),
         TraceViewData {
@@ -38850,7 +40567,30 @@
     (
         Trace(
             Id {
-                value: 1083,
+                value: 1242,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1239,
             },
         ),
         TraceViewData {
@@ -38939,7 +40679,7 @@
     (
         Trace(
             Id {
-                value: 1014,
+                value: 1162,
             },
         ),
         TraceViewData {
@@ -38958,7 +40698,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1085,
+                                1242,
                             ),
                         },
                         TraceViewTokenData {
@@ -38972,7 +40712,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1086,
+                                1243,
                             ),
                         },
                         TraceViewTokenData {
@@ -38985,7 +40725,9 @@
                             text: "1.8",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1244,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -39002,7 +40744,7 @@
     (
         Trace(
             Id {
-                value: 1088,
+                value: 1246,
             },
         ),
         TraceViewData {
@@ -39021,7 +40763,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1088,
+                                1246,
                             ),
                         },
                         TraceViewTokenData {
@@ -39035,7 +40777,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1089,
+                                1247,
                             ),
                         },
                         TraceViewTokenData {
@@ -39048,7 +40790,9 @@
                             text: "1.8",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1248,
+                            ),
                         },
                     ],
                 },
@@ -39059,7 +40803,7 @@
     (
         Trace(
             Id {
-                value: 1086,
+                value: 1243,
             },
         ),
         TraceViewData {
@@ -39106,7 +40850,7 @@
     (
         Trace(
             Id {
-                value: 1087,
+                value: 1244,
             },
         ),
         TraceViewData {
@@ -39141,7 +40885,30 @@
     (
         Trace(
             Id {
-                value: 1015,
+                value: 1245,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1.8",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1163,
             },
         ),
         TraceViewData {
@@ -39160,7 +40927,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1090,
+                                1249,
                             ),
                         },
                         TraceViewTokenData {
@@ -39174,7 +40941,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1091,
+                                1250,
                             ),
                         },
                         TraceViewTokenData {
@@ -39187,7 +40954,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1251,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -39212,7 +40981,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1092,
+                                1252,
                             ),
                         },
                         TraceViewTokenData {
@@ -39226,7 +40995,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1093,
+                                1253,
                             ),
                         },
                         TraceViewTokenData {
@@ -39251,7 +41020,9 @@
                             text: "0.75",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1254,
+                            ),
                         },
                     ],
                 },
@@ -39262,7 +41033,7 @@
     (
         Trace(
             Id {
-                value: 1091,
+                value: 1250,
             },
         ),
         TraceViewData {
@@ -39285,7 +41056,7 @@
     (
         Trace(
             Id {
-                value: 1092,
+                value: 1251,
             },
         ),
         TraceViewData {
@@ -39320,7 +41091,30 @@
     (
         Trace(
             Id {
-                value: 1093,
+                value: 1252,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1253,
             },
         ),
         TraceViewData {
@@ -39391,7 +41185,7 @@
     (
         Trace(
             Id {
-                value: 1094,
+                value: 1254,
             },
         ),
         TraceViewData {
@@ -39486,7 +41280,30 @@
     (
         Trace(
             Id {
-                value: 1016,
+                value: 1255,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.75",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1164,
             },
         ),
         TraceViewData {
@@ -39505,7 +41322,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1094,
+                                1255,
                             ),
                         },
                         TraceViewTokenData {
@@ -39519,7 +41336,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1095,
+                                1256,
                             ),
                         },
                         TraceViewTokenData {
@@ -39532,7 +41349,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1257,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -39585,7 +41404,7 @@
     (
         Trace(
             Id {
-                value: 1097,
+                value: 1259,
             },
         ),
         TraceViewData {
@@ -39604,7 +41423,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1097,
+                                1259,
                             ),
                         },
                         TraceViewTokenData {
@@ -39618,7 +41437,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1098,
+                                1260,
                             ),
                         },
                         TraceViewTokenData {
@@ -39631,7 +41450,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1261,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -39656,7 +41477,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1099,
+                                1262,
                             ),
                         },
                         TraceViewTokenData {
@@ -39670,7 +41491,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1100,
+                                1263,
                             ),
                         },
                         TraceViewTokenData {
@@ -39695,7 +41516,9 @@
                             text: "0.75",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1264,
+                            ),
                         },
                     ],
                 },
@@ -39706,7 +41529,7 @@
     (
         Trace(
             Id {
-                value: 1095,
+                value: 1256,
             },
         ),
         TraceViewData {
@@ -39729,7 +41552,7 @@
     (
         Trace(
             Id {
-                value: 1096,
+                value: 1257,
             },
         ),
         TraceViewData {
@@ -39764,7 +41587,30 @@
     (
         Trace(
             Id {
-                value: 1017,
+                value: 1258,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1165,
             },
         ),
         TraceViewData {
@@ -39783,7 +41629,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1101,
+                                1265,
                             ),
                         },
                         TraceViewTokenData {
@@ -39796,7 +41642,9 @@
                             text: "15.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1266,
+                            ),
                         },
                     ],
                 },
@@ -39807,7 +41655,7 @@
     (
         Trace(
             Id {
-                value: 1102,
+                value: 1266,
             },
         ),
         TraceViewData {
@@ -39830,7 +41678,30 @@
     (
         Trace(
             Id {
-                value: 1018,
+                value: 1267,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "15.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1166,
             },
         ),
         TraceViewData {
@@ -39865,7 +41736,7 @@
     (
         Trace(
             Id {
-                value: 871,
+                value: 998,
             },
         ),
         TraceViewData {
@@ -39878,7 +41749,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1102,
+                                1267,
                             ),
                         },
                         TraceViewTokenData {
@@ -39896,7 +41767,7 @@
     (
         Trace(
             Id {
-                value: 1103,
+                value: 1268,
             },
         ),
         TraceViewData {
@@ -39991,7 +41862,7 @@
     (
         Trace(
             Id {
-                value: 1104,
+                value: 1269,
             },
         ),
         TraceViewData {
@@ -40010,7 +41881,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1116,
+                                1281,
                             ),
                         },
                         TraceViewTokenData {
@@ -40024,7 +41895,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1117,
+                                1282,
                             ),
                         },
                         TraceViewTokenData {
@@ -40038,7 +41909,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1118,
+                                1283,
                             ),
                         },
                         TraceViewTokenData {
@@ -40063,7 +41934,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1284,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -40080,7 +41953,7 @@
     (
         Trace(
             Id {
-                value: 1120,
+                value: 1286,
             },
         ),
         TraceViewData {
@@ -40099,7 +41972,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1126,
+                                1292,
                             ),
                         },
                         TraceViewTokenData {
@@ -40113,7 +41986,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1127,
+                                1293,
                             ),
                         },
                         TraceViewTokenData {
@@ -40127,7 +42000,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1128,
+                                1294,
                             ),
                         },
                     ],
@@ -40139,7 +42012,7 @@
     (
         Trace(
             Id {
-                value: 1121,
+                value: 1287,
             },
         ),
         TraceViewData {
@@ -40158,7 +42031,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1129,
+                                1295,
                             ),
                         },
                         TraceViewTokenData {
@@ -40171,7 +42044,9 @@
                             text: "1.5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1296,
+                            ),
                         },
                     ],
                 },
@@ -40182,7 +42057,7 @@
     (
         Trace(
             Id {
-                value: 1122,
+                value: 1288,
             },
         ),
         TraceViewData {
@@ -40201,7 +42076,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1130,
+                                1297,
                             ),
                         },
                         TraceViewTokenData {
@@ -40215,7 +42090,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1131,
+                                1298,
                             ),
                         },
                         TraceViewTokenData {
@@ -40228,7 +42103,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1299,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -40275,7 +42152,7 @@
     (
         Trace(
             Id {
-                value: 1123,
+                value: 1289,
             },
         ),
         TraceViewData {
@@ -40294,7 +42171,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1132,
+                                1300,
                             ),
                         },
                         TraceViewTokenData {
@@ -40308,7 +42185,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1133,
+                                1301,
                             ),
                         },
                         TraceViewTokenData {
@@ -40333,7 +42210,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1302,
+                            ),
                         },
                     ],
                 },
@@ -40344,7 +42223,7 @@
     (
         Trace(
             Id {
-                value: 1124,
+                value: 1290,
             },
         ),
         TraceViewData {
@@ -40363,7 +42242,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1134,
+                                1303,
                             ),
                         },
                         TraceViewTokenData {
@@ -40377,7 +42256,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1135,
+                                1304,
                             ),
                         },
                         TraceViewTokenData {
@@ -40391,7 +42270,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1136,
+                                1305,
                             ),
                         },
                         TraceViewTokenData {
@@ -40404,7 +42283,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1306,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -40429,7 +42310,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1137,
+                                1307,
                             ),
                         },
                         TraceViewTokenData {
@@ -40455,7 +42336,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1138,
+                                1308,
                             ),
                         },
                         TraceViewTokenData {
@@ -40479,7 +42360,7 @@
     (
         Trace(
             Id {
-                value: 1125,
+                value: 1291,
             },
         ),
         TraceViewData {
@@ -40498,7 +42379,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1139,
+                                1309,
                             ),
                         },
                         TraceViewTokenData {
@@ -40511,7 +42392,9 @@
                             text: "5.5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1310,
+                            ),
                         },
                     ],
                 },
@@ -40522,7 +42405,7 @@
     (
         Trace(
             Id {
-                value: 1126,
+                value: 1292,
             },
         ),
         TraceViewData {
@@ -40563,7 +42446,7 @@
     (
         Trace(
             Id {
-                value: 1117,
+                value: 1282,
             },
         ),
         TraceViewData {
@@ -40622,7 +42505,7 @@
     (
         Trace(
             Id {
-                value: 1118,
+                value: 1283,
             },
         ),
         TraceViewData {
@@ -40657,7 +42540,7 @@
     (
         Trace(
             Id {
-                value: 1119,
+                value: 1284,
             },
         ),
         TraceViewData {
@@ -40716,7 +42599,30 @@
     (
         Trace(
             Id {
-                value: 1105,
+                value: 1285,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1270,
             },
         ),
         TraceViewData {
@@ -40735,7 +42641,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1140,
+                                1311,
                             ),
                         },
                         TraceViewTokenData {
@@ -40755,7 +42661,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1141,
+                                1312,
                             ),
                         },
                         TraceViewTokenData {
@@ -40763,7 +42669,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1142,
+                                1313,
                             ),
                         },
                         TraceViewTokenData {
@@ -40789,7 +42695,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1141,
+                                1312,
                             ),
                         },
                     ],
@@ -40801,7 +42707,7 @@
     (
         Trace(
             Id {
-                value: 1141,
+                value: 1312,
             },
         ),
         TraceViewData {
@@ -40824,7 +42730,7 @@
     (
         Trace(
             Id {
-                value: 1142,
+                value: 1313,
             },
         ),
         TraceViewData {
@@ -40883,7 +42789,7 @@
     (
         Trace(
             Id {
-                value: 1143,
+                value: 1314,
             },
         ),
         TraceViewData {
@@ -40954,7 +42860,7 @@
     (
         Trace(
             Id {
-                value: 1142,
+                value: 1313,
             },
         ),
         TraceViewData {
@@ -41013,7 +42919,7 @@
     (
         Trace(
             Id {
-                value: 1106,
+                value: 1271,
             },
         ),
         TraceViewData {
@@ -41032,7 +42938,7 @@
                             token_class: Punctuation,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1143,
+                                1314,
                             ),
                         },
                     ],
@@ -41044,7 +42950,7 @@
                             token_class: Variable,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                1144,
+                                1315,
                             ),
                         },
                         TraceViewTokenData {
@@ -41058,7 +42964,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1145,
+                                1316,
                             ),
                         },
                         TraceViewTokenData {
@@ -41076,7 +42982,7 @@
                             token_class: Variable,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                1146,
+                                1317,
                             ),
                         },
                         TraceViewTokenData {
@@ -41090,7 +42996,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1147,
+                                1318,
                             ),
                         },
                         TraceViewTokenData {
@@ -41108,7 +43014,7 @@
                             token_class: Variable,
                             spaces_before: 8,
                             assoc_trace_id: Some(
-                                1148,
+                                1319,
                             ),
                         },
                         TraceViewTokenData {
@@ -41122,7 +43028,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1149,
+                                1320,
                             ),
                         },
                         TraceViewTokenData {
@@ -41151,7 +43057,9 @@
                             text: "5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1321,
+                            ),
                         },
                     ],
                 },
@@ -41162,7 +43070,7 @@
                             token_class: Punctuation,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1143,
+                                1314,
                             ),
                         },
                         TraceViewTokenData {
@@ -41180,7 +43088,7 @@
     (
         Trace(
             Id {
-                value: 1144,
+                value: 1315,
             },
         ),
         TraceViewData {
@@ -41325,7 +43233,7 @@
     (
         Trace(
             Id {
-                value: 1145,
+                value: 1316,
             },
         ),
         TraceViewData {
@@ -41348,7 +43256,7 @@
     (
         Trace(
             Id {
-                value: 1146,
+                value: 1317,
             },
         ),
         TraceViewData {
@@ -41383,7 +43291,7 @@
     (
         Trace(
             Id {
-                value: 1147,
+                value: 1318,
             },
         ),
         TraceViewData {
@@ -41406,7 +43314,7 @@
     (
         Trace(
             Id {
-                value: 1148,
+                value: 1319,
             },
         ),
         TraceViewData {
@@ -41441,7 +43349,7 @@
     (
         Trace(
             Id {
-                value: 1149,
+                value: 1320,
             },
         ),
         TraceViewData {
@@ -41464,7 +43372,7 @@
     (
         Trace(
             Id {
-                value: 1150,
+                value: 1321,
             },
         ),
         TraceViewData {
@@ -41499,7 +43407,30 @@
     (
         Trace(
             Id {
-                value: 1144,
+                value: 1322,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1315,
             },
         ),
         TraceViewData {
@@ -41644,7 +43575,7 @@
     (
         Trace(
             Id {
-                value: 1107,
+                value: 1272,
             },
         ),
         TraceViewData {
@@ -41663,7 +43594,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1150,
+                                1322,
                             ),
                         },
                         TraceViewTokenData {
@@ -41677,7 +43608,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1151,
+                                1323,
                             ),
                         },
                         TraceViewTokenData {
@@ -41686,6 +43617,89 @@
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
+                        TraceViewTokenData {
+                            text: "3.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                1324,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1323,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "simp_zero_match",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1324,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "simp_zero_match",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "norm",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1325,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
                         TraceViewTokenData {
                             text: "3.0",
                             token_class: Literal,
@@ -41701,65 +43715,7 @@
     (
         Trace(
             Id {
-                value: 1151,
-            },
-        ),
-        TraceViewData {
-            trace_kind: LazyExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "simp_zero_match",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 1152,
-            },
-        ),
-        TraceViewData {
-            trace_kind: LazyExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "simp_zero_match",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "norm",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 1108,
+                value: 1273,
             },
         ),
         TraceViewData {
@@ -41778,7 +43734,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1152,
+                                1325,
                             ),
                         },
                         TraceViewTokenData {
@@ -41792,7 +43748,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1153,
+                                1326,
                             ),
                         },
                         TraceViewTokenData {
@@ -41806,7 +43762,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1154,
+                                1327,
                             ),
                         },
                         TraceViewTokenData {
@@ -41819,7 +43775,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1328,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -41848,7 +43806,7 @@
     (
         Trace(
             Id {
-                value: 1153,
+                value: 1326,
             },
         ),
         TraceViewData {
@@ -41907,7 +43865,7 @@
     (
         Trace(
             Id {
-                value: 1154,
+                value: 1327,
             },
         ),
         TraceViewData {
@@ -41942,7 +43900,7 @@
     (
         Trace(
             Id {
-                value: 1155,
+                value: 1328,
             },
         ),
         TraceViewData {
@@ -41989,7 +43947,30 @@
     (
         Trace(
             Id {
-                value: 1109,
+                value: 1329,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1274,
             },
         ),
         TraceViewData {
@@ -42008,7 +43989,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1155,
+                                1329,
                             ),
                         },
                         TraceViewTokenData {
@@ -42022,7 +44003,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1156,
+                                1330,
                             ),
                         },
                         TraceViewTokenData {
@@ -42036,7 +44017,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1157,
+                                1331,
                             ),
                         },
                         TraceViewTokenData {
@@ -42049,7 +44030,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1332,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -42096,7 +44079,7 @@
     (
         Trace(
             Id {
-                value: 1156,
+                value: 1330,
             },
         ),
         TraceViewData {
@@ -42155,7 +44138,7 @@
     (
         Trace(
             Id {
-                value: 1157,
+                value: 1331,
             },
         ),
         TraceViewData {
@@ -42190,7 +44173,7 @@
     (
         Trace(
             Id {
-                value: 1158,
+                value: 1332,
             },
         ),
         TraceViewData {
@@ -42237,7 +44220,30 @@
     (
         Trace(
             Id {
-                value: 1110,
+                value: 1333,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1275,
             },
         ),
         TraceViewData {
@@ -42256,7 +44262,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1158,
+                                1333,
                             ),
                         },
                         TraceViewTokenData {
@@ -42270,7 +44276,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1159,
+                                1334,
                             ),
                         },
                         TraceViewTokenData {
@@ -42284,7 +44290,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1160,
+                                1335,
                             ),
                         },
                         TraceViewTokenData {
@@ -42298,7 +44304,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1161,
+                                1336,
                             ),
                         },
                         TraceViewTokenData {
@@ -42311,7 +44317,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1337,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -42328,7 +44336,7 @@
     (
         Trace(
             Id {
-                value: 1159,
+                value: 1334,
             },
         ),
         TraceViewData {
@@ -42351,7 +44359,7 @@
     (
         Trace(
             Id {
-                value: 1160,
+                value: 1335,
             },
         ),
         TraceViewData {
@@ -42410,7 +44418,7 @@
     (
         Trace(
             Id {
-                value: 1161,
+                value: 1336,
             },
         ),
         TraceViewData {
@@ -42445,7 +44453,7 @@
     (
         Trace(
             Id {
-                value: 1162,
+                value: 1337,
             },
         ),
         TraceViewData {
@@ -42492,7 +44500,30 @@
     (
         Trace(
             Id {
-                value: 1111,
+                value: 1338,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1276,
             },
         ),
         TraceViewData {
@@ -42511,7 +44542,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1162,
+                                1338,
                             ),
                         },
                         TraceViewTokenData {
@@ -42525,7 +44556,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1163,
+                                1339,
                             ),
                         },
                         TraceViewTokenData {
@@ -42545,7 +44576,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1164,
+                                1340,
                             ),
                         },
                         TraceViewTokenData {
@@ -42559,7 +44590,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1165,
+                                1341,
                             ),
                         },
                         TraceViewTokenData {
@@ -42585,7 +44616,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1166,
+                                1342,
                             ),
                         },
                         TraceViewTokenData {
@@ -42605,7 +44636,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1167,
+                                1343,
                             ),
                         },
                         TraceViewTokenData {
@@ -42619,7 +44650,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1168,
+                                1344,
                             ),
                         },
                         TraceViewTokenData {
@@ -42643,7 +44674,7 @@
     (
         Trace(
             Id {
-                value: 1163,
+                value: 1339,
             },
         ),
         TraceViewData {
@@ -42666,7 +44697,7 @@
     (
         Trace(
             Id {
-                value: 1164,
+                value: 1340,
             },
         ),
         TraceViewData {
@@ -42689,7 +44720,7 @@
     (
         Trace(
             Id {
-                value: 1165,
+                value: 1341,
             },
         ),
         TraceViewData {
@@ -42730,7 +44761,7 @@
     (
         Trace(
             Id {
-                value: 1166,
+                value: 1342,
             },
         ),
         TraceViewData {
@@ -42795,7 +44826,7 @@
     (
         Trace(
             Id {
-                value: 1167,
+                value: 1343,
             },
         ),
         TraceViewData {
@@ -42818,7 +44849,7 @@
     (
         Trace(
             Id {
-                value: 1168,
+                value: 1344,
             },
         ),
         TraceViewData {
@@ -42859,7 +44890,7 @@
     (
         Trace(
             Id {
-                value: 1169,
+                value: 1345,
             },
         ),
         TraceViewData {
@@ -42924,7 +44955,7 @@
     (
         Trace(
             Id {
-                value: 1112,
+                value: 1277,
             },
         ),
         TraceViewData {
@@ -42943,7 +44974,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1169,
+                                1345,
                             ),
                         },
                         TraceViewTokenData {
@@ -42957,7 +44988,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1170,
+                                1346,
                             ),
                         },
                         TraceViewTokenData {
@@ -42971,7 +45002,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1171,
+                                1347,
                             ),
                         },
                         TraceViewTokenData {
@@ -42985,7 +45016,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1172,
+                                1348,
                             ),
                         },
                         TraceViewTokenData {
@@ -43011,7 +45042,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1173,
+                                1349,
                             ),
                         },
                         TraceViewTokenData {
@@ -43025,7 +45056,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1174,
+                                1350,
                             ),
                         },
                         TraceViewTokenData {
@@ -43039,7 +45070,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1175,
+                                1351,
                             ),
                         },
                         TraceViewTokenData {
@@ -43063,7 +45094,7 @@
     (
         Trace(
             Id {
-                value: 1170,
+                value: 1346,
             },
         ),
         TraceViewData {
@@ -43086,7 +45117,7 @@
     (
         Trace(
             Id {
-                value: 1171,
+                value: 1347,
             },
         ),
         TraceViewData {
@@ -43145,7 +45176,7 @@
     (
         Trace(
             Id {
-                value: 1172,
+                value: 1348,
             },
         ),
         TraceViewData {
@@ -43180,7 +45211,7 @@
     (
         Trace(
             Id {
-                value: 1173,
+                value: 1349,
             },
         ),
         TraceViewData {
@@ -43239,7 +45270,7 @@
     (
         Trace(
             Id {
-                value: 1174,
+                value: 1350,
             },
         ),
         TraceViewData {
@@ -43298,7 +45329,7 @@
     (
         Trace(
             Id {
-                value: 1175,
+                value: 1351,
             },
         ),
         TraceViewData {
@@ -43333,7 +45364,7 @@
     (
         Trace(
             Id {
-                value: 1176,
+                value: 1352,
             },
         ),
         TraceViewData {
@@ -43392,7 +45423,7 @@
     (
         Trace(
             Id {
-                value: 1113,
+                value: 1278,
             },
         ),
         TraceViewData {
@@ -43411,7 +45442,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1176,
+                                1352,
                             ),
                         },
                         TraceViewTokenData {
@@ -43425,7 +45456,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1177,
+                                1353,
                             ),
                         },
                         TraceViewTokenData {
@@ -43439,7 +45470,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1178,
+                                1354,
                             ),
                         },
                     ],
@@ -43451,7 +45482,7 @@
     (
         Trace(
             Id {
-                value: 1177,
+                value: 1353,
             },
         ),
         TraceViewData {
@@ -43474,7 +45505,7 @@
     (
         Trace(
             Id {
-                value: 1178,
+                value: 1354,
             },
         ),
         TraceViewData {
@@ -43497,7 +45528,7 @@
     (
         Trace(
             Id {
-                value: 1179,
+                value: 1355,
             },
         ),
         TraceViewData {
@@ -43520,7 +45551,7 @@
     (
         Trace(
             Id {
-                value: 1114,
+                value: 1279,
             },
         ),
         TraceViewData {
@@ -43539,7 +45570,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1179,
+                                1355,
                             ),
                         },
                         TraceViewTokenData {
@@ -43552,7 +45583,9 @@
                             text: "0.4",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1356,
+                            ),
                         },
                     ],
                 },
@@ -43563,7 +45596,7 @@
     (
         Trace(
             Id {
-                value: 1180,
+                value: 1356,
             },
         ),
         TraceViewData {
@@ -43586,7 +45619,30 @@
     (
         Trace(
             Id {
-                value: 1115,
+                value: 1357,
+            },
+        ),
+        TraceViewData {
+            trace_kind: LazyExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.4",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1280,
             },
         ),
         TraceViewData {
@@ -43605,7 +45661,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1180,
+                                1357,
                             ),
                         },
                         TraceViewTokenData {
@@ -43619,7 +45675,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1181,
+                                1358,
                             ),
                         },
                         TraceViewTokenData {
@@ -43633,7 +45689,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1182,
+                                1359,
                             ),
                         },
                     ],
@@ -43645,7 +45701,7 @@
     (
         Trace(
             Id {
-                value: 1181,
+                value: 1358,
             },
         ),
         TraceViewData {
@@ -43668,7 +45724,7 @@
     (
         Trace(
             Id {
-                value: 1182,
+                value: 1359,
             },
         ),
         TraceViewData {
@@ -43691,7 +45747,7 @@
     (
         Trace(
             Id {
-                value: 1183,
+                value: 1360,
             },
         ),
         TraceViewData {
@@ -43726,7 +45782,7 @@
     (
         Trace(
             Id {
-                value: 1116,
+                value: 1281,
             },
         ),
         TraceViewData {
@@ -43761,7 +45817,7 @@
     (
         Trace(
             Id {
-                value: 872,
+                value: 999,
             },
         ),
         TraceViewData {
@@ -43774,7 +45830,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1183,
+                                1360,
                             ),
                         },
                         TraceViewTokenData {
@@ -43792,7 +45848,7 @@
     (
         Trace(
             Id {
-                value: 1184,
+                value: 1361,
             },
         ),
         TraceViewData {
@@ -43887,7 +45943,7 @@
     (
         Trace(
             Id {
-                value: 1185,
+                value: 1362,
             },
         ),
         TraceViewData {
@@ -43906,7 +45962,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1192,
+                                1369,
                             ),
                         },
                         TraceViewTokenData {
@@ -43920,7 +45976,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1193,
+                                1370,
                             ),
                         },
                         TraceViewTokenData {
@@ -43933,7 +45989,9 @@
                             text: "0.",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1371,
+                            ),
                         },
                     ],
                 },
@@ -43944,7 +46002,7 @@
     (
         Trace(
             Id {
-                value: 1193,
+                value: 1370,
             },
         ),
         TraceViewData {
@@ -44003,7 +46061,7 @@
     (
         Trace(
             Id {
-                value: 1194,
+                value: 1371,
             },
         ),
         TraceViewData {
@@ -44038,7 +46096,30 @@
     (
         Trace(
             Id {
-                value: 1186,
+                value: 1372,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1363,
             },
         ),
         TraceViewData {
@@ -44057,7 +46138,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1194,
+                                1372,
                             ),
                         },
                         TraceViewTokenData {
@@ -44071,7 +46152,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1195,
+                                1373,
                             ),
                         },
                         TraceViewTokenData {
@@ -44085,7 +46166,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1196,
+                                1374,
                             ),
                         },
                     ],
@@ -44097,7 +46178,7 @@
     (
         Trace(
             Id {
-                value: 1195,
+                value: 1373,
             },
         ),
         TraceViewData {
@@ -44120,7 +46201,7 @@
     (
         Trace(
             Id {
-                value: 1196,
+                value: 1374,
             },
         ),
         TraceViewData {
@@ -44167,7 +46248,7 @@
     (
         Trace(
             Id {
-                value: 1197,
+                value: 1375,
             },
         ),
         TraceViewData {
@@ -44202,7 +46283,7 @@
     (
         Trace(
             Id {
-                value: 1187,
+                value: 1364,
             },
         ),
         TraceViewData {
@@ -44221,7 +46302,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1197,
+                                1375,
                             ),
                         },
                         TraceViewTokenData {
@@ -44234,7 +46315,9 @@
                             text: "1.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1376,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -44251,7 +46334,7 @@
     (
         Trace(
             Id {
-                value: 1199,
+                value: 1378,
             },
         ),
         TraceViewData {
@@ -44270,7 +46353,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1202,
+                                1381,
                             ),
                         },
                         TraceViewTokenData {
@@ -44284,7 +46367,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1203,
+                                1382,
                             ),
                         },
                         TraceViewTokenData {
@@ -44297,7 +46380,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1383,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -44344,7 +46429,7 @@
     (
         Trace(
             Id {
-                value: 1200,
+                value: 1379,
             },
         ),
         TraceViewData {
@@ -44363,7 +46448,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1204,
+                                1384,
                             ),
                         },
                         TraceViewTokenData {
@@ -44377,7 +46462,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1205,
+                                1385,
                             ),
                         },
                         TraceViewTokenData {
@@ -44391,7 +46476,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1206,
+                                1386,
                             ),
                         },
                         TraceViewTokenData {
@@ -44405,7 +46490,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1207,
+                                1387,
                             ),
                         },
                         TraceViewTokenData {
@@ -44419,7 +46504,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1208,
+                                1388,
                             ),
                         },
                     ],
@@ -44431,7 +46516,7 @@
     (
         Trace(
             Id {
-                value: 1201,
+                value: 1380,
             },
         ),
         TraceViewData {
@@ -44450,7 +46535,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1209,
+                                1389,
                             ),
                         },
                         TraceViewTokenData {
@@ -44463,7 +46548,9 @@
                             text: "10.",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1390,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -44480,7 +46567,7 @@
     (
         Trace(
             Id {
-                value: 1202,
+                value: 1381,
             },
         ),
         TraceViewData {
@@ -44521,7 +46608,7 @@
     (
         Trace(
             Id {
-                value: 1198,
+                value: 1376,
             },
         ),
         TraceViewData {
@@ -44544,7 +46631,30 @@
     (
         Trace(
             Id {
-                value: 1188,
+                value: 1377,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1365,
             },
         ),
         TraceViewData {
@@ -44563,7 +46673,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1210,
+                                1391,
                             ),
                         },
                         TraceViewTokenData {
@@ -44576,7 +46686,9 @@
                             text: "4.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1392,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -44593,7 +46705,7 @@
     (
         Trace(
             Id {
-                value: 1212,
+                value: 1394,
             },
         ),
         TraceViewData {
@@ -44612,7 +46724,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1214,
+                                1396,
                             ),
                         },
                         TraceViewTokenData {
@@ -44626,7 +46738,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1215,
+                                1397,
                             ),
                         },
                         TraceViewTokenData {
@@ -44640,7 +46752,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1216,
+                                1398,
                             ),
                         },
                         TraceViewTokenData {
@@ -44654,7 +46766,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1217,
+                                1399,
                             ),
                         },
                         TraceViewTokenData {
@@ -44668,7 +46780,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1218,
+                                1400,
                             ),
                         },
                     ],
@@ -44680,7 +46792,7 @@
     (
         Trace(
             Id {
-                value: 1213,
+                value: 1395,
             },
         ),
         TraceViewData {
@@ -44699,7 +46811,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1219,
+                                1401,
                             ),
                         },
                         TraceViewTokenData {
@@ -44712,7 +46824,9 @@
                             text: "10.",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1402,
+                            ),
                         },
                     ],
                 },
@@ -44723,7 +46837,7 @@
     (
         Trace(
             Id {
-                value: 1214,
+                value: 1396,
             },
         ),
         TraceViewData {
@@ -44764,7 +46878,7 @@
     (
         Trace(
             Id {
-                value: 1211,
+                value: 1392,
             },
         ),
         TraceViewData {
@@ -44787,7 +46901,30 @@
     (
         Trace(
             Id {
-                value: 1189,
+                value: 1393,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "4.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1366,
             },
         ),
         TraceViewData {
@@ -44806,7 +46943,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1220,
+                                1403,
                             ),
                         },
                         TraceViewTokenData {
@@ -44820,7 +46957,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1221,
+                                1404,
                             ),
                         },
                         TraceViewTokenData {
@@ -44833,7 +46970,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1405,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -44880,7 +47019,7 @@
     (
         Trace(
             Id {
-                value: 1221,
+                value: 1404,
             },
         ),
         TraceViewData {
@@ -44927,7 +47066,7 @@
     (
         Trace(
             Id {
-                value: 1222,
+                value: 1405,
             },
         ),
         TraceViewData {
@@ -44962,7 +47101,30 @@
     (
         Trace(
             Id {
-                value: 1190,
+                value: 1406,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1367,
             },
         ),
         TraceViewData {
@@ -44981,7 +47143,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1222,
+                                1406,
                             ),
                         },
                         TraceViewTokenData {
@@ -44995,7 +47157,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1223,
+                                1407,
                             ),
                         },
                         TraceViewTokenData {
@@ -45009,7 +47171,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1224,
+                                1408,
                             ),
                         },
                     ],
@@ -45021,7 +47183,7 @@
     (
         Trace(
             Id {
-                value: 1223,
+                value: 1407,
             },
         ),
         TraceViewData {
@@ -45044,7 +47206,7 @@
     (
         Trace(
             Id {
-                value: 1224,
+                value: 1408,
             },
         ),
         TraceViewData {
@@ -45091,7 +47253,7 @@
     (
         Trace(
             Id {
-                value: 1225,
+                value: 1409,
             },
         ),
         TraceViewData {
@@ -45126,7 +47288,7 @@
     (
         Trace(
             Id {
-                value: 1191,
+                value: 1368,
             },
         ),
         TraceViewData {
@@ -45144,6 +47306,31 @@
                             text: "false",
                             token_class: Literal,
                             spaces_before: 1,
+                            assoc_trace_id: Some(
+                                1409,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1410,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "false",
+                            token_class: Literal,
+                            spaces_before: 1,
                             assoc_trace_id: None,
                         },
                     ],
@@ -45155,7 +47342,7 @@
     (
         Trace(
             Id {
-                value: 1192,
+                value: 1369,
             },
         ),
         TraceViewData {
@@ -45190,7 +47377,7 @@
     (
         Trace(
             Id {
-                value: 873,
+                value: 1000,
             },
         ),
         TraceViewData {
@@ -45203,7 +47390,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1225,
+                                1410,
                             ),
                         },
                         TraceViewTokenData {
@@ -45221,7 +47408,7 @@
     (
         Trace(
             Id {
-                value: 1226,
+                value: 1411,
             },
         ),
         TraceViewData {
@@ -45316,7 +47503,7 @@
     (
         Trace(
             Id {
-                value: 1227,
+                value: 1412,
             },
         ),
         TraceViewData {
@@ -45335,7 +47522,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1229,
+                                1414,
                             ),
                         },
                         TraceViewTokenData {
@@ -45349,7 +47536,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1230,
+                                1415,
                             ),
                         },
                         TraceViewTokenData {
@@ -45363,7 +47550,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1231,
+                                1416,
                             ),
                         },
                         TraceViewTokenData {
@@ -45377,7 +47564,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1232,
+                                1417,
                             ),
                         },
                         TraceViewTokenData {
@@ -45391,7 +47578,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1233,
+                                1418,
                             ),
                         },
                     ],
@@ -45403,7 +47590,7 @@
     (
         Trace(
             Id {
-                value: 1230,
+                value: 1415,
             },
         ),
         TraceViewData {
@@ -45426,7 +47613,7 @@
     (
         Trace(
             Id {
-                value: 1231,
+                value: 1416,
             },
         ),
         TraceViewData {
@@ -45485,7 +47672,7 @@
     (
         Trace(
             Id {
-                value: 1232,
+                value: 1417,
             },
         ),
         TraceViewData {
@@ -45520,7 +47707,7 @@
     (
         Trace(
             Id {
-                value: 1233,
+                value: 1418,
             },
         ),
         TraceViewData {
@@ -45579,7 +47766,7 @@
     (
         Trace(
             Id {
-                value: 1234,
+                value: 1419,
             },
         ),
         TraceViewData {
@@ -45614,7 +47801,7 @@
     (
         Trace(
             Id {
-                value: 1228,
+                value: 1413,
             },
         ),
         TraceViewData {
@@ -45633,7 +47820,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1234,
+                                1419,
                             ),
                         },
                         TraceViewTokenData {
@@ -45647,7 +47834,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1235,
+                                1420,
                             ),
                         },
                         TraceViewTokenData {
@@ -45661,7 +47848,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1236,
+                                1421,
                             ),
                         },
                         TraceViewTokenData {
@@ -45674,7 +47861,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1422,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -45709,7 +47898,7 @@
     (
         Trace(
             Id {
-                value: 1238,
+                value: 1424,
             },
         ),
         TraceViewData {
@@ -45728,7 +47917,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1239,
+                                1425,
                             ),
                         },
                         TraceViewTokenData {
@@ -45742,7 +47931,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1240,
+                                1426,
                             ),
                         },
                         TraceViewTokenData {
@@ -45756,7 +47945,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1241,
+                                1427,
                             ),
                         },
                         TraceViewTokenData {
@@ -45769,7 +47958,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1428,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -45804,7 +47995,7 @@
     (
         Trace(
             Id {
-                value: 1239,
+                value: 1425,
             },
         ),
         TraceViewData {
@@ -45822,7 +48013,9 @@
                             text: "false",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1429,
+                            ),
                         },
                     ],
                 },
@@ -45833,7 +48026,7 @@
     (
         Trace(
             Id {
-                value: 1235,
+                value: 1420,
             },
         ),
         TraceViewData {
@@ -45892,7 +48085,7 @@
     (
         Trace(
             Id {
-                value: 1236,
+                value: 1421,
             },
         ),
         TraceViewData {
@@ -45927,7 +48120,7 @@
     (
         Trace(
             Id {
-                value: 1237,
+                value: 1422,
             },
         ),
         TraceViewData {
@@ -45974,7 +48167,30 @@
     (
         Trace(
             Id {
-                value: 1229,
+                value: 1423,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1414,
             },
         ),
         TraceViewData {
@@ -46009,7 +48225,7 @@
     (
         Trace(
             Id {
-                value: 874,
+                value: 1001,
             },
         ),
         TraceViewData {
@@ -46022,7 +48238,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1242,
+                                1430,
                             ),
                         },
                         TraceViewTokenData {
@@ -46040,7 +48256,7 @@
     (
         Trace(
             Id {
-                value: 1243,
+                value: 1431,
             },
         ),
         TraceViewData {
@@ -46135,7 +48351,7 @@
     (
         Trace(
             Id {
-                value: 1244,
+                value: 1432,
             },
         ),
         TraceViewData {
@@ -46154,7 +48370,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1260,
+                                1448,
                             ),
                         },
                         TraceViewTokenData {
@@ -46168,7 +48384,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1261,
+                                1449,
                             ),
                         },
                         TraceViewTokenData {
@@ -46193,7 +48409,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1450,
+                            ),
                         },
                     ],
                 },
@@ -46204,7 +48422,7 @@
     (
         Trace(
             Id {
-                value: 1261,
+                value: 1449,
             },
         ),
         TraceViewData {
@@ -46275,7 +48493,7 @@
     (
         Trace(
             Id {
-                value: 1262,
+                value: 1450,
             },
         ),
         TraceViewData {
@@ -46322,7 +48540,30 @@
     (
         Trace(
             Id {
-                value: 1245,
+                value: 1451,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1433,
             },
         ),
         TraceViewData {
@@ -46341,7 +48582,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1262,
+                                1451,
                             ),
                         },
                         TraceViewTokenData {
@@ -46355,7 +48596,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1263,
+                                1452,
                             ),
                         },
                         TraceViewTokenData {
@@ -46380,7 +48621,9 @@
                             text: "4",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1453,
+                            ),
                         },
                     ],
                 },
@@ -46391,7 +48634,7 @@
     (
         Trace(
             Id {
-                value: 1263,
+                value: 1452,
             },
         ),
         TraceViewData {
@@ -46462,7 +48705,7 @@
     (
         Trace(
             Id {
-                value: 1264,
+                value: 1453,
             },
         ),
         TraceViewData {
@@ -46509,7 +48752,30 @@
     (
         Trace(
             Id {
-                value: 1246,
+                value: 1454,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "4",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1434,
             },
         ),
         TraceViewData {
@@ -46528,7 +48794,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1264,
+                                1454,
                             ),
                         },
                         TraceViewTokenData {
@@ -46542,7 +48808,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1265,
+                                1455,
                             ),
                         },
                         TraceViewTokenData {
@@ -46556,7 +48822,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1266,
+                                1456,
                             ),
                         },
                         TraceViewTokenData {
@@ -46569,7 +48835,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1457,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -46586,7 +48854,7 @@
     (
         Trace(
             Id {
-                value: 1265,
+                value: 1455,
             },
         ),
         TraceViewData {
@@ -46609,7 +48877,7 @@
     (
         Trace(
             Id {
-                value: 1266,
+                value: 1456,
             },
         ),
         TraceViewData {
@@ -46656,7 +48924,7 @@
     (
         Trace(
             Id {
-                value: 1267,
+                value: 1457,
             },
         ),
         TraceViewData {
@@ -46691,7 +48959,30 @@
     (
         Trace(
             Id {
-                value: 1247,
+                value: 1458,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1435,
             },
         ),
         TraceViewData {
@@ -46710,7 +49001,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1267,
+                                1458,
                             ),
                         },
                         TraceViewTokenData {
@@ -46724,7 +49015,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1268,
+                                1459,
                             ),
                         },
                         TraceViewTokenData {
@@ -46738,7 +49029,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1269,
+                                1460,
                             ),
                         },
                         TraceViewTokenData {
@@ -46751,7 +49042,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1461,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -46768,7 +49061,7 @@
     (
         Trace(
             Id {
-                value: 1268,
+                value: 1459,
             },
         ),
         TraceViewData {
@@ -46791,7 +49084,7 @@
     (
         Trace(
             Id {
-                value: 1269,
+                value: 1460,
             },
         ),
         TraceViewData {
@@ -46838,7 +49131,7 @@
     (
         Trace(
             Id {
-                value: 1270,
+                value: 1461,
             },
         ),
         TraceViewData {
@@ -46873,7 +49166,30 @@
     (
         Trace(
             Id {
-                value: 1248,
+                value: 1462,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1436,
             },
         ),
         TraceViewData {
@@ -46892,7 +49208,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1270,
+                                1462,
                             ),
                         },
                         TraceViewTokenData {
@@ -46906,7 +49222,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1271,
+                                1463,
                             ),
                         },
                         TraceViewTokenData {
@@ -46920,7 +49236,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1272,
+                                1464,
                             ),
                         },
                         TraceViewTokenData {
@@ -46933,7 +49249,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1465,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -46950,7 +49268,7 @@
     (
         Trace(
             Id {
-                value: 1271,
+                value: 1463,
             },
         ),
         TraceViewData {
@@ -46973,7 +49291,7 @@
     (
         Trace(
             Id {
-                value: 1272,
+                value: 1464,
             },
         ),
         TraceViewData {
@@ -47020,7 +49338,7 @@
     (
         Trace(
             Id {
-                value: 1273,
+                value: 1465,
             },
         ),
         TraceViewData {
@@ -47055,7 +49373,30 @@
     (
         Trace(
             Id {
-                value: 1249,
+                value: 1466,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1437,
             },
         ),
         TraceViewData {
@@ -47074,7 +49415,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1273,
+                                1466,
                             ),
                         },
                         TraceViewTokenData {
@@ -47116,7 +49457,7 @@
     (
         Trace(
             Id {
-                value: 1274,
+                value: 1467,
             },
         ),
         TraceViewData {
@@ -47139,7 +49480,7 @@
     (
         Trace(
             Id {
-                value: 1250,
+                value: 1438,
             },
         ),
         TraceViewData {
@@ -47158,7 +49499,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1274,
+                                1467,
                             ),
                         },
                         TraceViewTokenData {
@@ -47178,7 +49519,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1275,
+                                1468,
                             ),
                         },
                         TraceViewTokenData {
@@ -47187,6 +49528,95 @@
                             spaces_before: 1,
                             assoc_trace_id: None,
                         },
+                        TraceViewTokenData {
+                            text: "3.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: Some(
+                                1469,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1468,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1469,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "downarc",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "!",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: ".",
+                            token_class: Punctuation,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                        TraceViewTokenData {
+                            text: "norm",
+                            token_class: Field,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1470,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
                         TraceViewTokenData {
                             text: "3.0",
                             token_class: Literal,
@@ -47202,71 +49632,7 @@
     (
         Trace(
             Id {
-                value: 1275,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 1276,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "downarc",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "!",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: ".",
-                            token_class: Punctuation,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                        TraceViewTokenData {
-                            text: "norm",
-                            token_class: Field,
-                            spaces_before: 0,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 1251,
+                value: 1439,
             },
         ),
         TraceViewData {
@@ -47285,7 +49651,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1276,
+                                1470,
                             ),
                         },
                         TraceViewTokenData {
@@ -47327,7 +49693,7 @@
     (
         Trace(
             Id {
-                value: 1277,
+                value: 1471,
             },
         ),
         TraceViewData {
@@ -47350,7 +49716,7 @@
     (
         Trace(
             Id {
-                value: 1252,
+                value: 1440,
             },
         ),
         TraceViewData {
@@ -47369,7 +49735,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1277,
+                                1471,
                             ),
                         },
                         TraceViewTokenData {
@@ -47383,7 +49749,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1278,
+                                1472,
                             ),
                         },
                         TraceViewTokenData {
@@ -47403,7 +49769,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1279,
+                                1473,
                             ),
                         },
                         TraceViewTokenData {
@@ -47429,7 +49795,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1280,
+                                1474,
                             ),
                         },
                         TraceViewTokenData {
@@ -47442,7 +49808,9 @@
                             text: "true",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1475,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -47459,7 +49827,7 @@
     (
         Trace(
             Id {
-                value: 1278,
+                value: 1472,
             },
         ),
         TraceViewData {
@@ -47482,7 +49850,7 @@
     (
         Trace(
             Id {
-                value: 1279,
+                value: 1473,
             },
         ),
         TraceViewData {
@@ -47505,7 +49873,7 @@
     (
         Trace(
             Id {
-                value: 1280,
+                value: 1474,
             },
         ),
         TraceViewData {
@@ -47558,7 +49926,7 @@
     (
         Trace(
             Id {
-                value: 1281,
+                value: 1475,
             },
         ),
         TraceViewData {
@@ -47641,7 +50009,30 @@
     (
         Trace(
             Id {
-                value: 1253,
+                value: 1476,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "true",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1441,
             },
         ),
         TraceViewData {
@@ -47660,7 +50051,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1281,
+                                1476,
                             ),
                         },
                         TraceViewTokenData {
@@ -47673,7 +50064,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1477,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "or",
@@ -47686,7 +50079,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1282,
+                                1478,
                             ),
                         },
                         TraceViewTokenData {
@@ -47705,7 +50098,9 @@
                             text: "100.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1479,
+                            ),
                         },
                     ],
                 },
@@ -47716,7 +50111,7 @@
     (
         Trace(
             Id {
-                value: 1282,
+                value: 1477,
             },
         ),
         TraceViewData {
@@ -47739,7 +50134,30 @@
     (
         Trace(
             Id {
-                value: 1283,
+                value: 1478,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1479,
             },
         ),
         TraceViewData {
@@ -47762,7 +50180,30 @@
     (
         Trace(
             Id {
-                value: 1254,
+                value: 1480,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "100.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1442,
             },
         ),
         TraceViewData {
@@ -47781,7 +50222,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1283,
+                                1480,
                             ),
                         },
                         TraceViewTokenData {
@@ -47795,7 +50236,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1284,
+                                1481,
                             ),
                         },
                         TraceViewTokenData {
@@ -47815,7 +50256,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1285,
+                                1482,
                             ),
                         },
                         TraceViewTokenData {
@@ -47839,7 +50280,7 @@
     (
         Trace(
             Id {
-                value: 1284,
+                value: 1481,
             },
         ),
         TraceViewData {
@@ -47862,7 +50303,7 @@
     (
         Trace(
             Id {
-                value: 1285,
+                value: 1482,
             },
         ),
         TraceViewData {
@@ -47885,7 +50326,7 @@
     (
         Trace(
             Id {
-                value: 1286,
+                value: 1483,
             },
         ),
         TraceViewData {
@@ -47938,7 +50379,7 @@
     (
         Trace(
             Id {
-                value: 1255,
+                value: 1443,
             },
         ),
         TraceViewData {
@@ -47957,7 +50398,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1286,
+                                1483,
                             ),
                         },
                         TraceViewTokenData {
@@ -47971,7 +50412,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1287,
+                                1484,
                             ),
                         },
                         TraceViewTokenData {
@@ -47991,7 +50432,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1288,
+                                1485,
                             ),
                         },
                         TraceViewTokenData {
@@ -48015,7 +50456,7 @@
     (
         Trace(
             Id {
-                value: 1287,
+                value: 1484,
             },
         ),
         TraceViewData {
@@ -48038,7 +50479,7 @@
     (
         Trace(
             Id {
-                value: 1288,
+                value: 1485,
             },
         ),
         TraceViewData {
@@ -48061,7 +50502,7 @@
     (
         Trace(
             Id {
-                value: 1289,
+                value: 1486,
             },
         ),
         TraceViewData {
@@ -48114,7 +50555,7 @@
     (
         Trace(
             Id {
-                value: 1256,
+                value: 1444,
             },
         ),
         TraceViewData {
@@ -48133,7 +50574,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1289,
+                                1486,
                             ),
                         },
                         TraceViewTokenData {
@@ -48147,7 +50588,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1290,
+                                1487,
                             ),
                         },
                         TraceViewTokenData {
@@ -48161,7 +50602,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1291,
+                                1488,
                             ),
                         },
                         TraceViewTokenData {
@@ -48175,7 +50616,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1292,
+                                1489,
                             ),
                         },
                         TraceViewTokenData {
@@ -48193,7 +50634,7 @@
     (
         Trace(
             Id {
-                value: 1290,
+                value: 1487,
             },
         ),
         TraceViewData {
@@ -48216,7 +50657,7 @@
     (
         Trace(
             Id {
-                value: 1291,
+                value: 1488,
             },
         ),
         TraceViewData {
@@ -48239,7 +50680,7 @@
     (
         Trace(
             Id {
-                value: 1292,
+                value: 1489,
             },
         ),
         TraceViewData {
@@ -48292,7 +50733,7 @@
     (
         Trace(
             Id {
-                value: 1293,
+                value: 1490,
             },
         ),
         TraceViewData {
@@ -48315,7 +50756,7 @@
     (
         Trace(
             Id {
-                value: 1257,
+                value: 1445,
             },
         ),
         TraceViewData {
@@ -48334,7 +50775,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1293,
+                                1490,
                             ),
                         },
                         TraceViewTokenData {
@@ -48347,7 +50788,9 @@
                             text: "20.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1491,
+                            ),
                         },
                     ],
                 },
@@ -48358,7 +50801,7 @@
     (
         Trace(
             Id {
-                value: 1294,
+                value: 1491,
             },
         ),
         TraceViewData {
@@ -48381,7 +50824,30 @@
     (
         Trace(
             Id {
-                value: 1258,
+                value: 1492,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "20.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1446,
             },
         ),
         TraceViewData {
@@ -48400,7 +50866,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1294,
+                                1492,
                             ),
                         },
                         TraceViewTokenData {
@@ -48414,7 +50880,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1295,
+                                1493,
                             ),
                         },
                         TraceViewTokenData {
@@ -48427,7 +50893,9 @@
                             text: "2.5",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1494,
+                            ),
                         },
                     ],
                 },
@@ -48438,7 +50906,7 @@
     (
         Trace(
             Id {
-                value: 1295,
+                value: 1493,
             },
         ),
         TraceViewData {
@@ -48485,7 +50953,7 @@
     (
         Trace(
             Id {
-                value: 1296,
+                value: 1494,
             },
         ),
         TraceViewData {
@@ -48520,7 +50988,30 @@
     (
         Trace(
             Id {
-                value: 1259,
+                value: 1495,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2.5",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1447,
             },
         ),
         TraceViewData {
@@ -48539,7 +51030,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1296,
+                                1495,
                             ),
                         },
                         TraceViewTokenData {
@@ -48559,7 +51050,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1297,
+                                1496,
                             ),
                         },
                         TraceViewTokenData {
@@ -48578,7 +51069,9 @@
                             text: "100.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1497,
+                            ),
                         },
                     ],
                 },
@@ -48589,7 +51082,7 @@
     (
         Trace(
             Id {
-                value: 1297,
+                value: 1496,
             },
         ),
         TraceViewData {
@@ -48612,7 +51105,7 @@
     (
         Trace(
             Id {
-                value: 1298,
+                value: 1497,
             },
         ),
         TraceViewData {
@@ -48653,7 +51146,30 @@
     (
         Trace(
             Id {
-                value: 1260,
+                value: 1498,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "100.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1448,
             },
         ),
         TraceViewData {
@@ -48688,7 +51204,7 @@
     (
         Trace(
             Id {
-                value: 875,
+                value: 1002,
             },
         ),
         TraceViewData {
@@ -48701,7 +51217,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1298,
+                                1498,
                             ),
                         },
                         TraceViewTokenData {
@@ -48719,7 +51235,7 @@
     (
         Trace(
             Id {
-                value: 1299,
+                value: 1499,
             },
         ),
         TraceViewData {
@@ -48814,7 +51330,7 @@
     (
         Trace(
             Id {
-                value: 1300,
+                value: 1500,
             },
         ),
         TraceViewData {
@@ -48833,7 +51349,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1308,
+                                1508,
                             ),
                         },
                         TraceViewTokenData {
@@ -48847,7 +51363,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1309,
+                                1509,
                             ),
                         },
                         TraceViewTokenData {
@@ -48861,7 +51377,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1310,
+                                1510,
                             ),
                         },
                     ],
@@ -48873,7 +51389,7 @@
     (
         Trace(
             Id {
-                value: 1309,
+                value: 1509,
             },
         ),
         TraceViewData {
@@ -48896,7 +51412,7 @@
     (
         Trace(
             Id {
-                value: 1310,
+                value: 1510,
             },
         ),
         TraceViewData {
@@ -48955,7 +51471,7 @@
     (
         Trace(
             Id {
-                value: 1311,
+                value: 1511,
             },
         ),
         TraceViewData {
@@ -48990,7 +51506,7 @@
     (
         Trace(
             Id {
-                value: 1301,
+                value: 1501,
             },
         ),
         TraceViewData {
@@ -49009,7 +51525,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1311,
+                                1511,
                             ),
                         },
                         TraceViewTokenData {
@@ -49023,7 +51539,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1312,
+                                1512,
                             ),
                         },
                         TraceViewTokenData {
@@ -49036,7 +51552,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1513,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -49065,7 +51583,7 @@
     (
         Trace(
             Id {
-                value: 1312,
+                value: 1512,
             },
         ),
         TraceViewData {
@@ -49088,7 +51606,7 @@
     (
         Trace(
             Id {
-                value: 1313,
+                value: 1513,
             },
         ),
         TraceViewData {
@@ -49123,7 +51641,30 @@
     (
         Trace(
             Id {
-                value: 1302,
+                value: 1514,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1502,
             },
         ),
         TraceViewData {
@@ -49142,7 +51683,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1313,
+                                1514,
                             ),
                         },
                         TraceViewTokenData {
@@ -49156,7 +51697,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1314,
+                                1515,
                             ),
                         },
                         TraceViewTokenData {
@@ -49170,7 +51711,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1315,
+                                1516,
                             ),
                         },
                         TraceViewTokenData {
@@ -49183,7 +51724,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1517,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -49200,7 +51743,7 @@
     (
         Trace(
             Id {
-                value: 1314,
+                value: 1515,
             },
         ),
         TraceViewData {
@@ -49223,7 +51766,7 @@
     (
         Trace(
             Id {
-                value: 1315,
+                value: 1516,
             },
         ),
         TraceViewData {
@@ -49270,7 +51813,7 @@
     (
         Trace(
             Id {
-                value: 1316,
+                value: 1517,
             },
         ),
         TraceViewData {
@@ -49305,7 +51848,30 @@
     (
         Trace(
             Id {
-                value: 1303,
+                value: 1518,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1503,
             },
         ),
         TraceViewData {
@@ -49324,7 +51890,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1316,
+                                1518,
                             ),
                         },
                         TraceViewTokenData {
@@ -49366,7 +51932,7 @@
     (
         Trace(
             Id {
-                value: 1317,
+                value: 1519,
             },
         ),
         TraceViewData {
@@ -49389,7 +51955,7 @@
     (
         Trace(
             Id {
-                value: 1304,
+                value: 1504,
             },
         ),
         TraceViewData {
@@ -49408,7 +51974,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1317,
+                                1519,
                             ),
                         },
                         TraceViewTokenData {
@@ -49422,7 +51988,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1318,
+                                1520,
                             ),
                         },
                         TraceViewTokenData {
@@ -49442,7 +52008,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1319,
+                                1521,
                             ),
                         },
                         TraceViewTokenData {
@@ -49468,7 +52034,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1320,
+                                1522,
                             ),
                         },
                     ],
@@ -49480,7 +52046,7 @@
     (
         Trace(
             Id {
-                value: 1318,
+                value: 1520,
             },
         ),
         TraceViewData {
@@ -49503,7 +52069,7 @@
     (
         Trace(
             Id {
-                value: 1319,
+                value: 1521,
             },
         ),
         TraceViewData {
@@ -49526,7 +52092,7 @@
     (
         Trace(
             Id {
-                value: 1320,
+                value: 1522,
             },
         ),
         TraceViewData {
@@ -49579,7 +52145,7 @@
     (
         Trace(
             Id {
-                value: 1321,
+                value: 1523,
             },
         ),
         TraceViewData {
@@ -49644,7 +52210,7 @@
     (
         Trace(
             Id {
-                value: 1305,
+                value: 1505,
             },
         ),
         TraceViewData {
@@ -49663,7 +52229,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1321,
+                                1523,
                             ),
                         },
                         TraceViewTokenData {
@@ -49677,7 +52243,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1322,
+                                1524,
                             ),
                         },
                         TraceViewTokenData {
@@ -49691,7 +52257,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1323,
+                                1525,
                             ),
                         },
                         TraceViewTokenData {
@@ -49705,7 +52271,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1324,
+                                1526,
                             ),
                         },
                         TraceViewTokenData {
@@ -49719,7 +52285,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1325,
+                                1527,
                             ),
                         },
                     ],
@@ -49731,7 +52297,7 @@
     (
         Trace(
             Id {
-                value: 1322,
+                value: 1524,
             },
         ),
         TraceViewData {
@@ -49754,7 +52320,7 @@
     (
         Trace(
             Id {
-                value: 1323,
+                value: 1525,
             },
         ),
         TraceViewData {
@@ -49813,7 +52379,7 @@
     (
         Trace(
             Id {
-                value: 1324,
+                value: 1526,
             },
         ),
         TraceViewData {
@@ -49848,7 +52414,7 @@
     (
         Trace(
             Id {
-                value: 1325,
+                value: 1527,
             },
         ),
         TraceViewData {
@@ -49907,7 +52473,7 @@
     (
         Trace(
             Id {
-                value: 1326,
+                value: 1528,
             },
         ),
         TraceViewData {
@@ -49942,7 +52508,7 @@
     (
         Trace(
             Id {
-                value: 1306,
+                value: 1506,
             },
         ),
         TraceViewData {
@@ -49961,7 +52527,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1326,
+                                1528,
                             ),
                         },
                         TraceViewTokenData {
@@ -49974,7 +52540,9 @@
                             text: "7.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1529,
+                            ),
                         },
                     ],
                 },
@@ -49985,7 +52553,7 @@
     (
         Trace(
             Id {
-                value: 1327,
+                value: 1529,
             },
         ),
         TraceViewData {
@@ -50008,7 +52576,30 @@
     (
         Trace(
             Id {
-                value: 1307,
+                value: 1530,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "7.0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1507,
             },
         ),
         TraceViewData {
@@ -50027,7 +52618,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1327,
+                                1530,
                             ),
                         },
                         TraceViewTokenData {
@@ -50041,7 +52632,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1328,
+                                1531,
                             ),
                         },
                         TraceViewTokenData {
@@ -50054,7 +52645,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1532,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -50089,7 +52682,7 @@
     (
         Trace(
             Id {
-                value: 1330,
+                value: 1534,
             },
         ),
         TraceViewData {
@@ -50108,7 +52701,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1343,
+                                1547,
                             ),
                         },
                         TraceViewTokenData {
@@ -50122,7 +52715,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1344,
+                                1548,
                             ),
                         },
                         TraceViewTokenData {
@@ -50147,7 +52740,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1549,
+                            ),
                         },
                     ],
                 },
@@ -50158,7 +52753,7 @@
     (
         Trace(
             Id {
-                value: 1331,
+                value: 1535,
             },
         ),
         TraceViewData {
@@ -50177,7 +52772,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1345,
+                                1550,
                             ),
                         },
                         TraceViewTokenData {
@@ -50191,7 +52786,7 @@
                             token_class: ValEntity,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1346,
+                                1551,
                             ),
                         },
                         TraceViewTokenData {
@@ -50205,7 +52800,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1347,
+                                1552,
                             ),
                         },
                         TraceViewTokenData {
@@ -50218,7 +52813,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1553,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -50235,7 +52832,7 @@
     (
         Trace(
             Id {
-                value: 1332,
+                value: 1536,
             },
         ),
         TraceViewData {
@@ -50254,7 +52851,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1348,
+                                1554,
                             ),
                         },
                         TraceViewTokenData {
@@ -50296,7 +52893,7 @@
     (
         Trace(
             Id {
-                value: 1333,
+                value: 1537,
             },
         ),
         TraceViewData {
@@ -50315,7 +52912,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1349,
+                                1555,
                             ),
                         },
                         TraceViewTokenData {
@@ -50329,7 +52926,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1350,
+                                1556,
                             ),
                         },
                         TraceViewTokenData {
@@ -50342,7 +52939,9 @@
                             text: "1.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1557,
+                            ),
                         },
                     ],
                 },
@@ -50353,7 +52952,7 @@
     (
         Trace(
             Id {
-                value: 1334,
+                value: 1538,
             },
         ),
         TraceViewData {
@@ -50372,7 +52971,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1351,
+                                1558,
                             ),
                         },
                         TraceViewTokenData {
@@ -50386,7 +52985,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1352,
+                                1559,
                             ),
                         },
                         TraceViewTokenData {
@@ -50400,7 +52999,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1353,
+                                1560,
                             ),
                         },
                         TraceViewTokenData {
@@ -50414,7 +53013,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1354,
+                                1561,
                             ),
                         },
                         TraceViewTokenData {
@@ -50428,7 +53027,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1355,
+                                1562,
                             ),
                         },
                     ],
@@ -50440,7 +53039,7 @@
     (
         Trace(
             Id {
-                value: 1335,
+                value: 1539,
             },
         ),
         TraceViewData {
@@ -50459,7 +53058,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1356,
+                                1563,
                             ),
                         },
                         TraceViewTokenData {
@@ -50473,7 +53072,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1357,
+                                1564,
                             ),
                         },
                         TraceViewTokenData {
@@ -50487,7 +53086,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1358,
+                                1565,
                             ),
                         },
                         TraceViewTokenData {
@@ -50500,7 +53099,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1566,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -50517,7 +53118,7 @@
     (
         Trace(
             Id {
-                value: 1336,
+                value: 1540,
             },
         ),
         TraceViewData {
@@ -50536,7 +53137,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1359,
+                                1567,
                             ),
                         },
                         TraceViewTokenData {
@@ -50578,7 +53179,7 @@
     (
         Trace(
             Id {
-                value: 1337,
+                value: 1541,
             },
         ),
         TraceViewData {
@@ -50597,7 +53198,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1360,
+                                1568,
                             ),
                         },
                         TraceViewTokenData {
@@ -50617,7 +53218,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1361,
+                                1569,
                             ),
                         },
                         TraceViewTokenData {
@@ -50643,7 +53244,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1362,
+                                1570,
                             ),
                         },
                         TraceViewTokenData {
@@ -50656,7 +53257,9 @@
                             text: "0.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1571,
+                            ),
                         },
                     ],
                 },
@@ -50667,7 +53270,7 @@
     (
         Trace(
             Id {
-                value: 1338,
+                value: 1542,
             },
         ),
         TraceViewData {
@@ -50686,7 +53289,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1363,
+                                1572,
                             ),
                         },
                         TraceViewTokenData {
@@ -50706,7 +53309,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1364,
+                                1573,
                             ),
                         },
                         TraceViewTokenData {
@@ -50725,7 +53328,9 @@
                             text: "110.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1574,
+                            ),
                         },
                     ],
                 },
@@ -50736,7 +53341,7 @@
     (
         Trace(
             Id {
-                value: 1339,
+                value: 1543,
             },
         ),
         TraceViewData {
@@ -50755,7 +53360,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1365,
+                                1575,
                             ),
                         },
                         TraceViewTokenData {
@@ -50769,7 +53374,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1366,
+                                1576,
                             ),
                         },
                         TraceViewTokenData {
@@ -50782,7 +53387,9 @@
                             text: "9.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1577,
+                            ),
                         },
                     ],
                 },
@@ -50793,7 +53400,7 @@
     (
         Trace(
             Id {
-                value: 1340,
+                value: 1544,
             },
         ),
         TraceViewData {
@@ -50812,7 +53419,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1367,
+                                1578,
                             ),
                         },
                         TraceViewTokenData {
@@ -50826,7 +53433,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1368,
+                                1579,
                             ),
                         },
                         TraceViewTokenData {
@@ -50840,7 +53447,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1369,
+                                1580,
                             ),
                         },
                         TraceViewTokenData {
@@ -50853,7 +53460,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1581,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -50870,7 +53479,7 @@
     (
         Trace(
             Id {
-                value: 1341,
+                value: 1545,
             },
         ),
         TraceViewData {
@@ -50889,7 +53498,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1370,
+                                1582,
                             ),
                         },
                         TraceViewTokenData {
@@ -50902,7 +53511,9 @@
                             text: "22.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1583,
+                            ),
                         },
                     ],
                 },
@@ -50913,7 +53524,7 @@
     (
         Trace(
             Id {
-                value: 1342,
+                value: 1546,
             },
         ),
         TraceViewData {
@@ -50932,7 +53543,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1371,
+                                1584,
                             ),
                         },
                         TraceViewTokenData {
@@ -50945,7 +53556,9 @@
                             text: "9.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1585,
+                            ),
                         },
                     ],
                 },
@@ -50956,7 +53569,7 @@
     (
         Trace(
             Id {
-                value: 1343,
+                value: 1547,
             },
         ),
         TraceViewData {
@@ -50997,7 +53610,7 @@
     (
         Trace(
             Id {
-                value: 1328,
+                value: 1531,
             },
         ),
         TraceViewData {
@@ -51020,7 +53633,7 @@
     (
         Trace(
             Id {
-                value: 1329,
+                value: 1532,
             },
         ),
         TraceViewData {
@@ -51055,7 +53668,30 @@
     (
         Trace(
             Id {
-                value: 1308,
+                value: 1533,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1508,
             },
         ),
         TraceViewData {
@@ -51090,7 +53726,7 @@
     (
         Trace(
             Id {
-                value: 876,
+                value: 1003,
             },
         ),
         TraceViewData {
@@ -51103,7 +53739,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1372,
+                                1586,
                             ),
                         },
                         TraceViewTokenData {
@@ -51121,7 +53757,7 @@
     (
         Trace(
             Id {
-                value: 1373,
+                value: 1587,
             },
         ),
         TraceViewData {
@@ -51216,7 +53852,7 @@
     (
         Trace(
             Id {
-                value: 1374,
+                value: 1588,
             },
         ),
         TraceViewData {
@@ -51251,7 +53887,7 @@
     (
         Trace(
             Id {
-                value: 877,
+                value: 1004,
             },
         ),
         TraceViewData {
@@ -51264,7 +53900,7 @@
                             token_class: ValEntity,
                             spaces_before: 4,
                             assoc_trace_id: Some(
-                                1374,
+                                1588,
                             ),
                         },
                         TraceViewTokenData {
@@ -51282,7 +53918,7 @@
     (
         Trace(
             Id {
-                value: 1375,
+                value: 1589,
             },
         ),
         TraceViewData {
@@ -51377,7 +54013,7 @@
     (
         Trace(
             Id {
-                value: 1376,
+                value: 1590,
             },
         ),
         TraceViewData {
@@ -51396,7 +54032,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1387,
+                                1601,
                             ),
                         },
                         TraceViewTokenData {
@@ -51410,7 +54046,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1388,
+                                1602,
                             ),
                         },
                         TraceViewTokenData {
@@ -51424,7 +54060,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1389,
+                                1603,
                             ),
                         },
                         TraceViewTokenData {
@@ -51448,7 +54084,7 @@
     (
         Trace(
             Id {
-                value: 1388,
+                value: 1602,
             },
         ),
         TraceViewData {
@@ -51471,7 +54107,7 @@
     (
         Trace(
             Id {
-                value: 1389,
+                value: 1603,
             },
         ),
         TraceViewData {
@@ -51542,7 +54178,7 @@
     (
         Trace(
             Id {
-                value: 1390,
+                value: 1604,
             },
         ),
         TraceViewData {
@@ -51589,7 +54225,7 @@
     (
         Trace(
             Id {
-                value: 1377,
+                value: 1591,
             },
         ),
         TraceViewData {
@@ -51608,7 +54244,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1390,
+                                1604,
                             ),
                         },
                         TraceViewTokenData {
@@ -51622,7 +54258,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1391,
+                                1605,
                             ),
                         },
                         TraceViewTokenData {
@@ -51636,7 +54272,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1392,
+                                1606,
                             ),
                         },
                     ],
@@ -51648,7 +54284,7 @@
     (
         Trace(
             Id {
-                value: 1391,
+                value: 1605,
             },
         ),
         TraceViewData {
@@ -51671,7 +54307,7 @@
     (
         Trace(
             Id {
-                value: 1392,
+                value: 1606,
             },
         ),
         TraceViewData {
@@ -51730,7 +54366,7 @@
     (
         Trace(
             Id {
-                value: 1393,
+                value: 1607,
             },
         ),
         TraceViewData {
@@ -51765,7 +54401,7 @@
     (
         Trace(
             Id {
-                value: 1378,
+                value: 1592,
             },
         ),
         TraceViewData {
@@ -51784,7 +54420,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1393,
+                                1607,
                             ),
                         },
                         TraceViewTokenData {
@@ -51798,7 +54434,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1394,
+                                1608,
                             ),
                         },
                         TraceViewTokenData {
@@ -51811,7 +54447,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1609,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -51840,7 +54478,7 @@
     (
         Trace(
             Id {
-                value: 1394,
+                value: 1608,
             },
         ),
         TraceViewData {
@@ -51863,7 +54501,7 @@
     (
         Trace(
             Id {
-                value: 1395,
+                value: 1609,
             },
         ),
         TraceViewData {
@@ -51898,7 +54536,30 @@
     (
         Trace(
             Id {
-                value: 1379,
+                value: 1610,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1593,
             },
         ),
         TraceViewData {
@@ -51917,7 +54578,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1395,
+                                1610,
                             ),
                         },
                         TraceViewTokenData {
@@ -51931,7 +54592,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1396,
+                                1611,
                             ),
                         },
                         TraceViewTokenData {
@@ -51945,7 +54606,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1397,
+                                1612,
                             ),
                         },
                         TraceViewTokenData {
@@ -51958,7 +54619,9 @@
                             text: "0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1613,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -51975,7 +54638,7 @@
     (
         Trace(
             Id {
-                value: 1396,
+                value: 1611,
             },
         ),
         TraceViewData {
@@ -51998,7 +54661,7 @@
     (
         Trace(
             Id {
-                value: 1397,
+                value: 1612,
             },
         ),
         TraceViewData {
@@ -52045,7 +54708,7 @@
     (
         Trace(
             Id {
-                value: 1398,
+                value: 1613,
             },
         ),
         TraceViewData {
@@ -52080,7 +54743,30 @@
     (
         Trace(
             Id {
-                value: 1380,
+                value: 1614,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "0",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1594,
             },
         ),
         TraceViewData {
@@ -52099,7 +54785,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1398,
+                                1614,
                             ),
                         },
                         TraceViewTokenData {
@@ -52113,7 +54799,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1399,
+                                1615,
                             ),
                         },
                         TraceViewTokenData {
@@ -52127,7 +54813,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1400,
+                                1616,
                             ),
                         },
                         TraceViewTokenData {
@@ -52140,7 +54826,9 @@
                             text: "1",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1617,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -52157,7 +54845,7 @@
     (
         Trace(
             Id {
-                value: 1399,
+                value: 1615,
             },
         ),
         TraceViewData {
@@ -52180,7 +54868,7 @@
     (
         Trace(
             Id {
-                value: 1400,
+                value: 1616,
             },
         ),
         TraceViewData {
@@ -52227,7 +54915,7 @@
     (
         Trace(
             Id {
-                value: 1401,
+                value: 1617,
             },
         ),
         TraceViewData {
@@ -52262,7 +54950,30 @@
     (
         Trace(
             Id {
-                value: 1381,
+                value: 1618,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "1",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1595,
             },
         ),
         TraceViewData {
@@ -52281,7 +54992,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1401,
+                                1618,
                             ),
                         },
                         TraceViewTokenData {
@@ -52295,7 +55006,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1402,
+                                1619,
                             ),
                         },
                         TraceViewTokenData {
@@ -52309,7 +55020,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1403,
+                                1620,
                             ),
                         },
                         TraceViewTokenData {
@@ -52322,7 +55033,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1621,
+                            ),
                         },
                         TraceViewTokenData {
                             text: "]",
@@ -52339,7 +55052,7 @@
     (
         Trace(
             Id {
-                value: 1402,
+                value: 1619,
             },
         ),
         TraceViewData {
@@ -52362,7 +55075,7 @@
     (
         Trace(
             Id {
-                value: 1403,
+                value: 1620,
             },
         ),
         TraceViewData {
@@ -52409,7 +55122,7 @@
     (
         Trace(
             Id {
-                value: 1404,
+                value: 1621,
             },
         ),
         TraceViewData {
@@ -52444,7 +55157,30 @@
     (
         Trace(
             Id {
-                value: 1382,
+                value: 1622,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1596,
             },
         ),
         TraceViewData {
@@ -52463,7 +55199,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1404,
+                                1622,
                             ),
                         },
                         TraceViewTokenData {
@@ -52472,6 +55208,54 @@
                             spaces_before: 0,
                             assoc_trace_id: None,
                         },
+                        TraceViewTokenData {
+                            text: "3",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: Some(
+                                1623,
+                            ),
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1623,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "cc_num",
+                            token_class: Variable,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1624,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
                         TraceViewTokenData {
                             text: "3",
                             token_class: Literal,
@@ -52487,30 +55271,7 @@
     (
         Trace(
             Id {
-                value: 1405,
-            },
-        ),
-        TraceViewData {
-            trace_kind: EagerExpr,
-            lines_data: [
-                TraceViewLineData {
-                    tokens_data: [
-                        TraceViewTokenData {
-                            text: "cc_num",
-                            token_class: Variable,
-                            spaces_before: 1,
-                            assoc_trace_id: None,
-                        },
-                    ],
-                },
-            ],
-            have_subtraces: false,
-        },
-    ),
-    (
-        Trace(
-            Id {
-                value: 1383,
+                value: 1597,
             },
         ),
         TraceViewData {
@@ -52529,7 +55290,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1405,
+                                1624,
                             ),
                         },
                         TraceViewTokenData {
@@ -52543,7 +55304,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1406,
+                                1625,
                             ),
                         },
                         TraceViewTokenData {
@@ -52557,7 +55318,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1407,
+                                1626,
                             ),
                         },
                         TraceViewTokenData {
@@ -52571,7 +55332,7 @@
                             token_class: ValEntity,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1408,
+                                1627,
                             ),
                         },
                         TraceViewTokenData {
@@ -52585,7 +55346,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1409,
+                                1628,
                             ),
                         },
                     ],
@@ -52597,7 +55358,7 @@
     (
         Trace(
             Id {
-                value: 1406,
+                value: 1625,
             },
         ),
         TraceViewData {
@@ -52620,7 +55381,7 @@
     (
         Trace(
             Id {
-                value: 1407,
+                value: 1626,
             },
         ),
         TraceViewData {
@@ -52679,7 +55440,7 @@
     (
         Trace(
             Id {
-                value: 1408,
+                value: 1627,
             },
         ),
         TraceViewData {
@@ -52714,7 +55475,7 @@
     (
         Trace(
             Id {
-                value: 1409,
+                value: 1628,
             },
         ),
         TraceViewData {
@@ -52773,7 +55534,7 @@
     (
         Trace(
             Id {
-                value: 1410,
+                value: 1629,
             },
         ),
         TraceViewData {
@@ -52808,7 +55569,7 @@
     (
         Trace(
             Id {
-                value: 1384,
+                value: 1598,
             },
         ),
         TraceViewData {
@@ -52827,7 +55588,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1410,
+                                1629,
                             ),
                         },
                         TraceViewTokenData {
@@ -52840,7 +55601,9 @@
                             text: "10.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1630,
+                            ),
                         },
                     ],
                 },
@@ -52851,7 +55614,7 @@
     (
         Trace(
             Id {
-                value: 1411,
+                value: 1630,
             },
         ),
         TraceViewData {
@@ -52874,7 +55637,30 @@
     (
         Trace(
             Id {
-                value: 1385,
+                value: 1631,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "10.0",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1599,
             },
         ),
         TraceViewData {
@@ -52893,7 +55679,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1411,
+                                1631,
                             ),
                         },
                         TraceViewTokenData {
@@ -52906,7 +55692,9 @@
                             text: "2",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1632,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -52923,7 +55711,7 @@
     (
         Trace(
             Id {
-                value: 1413,
+                value: 1634,
             },
         ),
         TraceViewData {
@@ -52942,7 +55730,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1426,
+                                1647,
                             ),
                         },
                         TraceViewTokenData {
@@ -52984,7 +55772,7 @@
     (
         Trace(
             Id {
-                value: 1414,
+                value: 1635,
             },
         ),
         TraceViewData {
@@ -53003,7 +55791,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1427,
+                                1648,
                             ),
                         },
                         TraceViewTokenData {
@@ -53045,7 +55833,7 @@
     (
         Trace(
             Id {
-                value: 1415,
+                value: 1636,
             },
         ),
         TraceViewData {
@@ -53064,7 +55852,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1428,
+                                1649,
                             ),
                         },
                         TraceViewTokenData {
@@ -53078,7 +55866,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1429,
+                                1650,
                             ),
                         },
                         TraceViewTokenData {
@@ -53098,7 +55886,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1430,
+                                1651,
                             ),
                         },
                     ],
@@ -53110,7 +55898,7 @@
     (
         Trace(
             Id {
-                value: 1416,
+                value: 1637,
             },
         ),
         TraceViewData {
@@ -53129,7 +55917,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1431,
+                                1652,
                             ),
                         },
                         TraceViewTokenData {
@@ -53148,7 +55936,9 @@
                             text: "180.0",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1653,
+                            ),
                         },
                     ],
                 },
@@ -53159,7 +55949,7 @@
     (
         Trace(
             Id {
-                value: 1417,
+                value: 1638,
             },
         ),
         TraceViewData {
@@ -53178,7 +55968,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1432,
+                                1654,
                             ),
                         },
                         TraceViewTokenData {
@@ -53192,7 +55982,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1433,
+                                1655,
                             ),
                         },
                         TraceViewTokenData {
@@ -53212,7 +56002,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1434,
+                                1656,
                             ),
                         },
                         TraceViewTokenData {
@@ -53238,7 +56028,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1435,
+                                1657,
                             ),
                         },
                         TraceViewTokenData {
@@ -53251,7 +56041,9 @@
                             text: "true",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1658,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ")",
@@ -53268,7 +56060,7 @@
     (
         Trace(
             Id {
-                value: 1418,
+                value: 1639,
             },
         ),
         TraceViewData {
@@ -53287,7 +56079,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1436,
+                                1659,
                             ),
                         },
                         TraceViewTokenData {
@@ -53301,7 +56093,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1437,
+                                1660,
                             ),
                         },
                         TraceViewTokenData {
@@ -53321,7 +56113,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1438,
+                                1661,
                             ),
                         },
                         TraceViewTokenData {
@@ -53347,7 +56139,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1439,
+                                1662,
                             ),
                         },
                     ],
@@ -53359,7 +56151,7 @@
     (
         Trace(
             Id {
-                value: 1419,
+                value: 1640,
             },
         ),
         TraceViewData {
@@ -53378,7 +56170,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1440,
+                                1663,
                             ),
                         },
                         TraceViewTokenData {
@@ -53392,7 +56184,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1441,
+                                1664,
                             ),
                         },
                         TraceViewTokenData {
@@ -53412,7 +56204,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1442,
+                                1665,
                             ),
                         },
                         TraceViewTokenData {
@@ -53438,7 +56230,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1443,
+                                1666,
                             ),
                         },
                     ],
@@ -53450,7 +56242,7 @@
     (
         Trace(
             Id {
-                value: 1420,
+                value: 1641,
             },
         ),
         TraceViewData {
@@ -53469,7 +56261,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1444,
+                                1667,
                             ),
                         },
                         TraceViewTokenData {
@@ -53483,7 +56275,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1445,
+                                1668,
                             ),
                         },
                         TraceViewTokenData {
@@ -53503,7 +56295,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1446,
+                                1669,
                             ),
                         },
                         TraceViewTokenData {
@@ -53517,7 +56309,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1447,
+                                1670,
                             ),
                         },
                         TraceViewTokenData {
@@ -53541,7 +56333,7 @@
     (
         Trace(
             Id {
-                value: 1421,
+                value: 1642,
             },
         ),
         TraceViewData {
@@ -53560,7 +56352,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1448,
+                                1671,
                             ),
                         },
                         TraceViewTokenData {
@@ -53574,7 +56366,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1449,
+                                1672,
                             ),
                         },
                         TraceViewTokenData {
@@ -53594,7 +56386,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1450,
+                                1673,
                             ),
                         },
                         TraceViewTokenData {
@@ -53608,7 +56400,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1451,
+                                1674,
                             ),
                         },
                         TraceViewTokenData {
@@ -53632,7 +56424,7 @@
     (
         Trace(
             Id {
-                value: 1422,
+                value: 1643,
             },
         ),
         TraceViewData {
@@ -53651,7 +56443,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1452,
+                                1675,
                             ),
                         },
                         TraceViewTokenData {
@@ -53671,7 +56463,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1453,
+                                1676,
                             ),
                         },
                         TraceViewTokenData {
@@ -53685,7 +56477,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1454,
+                                1677,
                             ),
                         },
                         TraceViewTokenData {
@@ -53704,7 +56496,9 @@
                             text: "2.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1678,
+                            ),
                         },
                     ],
                 },
@@ -53715,7 +56509,7 @@
     (
         Trace(
             Id {
-                value: 1423,
+                value: 1644,
             },
         ),
         TraceViewData {
@@ -53734,7 +56528,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1455,
+                                1679,
                             ),
                         },
                         TraceViewTokenData {
@@ -53748,7 +56542,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1456,
+                                1680,
                             ),
                         },
                         TraceViewTokenData {
@@ -53768,7 +56562,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1457,
+                                1681,
                             ),
                         },
                         TraceViewTokenData {
@@ -53782,7 +56576,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1458,
+                                1682,
                             ),
                         },
                         TraceViewTokenData {
@@ -53806,7 +56600,7 @@
     (
         Trace(
             Id {
-                value: 1424,
+                value: 1645,
             },
         ),
         TraceViewData {
@@ -53825,7 +56619,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1459,
+                                1683,
                             ),
                         },
                         TraceViewTokenData {
@@ -53839,7 +56633,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1460,
+                                1684,
                             ),
                         },
                         TraceViewTokenData {
@@ -53859,7 +56653,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1461,
+                                1685,
                             ),
                         },
                         TraceViewTokenData {
@@ -53873,7 +56667,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1462,
+                                1686,
                             ),
                         },
                         TraceViewTokenData {
@@ -53897,7 +56691,7 @@
     (
         Trace(
             Id {
-                value: 1425,
+                value: 1646,
             },
         ),
         TraceViewData {
@@ -53916,7 +56710,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1463,
+                                1687,
                             ),
                         },
                         TraceViewTokenData {
@@ -53936,7 +56730,7 @@
                             token_class: Variable,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1464,
+                                1688,
                             ),
                         },
                         TraceViewTokenData {
@@ -53950,7 +56744,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1465,
+                                1689,
                             ),
                         },
                         TraceViewTokenData {
@@ -53969,7 +56763,9 @@
                             text: "2.0",
                             token_class: Literal,
                             spaces_before: 1,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1690,
+                            ),
                         },
                     ],
                 },
@@ -53980,7 +56776,7 @@
     (
         Trace(
             Id {
-                value: 1426,
+                value: 1647,
             },
         ),
         TraceViewData {
@@ -53999,7 +56795,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1466,
+                                1691,
                             ),
                         },
                         TraceViewTokenData {
@@ -54013,7 +56809,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1467,
+                                1692,
                             ),
                         },
                     ],
@@ -54025,7 +56821,7 @@
     (
         Trace(
             Id {
-                value: 1412,
+                value: 1632,
             },
         ),
         TraceViewData {
@@ -54048,7 +56844,30 @@
     (
         Trace(
             Id {
-                value: 1386,
+                value: 1633,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "2",
+                            token_class: Literal,
+                            spaces_before: 1,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1600,
             },
         ),
         TraceViewData {
@@ -54067,7 +56886,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1468,
+                                1693,
                             ),
                         },
                         TraceViewTokenData {
@@ -54080,7 +56899,9 @@
                             text: "3",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1694,
+                            ),
                         },
                         TraceViewTokenData {
                             text: ":",
@@ -54097,7 +56918,7 @@
     (
         Trace(
             Id {
-                value: 1470,
+                value: 1696,
             },
         ),
         TraceViewData {
@@ -54116,7 +56937,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1474,
+                                1700,
                             ),
                         },
                         TraceViewTokenData {
@@ -54158,7 +56979,7 @@
     (
         Trace(
             Id {
-                value: 1471,
+                value: 1697,
             },
         ),
         TraceViewData {
@@ -54177,7 +56998,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1475,
+                                1701,
                             ),
                         },
                         TraceViewTokenData {
@@ -54219,7 +57040,7 @@
     (
         Trace(
             Id {
-                value: 1472,
+                value: 1698,
             },
         ),
         TraceViewData {
@@ -54238,7 +57059,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1476,
+                                1702,
                             ),
                         },
                         TraceViewTokenData {
@@ -54280,7 +57101,7 @@
     (
         Trace(
             Id {
-                value: 1473,
+                value: 1699,
             },
         ),
         TraceViewData {
@@ -54299,7 +57120,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1477,
+                                1703,
                             ),
                         },
                         TraceViewTokenData {
@@ -54319,7 +57140,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1478,
+                                1704,
                             ),
                         },
                         TraceViewTokenData {
@@ -54333,7 +57154,7 @@
                             token_class: Method,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1479,
+                                1705,
                             ),
                         },
                         TraceViewTokenData {
@@ -54358,7 +57179,9 @@
                             text: "0.4",
                             token_class: Literal,
                             spaces_before: 0,
-                            assoc_trace_id: None,
+                            assoc_trace_id: Some(
+                                1706,
+                            ),
                         },
                     ],
                 },
@@ -54369,7 +57192,7 @@
     (
         Trace(
             Id {
-                value: 1474,
+                value: 1700,
             },
         ),
         TraceViewData {
@@ -54388,7 +57211,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1480,
+                                1707,
                             ),
                         },
                         TraceViewTokenData {
@@ -54402,7 +57225,7 @@
                             token_class: Variable,
                             spaces_before: 1,
                             assoc_trace_id: Some(
-                                1481,
+                                1708,
                             ),
                         },
                         TraceViewTokenData {
@@ -54422,7 +57245,7 @@
                             token_class: Field,
                             spaces_before: 0,
                             assoc_trace_id: Some(
-                                1482,
+                                1709,
                             ),
                         },
                     ],
@@ -54434,7 +57257,7 @@
     (
         Trace(
             Id {
-                value: 1469,
+                value: 1694,
             },
         ),
         TraceViewData {
@@ -54457,7 +57280,30 @@
     (
         Trace(
             Id {
-                value: 1387,
+                value: 1695,
+            },
+        ),
+        TraceViewData {
+            trace_kind: EagerExpr,
+            lines_data: [
+                TraceViewLineData {
+                    tokens_data: [
+                        TraceViewTokenData {
+                            text: "3",
+                            token_class: Literal,
+                            spaces_before: 0,
+                            assoc_trace_id: None,
+                        },
+                    ],
+                },
+            ],
+            have_subtraces: false,
+        },
+    ),
+    (
+        Trace(
+            Id {
+                value: 1601,
             },
         ),
         TraceViewData {
@@ -54492,7 +57338,7 @@
     (
         Trace(
             Id {
-                value: 878,
+                value: 1005,
             },
         ),
         TraceViewData {

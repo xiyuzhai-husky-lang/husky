@@ -182,7 +182,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 50,
+                                        value: 57,
                                     },
                                 ),
                             ),
@@ -261,6 +261,13 @@
                                             data: HirEagerExprData::RuntimeVariable(
                                                 0,
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
                                                     Pure,
@@ -271,7 +278,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -282,7 +289,17 @@
                                                     ),
                                                 ],
                                             },
-                                            coersion: None,
+                                            coercion: None,
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
@@ -336,6 +353,33 @@
                                                     },
                                                 },
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                                    template_arguments: [
+                                                                        HirTemplateArgument::Type(
+                                                                            HirType::PathLeading(
+                                                                                HirTypePathLeading {
+                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                                    template_arguments: [],
+                                                                                    always_copyable: false,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ],
+                                                                    always_copyable: false,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
                                                     Pure,
@@ -346,7 +390,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -357,11 +401,38 @@
                                                     ),
                                                 ],
                                             },
-                                            coersion: None,
+                                            coercion: None,
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 1,
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_contract: Pure,
                                                 ident: `visualize`,
                                                 path: AssocItemPath::TraitForTypeItem(
@@ -424,21 +495,32 @@
                                                 },
                                                 arguments: [],
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::visual::Visual`, `Extern`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -446,21 +528,32 @@
                                                     0..1,
                                                 ),
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::visual::Visual`, `Extern`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                     ],
                                 },

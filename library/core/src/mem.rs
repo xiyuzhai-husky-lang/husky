@@ -1,4 +1,4 @@
-use crate::serde;
+use crate::*;
 use serde::Serialize;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -66,5 +66,58 @@ where
 {
     pub fn collect_leashes(self) -> Vec<Leash<T>> {
         self.0.iter().map(Leash).collect()
+    }
+}
+
+impl<T> __Static for Leash<T>
+where
+    T: __Static,
+{
+    type Frozen = Self;
+    unsafe fn freeze(&self) -> Self::Frozen {
+        todo!()
+    }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!("CyclicSlice serialize_to_value")
+    }
+
+    fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+        todo!()
+    }
+}
+impl<T> __Frozen for Leash<T>
+where
+    T: __Static,
+{
+    type Static = Self;
+    type Stand = ();
+    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+        todo!()
+    }
+}
+impl<T> __WeakStatic for Leash<T>
+where
+    T: __Static,
+{
+    type Static = Self;
+    unsafe fn into_static(self) -> Self::Static {
+        self
+    }
+}
+impl<T> __FromValue for Leash<T>
+where
+    T: __Static,
+{
+    fn from_value_aux(_value: __Value, _: Option<&mut __ValueStands>) -> Self {
+        todo!()
+    }
+}
+impl<T> __IntoValue for Leash<T>
+where
+    T: __Static,
+{
+    fn into_value(self) -> __Value {
+        todo!()
     }
 }

@@ -1,17 +1,17 @@
 ```rust
 Ok(
     TokenInfoSheet {
-        token_infos: [
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+        token_infos_list: [
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -37,11 +37,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -59,13 +59,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -109,12 +109,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -162,11 +162,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`std::ops::Add::add`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -177,11 +180,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`std::ops::Add::add`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -196,22 +202,25 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`std::ops::Add::add`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
+            ],
+            [],
+            [],
+            [],
         ],
     },
 )

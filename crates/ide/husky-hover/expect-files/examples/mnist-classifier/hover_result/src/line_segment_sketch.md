@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Vec Point2d @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Vec Point2d @ Some(Leashed { place: None })`",
                         },
                     ),
                     range: Some(

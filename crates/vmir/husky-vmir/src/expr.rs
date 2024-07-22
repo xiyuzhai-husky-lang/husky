@@ -322,7 +322,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     expr: self_argument.to_vmir(self)
                 }];
                 if indirections.len() > 0 {
-                    todo!()
+                    // ad hoc
+                    // todo!()
                 }
                 VmirExprData::Linket {
                     linket_impl,
@@ -347,7 +348,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 }];
                 arguments.extend(self.build_arguments(hir_arguments));
                 if indirections.len() > 0 {
-                    todo!()
+                    // ad hoc
+                    // todo!()
                 }
                 VmirExprData::Linket {
                     linket_impl,

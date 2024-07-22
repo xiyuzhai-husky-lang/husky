@@ -705,7 +705,7 @@
                                     Idx(
                                         PlaceIdx(2),
                                     ),
-                                    BorrowMut,
+                                    Pure,
                                 ),
                             ],
                         },
@@ -1116,7 +1116,7 @@
                                     Idx(
                                         PlaceIdx(7),
                                     ),
-                                    BorrowMut,
+                                    Pure,
                                 ),
                             ],
                         },
@@ -1385,7 +1385,7 @@
                                     Idx(
                                         PlaceIdx(7),
                                     ),
-                                    BorrowMut,
+                                    Pure,
                                 ),
                             ],
                         },
@@ -1456,7 +1456,7 @@
                                     Idx(
                                         PlaceIdx(12),
                                     ),
-                                    BorrowMut,
+                                    Pure,
                                 ),
                             ],
                         },
@@ -1651,7 +1651,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -1674,7 +1681,14 @@
                 data: [
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Leash,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -1839,7 +1853,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Leash,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -1854,7 +1875,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(2),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -1865,7 +1893,14 @@
                     None,
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(2),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2031,7 +2066,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2136,7 +2178,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2219,7 +2268,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2281,7 +2337,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2444,7 +2507,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2547,7 +2617,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2660,7 +2737,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Leash,
+                                ),
+                            ],
                         },
                     ),
                     Some(
@@ -2698,7 +2782,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(0),
+                                    ),
+                                    Leash,
+                                ),
+                            ],
                         },
                     ),
                     Some(

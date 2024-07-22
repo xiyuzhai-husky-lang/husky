@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Leash CyclicSlice LineSegmentStroke @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Leash CyclicSlice LineSegmentStroke @ Some(Leashed { place: None })`",
                         },
                     ),
                     range: Some(

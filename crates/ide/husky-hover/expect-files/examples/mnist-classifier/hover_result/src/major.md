@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::INPUT`\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Leashed {\n                place_idx: None,\n            },\n        },\n    ),\n)\n\ntype = `BinaryImage28 @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nentity `mnist::INPUT`\n\ncoercion = Some(\n    Dedirection(\n        Deleash,\n    ),\n)\n\ntype = `Leash BinaryImage28 @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::connected_components`\n\ncoercion = None\n\ntype = `Vec ConnectedComponent @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nentity `mnist_classifier::major::connected_components`\n\ncoercion = None\n\ntype = `Leash Vec ConnectedComponent @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::major_connected_component`\n\ncoercion = None\n\ntype = `Leash ConnectedComponent @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nentity `mnist_classifier::major::major_connected_component`\n\ncoercion = None\n\ntype = `Leash ConnectedComponent @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::major_raw_contour`\n\ncoercion = None\n\ntype = `Leash RawContour @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nentity `mnist_classifier::major::major_raw_contour`\n\ncoercion = None\n\ntype = `Leash RawContour @ Some(Transient)`",
                         },
                     ),
                     range: Some(

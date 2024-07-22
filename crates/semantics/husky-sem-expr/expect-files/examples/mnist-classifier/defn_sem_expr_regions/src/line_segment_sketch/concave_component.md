@@ -46,9 +46,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`covariant Type -> Type`),
                                     ),
@@ -58,7 +58,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`covariant Type -> Type`),
                                         ),
@@ -79,9 +79,9 @@
                                     instantiation: None,
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
@@ -91,7 +91,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
@@ -110,9 +110,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
@@ -122,7 +122,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
@@ -138,7 +138,7 @@
                                     ),
                                     items: [],
                                     element_ty: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
                                         ),
@@ -148,9 +148,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vec ConcaveComponent`),
                                     ),
@@ -160,7 +160,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec ConcaveComponent`),
                                         ),
@@ -181,9 +181,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -199,7 +199,7 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -219,8 +219,8 @@
                                     self_argument: SemExprIdx(
                                         4,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -251,12 +251,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Vec LineSegmentStroke`),
                                                 ),
@@ -265,11 +265,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -281,9 +281,9 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -299,6 +299,12 @@
                                     self_argument: SemExprIdx(
                                         5,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Vec LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         17,
@@ -309,14 +315,14 @@
                                             18,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -330,15 +336,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Vec LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Vec LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -352,7 +364,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -360,7 +372,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -385,9 +397,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -397,7 +409,7 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -418,9 +430,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
@@ -434,7 +446,7 @@
                                 (
                                     7,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -459,9 +471,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
@@ -475,7 +487,7 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -500,9 +512,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -520,7 +532,7 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -549,9 +561,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -567,7 +579,7 @@
                                 (
                                     10,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -593,9 +605,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -611,7 +623,7 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -650,9 +662,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -662,7 +674,7 @@
                                 (
                                     12,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -697,9 +709,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                     ),
@@ -709,7 +721,7 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
@@ -730,9 +742,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -748,7 +760,7 @@
                                 (
                                     14,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -775,9 +787,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -795,7 +807,7 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -829,7 +841,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`LineSegmentSketch`),
                                                     ),
@@ -841,8 +853,8 @@
                                                 ),
                                                 coercion_outcome: Some(
                                                     ExpectCoercionOutcome {
-                                                        coercion: Deref(
-                                                            Leash,
+                                                        coercion: Dedirection(
+                                                            Deleash,
                                                         ),
                                                     },
                                                 ),
@@ -857,7 +869,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -889,9 +901,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -901,7 +913,7 @@
                                 (
                                     16,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -921,9 +933,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -933,7 +945,7 @@
                                 (
                                     17,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -966,9 +978,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -978,7 +990,7 @@
                                 (
                                     18,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -999,9 +1011,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -1019,7 +1031,7 @@
                                 (
                                     19,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -1047,9 +1059,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -1059,7 +1071,7 @@
                                 (
                                     20,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1080,9 +1092,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -1100,7 +1112,7 @@
                                 (
                                     21,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -1129,9 +1141,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -1149,7 +1161,7 @@
                                 (
                                     22,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -1178,9 +1190,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(4),
@@ -1198,7 +1210,7 @@
                                 (
                                     23,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -1227,9 +1239,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -1245,7 +1257,7 @@
                                 (
                                     24,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -1284,9 +1296,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -1296,7 +1308,7 @@
                                 (
                                     25,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -1329,9 +1341,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -1341,7 +1353,7 @@
                                 (
                                     26,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -1362,9 +1374,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -1382,7 +1394,7 @@
                                 (
                                     27,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -1411,9 +1423,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -1431,7 +1443,7 @@
                                 (
                                     28,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -1460,9 +1472,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -1478,7 +1490,7 @@
                                 (
                                     29,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -1517,9 +1529,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -1529,7 +1541,7 @@
                                 (
                                     30,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -1562,9 +1574,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -1574,7 +1586,7 @@
                                 (
                                     31,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -1609,9 +1621,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                     ),
@@ -1621,7 +1633,7 @@
                                 (
                                     32,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
@@ -1642,9 +1654,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -1660,7 +1672,7 @@
                                 (
                                     33,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -1687,9 +1699,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -1707,7 +1719,7 @@
                                 (
                                     34,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -1741,7 +1753,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`LineSegmentSketch`),
                                                     ),
@@ -1753,8 +1765,8 @@
                                                 ),
                                                 coercion_outcome: Some(
                                                     ExpectCoercionOutcome {
-                                                        coercion: Deref(
-                                                            Leash,
+                                                        coercion: Dedirection(
+                                                            Deleash,
                                                         ),
                                                     },
                                                 ),
@@ -1769,7 +1781,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -1801,9 +1813,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -1813,7 +1825,7 @@
                                 (
                                     35,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -1833,9 +1845,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -1845,7 +1857,7 @@
                                 (
                                     36,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -1878,9 +1890,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -1890,7 +1902,7 @@
                                 (
                                     37,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -1911,9 +1923,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -1931,7 +1943,7 @@
                                 (
                                     38,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -1959,9 +1971,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -1971,7 +1983,7 @@
                                 (
                                     39,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -1992,9 +2004,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -2012,7 +2024,7 @@
                                 (
                                     40,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -2041,9 +2053,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -2061,7 +2073,7 @@
                                 (
                                     41,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -2090,9 +2102,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
@@ -2104,7 +2116,7 @@
                                 (
                                     42,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -2139,9 +2151,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -2151,7 +2163,7 @@
                                 (
                                     43,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -2184,9 +2196,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -2196,7 +2208,7 @@
                                 (
                                     44,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -2217,9 +2229,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -2235,7 +2247,7 @@
                                 (
                                     45,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -2274,9 +2286,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
                                     ),
@@ -2286,7 +2298,7 @@
                                 (
                                     46,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
                                         ),
@@ -2307,9 +2319,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -2325,7 +2337,7 @@
                                 (
                                     47,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -2352,9 +2364,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -2370,7 +2382,7 @@
                                 (
                                     48,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -2390,8 +2402,8 @@
                                     self_argument: SemExprIdx(
                                         48,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -2422,12 +2434,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Vec LineSegmentStroke`),
                                                 ),
@@ -2436,11 +2448,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -2452,9 +2464,9 @@
                                 (
                                     49,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -2477,9 +2489,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -2497,7 +2509,7 @@
                                 (
                                     50,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -2526,9 +2538,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -2546,7 +2558,7 @@
                                 (
                                     51,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -2568,6 +2580,12 @@
                                     self_argument: SemExprIdx(
                                         49,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Vec LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Leash,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         93,
@@ -2578,14 +2596,14 @@
                                             94,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -2599,7 +2617,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Leash,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Vec LineSegmentStroke`),
                                                         ),
@@ -2610,7 +2628,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`i32`),
                                                                 ),
@@ -2621,7 +2639,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`i32`),
                                                                 ),
@@ -2629,8 +2647,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Vec LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                     ),
@@ -2644,7 +2668,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -2652,7 +2676,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -2676,7 +2700,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -2710,7 +2734,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -2742,9 +2766,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                     ),
@@ -2754,7 +2778,7 @@
                                 (
                                     52,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
@@ -2780,7 +2804,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Leash LineSegmentSketch`),
                                                     ),
@@ -2814,7 +2838,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                     ),
@@ -2842,9 +2866,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ConcaveComponent`),
                                     ),
@@ -2854,7 +2878,7 @@
                                 (
                                     53,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
                                         ),
@@ -2868,6 +2892,12 @@
                                     self_argument: SemExprIdx(
                                         45,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Vec ConcaveComponent`),
+                                        ),
+                                    },
                                     self_contract: Contract::BorrowMut,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         83,
@@ -2878,7 +2908,7 @@
                                             84,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
@@ -2903,7 +2933,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::BorrowMut,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Vec ConcaveComponent`),
                                                         ),
@@ -2914,7 +2944,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Move,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`ConcaveComponent`),
                                                                 ),
@@ -2922,8 +2952,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Vec ConcaveComponent`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`unit`),
                                                     ),
@@ -2947,7 +2983,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`ConcaveComponent`),
                                                                     ),
@@ -2975,7 +3011,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`ConcaveComponent`),
                                                     ),
@@ -3003,9 +3039,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3015,7 +3051,7 @@
                                 (
                                     54,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -3036,9 +3072,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -3056,7 +3092,7 @@
                                 (
                                     55,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -3085,9 +3121,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -3105,7 +3141,7 @@
                                 (
                                     56,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -3144,9 +3180,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3156,7 +3192,7 @@
                                 (
                                     57,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -3177,9 +3213,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -3197,7 +3233,7 @@
                                 (
                                     58,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -3226,9 +3262,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -3246,7 +3282,7 @@
                                 (
                                     59,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -3275,9 +3311,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
@@ -3289,7 +3325,7 @@
                                 (
                                     60,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -3324,9 +3360,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -3336,7 +3372,7 @@
                                 (
                                     61,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -3367,9 +3403,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3379,7 +3415,7 @@
                                 (
                                     62,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -3400,9 +3436,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -3418,7 +3454,7 @@
                                 (
                                     63,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -3442,9 +3478,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -3454,7 +3490,7 @@
                                 (
                                     64,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -3490,7 +3526,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3519,7 +3555,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3548,7 +3584,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3585,7 +3621,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3624,7 +3660,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3653,7 +3689,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3682,7 +3718,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3739,7 +3775,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3778,7 +3814,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3817,7 +3853,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3856,7 +3892,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3893,7 +3929,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3932,7 +3968,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -3969,7 +4005,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -4004,7 +4040,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -4029,12 +4065,12 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: Eth(
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 43,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -4045,7 +4081,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -4065,7 +4101,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: Hol(
@@ -4079,7 +4115,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: Hol(
@@ -4093,7 +4129,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(2),
@@ -4115,12 +4151,12 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: Eth(
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 43,
+                                                    value: 58,
                                                 },
                                             ),
                                         ),
@@ -4133,7 +4169,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -4155,7 +4191,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: Hol(
@@ -4171,7 +4207,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: Hol(
@@ -4187,7 +4223,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -4212,7 +4248,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`Vec`),
                             ),
@@ -4225,7 +4261,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`ConcaveComponent`),
                             ),
@@ -4238,7 +4274,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`Vec ConcaveComponent`),
                             ),
@@ -4251,7 +4287,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`0`),
                             ),
@@ -4264,7 +4300,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`1`),
                             ),
@@ -4277,7 +4313,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`1`),
                             ),
@@ -4290,7 +4326,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`1`),
                             ),
@@ -4302,7 +4338,7 @@
                 inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -4318,7 +4354,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -4332,7 +4368,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(1),
@@ -4346,7 +4382,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(2),
@@ -4362,7 +4398,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(3),
@@ -4378,7 +4414,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(4),
@@ -4413,7 +4449,7 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(1),
@@ -4428,7 +4464,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: Some(
+                                                quary: Some(
                                                     ImmutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(1),
@@ -4454,7 +4490,7 @@
                                     hole_kind: UnspecifiedIntegerType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -4463,7 +4499,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`i32`),
                                                 ),
@@ -4495,7 +4531,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`covariant Type -> Type`),
                                         ),
@@ -4505,7 +4541,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Type`),
                                                         ),
@@ -4514,13 +4550,13 @@
                                                         variance: Covariant,
                                                         parameter_hvar: None,
                                                         parameter_ty: FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Eth(
                                                                 EthTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Eth(
                                                                 EthTerm(`Type`),
                                                             ),
@@ -4536,7 +4572,7 @@
                                 expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Type`),
                                             ),
@@ -4550,7 +4586,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
@@ -4573,7 +4609,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
@@ -4594,7 +4630,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vec ConcaveComponent`),
                                             ),
@@ -4608,7 +4644,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vec ConcaveComponent`),
                                         ),
@@ -4639,7 +4675,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -4670,9 +4706,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -4699,7 +4735,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -4724,7 +4760,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -4753,7 +4789,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -4782,7 +4818,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -4815,7 +4851,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -4840,7 +4876,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
@@ -4862,7 +4898,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -4897,7 +4933,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`bool`),
                                             ),
@@ -4911,7 +4947,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -4944,7 +4980,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
@@ -4954,7 +4990,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`bool`),
                                                         ),
@@ -4968,7 +5004,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Pure,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`LineSegmentSketch`),
                                                                         ),
@@ -4979,7 +5015,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Pure,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`i32`),
                                                                         ),
@@ -4999,7 +5035,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`LineSegmentSketch`),
                                             ),
@@ -5013,7 +5049,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -5028,8 +5064,8 @@
                                         Ok(
                                             ExpectationOutcome::Coercion(
                                                 ExpectCoercionOutcome {
-                                                    coercion: Deref(
-                                                        Leash,
+                                                    coercion: Dedirection(
+                                                        Deleash,
                                                     ),
                                                 },
                                             ),
@@ -5042,7 +5078,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -5056,7 +5092,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -5099,7 +5135,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5120,7 +5156,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`bool`),
                                             ),
@@ -5134,7 +5170,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5165,7 +5201,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5192,7 +5228,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -5210,7 +5246,7 @@
                                             ExpectationOutcome::NumType(
                                                 ExpectNumTypeOutcome {
                                                     placeless_num_ty: FlyTerm {
-                                                        place: Some(
+                                                        quary: Some(
                                                             MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -5234,7 +5270,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -5248,7 +5284,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -5279,7 +5315,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -5312,7 +5348,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -5345,7 +5381,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -5372,7 +5408,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(4),
@@ -5394,7 +5430,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -5429,7 +5465,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
@@ -5451,7 +5487,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -5482,7 +5518,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5509,7 +5545,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -5542,7 +5578,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -5569,7 +5605,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
@@ -5591,7 +5627,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -5626,7 +5662,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(3),
@@ -5648,7 +5684,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -5673,7 +5709,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`bool`),
                                             ),
@@ -5687,7 +5723,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5720,7 +5756,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn(( LineSegmentSketch,  i32) -> bool`),
                                         ),
@@ -5730,7 +5766,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`bool`),
                                                         ),
@@ -5744,7 +5780,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Pure,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`LineSegmentSketch`),
                                                                         ),
@@ -5755,7 +5791,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Pure,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`i32`),
                                                                         ),
@@ -5775,7 +5811,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`LineSegmentSketch`),
                                             ),
@@ -5789,7 +5825,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -5804,8 +5840,8 @@
                                         Ok(
                                             ExpectationOutcome::Coercion(
                                                 ExpectCoercionOutcome {
-                                                    coercion: Deref(
-                                                        Leash,
+                                                    coercion: Dedirection(
+                                                        Deleash,
                                                     ),
                                                 },
                                             ),
@@ -5818,7 +5854,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -5832,7 +5868,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -5875,7 +5911,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5896,7 +5932,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`bool`),
                                             ),
@@ -5910,7 +5946,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5941,7 +5977,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -5968,7 +6004,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -5986,7 +6022,7 @@
                                             ExpectationOutcome::NumType(
                                                 ExpectNumTypeOutcome {
                                                     placeless_num_ty: FlyTerm {
-                                                        place: Some(
+                                                        quary: Some(
                                                             MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -6010,7 +6046,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -6024,7 +6060,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -6055,7 +6091,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -6088,7 +6124,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -6115,7 +6151,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
@@ -6137,7 +6173,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -6164,7 +6200,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(3),
@@ -6186,7 +6222,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -6217,7 +6253,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -6244,7 +6280,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -6277,7 +6313,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  Leash LineSegmentSketch, move  Leash CyclicSlice LineSegmentStroke) -> ConcaveComponent`),
                                         ),
@@ -6287,7 +6323,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
@@ -6301,7 +6337,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`Leash LineSegmentSketch`),
                                                                         ),
@@ -6312,7 +6348,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                                         ),
@@ -6332,7 +6368,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Leash LineSegmentSketch`),
                                             ),
@@ -6346,7 +6382,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -6387,7 +6423,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -6418,9 +6454,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -6441,7 +6477,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -6455,7 +6491,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -6492,7 +6528,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -6506,7 +6542,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -6543,7 +6579,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                             ),
@@ -6557,7 +6593,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                         ),
@@ -6582,7 +6618,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ConcaveComponent`),
                                             ),
@@ -6596,7 +6632,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ConcaveComponent`),
                                         ),
@@ -6621,7 +6657,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -6635,7 +6671,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -6666,7 +6702,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -6693,7 +6729,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Hol(
@@ -6711,7 +6747,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -6748,7 +6784,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -6762,7 +6798,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -6793,7 +6829,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -6826,7 +6862,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -6853,7 +6889,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(2),
@@ -6875,7 +6911,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -6902,7 +6938,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Hol(
@@ -6920,7 +6956,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -6945,7 +6981,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -6959,7 +6995,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -6984,7 +7020,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vec ConcaveComponent`),
                                             ),
@@ -6998,7 +7034,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -7033,7 +7069,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vec ConcaveComponent`),
                                             ),
@@ -7047,7 +7083,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -7072,6 +7108,7 @@
                 EthTerm(`Vec ConcaveComponent`),
             ),
             self_ty: None,
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: Some(
                     EthTerm(`MnistTask`),
@@ -7103,9 +7140,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -7121,7 +7158,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -7141,8 +7178,8 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -7178,7 +7215,7 @@
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -7187,9 +7224,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -7205,7 +7242,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -7225,6 +7262,12 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -7235,7 +7278,7 @@
                                             5,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -7246,7 +7289,7 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TraitForTypeMethodRitchie(
@@ -7260,15 +7303,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Visual`),
                                                     ),
@@ -7282,7 +7331,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -7290,7 +7339,7 @@
                                                             EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`CyclicSlice LineSegmentStroke`),
                                                                     ),
@@ -7315,9 +7364,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Visual`),
                                     ),
@@ -7327,7 +7376,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Visual`),
                                         ),
@@ -7345,9 +7394,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Visual`),
                                     ),
@@ -7357,7 +7406,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Visual`),
                                         ),
@@ -7393,7 +7442,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Visual`),
                                     ),
@@ -7451,7 +7500,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -7482,7 +7531,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -7507,7 +7556,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Visual`),
                                             ),
@@ -7521,7 +7570,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Visual`),
                                         ),
@@ -7546,7 +7595,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Visual`),
                                             ),
@@ -7560,7 +7609,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Visual`),
                                         ),
@@ -7590,6 +7639,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -7622,17 +7685,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -7640,15 +7703,15 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -7660,16 +7723,16 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -7683,21 +7746,33 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::Memoized {
-                                            ty: FlyTerm {
-                                                place: None,
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`f32`),
+                                                ),
+                                            },
+                                            return_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`f32`),
+                                                ),
+                                            },
+                                            expr_ty: FlyTerm {
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -7725,14 +7800,10 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
-                                        },
+                                    quary: Some(
+                                        Transient,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -7743,12 +7814,8 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -7767,15 +7834,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
-                                        },
-                                    ),
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -7785,13 +7846,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
-                                        ),
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -7816,11 +7871,7 @@
                                             ExpectCoercionOutcome {
                                                 coercion: Trivial(
                                                     TrivialFlyCoercion {
-                                                        expectee_quary: Leashed {
-                                                            place_idx: Some(
-                                                                PlaceIdx(0),
-                                                            ),
-                                                        },
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             },
@@ -7831,13 +7882,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
-                                        },
-                                    ),
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -7895,15 +7940,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -7920,7 +7965,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -7934,12 +7979,8 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -7951,11 +7992,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Leashed {
-                                                                place_idx: Some(
-                                                                    PlaceIdx(0),
-                                                                ),
-                                                            },
+                                                            expectee_quary: Transient,
                                                         },
                                                     ),
                                                 },
@@ -7969,7 +8006,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -7983,13 +8020,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
-                                        ),
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -8000,11 +8031,7 @@
                                                 ExpectCoercionOutcome {
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
-                                                            expectee_quary: Leashed {
-                                                                place_idx: Some(
-                                                                    PlaceIdx(0),
-                                                                ),
-                                                            },
+                                                            expectee_quary: Transient,
                                                         },
                                                     ),
                                                 },
@@ -8023,6 +8050,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`Leash ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -8055,17 +8096,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8073,15 +8114,15 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8093,16 +8134,16 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -8116,21 +8157,33 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::Memoized {
-                                            ty: FlyTerm {
-                                                place: None,
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`f32`),
+                                                ),
+                                            },
+                                            return_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`f32`),
+                                                ),
+                                            },
+                                            expr_ty: FlyTerm {
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -8158,14 +8211,10 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
-                                        },
+                                    quary: Some(
+                                        Transient,
                                     ),
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
@@ -8176,12 +8225,8 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -8198,17 +8243,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8216,15 +8261,15 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8236,6 +8281,12 @@
                                     self_argument: SemExprIdx(
                                         2,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`ConcaveComponent`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         6,
@@ -8246,18 +8297,18 @@
                                             7,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -8271,15 +8322,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`ConcaveComponent`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -8293,9 +8350,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: Some(
-                                                                PlaceIdx(0),
-                                                            ),
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [],
@@ -8316,9 +8371,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -8328,7 +8383,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -8342,6 +8397,12 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Vector2d`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -8352,7 +8413,7 @@
                                             11,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -8369,15 +8430,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Vector2d`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -8410,9 +8477,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -8422,7 +8489,7 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -8455,9 +8522,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -8467,7 +8534,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -8485,9 +8552,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -8497,7 +8564,7 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -8533,7 +8600,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -8591,15 +8658,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -8622,12 +8689,8 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
@@ -8653,15 +8716,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -8684,7 +8747,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -8703,12 +8766,8 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
-                                                Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(0),
-                                                    ),
-                                                },
+                                            quary: Some(
+                                                Transient,
                                             ),
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
@@ -8723,7 +8782,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -8748,7 +8807,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -8762,7 +8821,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -8787,7 +8846,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -8801,7 +8860,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -8831,6 +8890,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`Leash ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -8900,9 +8973,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
@@ -8916,7 +8989,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -8936,17 +9009,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -8954,15 +9027,15 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -8974,16 +9047,16 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -8997,21 +9070,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -9020,13 +9093,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -9038,11 +9109,9 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -9058,6 +9127,12 @@
                                     self_argument: SemExprIdx(
                                         2,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         12,
@@ -9068,18 +9143,16 @@
                                             13,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -9093,15 +9166,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -9115,7 +9194,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -9123,7 +9202,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -9148,9 +9227,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -9160,7 +9239,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -9179,9 +9258,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -9191,7 +9270,7 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -9205,8 +9284,8 @@
                                     self_argument: SemExprIdx(
                                         4,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: None,
+                                    self_argument_ty: FlyTerm {
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -9227,12 +9306,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -9241,11 +9320,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -9257,9 +9336,9 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -9277,17 +9356,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -9295,15 +9374,15 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -9315,6 +9394,12 @@
                                     self_argument: SemExprIdx(
                                         6,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`ConcaveComponent`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         23,
@@ -9325,18 +9410,18 @@
                                             24,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -9350,15 +9435,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`ConcaveComponent`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`LineSegment`),
                                                     ),
@@ -9372,9 +9463,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: Some(
-                                                                PlaceIdx(0),
-                                                            ),
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [],
@@ -9395,9 +9484,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegment`),
                                     ),
@@ -9407,7 +9496,7 @@
                                 (
                                     7,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -9428,9 +9517,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -9446,7 +9535,7 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -9466,6 +9555,12 @@
                                     self_argument: SemExprIdx(
                                         8,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`LineSegment`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         31,
@@ -9476,7 +9571,7 @@
                                             32,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableOnStack {
                                                 place: Idx(
@@ -9501,15 +9596,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegment`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`LineSegment`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -9546,9 +9647,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -9558,7 +9659,7 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -9572,6 +9673,12 @@
                                     self_argument: SemExprIdx(
                                         9,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Vector2d`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         35,
@@ -9582,7 +9689,7 @@
                                             36,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -9599,15 +9706,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Vector2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Vector2d`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -9640,9 +9753,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -9652,7 +9765,7 @@
                                 (
                                     10,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -9668,17 +9781,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -9686,15 +9799,15 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -9706,16 +9819,16 @@
                                     self_argument: SemExprIdx(
                                         11,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -9729,21 +9842,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -9752,13 +9865,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -9770,11 +9881,9 @@
                                 (
                                     12,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -9790,6 +9899,12 @@
                                     self_argument: SemExprIdx(
                                         12,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         43,
@@ -9800,18 +9915,16 @@
                                             44,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -9825,15 +9938,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -9847,7 +9966,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -9855,7 +9974,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -9880,9 +9999,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -9892,7 +10011,7 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -9908,17 +10027,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -9926,15 +10045,15 @@
                                 (
                                     14,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -9946,16 +10065,16 @@
                                     self_argument: SemExprIdx(
                                         14,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -9969,21 +10088,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -9992,13 +10111,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -10010,11 +10127,9 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -10030,6 +10145,12 @@
                                     self_argument: SemExprIdx(
                                         15,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         53,
@@ -10040,18 +10161,16 @@
                                             54,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -10065,15 +10184,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -10087,7 +10212,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -10095,7 +10220,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -10120,9 +10245,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -10132,7 +10257,7 @@
                                 (
                                     16,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -10153,9 +10278,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(5),
@@ -10171,7 +10296,7 @@
                                 (
                                     17,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -10193,17 +10318,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -10211,15 +10336,15 @@
                                 (
                                     18,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -10231,16 +10356,16 @@
                                     self_argument: SemExprIdx(
                                         18,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -10254,21 +10379,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -10277,13 +10402,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -10295,11 +10418,9 @@
                                 (
                                     19,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -10322,9 +10443,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(5),
@@ -10340,7 +10461,7 @@
                                 (
                                     20,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -10357,13 +10478,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Index {
-                                    owner: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         19,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         64,
                                     ),
-                                    index_sem_list_items: [
+                                    items: [
                                         SemaCommaListItem {
                                             sem_expr_idx: SemExprIdx(
                                                 20,
@@ -10377,20 +10498,18 @@
                                     index_dynamic_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`LineSegmentStroke`),
                                                 ),
@@ -10399,11 +10518,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -10415,9 +10534,9 @@
                                 (
                                     21,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -10433,10 +10552,10 @@
                                     self_argument: SemExprIdx(
                                         21,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -10455,16 +10574,16 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -10473,11 +10592,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -10489,9 +10608,9 @@
                                 (
                                     22,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -10514,9 +10633,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -10532,7 +10651,7 @@
                                 (
                                     23,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -10559,11 +10678,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(6),
                                             ),
                                         },
@@ -10577,9 +10696,9 @@
                                 (
                                     24,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(6),
                                                 ),
                                             },
@@ -10597,6 +10716,12 @@
                                     self_argument: SemExprIdx(
                                         23,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`LineSegment`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         73,
@@ -10607,7 +10732,7 @@
                                             74,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: ImmutableOnStack {
                                                 place: Idx(
@@ -10632,7 +10757,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegment`),
                                                         ),
@@ -10643,7 +10768,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`Point2d`),
                                                                 ),
@@ -10651,8 +10776,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`LineSegment`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -10688,7 +10819,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
@@ -10703,7 +10834,7 @@
                                                         coercion: Trivial(
                                                             TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
-                                                                    place_idx: Some(
+                                                                    place: Some(
                                                                         PlaceIdx(6),
                                                                     ),
                                                                 },
@@ -10720,9 +10851,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -10732,7 +10863,7 @@
                                 (
                                     25,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -10753,9 +10884,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(7),
@@ -10771,7 +10902,7 @@
                                 (
                                     26,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(7),
@@ -10798,9 +10929,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -10818,7 +10949,7 @@
                                 (
                                     27,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -10859,9 +10990,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`bool`),
                                     ),
@@ -10871,7 +11002,7 @@
                                 (
                                     28,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -10892,9 +11023,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -10912,7 +11043,7 @@
                                 (
                                     29,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -10941,9 +11072,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(7),
@@ -10959,7 +11090,7 @@
                                 (
                                     30,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(7),
@@ -10996,9 +11127,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11008,7 +11139,7 @@
                                 (
                                     31,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -11029,9 +11160,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -11049,7 +11180,7 @@
                                 (
                                     32,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -11075,9 +11206,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -11087,7 +11218,7 @@
                                 (
                                     33,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -11123,7 +11254,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11162,7 +11293,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11201,7 +11332,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11240,7 +11371,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11279,7 +11410,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11318,7 +11449,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11357,7 +11488,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11396,7 +11527,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11458,7 +11589,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -11493,7 +11624,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -11518,7 +11649,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: Hol(
@@ -11532,9 +11663,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: None,
+                                    place: None,
                                 },
                             ),
                             base: Eth(
@@ -11556,7 +11687,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -11576,7 +11707,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -11596,9 +11727,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: None,
+                                    place: None,
                                 },
                             ),
                             base: Eth(
@@ -11620,7 +11751,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -11644,7 +11775,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: Hol(
@@ -11660,9 +11791,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: Eth(
@@ -11686,7 +11817,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -11708,7 +11839,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -11730,9 +11861,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: Eth(
@@ -11756,7 +11887,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -11783,7 +11914,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`0.0f32`),
                             ),
@@ -11796,7 +11927,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(1),
@@ -11812,9 +11943,9 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(2),
                                     ),
                                 },
@@ -11826,7 +11957,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(3),
@@ -11840,7 +11971,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(4),
@@ -11854,7 +11985,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(5),
@@ -11868,9 +11999,9 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(6),
                                     ),
                                 },
@@ -11882,7 +12013,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(7),
@@ -11915,7 +12046,7 @@
                                     hole_kind: UnspecifiedFloatType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(7),
@@ -11930,7 +12061,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleInto {
                                             target: FlyTerm {
-                                                place: Some(
+                                                quary: Some(
                                                     ImmutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(7),
@@ -11966,7 +12097,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -11995,15 +12126,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -12026,11 +12157,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -12057,7 +12186,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -12082,7 +12211,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -12107,9 +12236,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -12136,15 +12265,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -12167,7 +12296,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -12192,7 +12321,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -12223,7 +12352,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -12248,7 +12377,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -12273,15 +12402,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -12304,11 +12433,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -12335,7 +12462,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -12345,7 +12472,7 @@
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
                                                     placeless_int_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: Eth(
                                                             ItemPath(
                                                                 TypeOntology(
@@ -12377,15 +12504,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -12408,11 +12535,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -12433,7 +12558,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -12447,7 +12572,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -12472,7 +12597,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(5),
@@ -12492,7 +12617,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -12533,15 +12658,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -12564,11 +12689,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -12595,7 +12718,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -12626,9 +12749,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -12655,9 +12778,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -12684,7 +12807,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -12709,7 +12832,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Point2d`),
                                             ),
@@ -12723,9 +12846,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(6),
                                                 ),
                                             },
@@ -12741,7 +12864,7 @@
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
-                                                                place_idx: Some(
+                                                                place: Some(
                                                                     PlaceIdx(6),
                                                                 ),
                                                             },
@@ -12764,7 +12887,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -12789,7 +12912,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(7),
@@ -12814,7 +12937,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(7),
@@ -12834,7 +12957,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -12877,7 +13000,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`bool`),
                                         ),
@@ -12904,7 +13027,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -12931,7 +13054,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Hol(
@@ -12949,7 +13072,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(7),
@@ -12984,7 +13107,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -12998,7 +13121,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -13023,7 +13146,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -13037,7 +13160,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -13074,7 +13197,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -13088,7 +13211,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -13114,6 +13237,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`Leash ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -13171,9 +13308,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Hol(
@@ -13187,7 +13324,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -13207,17 +13344,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13225,15 +13362,15 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13245,16 +13382,16 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13268,21 +13405,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -13291,13 +13428,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -13309,11 +13444,9 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -13331,17 +13464,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13349,15 +13482,15 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13369,16 +13502,16 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13392,21 +13525,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -13415,13 +13548,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -13433,11 +13564,9 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -13453,6 +13582,12 @@
                                     self_argument: SemExprIdx(
                                         4,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         17,
@@ -13463,18 +13598,16 @@
                                             18,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -13488,15 +13621,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -13510,7 +13649,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -13518,7 +13657,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -13543,9 +13682,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -13555,7 +13694,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -13566,13 +13705,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Index {
-                                    owner: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         2,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    index_sem_list_items: [
+                                    items: [
                                         SemaCommaListItem {
                                             sem_expr_idx: SemExprIdx(
                                                 5,
@@ -13586,20 +13725,18 @@
                                     index_dynamic_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`LineSegmentStroke`),
                                                 ),
@@ -13608,11 +13745,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -13624,9 +13761,9 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -13642,6 +13779,12 @@
                                     self_argument: SemExprIdx(
                                         6,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         22,
@@ -13652,14 +13795,14 @@
                                             23,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -13673,15 +13816,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -13695,7 +13844,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [],
@@ -13716,9 +13865,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -13728,7 +13877,7 @@
                                 (
                                     7,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -13744,17 +13893,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -13762,15 +13911,15 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -13782,16 +13931,16 @@
                                     self_argument: SemExprIdx(
                                         8,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -13805,21 +13954,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -13828,13 +13977,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -13846,11 +13993,9 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -13866,6 +14011,12 @@
                                     self_argument: SemExprIdx(
                                         9,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         30,
@@ -13876,18 +14027,16 @@
                                             31,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -13901,15 +14050,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -13923,7 +14078,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -13931,7 +14086,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -13956,9 +14111,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -13968,7 +14123,7 @@
                                 (
                                     10,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -13984,17 +14139,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -14002,15 +14157,15 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -14022,16 +14177,16 @@
                                     self_argument: SemExprIdx(
                                         11,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -14045,21 +14200,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -14068,13 +14223,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -14086,11 +14239,9 @@
                                 (
                                     12,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -14106,6 +14257,12 @@
                                     self_argument: SemExprIdx(
                                         12,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         40,
@@ -14116,18 +14273,16 @@
                                             41,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -14141,15 +14296,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -14163,7 +14324,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -14171,7 +14332,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -14196,9 +14357,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -14208,7 +14369,7 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -14229,9 +14390,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -14247,7 +14408,7 @@
                                 (
                                     14,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -14269,17 +14430,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -14287,15 +14448,15 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -14307,16 +14468,16 @@
                                     self_argument: SemExprIdx(
                                         15,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -14330,21 +14491,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -14353,13 +14514,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -14371,11 +14530,9 @@
                                 (
                                     16,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -14398,9 +14555,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -14416,7 +14573,7 @@
                                 (
                                     17,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -14433,13 +14590,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Index {
-                                    owner: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         16,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
-                                    index_sem_list_items: [
+                                    items: [
                                         SemaCommaListItem {
                                             sem_expr_idx: SemExprIdx(
                                                 17,
@@ -14453,20 +14610,18 @@
                                     index_dynamic_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`LineSegmentStroke`),
                                                 ),
@@ -14475,11 +14630,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -14491,9 +14646,9 @@
                                 (
                                     18,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -14509,6 +14664,12 @@
                                     self_argument: SemExprIdx(
                                         18,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         54,
@@ -14519,14 +14680,14 @@
                                             55,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -14540,15 +14701,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -14562,7 +14729,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [],
@@ -14583,9 +14750,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -14595,7 +14762,7 @@
                                 (
                                     19,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -14616,9 +14783,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -14636,7 +14803,7 @@
                                 (
                                     20,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -14665,9 +14832,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -14683,7 +14850,7 @@
                                 (
                                     21,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -14710,9 +14877,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(4),
@@ -14728,7 +14895,7 @@
                                 (
                                     22,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -14753,9 +14920,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
@@ -14767,7 +14934,7 @@
                                 (
                                     23,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -14783,6 +14950,12 @@
                                     self_argument: SemExprIdx(
                                         21,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Vector2d`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         61,
@@ -14793,7 +14966,7 @@
                                             62,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
@@ -14818,7 +14991,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Vector2d`),
                                                         ),
@@ -14829,7 +15002,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`Vector2d`),
                                                                 ),
@@ -14840,7 +15013,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`bool`),
                                                                 ),
@@ -14848,8 +15021,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Vector2d`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -14885,7 +15064,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -14919,7 +15098,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`bool`),
                                                     ),
@@ -14947,9 +15126,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -14959,7 +15138,7 @@
                                 (
                                     24,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -14992,9 +15171,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15004,7 +15183,7 @@
                                 (
                                     25,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -15025,9 +15204,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -15043,7 +15222,7 @@
                                 (
                                     26,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -15070,9 +15249,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(4),
@@ -15088,7 +15267,7 @@
                                 (
                                     27,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -15125,9 +15304,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15137,7 +15316,7 @@
                                 (
                                     28,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -15158,9 +15337,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(1),
@@ -15178,7 +15357,7 @@
                                 (
                                     29,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -15204,9 +15383,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -15216,7 +15395,7 @@
                                 (
                                     30,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -15262,7 +15441,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15291,7 +15470,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15320,7 +15499,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15359,7 +15538,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15398,7 +15577,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15460,7 +15639,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -15495,7 +15674,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -15520,7 +15699,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: Hol(
@@ -15534,7 +15713,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -15554,7 +15733,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: Eth(
                                 ItemPath(
                                     TypeOntology(
@@ -15578,7 +15757,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: Hol(
@@ -15594,7 +15773,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -15616,7 +15795,7 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: Eth(
                                         ItemPath(
                                             TypeOntology(
@@ -15643,7 +15822,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`0.0f32`),
                             ),
@@ -15656,7 +15835,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`true`),
                             ),
@@ -15669,7 +15848,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(1),
@@ -15685,7 +15864,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(2),
@@ -15699,7 +15878,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(3),
@@ -15713,7 +15892,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(4),
@@ -15746,7 +15925,7 @@
                                     hole_kind: UnspecifiedFloatType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -15755,7 +15934,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -15785,7 +15964,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Hol(
@@ -15814,15 +15993,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -15845,11 +16024,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -15876,15 +16053,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -15907,11 +16084,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -15938,7 +16113,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -15963,9 +16138,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -15992,7 +16167,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -16017,15 +16192,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -16048,11 +16223,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -16079,7 +16252,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -16089,7 +16262,7 @@
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
                                                     placeless_int_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: Eth(
                                                             ItemPath(
                                                                 TypeOntology(
@@ -16121,15 +16294,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -16152,11 +16325,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -16177,7 +16348,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -16191,7 +16362,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -16216,7 +16387,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(3),
@@ -16236,7 +16407,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -16277,15 +16448,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -16308,11 +16479,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -16339,7 +16508,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -16370,9 +16539,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -16399,7 +16568,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -16424,7 +16593,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -16457,7 +16626,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -16482,7 +16651,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vector2d`),
                                             ),
@@ -16496,7 +16665,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -16531,7 +16700,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`bool`),
                                             ),
@@ -16545,7 +16714,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -16572,7 +16741,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 MutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(1),
@@ -16594,7 +16763,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -16619,7 +16788,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -16633,7 +16802,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -16664,7 +16833,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -16689,7 +16858,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Eth(
@@ -16705,7 +16874,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -16740,7 +16909,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -16754,7 +16923,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -16779,7 +16948,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -16793,7 +16962,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(1),
@@ -16830,7 +16999,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -16844,7 +17013,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -16870,6 +17039,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`Leash ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -16930,17 +17113,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -16948,15 +17131,15 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -16968,16 +17151,16 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -16991,21 +17174,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -17014,13 +17197,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -17032,11 +17213,9 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -17052,6 +17231,12 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         7,
@@ -17062,18 +17247,16 @@
                                             8,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -17087,15 +17270,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -17109,7 +17298,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -17117,7 +17306,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -17142,9 +17331,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -17154,7 +17343,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -17173,9 +17362,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -17185,7 +17374,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -17199,8 +17388,8 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: None,
+                                    self_argument_ty: FlyTerm {
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -17221,12 +17410,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -17235,11 +17424,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -17251,9 +17440,9 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -17276,11 +17465,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17294,9 +17483,9 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17314,10 +17503,10 @@
                                     self_argument: SemExprIdx(
                                         5,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17338,20 +17527,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -17360,11 +17549,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17378,9 +17567,9 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17405,11 +17594,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17423,9 +17612,9 @@
                                 (
                                     7,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17443,10 +17632,10 @@
                                     self_argument: SemExprIdx(
                                         7,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17467,20 +17656,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -17489,11 +17678,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17507,9 +17696,9 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17534,11 +17723,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17552,9 +17741,9 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17572,10 +17761,10 @@
                                     self_argument: SemExprIdx(
                                         9,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17596,20 +17785,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -17618,11 +17807,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17636,9 +17825,9 @@
                                 (
                                     10,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17663,11 +17852,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17681,9 +17870,9 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17701,10 +17890,10 @@
                                     self_argument: SemExprIdx(
                                         11,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17725,20 +17914,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -17747,11 +17936,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -17765,9 +17954,9 @@
                                 (
                                     12,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -17787,17 +17976,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -17805,15 +17994,15 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -17825,16 +18014,16 @@
                                     self_argument: SemExprIdx(
                                         13,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -17848,21 +18037,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -17871,13 +18060,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -17889,11 +18076,9 @@
                                 (
                                     14,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -17909,6 +18094,12 @@
                                     self_argument: SemExprIdx(
                                         14,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         46,
@@ -17919,18 +18110,16 @@
                                             47,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -17944,15 +18133,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -17966,7 +18161,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -17974,7 +18169,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -17999,9 +18194,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -18011,7 +18206,7 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -18027,17 +18222,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -18045,15 +18240,15 @@
                                 (
                                     16,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -18065,16 +18260,16 @@
                                     self_argument: SemExprIdx(
                                         16,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -18088,21 +18283,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -18111,13 +18306,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -18129,11 +18322,9 @@
                                 (
                                     17,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -18149,6 +18340,12 @@
                                     self_argument: SemExprIdx(
                                         17,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         56,
@@ -18159,18 +18356,16 @@
                                             57,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -18184,15 +18379,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`i32`),
                                                     ),
@@ -18206,7 +18407,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -18214,7 +18415,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -18239,9 +18440,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`i32`),
                                     ),
@@ -18251,7 +18452,7 @@
                                 (
                                     18,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -18272,9 +18473,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(6),
@@ -18290,7 +18491,7 @@
                                 (
                                     19,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(6),
@@ -18312,17 +18513,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -18330,15 +18531,15 @@
                                 (
                                     20,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -18350,16 +18551,16 @@
                                     self_argument: SemExprIdx(
                                         20,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -18373,21 +18574,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -18396,13 +18597,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -18414,11 +18613,9 @@
                                 (
                                     21,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -18441,9 +18638,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         ImmutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(6),
@@ -18459,7 +18656,7 @@
                                 (
                                     22,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(6),
@@ -18476,13 +18673,13 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::Index {
-                                    owner: SemExprIdx(
+                                    self_argument: SemExprIdx(
                                         21,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         67,
                                     ),
-                                    index_sem_list_items: [
+                                    items: [
                                         SemaCommaListItem {
                                             sem_expr_idx: SemExprIdx(
                                                 22,
@@ -18496,20 +18693,18 @@
                                     index_dynamic_dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FlyIndexSignature::Int {
                                             element_ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`LineSegmentStroke`),
                                                 ),
@@ -18518,11 +18713,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -18534,9 +18729,9 @@
                                 (
                                     23,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -18552,10 +18747,10 @@
                                     self_argument: SemExprIdx(
                                         23,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -18574,16 +18769,16 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -18592,11 +18787,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -18608,9 +18803,9 @@
                                 (
                                     24,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -18633,9 +18828,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -18651,7 +18846,7 @@
                                 (
                                     25,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -18678,9 +18873,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -18696,7 +18891,7 @@
                                 (
                                     26,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -18723,11 +18918,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -18741,9 +18936,9 @@
                                 (
                                     27,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -18761,10 +18956,10 @@
                                     self_argument: SemExprIdx(
                                         27,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -18785,20 +18980,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -18807,11 +19002,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -18825,9 +19020,9 @@
                                 (
                                     28,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -18845,6 +19040,12 @@
                                     self_argument: SemExprIdx(
                                         26,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`f32`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         75,
@@ -18855,7 +19056,7 @@
                                             76,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
@@ -18880,7 +19081,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
@@ -18891,7 +19092,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`f32`),
                                                                 ),
@@ -18899,8 +19100,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`f32`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -18936,7 +19143,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -18951,7 +19158,7 @@
                                                         coercion: Trivial(
                                                             TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
-                                                                    place_idx: Some(
+                                                                    place: Some(
                                                                         PlaceIdx(7),
                                                                     ),
                                                                 },
@@ -18968,9 +19175,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -18980,7 +19187,7 @@
                                 (
                                     29,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -19011,9 +19218,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -19023,7 +19230,7 @@
                                 (
                                     30,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -19044,9 +19251,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -19062,7 +19269,7 @@
                                 (
                                     31,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -19089,9 +19296,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -19107,7 +19314,7 @@
                                 (
                                     32,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -19134,11 +19341,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -19152,9 +19359,9 @@
                                 (
                                     33,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -19172,10 +19379,10 @@
                                     self_argument: SemExprIdx(
                                         33,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -19196,20 +19403,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -19218,11 +19425,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -19236,9 +19443,9 @@
                                 (
                                     34,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -19256,6 +19463,12 @@
                                     self_argument: SemExprIdx(
                                         32,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`f32`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         85,
@@ -19266,7 +19479,7 @@
                                             86,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
@@ -19291,7 +19504,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
@@ -19302,7 +19515,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`f32`),
                                                                 ),
@@ -19310,8 +19523,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`f32`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -19347,7 +19566,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -19362,7 +19581,7 @@
                                                         coercion: Trivial(
                                                             TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
-                                                                    place_idx: Some(
+                                                                    place: Some(
                                                                         PlaceIdx(7),
                                                                     ),
                                                                 },
@@ -19379,9 +19598,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -19391,7 +19610,7 @@
                                 (
                                     35,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -19422,9 +19641,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -19434,7 +19653,7 @@
                                 (
                                     36,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -19455,9 +19674,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(4),
@@ -19473,7 +19692,7 @@
                                 (
                                     37,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -19500,9 +19719,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(4),
@@ -19518,7 +19737,7 @@
                                 (
                                     38,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -19545,11 +19764,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -19563,9 +19782,9 @@
                                 (
                                     39,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -19583,10 +19802,10 @@
                                     self_argument: SemExprIdx(
                                         39,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -19607,20 +19826,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -19629,11 +19848,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -19647,9 +19866,9 @@
                                 (
                                     40,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -19667,6 +19886,12 @@
                                     self_argument: SemExprIdx(
                                         38,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`f32`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         95,
@@ -19677,7 +19902,7 @@
                                             96,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
@@ -19702,7 +19927,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
@@ -19713,7 +19938,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`f32`),
                                                                 ),
@@ -19721,8 +19946,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`f32`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -19758,7 +19989,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -19773,7 +20004,7 @@
                                                         coercion: Trivial(
                                                             TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
-                                                                    place_idx: Some(
+                                                                    place: Some(
                                                                         PlaceIdx(7),
                                                                     ),
                                                                 },
@@ -19790,9 +20021,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -19802,7 +20033,7 @@
                                 (
                                     41,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -19833,9 +20064,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -19845,7 +20076,7 @@
                                 (
                                     42,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -19866,9 +20097,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(5),
@@ -19884,7 +20115,7 @@
                                 (
                                     43,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -19911,9 +20142,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(5),
@@ -19929,7 +20160,7 @@
                                 (
                                     44,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -19956,11 +20187,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -19974,9 +20205,9 @@
                                 (
                                     45,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -19994,10 +20225,10 @@
                                     self_argument: SemExprIdx(
                                         45,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -20018,20 +20249,20 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`f32`),
                                                 ),
@@ -20040,11 +20271,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(7),
                                             ),
                                         },
@@ -20058,9 +20289,9 @@
                                 (
                                     46,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -20078,6 +20309,12 @@
                                     self_argument: SemExprIdx(
                                         44,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`f32`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         105,
@@ -20088,7 +20325,7 @@
                                             106,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: MutableOnStack {
                                                 place: Idx(
@@ -20113,7 +20350,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`f32`),
                                                         ),
@@ -20124,7 +20361,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`f32`),
                                                                 ),
@@ -20132,8 +20369,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`f32`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -20169,7 +20412,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -20184,7 +20427,7 @@
                                                         coercion: Trivial(
                                                             TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
-                                                                    place_idx: Some(
+                                                                    place: Some(
                                                                         PlaceIdx(7),
                                                                     ),
                                                                 },
@@ -20201,9 +20444,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`f32`),
                                     ),
@@ -20213,7 +20456,7 @@
                                 (
                                     47,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -20244,9 +20487,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -20256,7 +20499,7 @@
                                 (
                                     48,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -20289,9 +20532,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
                                     ),
@@ -20301,7 +20544,7 @@
                                 (
                                     49,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
                                         ),
@@ -20334,9 +20577,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                     ),
@@ -20346,7 +20589,7 @@
                                 (
                                     50,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
@@ -20367,9 +20610,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(2),
@@ -20385,7 +20628,7 @@
                                 (
                                     51,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -20412,9 +20655,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(3),
@@ -20430,7 +20673,7 @@
                                 (
                                     52,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -20462,7 +20705,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -20496,7 +20739,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -20528,9 +20771,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ClosedRange`),
                                     ),
@@ -20540,7 +20783,7 @@
                                 (
                                     53,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ClosedRange`),
                                         ),
@@ -20573,9 +20816,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                     ),
@@ -20585,7 +20828,7 @@
                                 (
                                     54,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
@@ -20606,9 +20849,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(4),
@@ -20624,7 +20867,7 @@
                                 (
                                     55,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -20651,9 +20894,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         MutableOnStack {
                                             place: Idx(
                                                 PlaceIdx(5),
@@ -20669,7 +20912,7 @@
                                 (
                                     56,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -20701,7 +20944,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -20735,7 +20978,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`f32`),
                                                     ),
@@ -20767,9 +21010,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`ClosedRange`),
                                     ),
@@ -20779,7 +21022,7 @@
                                 (
                                     57,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ClosedRange`),
                                         ),
@@ -20805,7 +21048,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`ClosedRange`),
                                                     ),
@@ -20835,7 +21078,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`ClosedRange`),
                                                     ),
@@ -20867,9 +21110,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`BoundingBox`),
                                     ),
@@ -20879,7 +21122,7 @@
                                 (
                                     58,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BoundingBox`),
                                         ),
@@ -20897,9 +21140,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -20909,7 +21152,7 @@
                                 (
                                     59,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -20955,7 +21198,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -20984,7 +21227,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21013,7 +21256,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21042,7 +21285,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21071,7 +21314,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21110,7 +21353,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21149,7 +21392,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21188,7 +21431,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21227,7 +21470,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21266,7 +21509,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21328,7 +21571,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -21359,7 +21602,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`never`),
                                     ),
@@ -21384,9 +21627,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: None,
+                                    place: None,
                                 },
                             ),
                             base: Eth(
@@ -21408,9 +21651,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(1),
                                     ),
                                 },
@@ -21434,9 +21677,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(1),
                                     ),
                                 },
@@ -21460,9 +21703,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(1),
                                     ),
                                 },
@@ -21486,9 +21729,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(1),
                                     ),
                                 },
@@ -21512,9 +21755,9 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: None,
+                                    place: None,
                                 },
                             ),
                             base: Eth(
@@ -21540,9 +21783,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: Eth(
@@ -21566,9 +21809,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -21594,9 +21837,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -21622,9 +21865,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -21650,9 +21893,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
+                                            place: Some(
                                                 PlaceIdx(1),
                                             ),
                                         },
@@ -21678,9 +21921,9 @@
                         PatternSymbolTypeInfo {
                             ty: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: Eth(
@@ -21708,9 +21951,9 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(1),
                                     ),
                                 },
@@ -21722,7 +21965,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(2),
@@ -21736,7 +21979,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(3),
@@ -21750,7 +21993,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(4),
@@ -21764,7 +22007,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 MutableOnStack {
                                     place: Idx(
                                         PlaceIdx(5),
@@ -21778,7 +22021,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 ImmutableOnStack {
                                     place: Idx(
                                         PlaceIdx(6),
@@ -21792,9 +22035,9 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Leashed {
-                                    place_idx: Some(
+                                    place: Some(
                                         PlaceIdx(7),
                                     ),
                                 },
@@ -21834,15 +22077,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -21865,11 +22108,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -21896,7 +22137,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -21921,7 +22162,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -21946,9 +22187,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -21975,9 +22216,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22006,9 +22247,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22037,9 +22278,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22068,9 +22309,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22099,9 +22340,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22130,9 +22371,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22161,9 +22402,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22192,9 +22433,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(1),
                                                 ),
                                             },
@@ -22223,15 +22464,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -22254,11 +22495,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -22285,7 +22524,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -22295,7 +22534,7 @@
                                             ExpectationOutcome::IntType(
                                                 ExpectIntTypeOutcome {
                                                     placeless_int_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: Eth(
                                                             ItemPath(
                                                                 TypeOntology(
@@ -22327,15 +22566,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -22358,11 +22597,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -22383,7 +22620,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`i32`),
                                             ),
@@ -22397,7 +22634,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`i32`),
                                         ),
@@ -22422,7 +22659,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 ImmutableOnStack {
                                                     place: Idx(
                                                         PlaceIdx(6),
@@ -22442,7 +22679,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(6),
@@ -22483,15 +22720,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -22514,11 +22751,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -22545,7 +22780,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             ImmutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(6),
@@ -22576,9 +22811,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -22605,9 +22840,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -22634,7 +22869,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -22665,7 +22900,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -22696,9 +22931,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -22721,7 +22956,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -22735,9 +22970,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -22753,7 +22988,7 @@
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
-                                                                place_idx: Some(
+                                                                place: Some(
                                                                     PlaceIdx(7),
                                                                 ),
                                                             },
@@ -22770,7 +23005,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Eth(
@@ -22786,7 +23021,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -22811,7 +23046,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -22825,7 +23060,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -22856,7 +23091,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -22887,7 +23122,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -22918,9 +23153,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -22943,7 +23178,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -22957,9 +23192,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -22975,7 +23210,7 @@
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
-                                                                place_idx: Some(
+                                                                place: Some(
                                                                     PlaceIdx(7),
                                                                 ),
                                                             },
@@ -22992,7 +23227,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Eth(
@@ -23008,7 +23243,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -23033,7 +23268,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -23047,7 +23282,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -23078,7 +23313,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -23109,7 +23344,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -23140,9 +23375,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -23165,7 +23400,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -23179,9 +23414,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -23197,7 +23432,7 @@
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
-                                                                place_idx: Some(
+                                                                place: Some(
                                                                     PlaceIdx(7),
                                                                 ),
                                                             },
@@ -23214,7 +23449,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Eth(
@@ -23230,7 +23465,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -23255,7 +23490,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -23269,7 +23504,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -23300,7 +23535,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -23331,7 +23566,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -23362,9 +23597,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -23387,7 +23622,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -23401,9 +23636,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
+                                                place: Some(
                                                     PlaceIdx(7),
                                                 ),
                                             },
@@ -23419,7 +23654,7 @@
                                                     coercion: Trivial(
                                                         TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
-                                                                place_idx: Some(
+                                                                place: Some(
                                                                     PlaceIdx(7),
                                                                 ),
                                                             },
@@ -23436,7 +23671,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Transient,
                                             ),
                                             base: FlyTermBase::Eth(
@@ -23452,7 +23687,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`f32`),
                                         ),
@@ -23477,7 +23712,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -23491,7 +23726,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -23524,7 +23759,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  ClosedRange, move  ClosedRange) -> BoundingBox`),
                                         ),
@@ -23534,7 +23769,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`BoundingBox`),
                                                         ),
@@ -23548,7 +23783,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`ClosedRange`),
                                                                         ),
@@ -23559,7 +23794,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`ClosedRange`),
                                                                         ),
@@ -23587,7 +23822,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
@@ -23597,7 +23832,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ClosedRange`),
                                                         ),
@@ -23611,7 +23846,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`f32`),
                                                                         ),
@@ -23622,7 +23857,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`f32`),
                                                                         ),
@@ -23642,7 +23877,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -23656,7 +23891,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(2),
@@ -23691,7 +23926,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -23705,7 +23940,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(3),
@@ -23740,7 +23975,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ClosedRange`),
                                             ),
@@ -23754,7 +23989,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ClosedRange`),
                                         ),
@@ -23787,7 +24022,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  f32, move  f32) -> ClosedRange`),
                                         ),
@@ -23797,7 +24032,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ClosedRange`),
                                                         ),
@@ -23811,7 +24046,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`f32`),
                                                                         ),
@@ -23822,7 +24057,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`f32`),
                                                                         ),
@@ -23842,7 +24077,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -23856,7 +24091,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(4),
@@ -23891,7 +24126,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`f32`),
                                             ),
@@ -23905,7 +24140,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             MutableOnStack {
                                                 place: Idx(
                                                     PlaceIdx(5),
@@ -23940,7 +24175,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ClosedRange`),
                                             ),
@@ -23954,7 +24189,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`ClosedRange`),
                                         ),
@@ -23979,7 +24214,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`BoundingBox`),
                                             ),
@@ -23993,7 +24228,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`BoundingBox`),
                                         ),
@@ -24018,7 +24253,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`BoundingBox`),
                                             ),
@@ -24032,7 +24267,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`never`),
                                         ),
@@ -24058,6 +24293,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`Leash ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -24090,17 +24339,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -24108,15 +24357,15 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -24128,16 +24377,16 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -24151,21 +24400,21 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash LineSegmentSketch`),
                                                 ),
@@ -24174,13 +24423,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -24192,11 +24439,9 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -24212,12 +24457,10 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -24236,22 +24479,32 @@
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::Memoized {
-                                            ty: FlyTerm {
-                                                place: None,
+                                            self_ty: FlyTerm {
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`BoundingBox`),
+                                                ),
+                                            },
+                                            return_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`BoundingBox`),
+                                                ),
+                                            },
+                                            expr_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Leash BoundingBox`),
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
@@ -24277,15 +24530,13 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: None,
-                                        },
+                                    quary: Some(
+                                        Transient,
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`BoundingBox`),
+                                        EthTerm(`Leash BoundingBox`),
                                     ),
                                 },
                             ),
@@ -24293,13 +24544,11 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: None,
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`BoundingBox`),
+                                            EthTerm(`Leash BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -24313,17 +24562,17 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
+                                    quary: Some(
+                                        StackPure {
+                                            place: Idx(
                                                 PlaceIdx(0),
                                             ),
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ConcaveComponent`),
+                                        EthTerm(`Leash ConcaveComponent`),
                                     ),
                                 },
                             ),
@@ -24331,15 +24580,15 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                 ),
@@ -24351,16 +24600,16 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     dot_regional_token_idx: RegionalTokenIdx(
@@ -24374,23 +24623,35 @@
                                     },
                                     dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: Some(
+                                            initial_place: StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
-                                            indirections: [],
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::Memoized {
-                                            ty: FlyTerm {
-                                                place: None,
+                                            self_ty: FlyTerm {
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`BoundingBox`),
+                                                ),
+                                            },
+                                            return_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`BoundingBox`),
+                                                ),
+                                            },
+                                            expr_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Leash BoundingBox`),
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
@@ -24416,17 +24677,13 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
-                                        Leashed {
-                                            place_idx: Some(
-                                                PlaceIdx(0),
-                                            ),
-                                        },
+                                    quary: Some(
+                                        Transient,
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`BoundingBox`),
+                                        EthTerm(`Leash BoundingBox`),
                                     ),
                                 },
                             ),
@@ -24434,15 +24691,11 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`BoundingBox`),
+                                            EthTerm(`Leash BoundingBox`),
                                         ),
                                     },
                                 ),
@@ -24454,6 +24707,12 @@
                                     self_argument: SemExprIdx(
                                         2,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`BoundingBox`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         6,
@@ -24464,14 +24723,14 @@
                                             7,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
-                                            initial_place: Leashed {
-                                                place_idx: None,
-                                            },
-                                            indirections: [],
+                                            initial_place: Transient,
+                                            indirections: [
+                                                Leash,
+                                            ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -24485,7 +24744,7 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`BoundingBox`),
                                                         ),
@@ -24496,7 +24755,7 @@
                                                         FlyRitchieSimpleParameter {
                                                             contract: Contract::Pure,
                                                             ty: FlyTerm {
-                                                                place: None,
+                                                                quary: None,
                                                                 base: FlyTermBase::Eth(
                                                                     EthTerm(`BoundingBox`),
                                                                 ),
@@ -24504,8 +24763,14 @@
                                                         },
                                                     ),
                                                 ],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`BoundingBox`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`RelativeBoundingBox`),
                                                     ),
@@ -24519,7 +24784,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [],
@@ -24539,7 +24804,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`BoundingBox`),
                                                     ),
@@ -24551,14 +24816,8 @@
                                                 ),
                                                 coercion_outcome: Some(
                                                     ExpectCoercionOutcome {
-                                                        coercion: Trivial(
-                                                            TrivialFlyCoercion {
-                                                                expectee_quary: Leashed {
-                                                                    place_idx: Some(
-                                                                        PlaceIdx(0),
-                                                                    ),
-                                                                },
-                                                            },
+                                                        coercion: Dedirection(
+                                                            Deleash,
                                                         ),
                                                     },
                                                 ),
@@ -24571,9 +24830,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`RelativeBoundingBox`),
                                     ),
@@ -24583,7 +24842,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`RelativeBoundingBox`),
                                         ),
@@ -24601,9 +24860,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`RelativeBoundingBox`),
                                     ),
@@ -24613,7 +24872,7 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`RelativeBoundingBox`),
                                         ),
@@ -24649,7 +24908,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`RelativeBoundingBox`),
                                     ),
@@ -24707,15 +24966,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -24738,11 +24997,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -24769,13 +25026,11 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: None,
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`BoundingBox`),
+                                            EthTerm(`Leash BoundingBox`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -24798,15 +25053,15 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
+                                        quary: Some(
+                                            StackPure {
+                                                place: Idx(
                                                     PlaceIdx(0),
                                                 ),
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ConcaveComponent`),
+                                            EthTerm(`Leash ConcaveComponent`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -24823,7 +25078,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Pure,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`BoundingBox`),
                                             ),
@@ -24837,29 +25092,19 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
-                                            Leashed {
-                                                place_idx: Some(
-                                                    PlaceIdx(0),
-                                                ),
-                                            },
+                                        quary: Some(
+                                            Transient,
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`BoundingBox`),
+                                            EthTerm(`Leash BoundingBox`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
                                             ExpectationOutcome::Coercion(
                                                 ExpectCoercionOutcome {
-                                                    coercion: Trivial(
-                                                        TrivialFlyCoercion {
-                                                            expectee_quary: Leashed {
-                                                                place_idx: Some(
-                                                                    PlaceIdx(0),
-                                                                ),
-                                                            },
-                                                        },
+                                                    coercion: Dedirection(
+                                                        Deleash,
                                                     ),
                                                 },
                                             ),
@@ -24872,7 +25117,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`RelativeBoundingBox`),
                                             ),
@@ -24886,7 +25131,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`RelativeBoundingBox`),
                                         ),
@@ -24911,7 +25156,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`RelativeBoundingBox`),
                                             ),
@@ -24925,7 +25170,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`RelativeBoundingBox`),
                                         ),
@@ -24955,6 +25200,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`Leash ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -25004,9 +25263,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
                                     ),
@@ -25016,7 +25275,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
                                         ),
@@ -25032,9 +25291,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -25050,7 +25309,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -25070,8 +25329,8 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -25107,7 +25366,7 @@
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -25116,9 +25375,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -25134,7 +25393,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -25154,6 +25413,12 @@
                                     self_argument: SemExprIdx(
                                         2,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         6,
@@ -25164,7 +25429,7 @@
                                             7,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -25175,7 +25440,7 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -25189,15 +25454,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -25211,7 +25482,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -25219,7 +25490,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -25244,9 +25515,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -25256,7 +25527,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -25275,9 +25546,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -25287,7 +25558,7 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -25301,8 +25572,8 @@
                                     self_argument: SemExprIdx(
                                         4,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: None,
+                                    self_argument_ty: FlyTerm {
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -25323,12 +25594,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -25337,11 +25608,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -25353,9 +25624,9 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -25371,6 +25642,12 @@
                                     self_argument: SemExprIdx(
                                         5,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Point2d`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         13,
@@ -25381,14 +25658,14 @@
                                             14,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TraitForTypeMethodRitchie(
@@ -25402,15 +25679,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Point2d`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
@@ -25424,7 +25707,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -25432,7 +25715,7 @@
                                                             EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`Point2d`),
                                                                     ),
@@ -25457,9 +25740,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -25469,7 +25752,7 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -25485,9 +25768,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -25503,7 +25786,7 @@
                                 (
                                     7,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -25523,8 +25806,8 @@
                                     self_argument: SemExprIdx(
                                         7,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -25560,7 +25843,7 @@
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -25569,9 +25852,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -25587,7 +25870,7 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -25607,6 +25890,12 @@
                                     self_argument: SemExprIdx(
                                         8,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         21,
@@ -25617,7 +25906,7 @@
                                             22,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -25628,7 +25917,7 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -25642,15 +25931,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -25664,7 +25959,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -25672,7 +25967,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -25697,9 +25992,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -25709,7 +26004,7 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -25728,9 +26023,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -25740,7 +26035,7 @@
                                 (
                                     10,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -25754,8 +26049,8 @@
                                     self_argument: SemExprIdx(
                                         10,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: None,
+                                    self_argument_ty: FlyTerm {
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -25776,12 +26071,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -25790,11 +26085,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -25806,9 +26101,9 @@
                                 (
                                     11,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -25824,6 +26119,12 @@
                                     self_argument: SemExprIdx(
                                         11,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Point2d`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         28,
@@ -25834,14 +26135,14 @@
                                             29,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TraitForTypeMethodRitchie(
@@ -25855,15 +26156,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Point2d`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
@@ -25877,7 +26184,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -25885,7 +26192,7 @@
                                                             EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`Point2d`),
                                                                     ),
@@ -25910,9 +26217,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -25922,7 +26229,7 @@
                                 (
                                     12,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -25948,7 +26255,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
@@ -25978,7 +26285,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
@@ -26006,9 +26313,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegment`),
                                     ),
@@ -26018,7 +26325,7 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -26036,9 +26343,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegment`),
                                     ),
@@ -26048,7 +26355,7 @@
                                 (
                                     14,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -26084,7 +26391,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegment`),
                                     ),
@@ -26144,7 +26451,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`fn((move  Point2d, move  Point2d) -> LineSegment`),
                                         ),
@@ -26154,7 +26461,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegment`),
                                                         ),
@@ -26168,7 +26475,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`Point2d`),
                                                                         ),
@@ -26179,7 +26486,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Eth(
                                                                             EthTerm(`Point2d`),
                                                                         ),
@@ -26205,7 +26512,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -26236,7 +26543,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -26267,7 +26574,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -26292,7 +26599,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -26317,9 +26624,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -26340,7 +26647,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Point2d`),
                                             ),
@@ -26354,7 +26661,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -26385,7 +26692,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -26416,7 +26723,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -26447,7 +26754,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -26472,7 +26779,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -26497,9 +26804,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -26520,7 +26827,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Point2d`),
                                             ),
@@ -26534,7 +26841,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -26559,7 +26866,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`LineSegment`),
                                             ),
@@ -26573,7 +26880,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -26598,7 +26905,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`LineSegment`),
                                             ),
@@ -26612,7 +26919,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -26642,6 +26949,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -26674,9 +26995,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -26692,7 +27013,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -26712,8 +27033,8 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -26749,7 +27070,7 @@
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -26758,9 +27079,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -26776,7 +27097,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -26796,6 +27117,12 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -26806,7 +27133,7 @@
                                             5,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -26817,7 +27144,7 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -26831,15 +27158,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -26853,7 +27186,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -26861,7 +27194,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -26886,9 +27219,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -26898,7 +27231,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -26917,9 +27250,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -26929,7 +27262,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -26943,8 +27276,8 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: None,
+                                    self_argument_ty: FlyTerm {
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -26965,12 +27298,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -26979,11 +27312,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -26995,9 +27328,9 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -27013,6 +27346,12 @@
                                     self_argument: SemExprIdx(
                                         4,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Point2d`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         11,
@@ -27023,14 +27362,14 @@
                                             12,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TraitForTypeMethodRitchie(
@@ -27044,15 +27383,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Point2d`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
@@ -27066,7 +27411,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -27074,7 +27419,7 @@
                                                             EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`Point2d`),
                                                                     ),
@@ -27099,9 +27444,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -27111,7 +27456,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -27129,9 +27474,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -27141,7 +27486,7 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -27177,7 +27522,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -27235,7 +27580,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -27266,7 +27611,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -27297,7 +27642,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -27322,7 +27667,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -27347,9 +27692,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -27370,7 +27715,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Point2d`),
                                             ),
@@ -27384,7 +27729,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -27409,7 +27754,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Point2d`),
                                             ),
@@ -27423,7 +27768,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -27453,6 +27798,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -27485,9 +27844,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -27503,7 +27862,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -27523,8 +27882,8 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -27560,7 +27919,7 @@
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -27569,9 +27928,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -27587,7 +27946,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -27607,6 +27966,12 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -27617,7 +27982,7 @@
                                             5,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -27628,7 +27993,7 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -27642,15 +28007,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -27664,7 +28035,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -27672,7 +28043,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -27697,9 +28068,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -27709,7 +28080,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -27728,9 +28099,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -27740,7 +28111,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -27754,8 +28125,8 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: None,
+                                    self_argument_ty: FlyTerm {
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -27776,12 +28147,12 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Point2d`),
                                                 ),
@@ -27790,11 +28161,11 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Leashed {
-                                            place_idx: None,
+                                            place: None,
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
@@ -27806,9 +28177,9 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -27824,6 +28195,12 @@
                                     self_argument: SemExprIdx(
                                         4,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`Point2d`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         11,
@@ -27834,14 +28211,14 @@
                                             12,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                             indirections: [],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TraitForTypeMethodRitchie(
@@ -27855,15 +28232,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Point2d`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`Point2d`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Point2d`),
                                                     ),
@@ -27877,7 +28260,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -27885,7 +28268,7 @@
                                                             EthSymbolicVariable(`Self`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`Point2d`),
                                                                     ),
@@ -27910,9 +28293,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -27922,7 +28305,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -27940,9 +28323,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -27952,7 +28335,7 @@
                                 (
                                     6,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -27988,7 +28371,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Point2d`),
                                     ),
@@ -28046,7 +28429,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -28077,7 +28460,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -28108,7 +28491,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -28133,7 +28516,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -28158,9 +28541,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
@@ -28181,7 +28564,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Point2d`),
                                             ),
@@ -28195,7 +28578,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -28220,7 +28603,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Point2d`),
                                             ),
@@ -28234,7 +28617,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Point2d`),
                                         ),
@@ -28264,6 +28647,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -28296,9 +28693,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -28314,7 +28711,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -28334,6 +28731,12 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`ConcaveComponent`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         2,
@@ -28344,7 +28747,7 @@
                                             3,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -28369,15 +28772,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`ConcaveComponent`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`ConcaveComponent`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`LineSegment`),
                                                     ),
@@ -28414,9 +28823,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`LineSegment`),
                                     ),
@@ -28426,7 +28835,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -28440,6 +28849,12 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`LineSegment`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         6,
@@ -28450,7 +28865,7 @@
                                             7,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [],
@@ -28467,15 +28882,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegment`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`LineSegment`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -28508,9 +28929,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -28520,7 +28941,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -28538,9 +28959,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -28550,7 +28971,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -28586,7 +29007,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -28644,7 +29065,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -28675,7 +29096,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`LineSegment`),
                                         ),
@@ -28694,7 +29115,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vector2d`),
                                             ),
@@ -28708,7 +29129,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -28733,7 +29154,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vector2d`),
                                             ),
@@ -28747,7 +29168,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -28777,6 +29198,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -28809,9 +29244,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -28827,7 +29262,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -28847,8 +29282,8 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -28884,7 +29319,7 @@
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -28893,9 +29328,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -28911,7 +29346,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -28931,6 +29366,12 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -28941,7 +29382,7 @@
                                             5,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -28952,7 +29393,7 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -28966,15 +29407,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -28988,7 +29435,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -28996,7 +29443,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -29021,9 +29468,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -29033,7 +29480,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -29052,9 +29499,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -29064,7 +29511,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -29078,6 +29525,12 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         9,
@@ -29088,14 +29541,14 @@
                                             10,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -29109,15 +29562,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -29131,7 +29590,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [],
@@ -29152,9 +29611,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -29164,7 +29623,7 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -29182,9 +29641,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -29194,7 +29653,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -29230,7 +29689,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -29288,7 +29747,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -29319,7 +29778,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -29350,7 +29809,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -29375,7 +29834,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -29394,7 +29853,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vector2d`),
                                             ),
@@ -29408,7 +29867,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -29433,7 +29892,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vector2d`),
                                             ),
@@ -29447,7 +29906,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -29477,6 +29936,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(
@@ -29509,9 +29982,9 @@
                                     ),
                                 ),
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -29527,7 +30000,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -29547,8 +30020,8 @@
                                     self_argument: SemExprIdx(
                                         0,
                                     ),
-                                    self_ty: FlyTerm {
-                                        place: Some(
+                                    self_argument_ty: FlyTerm {
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -29584,7 +30057,7 @@
                                         },
                                         signature: FieldFlySignature::PropsStruct {
                                             ty: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                                 ),
@@ -29593,9 +30066,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -29611,7 +30084,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -29631,6 +30104,12 @@
                                     self_argument: SemExprIdx(
                                         1,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`CyclicSlice LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -29641,7 +30120,7 @@
                                             5,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: StackPure {
                                                 place: Idx(
@@ -29652,7 +30131,7 @@
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -29666,15 +30145,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`CyclicSlice LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`CyclicSlice LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Option Leash LineSegmentStroke`),
                                                     ),
@@ -29688,7 +30173,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [
@@ -29696,7 +30181,7 @@
                                                             EthSymbolicVariable(`E`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
-                                                                    place: None,
+                                                                    quary: None,
                                                                     base: FlyTermBase::Eth(
                                                                         EthTerm(`LineSegmentStroke`),
                                                                     ),
@@ -29721,9 +30206,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Option Leash LineSegmentStroke`),
                                     ),
@@ -29733,7 +30218,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -29752,9 +30237,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Leash LineSegmentStroke`),
                                     ),
@@ -29764,7 +30249,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -29778,6 +30263,12 @@
                                     self_argument: SemExprIdx(
                                         3,
                                     ),
+                                    self_ty: FlyTerm {
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`LineSegmentStroke`),
+                                        ),
+                                    },
                                     self_contract: Contract::Pure,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         9,
@@ -29788,14 +30279,14 @@
                                             10,
                                         ),
                                     },
-                                    instance_dispatch: FlyInstanceDispatch {
+                                    dispatch: FlyInstanceDispatch {
                                         indirections: FlyIndirections {
                                             initial_place: Transient,
                                             indirections: [
                                                 Leash,
                                             ],
                                             final_place: Leashed {
-                                                place_idx: None,
+                                                place: None,
                                             },
                                         },
                                         signature: MethodFlySignature::TypeMethodRitchie(
@@ -29809,15 +30300,21 @@
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Contract::Pure,
                                                     ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`LineSegmentStroke`),
                                                         ),
                                                     },
                                                 },
                                                 parenate_parameters: [],
+                                                self_ty: FlyTerm {
+                                                    quary: None,
+                                                    base: FlyTermBase::Eth(
+                                                        EthTerm(`LineSegmentStroke`),
+                                                    ),
+                                                },
                                                 return_ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Eth(
                                                         EthTerm(`Vector2d`),
                                                     ),
@@ -29831,7 +30328,7 @@
                                                     },
                                                     env: MethodFn {
                                                         self_place: Leashed {
-                                                            place_idx: None,
+                                                            place: None,
                                                         },
                                                     },
                                                     symbol_map: [],
@@ -29852,9 +30349,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -29864,7 +30361,7 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -29882,9 +30379,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -29894,7 +30391,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -29930,7 +30427,7 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Vector2d`),
                                     ),
@@ -29988,7 +30485,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -30019,7 +30516,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -30050,7 +30547,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Option Leash LineSegmentStroke`),
                                         ),
@@ -30075,7 +30572,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Leash LineSegmentStroke`),
                                         ),
@@ -30094,7 +30591,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vector2d`),
                                             ),
@@ -30108,7 +30605,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -30133,7 +30630,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Vector2d`),
                                             ),
@@ -30147,7 +30644,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Vector2d`),
                                         ),
@@ -30177,6 +30674,20 @@
             ),
             self_ty: Some(
                 EthTerm(`ConcaveComponent`),
+            ),
+            self_value_ty: Some(
+                FlyTerm {
+                    quary: Some(
+                        StackPure {
+                            place: Idx(
+                                PlaceIdx(0),
+                            ),
+                        },
+                    ),
+                    base: FlyTermBase::Eth(
+                        EthTerm(`ConcaveComponent`),
+                    ),
+                },
             ),
             context_itd: EthTermContextItd {
                 task_ty: Some(

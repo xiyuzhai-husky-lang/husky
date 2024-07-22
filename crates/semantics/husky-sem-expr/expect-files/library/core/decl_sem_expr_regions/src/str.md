@@ -56,6 +56,7 @@
             self_ty: Some(
                 EthTerm(`str`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -117,6 +118,7 @@
             self_ty: Some(
                 EthTerm(`StringLiteral`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
