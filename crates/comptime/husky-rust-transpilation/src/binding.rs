@@ -386,7 +386,7 @@ impl RustBindings {
             }
             HirEagerExprRole::Subexpr { .. } => (),
             HirEagerExprRole::Root => (),
-            HirEagerExprRole::InitialValue { contract } => {
+            HirEagerExprRole::PatternOpd { contract } => {
                 if contracted_quary_after_coercion.contract().is_none() {
                     match contracted_quary_after_coercion.quary() {
                         HirQuary::Compterm => (),
@@ -453,8 +453,7 @@ impl RustBindings {
                     }
                 }
             }
-            HirEagerExprRole::RegularCallItem { contract }
-            | HirEagerExprRole::PatternOpd { contract } => {
+            HirEagerExprRole::RegularCallItem { contract } => {
                 if contracted_quary_after_coercion.contract().is_none() {
                     match contracted_quary_after_coercion.quary() {
                         HirQuary::Compterm => (),
