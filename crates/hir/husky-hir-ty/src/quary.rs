@@ -146,7 +146,7 @@ impl HirQuary {
                 place,
                 lifetime: lifetime.map(HirLifetime::from_fly),
             },
-            FlyQuary::Leashed { place_idx } => HirQuary::Leashed { place_idx },
+            FlyQuary::Leashed { place: place_idx } => HirQuary::Leashed { place_idx },
             FlyQuary::Todo => HirQuary::Todo,
             FlyQuary::EtherealSymbol(_) => todo!(),
         }

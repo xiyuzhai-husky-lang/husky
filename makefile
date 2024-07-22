@@ -146,4 +146,6 @@ chicago-typewriter:
 	cargo run -p husky-chicago-typewriter
 
 quick:
-	UPDATE_EXPECT=1 cargo test -p husky-rust-transpilation -j 1
+	# UPDATE_EXPECT=1 cargo test -p husky-rust-transpilation -j 1
+	# UPDATE_EXPECT=1 cargo test -p husky-mono-linktime
+	scripts/update_expect_quick.sh

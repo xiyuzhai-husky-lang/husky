@@ -8,7 +8,7 @@ use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
     variable::runtime::HirEagerRuntimeVariableIdx, *,
 };
-use coercion::HirEagerCoercion;
+use coercion::{DedirectionHirEagerCoercion, HirEagerCoercion};
 use husky_entity_path::path::{
     assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
     major_item::{form::MajorFormPath, ty::TypePath, MajorItemPath},
@@ -18,6 +18,7 @@ use husky_entity_path::path::{
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::{field::FieldFlySignature, method::MethodFlySignature, OntologyDispatch},
+    quary::FlyQuary,
     signature::assoc_item::ty_item::TypeItemFlySignature,
     ExpectationOutcome,
 };
@@ -30,6 +31,7 @@ use husky_hir_ty::{
     ritchie::HirContract,
     HirType,
 };
+use husky_place::place::EthPlace;
 use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
 use husky_sem_opr::{binary::SemBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::variable::{InheritedTemplateVariable, InheritedVariableKind};
@@ -50,7 +52,8 @@ pub struct HirEagerExprEntry {
     place_contract_site: HirPlaceContractSite,
     /// None means it's not entirely known from expectation alone,
     /// todo: remove Option
-    coersion: Option<HirEagerCoercion>,
+    coercion: Option<HirEagerCoercion>,
+    contracted_quary_after_coercion: HirContractedQuary,
 }
 
 /// # getters
@@ -68,7 +71,7 @@ impl HirEagerExprEntry {
     }
 
     pub fn coercion(&self) -> Option<HirEagerCoercion> {
-        self.coersion
+        self.coercion
     }
 
     /// this is before coercion happens, the inner type of the expression
@@ -78,6 +81,10 @@ impl HirEagerExprEntry {
 
     pub fn place_contract_site(&self) -> &HirPlaceContractSite {
         &self.place_contract_site
+    }
+
+    pub fn contracted_quary_after_coercion(&self) -> HirContractedQuary {
+        self.contracted_quary_after_coercion
     }
 }
 
@@ -581,11 +588,11 @@ impl ToHirEager for SemExprIdx {
             },
         };
         let ty = self.ty(builder.sem_expr_arena_ref2());
-        let contracted_quary = ty
-            .quary()
+        let quary = ty.quary();
+        let contracted_quary = quary
             .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
             .unwrap_or_default();
-        let coersion = match self.expectation_outcome(builder.sem_expr_region_data) {
+        let coercion = match self.expectation_outcome(builder.sem_expr_region_data) {
             Some(ref outcome) => match outcome {
                 ExpectationOutcome::Coercion(coersion_outcome) => {
                     Some(coersion_outcome.coercion().to_hir_eager(builder))
@@ -594,6 +601,44 @@ impl ToHirEager for SemExprIdx {
             },
             None => None,
         };
+        let quary_after_coercion = match coercion {
+            Some(coercion) => match coercion {
+                HirEagerCoercion::Trivial(_) => quary,
+                HirEagerCoercion::Never => None,
+                HirEagerCoercion::WrapInSome => Some(FlyQuary::Transient),
+                HirEagerCoercion::Redirection(_) => Some(FlyQuary::Transient),
+                HirEagerCoercion::Dedirection(dedirection) => match dedirection {
+                    DedirectionHirEagerCoercion::Deleash => {
+                        let place = match quary {
+                            Some(quary) => match quary {
+                                FlyQuary::Compterm => todo!(),
+                                FlyQuary::StackPure { place } => match place {
+                                    EthPlace::Idx(place_idx) => Some(place_idx),
+                                    EthPlace::SymbolicVariable(_) => todo!(),
+                                    EthPlace::Field(_) => todo!(),
+                                },
+                                FlyQuary::ImmutableOnStack { place } => todo!(),
+                                FlyQuary::MutableOnStack { place } => todo!(),
+                                FlyQuary::Transient => None,
+                                FlyQuary::Ref { guard } => todo!(),
+                                FlyQuary::RefMut { place, lifetime } => todo!(),
+                                FlyQuary::Leashed { place } => todo!(),
+                                FlyQuary::Todo => todo!(),
+                                FlyQuary::EtherealSymbol(_) => todo!(),
+                            },
+                            None => None,
+                        };
+                        Some(FlyQuary::Leashed { place })
+                    }
+                    DedirectionHirEagerCoercion::Deref { lifetime } => todo!(),
+                    DedirectionHirEagerCoercion::DerefMut => todo!(),
+                },
+            },
+            None => quary,
+        };
+        let contracted_quary_after_coercion = quary
+            .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
+            .unwrap_or_default();
         let entry = HirEagerExprEntry {
             data,
             contracted_quary,
@@ -602,7 +647,8 @@ impl ToHirEager for SemExprIdx {
                 .unwrap()
                 .unwrap(),
             place_contract_site,
-            coersion,
+            coercion,
+            contracted_quary_after_coercion,
         };
         builder.alloc_expr(*self, entry)
     }

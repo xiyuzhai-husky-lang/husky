@@ -9,9 +9,9 @@ pub fn upper_mouth_match() -> crate::fermi::FermiMatchResult {
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 42)]
 pub fn is_eight() -> malamute::OneVsAll {
-    let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component().deleash()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component().deleash());
-    if let Option::None = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component().deleash()).deleash().matches[1 as usize] {
-        if let Option::None = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component().deleash()).deleash().matches[0 as usize] {
+    let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component());
+    if let Option::None = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component()).deleash().matches[1 as usize] {
+        if let Option::None = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component()).deleash().matches[0 as usize] {
             require!(false);
         }
         require!(false);

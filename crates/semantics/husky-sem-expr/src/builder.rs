@@ -302,10 +302,10 @@ fn calc_self_value_ty(
             lifetime: None,
         },
         VariableModifier::Le => FlyQuary::Leashed {
-            place_idx: Some(registry.issue_new(place_data)),
+            place: Some(registry.issue_new(place_data)),
         },
         VariableModifier::Tilde => FlyQuary::Leashed {
-            place_idx: Some(registry.issue_new(place_data)),
+            place: Some(registry.issue_new(place_data)),
         },
         VariableModifier::At => FlyQuary::EtherealSymbol(self_place?),
     };
