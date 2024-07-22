@@ -1,7 +1,22 @@
+use crate::serde;
+use serde::Serialize;
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct Leash<T>(pub &'static T)
 where
     T: ?Sized + 'static;
+
+impl<T> Serialize for Leash<T>
+where
+    T: Serialize + ?Sized + 'static,
+{
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: serde::Serializer,
+    {
+        self.0.serialize(serializer)
+    }
+}
 
 impl<T> Clone for Leash<T> {
     fn clone(&self) -> Self {
