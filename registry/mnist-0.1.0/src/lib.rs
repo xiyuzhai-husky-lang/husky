@@ -113,11 +113,11 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 impl BinaryGrid28 {}
 
 thread_local! {
-    static __INPUT: std::cell::Cell<Option<&'static BinaryImage28>> = Default::default();
+    static __INPUT: std::cell::Cell<Option<Leash<BinaryImage28>>> = Default::default();
 }
 
 #[allow(non_snake_case)]
-pub fn INPUT() -> &'static BinaryImage28 {
+pub fn INPUT() -> Leash<BinaryImage28> {
     __INPUT.get().unwrap()
 }
 
