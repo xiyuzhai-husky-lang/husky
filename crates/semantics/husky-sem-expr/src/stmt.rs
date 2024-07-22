@@ -92,8 +92,8 @@ pub enum SemStmtData {
     },
     Match {
         match_token: MatchRegionalToken,
-        match_opd: SemExprIdx,
-        match_contract: Contract,
+        opd: SemExprIdx,
+        contract: Contract,
         eol_with_token: EolWithRegionalToken,
         case_branches: Vec<SemCaseBranch>,
     },
@@ -591,10 +591,12 @@ impl<'a> SemExprBuilder<'a> {
         match *sem_expr_idx.data(self.sem_expr_arena().arena_ref()) {
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 target,
             } => SemCondition::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 target,
             },

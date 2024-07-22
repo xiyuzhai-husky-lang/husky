@@ -159,6 +159,7 @@ pub enum SemExprData {
     Be {
         // todo: coercion?
         src: SemExprIdx,
+        contract: Contract,
         be_regional_token_idx: RegionalTokenIdx,
         target: BePatternSyndicate,
     },
@@ -955,6 +956,9 @@ impl<'a> SemExprBuilder<'a> {
                     .as_ref()
                     .map(|&target| SemExprData::Be {
                         src,
+                        contract: self
+                            .syn_expr_region_data()
+                            .pattern_contract(target.syn_pattern_root().syn_pattern_idx()),
                         be_regional_token_idx,
                         target,
                     })

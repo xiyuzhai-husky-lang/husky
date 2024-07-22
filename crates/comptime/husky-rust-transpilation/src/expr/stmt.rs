@@ -17,7 +17,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
                 let initial_value_entry = &builder.hir_eager_expr_arena()[initial_value];
-                (initial_value, HirEagerExprRole::new_let_initial_value())
+                (initial_value, HirEagerExprRole::new_pattern_opd(contract))
                     .transpile_to_rust(builder)
             }),
             HirEagerStmtData::Return { result, coercion } => {
@@ -52,7 +52,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }
             HirEagerStmtData::Assert { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| match *condition {
-                    HirEagerCondition::Be { opd: _, pattern: _ } => todo!(),
+                    HirEagerCondition::Be { .. } => todo!(),
                     HirEagerCondition::Other {
                         opd: hir_eager_expr_idx,
                         conversion,
@@ -309,11 +309,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 else_branch.transpile_to_rust(builder)
             }),
             HirEagerStmtData::Match {
-                opd: match_target,
+                opd,
+                contract,
                 ref case_branches,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::Match);
-                (match_target, HirEagerExprRole::new_root()).transpile_to_rust(builder);
+                (opd, HirEagerExprRole::new_pattern_opd(contract)).transpile_to_rust(builder);
                 builder.delimited_multiline_list(RustDelimiter::Curl, case_branches)
             }),
         }
@@ -324,24 +325,22 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
             HirEagerCondition::Be {
-                opd: src,
-                pattern: ref target,
+                opd,
+                contract,
+                ref pattern,
             } => {
                 builder.keyword(RustKeyword::Let);
-                target.pattern.transpile_to_rust(builder);
+                pattern.pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
-                (src, HirEagerExprRole::new_root()).transpile_to_rust(builder)
+                (opd, HirEagerExprRole::new_root()).transpile_to_rust(builder)
             }
-            HirEagerCondition::Other {
-                opd: hir_eager_expr_idx,
-                conversion,
-            } => match conversion {
+            HirEagerCondition::Other { opd, conversion } => match conversion {
                 ConditionConversion::None => {
-                    (hir_eager_expr_idx, HirEagerExprRole::new_root()).transpile_to_rust(builder)
+                    (opd, HirEagerExprRole::new_root()).transpile_to_rust(builder)
                 }
                 ConditionConversion::IntToBool(_) => {
                     (
-                        hir_eager_expr_idx,
+                        opd,
                         HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                             RustPrecedence::EqComparison,
                         )),

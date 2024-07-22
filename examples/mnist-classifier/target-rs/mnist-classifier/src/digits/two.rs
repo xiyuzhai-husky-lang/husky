@@ -3,26 +3,26 @@ use super::*;
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 46, return_leash)]
 pub fn two_match() -> crate::fermi::FermiMatchResult {
-    crate::fermi::fermi_match(major_concave_components(), vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
+    crate::fermi::fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
 
 #[rustfmt::skip]
 pub fn left_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.deleash().displacement();
+    let dp = &cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn right_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.deleash().displacement();
+    let dp = &cc.deleash().displacement();
     require!(dp.y > 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.deleash().displacement();
+    let dp = &cc.deleash().displacement();
     require!(dp.x > 0.0f32);
     Some(dp.x)
 }

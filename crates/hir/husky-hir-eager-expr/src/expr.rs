@@ -47,12 +47,14 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerExprEntry {
     data: HirEagerExprData,
+    /// note that the contract is only told when the quary has a place, i.e., not transient
     contracted_quary: HirContractedQuary,
     is_always_copyable: bool,
     place_contract_site: HirPlaceContractSite,
     /// None means it's not entirely known from expectation alone,
     /// todo: remove Option
     coercion: Option<HirEagerCoercion>,
+    /// note that the contract is only told when the quary has a place, i.e., not transient
     contracted_quary_after_coercion: HirContractedQuary,
 }
 

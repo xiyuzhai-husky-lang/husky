@@ -63,7 +63,7 @@ impl<'db> TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEager
         if needs_outermost_extra_pars {
             builder.lpar();
         }
-        builder.transpile_bindings(bindings, |builder| {
+        builder.transpile_bindings(bindings.clone(), |builder| {
             if !innermost_precedence_range.include(innermost_precedence) {
                 builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
                     transpile_hir_eager_expr_to_rust(
@@ -426,10 +426,11 @@ fn transpile_hir_eager_expr_to_rust(
 impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerRitchieArgument {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
-            HirEagerRitchieArgument::Simple(param, hir_eager_expr_idx, coercion) => {
-                (hir_eager_expr_idx, HirEagerExprRole::regular_call_item())
-                    .transpile_to_rust(builder)
-            }
+            HirEagerRitchieArgument::Simple(param, hir_eager_expr_idx, coercion) => (
+                hir_eager_expr_idx,
+                HirEagerExprRole::regular_call_item(param.contract),
+            )
+                .transpile_to_rust(builder),
             HirEagerRitchieArgument::Variadic => todo!(),
             HirEagerRitchieArgument::Keyed => todo!(),
         }

@@ -27,8 +27,8 @@ use husky_hir_eager_expr::{
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateVariable, HirType,
-    HirTypeTemplateVariable,
+    ritchie::HirContract, trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateVariable,
+    HirType, HirTypeTemplateVariable,
 };
 use husky_print_utils::p;
 use husky_term_prelude::literal::Literal;

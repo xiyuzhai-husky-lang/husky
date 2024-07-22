@@ -23,9 +23,13 @@ pub(crate) enum HirEagerExprRole<'db> {
     Subexpr {
         outermost_precedence_range: RustPrecedenceRange,
     },
-    RegularCallItem,
+    RegularCallItem {
+        contract: HirContract,
+    },
     Root,
-    LetInitialValue,
+    PatternOpd {
+        contract: HirContract,
+    },
 }
 
 impl<'db> HirEagerExprRole<'db> {
@@ -64,8 +68,8 @@ impl<'db> HirEagerExprRole<'db> {
         Self::subexpr(RustPrecedenceRange::ANY)
     }
 
-    pub(crate) fn regular_call_item() -> Self {
-        HirEagerExprRole::RegularCallItem
+    pub(crate) fn regular_call_item(contract: HirContract) -> Self {
+        HirEagerExprRole::RegularCallItem { contract }
     }
 
     pub(crate) fn new_root() -> Self {
@@ -73,11 +77,13 @@ impl<'db> HirEagerExprRole<'db> {
     }
 
     #[deprecated(note = "change coercion type to HirEagerCoercion")]
-    pub(crate) fn new_let_initial_value() -> Self {
-        HirEagerExprRole::LetInitialValue
+    pub(crate) fn new_pattern_opd(contract: HirContract) -> Self {
+        HirEagerExprRole::PatternOpd { contract }
     }
 
     pub(crate) fn html_argument() -> Self {
-        HirEagerExprRole::RegularCallItem
+        HirEagerExprRole::RegularCallItem {
+            contract: HirContract::Pure,
+        }
     }
 }

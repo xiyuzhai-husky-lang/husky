@@ -3,13 +3,13 @@ use super::*;
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 43, return_leash)]
 pub fn nine_match() -> crate::fermi::FermiMatchResult {
-    crate::fermi::fermi_match(major_concave_components(), vec![downmost])
+    crate::fermi::fermi_match(major_concave_components(), &vec![downmost])
 }
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 44, return_leash)]
 pub fn nine_match_refine() -> crate::fermi::FermiMatchResult {
-    crate::fermi::fermi_match(major_concave_components(), vec![big_cc])
+    crate::fermi::fermi_match(major_concave_components(), &vec![big_cc])
 }
 
 #[rustfmt::skip]
@@ -43,14 +43,14 @@ pub fn is_nine() -> malamute::OneVsAll {
 
 #[rustfmt::skip]
 pub fn downmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.deleash().displacement();
+    let dp = &cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn big_cc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.deleash().displacement();
+    let dp = &cc.deleash().displacement();
     require!(dp.y > 0.0f32);
     require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin() > 0.4f32);
     Some(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin())
