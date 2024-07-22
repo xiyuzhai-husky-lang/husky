@@ -79,7 +79,7 @@ impl RustBindings {
     fn init(expr_entry: &HirEagerExprEntry) -> RustBindings {
         match expr_entry.data() {
             HirEagerExprData::RuntimeVariable(_) => {
-                let variable_bindings = match expr_entry.contracted_quary().quary() {
+                let bindings = match expr_entry.contracted_quary().quary() {
                     HirQuary::Compterm => todo!(),
                     HirQuary::StackPure { place } => {
                         if expr_entry.is_base_ty_always_copyable() {
@@ -116,9 +116,25 @@ impl RustBindings {
                     HirQuary::Todo => todo!(),
                     HirQuary::Variable(_) => todo!(),
                 };
-                RustBindings {
-                    bindings: variable_bindings,
-                }
+                RustBindings { bindings }
+            }
+            HirEagerExprData::MethodRitchieCall { .. }
+            | HirEagerExprData::Unveil { .. }
+            | HirEagerExprData::Unwrap { .. } => {
+                let bindings = match expr_entry.contracted_quary().quary() {
+                    HirQuary::Compterm => todo!(),
+                    HirQuary::StackPure { place } => todo!(),
+                    HirQuary::ImmutableOnStack { place } => smallvec![RustBinding::Deref],
+                    HirQuary::MutableOnStack { place } => smallvec![RustBinding::DerefMut],
+                    HirQuary::Transient => smallvec![],
+                    HirQuary::Ref { guard } => smallvec![RustBinding::Deref],
+                    HirQuary::RefMut { place, lifetime } => smallvec![RustBinding::DerefMut],
+                    HirQuary::Ref { guard } => todo!(),
+                    HirQuary::Leashed { place_idx } => todo!(),
+                    HirQuary::Todo => todo!(),
+                    HirQuary::Variable(_) => todo!(),
+                };
+                RustBindings { bindings }
             }
             _ => RustBindings {
                 bindings: smallvec![],
