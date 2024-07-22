@@ -230,7 +230,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     fn finish(self) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
         let self_value_ty = self.sem_expr_region_data.self_value_ty().map(|term| {
-            HirType::from_fly(
+            HirType::from_fly_base(
                 term,
                 self.db,
                 self.sem_expr_region_data.fly_term_region().terms(),

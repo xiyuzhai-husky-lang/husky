@@ -40,7 +40,7 @@ impl FlyTermRegion {
         &self.expectations
     }
 
-    pub fn solid_terms(&self) -> &SolTerms {
+    pub fn sol_terms(&self) -> &SolTerms {
         self.terms.sol_terms()
     }
 

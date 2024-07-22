@@ -69,7 +69,7 @@ impl HolTerm {
         match self.resolve_progress(fly_terms) {
             TermResolveProgress::UnresolvedHol => self.fly_data_aux(db, fly_terms),
             TermResolveProgress::ResolvedEth(term) => ethereal_term_data(db, term),
-            TermResolveProgress::ResolvedSol(term) => term.data_inner(fly_terms.sol_terms()).into(),
+            TermResolveProgress::ResolvedSol(term) => term.data2(fly_terms.sol_terms()).into(),
             TermResolveProgress::Err => todo!(),
         }
     }
@@ -133,7 +133,7 @@ impl HolTerm {
         match self.resolve_progress(fly_terms) {
             TermResolveProgress::UnresolvedHol => self.fly_base_ty_data_aux(db, fly_terms),
             TermResolveProgress::ResolvedEth(term) => ethereal_term_fly_base_ty_data(db, term),
-            TermResolveProgress::ResolvedSol(term) => term.data_inner(fly_terms.sol_terms()).into(),
+            TermResolveProgress::ResolvedSol(term) => term.data2(fly_terms.sol_terms()).into(),
             TermResolveProgress::Err => todo!(),
         }
     }

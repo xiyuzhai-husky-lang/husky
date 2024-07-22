@@ -6,6 +6,7 @@ use husky_hir_ty::{
     indirections::HirIndirection,
     quary::{HirContractedQuary, HirQuary},
     ritchie::HirContract,
+    HirType,
 };
 use smallvec::*;
 
@@ -51,20 +52,26 @@ pub(crate) struct RustBindings {
 }
 
 impl RustBindings {
-    pub(crate) fn new(expr_entry: &HirEagerExprEntry, role: HirEagerExprRole) -> Self {
+    pub(crate) fn new(
+        expr_entry: &HirEagerExprEntry,
+        role: HirEagerExprRole,
+        db: &::salsa::Db,
+    ) -> Self {
         use husky_print_utils::p;
         let mut slf = Self::init(expr_entry);
         // the order is important!!!
         slf.add_coercion(expr_entry.coercion());
         slf.add_contracted_quary_after_coercion(
             expr_entry.contracted_quary_after_coercion(),
-            expr_entry.is_always_copyable(),
+            expr_entry.is_base_ty_always_copyable(),
             expr_entry.coercion(),
         );
         slf.add_role(
             role,
+            expr_entry.base_ty().is_always_leashed(db),
             expr_entry.contracted_quary_after_coercion(),
-            expr_entry.is_always_copyable(),
+            expr_entry.is_base_ty_always_copyable(),
+            db,
         );
         slf
     }
@@ -75,7 +82,7 @@ impl RustBindings {
                 let variable_bindings = match expr_entry.contracted_quary().quary() {
                     HirQuary::Compterm => todo!(),
                     HirQuary::StackPure { place } => {
-                        if expr_entry.is_always_copyable() {
+                        if expr_entry.is_base_ty_always_copyable() {
                             smallvec![]
                         } else {
                             smallvec![RustBinding::Deref]
@@ -89,7 +96,7 @@ impl RustBindings {
                         match expr_entry.contracted_quary().contract() {
                             Some(contract) => match contract {
                                 HirContract::Pure => {
-                                    if expr_entry.is_always_copyable() {
+                                    if expr_entry.is_base_ty_always_copyable() {
                                         smallvec![]
                                     } else {
                                         smallvec![RustBinding::Deref]
@@ -301,7 +308,7 @@ impl RustBindings {
     pub(crate) fn add_contracted_quary_after_coercion(
         &mut self,
         contracted_quary_after_coercion: HirContractedQuary,
-        is_always_copyable: bool,
+        always_copyable: bool,
         coercion: Option<HirEagerCoercion>,
     ) {
         if let Some(contract) = contracted_quary_after_coercion.contract() {
@@ -309,9 +316,9 @@ impl RustBindings {
                 HirContract::Pure => {
                     let is_always_copyable_after_coercion: bool = match coercion {
                         Some(coercion) => match coercion {
-                            HirEagerCoercion::Trivial(_) => is_always_copyable,
+                            HirEagerCoercion::Trivial(_) => always_copyable,
                             HirEagerCoercion::Never => true,
-                            HirEagerCoercion::WrapInSome => is_always_copyable,
+                            HirEagerCoercion::WrapInSome => always_copyable,
                             HirEagerCoercion::Redirection(redirection_coercion) => {
                                 match redirection_coercion {
                                     RedirectionHirEagerCoercion::Releash => true,
@@ -322,7 +329,7 @@ impl RustBindings {
                             // ad hoc
                             HirEagerCoercion::Dedirection(_) => false,
                         },
-                        None => is_always_copyable,
+                        None => always_copyable,
                     };
                     if !is_always_copyable_after_coercion {
                         self.add_outer_binding(RustBinding::Reref)
@@ -353,11 +360,18 @@ impl RustBindings {
     pub(crate) fn add_role(
         &mut self,
         role: HirEagerExprRole,
+        is_base_ty_always_leashed: bool,
         contracted_quary_after_coercion: HirContractedQuary,
-        is_always_copyable: bool,
+        always_copyable: bool,
+        db: &::salsa::Db,
     ) {
         match role {
-            HirEagerExprRole::SimpleSelfArgument => self.add_outer_binding(RustBinding::SelfValue),
+            HirEagerExprRole::SimpleSelfArgument => {
+                if is_base_ty_always_leashed {
+                    self.add_outer_binding(RustBinding::Deleash);
+                }
+                self.add_outer_binding(RustBinding::SelfValue);
+            }
             HirEagerExprRole::AssignSelfArgument => self.add_outer_binding(RustBinding::DerefMut),
             HirEagerExprRole::SelfArgumentWithIndirection { indirections } => {
                 // the order matters!!!
@@ -392,7 +406,7 @@ impl RustBindings {
                         HirQuary::Compterm => (),
                         HirQuary::StackPure { place } => (),
                         HirQuary::ImmutableOnStack { place } => {
-                            if !is_always_copyable {
+                            if !always_copyable {
                                 self.add_outer_binding(RustBinding::Reref)
                             }
                         }
@@ -401,7 +415,7 @@ impl RustBindings {
                         {
                             Some(contract) => match contract {
                                 HirContract::Pure => {
-                                    if !is_always_copyable {
+                                    if !always_copyable {
                                         self.add_outer_binding(RustBinding::Reref)
                                     }
                                 }
@@ -415,7 +429,7 @@ impl RustBindings {
                                 HirContract::At => todo!(),
                             },
                             None => {
-                                if !is_always_copyable {
+                                if !always_copyable {
                                     self.add_outer_binding(RustBinding::Reref)
                                 }
                             }
@@ -423,7 +437,7 @@ impl RustBindings {
                         HirQuary::Transient => match contract {
                             HirContract::Pure => (),
                             HirContract::Borrow => {
-                                if !is_always_copyable {
+                                if !always_copyable {
                                     self.add_outer_binding(RustBinding::Reref)
                                 }
                             }
@@ -444,7 +458,7 @@ impl RustBindings {
                             HirContract::At => todo!(),
                         },
                         HirQuary::Leashed { place_idx } => {
-                            if !is_always_copyable {
+                            if !always_copyable {
                                 self.add_outer_binding(RustBinding::Reref)
                             }
                         }
@@ -458,12 +472,12 @@ impl RustBindings {
                     match contracted_quary_after_coercion.quary() {
                         HirQuary::Compterm => (),
                         HirQuary::StackPure { place } => {
-                            if !is_always_copyable {
+                            if !always_copyable {
                                 self.add_outer_binding(RustBinding::Reref)
                             }
                         }
                         HirQuary::ImmutableOnStack { place } => {
-                            if !is_always_copyable {
+                            if !always_copyable {
                                 self.add_outer_binding(RustBinding::Reref)
                             }
                         }
@@ -472,7 +486,7 @@ impl RustBindings {
                         {
                             Some(contract) => match contract {
                                 HirContract::Pure => {
-                                    if !is_always_copyable {
+                                    if !always_copyable {
                                         self.add_outer_binding(RustBinding::Reref)
                                     }
                                 }
@@ -486,14 +500,14 @@ impl RustBindings {
                                 HirContract::At => todo!(),
                             },
                             None => {
-                                if !is_always_copyable {
+                                if !always_copyable {
                                     self.add_outer_binding(RustBinding::Reref)
                                 }
                             }
                         },
                         HirQuary::Transient => match contract {
                             HirContract::Pure | HirContract::Borrow => {
-                                if !is_always_copyable {
+                                if !always_copyable {
                                     self.add_outer_binding(RustBinding::Reref)
                                 }
                             }
@@ -514,7 +528,7 @@ impl RustBindings {
                             HirContract::At => todo!(),
                         },
                         HirQuary::Leashed { place_idx } => {
-                            if !is_always_copyable {
+                            if !always_copyable {
                                 self.add_outer_binding(RustBinding::Reref)
                             }
                         }

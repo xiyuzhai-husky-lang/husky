@@ -41,7 +41,7 @@ impl<'db> TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEager
         let place_contract_site = expr_entry.place_contract_site();
         let db = builder.db;
         let innermost_precedence = RustPrecedence::from_expr(data);
-        let bindings = RustBindings::new(expr_entry, role);
+        let bindings = RustBindings::new(expr_entry, role, db);
         let innermost_precedence_range = RustPrecedenceRange::innermost(&bindings, role);
         let outermost_precedence_range = RustPrecedenceRange::outermost(role);
         let needs_outermost_extra_pars = bindings

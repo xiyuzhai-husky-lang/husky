@@ -331,8 +331,12 @@ impl ToHirLazy for SemExprIdx {
             } => match *dispatch.signature() {
                 FieldFlySignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
                     owner: owner.to_hir_lazy(builder),
-                    owner_base_ty: HirType::from_fly(owner_ty, builder.db(), builder.fly_terms())
-                        .unwrap(),
+                    owner_base_ty: HirType::from_fly_base(
+                        owner_ty,
+                        builder.db(),
+                        builder.fly_terms(),
+                    )
+                    .unwrap(),
                     ident: ident_token.ident(),
                 },
                 FieldFlySignature::Memoized {
@@ -424,7 +428,7 @@ impl ToHirLazy for SemExprIdx {
                     .iter()
                     .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
                     .collect(),
-                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
+                element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),
             },
             SemExprData::BoxColonList {

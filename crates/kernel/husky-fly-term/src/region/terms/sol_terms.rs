@@ -33,21 +33,21 @@ impl SolTerms {
 pub struct SolTerm(u32);
 
 impl SolTerm {
-    pub(crate) fn new(solid_terms: &mut SolTerms, data: SolTermData) -> Self {
-        solid_terms.intern_new(data)
+    pub(crate) fn new(sol_terms: &mut SolTerms, data: SolTermData) -> Self {
+        sol_terms.intern_new(data)
     }
 
-    pub(crate) fn data(self, engine: &impl FlyTermEngine) -> &SolTermData {
-        self.data_inner(&engine.fly_terms().sol_terms())
+    pub fn data(self, engine: &impl FlyTermEngine) -> &SolTermData {
+        self.data2(&engine.fly_terms().sol_terms())
     }
 
-    pub(crate) fn data_inner(self, solid_terms: &SolTerms) -> &SolTermData {
-        &solid_terms.entries.data()[self.0 as usize]
+    pub fn data2(self, sol_terms: &SolTerms) -> &SolTermData {
+        &sol_terms.entries.data()[self.0 as usize]
     }
 
     #[inline(never)]
-    pub fn show(self, db: &::salsa::Db, solid_terms: &SolTerms) -> String {
-        match self.data_inner(solid_terms) {
+    pub fn show(self, db: &::salsa::Db, sol_terms: &SolTerms) -> String {
+        match self.data2(sol_terms) {
             SolTermData::TypeOntology {
                 path,
                 refined_path,
