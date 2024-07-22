@@ -162,8 +162,8 @@ impl<'a> PlaceContractEngine<'a> {
                 }
             }
             SemExprData::Index {
-                owner,
-                ref index_sem_list_items,
+                self_argument: owner,
+                items: ref index_sem_list_items,
                 ..
             } => {
                 self.infer_expr(owner, contract, site.clone());

@@ -402,8 +402,8 @@ impl ToHirLazy for SemExprIdx {
                 rpar_regional_token_idx: _,
             } => todo!(),
             SemExprData::Index {
-                owner: owner_sem_expr_idx,
-                ref index_sem_list_items,
+                self_argument: owner_sem_expr_idx,
+                items: ref index_sem_list_items,
                 ..
             } => HirLazyExprData::Index {
                 owner: owner_sem_expr_idx.to_hir_lazy(builder),

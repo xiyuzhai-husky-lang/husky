@@ -334,7 +334,10 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::NewTuple { items: _ } => {
             todo!()
         }
-        HirEagerExprData::Index { owner, ref items } => {
+        HirEagerExprData::Index {
+            self_argument: owner,
+            ref items,
+        } => {
             // ad hoc
             (owner, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
             builder.delimited(RustDelimiter::Box, |builder| {

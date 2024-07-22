@@ -460,7 +460,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                 RegionalTokenIdxRangeEnd::new_after(*rpar_regional_token_idx),
             ),
             SemExprData::Index {
-                owner: owner_sem_expr_idx,
+                self_argument: owner_sem_expr_idx,
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
                 ..

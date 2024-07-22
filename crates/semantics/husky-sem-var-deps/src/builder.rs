@@ -309,8 +309,8 @@ where
             SemExprData::Delimitered { item, .. } => self.expr_value_var_deps_table[item].clone(),
             SemExprData::NewTuple { ref items, .. } => todo!(),
             SemExprData::Index {
-                owner,
-                ref index_sem_list_items,
+                self_argument: owner,
+                items: ref index_sem_list_items,
                 ref index_dynamic_dispatch,
                 ..
             } => {
@@ -496,8 +496,8 @@ where
                 rpar_regional_token_idx,
             } => todo!(),
             SemExprData::Index {
-                owner,
-                ref index_sem_list_items,
+                self_argument: owner,
+                items: ref index_sem_list_items,
                 ref index_dynamic_dispatch,
                 ..
             } => {

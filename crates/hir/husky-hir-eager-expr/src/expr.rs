@@ -181,7 +181,7 @@ pub enum HirEagerExprData {
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     Index {
-        owner: HirEagerExprIdx,
+        self_argument: HirEagerExprIdx,
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     NewList {
@@ -517,13 +517,12 @@ impl ToHirEager for SemExprIdx {
             SemExprData::Delimitered { item, .. } => return item.to_hir_eager(builder),
             SemExprData::NewTuple { .. } => todo!(),
             SemExprData::Index {
-                owner: owner_sem_expr_idx,
-                lbox_regional_token_idx: _,
-                ref index_sem_list_items,
+                self_argument,
+                ref items,
                 ..
             } => HirEagerExprData::Index {
-                owner: owner_sem_expr_idx.to_hir_eager(builder),
-                items: index_sem_list_items
+                self_argument: self_argument.to_hir_eager(builder),
+                items: items
                     .iter()
                     .map(|item| item.sem_expr_idx.to_hir_eager(builder))
                     .collect(),

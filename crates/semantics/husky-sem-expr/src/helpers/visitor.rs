@@ -165,8 +165,8 @@ impl SemExprIdx {
                     rpar_regional_token_idx,
                 } => todo!(),
                 SemExprData::Index {
-                    owner,
-                    ref index_sem_list_items,
+                    self_argument: owner,
+                    items: ref index_sem_list_items,
                     ..
                 } => {
                     owner.simulate(visitor);
