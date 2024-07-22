@@ -12,7 +12,7 @@ pub mod list_item;
 pub mod literal;
 pub mod method;
 pub mod prefix;
-pub mod principal_entity_path;
+pub mod principal_item_path;
 pub mod ritchie_call_arguments_ty;
 pub mod suffix;
 pub mod template_argument;
