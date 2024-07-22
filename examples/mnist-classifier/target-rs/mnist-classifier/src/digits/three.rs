@@ -19,8 +19,8 @@ pub fn is_three() -> malamute::OneVsAll {
     require!(let Some(_) = uparc);
     let de = downarc.unwrap().deleash().end_tangent().angle(true);
     require!(de > 0.0f32 || de < -100.0f32);
-    let downarc_enpoint = &downarc.unwrap().deleash().end();
-    let uparc_startpoint = &uparc.unwrap().deleash().start();
+    let downarc_enpoint = downarc.unwrap().deleash().end();
+    let uparc_startpoint = uparc.unwrap().deleash().start();
     let distance = downarc_enpoint.dist(&uparc_startpoint);
     require!(distance < 20.0f32);
     require!(<crate::fermi::FermiMatchResult>::norm(three_fermi_match()) < 2.5f32);
@@ -30,21 +30,21 @@ pub fn is_three() -> malamute::OneVsAll {
 
 #[rustfmt::skip]
 pub fn uparc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y <= 0.0f32);
     Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
 
 #[rustfmt::skip]
 pub fn downarc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y <= 0.0f32);
     Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
 
 #[rustfmt::skip]
 pub fn back(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y >= 0.0f32);
     Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }

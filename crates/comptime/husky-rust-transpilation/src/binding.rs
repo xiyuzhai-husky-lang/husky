@@ -85,7 +85,26 @@ impl RustBindings {
                     HirQuary::MutableOnStack { place } => smallvec![],
                     HirQuary::Transient => unreachable!(),
                     HirQuary::Ref { guard } => smallvec![RustBinding::Deref],
-                    HirQuary::RefMut { place, lifetime } => smallvec![RustBinding::DerefMut],
+                    HirQuary::RefMut { place, lifetime } => {
+                        match expr_entry.contracted_quary().contract() {
+                            Some(contract) => match contract {
+                                HirContract::Pure => {
+                                    if expr_entry.is_always_copyable() {
+                                        smallvec![]
+                                    } else {
+                                        smallvec![RustBinding::Deref]
+                                    }
+                                }
+                                HirContract::Move => smallvec![],
+                                HirContract::Borrow => smallvec![RustBinding::Deref],
+                                HirContract::BorrowMut => smallvec![RustBinding::DerefMut],
+                                HirContract::Compterm => todo!(),
+                                HirContract::Leash => todo!(),
+                                HirContract::At => todo!(),
+                            },
+                            None => todo!(),
+                        }
+                    }
                     HirQuary::Leashed { place_idx } => smallvec![RustBinding::Deref],
                     HirQuary::Todo => todo!(),
                     HirQuary::Variable(_) => todo!(),
@@ -367,6 +386,73 @@ impl RustBindings {
             }
             HirEagerExprRole::Subexpr { .. } => (),
             HirEagerExprRole::Root => (),
+            HirEagerExprRole::InitialValue { contract } => {
+                if contracted_quary_after_coercion.contract().is_none() {
+                    match contracted_quary_after_coercion.quary() {
+                        HirQuary::Compterm => (),
+                        HirQuary::StackPure { place } => (),
+                        HirQuary::ImmutableOnStack { place } => {
+                            if !is_always_copyable {
+                                self.add_outer_binding(RustBinding::Reref)
+                            }
+                        }
+                        HirQuary::MutableOnStack { place } => match contracted_quary_after_coercion
+                            .contract()
+                        {
+                            Some(contract) => match contract {
+                                HirContract::Pure => {
+                                    if !is_always_copyable {
+                                        self.add_outer_binding(RustBinding::Reref)
+                                    }
+                                }
+                                HirContract::Move => (),
+                                HirContract::Borrow => self.add_outer_binding(RustBinding::Reref),
+                                HirContract::BorrowMut => {
+                                    self.add_outer_binding(RustBinding::RerefMut)
+                                }
+                                HirContract::Compterm => todo!(),
+                                HirContract::Leash => todo!(),
+                                HirContract::At => todo!(),
+                            },
+                            None => {
+                                if !is_always_copyable {
+                                    self.add_outer_binding(RustBinding::Reref)
+                                }
+                            }
+                        },
+                        HirQuary::Transient => match contract {
+                            HirContract::Pure => (),
+                            HirContract::Borrow => {
+                                if !is_always_copyable {
+                                    self.add_outer_binding(RustBinding::Reref)
+                                }
+                            }
+                            HirContract::Move => (),
+                            HirContract::BorrowMut => todo!(),
+                            HirContract::Compterm => todo!(),
+                            HirContract::Leash => todo!(),
+                            HirContract::At => todo!(),
+                        },
+                        HirQuary::Ref { guard } => todo!(),
+                        HirQuary::RefMut { place, lifetime } => match contract {
+                            HirContract::Pure => todo!(),
+                            HirContract::Move => todo!(),
+                            HirContract::Borrow => todo!(),
+                            HirContract::BorrowMut => todo!(),
+                            HirContract::Compterm => todo!(),
+                            HirContract::Leash => todo!(),
+                            HirContract::At => todo!(),
+                        },
+                        HirQuary::Leashed { place_idx } => {
+                            if !is_always_copyable {
+                                self.add_outer_binding(RustBinding::Reref)
+                            }
+                        }
+                        HirQuary::Todo => todo!(),
+                        HirQuary::Variable(_) => todo!(),
+                    }
+                }
+            }
             HirEagerExprRole::RegularCallItem { contract }
             | HirEagerExprRole::PatternOpd { contract } => {
                 if contracted_quary_after_coercion.contract().is_none() {

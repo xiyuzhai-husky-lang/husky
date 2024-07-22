@@ -17,7 +17,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
                 let initial_value_entry = &builder.hir_eager_expr_arena()[initial_value];
-                (initial_value, HirEagerExprRole::new_pattern_opd(contract))
+                (initial_value, HirEagerExprRole::new_initial_value(contract))
                     .transpile_to_rust(builder)
             }),
             HirEagerStmtData::Return { result, coercion } => {
