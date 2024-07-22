@@ -223,8 +223,8 @@ impl StreakCache {
 #[rustfmt::skip]
 pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
     let N = points.ilen();
-    let p0 = &&points[(N - 2) as usize];
-    let p2 = &&points[(N - 1) as usize];
+    let p0 = &points[(N - 2) as usize];
+    let p2 = &points[(N - 1) as usize];
     crate::geom2d::Point2d::__constructor((p0.x + p2.x) / 2.0f32, (p0.y + p2.y) / 2.0f32)
 }
 
@@ -372,8 +372,8 @@ impl crate::raw_contour::RawContour {
 
     pub fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
-        let ct_start = &&self.points[start.rem_euclid(N) as usize];
-        let ct_end = &&self.points[end.rem_euclid(N) as usize];
+        let ct_start = &self.points[start.rem_euclid(N) as usize];
+        let ct_end = &self.points[end.rem_euclid(N) as usize];
         ct_start.to(ct_end)
     }
 }

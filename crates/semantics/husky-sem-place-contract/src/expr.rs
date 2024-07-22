@@ -79,6 +79,7 @@ impl<'a> PlaceContractEngine<'a> {
             }
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 ref target,
             } => todo!(),

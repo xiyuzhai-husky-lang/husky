@@ -3,7 +3,7 @@ use super::*;
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 33, return_leash)]
 pub fn left_components() -> crate::fermi::FermiMatchResult {
-    crate::fermi::fermi_match(major_concave_components(), vec![left_coordinate_max, left_coordinate_max])
+    crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
 
 #[rustfmt::skip]
@@ -14,13 +14,13 @@ pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_compone
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 34, return_leash)]
 pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
-    crate::fermi::fermi_match(major_concave_components(), vec![displacement_downwards])
+    crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 35, return_leash)]
 pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
-    crate::fermi::fermi_match(major_concave_components(), vec![cc_box_heights])
+    crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
 
 #[rustfmt::skip]
@@ -56,14 +56,14 @@ pub fn is_four() -> malamute::OneVsAll {
 
 #[rustfmt::skip]
 pub fn displacement_downwards(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.deleash().displacement();
+    let dp = &cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn cc_box_heights(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = cc.deleash().displacement();
+    let dp = &cc.deleash().displacement();
     require!(dp.y > 0.0f32);
     require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin() > 0.4f32);
     Some(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin())

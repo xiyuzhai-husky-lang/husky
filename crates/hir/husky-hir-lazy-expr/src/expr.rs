@@ -194,6 +194,7 @@ impl ToHirLazy for SemExprIdx {
             },
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx: _,
                 ref target,
             } => HirLazyExprData::Be {

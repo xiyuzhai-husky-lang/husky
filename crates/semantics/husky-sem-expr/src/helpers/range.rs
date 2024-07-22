@@ -375,6 +375,7 @@ impl<'a> SemExprRangeCalculator<'a> {
             )),
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 target,
             } => {

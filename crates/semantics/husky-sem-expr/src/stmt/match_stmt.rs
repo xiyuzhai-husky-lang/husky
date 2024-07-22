@@ -62,8 +62,8 @@ impl<'a> SemExprBuilder<'a> {
         (
             Ok(SemStmtData::Match {
                 match_token,
-                match_opd: match_target,
-                match_contract,
+                opd: match_target,
+                contract: match_contract,
                 eol_with_token,
                 case_branches: sem_case_branches,
             }),
