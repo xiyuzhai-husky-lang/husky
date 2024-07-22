@@ -18,7 +18,7 @@ use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 use husky_syn_expr::{
-    entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathSynExprIdx},
+    entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathExprIdx},
     pattern::{PatternVariable, SynPatternData},
     region::{SynExprRegion, SynExprRegionData},
     variable::{
@@ -298,8 +298,27 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             SemExprData::Literal(regional_token_idx, _) => {
                 self.add(regional_token_idx, source, TokenInfoData::Literal)
             }
-            SemExprData::PrincipalEntityPath { .. }
-            | SemExprData::Binary { .. }
+            SemExprData::PrincipalEntityPath {
+                path_expr_idx,
+                path,
+                ..
+            } => match self.syn_expr_region_data.principal_item_path_expr_arena()[path_expr_idx] {
+                SynPrincipalEntityPathExpr::Root {
+                    path_name_token, ..
+                } => self.add(
+                    path_name_token.regional_token_idx(),
+                    source,
+                    TokenInfoData::Entity(path.into()),
+                ),
+                SynPrincipalEntityPathExpr::Subitem {
+                    ref ident_token, ..
+                } => self.add(
+                    ident_token.as_ref().unwrap().regional_token_idx(),
+                    source,
+                    TokenInfoData::Entity(path.into()),
+                ),
+            },
+            SemExprData::Binary { .. }
             | SemExprData::Suffix { .. }
             | SemExprData::Unveil { .. }
             | SemExprData::Unwrap { .. }
@@ -468,7 +487,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
 
     fn visit_item_path_expr(
         &mut self,
-        item_path_expr_idx: SynPrincipalEntityPathSynExprIdx,
+        item_path_expr_idx: SynPrincipalEntityPathExprIdx,
         item_path_expr: &SynPrincipalEntityPathExpr,
     ) {
         match item_path_expr {
