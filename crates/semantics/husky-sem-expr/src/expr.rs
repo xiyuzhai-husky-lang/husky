@@ -58,7 +58,7 @@ use husky_regional_token::{
 };
 use husky_sem_opr::{binary::SemBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::entity_path;
-use husky_syn_expr::entity_path::SynPrincipalEntityPathSynExprIdx;
+use husky_syn_expr::entity_path::SynPrincipalEntityPathExprIdx;
 use husky_syn_opr::{SynBinaryOpr, SynPrefixOpr, SynSuffixOpr};
 use husky_term_prelude::{
     literal::{
@@ -97,14 +97,14 @@ pub enum SemExprData {
         note = "module path shouldn't be allowed here, try change path to PrincipalItemPath"
     )]
     PrincipalEntityPath {
-        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: PrincipalEntityPath,
         ty_path_disambiguation: TypePathDisambiguation,
         /// only None if `path` is an ontology constructor
         instantiation: Option<FlyInstantiation>,
     },
     MajorItemPathAssocItem {
-        parent_expr_idx: SynPrincipalEntityPathSynExprIdx,
+        parent_expr_idx: SynPrincipalEntityPathExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,

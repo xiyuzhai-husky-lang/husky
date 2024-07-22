@@ -12,7 +12,7 @@ use husky_entity_tree::{
 };
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathSynExprIdx,
+    entity_path::SynPrincipalEntityPathExprIdx,
     pattern::SynPatternIdx,
     region::SynExprRegion,
     variable::{
@@ -35,7 +35,7 @@ pub struct TokenInfo {
 pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
     SemExpr(RegionPath, SemExprIdx),
-    SynPrincipalEntityPathExpr(SynPrincipalEntityPathSynExprIdx, PrincipalEntityPath),
+    SynPrincipalEntityPathExpr(SynPrincipalEntityPathExprIdx, PrincipalEntityPath),
     Pattern(RegionPath, SynPatternIdx),
     // todo: add #[skip] attribute
     TemplateParameter(CurrentVariableIdx),
