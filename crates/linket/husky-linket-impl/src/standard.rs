@@ -4,7 +4,7 @@ pub mod r#struct;
 pub mod ugly;
 
 pub use husky_standard_value::{
-    frozen::ValueStands, value_conversion, FromValue, IntoValue, Value, ValueLeashTest,
+    frozen::ValueStands, value_conversion, DeprecatedValueLeashTest, FromValue, IntoValue, Value,
 };
 
 use self::StandardLinketImpl as LinketImpl;

@@ -2,7 +2,7 @@ use husky_proc_macro_utils::self_ty;
 
 use quote::quote;
 
-pub(crate) fn value(
+pub(crate) fn value_ty(
     _args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
@@ -267,16 +267,16 @@ pub(crate) fn value(
 
         /// conversion into Value must go through this builder,
         /// so that we can distinguish `&'static T` from other types
-        pub struct ValueLeashTest<T>(pub T);
+        pub struct DeprecatedValueLeashTest<T>(pub T);
 
         /// distinguish `&'static T` from other types
-        impl<T> ValueLeashTest<&'static T> where T: Static {
+        impl<T> DeprecatedValueLeashTest<&'static T> where T: Static {
             pub fn into_value(self)  -> #value_ty {
                 #value_ty::from_leash(self.0)
             }
         }
 
-        impl<T> IntoValue for ValueLeashTest<T> where T: IntoValue {
+        impl<T> IntoValue for DeprecatedValueLeashTest<T> where T: IntoValue {
             /// fallback to use <T as IntoValue>::into_value
             fn into_value(self)  -> #value_ty {
                 // can't use `self.0.into_value()`,

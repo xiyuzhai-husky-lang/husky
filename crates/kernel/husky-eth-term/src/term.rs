@@ -19,6 +19,7 @@ use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};
 use context::EthTermContextItd;
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{
     menu::item_path_menu,
     path::major_item::{form::PreludeMajorFormPath, ty::PreludeTypePath},
@@ -219,7 +220,19 @@ impl EthTerm {
             )
             | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::ItemPath(ItemPathTerm::MajorForm(_)) => todo!(),
+            EthTerm::ItemPath(ItemPathTerm::MajorForm(path)) => {
+                // ad hoc
+                match path.kind(db) {
+                    MajorFormKind::Ritchie(_) => todo!(),
+                    MajorFormKind::TypeAlias => todo!(),
+                    MajorFormKind::TypeVar => self,
+                    MajorFormKind::Val => todo!(),
+                    MajorFormKind::StaticMut => todo!(),
+                    MajorFormKind::StaticVar => todo!(),
+                    MajorFormKind::Compterm => todo!(),
+                    MajorFormKind::Conceptual => todo!(),
+                }
+            }
             EthTerm::Curry(_) => self,
             EthTerm::Ritchie(slf) => slf.reduce(db).into(),
             EthTerm::Abstraction(_) => todo!(),

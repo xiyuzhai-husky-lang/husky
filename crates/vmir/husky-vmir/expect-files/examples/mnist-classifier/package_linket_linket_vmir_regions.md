@@ -2414,7 +2414,7 @@
                                     expr: VmirExprIdx(
                                         0,
                                     ),
-                                    coercion: VmirCoercion::PlaceToLeash,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -4338,8 +4338,17 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                            template_arguments: [],
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         field: Props {
                                             ident: Ident(
@@ -4479,8 +4488,17 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                            template_arguments: [],
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         field: Props {
                                             ident: Ident(
@@ -10774,7 +10792,7 @@
                                     expr: VmirExprIdx(
                                         0,
                                     ),
-                                    coercion: VmirCoercion::PlaceToLeash,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -11743,7 +11761,7 @@
                                     expr: VmirExprIdx(
                                         3,
                                     ),
-                                    coercion: VmirCoercion::Trivial,
+                                    coercion: VmirCoercion::Dedirection,
                                 },
                             ],
                         },
@@ -28241,7 +28259,7 @@
                                     expr: VmirExprIdx(
                                         0,
                                     ),
-                                    coercion: VmirCoercion::PlaceToLeash,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -29553,7 +29571,7 @@
                                     expr: VmirExprIdx(
                                         10,
                                     ),
-                                    coercion: VmirCoercion::Deref,
+                                    coercion: VmirCoercion::Dedirection,
                                 },
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -29692,7 +29710,7 @@
                                     expr: VmirExprIdx(
                                         28,
                                     ),
-                                    coercion: VmirCoercion::Deref,
+                                    coercion: VmirCoercion::Dedirection,
                                 },
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -30596,8 +30614,17 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            template_arguments: [],
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         field: Props {
                                             ident: Ident(
@@ -31430,8 +31457,17 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            template_arguments: [],
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         field: Props {
                                             ident: Ident(
@@ -32372,8 +32408,17 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                            template_arguments: [],
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         field: Props {
                                             ident: Ident(
@@ -32493,7 +32538,7 @@
                                     expr: VmirExprIdx(
                                         4,
                                     ),
-                                    coercion: VmirCoercion::Trivial,
+                                    coercion: VmirCoercion::Dedirection,
                                 },
                             ],
                         },
@@ -45433,8 +45478,17 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                            template_arguments: [],
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
                                         },
                                         field: Props {
                                             ident: Ident(
@@ -50706,7 +50760,7 @@
                                     expr: VmirExprIdx(
                                         0,
                                     ),
-                                    coercion: VmirCoercion::Trivial,
+                                    coercion: VmirCoercion::Dedirection,
                                 },
                             ],
                         },
@@ -50971,7 +51025,7 @@
                             result: VmirExprIdx(
                                 13,
                             ),
-                            coercion: VmirCoercion::PlaceToLeash,
+                            coercion: VmirCoercion::Redirection,
                         },
                     ],
                 },
@@ -51248,7 +51302,7 @@
                                 1,
                             ),
                             coercion: Some(
-                                VmirCoercion::PlaceToLeash,
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -51309,7 +51363,7 @@
                                 0,
                             ),
                             coercion: Some(
-                                VmirCoercion::PlaceToLeash,
+                                VmirCoercion::Redirection,
                             ),
                             discarded: false,
                         },
@@ -51400,7 +51454,7 @@
                                 1,
                             ),
                             coercion: Some(
-                                VmirCoercion::PlaceToLeash,
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -51491,7 +51545,7 @@
                                 1,
                             ),
                             coercion: Some(
-                                VmirCoercion::PlaceToLeash,
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },

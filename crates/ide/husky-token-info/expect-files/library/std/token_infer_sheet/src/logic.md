@@ -1,12 +1,12 @@
 ```rust
 Ok(
     TokenInfoSheet {
-        token_infos: [
-            None,
-            None,
-            Some(
+        token_infos_list: [
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         2,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -25,11 +25,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         1,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -48,9 +48,9 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
+            ],
+            [],
+            [],
         ],
     },
 )

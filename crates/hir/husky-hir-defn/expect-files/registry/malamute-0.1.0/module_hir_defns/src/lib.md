@@ -697,21 +697,32 @@
                                                     TypeVariantPath(`malamute::OneVsAll::No`),
                                                 ),
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -719,21 +730,32 @@
                                                     0..1,
                                                 ),
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                     ],
                                 },
@@ -1205,6 +1227,13 @@
                                             data: HirEagerExprData::RuntimeVariable(
                                                 0,
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
                                                     Pure,
@@ -1215,7 +1244,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -1226,27 +1255,50 @@
                                                     ),
                                                 ],
                                             },
-                                            coersion: None,
+                                            coercion: None,
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::ComptimeVariable {
                                                 ident: `label`,
                                             },
+                                            base_ty: HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
+                                                        class: Mono,
+                                                    },
+                                                    variance: None,
+                                                    disambiguator: 0,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Compterm,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Compterm,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Compterm,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
@@ -1307,21 +1359,44 @@
                                                     ),
                                                 ],
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::Variable(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
+                                                                        class: Mono,
+                                                                    },
+                                                                    variance: None,
+                                                                    disambiguator: 0,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
@@ -1412,21 +1487,63 @@
                                                     ),
                                                 ],
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                    template_arguments: [
+                                                                        HirTemplateArgument::Type(
+                                                                            HirType::Variable(
+                                                                                HirTypeTemplateVariable::Type {
+                                                                                    attrs: HirTemplateVariableAttrs {
+                                                                                        class: Mono,
+                                                                                    },
+                                                                                    variance: None,
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -1434,21 +1551,32 @@
                                                     (),
                                                 ),
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
@@ -1539,21 +1667,63 @@
                                                     ),
                                                 ],
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                    template_arguments: [
+                                                                        HirTemplateArgument::Type(
+                                                                            HirType::Variable(
+                                                                                HirTypeTemplateVariable::Type {
+                                                                                    attrs: HirTemplateVariableAttrs {
+                                                                                        class: Mono,
+                                                                                    },
+                                                                                    variance: None,
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -1561,21 +1731,63 @@
                                                     2..3,
                                                 ),
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`malamute::Class`, `Enum`),
+                                                                    template_arguments: [
+                                                                        HirTemplateArgument::Type(
+                                                                            HirType::Variable(
+                                                                                HirTypeTemplateVariable::Type {
+                                                                                    attrs: HirTemplateVariableAttrs {
+                                                                                        class: Mono,
+                                                                                    },
+                                                                                    variance: None,
+                                                                                    disambiguator: 0,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                     ],
                                 },
@@ -1605,6 +1817,7 @@
                                         },
                                         Match {
                                             opd: 0,
+                                            contract: Pure,
                                             case_branches: [
                                                 HirEagerCaseBranch {
                                                     pattern: 0,
@@ -1944,6 +2157,13 @@
                                             data: HirEagerExprData::RuntimeVariable(
                                                 0,
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
                                                     Pure,
@@ -1954,7 +2174,7 @@
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [
                                                     (
@@ -1965,7 +2185,17 @@
                                                     ),
                                                 ],
                                             },
-                                            coersion: None,
+                                            coercion: None,
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: StackPure {
+                                                    place: Idx(
+                                                        PlaceIdx(0),
+                                                    ),
+                                                },
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -1973,21 +2203,32 @@
                                                     TypeVariantPath(`malamute::OneVsAll::Yes`),
                                                 ),
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
@@ -2066,21 +2307,51 @@
                                                     ),
                                                 ],
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PrincipalEntityPath(
@@ -2088,21 +2359,32 @@
                                                     TypeVariantPath(`malamute::OneVsAll::No`),
                                                 ),
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
@@ -2181,21 +2463,51 @@
                                                     ),
                                                 ],
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Literal(
@@ -2203,21 +2515,32 @@
                                                     (),
                                                 ),
                                             ),
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                    template_arguments: [],
+                                                    always_copyable: true,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: true,
+                                            always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::TypeVariantConstructorCall {
@@ -2296,21 +2619,51 @@
                                                     ),
                                                 ],
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
@@ -2318,21 +2671,51 @@
                                                     3..4,
                                                 ),
                                             },
+                                            base_ty: HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                                    template_arguments: [
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        HirTemplateArgument::Type(
+                                                            HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                                    template_arguments: [],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ],
+                                                    always_copyable: false,
+                                                },
+                                            ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            always_copyable: false,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
+                                            contracted_quary_after_coercion: HirContractedQuary {
+                                                contract: None,
+                                                quary: Transient,
+                                            },
                                         },
                                     ],
                                 },
@@ -2373,6 +2756,7 @@
                                         },
                                         Match {
                                             opd: 0,
+                                            contract: Pure,
                                             case_branches: [
                                                 HirEagerCaseBranch {
                                                     pattern: 0,

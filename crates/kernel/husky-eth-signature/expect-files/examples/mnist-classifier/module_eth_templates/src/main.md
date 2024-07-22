@@ -65,6 +65,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::main`, `Val`),
                             return_ty: EthTerm(`Class MnistLabel`),
+                            expr_ty: EthTerm(`Class MnistLabel`),
                         },
                     ),
                 ),

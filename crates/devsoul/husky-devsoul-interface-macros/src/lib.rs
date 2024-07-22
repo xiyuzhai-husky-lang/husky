@@ -1,14 +1,14 @@
 mod memo;
 mod utils;
 mod val;
-mod value;
+mod value_ty;
 
 use self::utils::*;
 use proc_macro::TokenStream;
 
 #[proc_macro_attribute]
-pub fn value(args: TokenStream, input: TokenStream) -> TokenStream {
-    value::value(args, input)
+pub fn value_ty(args: TokenStream, input: TokenStream) -> TokenStream {
+    value_ty::value_ty(args, input)
 }
 
 #[proc_macro_attribute]

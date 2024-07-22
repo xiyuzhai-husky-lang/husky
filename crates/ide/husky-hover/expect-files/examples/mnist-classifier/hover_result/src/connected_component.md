@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `i32 @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `i32 @ Some(Leashed { place: None })`",
                         },
                     ),
                     range: Some(

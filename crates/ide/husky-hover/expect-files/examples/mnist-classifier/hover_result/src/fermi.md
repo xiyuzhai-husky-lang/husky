@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Vec Leash ConcaveComponent @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Vec Leash ConcaveComponent @ Some(Leashed { place: None })`",
                         },
                     ),
                     range: Some(

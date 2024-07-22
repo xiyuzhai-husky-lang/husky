@@ -813,14 +813,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(1),
-                                    ),
-                                    Move,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                 ],

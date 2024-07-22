@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::digits::six::six_match_refined1`\n\ncoercion = None\n\ntype = `FermiMatchResult @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nentity `mnist_classifier::digits::six::six_match_refined1`\n\ncoercion = None\n\ntype = `Leash FermiMatchResult @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Vec Option Leash RawContour @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Vec Option Leash RawContour @ Some(Leashed { place: None })`",
                         },
                     ),
                     range: Some(

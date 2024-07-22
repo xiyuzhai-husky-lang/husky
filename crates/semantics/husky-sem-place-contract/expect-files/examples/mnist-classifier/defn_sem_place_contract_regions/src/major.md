@@ -65,7 +65,7 @@
                                     Idx(
                                         PlaceIdx(2),
                                     ),
-                                    Leash,
+                                    Pure,
                                 ),
                             ],
                         },
@@ -242,7 +242,7 @@
                                     Idx(
                                         PlaceIdx(1),
                                     ),
-                                    Leash,
+                                    Pure,
                                 ),
                             ],
                         },
