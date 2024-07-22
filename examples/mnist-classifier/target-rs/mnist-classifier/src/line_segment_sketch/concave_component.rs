@@ -32,7 +32,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
             end += 1
         }
         if end > start + 1 {
-            concave_components.push(crate::line_segment_sketch::concave_component::ConcaveComponent::__constructor(line_segment_sketch, line_segment_sketch.deleash().strokes.cyclic_slice_leashed(start, end)))
+            concave_components.push(crate::line_segment_sketch::concave_component::ConcaveComponent::__constructor(line_segment_sketch, <Vec<crate::line_segment_sketch::LineSegmentStroke>>::cyclic_slice_leashed(Leash(&line_segment_sketch.deleash().strokes), start, end)))
         }
         start = end;
         end = start + 1

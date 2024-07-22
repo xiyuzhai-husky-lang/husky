@@ -102,6 +102,7 @@ fn trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_sign
                 param.instantiate(&instantiation, ctx, db).into()
             })
             .collect(),
+        self_ty: template.self_ty(db).instantiate(&instantiation, ctx, db),
         return_ty: template.return_ty(db).instantiate(&instantiation, ctx, db),
         instantiation,
     })
@@ -113,12 +114,17 @@ pub struct TraitForTypeMethodRitchieEthSignature {
     pub instantiation: EthInstantiation,
     pub self_value_parameter: EthRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[EtherealRitchieParameter; 4]>,
+    pub self_ty: EthTerm,
     pub return_ty: EthTerm,
 }
 
 impl TraitForTypeMethodRitchieEthSignature {
     pub fn parenate_parameters(&self) -> &[EtherealRitchieParameter] {
         &self.parenate_parameters
+    }
+
+    pub fn self_ty(&self) -> EthTerm {
+        self.self_ty
     }
 
     pub fn return_ty(&self) -> EthTerm {

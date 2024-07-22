@@ -81,8 +81,8 @@ impl RustPrecedenceRange {
     pub(super) fn outermost(role: HirEagerExprRole) -> Self {
         match role {
             HirEagerExprRole::SimpleSelfArgument
-            | HirEagerExprRole::SelfArgumentWithIndirection { .. } => Self::GEQ_SUFFIX,
-            HirEagerExprRole::MemoizedFieldSelfArgument { .. }
+            | HirEagerExprRole::LeashlessSelfArgument { .. } => Self::GEQ_SUFFIX,
+            HirEagerExprRole::LeashedSelfArgument { .. }
             | HirEagerExprRole::RegularCallItem { .. }
             | HirEagerExprRole::Root { .. }
             | HirEagerExprRole::PatternOpd { .. }

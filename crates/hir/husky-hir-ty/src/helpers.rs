@@ -3,7 +3,7 @@ use either::*;
 use path::major_item::ty::PreludeTypePath;
 
 impl HirType {
-    pub fn deref_if_leashed(self, db: &::salsa::Db) -> HirType {
+    pub fn deleash_if_leashed(self, db: &::salsa::Db) -> HirType {
         let HirType::PathLeading(slf) = self else {
             unreachable!()
         };

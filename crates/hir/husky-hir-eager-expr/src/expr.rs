@@ -168,6 +168,7 @@ pub enum HirEagerExprData {
     MemoizedField {
         self_argument: HirEagerExprIdx,
         self_argument_ty: HirType,
+        self_ty: HirType,
         ident: Ident,
         path: AssocItemPath,
         indirections: HirIndirections,
@@ -175,6 +176,7 @@ pub enum HirEagerExprData {
     },
     MethodRitchieCall {
         self_argument: HirEagerExprIdx,
+        self_ty: HirType,
         self_contract: HirContract,
         ident: Ident,
         path: AssocItemPath,
@@ -320,7 +322,7 @@ impl ToHirEager for SemExprIdx {
                     opr,
                     builder.expr_ty(opd_sem_expr_idx),
                     builder.db(),
-                    builder.fly_terms(),
+                    builder.terms(),
                 ),
                 opd: opd_sem_expr_idx.to_hir_eager(builder),
             },
@@ -389,7 +391,7 @@ impl ToHirEager for SemExprIdx {
                                     instantiation.as_ref().unwrap(),
                                     &place_contract_site,
                                     db,
-                                    builder.fly_terms(),
+                                    builder.terms(),
                                 ),
                                 arguments: item_groups,
                             },
@@ -400,7 +402,7 @@ impl ToHirEager for SemExprIdx {
                                     instantiation.as_ref().unwrap(),
                                     &place_contract_site,
                                     db,
-                                    builder.fly_terms(),
+                                    builder.terms(),
                                 ),
                                 arguments: item_groups,
                             },
@@ -412,7 +414,7 @@ impl ToHirEager for SemExprIdx {
                                     instantiation.as_ref().unwrap(),
                                     &place_contract_site,
                                     db,
-                                    builder.fly_terms(),
+                                    builder.terms(),
                                 ),
                                 arguments: item_groups,
                             }
@@ -430,7 +432,7 @@ impl ToHirEager for SemExprIdx {
                                         signature.instantiation(),
                                         &place_contract_site,
                                         db,
-                                        builder.fly_terms(),
+                                        builder.terms(),
                                     ),
                                     arguments: item_groups,
                                 }
@@ -463,26 +465,29 @@ impl ToHirEager for SemExprIdx {
                     self_ty: HirType::from_fly_base(
                         self_argument_ty,
                         builder.db(),
-                        builder.fly_terms(),
+                        builder.terms(),
                     )
                     .unwrap(),
                     ident: ident_token.ident(),
-                    field_ty: HirType::from_fly_base(ty, builder.db(), builder.fly_terms())
-                        .unwrap(),
+                    field_ty: HirType::from_fly_base(ty, builder.db(), builder.terms()).unwrap(),
                     indirections: HirIndirections::from_fly(dispatch.indirections()),
                 },
                 FieldFlySignature::Memoized {
                     path,
+                    self_ty,
                     ref instantiation,
                     ..
                 } => {
                     debug_assert!(instantiation.separator().is_some());
+                    let db = builder.db();
+                    let terms = builder.terms();
                     HirEagerExprData::MemoizedField {
+                        self_ty: HirType::from_fly(self_ty, db, terms).unwrap(),
                         self_argument: self_argument.to_hir_eager(builder),
                         self_argument_ty: HirType::from_fly_base(
                             self_argument_ty,
                             builder.db(),
-                            builder.fly_terms(),
+                            terms,
                         )
                         .unwrap(),
                         ident: ident_token.ident(),
@@ -492,14 +497,15 @@ impl ToHirEager for SemExprIdx {
                             instantiation,
                             &place_contract_site,
                             builder.db(),
-                            builder.fly_terms(),
+                            builder.terms(),
                         ),
                     }
                 }
             },
             SemExprData::MethodApplication { .. } => todo!(),
             SemExprData::MethodRitchieCall {
-                self_argument: self_argument_sem_expr_idx,
+                self_argument,
+                self_ty,
                 self_contract,
                 ident_token,
                 ref dispatch,
@@ -508,7 +514,13 @@ impl ToHirEager for SemExprIdx {
             } => {
                 let signature = dispatch.signature();
                 HirEagerExprData::MethodRitchieCall {
-                    self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
+                    self_argument: self_argument.to_hir_eager(builder),
+                    self_ty: HirType::from_fly(
+                        self_ty,
+                        builder.db(),
+                        builder.sem_expr_region_data.fly_term_region().terms(),
+                    )
+                    .unwrap(),
                     self_contract: HirContract::from_contract(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
@@ -517,7 +529,7 @@ impl ToHirEager for SemExprIdx {
                         signature.instantiation(),
                         &place_contract_site,
                         builder.db(),
-                        builder.fly_terms(),
+                        builder.terms(),
                     ),
                     arguments: builder.new_call_list_arguments(ritchie_parameter_argument_matches),
                 }
@@ -550,7 +562,7 @@ impl ToHirEager for SemExprIdx {
                     .iter()
                     .map(|item| item.sem_expr_idx.to_hir_eager(builder))
                     .collect(),
-                element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.fly_terms())
+                element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.terms())
                     .unwrap(),
             },
             SemExprData::BoxColonList {
@@ -662,7 +674,7 @@ impl ToHirEager for SemExprIdx {
             base_ty,
             contracted_quary,
             always_copyable: ty
-                .always_copyable(builder.db(), builder.fly_terms())
+                .always_copyable(builder.db(), builder.terms())
                 .unwrap()
                 .unwrap(),
             place_contract_site,

@@ -217,7 +217,7 @@ impl Visualize for crate::line_segment_sketch::LineSegmentStroke {
 impl crate::line_segment_sketch::LineSegmentStroke {
     pub fn new(ct: Leash<crate::raw_contour::RawContour>, from: i32, to: i32) -> crate::line_segment_sketch::LineSegmentStroke {
         assert!(from <= to);
-        crate::line_segment_sketch::LineSegmentStroke::__constructor(ct.deleash().points.cyclic_slice_leashed(from, to + 1))
+        crate::line_segment_sketch::LineSegmentStroke::__constructor(<Vec<crate::geom2d::Point2d>>::cyclic_slice_leashed(Leash(&ct.deleash().points), from, to + 1))
     }
 
     pub fn displacement(&self) -> crate::geom2d::Vector2d {

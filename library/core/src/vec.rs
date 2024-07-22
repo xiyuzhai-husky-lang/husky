@@ -6,7 +6,7 @@ pub trait __VecX {
     fn ilen(&self) -> i32;
 
     // todo: change this to associated function with the first argument being of type Leash<[Self::Element]>
-    fn collect_leashes(&'static self) -> Vec<&'static Self::Element>;
+    fn collect_leashes(__self: Leash<Self>) -> Vec<Leash<Self::Element>>;
 
     fn pop_with_largest_opt_f32(
         &mut self,
@@ -16,7 +16,7 @@ pub trait __VecX {
         Self::Element: Copy;
 
     fn cyclic_slice_leashed(
-        &'static self,
+        __self: Leash<Self>,
         start: i32,
         end: i32,
     ) -> CyclicSliceLeashed<Self::Element>;
@@ -29,8 +29,8 @@ impl<T> __VecX for Vec<T> {
         self.len() as i32
     }
 
-    fn collect_leashes(&'static self) -> Vec<&'static Self::Element> {
-        self.iter().collect()
+    fn collect_leashes(__self: Leash<Self>) -> Vec<Leash<Self::Element>> {
+        __self.deleash().iter().map(Leash::new).collect()
     }
 
     fn pop_with_largest_opt_f32(&mut self, f: fn(Self::Element) -> Option<f32>) -> Option<T>
@@ -51,10 +51,10 @@ impl<T> __VecX for Vec<T> {
     }
 
     fn cyclic_slice_leashed(
-        &'static self,
+        __self: Leash<Self>,
         start: i32,
         end: i32,
     ) -> CyclicSliceLeashed<Self::Element> {
-        CyclicSliceLeashed::<T>::new(self, start, end)
+        CyclicSliceLeashed::<T>::new(__self.deleash(), start, end)
     }
 }

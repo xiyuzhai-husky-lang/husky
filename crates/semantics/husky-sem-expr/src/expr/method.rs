@@ -44,6 +44,7 @@ impl<'a> SemExprBuilder<'a> {
         };
         match instance_dispatch.signature() {
             MethodFlySignature::TypeMethodRitchie(signature) => {
+                let self_ty = signature.self_ty();
                 let return_ty = signature.return_ty();
                 let ritchie_parameter_argument_matches = match self.calc_ritchie_arguments_ty(
                     expr_idx,
@@ -56,6 +57,7 @@ impl<'a> SemExprBuilder<'a> {
                 (
                     Ok(SemExprData::MethodRitchieCall {
                         self_argument,
+                        self_ty,
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
                         ident_token,
@@ -81,6 +83,7 @@ impl<'a> SemExprBuilder<'a> {
                 (
                     Ok(SemExprData::MethodRitchieCall {
                         self_argument,
+                        self_ty: signature.self_ty(),
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,
                         ident_token,
