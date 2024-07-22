@@ -144,3 +144,6 @@ eliminate-mods:
 
 chicago-typewriter:
 	cargo run -p husky-chicago-typewriter
+
+quick:
+	UPDATE_EXPECT=1 cargo test -p husky-rust-transpilation -j 1

@@ -3,7 +3,7 @@ use super::*;
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 26, return_leash)]
 pub fn one_fermi_match() -> crate::fermi::FermiMatchResult {
-    crate::fermi::fermi_match(major_concave_components(), &vec![downmost, upmost, hat])
+    crate::fermi::fermi_match(major_concave_components(), vec![downmost, upmost, hat])
 }
 
 #[rustfmt::skip]

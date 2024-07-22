@@ -76,35 +76,17 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 expr,
                 coercion,
                 discarded,
-            } => {
-                {
-                    let db = builder.db();
-                    match builder.hir_eager_expr_region().region_path(db) {
-                        husky_entity_path::region::RegionPath::CrateDecl(_) => (),
-                        husky_entity_path::region::RegionPath::ItemDecl(_) => (),
-                        husky_entity_path::region::RegionPath::ItemDefn(item_path) => {
-                            if item_path.ident(db).unwrap().data(db) == "major_line_segment_sketch"
-                            {
-                                use husky_print_utils::p;
-                                p!(coercion);
-                                todo!()
-                            }
-                        }
-                        husky_entity_path::region::RegionPath::Chunk(_) => (),
-                    }
-                }
-                match discarded || !is_last_stmt {
-                    true => builder.on_fresh_semicolon_line(|builder| {
-                        (expr, HirEagerExprRole::new_root()).transpile_to_rust(builder);
-                    }),
-                    false => builder.on_fresh_line(|builder| {
-                        (expr, HirEagerExprRole::new_root()).transpile_to_rust(builder);
-                    }),
-                }
-            }
+            } => match discarded || !is_last_stmt {
+                true => builder.on_fresh_semicolon_line(|builder| {
+                    (expr, HirEagerExprRole::new_root()).transpile_to_rust(builder);
+                }),
+                false => builder.on_fresh_line(|builder| {
+                    (expr, HirEagerExprRole::new_root()).transpile_to_rust(builder);
+                }),
+            },
             HirEagerStmtData::ForBetween {
                 ref particulars,
-                stmts: block,
+                stmts,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::StmtFor);
                 particulars.frame_var_ident.transpile_to_rust(builder);
@@ -216,7 +198,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         _ => todo!(),
                     },
                 }
-                block.transpile_to_rust(builder)
+                stmts.transpile_to_rust(builder)
             }),
             HirEagerStmtData::Forext {
                 particulars,

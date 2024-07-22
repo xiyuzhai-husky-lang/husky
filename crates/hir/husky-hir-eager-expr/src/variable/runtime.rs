@@ -22,8 +22,8 @@ pub struct HirEagerRuntimeVariableEntry {
 pub type HirEagerRuntimeVariableArena = Arena<HirEagerRuntimeVariableEntry>;
 pub type HirEagerRuntimeVariableIdx = ArenaIdx<HirEagerRuntimeVariableEntry>;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirEagerRuntimeVariableName {
     SelfValue,
     Ident(Ident),
