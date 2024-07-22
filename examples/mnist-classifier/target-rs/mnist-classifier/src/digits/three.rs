@@ -32,19 +32,19 @@ pub fn is_three() -> malamute::OneVsAll {
 pub fn uparc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y <= 0.0f32);
-    Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).ymin())
+    Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
 
 #[rustfmt::skip]
 pub fn downarc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y <= 0.0f32);
-    Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).ymin())
+    Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
 
 #[rustfmt::skip]
 pub fn back(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y >= 0.0f32);
-    Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).ymin())
+    Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }

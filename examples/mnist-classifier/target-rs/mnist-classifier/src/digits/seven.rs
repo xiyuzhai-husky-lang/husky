@@ -23,7 +23,7 @@ pub fn special_seven_match() -> crate::fermi::FermiMatchResult {
 pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
-    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymax() > 0.6f32);
+    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymax() > 0.6f32);
     Some(cc.deleash().end().y)
 }
 
@@ -31,7 +31,7 @@ pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component:
 pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
-    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymin() < 0.3f32);
+    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin() < 0.3f32);
     let ang = cc.deleash().start_tangent().angle(true);
     require!(ang < 30.0f32);
     Some(ang)

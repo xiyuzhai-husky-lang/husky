@@ -1345,11 +1345,9 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -1369,10 +1367,10 @@
                                                     ),
                                                 ),
                                                 indirections: HirIndirections {
-                                                    initial_place: Leashed {
-                                                        place_idx: None,
-                                                    },
-                                                    indirections: [],
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        HirIndirection::Deleash,
+                                                    ],
                                                     final_place: Leashed {
                                                         place_idx: None,
                                                     },
@@ -2691,11 +2689,9 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -2722,16 +2718,25 @@
                                                 2,
                                             ),
                                             contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
                                                         PlaceIdx(2),
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(2),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                             coersion: None,
                                         },
@@ -2749,16 +2754,16 @@
                                                     ),
                                                 ),
                                                 indirections: HirIndirections {
-                                                    initial_place: Leashed {
-                                                        place_idx: Some(
+                                                    initial_place: ImmutableOnStack {
+                                                        place: Idx(
                                                             PlaceIdx(2),
                                                         ),
                                                     },
-                                                    indirections: [],
+                                                    indirections: [
+                                                        HirIndirection::Deleash,
+                                                    ],
                                                     final_place: Leashed {
-                                                        place_idx: Some(
-                                                            PlaceIdx(2),
-                                                        ),
+                                                        place_idx: None,
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
@@ -2817,16 +2822,25 @@
                                                 2,
                                             ),
                                             contracted_quary: HirContractedQuary {
-                                                contract: None,
-                                                quary: Leashed {
-                                                    place_idx: Some(
+                                                contract: Some(
+                                                    Pure,
+                                                ),
+                                                quary: ImmutableOnStack {
+                                                    place: Idx(
                                                         PlaceIdx(2),
                                                     ),
                                                 },
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
-                                                place_contracts: [],
+                                                place_contracts: [
+                                                    (
+                                                        Idx(
+                                                            PlaceIdx(2),
+                                                        ),
+                                                        Pure,
+                                                    ),
+                                                ],
                                             },
                                             coersion: None,
                                         },
@@ -2867,9 +2881,7 @@
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(2),
-                                                    ),
+                                                    place_idx: None,
                                                 },
                                             },
                                             is_always_copyable: false,
@@ -2908,24 +2920,18 @@
                                                 ),
                                                 indirections: HirIndirections {
                                                     initial_place: Leashed {
-                                                        place_idx: Some(
-                                                            PlaceIdx(2),
-                                                        ),
+                                                        place_idx: None,
                                                     },
                                                     indirections: [],
                                                     final_place: Leashed {
-                                                        place_idx: Some(
-                                                            PlaceIdx(2),
-                                                        ),
+                                                        place_idx: None,
                                                     },
                                                 },
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
                                                 quary: Leashed {
-                                                    place_idx: Some(
-                                                        PlaceIdx(2),
-                                                    ),
+                                                    place_idx: None,
                                                 },
                                             },
                                             is_always_copyable: false,
@@ -2949,15 +2955,11 @@
                                                 ),
                                                 indirections: HirIndirections {
                                                     initial_place: Leashed {
-                                                        place_idx: Some(
-                                                            PlaceIdx(2),
-                                                        ),
+                                                        place_idx: None,
                                                     },
                                                     indirections: [],
                                                     final_place: Leashed {
-                                                        place_idx: Some(
-                                                            PlaceIdx(2),
-                                                        ),
+                                                        place_idx: None,
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
@@ -6914,11 +6916,9 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -6929,9 +6929,19 @@
                                                 self_argument: 1,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
+                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: true,
                                                     },
                                                 ),
                                                 ident: `upper_mass`,
@@ -6943,10 +6953,10 @@
                                                     },
                                                 ),
                                                 indirections: HirIndirections {
-                                                    initial_place: Leashed {
-                                                        place_idx: None,
-                                                    },
-                                                    indirections: [],
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        HirIndirection::Deleash,
+                                                    ],
                                                     final_place: Leashed {
                                                         place_idx: None,
                                                     },
@@ -7238,11 +7248,9 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -7253,9 +7261,19 @@
                                                 self_argument: 1,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                                        template_arguments: [],
-                                                        always_copyable: false,
+                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        template_arguments: [
+                                                            HirTemplateArgument::Type(
+                                                                HirType::PathLeading(
+                                                                    HirTypePathLeading {
+                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                                        template_arguments: [],
+                                                                        always_copyable: false,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ],
+                                                        always_copyable: true,
                                                     },
                                                 ),
                                                 ident: `lower_mass`,
@@ -7267,10 +7285,10 @@
                                                     },
                                                 ),
                                                 indirections: HirIndirections {
-                                                    initial_place: Leashed {
-                                                        place_idx: None,
-                                                    },
-                                                    indirections: [],
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        HirIndirection::Deleash,
+                                                    ],
                                                     final_place: Leashed {
                                                         place_idx: None,
                                                     },

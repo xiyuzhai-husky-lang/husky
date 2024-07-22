@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::cmp::Eq`",
+                            value: "\n\nentity `core::cmp::Eq`\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::i32`",
+                            value: "\n\nentity `core::num::i32`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -730,7 +730,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::i32`",
+                            value: "\n\nentity `core::num::i32`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

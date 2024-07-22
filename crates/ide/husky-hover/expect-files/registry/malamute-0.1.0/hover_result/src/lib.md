@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::clone::Clone`",
+                            value: "\n\nentity `core::clone::Clone`\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::ops::ControlFlow`",
+                            value: "\n\nentity `core::ops::ControlFlow`\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None -> Type @ None @ None @ None`",
                         },
                     ),
                     range: Some(

@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::clone::Clone`",
+                            value: "\n\nentity `core::clone::Clone`\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(

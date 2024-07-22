@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `syntax_errors::ast::A`",
+                            value: "\n\nentity `syntax_errors::ast::A`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

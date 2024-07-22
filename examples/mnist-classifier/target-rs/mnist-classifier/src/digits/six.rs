@@ -29,8 +29,8 @@ pub fn bottom1(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveC
     if dp.y < -3.0f32 {
         require!((dp.x / dp.y).abs() > 1.4f32);
     }
-    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymax() < 0.6f32);
-    let relative_end = <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(cc.line_segment_sketch.deleash()).relative_point(cc.deleash().end());
+    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymax() < 0.6f32);
+    let relative_end = <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(cc.line_segment_sketch.deleash()).deleash().relative_point(cc.deleash().end());
     require!(relative_end.x > 0.5f32);
     Some(-cc.deleash().end().y)
 }

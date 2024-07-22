@@ -267,7 +267,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -817,9 +817,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -828,9 +826,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Leashed {
-                                                            place_idx: None,
-                                                        },
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -866,9 +862,7 @@
                                             coercion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Leashed {
-                                                            place_idx: None,
-                                                        },
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -1084,9 +1078,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -4123,7 +4115,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 35,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -4145,7 +4137,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 37,
+                                                                        value: 39,
                                                                     },
                                                                 ),
                                                             ),
@@ -6861,7 +6853,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 43,
+                                                                        value: 45,
                                                                     },
                                                                 ),
                                                             ),
@@ -6879,7 +6871,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 43,
+                                                                        value: 45,
                                                                     },
                                                                 ),
                                                             ),
@@ -7433,11 +7425,9 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -7523,21 +7513,15 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoercion {
-                                                        expectee_quary: Leashed {
-                                                            place_idx: None,
-                                                        },
-                                                    },
+                                                Dedirection(
+                                                    Deleash,
                                                 ),
                                             ),
                                         },
@@ -7555,10 +7539,10 @@
                                                     ),
                                                 ),
                                                 indirections: HirIndirections {
-                                                    initial_place: Leashed {
-                                                        place_idx: None,
-                                                    },
-                                                    indirections: [],
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        HirIndirection::Deleash,
+                                                    ],
                                                     final_place: Leashed {
                                                         place_idx: None,
                                                     },
@@ -7580,18 +7564,14 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 44,
+                                                                        value: 46,
                                                                     },
                                                                 ),
                                                             ),
                                                         },
                                                         4,
-                                                        Trivial(
-                                                            TrivialHirEagerCoercion {
-                                                                expectee_quary: Leashed {
-                                                                    place_idx: None,
-                                                                },
-                                                            },
+                                                        Dedirection(
+                                                            Deleash,
                                                         ),
                                                     ),
                                                 ],
@@ -7704,7 +7684,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -8545,7 +8525,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -9016,7 +8996,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -9487,7 +9467,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -9775,7 +9755,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -10179,7 +10159,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),

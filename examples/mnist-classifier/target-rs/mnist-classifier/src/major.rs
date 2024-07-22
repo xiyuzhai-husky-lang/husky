@@ -34,7 +34,7 @@ pub fn ignored_connected_components_row_span_sum_sum() -> f32 {
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 51)]
 pub fn major_raw_contours() -> Leash<Vec<crate::raw_contour::RawContour>> {
-    Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(major_connected_component().deleash()))
+    <crate::connected_component::ConnectedComponent>::raw_contours(major_connected_component().deleash())
 }
 
 #[rustfmt::skip]
@@ -46,11 +46,11 @@ pub fn major_raw_contour() -> Leash<crate::raw_contour::RawContour> {
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 53)]
 pub fn major_line_segment_sketch() -> Leash<crate::line_segment_sketch::LineSegmentSketch> {
-    Leash(&<crate::raw_contour::RawContour>::line_segment_sketch(major_raw_contour().deleash()))
+    <crate::raw_contour::RawContour>::line_segment_sketch(major_raw_contour().deleash())
 }
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 54)]
 pub fn major_concave_components() -> Leash<Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>> {
-    Leash(&<crate::line_segment_sketch::LineSegmentSketch>::concave_components(major_line_segment_sketch().deleash()))
+    <crate::line_segment_sketch::LineSegmentSketch>::concave_components(major_line_segment_sketch().deleash())
 }

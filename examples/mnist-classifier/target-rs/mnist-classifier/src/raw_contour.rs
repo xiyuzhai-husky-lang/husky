@@ -353,7 +353,7 @@ impl crate::raw_contour::RawContour {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 11, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        <crate::raw_contour::RawContour>::bounding_box(<crate::connected_component::ConnectedComponent>::raw_contours(__self.cc.deleash())[0 as usize]).relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self))
+        <crate::raw_contour::RawContour>::bounding_box(<crate::connected_component::ConnectedComponent>::raw_contours(__self.cc.deleash())[0 as usize]).deleash().relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self).deleash())
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 12)]

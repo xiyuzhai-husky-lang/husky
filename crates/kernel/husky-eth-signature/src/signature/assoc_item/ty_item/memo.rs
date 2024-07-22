@@ -1,5 +1,6 @@
 use super::*;
 use crate::signature::impl_block::ty_impl_block::TypeImplBlockEthTemplate;
+use helpers::trai_for_ty::is_ty_term_always_copyable;
 use husky_dec_signature::signature::assoc_item::ty_item::memo::TypeMemoizedFieldDecTemplate;
 use package::PackageEthSignatureData;
 
@@ -8,6 +9,7 @@ pub struct TypeMemoizedFieldEthTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockEthTemplate,
     pub return_ty: EthTerm,
+    pub expr_ty: EthTerm,
 }
 
 impl TypeMemoizedFieldEthTemplate {
@@ -24,11 +26,20 @@ impl TypeMemoizedFieldEthTemplate {
     ) -> EthSignatureResult<TypeMemoizedFieldEthTemplate> {
         let impl_block = path.impl_block(db).eth_template(db)?;
         let return_ty = EthTerm::ty_from_dec(db, declarative_signature.return_ty(db))?;
+        let expr_ty = if is_ty_term_always_copyable(return_ty, db)?
+            .expect("should be valid to check copyable")
+        {
+            return_ty
+        } else {
+            return_ty.leashed(db)
+        };
         Ok(TypeMemoizedFieldEthTemplate::new(
-            db, path, impl_block, return_ty,
+            db, path, impl_block, return_ty, expr_ty,
         ))
     }
+}
 
+impl TypeMemoizedFieldEthTemplate {
     fn try_instantiate<'db>(
         self,
         target_self_ty_arguments: &[EthTerm],
@@ -47,6 +58,7 @@ impl TypeMemoizedFieldEthTemplate {
             path: self.path(db),
             instantiation,
             return_ty: self.return_ty(db),
+            expr_ty: self.expr_ty(db),
         })
     }
 }
@@ -56,6 +68,7 @@ pub struct TypeMemoizedFieldEthSignature {
     path: TypeItemPath,
     instantiation: EthInstantiation,
     return_ty: EthTerm,
+    expr_ty: EthTerm,
 }
 
 impl TypeMemoizedFieldEthSignature {
@@ -69,6 +82,10 @@ impl TypeMemoizedFieldEthSignature {
 
     pub fn return_ty(&self) -> EthTerm {
         self.return_ty
+    }
+
+    pub fn expr_ty(&self) -> EthTerm {
+        self.expr_ty
     }
 }
 

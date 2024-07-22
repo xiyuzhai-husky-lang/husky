@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::digits::two::down_cc_pattern`",
+                            value: "\n\nentity `mnist_classifier::digits::two::down_cc_pattern`\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `fn(...) -> Option f32 @ None @ None`",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `f32 @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `f32 @ Some(Transient)`",
                         },
                     ),
                     range: Some(

@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::task::MnistTask`",
+                            value: "\n\nentity `mnist::task::MnistTask`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -640,7 +640,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::task::MnistTask`",
+                            value: "\n\nentity `mnist::task::MnistTask`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

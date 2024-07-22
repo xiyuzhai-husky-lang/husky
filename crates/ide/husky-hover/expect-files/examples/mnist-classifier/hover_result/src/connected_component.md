@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::BinaryImage28`",
+                            value: "\n\nentity `mnist::BinaryImage28`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

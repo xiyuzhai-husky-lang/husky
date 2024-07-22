@@ -335,9 +335,9 @@ impl ToHirLazy for SemExprIdx {
                     ident: ident_token.ident(),
                 },
                 FieldFlySignature::Memoized {
-                    ty: _,
                     path,
                     ref instantiation,
+                    ..
                 } => {
                     debug_assert!(instantiation.separator().is_some());
                     HirLazyExprData::MemoizedField {

@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::visual::Visual`",
+                            value: "\n\nentity `core::visual::Visual`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::visual::Visualize`",
+                            value: "\n\nentity `core::visual::Visualize`\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
@@ -940,7 +940,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::visual::Visual`",
+                            value: "\n\nentity `core::visual::Visual`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

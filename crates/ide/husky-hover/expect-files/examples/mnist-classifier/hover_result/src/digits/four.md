@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::MnistLabel`",
+                            value: "\n\nentity `mnist::MnistLabel`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `EffHoles @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Leash EffHoles @ Some(Transient)`",
                         },
                     ),
                     range: Some(

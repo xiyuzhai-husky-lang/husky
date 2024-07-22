@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::geom2d::Point2d`",
+                            value: "\n\nentity `mnist_classifier::geom2d::Point2d`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

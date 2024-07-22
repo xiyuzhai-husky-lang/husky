@@ -52,6 +52,6 @@ pub fn downmost(cc: Leash<crate::line_segment_sketch::concave_component::Concave
 pub fn big_cc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y > 0.0f32);
-    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymin() > 0.4f32);
-    Some(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).ymin())
+    require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin() > 0.4f32);
+    Some(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin())
 }
