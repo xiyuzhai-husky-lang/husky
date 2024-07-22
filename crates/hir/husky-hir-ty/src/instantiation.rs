@@ -7,6 +7,7 @@ use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
     FlyTerms,
 };
+use path::ItemPath;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 /// `HirInstantiation` maps each hir symbol to its hir resolution.
@@ -15,6 +16,7 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirInstantiation {
+    path: ItemPath,
     context: HirTypeContext,
     symbol_map: SmallVecPairMap<HirTemplateVariable, HirTermSymbolicVariableResolution, 4>,
     separator: Option<u8>,
@@ -94,6 +96,7 @@ impl HirInstantiation {
             None => (),
         }
         Self {
+            path: instantiation.path(),
             symbol_map,
             separator,
             context: HirTypeContext::from_fly(instantiation, db),
@@ -124,6 +127,7 @@ impl HirInstantiation {
             None => (),
         }
         Self {
+            path: eth_instantiation.path(),
             symbol_map,
             separator,
             context: HirTypeContext::from_eth(eth_instantiation, db),
@@ -132,6 +136,10 @@ impl HirInstantiation {
 }
 
 impl HirInstantiation {
+    pub fn path(&self) -> ItemPath {
+        self.path
+    }
+
     pub fn context(&self) -> &HirTypeContext {
         &self.context
     }

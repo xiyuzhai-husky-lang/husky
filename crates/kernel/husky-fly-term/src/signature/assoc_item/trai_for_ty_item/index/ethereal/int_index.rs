@@ -31,12 +31,12 @@ pub(super) fn ethereal_owner_ty_int_index_signature(
     .expect("fully instantiated")
     .ty_term();
     JustOk(FlyIndexSignature::Int {
-        element_ty: FlyTerm::new_ethereal(final_place, element_ty),
+        element_ty: FlyTerm::new_eth(final_place, element_ty),
     })
 }
 
 fn coersible_to_int(engine: &mut impl FlyTermEngineMut, index_ty: FlyTerm) -> bool {
-    match index_ty.data(engine) {
+    match index_ty.base_term_data(engine) {
         FlyTermData::Literal(_) => unreachable!(),
         FlyTermData::TypeOntology {
             refined_ty_path, ..

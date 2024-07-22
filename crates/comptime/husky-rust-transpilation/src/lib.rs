@@ -7,7 +7,6 @@ mod builder;
 mod defn;
 mod expr;
 mod fmt;
-mod ingredient;
 pub mod jar;
 mod linket;
 mod manifest;

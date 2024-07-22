@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other keyword\n\n",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 12;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Comma,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 24;\n\ntoken_line_group_idx = 3\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::RightDelimiter(\n            Delimiter::Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Minus,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "This is a paradigm\ntoken_idx = 48;\n\ntoken_line_group_idx = 6\n\ntoken = TokenData::Keyword(\n    Keyword::Form(\n        Val,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "This is a form keyword\n\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 7\n\ntoken = TokenData::Ident(\n    `raw_contours`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                1,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Leash Vec RawContour @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 72;\n\ntoken_line_group_idx = 8\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 84;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::RightDelimiter(\n            Delimiter::Box,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 96;\n\ntoken_line_group_idx = 11\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Binary(\n            SynBinaryOpr::Comparison(\n                BinaryComparisonOpr::Eq,\n            ),\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 108;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 120;\n\ntoken_line_group_idx = 14\n\ntoken = TokenData::Keyword(\n    Keyword::Stmt(\n        Return,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other keyword\n\n",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 132;\n\ntoken_line_group_idx = 15\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::RightDelimiter(\n            Delimiter::Box,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 144;\n\ntoken_line_group_idx = 16\n\ntoken = TokenData::Ident(\n    `simp_zero_match`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                39,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 2,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 3,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        70,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                196,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `simp_zero_match`,\n        pattern_variable_idx: 3,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `FermiMatchResult @ Some(ImmutableOnStack { place: Idx(PlaceIdx(2)) })`",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 156;\n\ntoken_line_group_idx = 17\n\ntoken = TokenData::Ident(\n    `norm`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                45,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `f32 @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 168;\n\ntoken_line_group_idx = 18\n\ntoken = TokenData::WordOpr(\n    WordOpr::Be,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 180;\n\ntoken_line_group_idx = 19\n\ntoken = TokenData::Ident(\n    `Some`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            14,\n            PrincipalEntityPath::TypeVariant(\n                TypeVariantPath(`core::option::Option::Some`),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::TypeVariant(\n                Room32,\n                TypeVariantPath(`core::option::Option::Some`),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\n\nentity `core::option::Option::Some`",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 192;\n\ntoken_line_group_idx = 20\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::LeftDelimiter(\n            Delimiter::Box,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 204;\n\ntoken_line_group_idx = 21\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::LeftDelimiter(\n            Delimiter::Par,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 216;\n\ntoken_line_group_idx = 22\n\ntoken = TokenData::Ident(\n    `b`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::Pattern(\n            10,\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 5,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 7,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        161,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                196,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `b`,\n        pattern_variable_idx: 7,\n    },\n}\n",
+                            value: "\n\nvariable",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 228;\n\ntoken_line_group_idx = 22\n\ntoken = TokenData::Ident(\n    `bounding_box`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                78,\n            ),\n        ),\n        data: TokenInfoData::Field,\n    },\n);\n\n\n",
+                            value: "\n\nfield\n\ncoercion = None\n\ntype = `Leash BoundingBox @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 240;\n\ntoken_line_group_idx = 24\n\ntoken = TokenData::Ident(\n    `ratio`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                84,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 6,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 8,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        179,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                196,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `ratio`,\n        pattern_variable_idx: 8,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `f32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(6)) })`",
                         },
                     ),
                     range: Some(

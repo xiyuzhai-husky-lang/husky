@@ -1,12 +1,12 @@
 ```rust
 Ok(
     TokenInfoSheet {
-        token_infos: [
-            None,
-            None,
-            Some(
+        token_infos_list: [
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         2,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -23,11 +23,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         1,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -44,14 +44,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         5,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -68,11 +68,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         4,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -89,14 +89,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         8,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -113,11 +113,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         7,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -134,14 +134,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         11,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -158,11 +158,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         10,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -179,14 +179,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         14,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -203,11 +203,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         13,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -224,14 +224,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         17,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -248,11 +248,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         16,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -269,14 +269,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         20,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -293,11 +293,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         19,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -314,14 +314,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         23,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -338,11 +338,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         22,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -359,14 +359,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         26,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -383,11 +383,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         25,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -404,14 +404,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         29,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -428,11 +428,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         28,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -449,14 +449,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         32,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -473,11 +473,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         31,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -494,14 +494,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         35,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -518,11 +518,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         34,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -539,14 +539,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         38,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -563,11 +563,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         37,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -584,9 +584,9 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
+            ],
+            [],
+            [],
         ],
     },
 )

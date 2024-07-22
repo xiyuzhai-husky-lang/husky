@@ -129,14 +129,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                    Move,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                 ],
@@ -224,14 +217,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                    Move,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                 ],
@@ -319,14 +305,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                    Move,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                 ],
@@ -359,7 +338,14 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [],
+                            place_contracts: [
+                                (
+                                    Idx(
+                                        PlaceIdx(1),
+                                    ),
+                                    Pure,
+                                ),
+                            ],
                         },
                     ),
                     Some(

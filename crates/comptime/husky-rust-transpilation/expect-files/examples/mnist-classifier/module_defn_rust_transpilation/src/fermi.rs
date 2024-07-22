@@ -19,7 +19,7 @@ impl FermiMatchResult {
 
 #[rustfmt::skip]
 pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>>, templates: &Vec<fn(Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32>>) -> crate::fermi::FermiMatchResult {
-    let mut others = concave_components.collect_leashes();
+    let mut others = <Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>>::collect_leashes(concave_components);
     let mut matches: Vec<Option<Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>>> = vec![];
     for i in 0..templates.ilen() {
         let template = templates[i as usize];
@@ -30,29 +30,29 @@ pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::con
 
 #[rustfmt::skip]
 impl crate::fermi::FermiMatchResult {
-    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 21)]
+    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 21)]
     pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
-        for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].norm())
+        for i in 0..__self.deleash().others.ilen() {
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(__self.deleash().others[i as usize]))
         }
         return norm;
     }
 
-    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 22)]
+    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 22)]
     pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
-        for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].rel_norm())
+        for i in 0..__self.deleash().others.ilen() {
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::rel_norm(__self.deleash().others[i as usize]))
         }
         return norm;
     }
 
-    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 23)]
+    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 23)]
     pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
-        for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].angle_change().abs())
+        for i in 0..__self.deleash().others.ilen() {
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(__self.deleash().others[i as usize]).abs())
         }
         return norm;
     }

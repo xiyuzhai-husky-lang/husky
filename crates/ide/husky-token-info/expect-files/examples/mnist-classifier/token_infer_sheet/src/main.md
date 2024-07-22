@@ -1,11 +1,11 @@
 ```rust
 Ok(
     TokenInfoSheet {
-        token_infos: [
-            None,
-            Some(
+        token_infos_list: [
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -25,11 +25,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -49,11 +49,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -73,11 +73,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -97,11 +97,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -121,11 +121,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -145,11 +145,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -169,11 +169,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         2,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -190,11 +190,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         1,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -211,13 +211,13 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         5,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -234,11 +234,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         4,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -255,13 +255,13 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         8,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -278,11 +278,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         7,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -299,14 +299,14 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         11,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -323,11 +323,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         10,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -344,13 +344,13 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         14,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -367,11 +367,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         13,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -388,13 +388,13 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         17,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -411,11 +411,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         16,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -432,13 +432,13 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         19,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -457,13 +457,13 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         21,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -482,13 +482,13 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
@@ -503,11 +503,28 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`malamute::Class`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
@@ -523,10 +540,27 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            Some(
+            ],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist::MnistLabel`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
@@ -542,11 +576,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -562,11 +613,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -582,11 +650,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -602,11 +687,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -622,11 +724,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -642,11 +761,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -662,11 +798,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            12,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         6,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -682,11 +835,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            14,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         7,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -702,11 +872,28 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            16,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         8,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
@@ -722,11 +909,11 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         9,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
@@ -742,11 +929,27 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::main`),
+                        ),
+                        SemExprIdx(
+                            18,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::TypeVariant(
+                            Room32,
+                            TypeVariantPath(`malamute::Class::Unknown`),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         10,
                         PrincipalEntityPath::TypeVariant(
                             TypeVariantPath(`malamute::Class::Unknown`),
@@ -759,7 +962,7 @@ Ok(
                         ),
                     ),
                 },
-            ),
+            ],
         ],
     },
 )

@@ -34,7 +34,7 @@
                                                     EthSymbolicVariable(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
@@ -47,7 +47,7 @@
                                                     EthSymbolicVariable(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     1,
@@ -62,9 +62,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             2,
@@ -76,7 +76,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -96,13 +96,11 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`OneVsAll Label label`),
                                     ),
                                 },
                             ),
@@ -110,11 +108,9 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`OneVsAll Label label`),
                                         ),
                                     },
                                 ),
@@ -148,11 +144,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`OneVsAll Label label`),
                                     ),
                                 },
                             ),
@@ -180,7 +174,7 @@
                 inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -190,7 +184,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -204,13 +198,13 @@
             symbol_terms: SymbolMap {
                 inherited_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`Label`),
                         ),
                     },
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`label`),
                         ),
@@ -233,7 +227,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Label`),
                                             ),
@@ -242,7 +236,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Label`),
                                                 ),
@@ -262,7 +256,7 @@
                                     hole_kind: AnyOriginal,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`label`),
                                             ),
@@ -271,7 +265,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`label`),
                                                 ),
@@ -293,7 +287,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     0,
@@ -301,7 +295,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     1,
@@ -326,7 +320,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll Label label`),
                                             ),
@@ -340,7 +334,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -366,7 +360,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Label`),
                                             ),
@@ -382,7 +376,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 0,
@@ -402,7 +396,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`label`),
                                             ),
@@ -418,7 +412,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 1,
@@ -439,7 +433,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll Label label`),
                                             ),
@@ -453,11 +447,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`OneVsAll Label label`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -486,6 +478,7 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -518,9 +511,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -536,7 +529,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -570,7 +563,7 @@
                                                     EthSymbolicVariable(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
@@ -583,7 +576,7 @@
                                                     EthSymbolicVariable(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     1,
@@ -598,9 +591,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             3,
@@ -612,7 +605,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 3,
@@ -642,7 +635,7 @@
                                                     EthSymbolicVariable(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     4,
@@ -657,9 +650,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             6,
@@ -671,7 +664,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 6,
@@ -696,9 +689,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
@@ -710,7 +703,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -738,7 +731,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             4,
@@ -768,9 +761,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             5,
@@ -782,7 +775,7 @@
                                 (
                                     4,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 5,
@@ -810,7 +803,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             0,
@@ -840,9 +833,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             2,
@@ -854,7 +847,7 @@
                                 (
                                     5,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -884,7 +877,7 @@
                                                     EthSymbolicVariable(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     7,
@@ -897,7 +890,7 @@
                                                     EthSymbolicVariable(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     8,
@@ -912,9 +905,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             10,
@@ -926,7 +919,7 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 10,
@@ -947,9 +940,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -959,7 +952,7 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -985,7 +978,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             8,
@@ -1015,9 +1008,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             9,
@@ -1029,7 +1022,7 @@
                                 (
                                     10,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 9,
@@ -1049,13 +1042,11 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow Class Label unit`),
                                     ),
                                 },
                             ),
@@ -1063,11 +1054,9 @@
                                 (
                                     13,
                                     FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`ControlFlow Class Label unit`),
                                         ),
                                     },
                                 ),
@@ -1101,11 +1090,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow Class Label unit`),
                                     ),
                                 },
                             ),
@@ -1132,11 +1119,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            9,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow Class Label unit`),
                                     ),
                                 },
                             ),
@@ -1149,10 +1134,10 @@
                                             1,
                                         ),
                                     },
-                                    match_opd: SemExprIdx(
+                                    opd: SemExprIdx(
                                         0,
                                     ),
-                                    match_contract: Contract::Pure,
+                                    contract: Contract::Pure,
                                     eol_with_token: EolWithRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             3,
@@ -1214,11 +1199,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow Class Label unit`),
                                     ),
                                 },
                             ),
@@ -1241,7 +1224,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -1263,7 +1246,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -1291,7 +1274,7 @@
                 inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -1301,7 +1284,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -1311,7 +1294,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -1329,13 +1312,13 @@
             symbol_terms: SymbolMap {
                 inherited_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`Label`),
                         ),
                     },
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`label`),
                         ),
@@ -1358,7 +1341,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     5,
@@ -1369,7 +1352,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Hol(
                                                     HolTerm(
                                                         5,
@@ -1391,7 +1374,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -1400,7 +1383,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`unit`),
                                                 ),
@@ -1422,7 +1405,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     0,
@@ -1430,7 +1413,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     1,
@@ -1455,7 +1438,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             0,
@@ -1466,7 +1449,7 @@
                                         ),
                                     ],
                                     return_ty: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -1486,7 +1469,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: Some(
+                                            quary: Some(
                                                 Compterm,
                                             ),
                                             base: FlyTermBase::Eth(
@@ -1497,7 +1480,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: Some(
+                                                quary: Some(
                                                     Compterm,
                                                 ),
                                                 base: FlyTermBase::Eth(
@@ -1521,7 +1504,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     4,
@@ -1546,7 +1529,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             4,
@@ -1557,7 +1540,7 @@
                                         ),
                                     ],
                                     return_ty: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 5,
@@ -1577,7 +1560,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Class Label`),
                                             ),
@@ -1586,7 +1569,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Class Label`),
                                                 ),
@@ -1606,7 +1589,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -1615,7 +1598,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`unit`),
                                                 ),
@@ -1637,7 +1620,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     7,
@@ -1645,7 +1628,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     8,
@@ -1670,7 +1653,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             8,
@@ -1681,7 +1664,7 @@
                                         ),
                                     ],
                                     return_ty: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 9,
@@ -1711,7 +1694,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -1744,7 +1727,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 3,
@@ -1756,7 +1739,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Hol(
                                                             HolTerm(
                                                                 2,
@@ -1772,7 +1755,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Hol(
                                                                             HolTerm(
                                                                                 0,
@@ -1802,7 +1785,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 6,
@@ -1814,7 +1797,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Hol(
                                                             HolTerm(
                                                                 5,
@@ -1830,7 +1813,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Hol(
                                                                             HolTerm(
                                                                                 4,
@@ -1852,7 +1835,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     4,
@@ -1868,7 +1851,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -1895,7 +1878,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     0,
@@ -1911,7 +1894,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 5,
@@ -1938,7 +1921,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ControlFlow Class Label unit`),
                                             ),
@@ -1952,7 +1935,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -1978,7 +1961,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Class Label`),
                                             ),
@@ -1994,7 +1977,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 0,
@@ -2014,7 +1997,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -2030,7 +2013,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 1,
@@ -2059,7 +2042,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 10,
@@ -2071,7 +2054,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Hol(
                                                             HolTerm(
                                                                 9,
@@ -2087,7 +2070,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Hol(
                                                                             HolTerm(
                                                                                 8,
@@ -2109,7 +2092,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     8,
@@ -2125,7 +2108,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2150,7 +2133,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ControlFlow Class Label unit`),
                                             ),
@@ -2164,7 +2147,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 9,
@@ -2190,7 +2173,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Class Label`),
                                             ),
@@ -2206,7 +2189,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 7,
@@ -2226,7 +2209,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -2242,7 +2225,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 8,
@@ -2263,7 +2246,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ControlFlow Class Label unit`),
                                             ),
@@ -2277,11 +2260,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`ControlFlow Class Label unit`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -2310,6 +2291,7 @@
             self_ty: Some(
                 EthTerm(`Class Label`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -2342,9 +2324,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         StackPure {
                                             place: Idx(
                                                 PlaceIdx(0),
@@ -2360,7 +2342,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -2394,7 +2376,7 @@
                                                     EthSymbolicVariable(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
@@ -2407,7 +2389,7 @@
                                                     EthSymbolicVariable(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     1,
@@ -2422,9 +2404,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             3,
@@ -2436,7 +2418,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 3,
@@ -2466,7 +2448,7 @@
                                                     EthSymbolicVariable(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     4,
@@ -2479,7 +2461,7 @@
                                                     EthSymbolicVariable(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     5,
@@ -2494,9 +2476,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             6,
@@ -2508,7 +2490,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 6,
@@ -2536,7 +2518,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             0,
@@ -2566,9 +2548,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             2,
@@ -2580,7 +2562,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -2610,7 +2592,7 @@
                                                     EthSymbolicVariable(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     7,
@@ -2623,7 +2605,7 @@
                                                     EthSymbolicVariable(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     8,
@@ -2638,9 +2620,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             10,
@@ -2652,7 +2634,7 @@
                                 (
                                     8,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 10,
@@ -2682,7 +2664,7 @@
                                                     EthSymbolicVariable(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     11,
@@ -2695,7 +2677,7 @@
                                                     EthSymbolicVariable(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     12,
@@ -2710,9 +2692,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             13,
@@ -2724,7 +2706,7 @@
                                 (
                                     9,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 13,
@@ -2752,7 +2734,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             7,
@@ -2782,9 +2764,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             9,
@@ -2796,7 +2778,7 @@
                                 (
                                     10,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 9,
@@ -2826,7 +2808,7 @@
                                                     EthSymbolicVariable(`B`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     14,
@@ -2839,7 +2821,7 @@
                                                     EthSymbolicVariable(`C`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     15,
@@ -2854,9 +2836,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             17,
@@ -2868,7 +2850,7 @@
                                 (
                                     15,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 17,
@@ -2889,9 +2871,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`unit`),
                                     ),
@@ -2901,7 +2883,7 @@
                                 (
                                     16,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -2927,7 +2909,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             15,
@@ -2957,9 +2939,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             16,
@@ -2971,7 +2953,7 @@
                                 (
                                     17,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 16,
@@ -2991,13 +2973,11 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
                                     ),
                                 },
                             ),
@@ -3005,11 +2985,9 @@
                                 (
                                     20,
                                     FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`ControlFlow OneVsAll Label label unit`),
                                         ),
                                     },
                                 ),
@@ -3043,11 +3021,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
                                     ),
                                 },
                             ),
@@ -3074,11 +3050,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            9,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
                                     ),
                                 },
                             ),
@@ -3105,11 +3079,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            16,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
                                     ),
                                 },
                             ),
@@ -3122,10 +3094,10 @@
                                             1,
                                         ),
                                     },
-                                    match_opd: SemExprIdx(
+                                    opd: SemExprIdx(
                                         0,
                                     ),
-                                    match_contract: Contract::Pure,
+                                    contract: Contract::Pure,
                                     eol_with_token: EolWithRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             3,
@@ -3212,11 +3184,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
                                     ),
                                 },
                             ),
@@ -3239,7 +3209,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -3261,7 +3231,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -3283,7 +3253,7 @@
                 PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -3311,7 +3281,7 @@
                 inherited_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -3321,7 +3291,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -3331,7 +3301,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 StackPure {
                                     place: Idx(
                                         PlaceIdx(0),
@@ -3349,13 +3319,13 @@
             symbol_terms: SymbolMap {
                 inherited_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`Label`),
                         ),
                     },
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`label`),
                         ),
@@ -3378,7 +3348,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     6,
@@ -3389,7 +3359,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Hol(
                                                     HolTerm(
                                                         6,
@@ -3411,7 +3381,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -3420,7 +3390,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`unit`),
                                                 ),
@@ -3442,7 +3412,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     0,
@@ -3450,7 +3420,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     1,
@@ -3475,7 +3445,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             0,
@@ -3486,7 +3456,7 @@
                                         ),
                                     ],
                                     return_ty: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -3506,7 +3476,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Label`),
                                             ),
@@ -3515,7 +3485,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Label`),
                                                 ),
@@ -3535,7 +3505,7 @@
                                     hole_kind: AnyOriginal,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`label`),
                                             ),
@@ -3544,7 +3514,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`label`),
                                                 ),
@@ -3566,7 +3536,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     4,
@@ -3574,7 +3544,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     5,
@@ -3595,7 +3565,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     13,
@@ -3606,7 +3576,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Hol(
                                                     HolTerm(
                                                         13,
@@ -3628,7 +3598,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -3637,7 +3607,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`unit`),
                                                 ),
@@ -3659,7 +3629,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     7,
@@ -3667,7 +3637,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     8,
@@ -3692,7 +3662,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             7,
@@ -3703,7 +3673,7 @@
                                         ),
                                     ],
                                     return_ty: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 9,
@@ -3723,7 +3693,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Label`),
                                             ),
@@ -3732,7 +3702,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Label`),
                                                 ),
@@ -3752,7 +3722,7 @@
                                     hole_kind: AnyOriginal,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`label`),
                                             ),
@@ -3761,7 +3731,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`label`),
                                                 ),
@@ -3783,7 +3753,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     11,
@@ -3791,7 +3761,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     12,
@@ -3812,7 +3782,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll Label label`),
                                             ),
@@ -3821,7 +3791,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`OneVsAll Label label`),
                                                 ),
@@ -3841,7 +3811,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -3850,7 +3820,7 @@
                                     constraints: [
                                         HoleConstraint::CoercibleFrom {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`unit`),
                                                 ),
@@ -3872,7 +3842,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     14,
@@ -3880,7 +3850,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     15,
@@ -3905,7 +3875,7 @@
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Move,
                                                 ty: FlyTerm {
-                                                    place: None,
+                                                    quary: None,
                                                     base: FlyTermBase::Hol(
                                                         HolTerm(
                                                             15,
@@ -3916,7 +3886,7 @@
                                         ),
                                     ],
                                     return_ty: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 16,
@@ -3946,7 +3916,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             StackPure {
                                                 place: Idx(
                                                     PlaceIdx(0),
@@ -3979,7 +3949,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 3,
@@ -3991,7 +3961,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Hol(
                                                             HolTerm(
                                                                 2,
@@ -4007,7 +3977,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Hol(
                                                                             HolTerm(
                                                                                 0,
@@ -4029,7 +3999,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     0,
@@ -4045,7 +4015,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 6,
@@ -4072,7 +4042,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
@@ -4086,7 +4056,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -4112,7 +4082,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll Label label`),
                                             ),
@@ -4128,7 +4098,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 0,
@@ -4148,7 +4118,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -4164,7 +4134,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 1,
@@ -4184,7 +4154,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Label`),
                                             ),
@@ -4200,7 +4170,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 4,
@@ -4220,7 +4190,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`label`),
                                             ),
@@ -4236,7 +4206,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 5,
@@ -4265,7 +4235,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 10,
@@ -4277,7 +4247,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Hol(
                                                             HolTerm(
                                                                 9,
@@ -4293,7 +4263,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Hol(
                                                                             HolTerm(
                                                                                 7,
@@ -4315,7 +4285,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     7,
@@ -4331,7 +4301,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 13,
@@ -4358,7 +4328,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
@@ -4372,7 +4342,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 9,
@@ -4398,7 +4368,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll Label label`),
                                             ),
@@ -4414,7 +4384,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 7,
@@ -4434,7 +4404,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -4450,7 +4420,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 8,
@@ -4470,7 +4440,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Label`),
                                             ),
@@ -4486,7 +4456,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 11,
@@ -4506,7 +4476,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`label`),
                                             ),
@@ -4522,7 +4492,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 12,
@@ -4551,7 +4521,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 17,
@@ -4563,7 +4533,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Hol(
                                                             HolTerm(
                                                                 16,
@@ -4579,7 +4549,7 @@
                                                                 FlyRitchieSimpleParameter {
                                                                     contract: Contract::Move,
                                                                     ty: FlyTerm {
-                                                                        place: None,
+                                                                        quary: None,
                                                                         base: FlyTermBase::Hol(
                                                                             HolTerm(
                                                                                 15,
@@ -4601,7 +4571,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     15,
@@ -4617,7 +4587,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`unit`),
                                         ),
@@ -4642,7 +4612,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
@@ -4656,7 +4626,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 16,
@@ -4682,7 +4652,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll Label label`),
                                             ),
@@ -4698,7 +4668,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 14,
@@ -4718,7 +4688,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`unit`),
                                             ),
@@ -4734,7 +4704,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 15,
@@ -4755,7 +4725,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`ControlFlow OneVsAll Label label unit`),
                                             ),
@@ -4769,11 +4739,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`ControlFlow OneVsAll Label label unit`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -4802,6 +4770,7 @@
             self_ty: Some(
                 EthTerm(`OneVsAll Label label`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },

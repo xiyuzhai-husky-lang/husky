@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 0;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other keyword\n\n",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 75;\n\ntoken_line_group_idx = 10\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::RightDelimiter(\n            Delimiter::Par,\n        ),\n    ),\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                3,\n            ),\n        ),\n        data: TokenInfoData::CallPar,\n    },\n);\n\ncall par\n",
+                            value: "\n\ncall par\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `LineSegmentSketch @ None`",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 150;\n\ntoken_line_group_idx = 20\n\ntoken = TokenData::Ident(\n    `xmax`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                27,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 2,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 2,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Mut,\n    access_start: RegionalTokenIdx(\n        20,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                116,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `xmax`,\n        pattern_variable_idx: 2,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `f32 @ Some(MutableOnStack { place: Idx(PlaceIdx(3)) })`",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 225;\n\ntoken_line_group_idx = 27\n\ntoken = TokenData::Ident(\n    `contour_len`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::Pattern(\n            0,\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 0,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 0,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Mut,\n    access_start: RegionalTokenIdx(\n        4,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                125,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `contour_len`,\n        pattern_variable_idx: 0,\n    },\n}\n",
+                            value: "\n\nvariable",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 300;\n\ntoken_line_group_idx = 32\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Dot,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 375;\n\ntoken_line_group_idx = 38\n\ntoken = TokenData::Keyword(\n    Keyword::Pronoun(\n        SelfValue,\n    ),\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                3,\n            ),\n        ),\n        data: TokenInfoData::SelfValue,\n    },\n);\n\nself value\n",
+                            value: "Other keyword\n\nself value\n\ncoercion = None\n\ntype = `RawContour @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 450;\n\ntoken_line_group_idx = 49\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 525;\n\ntoken_line_group_idx = 55\n\ntoken = TokenData::Ident(\n    `row_below`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                5,\n            ),\n        ),\n        data: TokenInfoData::InheritedVariable {\n            inherited_variable_idx: 1,\n            inherited_variable_kind: InheritedVariableKind::Parenate {\n                ident: `row_below`,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nInheritedVariableEntry {\n    modifier: Pure,\n    kind: InheritedVariableKind::Parenate {\n        ident: `row_below`,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: StackPure {\n                place: Idx(\n                    PlaceIdx(1),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `r32 @ Some(StackPure { place: Idx(PlaceIdx(1)) })`",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 600;\n\ntoken_line_group_idx = 71\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Vert,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 675;\n\ntoken_line_group_idx = 79\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Minus,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 750;\n\ntoken_line_group_idx = 90\n\ntoken = TokenData::Literal(\n    LiteralTokenData::Integer(\n        UnspecifiedRegular(\n            1,\n        ),\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 825;\n\ntoken_line_group_idx = 106\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Vert,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 900;\n\ntoken_line_group_idx = 117\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Colon,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 975;\n\ntoken_line_group_idx = 123\n\ntoken = TokenData::Punctuation(\n    Punctuation(\n        PunctuationMapped::Eq,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1050;\n\ntoken_line_group_idx = 130\n\ntoken = TokenData::Ident(\n    `r_dl`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                41,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 6,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 5,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Pure,\n    access_start: RegionalTokenIdx(\n        55,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                86,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `r_dl`,\n        pattern_variable_idx: 5,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: ImmutableOnStack {\n                place: Idx(\n                    PlaceIdx(6),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `r32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(6)) })`",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1125;\n\ntoken_line_group_idx = 138\n\ntoken = TokenData::Ident(\n    `j`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                76,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 10,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 8,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Mut,\n    access_start: RegionalTokenIdx(\n        117,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                536,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `j`,\n        pattern_variable_idx: 8,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(10),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `i32 @ Some(MutableOnStack { place: Idx(PlaceIdx(10)) })`",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1200;\n\ntoken_line_group_idx = 149\n\ntoken = TokenData::Ident(\n    `inward_direction`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                107,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 13,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 11,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Mut,\n    access_start: RegionalTokenIdx(\n        151,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                536,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `inward_direction`,\n        pattern_variable_idx: 11,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(13),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `Direction @ Some(MutableOnStack { place: Idx(PlaceIdx(13)) })`",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1275;\n\ntoken_line_group_idx = 155\n\ntoken = TokenData::Ident(\n    `i`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                159,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 9,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 7,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Mut,\n    access_start: RegionalTokenIdx(\n        112,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                536,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `i`,\n        pattern_variable_idx: 7,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(9),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `i32 @ Some(MutableOnStack { place: Idx(PlaceIdx(9)) })`",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1350;\n\ntoken_line_group_idx = 163\n\ntoken = TokenData::Ident(\n    `from_i_shift28`,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "\n\n",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1425;\n\ntoken_line_group_idx = 179\n\ntoken = TokenData::Ident(\n    `i`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                267,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 9,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 7,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Mut,\n    access_start: RegionalTokenIdx(\n        112,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                536,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `i`,\n        pattern_variable_idx: 7,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = None\n\ntype = `i32 @ Some(MutableOnStack { place: Idx(PlaceIdx(9)) })`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 1500;\n\ntoken_line_group_idx = 189\n\ntoken = TokenData::Ident(\n    `contour`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SemExpr(\n            SemExprIdx(\n                317,\n            ),\n        ),\n        data: TokenInfoData::CurrentVariable {\n            current_variable_idx: 8,\n            current_variable_kind: CurrentVariableKind::LetVariable {\n                pattern_variable_idx: 6,\n            },\n            syn_expr_region: ExprRegionLeash(_),\n        },\n    },\n);\n\nCurrentVariableEntry {\n    modifier: Mut,\n    access_start: RegionalTokenIdx(\n        102,\n    ),\n    access_end: Some(\n        RegionalTokenIdxRangeEnd(\n            RegionalTokenIdx(\n                536,\n            ),\n        ),\n    ),\n    data: CurrentVariableData::LetVariable {\n        ident: `contour`,\n        pattern_variable_idx: 6,\n    },\n}\n",
+                            value: "\n\nvariable\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: MutableOnStack {\n                place: Idx(\n                    PlaceIdx(8),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `Vec Point2d @ Some(MutableOnStack { place: Idx(PlaceIdx(8)) })`",
                         },
                     ),
                     range: Some(

@@ -214,6 +214,16 @@ pub enum ExpectationOutcome {
     SortOrTrait(ExpectSortOrTraitOutcome),
 }
 
+/// # helpers
+impl ExpectationOutcome {
+    pub fn coercion(&self) -> Option<FlyCoercion> {
+        match self {
+            ExpectationOutcome::Coercion(outcome) => Some(outcome.coercion()),
+            _ => None,
+        }
+    }
+}
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub enum ExpectationProgress {

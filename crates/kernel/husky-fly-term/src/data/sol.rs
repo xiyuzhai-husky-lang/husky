@@ -3,7 +3,7 @@ use super::*;
 /// should only use `Clone` in this crate
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum SolidTermData {
+pub enum SolTermData {
     TypeOntology {
         path: TypePath,
         refined_path: Either<PreludeTypePath, OtherTypePath>,
@@ -26,10 +26,10 @@ pub enum SolidTermData {
     },
 }
 
-impl<'a> From<&'a SolidTermData> for FlyTermData<'a> {
-    fn from(data: &'a SolidTermData) -> Self {
+impl<'a> From<&'a SolTermData> for FlyTermData<'a> {
+    fn from(data: &'a SolTermData) -> Self {
         match data {
-            SolidTermData::TypeOntology {
+            SolTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
@@ -39,7 +39,7 @@ impl<'a> From<&'a SolidTermData> for FlyTermData<'a> {
                 ty_arguments: argument_tys,
                 ty_ethereal_term: None,
             },
-            SolidTermData::Curry {
+            SolTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -56,7 +56,7 @@ impl<'a> From<&'a SolidTermData> for FlyTermData<'a> {
                 return_ty: (*return_ty).into(),
                 ty_ethereal_term: None,
             },
-            SolidTermData::Ritchie {
+            SolTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,
@@ -65,10 +65,10 @@ impl<'a> From<&'a SolidTermData> for FlyTermData<'a> {
     }
 }
 
-impl<'a> Into<FlyBaseTypeData<'a>> for &'a SolidTermData {
+impl<'a> Into<FlyBaseTypeData<'a>> for &'a SolTermData {
     fn into(self) -> FlyBaseTypeData<'a> {
         match self {
-            SolidTermData::TypeOntology {
+            SolTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments: argument_tys,
@@ -78,7 +78,7 @@ impl<'a> Into<FlyBaseTypeData<'a>> for &'a SolidTermData {
                 ty_arguments: argument_tys,
                 ty_ethereal_term: None,
             },
-            SolidTermData::Curry {
+            SolTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -94,7 +94,7 @@ impl<'a> Into<FlyBaseTypeData<'a>> for &'a SolidTermData {
                 return_ty: (*return_ty).into(),
                 ty_ethereal_term: None,
             },
-            SolidTermData::Ritchie {
+            SolTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,

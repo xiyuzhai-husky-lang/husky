@@ -9,6 +9,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
+                            expr_ty: EthTerm(`Leash FermiMatchResult`),
                         },
                     ),
                 ),
@@ -24,6 +25,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
+                            expr_ty: EthTerm(`Leash FermiMatchResult`),
                         },
                     ),
                 ),
@@ -39,6 +41,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Nine`),
+                            expr_ty: EthTerm(`OneVsAll MnistLabel Nine`),
                         },
                     ),
                 ),

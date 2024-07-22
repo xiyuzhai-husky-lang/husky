@@ -1,2 +1,5 @@
-mpg321 assets/music/update_expect_failure.mp3 >/dev/null 2>&1
+MONITOR=HDMI-2
+DURATION=1
+scripts/adjust_screen_brightness.sh 1.0 $MONITOR $DURATION
+mpg321 assets/music/elden-ring-you-died-sound-effect.mp3 >/dev/null 2>&1
 exit 1

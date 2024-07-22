@@ -11,13 +11,13 @@ impl<'a> SemExprBuilder<'a> {
         items: &[SynCommaListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let (function_sem_expr_idx, outcome) = self.build_sem_expr_with_outcome(
+        let (function_sem_expr_idx, outcome) = self.build_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
         );
         let Some(function_expectation_outcome) = outcome else {
             for item in items {
-                self.build_sem_expr(item.syn_expr_idx(), ExpectAnyDerived);
+                self.build_expr(item.syn_expr_idx(), ExpectAnyDerived);
             }
             return (
                 Err(
@@ -69,7 +69,7 @@ impl<'a> SemExprBuilder<'a> {
                         rpar_regional_token_idx,
                         ExpectSubtypeOrEqual::new(parameter_ty),
                     ),
-                    1 => self.build_sem_expr(
+                    1 => self.build_expr(
                         items.first().expect("len is 1").syn_expr_idx(),
                         ExpectCoercion::new_const(parameter_ty),
                     ),
@@ -88,7 +88,7 @@ impl<'a> SemExprBuilder<'a> {
         }
     }
 
-    pub(super) fn build_function_call_sem_expr(
+    pub(super) fn build_function_call_expr(
         &mut self,
         syn_expr_idx: SynExprIdx,
         function_syn_expr_idx: SynExprIdx,
@@ -98,13 +98,13 @@ impl<'a> SemExprBuilder<'a> {
         items: &[SynCallListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let (function_sem_expr_idx, outcome) = self.build_sem_expr_with_outcome(
+        let (function_sem_expr_idx, outcome) = self.build_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsRitchieType::new(final_destination),
         );
         let Some(function_expectation_outcome) = outcome else {
             for item in items {
-                self.build_sem_expr_with_ty(item.argument_expr_idx(), ExpectAnyDerived);
+                self.build_expr_with_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
             return (
                 Err(todo!()),

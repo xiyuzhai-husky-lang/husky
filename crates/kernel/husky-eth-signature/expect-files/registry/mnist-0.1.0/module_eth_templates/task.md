@@ -23,6 +23,7 @@
                         MajorStaticVarEthTemplate {
                             path: MajorFormPath(`mnist::TASK`, `StaticVar`),
                             return_ty: EthTerm(`MnistTask`),
+                            expr_ty: EthTerm(`Leash MnistTask`),
                         },
                     ),
                 ),

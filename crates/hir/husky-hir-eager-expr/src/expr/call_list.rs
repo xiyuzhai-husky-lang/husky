@@ -23,7 +23,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     fn new_call_list_item_group(&mut self, pam: &SemaRitchieArgument) -> HirEagerRitchieArgument {
         match pam {
             SemaRitchieArgument::Simple(param, item) => HirEagerRitchieArgument::Simple(
-                HirRitchieSimpleParameter::from_fly(param, self.db(), self.fly_terms()),
+                HirRitchieSimpleParameter::from_fly(param, self.db(), self.terms()),
                 item.argument_sem_expr_idx().to_hir_eager(self),
                 item.coercion_outcome
                     .as_ref()

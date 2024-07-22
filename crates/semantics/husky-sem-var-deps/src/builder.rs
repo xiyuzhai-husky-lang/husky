@@ -166,6 +166,7 @@ where
             }
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 target,
             } => todo!(),
@@ -266,7 +267,7 @@ where
             SemExprData::MethodRitchieCall {
                 self_argument,
                 self_contract,
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
@@ -308,8 +309,8 @@ where
             SemExprData::Delimitered { item, .. } => self.expr_value_var_deps_table[item].clone(),
             SemExprData::NewTuple { ref items, .. } => todo!(),
             SemExprData::Index {
-                owner,
-                ref index_sem_list_items,
+                self_argument: owner,
+                items: ref index_sem_list_items,
                 ref index_dynamic_dispatch,
                 ..
             } => {
@@ -390,6 +391,7 @@ where
             }
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 target,
             } => todo!(),
@@ -462,7 +464,7 @@ where
             SemExprData::MethodRitchieCall {
                 self_argument,
                 self_contract,
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
@@ -494,8 +496,8 @@ where
                 rpar_regional_token_idx,
             } => todo!(),
             SemExprData::Index {
-                owner,
-                ref index_sem_list_items,
+                self_argument: owner,
+                items: ref index_sem_list_items,
                 ref index_dynamic_dispatch,
                 ..
             } => {
@@ -612,8 +614,8 @@ where
             }
             SemStmtData::Match {
                 match_token,
-                match_opd,
-                match_contract,
+                opd: match_opd,
+                contract: match_contract,
                 eol_with_token,
                 ref case_branches,
             } => {
@@ -732,8 +734,8 @@ where
             }
             SemStmtData::Match {
                 match_token,
-                match_opd,
-                match_contract,
+                opd: match_opd,
+                contract: match_contract,
                 eol_with_token,
                 ref case_branches,
             } => {
@@ -785,6 +787,7 @@ where
         match condition {
             SemCondition::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 target,
             } => {

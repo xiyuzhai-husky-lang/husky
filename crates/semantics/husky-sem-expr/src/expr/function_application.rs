@@ -10,7 +10,7 @@ impl<'a> SemExprBuilder<'a> {
         argument_syn_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let (function_sem_expr_idx, function_ty_outcome) = self.build_sem_expr_with_outcome(
+        let (function_sem_expr_idx, function_ty_outcome) = self.build_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(final_destination),
         );
@@ -46,7 +46,7 @@ impl<'a> SemExprBuilder<'a> {
             }
             ExpectEqsFunctionTypeOutcomeData::TypeRitchie { .. } => {
                 let argument_sem_expr_idx =
-                    self.build_sem_expr(argument_syn_expr_idx, ExpectAnyDerived);
+                    self.build_expr(argument_syn_expr_idx, ExpectAnyDerived);
                 (
                     Ok(SemExprData::FunctionApplication {
                         function: function_sem_expr_idx,
@@ -68,7 +68,7 @@ impl<'a> SemExprBuilder<'a> {
         return_ty: FlyTerm,
         argument_syn_expr_idx: SynExprIdx,
     ) -> (SemExprIdx, SemExprTypeResult<FlyTerm>) {
-        let (argument_sem_expr_idx, argument_ty) = self.build_sem_expr_with_ty(
+        let (argument_sem_expr_idx, argument_ty) = self.build_expr_with_ty(
             argument_syn_expr_idx,
             ExpectCurryDestination::new(parameter_ty),
         );

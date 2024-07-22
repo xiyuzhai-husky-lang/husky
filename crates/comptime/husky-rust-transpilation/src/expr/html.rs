@@ -7,8 +7,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerHtmlArgumentExpr {
         builder.delimited(RustDelimiter::Par, |builder| {
             builder.str_literal(self.property_ident().data(db));
             builder.punctuation(RustPunctuation::CommaSpaced);
-            builder.punctuation(RustPunctuation::Ambersand);
-            (self.expr(), HirEagerExprSite::default()).transpile_to_rust(builder)
+            (self.expr(), HirEagerExprRole::html_argument()).transpile_to_rust(builder)
         })
     }
 }

@@ -24,21 +24,21 @@ use husky_term_prelude::literal::Literal;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct FlyTerm {
-    place: Option<FlyQuary>,
+    quary: Option<FlyQuary>,
     base: FlyTermBase,
 }
 
 impl FlyTerm {
-    pub(crate) fn new_ethereal(place: FlyQuary, ethereal_term: EthTerm) -> Self {
+    pub(crate) fn new_eth(quary: FlyQuary, eth_term: EthTerm) -> Self {
         Self {
-            place: Some(place),
-            base: ethereal_term.into(),
+            quary: Some(quary),
+            base: eth_term.into(),
         }
     }
 
-    pub fn with_quary(self, place: FlyQuary) -> Self {
+    pub fn with_quary(self, quary: FlyQuary) -> Self {
         Self {
-            place: Some(place),
+            quary: Some(quary),
             base: self.base,
         }
     }
@@ -57,7 +57,7 @@ pub enum FlyTermBase {
 impl From<FlyQuary> for FlyTerm {
     fn from(place: FlyQuary) -> Self {
         FlyTerm {
-            place: Some(place),
+            quary: Some(place),
             base: FlyTermBase::Place,
         }
     }
@@ -67,7 +67,7 @@ impl From<EthTerm> for FlyTerm {
     #[inline(always)]
     fn from(term: EthTerm) -> Self {
         Self {
-            place: None,
+            quary: None,
             base: term.into(),
         }
     }
@@ -125,7 +125,7 @@ impl From<SolTerm> for FlyTerm {
     #[inline(always)]
     fn from(term: SolTerm) -> Self {
         Self {
-            place: None,
+            quary: None,
             base: term.into(),
         }
     }
@@ -135,7 +135,7 @@ impl From<HolTerm> for FlyTerm {
     #[inline(always)]
     fn from(term: HolTerm) -> Self {
         Self {
-            place: None,
+            quary: None,
             base: term.into(),
         }
     }
@@ -151,13 +151,13 @@ fn term_to_fly_term_works() {
     }
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let term_menu = db.ethereal_term_menu(toolchain);
+    let term_menu = db.eth_term_menu(toolchain);
     t(Literal::I8(1))
 }
 
 impl FlyTerm {
     pub fn quary(self) -> Option<FlyQuary> {
-        self.place
+        self.quary
     }
 
     pub fn base_resolved(self, engine: &impl FlyTermEngine) -> FlyTermBase {
@@ -184,7 +184,11 @@ impl FlyTerm {
     }
 
     pub fn show2(self, db: &::salsa::Db, terms: &FlyTerms) -> String {
-        self.data2(db, terms).show(db, terms)
+        format!(
+            "{} @ {:?}",
+            self.base_term_data2(db, terms).show(db, terms),
+            self.quary
+        )
     }
 
     pub(crate) fn base(&self) -> FlyTermBase {

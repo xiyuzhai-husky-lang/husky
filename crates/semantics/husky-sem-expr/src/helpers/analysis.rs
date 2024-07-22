@@ -65,10 +65,8 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
                     return true;
                 }
             }
-            SemExprData::MethodRitchieCall {
-                instance_dispatch, ..
-            } => {
-                if instance_dispatch.requires_lazy_to_use(db) {
+            SemExprData::MethodRitchieCall { dispatch, .. } => {
+                if dispatch.requires_lazy_to_use(db) {
                     return true;
                 }
             }

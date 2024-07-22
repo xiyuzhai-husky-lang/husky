@@ -6781,6 +6781,7 @@ dependencies = [
  "husky-toml-token",
  "husky-vfs",
  "salsa",
+ "smallvec",
 ]
 
 [[package]]

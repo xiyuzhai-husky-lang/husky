@@ -1,22 +1,19 @@
-mod ethereal;
-mod hollow;
-mod solid;
+mod eth;
+mod hol;
+mod sol;
 
-pub(crate) use self::ethereal::*;
-
-use super::*;
-use crate::dispatch::instance::method::HasFlyMethodDispatch;
-use husky_coword::Ident;
-use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
-use husky_eth_signature::signature::package::PackageEthSignatureData;
+pub(crate) use self::eth::*;
 
 pub type FlyFieldInstanceDispatch = FlyInstanceDispatch<FieldFlySignature>;
 
 use super::*;
-use crate::quary::FlyQuary;
+use crate::{dispatch::instance::method::HasFlyMethodDispatch, quary::FlyQuary};
+use husky_coword::Ident;
 use husky_entity_path::path::assoc_item::AssocItemPath;
+use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
+use husky_eth_signature::signature::package::PackageEthSignatureData;
 use husky_eth_signature::signature::{
-    assoc_item::ty_item::memo_field::TypeMemoizedFieldEthSignature,
+    assoc_item::ty_item::memo::TypeMemoizedFieldEthSignature,
     major_item::ty::PropsFieldEthSignature,
 };
 
@@ -27,17 +24,19 @@ pub enum FieldFlySignature {
         ty: FlyTerm,
     },
     Memoized {
-        ty: FlyTerm,
+        self_ty: FlyTerm,
+        return_ty: FlyTerm,
+        expr_ty: FlyTerm,
         path: AssocItemPath,
         instantiation: FlyInstantiation,
     },
 }
 
 impl FieldFlySignature {
-    pub fn return_ty(&self) -> FlyTerm {
+    pub fn expr_ty(&self) -> FlyTerm {
         match *self {
             FieldFlySignature::PropsStruct { ty } => ty,
-            FieldFlySignature::Memoized { ty, .. } => ty,
+            FieldFlySignature::Memoized { expr_ty, .. } => expr_ty,
         }
     }
 }
@@ -48,7 +47,7 @@ impl IsInstanceItemFlySignature for FieldFlySignature {
         // todo: consider field mutability
         Ok(match *self {
             FieldFlySignature::PropsStruct { ty } => ty.with_quary(self_value_final_quary),
-            FieldFlySignature::Memoized { ty, .. } => ty.with_quary(self_value_final_quary),
+            FieldFlySignature::Memoized { expr_ty, .. } => expr_ty.with_quary(FlyQuary::Transient),
         })
     }
 
@@ -78,8 +77,9 @@ impl From<PropsFieldEthSignature> for FieldFlySignature {
 impl From<TypeMemoizedFieldEthSignature> for FieldFlySignature {
     fn from(signature: TypeMemoizedFieldEthSignature) -> Self {
         FieldFlySignature::Memoized {
-            // ad hoc
-            ty: signature.return_ty().into(),
+            self_ty: signature.return_ty().into(),
+            return_ty: signature.return_ty().into(),
+            expr_ty: signature.expr_ty().into(),
             path: signature.path().into(),
             instantiation: FlyInstantiation::from_eth(
                 FlyInstantiationEnvironment::MemoizedField,
@@ -113,13 +113,9 @@ impl FlyTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
         match self.base_resolved(engine) {
-            FlyTermBase::Eth(term) => ethereal_ty_field_dispatch(
-                engine.db(),
-                term,
-                ident,
-                indirections,
-                engine.context_ref(),
-            ),
+            FlyTermBase::Eth(term) => {
+                eth_ty_field_dispatch(engine.db(), term, ident, indirections, engine.context_ref())
+            }
             FlyTermBase::Sol(term) => {
                 term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }

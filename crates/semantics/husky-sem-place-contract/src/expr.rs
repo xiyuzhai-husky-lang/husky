@@ -29,7 +29,7 @@ impl<'a> PlaceContractEngine<'a> {
         {
             match outcome.coercion() {
                 FlyCoercion::Trivial(_) => (outer_contract, outer_site),
-                FlyCoercion::Never | FlyCoercion::PlaceToLeash | FlyCoercion::Deref(_) => {
+                FlyCoercion::Never | FlyCoercion::Redirection(_) | FlyCoercion::Dedirection(_) => {
                     (Contract::Pure, Default::default())
                 }
                 FlyCoercion::WrapInSome => (Contract::Move, Default::default()),
@@ -79,6 +79,7 @@ impl<'a> PlaceContractEngine<'a> {
             }
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx,
                 ref target,
             } => todo!(),
@@ -124,7 +125,7 @@ impl<'a> PlaceContractEngine<'a> {
             SemExprData::Ritchie { .. } => (),
             SemExprData::Field {
                 self_argument: owner,
-                self_ty: owner_ty,
+                self_argument_ty: owner_ty,
                 dot_regional_token_idx,
                 ident_token,
                 ref dispatch,
@@ -161,13 +162,13 @@ impl<'a> PlaceContractEngine<'a> {
                 }
             }
             SemExprData::Index {
-                owner,
-                ref index_sem_list_items,
+                self_argument,
+                items: ref index_sem_list_items,
                 ..
             } => {
-                self.infer_expr(owner, contract, site.clone());
+                self.infer_expr(self_argument, contract, site.clone());
                 for item in index_sem_list_items {
-                    self.infer_expr(item.sem_expr_idx, contract, Default::default());
+                    self.infer_expr(item.sem_expr_idx, Contract::Pure, Default::default());
                 }
             }
             SemExprData::CompositionWithList { .. } => (),

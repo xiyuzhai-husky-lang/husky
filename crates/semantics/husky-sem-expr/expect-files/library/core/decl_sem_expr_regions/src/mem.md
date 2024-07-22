@@ -32,7 +32,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -42,7 +42,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -56,13 +56,13 @@
                 inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`'a`),
                         ),
                     },
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`E`),
                         ),
@@ -90,6 +90,7 @@
             self_ty: Some(
                 EthTerm(`Ref 'a E`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -127,7 +128,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -137,7 +138,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -151,13 +152,13 @@
                 inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`'a`),
                         ),
                     },
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`E`),
                         ),
@@ -185,6 +186,7 @@
             self_ty: Some(
                 EthTerm(`RefMut 'a E`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -222,7 +224,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -236,7 +238,7 @@
                 inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`E`),
                         ),
@@ -264,6 +266,7 @@
             self_ty: Some(
                 EthTerm(`Leash E`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -301,7 +304,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -311,7 +314,7 @@
                     ),
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -325,13 +328,13 @@
                 inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`'α`),
                         ),
                     },
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`E`),
                         ),
@@ -359,6 +362,7 @@
             self_ty: Some(
                 EthTerm(`At 'α E`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -391,9 +395,9 @@
                                     instantiation: None,
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Trait`),
                                     ),
@@ -403,7 +407,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Trait`),
                                         ),
@@ -424,9 +428,9 @@
                                     instantiation: None,
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`covariant Type -> Type`),
                                     ),
@@ -436,7 +440,7 @@
                                 (
                                     1,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`covariant Type -> Type`),
                                         ),
@@ -464,9 +468,9 @@
                                     },
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: Some(
+                                    quary: Some(
                                         Compterm,
                                     ),
                                     base: FlyTermBase::Eth(
@@ -478,7 +482,7 @@
                                 (
                                     2,
                                     FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -499,9 +503,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Eth(
                                         EthTerm(`Type`),
                                     ),
@@ -511,7 +515,7 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
@@ -558,7 +562,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`Copy`),
                             ),
@@ -571,7 +575,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`Leash`),
                             ),
@@ -584,7 +588,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`E`),
                             ),
@@ -597,7 +601,7 @@
                     ),
                     Ok(
                         FlyTerm {
-                            place: None,
+                            quary: None,
                             base: FlyTermBase::Eth(
                                 EthTerm(`Leash E`),
                             ),
@@ -610,7 +614,7 @@
                 current_variable_map: [
                     SymbolType(
                         FlyTerm {
-                            place: Some(
+                            quary: Some(
                                 Compterm,
                             ),
                             base: FlyTermBase::Eth(
@@ -624,7 +628,7 @@
                 inherited_variable_map: [],
                 current_variable_map: [
                     FlyTerm {
-                        place: None,
+                        quary: None,
                         base: FlyTermBase::Eth(
                             EthTerm(`E`),
                         ),
@@ -655,7 +659,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Trait`),
                                         ),
@@ -682,7 +686,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`covariant Type -> Type`),
                                         ),
@@ -692,7 +696,7 @@
                                             ExpectationOutcome::EqsFunctionCallType(
                                                 ExpectEqsFunctionTypeOutcome {
                                                     return_ty: FlyTerm {
-                                                        place: None,
+                                                        quary: None,
                                                         base: FlyTermBase::Eth(
                                                             EthTerm(`Type`),
                                                         ),
@@ -701,13 +705,13 @@
                                                         variance: Covariant,
                                                         parameter_hvar: None,
                                                         parameter_ty: FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Eth(
                                                                 EthTerm(`Type`),
                                                             ),
                                                         },
                                                         return_ty: FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Eth(
                                                                 EthTerm(`Type`),
                                                             ),
@@ -723,7 +727,7 @@
                                 expectation: Expectation::CurryDestination(
                                     ExpectCurryDestination {
                                         curry_destination: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Type`),
                                             ),
@@ -737,7 +741,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: Some(
+                                        quary: Some(
                                             Compterm,
                                         ),
                                         base: FlyTermBase::Eth(
@@ -762,7 +766,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Eth(
                                             EthTerm(`Type`),
                                         ),
@@ -787,6 +791,7 @@
             self_ty: Some(
                 EthTerm(`Leash E`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },

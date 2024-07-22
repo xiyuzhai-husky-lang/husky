@@ -5,7 +5,7 @@ use vec_like::VecSet;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SolTerms {
-    entries: VecSet<SolidTermData>,
+    entries: VecSet<SolTermData>,
 }
 
 impl SolTerms {
@@ -17,7 +17,7 @@ impl SolTerms {
         Self { entries }
     }
 
-    pub(crate) fn intern_new(&mut self, data: SolidTermData) -> SolTerm {
+    pub(crate) fn intern_new(&mut self, data: SolTermData) -> SolTerm {
         let raw = self
             .entries
             .position_or_insert(data)
@@ -33,27 +33,27 @@ impl SolTerms {
 pub struct SolTerm(u32);
 
 impl SolTerm {
-    pub(crate) fn new(solid_terms: &mut SolTerms, data: SolidTermData) -> Self {
-        solid_terms.intern_new(data)
+    pub(crate) fn new(sol_terms: &mut SolTerms, data: SolTermData) -> Self {
+        sol_terms.intern_new(data)
     }
 
-    pub(crate) fn data(self, engine: &impl FlyTermEngine) -> &SolidTermData {
-        self.data_inner(&engine.fly_terms().sol_terms())
+    pub fn data(self, engine: &impl FlyTermEngine) -> &SolTermData {
+        self.data2(&engine.fly_terms().sol_terms())
     }
 
-    pub(crate) fn data_inner(self, solid_terms: &SolTerms) -> &SolidTermData {
-        &solid_terms.entries.data()[self.0 as usize]
+    pub fn data2(self, sol_terms: &SolTerms) -> &SolTermData {
+        &sol_terms.entries.data()[self.0 as usize]
     }
 
     #[inline(never)]
-    pub fn show(self, db: &::salsa::Db, solid_terms: &SolTerms) -> String {
-        match self.data_inner(solid_terms) {
-            SolidTermData::TypeOntology {
+    pub fn show(self, db: &::salsa::Db, sol_terms: &SolTerms) -> String {
+        match self.data2(sol_terms) {
+            SolTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::Curry {
+            SolTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -61,7 +61,7 @@ impl SolTerm {
                 parameter_ty,
                 return_ty,
             } => todo!(),
-            SolidTermData::Ritchie {
+            SolTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,

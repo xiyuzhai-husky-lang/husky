@@ -54,6 +54,7 @@
             },
             return_ty: None,
             self_ty: None,
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -113,6 +114,7 @@
             },
             return_ty: None,
             self_ty: None,
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -172,6 +174,7 @@
             },
             return_ty: None,
             self_ty: None,
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },

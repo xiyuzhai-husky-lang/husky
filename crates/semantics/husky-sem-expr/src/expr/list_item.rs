@@ -13,8 +13,8 @@ impl<'a> SemExprBuilder<'a> {
         syn_comma_list_item: SynCommaListItem,
         expr_ty_expectation: E,
     ) -> SemaCommaListItem {
-        let (sem_expr_idx, expectation_outcome) = self
-            .build_sem_expr_with_outcome(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
+        let (sem_expr_idx, expectation_outcome) =
+            self.build_expr_with_outcome(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
         SemaCommaListItem {
             sem_expr_idx,
             comma_regional_token_idx: syn_comma_list_item.comma_regional_token_idx(),
@@ -27,7 +27,7 @@ impl<'a> SemExprBuilder<'a> {
         expr_ty_expectation: E,
     ) -> (SemaCommaListItem, Option<FlyTerm>) {
         let (sem_expr_idx, ty) =
-            self.build_sem_expr_with_ty(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
+            self.build_expr_with_ty(syn_comma_list_item.syn_expr_idx(), expr_ty_expectation);
         (
             SemaCommaListItem {
                 sem_expr_idx,
@@ -156,7 +156,7 @@ impl<'a> SemExprBuilder<'a> {
         item: SynKeyedCallListItem,
         param: FlyRitchieKeyedParameter,
     ) -> SemaKeyedCallListItem {
-        let (argument_sem_expr_idx, coercion_outcome) = self.build_sem_expr_with_outcome(
+        let (argument_sem_expr_idx, coercion_outcome) = self.build_expr_with_outcome(
             item.argument_syn_expr_idx(),
             ExpectCoercion::new(param.contract(), param.ty()),
         );

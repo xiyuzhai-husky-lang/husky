@@ -7,7 +7,7 @@ pub use self::sol_terms::*;
 use super::*;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 
-// `Default` is not implemented because we might need to initialize `solid_terms` from the parent
+// `Default` is not implemented because we might need to initialize `sol_terms` from the parent
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyTerms {
@@ -71,8 +71,8 @@ impl FlyTerms {
         hole_source: HoleSource,
         parameter_hvar: FlyHvar,
     ) -> HolTerm {
-        let hole_kind = match parameter_hvar.data2(db, self) {
-            FlyTermData::LambdaVariable { ty, .. } => match ty.data2(db, self) {
+        let hole_kind = match parameter_hvar.base_term_data2(db, self) {
+            FlyTermData::LambdaVariable { ty, .. } => match ty.base_term_data2(db, self) {
                 FlyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
@@ -113,7 +113,7 @@ impl FlyTerms {
             //     FlyTermBase::Place => todo!(),
             // },
             _ => {
-                p!(parameter_hvar.data2(db, self).debug(db));
+                p!(parameter_hvar.base_term_data2(db, self).debug(db));
                 unreachable!()
             }
         };

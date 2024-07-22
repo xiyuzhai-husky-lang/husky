@@ -44,7 +44,7 @@ impl TraitItemFlySignature {
             trai_path,
             trai_arguments,
             ..
-        } = trai.data(engine)
+        } = trai.base_term_data(engine)
         else {
             todo!()
         };

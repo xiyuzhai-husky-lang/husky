@@ -35,11 +35,9 @@ impl WithFmtContext for FlyInstantiation {
         f: impl FnOnce() -> std::fmt::Result,
         db: &salsa::Db,
     ) -> std::fmt::Result {
-        use husky_eth_term::fmt::with_eth_term_fmt_context;
-        use husky_eth_term::instantiation::item_fmt_context;
+        use husky_eth_term::fmt::with_item_eth_term_fmt_context;
 
-        let ctx = item_fmt_context(db, *self.path);
-        with_eth_term_fmt_context(ctx, f, db)
+        with_item_eth_term_fmt_context(self.path, f, db)
     }
 }
 

@@ -26,7 +26,7 @@ impl FlyTerm {
                 todo!()
             }
             _ => {
-                let data = match function.data(engine) {
+                let data = match function.base_term_data(engine) {
                     FlyTermData::TypeOntology {
                         ty_path: path,
                         refined_ty_path: refined_path,
@@ -57,9 +57,9 @@ impl FlyTerm {
         }
     }
 
-    pub fn new_leashed(engine: &mut impl FlyTermEngineMut, ty: FlyTerm) -> EthTermResult<Self> {
+    pub fn leashed(self, engine: &mut impl FlyTermEngineMut) -> EthTermResult<Self> {
         let function: FlyTerm = engine.term_menu().leash_ty_ontology().into();
-        Self::new_application(engine, function, ty)
+        Self::new_application(engine, function, self)
     }
 
     pub fn new_ty_ontology(
@@ -92,7 +92,7 @@ impl FlyTerm {
                 }
                 FlyTermDataKind::Solid => fly_terms
                     .sol_terms_mut()
-                    .intern_new(SolidTermData::TypeOntology {
+                    .intern_new(SolTermData::TypeOntology {
                         path,
                         refined_path,
                         arguments,

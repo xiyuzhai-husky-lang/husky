@@ -44,6 +44,7 @@
                         MajorStaticVarEthTemplate {
                             path: MajorFormPath(`core::task::TASK`, `StaticVar`),
                             return_ty: EthTerm(`Task`),
+                            expr_ty: EthTerm(`Leash Task`),
                         },
                     ),
                 ),

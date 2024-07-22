@@ -111,7 +111,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
         if parameter_hvar.is_some() {
             todo!()
         }
-        match argument_ty.data(self) {
+        match argument_ty.base_term_data(self) {
             FlyTermData::Curry {
                 parameter_hvar: argument_parameter_variable,
                 return_ty: argument_return_ty,

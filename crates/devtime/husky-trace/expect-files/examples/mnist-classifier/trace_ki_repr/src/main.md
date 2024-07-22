@@ -1402,6 +1402,86 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 19,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 42,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 19,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        3,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        1,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -1469,7 +1549,7 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 42,
+                            value: 43,
                         },
                     ),
                     biological_parent: Trace(
@@ -1592,7 +1672,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 43,
+                            value: 44,
                         },
                     ),
                     biological_parent: Trace(
@@ -1758,7 +1838,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 43,
+                            value: 44,
                         },
                     ),
                     biological_parent: Trace(
@@ -1924,7 +2004,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 44,
+                            value: 45,
                         },
                     ),
                     biological_parent: Trace(
@@ -1990,7 +2070,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -2014,7 +2094,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -2105,7 +2185,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 45,
+                            value: 46,
                         },
                     ),
                     biological_parent: Trace(
@@ -2221,7 +2301,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 46,
+                            value: 47,
                         },
                     ),
                     biological_parent: Trace(
@@ -2331,7 +2411,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 47,
+                            value: 48,
                         },
                     ),
                     biological_parent: Trace(
@@ -2447,7 +2527,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 48,
+                            value: 49,
                         },
                     ),
                     biological_parent: Trace(
@@ -2557,7 +2637,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 49,
+                            value: 50,
                         },
                     ),
                     biological_parent: Trace(
@@ -2673,7 +2753,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 50,
+                            value: 51,
                         },
                     ),
                     biological_parent: Trace(
@@ -2775,6 +2855,92 @@
                             },
                         ),
                         essence: Haha,
+                        disambiguator: 7,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 52,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        41,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        40,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 40,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        5,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 40,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 21,
+                            },
+                        ),
+                        essence: Haha,
                         disambiguator: 0,
                     },
                 ),
@@ -2783,7 +2949,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 44,
+                            value: 45,
                         },
                     ),
                     biological_parent: Trace(
@@ -2849,7 +3015,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -2873,7 +3039,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -3059,7 +3225,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 51,
+                            value: 53,
                         },
                     ),
                     biological_parent: Trace(
@@ -3175,7 +3341,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 52,
+                            value: 54,
                         },
                     ),
                     biological_parent: Trace(
@@ -3260,6 +3426,97 @@
                     },
                     source: Expr {
                         expr: 44,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 22,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        46,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        45,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 49,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                3.0,
+                            ),
+                            text: "3.0f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 45,
                     },
                 },
                 caching_class: Expr,
@@ -3431,7 +3688,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 53,
+                            value: 56,
                         },
                     ),
                     biological_parent: Trace(
@@ -3541,7 +3798,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 54,
+                            value: 57,
                         },
                     ),
                     biological_parent: Trace(
@@ -3586,8 +3843,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -3624,6 +3890,94 @@
                     },
                     source: Expr {
                         expr: 49,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 58,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 23,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        51,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        50,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 54,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 1,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 50,
                     },
                 },
                 caching_class: Expr,
@@ -3795,7 +4149,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 55,
+                            value: 59,
                         },
                     ),
                     biological_parent: Trace(
@@ -3905,7 +4259,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 56,
+                            value: 60,
                         },
                     ),
                     biological_parent: Trace(
@@ -3950,8 +4304,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -3988,6 +4351,94 @@
                     },
                     source: Expr {
                         expr: 54,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 24,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 61,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 24,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        57,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        55,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 61,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 55,
                     },
                 },
                 caching_class: Expr,
@@ -4064,7 +4515,7 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 57,
+                            value: 62,
                         },
                     ),
                     biological_parent: Trace(
@@ -4220,7 +4671,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 58,
+                            value: 63,
                         },
                     ),
                     biological_parent: Trace(
@@ -4330,7 +4781,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 59,
+                            value: 64,
                         },
                     ),
                     biological_parent: Trace(
@@ -4375,8 +4826,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -4413,6 +4873,94 @@
                     },
                     source: Expr {
                         expr: 59,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 25,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 65,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        63,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        60,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 60,
                     },
                 },
                 caching_class: Expr,
@@ -4489,7 +5037,7 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 60,
+                            value: 66,
                         },
                     ),
                     biological_parent: Trace(
@@ -4598,7 +5146,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 61,
+                            value: 67,
                         },
                     ),
                     biological_parent: Trace(
@@ -4696,7 +5244,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 62,
+                            value: 68,
                         },
                     ),
                     biological_parent: Trace(
@@ -4806,7 +5354,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 63,
+                            value: 69,
                         },
                     ),
                     biological_parent: Trace(
@@ -4921,7 +5469,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 64,
+                            value: 70,
                         },
                     ),
                     biological_parent: Trace(
@@ -5019,7 +5567,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 65,
+                            value: 71,
                         },
                     ),
                     biological_parent: Trace(
@@ -5129,7 +5677,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 66,
+                            value: 72,
                         },
                     ),
                     biological_parent: Trace(
@@ -5295,7 +5843,7 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 67,
+                            value: 73,
                         },
                     ),
                     biological_parent: Trace(
@@ -5398,7 +5946,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 68,
+                            value: 74,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -5455,7 +6003,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 69,
+                            value: 75,
                         },
                     ),
                     biological_parent: Trace(
@@ -5565,7 +6113,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 70,
+                            value: 76,
                         },
                     ),
                     biological_parent: Trace(
@@ -5674,7 +6222,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 68,
+                            value: 74,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -5731,7 +6279,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 71,
+                            value: 77,
                         },
                     ),
                     biological_parent: Trace(
@@ -5841,7 +6389,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 72,
+                            value: 78,
                         },
                     ),
                     biological_parent: Trace(
@@ -6007,7 +6555,7 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 73,
+                            value: 79,
                         },
                     ),
                     biological_parent: Trace(
@@ -6116,7 +6664,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 74,
+                            value: 80,
                         },
                     ),
                     biological_parent: Trace(
@@ -6218,7 +6766,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 75,
+                            value: 81,
                         },
                     ),
                     biological_parent: Trace(
@@ -6415,7 +6963,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 76,
+                            value: 82,
                         },
                     ),
                     biological_parent: Trace(
@@ -6501,6 +7049,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 29,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 83,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        85,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        82,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                0.4,
+                            ),
+                            text: "0.4f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 82,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -6568,7 +7207,7 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 77,
+                            value: 84,
                         },
                     ),
                     biological_parent: Trace(
@@ -6686,7 +7325,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 78,
+                            value: 85,
                         },
                     ),
                     biological_parent: Trace(
@@ -6802,7 +7441,7 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 79,
+                            value: 86,
                         },
                     ),
                     biological_parent: Trace(
@@ -6980,7 +7619,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 80,
+                            value: 87,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -7025,7 +7664,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 80,
+                                value: 87,
                             },
                         ),
                         essence: Eval,
@@ -7037,12 +7676,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 82,
+                            value: 89,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 85,
+                            value: 92,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -7077,7 +7716,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 80,
+                                            value: 87,
                                         },
                                     ),
                                     essence: Eval,
@@ -7094,12 +7733,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 83,
+                            value: 90,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 87,
+                            value: 94,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -7189,7 +7828,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 80,
+                                            value: 87,
                                         },
                                     ),
                                     essence: Eval,
@@ -7206,12 +7845,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 83,
+                            value: 90,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 87,
+                            value: 94,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -7253,7 +7892,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 81,
+                            value: 88,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -7301,12 +7940,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 84,
+                            value: 91,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 86,
+                            value: 93,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -7338,7 +7977,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 84,
+                                value: 91,
                             },
                         ),
                         essence: Haha,
@@ -7350,12 +7989,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 88,
+                            value: 95,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 90,
+                            value: 97,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -7410,7 +8049,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -7434,7 +8073,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -7559,7 +8198,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 84,
+                                value: 91,
                             },
                         ),
                         essence: Haha,
@@ -7571,12 +8210,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 89,
+                            value: 96,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 90,
+                            value: 97,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -7669,7 +8308,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 90,
+                            value: 97,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -7714,7 +8353,87 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 84,
+                                value: 91,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 98,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 97,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        4,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 188,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        5,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 4,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 91,
                             },
                         ),
                         essence: Haha,
@@ -7726,12 +8445,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 88,
+                            value: 95,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 90,
+                            value: 97,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -7786,7 +8505,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -7810,7 +8529,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -7898,12 +8617,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 85,
+                            value: 92,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 86,
+                            value: 93,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -7935,7 +8654,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 85,
+                                value: 92,
                             },
                         ),
                         essence: AdHoc,
@@ -7947,12 +8666,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 91,
+                            value: 99,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 91,
+                            value: 98,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -8058,7 +8777,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 85,
+                                value: 92,
                             },
                         ),
                         essence: Haha,
@@ -8070,12 +8789,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 92,
+                            value: 100,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 91,
+                            value: 98,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -8224,7 +8943,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 85,
+                                value: 92,
                             },
                         ),
                         essence: Haha,
@@ -8236,12 +8955,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 92,
+                            value: 100,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 91,
+                            value: 98,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -8353,12 +9072,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 86,
+                            value: 93,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 86,
+                            value: 93,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -8559,12 +9278,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 93,
+                            value: 101,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 92,
+                            value: 99,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -8618,12 +9337,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 94,
+                            value: 102,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 92,
+                            value: 99,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -8739,12 +9458,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 95,
+                            value: 103,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 92,
+                            value: 99,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -8776,7 +9495,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 86,
+                                value: 93,
                             },
                         ),
                         essence: Haha,
@@ -8788,12 +9507,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 96,
+                            value: 104,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 92,
+                            value: 99,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -8892,7 +9611,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 86,
+                                value: 93,
                             },
                         ),
                         essence: Haha,
@@ -8904,12 +9623,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 97,
+                            value: 105,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 92,
+                            value: 99,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -8998,6 +9717,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 93,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 106,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 99,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        13,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        13,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 188,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 104,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                3.0,
+                            ),
+                            text: "3.0f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 13,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -9016,12 +9826,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 87,
+                            value: 94,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 86,
+                            value: 93,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9222,12 +10032,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 98,
+                            value: 107,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9325,12 +10135,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 99,
+                            value: 108,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9428,12 +10238,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 100,
+                            value: 109,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9487,12 +10297,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 101,
+                            value: 110,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9546,12 +10356,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 102,
+                            value: 111,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9605,12 +10415,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 103,
+                            value: 112,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9741,12 +10551,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 104,
+                            value: 113,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9800,12 +10610,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 105,
+                            value: 114,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9903,12 +10713,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 106,
+                            value: 115,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -9962,12 +10772,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 107,
+                            value: 116,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10021,12 +10831,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 108,
+                            value: 117,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10157,12 +10967,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 109,
+                            value: 118,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10278,12 +11088,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 110,
+                            value: 119,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10381,12 +11191,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 111,
+                            value: 120,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10440,12 +11250,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 112,
+                            value: 121,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10499,12 +11309,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 113,
+                            value: 122,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10558,12 +11368,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 114,
+                            value: 123,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10617,12 +11427,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 115,
+                            value: 124,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10676,12 +11486,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 116,
+                            value: 125,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10779,12 +11589,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 117,
+                            value: 126,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10838,12 +11648,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 118,
+                            value: 127,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10897,12 +11707,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 119,
+                            value: 128,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -10956,12 +11766,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 120,
+                            value: 129,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -11015,12 +11825,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 121,
+                            value: 130,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -11118,12 +11928,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 122,
+                            value: 131,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -11221,12 +12031,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 123,
+                            value: 132,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 93,
+                            value: 100,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -11287,7 +12097,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 124,
+                            value: 133,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -11332,7 +12142,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 124,
+                                value: 133,
                             },
                         ),
                         essence: Eval,
@@ -11344,12 +12154,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 127,
+                            value: 136,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 132,
+                            value: 141,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -11384,7 +12194,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 124,
+                                            value: 133,
                                         },
                                     ),
                                     essence: Eval,
@@ -11401,12 +12211,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 128,
+                            value: 137,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 135,
+                            value: 144,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -11496,7 +12306,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 124,
+                                            value: 133,
                                         },
                                     ),
                                     essence: Eval,
@@ -11513,12 +12323,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 128,
+                            value: 137,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 135,
+                            value: 144,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -11560,7 +12370,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 125,
+                            value: 134,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -11605,7 +12415,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 125,
+                                value: 134,
                             },
                         ),
                         essence: Eval,
@@ -11617,12 +12427,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 129,
+                            value: 138,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 133,
+                            value: 142,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -11657,7 +12467,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 125,
+                                            value: 134,
                                         },
                                     ),
                                     essence: Eval,
@@ -11674,12 +12484,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 130,
+                            value: 139,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 138,
+                            value: 147,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -11769,7 +12579,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 125,
+                                            value: 134,
                                         },
                                     ),
                                     essence: Eval,
@@ -11786,12 +12596,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 130,
+                            value: 139,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 138,
+                            value: 147,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -11833,7 +12643,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 126,
+                            value: 135,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -11881,12 +12691,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 131,
+                            value: 140,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -11918,7 +12728,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 131,
+                                value: 140,
                             },
                         ),
                         essence: AdHoc,
@@ -11930,12 +12740,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 142,
+                            value: 151,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 141,
+                            value: 150,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -12023,7 +12833,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 124,
+                            value: 133,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -12068,7 +12878,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 131,
+                                value: 140,
                             },
                         ),
                         essence: Haha,
@@ -12080,12 +12890,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 143,
+                            value: 152,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 141,
+                            value: 150,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -12119,8 +12929,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -12166,6 +12985,88 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 140,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 153,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 150,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        2,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 2,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -12184,12 +13085,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 132,
+                            value: 141,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -12259,7 +13160,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 132,
+                                value: 141,
                             },
                         ),
                         essence: Haha,
@@ -12271,12 +13172,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 144,
+                            value: 154,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 142,
+                            value: 151,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -12365,12 +13266,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 133,
+                            value: 142,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -12402,7 +13303,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 133,
+                                value: 142,
                             },
                         ),
                         essence: AdHoc,
@@ -12414,12 +13315,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 145,
+                            value: 155,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 143,
+                            value: 152,
                         },
                     ),
                     syn_pattern_idx: 3,
@@ -12571,7 +13472,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 133,
+                                value: 142,
                             },
                         ),
                         essence: Haha,
@@ -12583,12 +13484,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 146,
+                            value: 156,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 143,
+                            value: 152,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -12695,12 +13596,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -12732,7 +13633,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 134,
+                                value: 143,
                             },
                         ),
                         essence: AdHoc,
@@ -12744,12 +13645,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 147,
+                            value: 157,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 144,
+                            value: 153,
                         },
                     ),
                     syn_pattern_idx: 4,
@@ -12892,7 +13793,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 134,
+                                value: 143,
                             },
                         ),
                         essence: Haha,
@@ -12904,12 +13805,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 148,
+                            value: 158,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 144,
+                            value: 153,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -13053,7 +13954,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 134,
+                                value: 143,
                             },
                         ),
                         essence: Haha,
@@ -13065,12 +13966,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 149,
+                            value: 159,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 144,
+                            value: 153,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -13177,12 +14078,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 135,
+                            value: 144,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13323,12 +14224,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 150,
+                            value: 160,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13382,12 +14283,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 151,
+                            value: 161,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13441,12 +14342,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 152,
+                            value: 162,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13500,12 +14401,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 153,
+                            value: 163,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13559,12 +14460,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 154,
+                            value: 164,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13618,12 +14519,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 155,
+                            value: 165,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13677,12 +14578,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 156,
+                            value: 166,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13780,12 +14681,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 157,
+                            value: 167,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13916,12 +14817,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 158,
+                            value: 168,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -13975,12 +14876,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 159,
+                            value: 169,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -14034,12 +14935,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 160,
+                            value: 170,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -14155,12 +15056,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 161,
+                            value: 171,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -14229,7 +15130,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 135,
+                                value: 144,
                             },
                         ),
                         essence: Haha,
@@ -14241,12 +15142,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 162,
+                            value: 172,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -14340,7 +15241,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 135,
+                                value: 144,
                             },
                         ),
                         essence: Haha,
@@ -14352,12 +15253,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 163,
+                            value: 173,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 145,
+                            value: 154,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -14397,8 +15298,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -14444,6 +15354,94 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 144,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 174,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 154,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        15,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        14,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 332,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 14,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -14462,12 +15460,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 136,
+                            value: 145,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -14499,7 +15497,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 136,
+                                value: 145,
                             },
                         ),
                         essence: Haha,
@@ -14511,12 +15509,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 164,
+                            value: 175,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 146,
+                            value: 155,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -14577,7 +15575,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -14601,7 +15599,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -14676,7 +15674,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 124,
+                            value: 133,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -14721,7 +15719,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 136,
+                                value: 145,
                             },
                         ),
                         essence: Haha,
@@ -14733,12 +15731,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 165,
+                            value: 176,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 146,
+                            value: 155,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -14831,7 +15829,93 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 136,
+                                value: 145,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 177,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 155,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        85,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        82,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 402,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        5,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 82,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 145,
                             },
                         ),
                         essence: Haha,
@@ -14843,12 +15927,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 164,
+                            value: 175,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 146,
+                            value: 155,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -14909,7 +15993,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -14933,7 +16017,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -15016,12 +16100,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 137,
+                            value: 146,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -15137,12 +16221,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 166,
+                            value: 178,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 147,
+                            value: 156,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -15224,7 +16308,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 124,
+                            value: 133,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -15269,7 +16353,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 137,
+                                value: 146,
                             },
                         ),
                         essence: Haha,
@@ -15281,12 +16365,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 167,
+                            value: 179,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 147,
+                            value: 156,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -15375,6 +16459,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 146,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 180,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 156,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        90,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        87,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 406,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                1.8,
+                            ),
+                            text: "1.8f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 87,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -15393,12 +16568,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 138,
+                            value: 147,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -15474,7 +16649,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
@@ -15486,12 +16661,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 168,
+                            value: 181,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 148,
+                            value: 157,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -15585,7 +16760,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
@@ -15597,12 +16772,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 169,
+                            value: 182,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 148,
+                            value: 157,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -15642,8 +16817,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -15693,7 +16877,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
@@ -15705,12 +16889,100 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 170,
+                            value: 183,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 148,
+                            value: 157,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        98,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        95,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 415,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 95,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 147,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 3,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 184,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 157,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -15803,11 +17075,11 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
-                        disambiguator: 3,
+                        disambiguator: 4,
                     },
                 ),
             },
@@ -15815,12 +17087,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 171,
+                            value: 185,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 148,
+                            value: 157,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -15914,6 +17186,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 147,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 5,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 186,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 157,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        103,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        100,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 415,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                0.75,
+                            ),
+                            text: "0.75f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 100,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -15932,12 +17295,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 139,
+                            value: 148,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -16053,12 +17416,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 172,
+                            value: 187,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 149,
+                            value: 158,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -16134,7 +17497,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 139,
+                                value: 148,
                             },
                         ),
                         essence: Haha,
@@ -16146,12 +17509,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 173,
+                            value: 188,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 149,
+                            value: 158,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -16245,7 +17608,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 139,
+                                value: 148,
                             },
                         ),
                         essence: Haha,
@@ -16257,12 +17620,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 174,
+                            value: 189,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 149,
+                            value: 158,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -16302,8 +17665,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -16349,6 +17721,94 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 148,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 190,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 158,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        107,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        104,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 425,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 1,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 104,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -16367,12 +17827,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 140,
+                            value: 149,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -16448,7 +17908,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 140,
+                                value: 149,
                             },
                         ),
                         essence: Haha,
@@ -16460,12 +17920,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 175,
+                            value: 191,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 150,
+                            value: 159,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -16546,6 +18006,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 149,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 192,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 159,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        120,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        116,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 440,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                15.0,
+                            ),
+                            text: "15.0f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 116,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -16564,12 +18115,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 141,
+                            value: 150,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -16630,7 +18181,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -16675,7 +18226,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 176,
+                                value: 193,
                             },
                         ),
                         essence: Eval,
@@ -16687,12 +18238,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 178,
+                            value: 195,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 192,
+                            value: 209,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -16727,7 +18278,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 176,
+                                            value: 193,
                                         },
                                     ),
                                     essence: Eval,
@@ -16744,12 +18295,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 179,
+                            value: 196,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 194,
+                            value: 211,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -16839,7 +18390,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 176,
+                                            value: 193,
                                         },
                                     ),
                                     essence: Eval,
@@ -16856,12 +18407,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 179,
+                            value: 196,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 194,
+                            value: 211,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -16903,7 +18454,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 177,
+                            value: 194,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -16948,7 +18499,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -16960,12 +18511,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 180,
+                            value: 197,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -17051,7 +18602,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -17068,12 +18619,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 197,
+                            value: 214,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 197,
+                            value: 214,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -17105,11 +18656,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 215,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 214,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        2,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -17121,12 +18733,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 181,
+                            value: 198,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -17212,7 +18824,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -17229,12 +18841,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 198,
+                            value: 216,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 198,
+                            value: 215,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -17266,11 +18878,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 215,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        6,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        6,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -17282,12 +18955,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 182,
+                            value: 199,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -17319,7 +18992,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 182,
+                                value: 199,
                             },
                         ),
                         essence: Haha,
@@ -17331,12 +19004,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 199,
+                            value: 218,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 199,
+                            value: 216,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -17377,7 +19050,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -17425,7 +19098,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -17442,12 +19115,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 200,
+                            value: 219,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 199,
+                            value: 216,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -17479,11 +19152,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 220,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 216,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        10,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -17495,12 +19229,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 183,
+                            value: 200,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -17532,7 +19266,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 183,
+                                value: 200,
                             },
                         ),
                         essence: Haha,
@@ -17544,12 +19278,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 201,
+                            value: 221,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 200,
+                            value: 217,
                         },
                     ),
                     syn_pattern_idx: 1,
@@ -17590,7 +19324,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -17638,7 +19372,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -17655,12 +19389,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 202,
+                            value: 222,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 200,
+                            value: 217,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -17692,11 +19426,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 223,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        14,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        14,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -17708,12 +19503,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 184,
+                            value: 201,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -17745,7 +19540,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 184,
+                                value: 201,
                             },
                         ),
                         essence: Haha,
@@ -17757,12 +19552,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 203,
+                            value: 224,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 201,
+                            value: 218,
                         },
                     ),
                     syn_pattern_idx: 2,
@@ -17803,7 +19598,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -17851,7 +19646,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -17868,12 +19663,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 204,
+                            value: 225,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 201,
+                            value: 218,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -17905,11 +19700,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 226,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 218,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        18,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        18,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -17921,12 +19777,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 185,
+                            value: 202,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -17961,7 +19817,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -17978,12 +19834,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 205,
+                            value: 227,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 202,
+                            value: 219,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18019,7 +19875,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -18031,12 +19887,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 186,
+                            value: 203,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -18071,7 +19927,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -18088,12 +19944,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 206,
+                            value: 228,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 203,
+                            value: 220,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18132,7 +19988,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -18149,12 +20005,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 207,
+                            value: 229,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 203,
+                            value: 220,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18186,11 +20042,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 3,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 230,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 220,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        25,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        24,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -18202,12 +20119,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 187,
+                            value: 204,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -18242,7 +20159,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -18259,12 +20176,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 208,
+                            value: 231,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 204,
+                            value: 221,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18300,7 +20217,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -18312,12 +20229,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 188,
+                            value: 205,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -18349,7 +20266,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 188,
+                                value: 205,
                             },
                         ),
                         essence: Haha,
@@ -18361,12 +20278,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 209,
+                            value: 232,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 205,
+                            value: 222,
                         },
                     ),
                     syn_pattern_idx: 7,
@@ -18404,7 +20321,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -18421,12 +20338,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 210,
+                            value: 233,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 205,
+                            value: 222,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18465,7 +20382,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -18482,12 +20399,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 211,
+                            value: 234,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 205,
+                            value: 222,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18526,7 +20443,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -18543,12 +20460,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 212,
+                            value: 235,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 205,
+                            value: 222,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18580,11 +20497,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 3,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 3,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 236,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 222,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        32,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        30,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -18596,12 +20574,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 189,
+                            value: 206,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -18636,7 +20614,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -18653,12 +20631,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 213,
+                            value: 237,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 206,
+                            value: 223,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18697,7 +20675,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -18714,12 +20692,73 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 214,
+                            value: 238,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 206,
+                            value: 223,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        35,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        33,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 5,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 239,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 223,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18751,11 +20790,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 5,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 3,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 240,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 223,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        38,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        36,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -18767,12 +20867,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 190,
+                            value: 207,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -18804,7 +20904,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 190,
+                                value: 207,
                             },
                         ),
                         essence: Haha,
@@ -18816,12 +20916,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 215,
+                            value: 241,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 207,
+                            value: 224,
                         },
                     ),
                     syn_pattern_idx: 8,
@@ -18859,7 +20959,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -18876,12 +20976,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 216,
+                            value: 242,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 207,
+                            value: 224,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18920,7 +21020,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -18937,12 +21037,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 217,
+                            value: 243,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 207,
+                            value: 224,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -18978,7 +21078,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -18990,12 +21090,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 191,
+                            value: 208,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -19027,7 +21127,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 191,
+                                value: 208,
                             },
                         ),
                         essence: Haha,
@@ -19039,12 +21139,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 218,
+                            value: 244,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 208,
+                            value: 225,
                         },
                     ),
                     syn_pattern_idx: 9,
@@ -19082,7 +21182,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -19099,12 +21199,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 219,
+                            value: 245,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 208,
+                            value: 225,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19143,7 +21243,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -19160,12 +21260,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 220,
+                            value: 246,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 208,
+                            value: 225,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19201,7 +21301,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -19213,12 +21313,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 192,
+                            value: 209,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -19250,7 +21350,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 192,
+                                value: 209,
                             },
                         ),
                         essence: Haha,
@@ -19262,12 +21362,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 221,
+                            value: 247,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 209,
+                            value: 226,
                         },
                     ),
                     syn_pattern_idx: 10,
@@ -19305,7 +21405,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -19322,12 +21422,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 222,
+                            value: 248,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 209,
+                            value: 226,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19366,7 +21466,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -19383,12 +21483,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 223,
+                            value: 249,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 209,
+                            value: 226,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19427,7 +21527,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -19444,12 +21544,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 224,
+                            value: 250,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 209,
+                            value: 226,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19485,7 +21585,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -19497,12 +21597,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -19537,7 +21637,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -19554,12 +21654,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 225,
+                            value: 251,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 210,
+                            value: 227,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19591,11 +21691,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 6,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 252,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 227,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        52,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        50,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -19607,12 +21768,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 194,
+                            value: 211,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -19650,7 +21811,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -19698,7 +21859,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -19715,12 +21876,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 226,
+                            value: 253,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 211,
+                            value: 228,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19752,11 +21913,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 7,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 254,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 228,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        56,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        54,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -19768,12 +21990,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 195,
+                            value: 212,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -19808,7 +22030,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -19825,12 +22047,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 227,
+                            value: 255,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 212,
+                            value: 229,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19869,7 +22091,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -19886,12 +22108,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 228,
+                            value: 256,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 212,
+                            value: 229,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -19923,11 +22145,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 8,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 257,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 229,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        61,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        59,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Eval,
@@ -19939,12 +22222,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 196,
+                            value: 213,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -20005,7 +22288,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 229,
+                            value: 258,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -20050,7 +22333,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 229,
+                                value: 258,
                             },
                         ),
                         essence: Eval,
@@ -20062,12 +22345,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 233,
+                            value: 262,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 252,
+                            value: 281,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -20102,7 +22385,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 229,
+                                            value: 258,
                                         },
                                     ),
                                     essence: Eval,
@@ -20119,12 +22402,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 234,
+                            value: 263,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 256,
+                            value: 285,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -20214,7 +22497,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 229,
+                                            value: 258,
                                         },
                                     ),
                                     essence: Eval,
@@ -20231,12 +22514,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 234,
+                            value: 263,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 256,
+                            value: 285,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -20278,7 +22561,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 230,
+                            value: 259,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -20323,7 +22606,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 230,
+                                value: 259,
                             },
                         ),
                         essence: Eval,
@@ -20335,12 +22618,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 235,
+                            value: 264,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 253,
+                            value: 282,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -20375,7 +22658,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 230,
+                                            value: 259,
                                         },
                                     ),
                                     essence: Eval,
@@ -20392,12 +22675,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 236,
+                            value: 265,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 259,
+                            value: 288,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -20487,7 +22770,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 230,
+                                            value: 259,
                                         },
                                     ),
                                     essence: Eval,
@@ -20504,12 +22787,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 236,
+                            value: 265,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 259,
+                            value: 288,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -20551,7 +22834,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 231,
+                            value: 260,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -20596,7 +22879,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 231,
+                                value: 260,
                             },
                         ),
                         essence: Eval,
@@ -20608,12 +22891,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 237,
+                            value: 266,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 254,
+                            value: 283,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -20648,7 +22931,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 231,
+                                            value: 260,
                                         },
                                     ),
                                     essence: Eval,
@@ -20665,12 +22948,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 238,
+                            value: 267,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 262,
+                            value: 291,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -20760,7 +23043,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 231,
+                                            value: 260,
                                         },
                                     ),
                                     essence: Eval,
@@ -20777,12 +23060,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 238,
+                            value: 267,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 262,
+                            value: 291,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -20824,7 +23107,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 232,
+                            value: 261,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -20869,7 +23152,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Require,
@@ -20881,12 +23164,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 239,
+                            value: 268,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -20924,7 +23207,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 229,
+                            value: 258,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -20972,7 +23255,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Require,
@@ -20989,12 +23272,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 250,
+                            value: 279,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 265,
+                            value: 294,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -21026,11 +23309,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 261,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 280,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 294,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        2,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 267,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Require,
@@ -21042,12 +23386,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 240,
+                            value: 269,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -21085,7 +23429,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 229,
+                            value: 258,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -21133,7 +23477,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Require,
@@ -21150,12 +23494,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 251,
+                            value: 281,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 266,
+                            value: 295,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -21187,11 +23531,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 261,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 282,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 295,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        7,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        6,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 267,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Let,
@@ -21203,12 +23608,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 241,
+                            value: 270,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -21240,7 +23645,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 241,
+                                value: 270,
                             },
                         ),
                         essence: Haha,
@@ -21252,12 +23657,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 252,
+                            value: 283,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 267,
+                            value: 296,
                         },
                     ),
                     syn_pattern_idx: 4,
@@ -21346,7 +23751,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Let,
@@ -21363,12 +23768,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 253,
+                            value: 284,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 267,
+                            value: 296,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -21404,7 +23809,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Require,
@@ -21416,12 +23821,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 242,
+                            value: 271,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -21456,7 +23861,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Require,
@@ -21473,12 +23878,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 254,
+                            value: 285,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 268,
+                            value: 297,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -21517,7 +23922,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Require,
@@ -21534,12 +23939,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 255,
+                            value: 286,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 268,
+                            value: 297,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -21571,11 +23976,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 261,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 287,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 297,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        14,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        12,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 267,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Let,
@@ -21587,12 +24053,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 243,
+                            value: 272,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -21624,7 +24090,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 243,
+                                value: 272,
                             },
                         ),
                         essence: Haha,
@@ -21636,12 +24102,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 256,
+                            value: 288,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 269,
+                            value: 298,
                         },
                     ),
                     syn_pattern_idx: 6,
@@ -21682,7 +24148,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 230,
+                            value: 259,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -21730,7 +24196,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Let,
@@ -21747,12 +24213,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 257,
+                            value: 289,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 269,
+                            value: 298,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -21784,11 +24250,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 261,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 290,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 298,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        19,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        16,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 267,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Require,
@@ -21800,12 +24327,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 244,
+                            value: 273,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -21840,7 +24367,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Require,
@@ -21857,12 +24384,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 258,
+                            value: 291,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 270,
+                            value: 299,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -21898,7 +24425,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Let,
@@ -21910,12 +24437,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 245,
+                            value: 274,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -21947,7 +24474,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 245,
+                                value: 274,
                             },
                         ),
                         essence: Haha,
@@ -21959,12 +24486,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 259,
+                            value: 292,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 271,
+                            value: 300,
                         },
                     ),
                     syn_pattern_idx: 9,
@@ -22002,7 +24529,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Let,
@@ -22019,12 +24546,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 260,
+                            value: 293,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 271,
+                            value: 300,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -22063,7 +24590,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Let,
@@ -22080,12 +24607,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 261,
+                            value: 294,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 271,
+                            value: 300,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -22124,7 +24651,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Let,
@@ -22141,12 +24668,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 262,
+                            value: 295,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 271,
+                            value: 300,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -22182,7 +24709,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Let,
@@ -22194,12 +24721,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 246,
+                            value: 275,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22231,7 +24758,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 246,
+                                value: 275,
                             },
                         ),
                         essence: Haha,
@@ -22243,12 +24770,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 263,
+                            value: 296,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 272,
+                            value: 301,
                         },
                     ),
                     syn_pattern_idx: 10,
@@ -22337,7 +24864,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Let,
@@ -22354,12 +24881,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 264,
+                            value: 297,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 272,
+                            value: 301,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -22449,7 +24976,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Let,
@@ -22466,12 +24993,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 265,
+                            value: 298,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 272,
+                            value: 301,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -22507,7 +25034,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Require,
@@ -22519,12 +25046,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 247,
+                            value: 276,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22559,7 +25086,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: Require,
@@ -22576,12 +25103,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 266,
+                            value: 299,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 273,
+                            value: 302,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -22613,11 +25140,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 261,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 4,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 302,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        33,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        29,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 267,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: IfBranch,
@@ -22629,12 +25217,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 248,
+                            value: 277,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22682,7 +25270,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -22694,12 +25282,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 267,
+                            value: 301,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22731,7 +25319,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Let,
@@ -22743,12 +25331,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 268,
+                            value: 302,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22780,7 +25368,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -22792,12 +25380,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 269,
+                            value: 303,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22829,7 +25417,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -22841,12 +25429,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 270,
+                            value: 304,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22878,7 +25466,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Let,
@@ -22890,12 +25478,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 271,
+                            value: 305,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22927,7 +25515,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Let,
@@ -22939,12 +25527,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 272,
+                            value: 306,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -22976,7 +25564,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -22988,12 +25576,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 273,
+                            value: 307,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23025,7 +25613,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -23037,12 +25625,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 274,
+                            value: 308,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23074,7 +25662,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -23086,12 +25674,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 275,
+                            value: 309,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23123,7 +25711,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -23135,12 +25723,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 276,
+                            value: 310,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23172,7 +25760,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Let,
@@ -23184,12 +25772,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 277,
+                            value: 311,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23221,7 +25809,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -23233,12 +25821,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 278,
+                            value: 312,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23270,7 +25858,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Require,
@@ -23282,12 +25870,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 279,
+                            value: 313,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23319,7 +25907,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 248,
+                                value: 277,
                             },
                         ),
                         essence: Return,
@@ -23331,12 +25919,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 280,
+                            value: 314,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23371,7 +25959,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -23388,12 +25976,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 281,
+                            value: 315,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -23432,7 +26020,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 232,
+                                            value: 261,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -23449,12 +26037,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 282,
+                            value: 316,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 274,
+                            value: 303,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -23486,11 +26074,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 261,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 317,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 303,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        37,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        33,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 267,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 232,
+                                value: 261,
                             },
                         ),
                         essence: Eval,
@@ -23502,12 +26151,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 249,
+                            value: 278,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 255,
+                            value: 284,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23568,7 +26217,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 283,
+                            value: 318,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -23613,7 +26262,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 283,
+                                value: 318,
                             },
                         ),
                         essence: Eval,
@@ -23625,12 +26274,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 284,
+                            value: 319,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 315,
+                            value: 350,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23691,7 +26340,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 285,
+                            value: 320,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -23736,7 +26385,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 285,
+                                value: 320,
                             },
                         ),
                         essence: Eval,
@@ -23748,12 +26397,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 288,
+                            value: 323,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 317,
+                            value: 352,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -23788,7 +26437,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 285,
+                                            value: 320,
                                         },
                                     ),
                                     essence: Eval,
@@ -23805,12 +26454,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 289,
+                            value: 324,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 320,
+                            value: 355,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -23900,7 +26549,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 285,
+                                            value: 320,
                                         },
                                     ),
                                     essence: Eval,
@@ -23917,12 +26566,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 289,
+                            value: 324,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 320,
+                            value: 355,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -23964,7 +26613,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 286,
+                            value: 321,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -24009,7 +26658,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 286,
+                                value: 321,
                             },
                         ),
                         essence: Eval,
@@ -24021,12 +26670,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 290,
+                            value: 325,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 318,
+                            value: 353,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24061,7 +26710,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 286,
+                                            value: 321,
                                         },
                                     ),
                                     essence: Eval,
@@ -24078,12 +26727,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 291,
+                            value: 326,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 323,
+                            value: 358,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -24173,7 +26822,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 286,
+                                            value: 321,
                                         },
                                     ),
                                     essence: Eval,
@@ -24190,12 +26839,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 291,
+                            value: 326,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 323,
+                            value: 358,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -24237,7 +26886,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 287,
+                            value: 322,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -24282,7 +26931,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Require,
@@ -24294,12 +26943,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 292,
+                            value: 327,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24385,7 +27034,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Require,
@@ -24402,12 +27051,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 300,
+                            value: 335,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 326,
+                            value: 361,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -24439,11 +27088,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 336,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 361,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        2,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Let,
@@ -24455,12 +27165,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 293,
+                            value: 328,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24492,7 +27202,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 293,
+                                value: 328,
                             },
                         ),
                         essence: Haha,
@@ -24504,12 +27214,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 301,
+                            value: 337,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 327,
+                            value: 362,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -24550,7 +27260,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 285,
+                            value: 320,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -24598,7 +27308,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Let,
@@ -24615,12 +27325,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 302,
+                            value: 338,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 327,
+                            value: 362,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -24656,7 +27366,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: IfBranch,
@@ -24668,12 +27378,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 294,
+                            value: 329,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24721,7 +27431,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: Require,
@@ -24733,12 +27443,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 303,
+                            value: 339,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 328,
+                            value: 363,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24770,7 +27480,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: Let,
@@ -24782,12 +27492,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 304,
+                            value: 340,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 328,
+                            value: 363,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24819,7 +27529,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: IfBranch,
@@ -24831,12 +27541,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 305,
+                            value: 341,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 328,
+                            value: 363,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24884,7 +27594,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: Return,
@@ -24896,12 +27606,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 306,
+                            value: 342,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 328,
+                            value: 363,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -24936,7 +27646,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -24953,12 +27663,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 307,
+                            value: 343,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 328,
+                            value: 363,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -24990,11 +27700,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 344,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 363,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        7,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        7,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: IfBranch,
@@ -25006,12 +27777,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 295,
+                            value: 330,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25059,7 +27830,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 295,
+                                value: 330,
                             },
                         ),
                         essence: Let,
@@ -25071,12 +27842,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 308,
+                            value: 345,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 329,
+                            value: 364,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25108,7 +27879,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 295,
+                                value: 330,
                             },
                         ),
                         essence: Require,
@@ -25120,12 +27891,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 309,
+                            value: 346,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 329,
+                            value: 364,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25157,7 +27928,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 295,
+                                value: 330,
                             },
                         ),
                         essence: Return,
@@ -25169,12 +27940,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 310,
+                            value: 347,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 329,
+                            value: 364,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25209,7 +27980,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -25226,12 +27997,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 311,
+                            value: 348,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 329,
+                            value: 364,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -25263,11 +28034,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 349,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 364,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        36,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        35,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Require,
@@ -25279,12 +28111,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 296,
+                            value: 331,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25322,7 +28154,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 286,
+                            value: 321,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -25370,7 +28202,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Require,
@@ -25387,12 +28219,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 312,
+                            value: 350,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 330,
+                            value: 365,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -25424,11 +28256,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 351,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 365,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        49,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        48,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Let,
@@ -25440,12 +28333,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 297,
+                            value: 332,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25477,7 +28370,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 297,
+                                value: 332,
                             },
                         ),
                         essence: Haha,
@@ -25489,12 +28382,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 313,
+                            value: 352,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 331,
+                            value: 366,
                         },
                     ),
                     syn_pattern_idx: 9,
@@ -25535,7 +28428,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 286,
+                            value: 321,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -25583,7 +28476,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Let,
@@ -25600,12 +28493,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 314,
+                            value: 353,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 331,
+                            value: 366,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -25641,7 +28534,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Require,
@@ -25653,12 +28546,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 298,
+                            value: 333,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25686,11 +28579,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 0,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 354,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 367,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        54,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        52,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Eval,
@@ -25702,12 +28656,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 299,
+                            value: 334,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 319,
+                            value: 354,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25768,7 +28722,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 315,
+                            value: 355,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -25813,7 +28767,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 315,
+                                value: 355,
                             },
                         ),
                         essence: Eval,
@@ -25825,12 +28779,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 317,
+                            value: 357,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 353,
+                            value: 393,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -25865,7 +28819,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 315,
+                                            value: 355,
                                         },
                                     ),
                                     essence: Eval,
@@ -25882,12 +28836,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 318,
+                            value: 358,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 355,
+                            value: 395,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -25977,7 +28931,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 315,
+                                            value: 355,
                                         },
                                     ),
                                     essence: Eval,
@@ -25994,12 +28948,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 318,
+                            value: 358,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 355,
+                            value: 395,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -26041,7 +28995,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 316,
+                            value: 356,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -26086,7 +29040,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 316,
+                                value: 356,
                             },
                         ),
                         essence: Let,
@@ -26098,12 +29052,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 319,
+                            value: 359,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 354,
+                            value: 394,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -26135,7 +29089,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 319,
+                                value: 359,
                             },
                         ),
                         essence: Haha,
@@ -26147,12 +29101,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 322,
+                            value: 362,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 358,
+                            value: 398,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -26241,7 +29195,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: Let,
@@ -26258,12 +29212,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 323,
+                            value: 363,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 358,
+                            value: 398,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -26353,7 +29307,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: Let,
@@ -26370,12 +29324,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 324,
+                            value: 364,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 358,
+                            value: 398,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -26411,7 +29365,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 316,
+                                value: 356,
                             },
                         ),
                         essence: IfBranch,
@@ -26423,12 +29377,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 320,
+                            value: 360,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 354,
+                            value: 394,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -26476,7 +29430,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 320,
+                                value: 360,
                             },
                         ),
                         essence: IfBranch,
@@ -26488,12 +29442,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 325,
+                            value: 365,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 359,
+                            value: 399,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -26541,7 +29495,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 320,
+                                value: 360,
                             },
                         ),
                         essence: Require,
@@ -26553,12 +29507,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 326,
+                            value: 366,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 359,
+                            value: 399,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -26644,7 +29598,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -26661,12 +29615,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 327,
+                            value: 367,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 359,
+                            value: 399,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -26705,7 +29659,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -26722,12 +29676,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 328,
+                            value: 368,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 359,
+                            value: 399,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -26759,11 +29713,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 356,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 369,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 399,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        8,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        8,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 292,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 45,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 45,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 316,
+                                value: 356,
                             },
                         ),
                         essence: Eval,
@@ -26775,12 +29790,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 321,
+                            value: 361,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 354,
+                            value: 394,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -26841,7 +29856,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 329,
+                            value: 370,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -26886,7 +29901,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 329,
+                                value: 370,
                             },
                         ),
                         essence: Eval,
@@ -26898,12 +29913,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 332,
+                            value: 373,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 371,
+                            value: 412,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -26938,7 +29953,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 329,
+                                            value: 370,
                                         },
                                     ),
                                     essence: Eval,
@@ -26955,12 +29970,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 333,
+                            value: 374,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 374,
+                            value: 415,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -27050,7 +30065,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 329,
+                                            value: 370,
                                         },
                                     ),
                                     essence: Eval,
@@ -27067,12 +30082,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 333,
+                            value: 374,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 374,
+                            value: 415,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -27114,7 +30129,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 330,
+                            value: 371,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -27159,7 +30174,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 330,
+                                value: 371,
                             },
                         ),
                         essence: Eval,
@@ -27171,12 +30186,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 334,
+                            value: 375,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 372,
+                            value: 413,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -27211,7 +30226,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 330,
+                                            value: 371,
                                         },
                                     ),
                                     essence: Eval,
@@ -27228,12 +30243,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 335,
+                            value: 376,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 377,
+                            value: 418,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -27323,7 +30338,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 330,
+                                            value: 371,
                                         },
                                     ),
                                     essence: Eval,
@@ -27340,12 +30355,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 335,
+                            value: 376,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 377,
+                            value: 418,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -27387,7 +30402,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 331,
+                            value: 372,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -27432,7 +30447,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -27444,12 +30459,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 336,
+                            value: 377,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -27481,7 +30496,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 336,
+                                value: 377,
                             },
                         ),
                         essence: Haha,
@@ -27493,12 +30508,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 345,
+                            value: 386,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 380,
+                            value: 421,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -27587,7 +30602,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -27604,12 +30619,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 346,
+                            value: 387,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 380,
+                            value: 421,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -27645,7 +30660,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Require,
@@ -27657,12 +30672,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 337,
+                            value: 378,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -27697,7 +30712,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -27714,12 +30729,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 347,
+                            value: 388,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 381,
+                            value: 422,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -27758,7 +30773,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -27775,12 +30790,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 348,
+                            value: 389,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 381,
+                            value: 422,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -27812,11 +30827,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 390,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 422,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        4,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -27828,12 +30904,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 338,
+                            value: 379,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -27865,7 +30941,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 338,
+                                value: 379,
                             },
                         ),
                         essence: Haha,
@@ -27877,12 +30953,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 349,
+                            value: 391,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 382,
+                            value: 423,
                         },
                     ),
                     syn_pattern_idx: 2,
@@ -27923,7 +30999,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 329,
+                            value: 370,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -27971,7 +31047,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -27988,12 +31064,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 350,
+                            value: 392,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 382,
+                            value: 423,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28025,11 +31101,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 393,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 423,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        9,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        8,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Require,
@@ -28041,12 +31178,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 339,
+                            value: 380,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -28081,7 +31218,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -28098,12 +31235,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 351,
+                            value: 394,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 383,
+                            value: 424,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28139,7 +31276,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -28151,12 +31288,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 340,
+                            value: 381,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -28188,7 +31325,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 340,
+                                value: 381,
                             },
                         ),
                         essence: Haha,
@@ -28200,12 +31337,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 352,
+                            value: 395,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 384,
+                            value: 425,
                         },
                     ),
                     syn_pattern_idx: 5,
@@ -28243,7 +31380,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -28260,12 +31397,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 353,
+                            value: 396,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 384,
+                            value: 425,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28304,7 +31441,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -28321,12 +31458,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 354,
+                            value: 397,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 384,
+                            value: 425,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28365,7 +31502,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -28382,12 +31519,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 355,
+                            value: 398,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 384,
+                            value: 425,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28423,7 +31560,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -28435,12 +31572,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 341,
+                            value: 382,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -28472,7 +31609,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 341,
+                                value: 382,
                             },
                         ),
                         essence: Haha,
@@ -28484,12 +31621,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 356,
+                            value: 399,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 385,
+                            value: 426,
                         },
                     ),
                     syn_pattern_idx: 6,
@@ -28578,7 +31715,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -28595,12 +31732,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 357,
+                            value: 400,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 385,
+                            value: 426,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28690,7 +31827,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -28707,12 +31844,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 358,
+                            value: 401,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 385,
+                            value: 426,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28748,7 +31885,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Require,
@@ -28760,12 +31897,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 342,
+                            value: 383,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -28800,7 +31937,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -28817,12 +31954,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 359,
+                            value: 402,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 386,
+                            value: 427,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -28854,11 +31991,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 403,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 427,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        23,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        21,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: IfBranch,
@@ -28870,12 +32068,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 343,
+                            value: 384,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -28923,7 +32121,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -28935,12 +32133,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 360,
+                            value: 404,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -28972,7 +32170,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -28984,12 +32182,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 361,
+                            value: 405,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29021,7 +32219,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29033,12 +32231,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 362,
+                            value: 406,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29070,7 +32268,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29082,12 +32280,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 363,
+                            value: 407,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29119,7 +32317,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -29131,12 +32329,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 364,
+                            value: 408,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29168,7 +32366,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -29180,12 +32378,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 365,
+                            value: 409,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29217,7 +32415,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29229,12 +32427,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 366,
+                            value: 410,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29266,7 +32464,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29278,12 +32476,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 367,
+                            value: 411,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29315,7 +32513,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29327,12 +32525,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 368,
+                            value: 412,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29364,7 +32562,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29376,12 +32574,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 369,
+                            value: 413,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29413,7 +32611,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -29425,12 +32623,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 370,
+                            value: 414,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29462,7 +32660,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29474,12 +32672,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 371,
+                            value: 415,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29511,7 +32709,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -29523,12 +32721,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 372,
+                            value: 416,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29560,7 +32758,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Return,
@@ -29572,12 +32770,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 373,
+                            value: 417,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29612,7 +32810,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -29629,12 +32827,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 374,
+                            value: 418,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -29673,7 +32871,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -29690,12 +32888,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 375,
+                            value: 419,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 387,
+                            value: 428,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -29727,11 +32925,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 420,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 428,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        27,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        25,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Eval,
@@ -29743,12 +33002,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 344,
+                            value: 385,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 373,
+                            value: 414,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29809,7 +33068,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 376,
+                            value: 421,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -29854,7 +33113,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 376,
+                                value: 421,
                             },
                         ),
                         essence: Eval,
@@ -29866,12 +33125,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 378,
+                            value: 423,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 424,
+                            value: 469,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -29906,7 +33165,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 376,
+                                            value: 421,
                                         },
                                     ),
                                     essence: Eval,
@@ -29923,12 +33182,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 379,
+                            value: 424,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 426,
+                            value: 471,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -30018,7 +33277,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 376,
+                                            value: 421,
                                         },
                                     ),
                                     essence: Eval,
@@ -30035,12 +33294,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 379,
+                            value: 424,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 426,
+                            value: 471,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -30082,7 +33341,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 377,
+                            value: 422,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -30127,7 +33386,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -30139,12 +33398,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 380,
+                            value: 425,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -30176,7 +33435,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 380,
+                                value: 425,
                             },
                         ),
                         essence: Haha,
@@ -30188,12 +33447,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 392,
+                            value: 437,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 429,
+                            value: 474,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -30282,7 +33541,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -30299,12 +33558,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 393,
+                            value: 438,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 429,
+                            value: 474,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -30340,7 +33599,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -30352,12 +33611,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 381,
+                            value: 426,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -30389,7 +33648,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 381,
+                                value: 426,
                             },
                         ),
                         essence: Haha,
@@ -30401,12 +33660,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 394,
+                            value: 439,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 430,
+                            value: 475,
                         },
                     ),
                     syn_pattern_idx: 1,
@@ -30495,7 +33754,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -30512,12 +33771,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 395,
+                            value: 440,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 430,
+                            value: 475,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -30553,7 +33812,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Require,
@@ -30565,12 +33824,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 382,
+                            value: 427,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -30605,7 +33864,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -30622,12 +33881,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 396,
+                            value: 441,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 431,
+                            value: 476,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -30666,7 +33925,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -30683,12 +33942,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 397,
+                            value: 442,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 431,
+                            value: 476,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -30720,11 +33979,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 443,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 476,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        6,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        6,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -30736,12 +34056,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 383,
+                            value: 428,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -30773,7 +34093,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 383,
+                                value: 428,
                             },
                         ),
                         essence: Haha,
@@ -30785,12 +34105,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 398,
+                            value: 444,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 432,
+                            value: 477,
                         },
                     ),
                     syn_pattern_idx: 3,
@@ -30831,7 +34151,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 376,
+                            value: 421,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -30879,7 +34199,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -30896,12 +34216,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 399,
+                            value: 445,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 432,
+                            value: 477,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -30933,11 +34253,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 446,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 477,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        11,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -30949,12 +34330,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 384,
+                            value: 429,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -30986,7 +34367,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 384,
+                                value: 429,
                             },
                         ),
                         essence: Haha,
@@ -30998,12 +34379,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 400,
+                            value: 447,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 433,
+                            value: 478,
                         },
                     ),
                     syn_pattern_idx: 4,
@@ -31044,7 +34425,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 376,
+                            value: 421,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -31092,7 +34473,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -31109,12 +34490,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 401,
+                            value: 448,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 433,
+                            value: 478,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -31146,11 +34527,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 3,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 449,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 478,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        15,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        14,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -31162,12 +34604,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 385,
+                            value: 430,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -31199,7 +34641,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 385,
+                                value: 430,
                             },
                         ),
                         essence: Haha,
@@ -31211,12 +34653,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 402,
+                            value: 450,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 434,
+                            value: 479,
                         },
                     ),
                     syn_pattern_idx: 5,
@@ -31257,7 +34699,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 376,
+                            value: 421,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -31305,7 +34747,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -31322,12 +34764,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 403,
+                            value: 451,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 434,
+                            value: 479,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -31359,11 +34801,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 4,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 452,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 479,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        19,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        18,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Require,
@@ -31375,12 +34878,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 386,
+                            value: 431,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -31415,7 +34918,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -31432,12 +34935,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 404,
+                            value: 453,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 435,
+                            value: 480,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -31469,11 +34972,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 454,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 480,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        22,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        21,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -31485,12 +35049,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 387,
+                            value: 432,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -31522,7 +35086,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 387,
+                                value: 432,
                             },
                         ),
                         essence: Haha,
@@ -31534,12 +35098,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 405,
+                            value: 455,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 436,
+                            value: 481,
                         },
                     ),
                     syn_pattern_idx: 6,
@@ -31628,7 +35192,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -31645,12 +35209,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 406,
+                            value: 456,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 436,
+                            value: 481,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -31740,7 +35304,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -31757,12 +35321,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 407,
+                            value: 457,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 436,
+                            value: 481,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -31798,7 +35362,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Require,
@@ -31810,12 +35374,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 388,
+                            value: 433,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -31850,7 +35414,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -31867,12 +35431,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 408,
+                            value: 458,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 437,
+                            value: 482,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -31904,11 +35468,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 459,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 482,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        30,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        29,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: IfBranch,
@@ -31920,12 +35545,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 389,
+                            value: 434,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -31973,7 +35598,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -31985,12 +35610,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 409,
+                            value: 460,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32022,7 +35647,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -32034,12 +35659,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 410,
+                            value: 461,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32071,7 +35696,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32083,12 +35708,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 411,
+                            value: 462,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32120,7 +35745,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -32132,12 +35757,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 412,
+                            value: 463,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32169,7 +35794,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32181,12 +35806,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 413,
+                            value: 464,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32218,7 +35843,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32230,12 +35855,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 414,
+                            value: 465,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32267,7 +35892,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32279,12 +35904,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 415,
+                            value: 466,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32316,7 +35941,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32328,12 +35953,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 416,
+                            value: 467,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32365,7 +35990,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32377,12 +36002,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 417,
+                            value: 468,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32414,7 +36039,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32426,12 +36051,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 418,
+                            value: 469,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32463,7 +36088,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32475,12 +36100,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 419,
+                            value: 470,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32512,7 +36137,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32524,12 +36149,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 420,
+                            value: 471,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32561,7 +36186,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -32573,12 +36198,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 421,
+                            value: 472,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32610,7 +36235,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -32622,12 +36247,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 422,
+                            value: 473,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32662,7 +36287,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -32679,12 +36304,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 423,
+                            value: 474,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 438,
+                            value: 483,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -32716,11 +36341,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 475,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 483,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        33,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        32,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: IfBranch,
@@ -32732,12 +36418,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 390,
+                            value: 435,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32785,7 +36471,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -32797,12 +36483,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 424,
+                            value: 476,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 439,
+                            value: 484,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32834,7 +36520,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -32846,12 +36532,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 425,
+                            value: 477,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 439,
+                            value: 484,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32883,7 +36569,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -32895,12 +36581,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 426,
+                            value: 478,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 439,
+                            value: 484,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32932,7 +36618,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -32944,12 +36630,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 427,
+                            value: 479,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 439,
+                            value: 484,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -32981,7 +36667,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Let,
@@ -32993,12 +36679,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 428,
+                            value: 480,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 439,
+                            value: 484,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -33033,7 +36719,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -33050,12 +36736,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 429,
+                            value: 481,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 439,
+                            value: 484,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -33087,11 +36773,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 482,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 484,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        91,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        86,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Eval,
@@ -33103,12 +36850,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 391,
+                            value: 436,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 425,
+                            value: 470,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -33169,7 +36916,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 430,
+                            value: 483,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -33214,7 +36961,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 430,
+                                value: 483,
                             },
                         ),
                         essence: Eval,
@@ -33226,12 +36973,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 433,
+                            value: 486,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 486,
+                            value: 539,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -33266,7 +37013,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 430,
+                                            value: 483,
                                         },
                                     ),
                                     essence: Eval,
@@ -33283,12 +37030,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 434,
+                            value: 487,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 493,
+                            value: 546,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -33324,7 +37071,7 @@
                     EagerCallInputTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 434,
+                                value: 487,
                             },
                         ),
                     },
@@ -33334,12 +37081,12 @@
                 EagerCallInputTraceData {
                     path: TracePath(
                         Id {
-                            value: 436,
+                            value: 489,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 494,
+                            value: 547,
                         },
                     ),
                     input_sketch: Simple {
@@ -33372,7 +37119,7 @@
                     EagerCallTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 434,
+                                value: 487,
                             },
                         ),
                         callee_path: MajorItem(
@@ -33393,12 +37140,12 @@
                 EagerCallTraceData {
                     path: TracePath(
                         Id {
-                            value: 437,
+                            value: 490,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 494,
+                            value: 547,
                         },
                     ),
                     callee_path: MajorItem(
@@ -33430,7 +37177,7 @@
                 StaticVarTraceData {
                     path: TracePath(
                         Id {
-                            value: 435,
+                            value: 488,
                         },
                     ),
                     static_var_item_path: MajorFormPath(
@@ -33478,7 +37225,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 430,
+                                            value: 483,
                                         },
                                     ),
                                     essence: Eval,
@@ -33495,12 +37242,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 434,
+                            value: 487,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 493,
+                            value: 546,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -33536,7 +37283,7 @@
                     EagerCallInputTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 434,
+                                value: 487,
                             },
                         ),
                     },
@@ -33546,12 +37293,12 @@
                 EagerCallInputTraceData {
                     path: TracePath(
                         Id {
-                            value: 436,
+                            value: 489,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 494,
+                            value: 547,
                         },
                     ),
                     input_sketch: Simple {
@@ -33584,7 +37331,7 @@
                     EagerCallTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 434,
+                                value: 487,
                             },
                         ),
                         callee_path: MajorItem(
@@ -33605,12 +37352,12 @@
                 EagerCallTraceData {
                     path: TracePath(
                         Id {
-                            value: 437,
+                            value: 490,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 494,
+                            value: 547,
                         },
                     ),
                     callee_path: MajorItem(
@@ -33699,12 +37446,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 438,
+                            value: 491,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 487,
+                            value: 540,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -33736,7 +37483,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 438,
+                                value: 491,
                             },
                         ),
                         essence: Haha,
@@ -33748,12 +37495,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 442,
+                            value: 495,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 498,
+                            value: 551,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -33784,6 +37531,67 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 0,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 496,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 551,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        0,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        0,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 152,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 7,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 7,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
@@ -33800,12 +37608,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 439,
+                            value: 492,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 487,
+                            value: 540,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -33837,7 +37645,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 439,
+                                value: 492,
                             },
                         ),
                         essence: Haha,
@@ -33849,12 +37657,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 443,
+                            value: 497,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 499,
+                            value: 552,
                         },
                     ),
                     syn_pattern_idx: 1,
@@ -33885,6 +37693,67 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 0,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 498,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 552,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        1,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        1,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 152,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 7,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 7,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
@@ -33901,12 +37770,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 440,
+                            value: 493,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 487,
+                            value: 540,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -33956,7 +37825,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 440,
+                                value: 493,
                             },
                         ),
                         essence: Let,
@@ -33968,12 +37837,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 444,
+                            value: 499,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 500,
+                            value: 553,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -34005,7 +37874,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 444,
+                                value: 499,
                             },
                         ),
                         essence: Haha,
@@ -34017,12 +37886,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 446,
+                            value: 501,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 504,
+                            value: 559,
                         },
                     ),
                     syn_pattern_idx: 2,
@@ -34063,7 +37932,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 430,
+                            value: 483,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -34111,7 +37980,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 440,
+                                            value: 493,
                                         },
                                     ),
                                     essence: Let,
@@ -34128,12 +37997,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 447,
+                            value: 502,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 504,
+                            value: 559,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -34172,7 +38041,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 440,
+                                            value: 493,
                                         },
                                     ),
                                     essence: Let,
@@ -34189,12 +38058,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 448,
+                            value: 503,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 504,
+                            value: 559,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -34230,7 +38099,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 440,
+                                value: 493,
                             },
                         ),
                         essence: IfBranch,
@@ -34242,12 +38111,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 445,
+                            value: 500,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 500,
+                            value: 553,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -34295,7 +38164,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 445,
+                                value: 500,
                             },
                         ),
                         essence: Eval,
@@ -34307,12 +38176,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 449,
+                            value: 504,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 505,
+                            value: 560,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -34344,7 +38213,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 445,
+                                value: 500,
                             },
                         ),
                         essence: Eval,
@@ -34356,12 +38225,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 450,
+                            value: 505,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 505,
+                            value: 560,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -34396,7 +38265,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 440,
+                                            value: 493,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -34413,12 +38282,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 451,
+                            value: 506,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 505,
+                            value: 560,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -34457,7 +38326,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 440,
+                                            value: 493,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -34474,12 +38343,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 452,
+                            value: 507,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 505,
+                            value: 560,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -34535,12 +38404,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 453,
+                            value: 508,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 500,
+                            value: 553,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -34580,7 +38449,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 430,
+                            value: 483,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -34625,7 +38494,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 430,
+                                value: 483,
                             },
                         ),
                         essence: Eval,
@@ -34637,12 +38506,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 433,
+                            value: 486,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 515,
+                            value: 570,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -34694,12 +38563,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 454,
+                            value: 509,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 500,
+                            value: 553,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -34735,7 +38604,7 @@
                     EagerCallTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 454,
+                                value: 509,
                             },
                         ),
                         callee_path: AssocItem(
@@ -34756,12 +38625,12 @@
                 EagerCallTraceData {
                     path: TracePath(
                         Id {
-                            value: 455,
+                            value: 510,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 516,
+                            value: 571,
                         },
                     ),
                     callee_path: AssocItem(
@@ -34799,12 +38668,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 441,
+                            value: 494,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 487,
+                            value: 540,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -34842,7 +38711,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 430,
+                            value: 483,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -34887,7 +38756,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 430,
+                                value: 483,
                             },
                         ),
                         essence: Eval,
@@ -34899,12 +38768,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 433,
+                            value: 486,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 519,
+                            value: 574,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -34956,12 +38825,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 456,
+                            value: 511,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 501,
+                            value: 554,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -35003,7 +38872,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 90,
+                            value: 97,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -35048,7 +38917,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 90,
+                                value: 97,
                             },
                         ),
                         essence: Let,
@@ -35060,12 +38929,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 457,
+                            value: 512,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 488,
+                            value: 541,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -35097,7 +38966,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 457,
+                                value: 512,
                             },
                         ),
                         essence: Haha,
@@ -35109,12 +38978,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 460,
+                            value: 515,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 522,
+                            value: 577,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -35145,11 +39014,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 97,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 0,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 516,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 577,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        0,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        0,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 211,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 16,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 16,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 90,
+                                value: 97,
                             },
                         ),
                         essence: ForBetween,
@@ -35161,12 +39091,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 458,
+                            value: 513,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 488,
+                            value: 541,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -35216,7 +39146,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 458,
+                                value: 513,
                             },
                         ),
                         essence: Eval,
@@ -35228,12 +39158,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 461,
+                            value: 517,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 523,
+                            value: 578,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -35268,7 +39198,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 458,
+                                            value: 513,
                                         },
                                     ),
                                     essence: Eval,
@@ -35285,12 +39215,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 462,
+                            value: 518,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 526,
+                            value: 582,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -35332,7 +39262,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 430,
+                            value: 483,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -35380,7 +39310,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 458,
+                                            value: 513,
                                         },
                                     ),
                                     essence: Eval,
@@ -35397,12 +39327,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 463,
+                            value: 519,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 526,
+                            value: 582,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -35441,7 +39371,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 458,
+                                            value: 513,
                                         },
                                     ),
                                     essence: Eval,
@@ -35458,12 +39388,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 464,
+                            value: 520,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 526,
+                            value: 582,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -35502,7 +39432,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 90,
+                                            value: 97,
                                         },
                                     ),
                                     essence: ForBetween,
@@ -35519,12 +39449,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 465,
+                            value: 521,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 523,
+                            value: 578,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -35564,7 +39494,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 430,
+                            value: 483,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -35609,7 +39539,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 430,
+                                value: 483,
                             },
                         ),
                         essence: Eval,
@@ -35621,12 +39551,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 433,
+                            value: 486,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 532,
+                            value: 588,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -35661,7 +39591,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 90,
+                                            value: 97,
                                         },
                                     ),
                                     essence: ForBetween,
@@ -35678,12 +39608,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 466,
+                            value: 522,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 523,
+                            value: 578,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -35719,7 +39649,7 @@
                     EagerCallTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 466,
+                                value: 522,
                             },
                         ),
                         callee_path: AssocItem(
@@ -35740,12 +39670,12 @@
                 EagerCallTraceData {
                     path: TracePath(
                         Id {
-                            value: 467,
+                            value: 523,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 533,
+                            value: 589,
                         },
                     ),
                     callee_path: AssocItem(
@@ -35771,7 +39701,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 90,
+                                value: 97,
                             },
                         ),
                         essence: Return,
@@ -35783,12 +39713,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 459,
+                            value: 514,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 488,
+                            value: 541,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -35823,7 +39753,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 90,
+                                            value: 97,
                                         },
                                     ),
                                     essence: Return,
@@ -35840,12 +39770,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 468,
+                            value: 524,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 524,
+                            value: 579,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -35944,12 +39874,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 438,
+                            value: 491,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 537,
+                            value: 593,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -35993,12 +39923,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 439,
+                            value: 492,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 537,
+                            value: 593,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36042,12 +39972,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 440,
+                            value: 493,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 537,
+                            value: 593,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36109,12 +40039,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 441,
+                            value: 494,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 537,
+                            value: 593,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36149,7 +40079,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 90,
+                                            value: 97,
                                         },
                                     ),
                                     essence: Return,
@@ -36166,12 +40096,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 469,
+                            value: 525,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 524,
+                            value: 579,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -36213,7 +40143,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 431,
+                            value: 484,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -36258,7 +40188,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 431,
+                                value: 484,
                             },
                         ),
                         essence: Eval,
@@ -36270,12 +40200,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 470,
+                            value: 526,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 489,
+                            value: 542,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36370,12 +40300,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 438,
+                            value: 491,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 544,
+                            value: 600,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36419,12 +40349,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 439,
+                            value: 492,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 544,
+                            value: 600,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36468,12 +40398,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 440,
+                            value: 493,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 544,
+                            value: 600,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36535,12 +40465,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 441,
+                            value: 494,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 544,
+                            value: 600,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36575,7 +40505,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 431,
+                                            value: 484,
                                         },
                                     ),
                                     essence: Eval,
@@ -36592,12 +40522,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 471,
+                            value: 527,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 543,
+                            value: 599,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -36639,7 +40569,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 432,
+                            value: 485,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -36684,7 +40614,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 432,
+                                value: 485,
                             },
                         ),
                         essence: Eval,
@@ -36696,12 +40626,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 472,
+                            value: 528,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 490,
+                            value: 543,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36796,12 +40726,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 438,
+                            value: 491,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 551,
+                            value: 607,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36845,12 +40775,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 439,
+                            value: 492,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 551,
+                            value: 607,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36894,12 +40824,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 440,
+                            value: 493,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 551,
+                            value: 607,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -36961,12 +40891,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 441,
+                            value: 494,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 551,
+                            value: 607,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -37001,7 +40931,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 432,
+                                            value: 485,
                                         },
                                     ),
                                     essence: Eval,
@@ -37018,12 +40948,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 473,
+                            value: 529,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 550,
+                            value: 606,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -37031,6 +40961,67 @@
                     ),
                     hir_eager_expr_idx: Some(
                         1,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 326,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 63,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 63,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 485,
+                                        },
+                                    ),
+                                    essence: Eval,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 530,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 606,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        2,
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
@@ -37065,7 +41056,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 68,
+                            value: 74,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -37110,7 +41101,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 68,
+                                value: 74,
                             },
                         ),
                         essence: Eval,
@@ -37122,12 +41113,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 474,
+                            value: 531,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 491,
+                            value: 544,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -37165,7 +41156,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 432,
+                            value: 485,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -37210,7 +41201,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 432,
+                                value: 485,
                             },
                         ),
                         essence: Eval,
@@ -37222,12 +41213,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 472,
+                            value: 528,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 558,
+                            value: 615,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -37262,7 +41253,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 68,
+                                            value: 74,
                                         },
                                     ),
                                     essence: Eval,
@@ -37279,12 +41270,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 475,
+                            value: 532,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 557,
+                            value: 614,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -37383,12 +41374,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 476,
+                            value: 533,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 492,
+                            value: 545,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -37426,7 +41417,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 68,
+                            value: 74,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -37471,7 +41462,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 68,
+                                value: 74,
                             },
                         ),
                         essence: Eval,
@@ -37483,12 +41474,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 474,
+                            value: 531,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 562,
+                            value: 619,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -37540,12 +41531,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 477,
+                            value: 534,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 561,
+                            value: 618,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -37644,7 +41635,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 478,
+                            value: 535,
                         },
                     ),
                     biological_parent: Trace(
@@ -37687,7 +41678,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 81,
+                            value: 88,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -37735,12 +41726,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 84,
+                            value: 91,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 575,
+                            value: 632,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -37772,7 +41763,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 84,
+                                value: 91,
                             },
                         ),
                         essence: Haha,
@@ -37784,12 +41775,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 88,
+                            value: 95,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 576,
+                            value: 633,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -37844,7 +41835,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -37868,7 +41859,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -37993,7 +41984,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 84,
+                                value: 91,
                             },
                         ),
                         essence: Haha,
@@ -38005,12 +41996,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 89,
+                            value: 96,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 576,
+                            value: 633,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -38103,7 +42094,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 90,
+                            value: 97,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -38148,7 +42139,87 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 84,
+                                value: 91,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 98,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 633,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        4,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 188,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        5,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 4,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 91,
                             },
                         ),
                         essence: Haha,
@@ -38160,12 +42231,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 88,
+                            value: 95,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 576,
+                            value: 633,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -38220,7 +42291,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -38244,7 +42315,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -38332,12 +42403,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 85,
+                            value: 92,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 575,
+                            value: 632,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -38369,7 +42440,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 85,
+                                value: 92,
                             },
                         ),
                         essence: AdHoc,
@@ -38381,12 +42452,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 91,
+                            value: 99,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 577,
+                            value: 634,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -38492,7 +42563,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 85,
+                                value: 92,
                             },
                         ),
                         essence: Haha,
@@ -38504,12 +42575,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 92,
+                            value: 100,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 577,
+                            value: 634,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -38658,7 +42729,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 85,
+                                value: 92,
                             },
                         ),
                         essence: Haha,
@@ -38670,12 +42741,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 92,
+                            value: 100,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 577,
+                            value: 634,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -38787,12 +42858,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 86,
+                            value: 93,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 575,
+                            value: 632,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -38993,12 +43064,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 93,
+                            value: 101,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 578,
+                            value: 635,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39052,12 +43123,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 94,
+                            value: 102,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 578,
+                            value: 635,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39173,12 +43244,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 95,
+                            value: 103,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 578,
+                            value: 635,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39210,7 +43281,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 86,
+                                value: 93,
                             },
                         ),
                         essence: Haha,
@@ -39222,12 +43293,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 96,
+                            value: 104,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 578,
+                            value: 635,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -39326,7 +43397,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 86,
+                                value: 93,
                             },
                         ),
                         essence: Haha,
@@ -39338,12 +43409,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 97,
+                            value: 105,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 578,
+                            value: 635,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -39432,6 +43503,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 93,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 106,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 635,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        13,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        13,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 188,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 104,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                3.0,
+                            ),
+                            text: "3.0f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 13,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -39450,12 +43612,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 87,
+                            value: 94,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 575,
+                            value: 632,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39656,12 +43818,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 98,
+                            value: 107,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39759,12 +43921,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 99,
+                            value: 108,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39862,12 +44024,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 100,
+                            value: 109,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39921,12 +44083,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 101,
+                            value: 110,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -39980,12 +44142,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 102,
+                            value: 111,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40039,12 +44201,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 103,
+                            value: 112,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40175,12 +44337,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 104,
+                            value: 113,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40234,12 +44396,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 105,
+                            value: 114,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40337,12 +44499,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 106,
+                            value: 115,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40396,12 +44558,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 107,
+                            value: 116,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40455,12 +44617,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 108,
+                            value: 117,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40591,12 +44753,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 109,
+                            value: 118,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40712,12 +44874,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 110,
+                            value: 119,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40815,12 +44977,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 111,
+                            value: 120,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40874,12 +45036,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 112,
+                            value: 121,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40933,12 +45095,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 113,
+                            value: 122,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -40992,12 +45154,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 114,
+                            value: 123,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41051,12 +45213,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 115,
+                            value: 124,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41110,12 +45272,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 116,
+                            value: 125,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41213,12 +45375,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 117,
+                            value: 126,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41272,12 +45434,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 118,
+                            value: 127,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41331,12 +45493,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 119,
+                            value: 128,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41390,12 +45552,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 120,
+                            value: 129,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41449,12 +45611,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 121,
+                            value: 130,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41552,12 +45714,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 122,
+                            value: 131,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41655,12 +45817,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 123,
+                            value: 132,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 579,
+                            value: 636,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41704,7 +45866,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 479,
+                            value: 536,
                         },
                     ),
                     biological_parent: Trace(
@@ -41747,7 +45909,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 126,
+                            value: 135,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -41795,12 +45957,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 131,
+                            value: 140,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -41832,7 +45994,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 131,
+                                value: 140,
                             },
                         ),
                         essence: AdHoc,
@@ -41844,12 +46006,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 142,
+                            value: 151,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 619,
+                            value: 678,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -41937,7 +46099,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 124,
+                            value: 133,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -41982,7 +46144,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 131,
+                                value: 140,
                             },
                         ),
                         essence: Haha,
@@ -41994,12 +46156,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 143,
+                            value: 152,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 619,
+                            value: 678,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -42033,8 +46195,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -42080,6 +46251,88 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 140,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 153,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 678,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        2,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 2,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -42098,12 +46351,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 132,
+                            value: 141,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -42173,7 +46426,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 132,
+                                value: 141,
                             },
                         ),
                         essence: Haha,
@@ -42185,12 +46438,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 144,
+                            value: 154,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 620,
+                            value: 679,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -42279,12 +46532,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 133,
+                            value: 142,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -42316,7 +46569,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 133,
+                                value: 142,
                             },
                         ),
                         essence: AdHoc,
@@ -42328,12 +46581,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 145,
+                            value: 155,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 621,
+                            value: 680,
                         },
                     ),
                     syn_pattern_idx: 3,
@@ -42485,7 +46738,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 133,
+                                value: 142,
                             },
                         ),
                         essence: Haha,
@@ -42497,12 +46750,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 146,
+                            value: 156,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 621,
+                            value: 680,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -42609,12 +46862,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 134,
+                            value: 143,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -42646,7 +46899,7 @@
                     LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 134,
+                                value: 143,
                             },
                         ),
                         essence: AdHoc,
@@ -42658,12 +46911,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 147,
+                            value: 157,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 622,
+                            value: 681,
                         },
                     ),
                     syn_pattern_idx: 4,
@@ -42806,7 +47059,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 134,
+                                value: 143,
                             },
                         ),
                         essence: Haha,
@@ -42818,12 +47071,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 148,
+                            value: 158,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 622,
+                            value: 681,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -42967,7 +47220,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 134,
+                                value: 143,
                             },
                         ),
                         essence: Haha,
@@ -42979,12 +47232,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 149,
+                            value: 159,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 622,
+                            value: 681,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -43091,12 +47344,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 135,
+                            value: 144,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43237,12 +47490,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 150,
+                            value: 160,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43296,12 +47549,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 151,
+                            value: 161,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43355,12 +47608,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 152,
+                            value: 162,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43414,12 +47667,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 153,
+                            value: 163,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43473,12 +47726,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 154,
+                            value: 164,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43532,12 +47785,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 155,
+                            value: 165,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43591,12 +47844,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 156,
+                            value: 166,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43694,12 +47947,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 157,
+                            value: 167,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43830,12 +48083,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 158,
+                            value: 168,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43889,12 +48142,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 159,
+                            value: 169,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -43948,12 +48201,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 160,
+                            value: 170,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -44069,12 +48322,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 161,
+                            value: 171,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -44143,7 +48396,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 135,
+                                value: 144,
                             },
                         ),
                         essence: Haha,
@@ -44155,12 +48408,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 162,
+                            value: 172,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -44254,7 +48507,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 135,
+                                value: 144,
                             },
                         ),
                         essence: Haha,
@@ -44266,12 +48519,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 163,
+                            value: 173,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 623,
+                            value: 682,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -44311,8 +48564,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -44358,6 +48620,94 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 144,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 174,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 682,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        15,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        14,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 332,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 14,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -44376,12 +48726,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 136,
+                            value: 145,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -44413,7 +48763,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 136,
+                                value: 145,
                             },
                         ),
                         essence: Haha,
@@ -44425,12 +48775,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 164,
+                            value: 175,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 624,
+                            value: 683,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -44491,7 +48841,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -44515,7 +48865,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -44590,7 +48940,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 124,
+                            value: 133,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -44635,7 +48985,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 136,
+                                value: 145,
                             },
                         ),
                         essence: Haha,
@@ -44647,12 +48997,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 165,
+                            value: 176,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 624,
+                            value: 683,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -44745,7 +49095,93 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 136,
+                                value: 145,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 177,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 683,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        85,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        82,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 402,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        5,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 82,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 145,
                             },
                         ),
                         essence: Haha,
@@ -44757,12 +49193,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 164,
+                            value: 175,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 624,
+                            value: 683,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -44823,7 +49259,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -44847,7 +49283,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -44930,12 +49366,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 137,
+                            value: 146,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -45051,12 +49487,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 166,
+                            value: 178,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 625,
+                            value: 684,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -45138,7 +49574,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 124,
+                            value: 133,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -45183,7 +49619,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 137,
+                                value: 146,
                             },
                         ),
                         essence: Haha,
@@ -45195,12 +49631,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 167,
+                            value: 179,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 625,
+                            value: 684,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -45289,6 +49725,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 146,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 180,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 684,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        90,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        87,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 406,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                1.8,
+                            ),
+                            text: "1.8f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 87,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -45307,12 +49834,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 138,
+                            value: 147,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -45388,7 +49915,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
@@ -45400,12 +49927,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 168,
+                            value: 181,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 626,
+                            value: 685,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -45499,7 +50026,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
@@ -45511,12 +50038,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 169,
+                            value: 182,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 626,
+                            value: 685,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -45556,8 +50083,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -45607,7 +50143,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
@@ -45619,12 +50155,100 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 170,
+                            value: 183,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 626,
+                            value: 685,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        98,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        95,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 415,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 95,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 147,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 3,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 184,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 685,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -45717,11 +50341,11 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 138,
+                                value: 147,
                             },
                         ),
                         essence: Haha,
-                        disambiguator: 3,
+                        disambiguator: 4,
                     },
                 ),
             },
@@ -45729,12 +50353,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 171,
+                            value: 185,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 626,
+                            value: 685,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -45828,6 +50452,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 147,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 5,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 186,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 685,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        103,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        100,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 415,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                0.75,
+                            ),
+                            text: "0.75f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 100,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -45846,12 +50561,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 139,
+                            value: 148,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -45967,12 +50682,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 172,
+                            value: 187,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 627,
+                            value: 686,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -46048,7 +50763,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 139,
+                                value: 148,
                             },
                         ),
                         essence: Haha,
@@ -46060,12 +50775,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 173,
+                            value: 188,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 627,
+                            value: 686,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -46159,7 +50874,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 139,
+                                value: 148,
                             },
                         ),
                         essence: Haha,
@@ -46171,12 +50886,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 174,
+                            value: 189,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 627,
+                            value: 686,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -46216,8 +50931,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -46263,6 +50987,94 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 148,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 190,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 686,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        107,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        104,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 425,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 1,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 104,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -46281,12 +51093,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 140,
+                            value: 149,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -46362,7 +51174,7 @@
                     LazyExprTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 140,
+                                value: 149,
                             },
                         ),
                         essence: Haha,
@@ -46374,12 +51186,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 175,
+                            value: 191,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 628,
+                            value: 687,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -46460,6 +51272,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 149,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 192,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 687,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        120,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        116,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 4,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 440,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                15.0,
+                            ),
+                            text: "15.0f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 116,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -46478,12 +51381,12 @@
                 LazyStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 141,
+                            value: 150,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 618,
+                            value: 677,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -46527,7 +51430,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 480,
+                            value: 537,
                         },
                     ),
                     biological_parent: Trace(
@@ -46623,7 +51526,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -46758,7 +51661,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -46817,7 +51720,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -46920,7 +51823,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -47023,7 +51926,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -47126,7 +52029,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -47185,7 +52088,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -47288,7 +52191,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -47425,7 +52328,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -47529,7 +52432,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 671,
+                            value: 738,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -47640,6 +52543,86 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 19,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 42,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 738,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        3,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: Omni,
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        1,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 3,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -47663,7 +52646,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -47707,12 +52690,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 42,
+                            value: 43,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 672,
+                            value: 739,
                         },
                     ),
                     syn_pattern_idx: 4,
@@ -47830,12 +52813,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 43,
+                            value: 44,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 672,
+                            value: 739,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -47996,12 +52979,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 43,
+                            value: 44,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 672,
+                            value: 739,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -48118,7 +53101,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -48162,12 +53145,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 44,
+                            value: 45,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -48228,7 +53211,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -48252,7 +53235,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -48343,12 +53326,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 45,
+                            value: 46,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -48459,12 +53442,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 46,
+                            value: 47,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -48569,12 +53552,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 47,
+                            value: 48,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -48685,12 +53668,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 48,
+                            value: 49,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -48795,12 +53778,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 49,
+                            value: 50,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -48911,12 +53894,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 50,
+                            value: 51,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -49013,6 +53996,92 @@
                             },
                         ),
                         essence: Haha,
+                        disambiguator: 7,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 52,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 740,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        41,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        40,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 40,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::I32(
+                        5,
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 40,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 21,
+                            },
+                        ),
+                        essence: Haha,
                         disambiguator: 0,
                     },
                 ),
@@ -49021,12 +54090,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 44,
+                            value: 45,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 673,
+                            value: 740,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -49087,7 +54156,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 10,
+                                                            value: 11,
                                                         },
                                                     ),
                                                 ),
@@ -49111,7 +54180,7 @@
                                                 PathLeading(
                                                     LinTypePathLeading(
                                                         Id {
-                                                            value: 9,
+                                                            value: 10,
                                                         },
                                                     ),
                                                 ),
@@ -49209,7 +54278,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -49297,12 +54366,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 51,
+                            value: 53,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 674,
+                            value: 741,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -49413,12 +54482,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 52,
+                            value: 54,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 674,
+                            value: 741,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -49507,6 +54576,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 741,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        46,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        45,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 49,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                3.0,
+                            ),
+                            text: "3.0f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 45,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -49530,7 +54690,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -49669,12 +54829,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 53,
+                            value: 56,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 675,
+                            value: 742,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -49779,12 +54939,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 54,
+                            value: 57,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 675,
+                            value: 742,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -49824,8 +54984,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -49871,6 +55040,94 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 23,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 58,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 742,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        51,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        50,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 54,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 1,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 50,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -49894,7 +55151,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -50033,12 +55290,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 55,
+                            value: 59,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 676,
+                            value: 743,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -50143,12 +55400,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 56,
+                            value: 60,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 676,
+                            value: 743,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -50188,8 +55445,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -50235,6 +55501,94 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 24,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 61,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 743,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        57,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        55,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 61,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 55,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -50258,7 +55612,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -50302,12 +55656,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 57,
+                            value: 62,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 677,
+                            value: 744,
                         },
                     ),
                     syn_pattern_idx: 8,
@@ -50458,12 +55812,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 58,
+                            value: 63,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 677,
+                            value: 744,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -50568,12 +55922,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 59,
+                            value: 64,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 677,
+                            value: 744,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -50613,8 +55967,17 @@
                     Linket {
                         data: LinketData::StructField {
                             self_ty: LinTypePathLeading {
-                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                template_arguments: [],
+                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                template_arguments: [
+                                    LinTemplateArgument::Type(
+                                        LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ],
                             },
                             field: Props {
                                 ident: Ident(
@@ -50660,6 +56023,94 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 25,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 65,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 744,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        63,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        60,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::USize(
+                        USizeLiteral {
+                            value: 0,
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 60,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -50683,7 +56134,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -50727,12 +56178,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 60,
+                            value: 66,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 678,
+                            value: 745,
                         },
                     ),
                     syn_pattern_idx: 9,
@@ -50836,12 +56287,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 61,
+                            value: 67,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 678,
+                            value: 745,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -50934,12 +56385,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 62,
+                            value: 68,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 678,
+                            value: 745,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -51044,12 +56495,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 63,
+                            value: 69,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 678,
+                            value: 745,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -51159,12 +56610,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 64,
+                            value: 70,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 678,
+                            value: 745,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -51257,12 +56708,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 65,
+                            value: 71,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 678,
+                            value: 745,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -51367,12 +56818,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 66,
+                            value: 72,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 678,
+                            value: 745,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -51489,7 +56940,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -51533,12 +56984,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 67,
+                            value: 73,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 679,
+                            value: 746,
                         },
                     ),
                     syn_pattern_idx: 10,
@@ -51636,7 +57087,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 68,
+                            value: 74,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -51693,12 +57144,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 69,
+                            value: 75,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 679,
+                            value: 746,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -51803,12 +57254,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 70,
+                            value: 76,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 679,
+                            value: 746,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -51912,7 +57363,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 68,
+                            value: 74,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -51969,12 +57420,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 71,
+                            value: 77,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 679,
+                            value: 746,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -52079,12 +57530,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 72,
+                            value: 78,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 679,
+                            value: 746,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -52201,7 +57652,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -52245,12 +57696,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 73,
+                            value: 79,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 680,
+                            value: 747,
                         },
                     ),
                     syn_pattern_idx: 11,
@@ -52354,12 +57805,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 74,
+                            value: 80,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 680,
+                            value: 747,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -52456,12 +57907,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 75,
+                            value: 81,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 680,
+                            value: 747,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -52565,7 +58016,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -52653,12 +58104,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 76,
+                            value: 82,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 681,
+                            value: 748,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -52739,6 +58190,97 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::LazyExpr(
+                    LazyExprTracePathData {
+                        biological_parent_path: TracePath(
+                            Id {
+                                value: 29,
+                            },
+                        ),
+                        essence: Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: LazyExpr(
+                LazyExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 83,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 748,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        85,
+                    ),
+                    hir_lazy_expr_idx: Some(
+                        82,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 29,
+                        },
+                    ),
+                    hir_lazy_expr_region: HirLazyExprRegion(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                    hir_lazy_expr_source_map: HirLazyExprSourceMap(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                },
+            ),
+        },
+        Some(
+            KiRepr {
+                ki_domain_repr: StmtNotReturned(
+                    KiRepr(
+                        Id {
+                            value: 68,
+                        },
+                    ),
+                ),
+                opn: KiOpn::Literal(
+                    Literal::F32(
+                        F32Literal {
+                            value: OrderedFloat(
+                                0.4,
+                            ),
+                            text: "0.4f32",
+                        },
+                    ),
+                ),
+                arguments: [],
+                source: KiReprSource::Expansion {
+                    parent_ki_repr: KiRepr {
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::ValLazilyDefined(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        arguments: [],
+                        source: KiReprSource::Val(
+                            MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        ),
+                        caching_class: Val,
+                    },
+                    source: Expr {
+                        expr: 82,
+                    },
+                },
+                caching_class: Expr,
+            },
+        ),
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::LazyStmt(
                     LazyStmtTracePathData {
                         biological_parent_path: TracePath {
@@ -52762,7 +58304,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -52806,12 +58348,12 @@
                 LazyPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 77,
+                            value: 84,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 682,
+                            value: 749,
                         },
                     ),
                     syn_pattern_idx: 12,
@@ -52924,12 +58466,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 78,
+                            value: 85,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 682,
+                            value: 749,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -53040,12 +58582,12 @@
                 LazyExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 79,
+                            value: 86,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 682,
+                            value: 749,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -53157,7 +58699,7 @@
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 670,
+                            value: 737,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53201,7 +58743,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 481,
+                            value: 538,
                         },
                     ),
                     biological_parent: Trace(
@@ -53244,7 +58786,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 287,
+                            value: 322,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -53289,7 +58831,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Require,
@@ -53301,12 +58843,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 292,
+                            value: 327,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53392,7 +58934,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Require,
@@ -53409,12 +58951,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 300,
+                            value: 335,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 738,
+                            value: 812,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -53446,11 +58988,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 336,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 812,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        2,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Let,
@@ -53462,12 +59065,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 293,
+                            value: 328,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53499,7 +59102,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 293,
+                                value: 328,
                             },
                         ),
                         essence: Haha,
@@ -53511,12 +59114,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 301,
+                            value: 337,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 739,
+                            value: 813,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -53557,7 +59160,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 285,
+                            value: 320,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -53605,7 +59208,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Let,
@@ -53622,12 +59225,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 302,
+                            value: 338,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 739,
+                            value: 813,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -53663,7 +59266,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: IfBranch,
@@ -53675,12 +59278,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 294,
+                            value: 329,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53728,7 +59331,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: Require,
@@ -53740,12 +59343,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 303,
+                            value: 339,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 740,
+                            value: 814,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53777,7 +59380,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: Let,
@@ -53789,12 +59392,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 304,
+                            value: 340,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 740,
+                            value: 814,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53826,7 +59429,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: IfBranch,
@@ -53838,12 +59441,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 305,
+                            value: 341,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 740,
+                            value: 814,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53891,7 +59494,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 294,
+                                value: 329,
                             },
                         ),
                         essence: Return,
@@ -53903,12 +59506,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 306,
+                            value: 342,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 740,
+                            value: 814,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -53943,7 +59546,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -53960,12 +59563,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 307,
+                            value: 343,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 740,
+                            value: 814,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -53997,11 +59600,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 344,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 814,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        7,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        7,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: IfBranch,
@@ -54013,12 +59677,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 295,
+                            value: 330,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54066,7 +59730,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 295,
+                                value: 330,
                             },
                         ),
                         essence: Let,
@@ -54078,12 +59742,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 308,
+                            value: 345,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 741,
+                            value: 815,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54115,7 +59779,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 295,
+                                value: 330,
                             },
                         ),
                         essence: Require,
@@ -54127,12 +59791,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 309,
+                            value: 346,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 741,
+                            value: 815,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54164,7 +59828,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 295,
+                                value: 330,
                             },
                         ),
                         essence: Return,
@@ -54176,12 +59840,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 310,
+                            value: 347,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 741,
+                            value: 815,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54216,7 +59880,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -54233,12 +59897,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 311,
+                            value: 348,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 741,
+                            value: 815,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -54270,11 +59934,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 349,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 815,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        36,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        35,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Require,
@@ -54286,12 +60011,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 296,
+                            value: 331,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54329,7 +60054,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 286,
+                            value: 321,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -54377,7 +60102,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Require,
@@ -54394,12 +60119,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 312,
+                            value: 350,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 742,
+                            value: 816,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -54431,11 +60156,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 351,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 816,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        49,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        48,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Let,
@@ -54447,12 +60233,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 297,
+                            value: 332,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54484,7 +60270,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 297,
+                                value: 332,
                             },
                         ),
                         essence: Haha,
@@ -54496,12 +60282,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 313,
+                            value: 352,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 743,
+                            value: 817,
                         },
                     ),
                     syn_pattern_idx: 9,
@@ -54542,7 +60328,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 286,
+                            value: 321,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -54590,7 +60376,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 287,
+                                            value: 322,
                                         },
                                     ),
                                     essence: Let,
@@ -54607,12 +60393,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 314,
+                            value: 353,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 743,
+                            value: 817,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -54648,7 +60434,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Require,
@@ -54660,12 +60446,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 298,
+                            value: 333,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54693,11 +60479,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 322,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 0,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 354,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 818,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        54,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        52,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 288,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 41,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 287,
+                                value: 322,
                             },
                         ),
                         essence: Eval,
@@ -54709,12 +60556,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 299,
+                            value: 334,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 737,
+                            value: 811,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54758,7 +60605,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 482,
+                            value: 539,
                         },
                     ),
                     biological_parent: Trace(
@@ -54801,7 +60648,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 316,
+                            value: 356,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -54846,7 +60693,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 316,
+                                value: 356,
                             },
                         ),
                         essence: Let,
@@ -54858,12 +60705,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 319,
+                            value: 359,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 765,
+                            value: 844,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -54895,7 +60742,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 319,
+                                value: 359,
                             },
                         ),
                         essence: Haha,
@@ -54907,12 +60754,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 322,
+                            value: 362,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 766,
+                            value: 845,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -55001,7 +60848,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: Let,
@@ -55018,12 +60865,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 323,
+                            value: 363,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 766,
+                            value: 845,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -55113,7 +60960,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: Let,
@@ -55130,12 +60977,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 324,
+                            value: 364,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 766,
+                            value: 845,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -55171,7 +61018,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 316,
+                                value: 356,
                             },
                         ),
                         essence: IfBranch,
@@ -55183,12 +61030,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 320,
+                            value: 360,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 765,
+                            value: 844,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -55236,7 +61083,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 320,
+                                value: 360,
                             },
                         ),
                         essence: IfBranch,
@@ -55248,12 +61095,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 325,
+                            value: 365,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 767,
+                            value: 846,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -55301,7 +61148,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 320,
+                                value: 360,
                             },
                         ),
                         essence: Require,
@@ -55313,12 +61160,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 326,
+                            value: 366,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 767,
+                            value: 846,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -55404,7 +61251,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -55421,12 +61268,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 327,
+                            value: 367,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 767,
+                            value: 846,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -55465,7 +61312,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 316,
+                                            value: 356,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -55482,12 +61329,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 328,
+                            value: 368,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 767,
+                            value: 846,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -55519,11 +61366,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 356,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 369,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 846,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        8,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        8,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 292,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 45,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 45,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 316,
+                                value: 356,
                             },
                         ),
                         essence: Eval,
@@ -55535,12 +61443,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 321,
+                            value: 361,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 765,
+                            value: 844,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -55584,7 +61492,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 483,
+                            value: 540,
                         },
                     ),
                     biological_parent: Trace(
@@ -55627,7 +61535,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 177,
+                            value: 194,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -55672,7 +61580,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -55684,12 +61592,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 180,
+                            value: 197,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -55775,7 +61683,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -55792,12 +61700,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 197,
+                            value: 214,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 780,
+                            value: 860,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -55829,11 +61737,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 215,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 860,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        2,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        2,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -55845,12 +61814,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 181,
+                            value: 198,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -55936,7 +61905,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -55953,12 +61922,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 198,
+                            value: 216,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 781,
+                            value: 861,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -55990,11 +61959,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 861,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        6,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        6,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -56006,12 +62036,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 182,
+                            value: 199,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -56043,7 +62073,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 182,
+                                value: 199,
                             },
                         ),
                         essence: Haha,
@@ -56055,12 +62085,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 199,
+                            value: 218,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 782,
+                            value: 862,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -56101,7 +62131,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -56149,7 +62179,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -56166,12 +62196,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 200,
+                            value: 219,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 782,
+                            value: 862,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -56203,11 +62233,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 220,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 862,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        10,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -56219,12 +62310,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 183,
+                            value: 200,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -56256,7 +62347,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 183,
+                                value: 200,
                             },
                         ),
                         essence: Haha,
@@ -56268,12 +62359,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 201,
+                            value: 221,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 783,
+                            value: 863,
                         },
                     ),
                     syn_pattern_idx: 1,
@@ -56314,7 +62405,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -56362,7 +62453,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -56379,12 +62470,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 202,
+                            value: 222,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 783,
+                            value: 863,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -56416,11 +62507,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 223,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 863,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        14,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        14,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -56432,12 +62584,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 184,
+                            value: 201,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -56469,7 +62621,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 184,
+                                value: 201,
                             },
                         ),
                         essence: Haha,
@@ -56481,12 +62633,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 203,
+                            value: 224,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 784,
+                            value: 864,
                         },
                     ),
                     syn_pattern_idx: 2,
@@ -56527,7 +62679,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -56575,7 +62727,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -56592,12 +62744,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 204,
+                            value: 225,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 784,
+                            value: 864,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -56629,11 +62781,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 226,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 864,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        18,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        18,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -56645,12 +62858,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 185,
+                            value: 202,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -56685,7 +62898,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -56702,12 +62915,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 205,
+                            value: 227,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 785,
+                            value: 865,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -56743,7 +62956,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -56755,12 +62968,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 186,
+                            value: 203,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -56795,7 +63008,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -56812,12 +63025,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 206,
+                            value: 228,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 786,
+                            value: 866,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -56856,7 +63069,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -56873,12 +63086,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 207,
+                            value: 229,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 786,
+                            value: 866,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -56910,11 +63123,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 3,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 230,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 866,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        25,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        24,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -56926,12 +63200,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 187,
+                            value: 204,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -56966,7 +63240,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -56983,12 +63257,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 208,
+                            value: 231,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 787,
+                            value: 867,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57024,7 +63298,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -57036,12 +63310,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 188,
+                            value: 205,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -57073,7 +63347,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 188,
+                                value: 205,
                             },
                         ),
                         essence: Haha,
@@ -57085,12 +63359,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 209,
+                            value: 232,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 788,
+                            value: 868,
                         },
                     ),
                     syn_pattern_idx: 7,
@@ -57128,7 +63402,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -57145,12 +63419,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 210,
+                            value: 233,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 788,
+                            value: 868,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57189,7 +63463,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -57206,12 +63480,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 211,
+                            value: 234,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 788,
+                            value: 868,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57250,7 +63524,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -57267,12 +63541,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 212,
+                            value: 235,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 788,
+                            value: 868,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57304,11 +63578,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 3,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 3,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 236,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 868,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        32,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        30,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -57320,12 +63655,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 189,
+                            value: 206,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -57360,7 +63695,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -57377,12 +63712,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 213,
+                            value: 237,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 789,
+                            value: 869,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57421,7 +63756,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -57438,12 +63773,73 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 214,
+                            value: 238,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 789,
+                            value: 869,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        35,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        33,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 5,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 239,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 869,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57475,11 +63871,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 5,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 3,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 240,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 869,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        38,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        36,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -57491,12 +63948,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 190,
+                            value: 207,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -57528,7 +63985,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 190,
+                                value: 207,
                             },
                         ),
                         essence: Haha,
@@ -57540,12 +63997,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 215,
+                            value: 241,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 790,
+                            value: 870,
                         },
                     ),
                     syn_pattern_idx: 8,
@@ -57583,7 +64040,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -57600,12 +64057,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 216,
+                            value: 242,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 790,
+                            value: 870,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57644,7 +64101,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -57661,12 +64118,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 217,
+                            value: 243,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 790,
+                            value: 870,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57702,7 +64159,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -57714,12 +64171,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 191,
+                            value: 208,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -57751,7 +64208,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 191,
+                                value: 208,
                             },
                         ),
                         essence: Haha,
@@ -57763,12 +64220,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 218,
+                            value: 244,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 791,
+                            value: 871,
                         },
                     ),
                     syn_pattern_idx: 9,
@@ -57806,7 +64263,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -57823,12 +64280,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 219,
+                            value: 245,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 791,
+                            value: 871,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57867,7 +64324,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -57884,12 +64341,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 220,
+                            value: 246,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 791,
+                            value: 871,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -57925,7 +64382,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Let,
@@ -57937,12 +64394,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 192,
+                            value: 209,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -57974,7 +64431,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 192,
+                                value: 209,
                             },
                         ),
                         essence: Haha,
@@ -57986,12 +64443,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 221,
+                            value: 247,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 792,
+                            value: 872,
                         },
                     ),
                     syn_pattern_idx: 10,
@@ -58029,7 +64486,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -58046,12 +64503,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 222,
+                            value: 248,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 792,
+                            value: 872,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -58090,7 +64547,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -58107,12 +64564,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 223,
+                            value: 249,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 792,
+                            value: 872,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -58151,7 +64608,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Let,
@@ -58168,12 +64625,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 224,
+                            value: 250,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 792,
+                            value: 872,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -58209,7 +64666,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -58221,12 +64678,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 193,
+                            value: 210,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -58261,7 +64718,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -58278,12 +64735,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 225,
+                            value: 251,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 793,
+                            value: 873,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -58315,11 +64772,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 6,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 252,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 873,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        52,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        50,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -58331,12 +64849,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 194,
+                            value: 211,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -58374,7 +64892,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 176,
+                            value: 193,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -58422,7 +64940,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -58439,12 +64957,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 226,
+                            value: 253,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 794,
+                            value: 874,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -58476,11 +64994,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 7,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 254,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 874,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        56,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        54,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Require,
@@ -58492,12 +65071,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 195,
+                            value: 212,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -58532,7 +65111,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -58549,12 +65128,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 227,
+                            value: 255,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 795,
+                            value: 875,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -58593,7 +65172,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 177,
+                                            value: 194,
                                         },
                                     ),
                                     essence: Require,
@@ -58610,12 +65189,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 228,
+                            value: 256,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 795,
+                            value: 875,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -58647,11 +65226,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 194,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 8,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 257,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 875,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        61,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        59,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 177,
+                                value: 194,
                             },
                         ),
                         essence: Eval,
@@ -58663,12 +65303,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 196,
+                            value: 213,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 779,
+                            value: 859,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -58712,7 +65352,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 484,
+                            value: 541,
                         },
                     ),
                     biological_parent: Trace(
@@ -58755,7 +65395,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 331,
+                            value: 372,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -58800,7 +65440,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -58812,12 +65452,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 336,
+                            value: 377,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -58849,7 +65489,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 336,
+                                value: 377,
                             },
                         ),
                         essence: Haha,
@@ -58861,12 +65501,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 345,
+                            value: 386,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 836,
+                            value: 928,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -58955,7 +65595,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -58972,12 +65612,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 346,
+                            value: 387,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 836,
+                            value: 928,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59013,7 +65653,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Require,
@@ -59025,12 +65665,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 337,
+                            value: 378,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -59065,7 +65705,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -59082,12 +65722,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 347,
+                            value: 388,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 837,
+                            value: 929,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59126,7 +65766,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -59143,12 +65783,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 348,
+                            value: 389,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 837,
+                            value: 929,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59180,11 +65820,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 390,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 929,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        4,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -59196,12 +65897,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 338,
+                            value: 379,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -59233,7 +65934,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 338,
+                                value: 379,
                             },
                         ),
                         essence: Haha,
@@ -59245,12 +65946,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 349,
+                            value: 391,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 838,
+                            value: 930,
                         },
                     ),
                     syn_pattern_idx: 2,
@@ -59291,7 +65992,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 329,
+                            value: 370,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -59339,7 +66040,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -59356,12 +66057,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 350,
+                            value: 392,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 838,
+                            value: 930,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59393,11 +66094,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 393,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 930,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        9,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        8,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Require,
@@ -59409,12 +66171,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 339,
+                            value: 380,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -59449,7 +66211,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -59466,12 +66228,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 351,
+                            value: 394,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 839,
+                            value: 931,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59507,7 +66269,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -59519,12 +66281,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 340,
+                            value: 381,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -59556,7 +66318,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 340,
+                                value: 381,
                             },
                         ),
                         essence: Haha,
@@ -59568,12 +66330,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 352,
+                            value: 395,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 840,
+                            value: 932,
                         },
                     ),
                     syn_pattern_idx: 5,
@@ -59611,7 +66373,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -59628,12 +66390,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 353,
+                            value: 396,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 840,
+                            value: 932,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59672,7 +66434,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -59689,12 +66451,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 354,
+                            value: 397,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 840,
+                            value: 932,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59733,7 +66495,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -59750,12 +66512,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 355,
+                            value: 398,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 840,
+                            value: 932,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -59791,7 +66553,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Let,
@@ -59803,12 +66565,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 341,
+                            value: 382,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -59840,7 +66602,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 341,
+                                value: 382,
                             },
                         ),
                         essence: Haha,
@@ -59852,12 +66614,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 356,
+                            value: 399,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 841,
+                            value: 933,
                         },
                     ),
                     syn_pattern_idx: 6,
@@ -59946,7 +66708,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -59963,12 +66725,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 357,
+                            value: 400,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 841,
+                            value: 933,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -60058,7 +66820,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Let,
@@ -60075,12 +66837,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 358,
+                            value: 401,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 841,
+                            value: 933,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -60116,7 +66878,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Require,
@@ -60128,12 +66890,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 342,
+                            value: 383,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60168,7 +66930,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: Require,
@@ -60185,12 +66947,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 359,
+                            value: 402,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 842,
+                            value: 934,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -60222,11 +66984,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 403,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 934,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        23,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        21,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: IfBranch,
@@ -60238,12 +67061,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 343,
+                            value: 384,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60291,7 +67114,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60303,12 +67126,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 360,
+                            value: 404,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60340,7 +67163,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -60352,12 +67175,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 361,
+                            value: 405,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60389,7 +67212,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60401,12 +67224,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 362,
+                            value: 406,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60438,7 +67261,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60450,12 +67273,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 363,
+                            value: 407,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60487,7 +67310,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -60499,12 +67322,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 364,
+                            value: 408,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60536,7 +67359,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -60548,12 +67371,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 365,
+                            value: 409,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60585,7 +67408,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60597,12 +67420,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 366,
+                            value: 410,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60634,7 +67457,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60646,12 +67469,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 367,
+                            value: 411,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60683,7 +67506,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60695,12 +67518,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 368,
+                            value: 412,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60732,7 +67555,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60744,12 +67567,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 369,
+                            value: 413,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60781,7 +67604,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Let,
@@ -60793,12 +67616,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 370,
+                            value: 414,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60830,7 +67653,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60842,12 +67665,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 371,
+                            value: 415,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60879,7 +67702,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Require,
@@ -60891,12 +67714,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 372,
+                            value: 416,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60928,7 +67751,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 343,
+                                value: 384,
                             },
                         ),
                         essence: Return,
@@ -60940,12 +67763,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 373,
+                            value: 417,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -60980,7 +67803,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -60997,12 +67820,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 374,
+                            value: 418,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -61041,7 +67864,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 331,
+                                            value: 372,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -61058,12 +67881,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 375,
+                            value: 419,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 843,
+                            value: 935,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -61095,11 +67918,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 372,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 420,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 935,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        27,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        25,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 300,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 51,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 331,
+                                value: 372,
                             },
                         ),
                         essence: Eval,
@@ -61111,12 +67995,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 344,
+                            value: 385,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 835,
+                            value: 927,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -61160,7 +68044,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 485,
+                            value: 542,
                         },
                     ),
                     biological_parent: Trace(
@@ -61203,7 +68087,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 283,
+                            value: 318,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -61248,7 +68132,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 283,
+                                value: 318,
                             },
                         ),
                         essence: Eval,
@@ -61260,12 +68144,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 284,
+                            value: 319,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 880,
+                            value: 976,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -61309,7 +68193,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 486,
+                            value: 543,
                         },
                     ),
                     biological_parent: Trace(
@@ -61352,7 +68236,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 377,
+                            value: 422,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -61397,7 +68281,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -61409,12 +68293,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 380,
+                            value: 425,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -61446,7 +68330,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 380,
+                                value: 425,
                             },
                         ),
                         essence: Haha,
@@ -61458,12 +68342,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 392,
+                            value: 437,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 883,
+                            value: 979,
                         },
                     ),
                     syn_pattern_idx: 0,
@@ -61552,7 +68436,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -61569,12 +68453,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 393,
+                            value: 438,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 883,
+                            value: 979,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -61610,7 +68494,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -61622,12 +68506,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 381,
+                            value: 426,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -61659,7 +68543,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 381,
+                                value: 426,
                             },
                         ),
                         essence: Haha,
@@ -61671,12 +68555,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 394,
+                            value: 439,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 884,
+                            value: 980,
                         },
                     ),
                     syn_pattern_idx: 1,
@@ -61765,7 +68649,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -61782,12 +68666,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 395,
+                            value: 440,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 884,
+                            value: 980,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -61823,7 +68707,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Require,
@@ -61835,12 +68719,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 382,
+                            value: 427,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -61875,7 +68759,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -61892,12 +68776,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 396,
+                            value: 441,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 885,
+                            value: 981,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -61936,7 +68820,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -61953,12 +68837,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 397,
+                            value: 442,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 885,
+                            value: 981,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -61990,11 +68874,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 2,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 443,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 981,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        6,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        6,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -62006,12 +68951,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 383,
+                            value: 428,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -62043,7 +68988,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 383,
+                                value: 428,
                             },
                         ),
                         essence: Haha,
@@ -62055,12 +69000,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 398,
+                            value: 444,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 886,
+                            value: 982,
                         },
                     ),
                     syn_pattern_idx: 3,
@@ -62101,7 +69046,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 376,
+                            value: 421,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -62149,7 +69094,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -62166,12 +69111,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 399,
+                            value: 445,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 886,
+                            value: 982,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -62203,11 +69148,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 446,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 982,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        11,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -62219,12 +69225,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 384,
+                            value: 429,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -62256,7 +69262,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 384,
+                                value: 429,
                             },
                         ),
                         essence: Haha,
@@ -62268,12 +69274,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 400,
+                            value: 447,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 887,
+                            value: 983,
                         },
                     ),
                     syn_pattern_idx: 4,
@@ -62314,7 +69320,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 376,
+                            value: 421,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -62362,7 +69368,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -62379,12 +69385,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 401,
+                            value: 448,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 887,
+                            value: 983,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -62416,11 +69422,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 3,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 449,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 983,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        15,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        14,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -62432,12 +69499,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 385,
+                            value: 430,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -62469,7 +69536,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 385,
+                                value: 430,
                             },
                         ),
                         essence: Haha,
@@ -62481,12 +69548,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 402,
+                            value: 450,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 888,
+                            value: 984,
                         },
                     ),
                     syn_pattern_idx: 5,
@@ -62527,7 +69594,7 @@
                 ValTraceData {
                     path: TracePath(
                         Id {
-                            value: 376,
+                            value: 421,
                         },
                     ),
                     val_path: MajorFormPath(
@@ -62575,7 +69642,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -62592,12 +69659,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 403,
+                            value: 451,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 888,
+                            value: 984,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -62629,11 +69696,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Let,
+                                    disambiguator: 4,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 452,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 984,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        19,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        18,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Require,
@@ -62645,12 +69773,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 386,
+                            value: 431,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -62685,7 +69813,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -62702,12 +69830,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 404,
+                            value: 453,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 889,
+                            value: 985,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -62739,11 +69867,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 454,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 985,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        22,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        21,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Let,
@@ -62755,12 +69944,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 387,
+                            value: 432,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -62792,7 +69981,7 @@
                     EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 387,
+                                value: 432,
                             },
                         ),
                         essence: Haha,
@@ -62804,12 +69993,12 @@
                 EagerPatternTraceData {
                     path: TracePath(
                         Id {
-                            value: 405,
+                            value: 455,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 890,
+                            value: 986,
                         },
                     ),
                     syn_pattern_idx: 6,
@@ -62898,7 +70087,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -62915,12 +70104,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 406,
+                            value: 456,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 890,
+                            value: 986,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -63010,7 +70199,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Let,
@@ -63027,12 +70216,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 407,
+                            value: 457,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 890,
+                            value: 986,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -63068,7 +70257,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Require,
@@ -63080,12 +70269,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 388,
+                            value: 433,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63120,7 +70309,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: Require,
@@ -63137,12 +70326,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 408,
+                            value: 458,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 891,
+                            value: 987,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -63174,11 +70363,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: Require,
+                                    disambiguator: 2,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 459,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 987,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        30,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        29,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: IfBranch,
@@ -63190,12 +70440,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 389,
+                            value: 434,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63243,7 +70493,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -63255,12 +70505,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 409,
+                            value: 460,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63292,7 +70542,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -63304,12 +70554,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 410,
+                            value: 461,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63341,7 +70591,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63353,12 +70603,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 411,
+                            value: 462,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63390,7 +70640,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -63402,12 +70652,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 412,
+                            value: 463,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63439,7 +70689,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63451,12 +70701,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 413,
+                            value: 464,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63488,7 +70738,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63500,12 +70750,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 414,
+                            value: 465,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63537,7 +70787,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63549,12 +70799,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 415,
+                            value: 466,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63586,7 +70836,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63598,12 +70848,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 416,
+                            value: 467,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63635,7 +70885,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63647,12 +70897,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 417,
+                            value: 468,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63684,7 +70934,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63696,12 +70946,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 418,
+                            value: 469,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63733,7 +70983,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63745,12 +70995,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 419,
+                            value: 470,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63782,7 +71032,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63794,12 +71044,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 420,
+                            value: 471,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63831,7 +71081,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Let,
@@ -63843,12 +71093,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 421,
+                            value: 472,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63880,7 +71130,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 389,
+                                value: 434,
                             },
                         ),
                         essence: Require,
@@ -63892,12 +71142,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 422,
+                            value: 473,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -63932,7 +71182,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -63949,12 +71199,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 423,
+                            value: 474,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 892,
+                            value: 988,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -63986,11 +71236,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 475,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 988,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        33,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        32,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: IfBranch,
@@ -64002,12 +71313,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 390,
+                            value: 435,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -64055,7 +71366,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -64067,12 +71378,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 424,
+                            value: 476,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 893,
+                            value: 989,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -64104,7 +71415,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -64116,12 +71427,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 425,
+                            value: 477,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 893,
+                            value: 989,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -64153,7 +71464,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -64165,12 +71476,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 426,
+                            value: 478,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 893,
+                            value: 989,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -64202,7 +71513,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Require,
@@ -64214,12 +71525,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 427,
+                            value: 479,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 893,
+                            value: 989,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -64251,7 +71562,7 @@
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 390,
+                                value: 435,
                             },
                         ),
                         essence: Let,
@@ -64263,12 +71574,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 428,
+                            value: 480,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 893,
+                            value: 989,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -64303,7 +71614,7 @@
                                 EagerStmtTracePathData {
                                     biological_parent_path: TracePath(
                                         Id {
-                                            value: 377,
+                                            value: 422,
                                         },
                                     ),
                                     essence: IfBranch,
@@ -64320,12 +71631,12 @@
                 EagerExprTraceData {
                     path: TracePath(
                         Id {
-                            value: 429,
+                            value: 481,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 893,
+                            value: 989,
                         },
                     ),
                     sem_expr_idx: SemExprIdx(
@@ -64357,11 +71668,72 @@
     (
         Trace {
             path: TracePath {
+                data: TracePathData::EagerExpr(
+                    EagerExprTracePathData {
+                        biological_parent_path: TracePath {
+                            data: TracePathData::EagerStmt(
+                                EagerStmtTracePathData {
+                                    biological_parent_path: TracePath(
+                                        Id {
+                                            value: 422,
+                                        },
+                                    ),
+                                    essence: IfBranch,
+                                    disambiguator: 1,
+                                },
+                            ),
+                        },
+                        essence: EagerExprEssence::Haha,
+                        disambiguator: 1,
+                    },
+                ),
+            },
+            data: EagerExpr(
+                EagerExprTraceData {
+                    path: TracePath(
+                        Id {
+                            value: 482,
+                        },
+                    ),
+                    biological_parent: Trace(
+                        Id {
+                            value: 989,
+                        },
+                    ),
+                    sem_expr_idx: SemExprIdx(
+                        91,
+                    ),
+                    hir_eager_expr_idx: Some(
+                        86,
+                    ),
+                    sem_expr_region: SemExprRegion(
+                        Id {
+                            value: 314,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                    hir_eager_expr_source_map: HirEagerExprSourceMap(
+                        Id {
+                            value: 55,
+                        },
+                    ),
+                },
+            ),
+        },
+        None,
+    ),
+    (
+        Trace {
+            path: TracePath {
                 data: TracePathData::EagerStmt(
                     EagerStmtTracePathData {
                         biological_parent_path: TracePath(
                             Id {
-                                value: 377,
+                                value: 422,
                             },
                         ),
                         essence: Eval,
@@ -64373,12 +71745,12 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 391,
+                            value: 436,
                         },
                     ),
                     biological_parent: Trace(
                         Id {
-                            value: 882,
+                            value: 978,
                         },
                     ),
                     sem_stmt_idx: SemStmtIdx(
@@ -64422,7 +71794,7 @@
                 EagerStmtTraceData {
                     path: TracePath(
                         Id {
-                            value: 487,
+                            value: 544,
                         },
                     ),
                     biological_parent: Trace(

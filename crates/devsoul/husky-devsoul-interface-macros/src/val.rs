@@ -1,12 +1,14 @@
 // todo: move to ml-task-macros
 use super::*;
 use quote::quote;
+use syn::parse::discouraged::AnyDelimiter;
 
 pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
     let ValArgs {
         ingredient_index,
         lazy,
-        return_ref,
+        return_leash,
+        return_leash_ty,
     } = syn::parse_macro_input!(args as ValArgs);
     let ItemFn {
         attrs: _,
@@ -31,11 +33,15 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
+    let return_leash_ty = match return_leash_ty {
+        Some(return_leash_ty) => quote! { #return_leash_ty },
+        None => quote! { Leash<#return_ty> },
+    };
     if lazy {
-        if return_ref {
+        if return_leash {
             quote! {
-                #vis fn #ident() -> &'static #return_ty {
-                    todo!("return leash for lazy val, change the return type")
+                #vis fn #ident() -> #return_leash_ty {
+                    todo!("return leash for lazy val")
                     // __eval_lazy_val(#ingredient_index)
                 }
             }
@@ -50,9 +56,9 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
             .into()
         }
     } else {
-        if return_ref {
+        if return_leash {
             quote! {
-                #vis fn #ident() -> &'static #return_ty {
+                #vis fn #ident() -> #return_leash_ty {
                     todo!("return leash for eager val, change the return type")
                     // __eval_eager_val_with(
                     //     #ingredient_index,
@@ -85,7 +91,8 @@ struct ValArgs {
     // default false
     lazy: bool,
     // default false
-    return_ref: bool,
+    return_leash: bool,
+    return_leash_ty: Option<syn::Type>,
 }
 
 impl syn::parse::Parse for ValArgs {
@@ -98,7 +105,8 @@ impl syn::parse::Parse for ValArgs {
         let mut slf = Self {
             ingredient_index,
             lazy: false,
-            return_ref: false,
+            return_leash: false,
+            return_leash_ty: None,
         };
         loop {
             if input.is_empty() {
@@ -109,9 +117,16 @@ impl syn::parse::Parse for ValArgs {
             if ident == "lazy" {
                 assert!(!slf.lazy);
                 slf.lazy = true
-            } else if ident == "return_ref" {
-                assert!(!slf.return_ref);
-                slf.return_ref = true
+            } else if ident == "return_leash" {
+                use syn::token::Token;
+
+                assert!(!slf.return_leash);
+                slf.return_leash = true;
+                assert!(slf.return_leash_ty.is_none());
+                if <syn::Token![=]>::peek(input.cursor()) {
+                    let _: syn::Token![=] = input.parse()?;
+                    slf.return_leash_ty = Some(input.parse()?);
+                }
             }
         }
     }

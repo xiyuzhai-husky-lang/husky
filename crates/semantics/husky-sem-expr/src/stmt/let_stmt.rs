@@ -43,7 +43,7 @@ impl<'a> SemExprBuilder<'a> {
             match annotated_pattern_ty {
                 Some(pattern_ty) => {
                     let (initial_value_sem_expr_idx, coercion_outcome) = self
-                        .build_sem_expr_with_outcome(
+                        .build_expr_with_outcome(
                             initial_value,
                             ExpectCoercion::new(contract, pattern_ty),
                         );
@@ -54,7 +54,7 @@ impl<'a> SemExprBuilder<'a> {
                 }
                 None => {
                     (
-                        self.build_sem_expr_with_ty(
+                        self.build_expr_with_ty(
                             initial_value,
                             // ad hoc
                             ExpectAnyOriginal,

@@ -36,7 +36,7 @@
                                                     EthSymbolicVariable(`Label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     0,
@@ -49,7 +49,7 @@
                                                     EthSymbolicVariable(`label`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
-                                                            place: None,
+                                                            quary: None,
                                                             base: FlyTermBase::Hol(
                                                                 HolTerm(
                                                                     1,
@@ -64,9 +64,9 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
+                                    quary: None,
                                     base: FlyTermBase::Hol(
                                         HolTerm(
                                             2,
@@ -78,7 +78,7 @@
                                 (
                                     0,
                                     FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -98,13 +98,11 @@
                                     ),
                                 },
                             ),
-                            immediate_ty_result: Ok(
+                            ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`OneVsAll MnistLabel Five`),
                                     ),
                                 },
                             ),
@@ -112,11 +110,9 @@
                                 (
                                     3,
                                     FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`OneVsAll MnistLabel Five`),
                                         ),
                                     },
                                 ),
@@ -150,11 +146,9 @@
                             ),
                             ty_result: Ok(
                                 FlyTerm {
-                                    place: None,
-                                    base: FlyTermBase::Hol(
-                                        HolTerm(
-                                            2,
-                                        ),
+                                    quary: None,
+                                    base: FlyTermBase::Eth(
+                                        EthTerm(`OneVsAll MnistLabel Five`),
                                     ),
                                 },
                             ),
@@ -201,7 +195,7 @@
                                     hole_kind: ImplicitType,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
@@ -210,7 +204,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`MnistLabel`),
                                                 ),
@@ -230,7 +224,7 @@
                                     hole_kind: AnyOriginal,
                                     fill: Some(
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Five`),
                                             ),
@@ -239,7 +233,7 @@
                                     constraints: [
                                         HoleConstraint::Subtype {
                                             target: FlyTerm {
-                                                place: None,
+                                                quary: None,
                                                 base: FlyTermBase::Eth(
                                                     EthTerm(`Five`),
                                                 ),
@@ -261,7 +255,7 @@
                                     ),
                                     arguments: [
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     0,
@@ -269,7 +263,7 @@
                                             ),
                                         },
                                         FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Hol(
                                                 HolTerm(
                                                     1,
@@ -294,7 +288,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel Five`),
                                             ),
@@ -308,7 +302,7 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 2,
@@ -334,7 +328,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`MnistLabel`),
                                             ),
@@ -350,7 +344,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 0,
@@ -370,7 +364,7 @@
                                 expectation: Expectation::EqsExactly(
                                     ExpectSubtypeOrEqual {
                                         expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`Five`),
                                             ),
@@ -386,7 +380,7 @@
                                         ),
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
+                                        quary: None,
                                         base: FlyTermBase::Hol(
                                             HolTerm(
                                                 1,
@@ -407,7 +401,7 @@
                                     ExpectCoercion {
                                         contract: Contract::Move,
                                         ty_expected: FlyTerm {
-                                            place: None,
+                                            quary: None,
                                             base: FlyTermBase::Eth(
                                                 EthTerm(`OneVsAll MnistLabel Five`),
                                             ),
@@ -421,11 +415,9 @@
                                         kind: Expr,
                                     },
                                     expectee: FlyTerm {
-                                        place: None,
-                                        base: FlyTermBase::Hol(
-                                            HolTerm(
-                                                2,
-                                            ),
+                                        quary: None,
+                                        base: FlyTermBase::Eth(
+                                            EthTerm(`OneVsAll MnistLabel Five`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -452,6 +444,7 @@
                 EthTerm(`OneVsAll MnistLabel Five`),
             ),
             self_ty: None,
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: Some(
                     EthTerm(`MnistTask`),

@@ -29,6 +29,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::Add`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -38,7 +39,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -59,7 +60,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -99,6 +100,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::AddAssign`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -108,7 +110,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -129,7 +131,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -169,6 +171,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::BitAnd`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -178,7 +181,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -199,7 +202,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -239,6 +242,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::BitAndAssign`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -248,7 +252,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -269,7 +273,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -309,6 +313,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::BitOr`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -318,7 +323,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -339,7 +344,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -379,6 +384,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::BitOrAssign`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -388,7 +394,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -409,7 +415,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -449,6 +455,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::BitXor`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -458,7 +465,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -479,7 +486,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -519,6 +526,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::BitXorAssign`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -528,7 +536,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -549,7 +557,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -589,6 +597,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::Div`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -598,7 +607,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -619,7 +628,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -659,6 +668,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::DivAssign`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -668,7 +678,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -689,7 +699,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -713,6 +723,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::IntIndex`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -722,12 +733,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -767,6 +778,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::Mul`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -776,7 +788,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -797,7 +809,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -837,6 +849,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::MulAssign`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -846,7 +859,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -867,7 +880,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -891,6 +904,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::Neg`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -900,12 +914,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -929,6 +943,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::Not`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -938,12 +953,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -983,6 +998,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::Sub`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -992,7 +1008,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -1013,7 +1029,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1053,6 +1069,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::Unveil`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1062,7 +1079,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -1083,7 +1100,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1139,6 +1156,7 @@
                             region_path: RegionPath::ItemDecl(
                                 ItemPath(`core::ops::ControlFlow`),
                             ),
+                            self_value_ty: None,
                             expr_arena: Arena {
                                 data: [],
                             },
@@ -1148,7 +1166,7 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [
                                         HirEagerComptimeVariableEntry {
@@ -1184,7 +1202,7 @@
                                     ],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -1219,6 +1237,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::ControlFlow::Continue`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1228,7 +1247,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -1264,7 +1283,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1298,6 +1317,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`core::ops::ControlFlow::Break`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1307,7 +1327,7 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerComptimeVariableEntry {
@@ -1343,7 +1363,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },

@@ -119,6 +119,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         self.linktime.linket_impl(linket, self.db())
     }
 
+    #[deprecated]
     pub fn ingredient_ki_and_var_deps(
         &self,
         jar_index: HuskyJarIndex,

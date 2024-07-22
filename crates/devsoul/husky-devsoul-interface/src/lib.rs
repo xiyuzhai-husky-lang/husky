@@ -84,6 +84,7 @@ use std::convert::Infallible;
 //     };
 // }
 
+#[deprecated]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct HuskyJarIndex(ShiftedU32);
 
@@ -97,6 +98,7 @@ impl HuskyJarIndex {
     }
 }
 
+#[deprecated]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, PartialOrd, Ord, Hash)]
 pub struct HuskyIngredientIndex(ShiftedU32);
 
@@ -110,6 +112,7 @@ impl HuskyIngredientIndex {
     }
 }
 
+#[deprecated]
 pub type HuskyJarIndexOnceCell = OnceCell<HuskyJarIndex>;
 
 pub struct DevEvalContext<LinketImpl: IsLinketImpl> {

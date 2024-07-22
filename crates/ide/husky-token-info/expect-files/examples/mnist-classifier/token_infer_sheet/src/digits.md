@@ -1,11 +1,11 @@
 ```rust
 Ok(
     TokenInfoSheet {
-        token_infos: [
-            None,
-            Some(
+        token_infos_list: [
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -25,11 +25,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -49,11 +49,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -73,11 +73,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -97,11 +97,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -121,11 +121,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -145,11 +145,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -169,11 +169,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -193,11 +193,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -217,11 +217,11 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
                             Room32,
@@ -241,12 +241,12 @@ Ok(
                         EntityKind::Module,
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         1,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -263,11 +263,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         0,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -286,12 +286,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         4,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -308,11 +308,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         3,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -329,11 +329,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         2,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -352,12 +352,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         7,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -374,11 +374,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         6,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -395,11 +395,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         5,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -418,12 +418,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         10,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -440,11 +440,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         9,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -461,11 +461,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         8,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -484,12 +484,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         13,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -506,11 +506,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         12,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -527,11 +527,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         11,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -550,12 +550,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         16,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -572,11 +572,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         15,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -593,11 +593,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         14,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -616,12 +616,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         19,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -638,11 +638,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         18,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -659,11 +659,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         17,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -682,12 +682,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         22,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -704,11 +704,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         21,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -725,11 +725,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         20,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -748,12 +748,12 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         25,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -770,11 +770,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         24,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -791,11 +791,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         23,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -814,11 +814,11 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         27,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -835,9 +835,9 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
+            ],
+            [],
+            [],
         ],
     },
 )

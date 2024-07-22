@@ -215,6 +215,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

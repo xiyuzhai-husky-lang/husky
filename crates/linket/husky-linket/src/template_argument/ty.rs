@@ -44,6 +44,7 @@ impl LinketInstantiate for HirType {
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(_) => todo!(),
             HirType::TypeVar(_) => todo!(),
+            HirType::Quaried => todo!(),
         }
     }
 }
@@ -166,6 +167,7 @@ impl LinType {
             )
             .into(),
             HirType::TypeVar(_) => todo!(),
+            HirType::Quaried => todo!(),
         }
     }
 

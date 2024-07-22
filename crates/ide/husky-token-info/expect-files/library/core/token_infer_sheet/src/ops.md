@@ -1,11 +1,11 @@
 ```rust
 Ok(
     TokenInfoSheet {
-        token_infos: [
-            None,
-            Some(
+        token_infos_list: [
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::UseExpr(
+                    source: TokenInfoSource::UseExpr(
                         1,
                     ),
                     data: TokenInfoData::UseExpr {
@@ -22,21 +22,21 @@ Ok(
                         },
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -62,11 +62,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -84,13 +84,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -134,12 +134,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -187,11 +187,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Add::add`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -202,11 +205,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Add::add`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -221,34 +227,37 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Add::add`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -274,11 +283,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -296,13 +305,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -346,12 +355,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -399,11 +408,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::AddAssign::add`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -414,11 +426,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::AddAssign::add`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -433,34 +448,37 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::AddAssign::add`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -486,11 +504,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -508,13 +526,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -558,12 +576,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -611,11 +629,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitAnd::bitand`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -626,11 +647,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitAnd::bitand`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -645,34 +669,37 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitAnd::bitand`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -698,11 +725,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -720,13 +747,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -774,14 +801,17 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitAndAssign::bitand_assign`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -792,11 +822,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitAndAssign::bitand_assign`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -811,21 +844,21 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -851,11 +884,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -873,13 +906,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -923,12 +956,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -976,11 +1009,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitOr::bitor`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -991,11 +1027,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitOr::bitor`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -1010,34 +1049,37 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitOr::bitor`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -1063,11 +1105,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1085,13 +1127,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1139,14 +1181,17 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitOrAssign::bitor_assign`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1157,11 +1202,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitOrAssign::bitor_assign`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -1176,21 +1224,21 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -1216,11 +1264,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1238,13 +1286,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1288,12 +1336,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1341,11 +1389,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitXor::bitxor`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1356,11 +1407,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitXor::bitxor`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -1375,34 +1429,37 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitXor::bitxor`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -1428,11 +1485,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1450,13 +1507,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1504,14 +1561,17 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitXorAssign::bitxor_assign`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1522,11 +1582,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::BitXorAssign::bitxor_assign`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -1541,21 +1604,21 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -1581,11 +1644,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1603,13 +1666,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1653,12 +1716,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1706,11 +1769,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Div::div`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1721,11 +1787,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Div::div`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -1740,34 +1809,37 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Div::div`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -1793,11 +1865,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1815,13 +1887,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1869,14 +1941,17 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::DivAssign::div_assign`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -1887,11 +1962,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::DivAssign::div_assign`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -1906,14 +1984,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -1939,12 +2017,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -1988,20 +2066,20 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -2027,11 +2105,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -2049,13 +2127,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2099,12 +2177,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2152,11 +2230,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Mul::mul`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -2167,11 +2248,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Mul::mul`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -2186,34 +2270,37 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Mul::mul`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -2239,11 +2326,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -2261,13 +2348,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2315,14 +2402,17 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::MulAssign::mul_assign`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -2333,11 +2423,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::MulAssign::mul_assign`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -2352,21 +2445,21 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -2392,12 +2485,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2441,12 +2534,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2494,36 +2587,39 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Neg::neg`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -2549,12 +2645,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2598,12 +2694,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2651,36 +2747,39 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Not::not`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -2706,11 +2805,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -2728,13 +2827,13 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2778,12 +2877,12 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2831,11 +2930,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Sub::sub`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -2846,11 +2948,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Sub::sub`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -2865,27 +2970,30 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Sub::sub`),
+                        ),
                         SemExprIdx(
                             1,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Trait(
@@ -2911,11 +3019,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -2933,15 +3041,15 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -2985,13 +3093,13 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
                             AssocItemSynNodePath::TraitItem(
@@ -3039,11 +3147,14 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::Pattern(
+                    source: TokenInfoSource::Pattern(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Unveil::unveil`),
+                        ),
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -3054,11 +3165,14 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Unveil::unveil`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -3073,12 +3187,29 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Unveil::unveil`),
+                        ),
+                        SemExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::ops::ControlFlow`, `Enum`),
+                            ),
+                        ),
+                    ),
+                },
+                TokenInfo {
+                    source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
@@ -3094,35 +3225,41 @@ Ok(
                         ),
                     ),
                 },
-            ),
-            Some(
+            ],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Unveil::unveil`),
+                        ),
                         SemExprIdx(
                             2,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            Some(
+            ],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::Unveil::unveil`),
+                        ),
                         SemExprIdx(
                             4,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
+                    source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
@@ -3150,11 +3287,11 @@ Ok(
                         },
                     ),
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -3172,11 +3309,11 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            Some(
+            ],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
+                    source: TokenInfoSource::TemplateParameter(
                         1,
                     ),
                     data: TokenInfoData::CurrentVariable {
@@ -3194,14 +3331,17 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::ControlFlow::Continue`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -3216,14 +3356,17 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
+            ],
+            [],
+            [],
+            [],
+            [],
+            [
                 TokenInfo {
-                    src: TokenInfoSource::SemExpr(
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDecl(
+                            ItemPath(`core::ops::ControlFlow::Break`),
+                        ),
                         SemExprIdx(
                             0,
                         ),
@@ -3238,8 +3381,8 @@ Ok(
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
-            ),
-            None,
+            ],
+            [],
         ],
     },
 )

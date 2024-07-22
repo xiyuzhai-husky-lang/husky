@@ -14,7 +14,7 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         opd_ty: FlyTerm,
     ) -> (SemExprDataResult<SemaSuffixOpr>, SemExprTypeResult<FlyTerm>) {
-        match opd_ty.data(self) {
+        match opd_ty.base_term_data(self) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path: path,

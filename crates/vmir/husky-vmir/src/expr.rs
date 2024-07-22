@@ -154,8 +154,8 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             },
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
             HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
-            HirEagerExprData::ConstVariable { ident } => VmirExprData::ConstTemplateVariable,
-            HirEagerExprData::Variable(_) => {
+            HirEagerExprData::ComptimeVariable { ident } => VmirExprData::ConstTemplateVariable,
+            HirEagerExprData::RuntimeVariable(_) => {
                 let place_idx = match entry.quary().place() {
                     Some(place) => match place {
                         EthPlace::Idx(place_idx) => place_idx,
@@ -304,9 +304,11 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             }
             HirEagerExprData::MemoizedField {
                 self_argument,
+                self_argument_ty,
                 self_ty,
                 ident,
                 path,
+                ref indirections,
                 ref instantiation,
             } => {
                 let linket = Linket::new_memo_field(
@@ -319,6 +321,10 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 let arguments = smallvec![VmirArgument::SelfValue {
                     expr: self_argument.to_vmir(self)
                 }];
+                if indirections.len() > 0 {
+                    // ad hoc
+                    // todo!()
+                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments,
@@ -326,9 +332,11 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             }
             HirEagerExprData::MethodRitchieCall {
                 self_argument,
+                self_ty,
                 self_contract,
                 ident,
                 path,
+                ref indirections,
                 ref instantiation,
                 arguments: ref hir_arguments,
             } => {
@@ -339,6 +347,10 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     expr: self_argument.to_vmir(self)
                 }];
                 arguments.extend(self.build_arguments(hir_arguments));
+                if indirections.len() > 0 {
+                    // ad hoc
+                    // todo!()
+                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments,
@@ -348,7 +360,10 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 linket_impl: todo!(),
                 arguments: todo!(),
             },
-            HirEagerExprData::Index { owner, ref items } => VmirExprData::Index,
+            HirEagerExprData::Index {
+                self_argument: owner,
+                ref items,
+            } => VmirExprData::Index,
             HirEagerExprData::NewList {
                 ref exprs,
                 element_ty,
@@ -424,8 +439,8 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 VmirCoercion::Trivial => value,
                 VmirCoercion::Never => todo!(),
                 VmirCoercion::WrapInSome => todo!(),
-                VmirCoercion::PlaceToLeash => todo!(),
-                VmirCoercion::Deref => todo!(),
+                VmirCoercion::Redirection => todo!(),
+                VmirCoercion::Dedirection => todo!(),
             },
             None => value,
         })

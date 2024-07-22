@@ -124,7 +124,7 @@ impl ItemPathData {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum EntityPath {
-    Module(ModulePath),
+    Module(Room32, ModulePath),
     MajorItem(MajorItemPath),
     AssocItem(AssocItemPath),
     TypeVariant(Room32, TypeVariantPath),
@@ -135,7 +135,7 @@ pub enum EntityPath {
 impl EntityPath {
     pub fn ident(self, db: &::salsa::Db) -> Option<Ident> {
         match self {
-            EntityPath::Module(path) => Some(path.ident(db)),
+            EntityPath::Module(_, path) => Some(path.ident(db)),
             EntityPath::MajorItem(path) => Some(path.ident(db)),
             EntityPath::AssocItem(path) => path.ident(db),
             EntityPath::TypeVariant(_, path) => Some(path.ident(db)),
@@ -157,7 +157,7 @@ impl EntityPath {
 
     pub fn crate_path(self, db: &::salsa::Db) -> CratePath {
         match self {
-            EntityPath::Module(path) => path.crate_path(db),
+            EntityPath::Module(_, path) => path.crate_path(db),
             EntityPath::MajorItem(path) => path.crate_path(db),
             EntityPath::AssocItem(path) => path.crate_path(db),
             EntityPath::TypeVariant(_, path) => path.crate_path(db),
@@ -172,7 +172,7 @@ impl EntityPath {
 
     pub fn item_kind(self, db: &::salsa::Db) -> EntityKind {
         match self {
-            EntityPath::Module(_path) => EntityKind::Module,
+            EntityPath::Module(_, path) => EntityKind::Module,
             EntityPath::MajorItem(path) => path.entity_kind(db),
             EntityPath::AssocItem(path) => path.entity_kind(db),
             EntityPath::TypeVariant(_, _) => EntityKind::TypeVariant,
@@ -184,7 +184,7 @@ impl EntityPath {
     #[inline(always)]
     pub fn major(self) -> Option<MajorEntityPath> {
         match self {
-            EntityPath::Module(path) => Some(path.into()),
+            EntityPath::Module(_, path) => Some(path.into()),
             EntityPath::MajorItem(path) => Some(path.into()),
             EntityPath::AssocItem(_) | EntityPath::TypeVariant(_, _) | EntityPath::ImplBlock(_) => {
                 None
@@ -209,6 +209,23 @@ impl From<TypePath> for EntityPath {
 impl From<TraitPath> for EntityPath {
     fn from(v: TraitPath) -> Self {
         EntityPath::MajorItem(v.into())
+    }
+}
+
+impl salsa::DisplayWithDb for EntityPath {
+    fn display_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        match self {
+            EntityPath::Module(_, path) => path.display_fmt_with_db(f, db),
+            EntityPath::MajorItem(path) => path.display_fmt_with_db(f, db),
+            EntityPath::AssocItem(path) => path.display_fmt_with_db(f, db),
+            EntityPath::TypeVariant(_, path) => path.display_fmt_with_db(f, db),
+            EntityPath::ImplBlock(path) => path.display_fmt_with_db(f, db),
+            EntityPath::Attr(_, path) => path.display_fmt_with_db(f, db),
+        }
     }
 }
 

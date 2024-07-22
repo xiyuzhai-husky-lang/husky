@@ -62,8 +62,8 @@ impl<'a> HirDefnDepsBuilder<'a> {
                         self.add_item_path(path.parent_ty_path(db))
                     }
                 },
-                HirEagerExprData::ConstVariable { .. } => (),
-                HirEagerExprData::Variable(_) => (),
+                HirEagerExprData::ComptimeVariable { .. } => (),
+                HirEagerExprData::RuntimeVariable(_) => (),
                 HirEagerExprData::Binary { .. } => (),
                 HirEagerExprData::Be { .. } => (),
                 HirEagerExprData::Prefix { .. } => (),
@@ -201,6 +201,7 @@ impl<'a> HirDefnDepsBuilder<'a> {
                 self.add_hir_ty(hir_ty.return_ty(db))
             }
             HirType::TypeVar(_) => (),
+            HirType::Quaried => todo!(),
         }
     }
 
@@ -256,7 +257,7 @@ impl<'a> HirDefnDepsBuilder<'a> {
         for indirection in indirections.iter() {
             match indirection {
                 HirIndirection::Place(_) => (),
-                HirIndirection::Leash => (),
+                HirIndirection::Deleash => (),
             }
         }
     }

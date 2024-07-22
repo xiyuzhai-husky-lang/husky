@@ -86,6 +86,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -95,12 +96,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -272,6 +273,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -281,12 +283,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -315,6 +317,25 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -324,12 +345,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -366,6 +387,25 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -375,12 +415,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -417,6 +457,25 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -426,12 +485,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {

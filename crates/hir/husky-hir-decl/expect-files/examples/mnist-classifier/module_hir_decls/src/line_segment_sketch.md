@@ -95,11 +95,39 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [
                                 HirEagerExprEntry {
-                                    data: HirEagerExprData::Variable(
+                                    data: HirEagerExprData::RuntimeVariable(
                                         0,
+                                    ),
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            template_arguments: [
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ],
+                                                            always_copyable: false,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
                                     ),
                                     contracted_quary: HirContractedQuary {
                                         contract: Some(
@@ -111,7 +139,7 @@
                                             ),
                                         },
                                     },
-                                    is_always_copyable: true,
+                                    always_copyable: true,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [
                                             (
@@ -122,10 +150,38 @@
                                             ),
                                         ],
                                     },
+                                    coercion: None,
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: Some(
+                                            Pure,
+                                        ),
+                                        quary: StackPure {
+                                            place: Idx(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
+                                    },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodRitchieCall {
                                         self_argument: 0,
+                                        self_ty: HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::PathLeading(
+                                                            HirTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                template_arguments: [],
+                                                                always_copyable: false,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                                always_copyable: false,
+                                            },
+                                        ),
                                         self_contract: Pure,
                                         ident: `first`,
                                         path: AssocItemPath::TypeItem(
@@ -136,7 +192,21 @@
                                                 ),
                                             ),
                                         ),
+                                        indirections: HirIndirections {
+                                            initial_place: StackPure {
+                                                place: Idx(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
+                                            indirections: [
+                                                HirIndirection::Deleash,
+                                            ],
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
+                                        },
                                         instantiation: HirInstantiation {
+                                            path: ItemPath(`core::slice::CyclicSlice(0)::first`),
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
@@ -170,31 +240,92 @@
                                         },
                                         arguments: [],
                                     },
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                            template_arguments: [
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ],
+                                                            always_copyable: true,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
+                                    ),
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
                                         quary: Transient,
                                     },
-                                    is_always_copyable: true,
+                                    always_copyable: true,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [],
+                                    },
+                                    coercion: None,
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: None,
+                                        quary: Transient,
                                     },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Unwrap {
                                         opd: 1,
                                     },
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            template_arguments: [],
+                                                            always_copyable: false,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
+                                    ),
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
                                         quary: Transient,
                                     },
-                                    is_always_copyable: true,
+                                    always_copyable: true,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [],
+                                    },
+                                    coercion: None,
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: None,
+                                        quary: Transient,
                                     },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodRitchieCall {
                                         self_argument: 2,
+                                        self_ty: HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                template_arguments: [],
+                                                always_copyable: false,
+                                            },
+                                        ),
                                         self_contract: Pure,
                                         ident: `clone`,
                                         path: AssocItemPath::TraitForTypeItem(
@@ -205,7 +336,17 @@
                                                 ),
                                             ),
                                         ),
+                                        indirections: HirIndirections {
+                                            initial_place: Transient,
+                                            indirections: [
+                                                HirIndirection::Deleash,
+                                            ],
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
+                                        },
                                         instantiation: HirInstantiation {
+                                            path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
@@ -233,18 +374,63 @@
                                         },
                                         arguments: [],
                                     },
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                            always_copyable: false,
+                                        },
+                                    ),
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
                                         quary: Transient,
                                     },
-                                    is_always_copyable: false,
+                                    always_copyable: false,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [],
                                     },
+                                    coercion: Some(
+                                        Trivial(
+                                            TrivialHirEagerCoercion {
+                                                expectee_quary: Transient,
+                                            },
+                                        ),
+                                    ),
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: None,
+                                        quary: Transient,
+                                    },
                                 },
                                 HirEagerExprEntry {
-                                    data: HirEagerExprData::Variable(
+                                    data: HirEagerExprData::RuntimeVariable(
                                         0,
+                                    ),
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                            template_arguments: [
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ],
+                                                            always_copyable: false,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
                                     ),
                                     contracted_quary: HirContractedQuary {
                                         contract: Some(
@@ -256,7 +442,7 @@
                                             ),
                                         },
                                     },
-                                    is_always_copyable: true,
+                                    always_copyable: true,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [
                                             (
@@ -267,10 +453,38 @@
                                             ),
                                         ],
                                     },
+                                    coercion: None,
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: Some(
+                                            Pure,
+                                        ),
+                                        quary: StackPure {
+                                            place: Idx(
+                                                PlaceIdx(0),
+                                            ),
+                                        },
+                                    },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodRitchieCall {
                                         self_argument: 4,
+                                        self_ty: HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                template_arguments: [
+                                                    HirTemplateArgument::Type(
+                                                        HirType::PathLeading(
+                                                            HirTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                template_arguments: [],
+                                                                always_copyable: false,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ],
+                                                always_copyable: false,
+                                            },
+                                        ),
                                         self_contract: Pure,
                                         ident: `last`,
                                         path: AssocItemPath::TypeItem(
@@ -281,7 +495,21 @@
                                                 ),
                                             ),
                                         ),
+                                        indirections: HirIndirections {
+                                            initial_place: StackPure {
+                                                place: Idx(
+                                                    PlaceIdx(0),
+                                                ),
+                                            },
+                                            indirections: [
+                                                HirIndirection::Deleash,
+                                            ],
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
+                                        },
                                         instantiation: HirInstantiation {
+                                            path: ItemPath(`core::slice::CyclicSlice(0)::last`),
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
@@ -315,31 +543,92 @@
                                         },
                                         arguments: [],
                                     },
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::option::Option`, `Enum`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                            template_arguments: [
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: false,
+                                                                        },
+                                                                    ),
+                                                                ),
+                                                            ],
+                                                            always_copyable: true,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
+                                    ),
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
                                         quary: Transient,
                                     },
-                                    is_always_copyable: true,
+                                    always_copyable: true,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [],
+                                    },
+                                    coercion: None,
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: None,
+                                        quary: Transient,
                                     },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::Unwrap {
                                         opd: 5,
                                     },
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                            template_arguments: [],
+                                                            always_copyable: false,
+                                                        },
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
+                                    ),
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
                                         quary: Transient,
                                     },
-                                    is_always_copyable: true,
+                                    always_copyable: true,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [],
+                                    },
+                                    coercion: None,
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: None,
+                                        quary: Transient,
                                     },
                                 },
                                 HirEagerExprEntry {
                                     data: HirEagerExprData::MethodRitchieCall {
                                         self_argument: 6,
+                                        self_ty: HirType::PathLeading(
+                                            HirTypePathLeading {
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                template_arguments: [],
+                                                always_copyable: false,
+                                            },
+                                        ),
                                         self_contract: Pure,
                                         ident: `clone`,
                                         path: AssocItemPath::TraitForTypeItem(
@@ -350,7 +639,17 @@
                                                 ),
                                             ),
                                         ),
+                                        indirections: HirIndirections {
+                                            initial_place: Transient,
+                                            indirections: [
+                                                HirIndirection::Deleash,
+                                            ],
+                                            final_place: Leashed {
+                                                place_idx: None,
+                                            },
+                                        },
                                         instantiation: HirInstantiation {
+                                            path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
@@ -378,13 +677,31 @@
                                         },
                                         arguments: [],
                                     },
+                                    base_ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            template_arguments: [],
+                                            always_copyable: false,
+                                        },
+                                    ),
                                     contracted_quary: HirContractedQuary {
                                         contract: None,
                                         quary: Transient,
                                     },
-                                    is_always_copyable: false,
+                                    always_copyable: false,
                                     place_contract_site: HirPlaceContractSite {
                                         place_contracts: [],
+                                    },
+                                    coercion: Some(
+                                        Trivial(
+                                            TrivialHirEagerCoercion {
+                                                expectee_quary: Transient,
+                                            },
+                                        ),
+                                    ),
+                                    contracted_quary_after_coercion: HirContractedQuary {
+                                        contract: None,
+                                        quary: Transient,
                                     },
                                 },
                             ],
@@ -395,12 +712,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -486,6 +803,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -495,12 +813,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -904,6 +1222,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -913,12 +1232,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -946,7 +1265,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                         ),
@@ -965,6 +1284,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -974,12 +1302,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1015,6 +1343,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -1024,12 +1353,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1110,6 +1439,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1141,12 +1471,12 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1200,7 +1530,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 38,
+                                    value: 40,
                                 },
                             ),
                         ),
@@ -1219,6 +1549,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1228,12 +1567,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1273,6 +1612,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -1282,12 +1622,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1315,7 +1655,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 36,
+                                    value: 38,
                                 },
                             ),
                         ),
@@ -1334,6 +1674,15 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                    template_arguments: [],
+                                    always_copyable: false,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1343,12 +1692,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1384,6 +1733,7 @@
                     region_path: RegionPath::ItemDecl(
                         ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
                     ),
+                    self_value_ty: None,
                     expr_arena: Arena {
                         data: [],
                     },
@@ -1393,12 +1743,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                    comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                    runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1437,6 +1787,25 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1446,12 +1815,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1488,6 +1857,25 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                         ),
+                        self_value_ty: Some(
+                            HirType::PathLeading(
+                                HirTypePathLeading {
+                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                    template_arguments: [
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ],
+                                    always_copyable: true,
+                                },
+                            ),
+                        ),
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1497,12 +1885,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {
@@ -1580,6 +1968,7 @@
                         region_path: RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`),
                         ),
+                        self_value_ty: None,
                         expr_arena: Arena {
                             data: [],
                         },
@@ -1604,12 +1993,12 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
                                     HirEagerRuntimeVariableEntry {

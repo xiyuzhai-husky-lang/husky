@@ -60,6 +60,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ritchie_ty) => hir_ritchie_ty.transpile_to_rust(builder),
             HirType::TypeVar(_) => todo!(),
+            HirType::Quaried => todo!(),
         }
     }
 }
@@ -68,7 +69,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db();
         match self.ritchie_ty_kind(db) {
-            RitchieTypeKind::Item(ritchie_ty_kind) => builder.word(ritchie_ty_kind.code()),
+            RitchieTypeKind::Item(ritchie_ty_kind) => builder.word(ritchie_ty_kind.display_str()),
             RitchieTypeKind::Closure(_) => unreachable!(),
         }
         builder.delimited_comma_list(RustDelimiter::Par, self.parameters(db).iter());

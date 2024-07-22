@@ -90,11 +90,11 @@ impl SymbolType {
             ident,
         };
         let quary = match modifier {
-            VariableModifier::Pure => match ty.place {
+            VariableModifier::Pure => match ty.quary {
                 Some(FlyQuary::Transient) | None => FlyQuary::ImmutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
-                Some(quary) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
+                Some(quary) => match ty.always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyQuary::ImmutableOnStack {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },
@@ -109,7 +109,7 @@ impl SymbolType {
                         FlyQuary::Ref { guard } => todo!(),
                         FlyQuary::RefMut { .. } => todo!(),
                         FlyQuary::Leashed { .. } => FlyQuary::Leashed {
-                            place_idx: Some(engine.issue_new_place_idx(place_data)),
+                            place: Some(engine.issue_new_place_idx(place_data)),
                         },
                         FlyQuary::Todo => todo!(),
                         FlyQuary::EtherealSymbol(_) => todo!(),
@@ -118,11 +118,11 @@ impl SymbolType {
                 },
             },
             VariableModifier::Owned => todo!(),
-            VariableModifier::Mut => match ty.place {
+            VariableModifier::Mut => match ty.quary {
                 Some(FlyQuary::Transient) | None => FlyQuary::MutableOnStack {
                     place: engine.issue_new_place_idx(place_data).into(),
                 },
-                Some(place) => match ty.is_always_copyable(engine.db(), engine.fly_terms())? {
+                Some(place) => match ty.always_copyable(engine.db(), engine.fly_terms())? {
                     Some(true) => FlyQuary::MutableOnStack {
                         place: engine.issue_new_place_idx(place_data).into(),
                     },
@@ -153,7 +153,7 @@ pub enum FlyLifetime {
 
 impl FlyLifetime {
     pub(crate) fn from_term(term: FlyTerm, db: &::salsa::Db, terms: &mut FlyTerms) -> Self {
-        match term.data2(db, terms) {
+        match term.base_term_data2(db, terms) {
             FlyTermData::Literal(lit) => match lit {
                 Literal::StaticLifetime => FlyLifetime::StaticLifetime,
                 _ => todo!(),

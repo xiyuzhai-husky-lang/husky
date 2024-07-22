@@ -22,7 +22,6 @@ pub val ignored_connected_components_row_span_sum_sum: f32 =
 pub val major_raw_contours: ~[]RawContour =
     major_connected_component.raw_contours
 
-// todo: change `def` to `func`
 pub val major_raw_contour: ~RawContour =
     major_connected_component.raw_contours[0]
 

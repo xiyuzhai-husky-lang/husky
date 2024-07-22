@@ -94,6 +94,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`#derive _ as core::clone::Clone(0)`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -130,6 +131,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::push`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -236,6 +238,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::collect_leashes`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -307,6 +310,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -365,6 +369,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::push`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -443,6 +448,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -485,6 +491,7 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`core::vec::Vec(0)::ilen`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

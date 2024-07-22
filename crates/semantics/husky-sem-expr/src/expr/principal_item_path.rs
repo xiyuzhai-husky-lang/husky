@@ -91,20 +91,20 @@ impl<'a> SemExprBuilder<'a> {
                                 return (Ok(None), Ok(self.term_menu().ty0().into()))
                             }
                             FormEthTemplate::Val(tmpl) => FlyInstantiate::instantiate(
-                                tmpl.return_ty(db),
+                                tmpl.expr_ty(db),
                                 self,
                                 syn_expr_idx,
                                 &instantiation,
                             )
-                            .with_quary(FlyQuary::Leashed { place_idx: None }),
+                            .with_quary(FlyQuary::Transient),
                             FormEthTemplate::StaticMut(_) => todo!(),
                             FormEthTemplate::StaticVar(tmpl) => FlyInstantiate::instantiate(
-                                tmpl.return_ty(db),
+                                tmpl.expr_ty(db),
                                 self,
                                 syn_expr_idx,
                                 &instantiation,
                             )
-                            .with_quary(FlyQuary::Leashed { place_idx: None }),
+                            .with_quary(FlyQuary::Transient),
                             FormEthTemplate::Compterm(_) => todo!(),
                         };
                         (Ok(Some(instantiation)), Ok(ty))
@@ -157,7 +157,8 @@ impl<'a> SemExprBuilder<'a> {
                 FlyTermDestination::AnyOriginal | FlyTermDestination::AnyDerived => {
                     Ok(path.ty(db)?.into())
                 }
-                FlyTermDestination::Specific(destination) => match destination.data(self) {
+                FlyTermDestination::Specific(destination) => match destination.base_term_data(self)
+                {
                     FlyTermData::TypeOntology { ty_path, .. } if ty_path == parent_ty_path => {
                         Ok(destination)
                     }

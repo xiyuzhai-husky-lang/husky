@@ -194,6 +194,7 @@ impl ToHirLazy for SemExprIdx {
             },
             SemExprData::Be {
                 src,
+                contract,
                 be_regional_token_idx: _,
                 ref target,
             } => HirLazyExprData::Be {
@@ -323,21 +324,25 @@ impl ToHirLazy for SemExprIdx {
             } => todo!(),
             SemExprData::Field {
                 self_argument: owner,
-                self_ty: owner_ty,
+                self_argument_ty: owner_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
                 FieldFlySignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
                     owner: owner.to_hir_lazy(builder),
-                    owner_base_ty: HirType::from_fly(owner_ty, builder.db(), builder.fly_terms())
-                        .unwrap(),
+                    owner_base_ty: HirType::from_fly_base(
+                        owner_ty,
+                        builder.db(),
+                        builder.fly_terms(),
+                    )
+                    .unwrap(),
                     ident: ident_token.ident(),
                 },
                 FieldFlySignature::Memoized {
-                    ty: _,
                     path,
                     ref instantiation,
+                    ..
                 } => {
                     debug_assert!(instantiation.separator().is_some());
                     HirLazyExprData::MemoizedField {
@@ -368,7 +373,7 @@ impl ToHirLazy for SemExprIdx {
             SemExprData::MethodRitchieCall {
                 self_argument: self_argument_sem_expr_idx,
                 ident_token,
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
@@ -401,8 +406,8 @@ impl ToHirLazy for SemExprIdx {
                 rpar_regional_token_idx: _,
             } => todo!(),
             SemExprData::Index {
-                owner: owner_sem_expr_idx,
-                ref index_sem_list_items,
+                self_argument: owner_sem_expr_idx,
+                items: ref index_sem_list_items,
                 ..
             } => HirLazyExprData::Index {
                 owner: owner_sem_expr_idx.to_hir_lazy(builder),
@@ -423,7 +428,7 @@ impl ToHirLazy for SemExprIdx {
                     .iter()
                     .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
                     .collect(),
-                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
+                element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),
             },
             SemExprData::BoxColonList {

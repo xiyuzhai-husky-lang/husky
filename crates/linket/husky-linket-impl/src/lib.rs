@@ -256,7 +256,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
             Pedestal: IsPedestalFull,
             DevsoulInterface: IsDevsoulInterface<LinketImpl = LinketImpl<Pedestal>>,
             F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
-            B: IntoValue, // no need to use ValueLeashTest because B is definitely not leashed
+            B: IntoValue, // no need to use DeprecatedValueLeashTest because B is definitely not leashed
             Target: Send + FromValue,
             $($runtime_constant: Send + FromValue,)*
             $output: Send,

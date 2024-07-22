@@ -2,17 +2,24 @@ mod closure;
 mod html;
 pub(crate) mod pattern;
 pub(crate) mod precedence;
-pub(crate) mod site;
+pub(crate) mod role;
 mod stmt;
 
 pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 
-use self::{precedence::hir_eager_expr_precedence, site::HirEagerExprSite};
+use self::role::HirEagerExprRole;
 use crate::{binding::RustBinding, *};
+use binding::RustBindings;
+use either::*;
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
+use husky_entity_path::path::{
+    assoc_item::AssocItemPath,
+    major_item::{ty::PreludeTypePath, MajorItemPath},
+    ItemPath, PrincipalEntityPath,
+};
 use husky_hir_eager_expr::{
-    emit_note_on_hir_eager_expr_codespan, HirEagerCondition, HirEagerElifBranch,
+    coercion::HirEagerCoercion, emit_note_on_hir_eager_expr_codespan,
+    variable::runtime::HirEagerRuntimeVariableName, HirEagerCondition, HirEagerElifBranch,
     HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry, HirEagerExprIdx, HirEagerExprRegion,
     HirEagerIfBranch, HirEagerPatternData, HirEagerPatternIdx, HirEagerRitchieArgument,
     HirEagerStmtData, HirEagerStmtIdx, HirEagerStmtIdxRange,
@@ -20,78 +27,78 @@ use husky_hir_eager_expr::{
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
     instantiation::HirTermSymbolicVariableResolution, place_contract_site::HirPlaceContractSite,
-    quary::HirQuary, ritchie::HirContract, HirTemplateVariable, HirTemplateVariableClass,
+    quary::HirQuary, ritchie::HirContract, HirTemplateVariable, HirTemplateVariableClass, HirType,
 };
 use husky_opr::BinaryClosedOpr;
+use salsa::DebugWithDb;
 use smallvec::SmallVec;
 
-impl TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprSite) {
+impl<'db> TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEagerExprRole<'db>) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        let (slf, mut site) = self;
-        let entry = slf.entry(builder.hir_eager_expr_arena());
-        let data = entry.data();
-        let place_contract_site = entry.place_contract_site();
+        let (expr, role) = self;
+        let expr_entry = expr.entry(builder.hir_eager_expr_arena());
+        let data = expr_entry.data();
+        let place_contract_site = expr_entry.place_contract_site();
         let db = builder.db;
-        let precedence = hir_eager_expr_precedence(data);
-        let needs_deref = site.hir_eager_expr_needs_deref(entry);
-        if needs_deref {
-            site.rust_bindings.push(RustBinding::Deref)
-        }
-        let mut wrap_in_some_flag = false;
-        if let Some(rust_binding) = site.rust_bindings.last() {
-            match rust_binding {
+        let innermost_precedence = RustPrecedence::from_expr(data);
+        let bindings = RustBindings::new(expr_entry, role, db);
+        let innermost_precedence_range = RustPrecedenceRange::innermost(&bindings, role);
+        let outermost_precedence_range = RustPrecedenceRange::outermost(role);
+        let needs_outermost_extra_pars = bindings
+            .outermost()
+            .map(|binding| match binding {
                 RustBinding::Deref
+                | RustBinding::DerefMut
                 | RustBinding::DerefCustomed
                 | RustBinding::Reref
                 | RustBinding::RerefMut => {
-                    site.rust_precedence_range = RustPrecedenceRange::Geq(RustPrecedence::Prefix)
+                    !outermost_precedence_range.include(RustPrecedence::Prefix)
                 }
-                RustBinding::SelfValue => (),
-                RustBinding::WrapInSome => site.rust_precedence_range = RustPrecedenceRange::ANY,
-            }
-        }
-        let needs_extra_pars = site
-            .rust_bindings
-            .first()
-            .map(|rust_binding| match rust_binding {
-                RustBinding::Deref
-                | RustBinding::DerefCustomed
-                | RustBinding::Reref
-                | RustBinding::RerefMut => {
-                    !site.rust_precedence_range.include(RustPrecedence::Prefix)
-                }
-                RustBinding::SelfValue | RustBinding::WrapInSome => false,
+                RustBinding::Deleash
+                | RustBinding::Releash
+                | RustBinding::SelfValue
+                | RustBinding::WrapInSome => false,
             })
             .unwrap_or(false);
-        if needs_extra_pars {
+        if needs_outermost_extra_pars {
             builder.lpar();
         }
-        for &rust_binding in &*site.rust_bindings {
-            match rust_binding {
-                RustBinding::Deref | RustBinding::DerefCustomed => {
-                    builder.punctuation(RustPunctuation::DerefStar)
-                }
-                RustBinding::Reref => builder.punctuation(RustPunctuation::Ambersand),
-                RustBinding::RerefMut => {
-                    builder.punctuation(RustPunctuation::Ambersand);
-                    builder.keyword(RustKeyword::Mut)
-                }
-                RustBinding::SelfValue => (),
-                RustBinding::WrapInSome => builder.wrap_in_some_left(&mut wrap_in_some_flag),
+        builder.transpile_bindings(bindings.clone(), |builder| {
+            if !innermost_precedence_range.include(innermost_precedence) {
+                builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+                    transpile_hir_eager_expr_to_rust(
+                        data,
+                        place_contract_site,
+                        innermost_precedence,
+                        builder,
+                    )
+                })
+            } else {
+                transpile_hir_eager_expr_to_rust(
+                    data,
+                    place_contract_site,
+                    innermost_precedence,
+                    builder,
+                )
             }
-        }
-        if !site.rust_precedence_range.include(precedence) {
-            builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
-                transpile_hir_eager_expr_to_rust(data, place_contract_site, precedence, builder)
-            })
-        } else {
-            transpile_hir_eager_expr_to_rust(data, place_contract_site, precedence, builder)
-        }
-        if wrap_in_some_flag {
-            builder.wrap_in_some_right()
-        }
-        if needs_extra_pars {
+        });
+        if needs_outermost_extra_pars {
             builder.rpar();
+        }
+        if builder.is_defn_region("find_connected_components") {
+            if builder.result().ends_with("&mut j") {
+                use ::husky_print_utils::p;
+                use ::salsa::DebugWithDb;
+                p!(expr_entry.debug(db), bindings);
+                todo!()
+            }
+            // match *data {
+            //     HirEagerExprData::Index {
+            //         self_argument,
+            //         ref items,
+            //     } => todo!(),
+            //     _ => (),
+            // }
         }
     }
 }
@@ -104,8 +111,8 @@ fn transpile_hir_eager_expr_to_rust(
     precedence: RustPrecedence,
     builder: &mut RustTranspilationBuilder<HirEagerExprRegion>,
 ) {
-    let subexpr_geq = || HirEagerExprSite::subexpr(RustPrecedenceRange::Geq(precedence));
-    let subexpr_greater = || HirEagerExprSite::subexpr(RustPrecedenceRange::Greater(precedence));
+    let subexpr_geq = || HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(precedence));
+    let subexpr_greater = || HirEagerExprRole::subexpr(RustPrecedenceRange::Greater(precedence));
     let db = builder.db();
     match *data {
         HirEagerExprData::Literal(term_literal) => term_literal.transpile_to_rust(builder),
@@ -128,29 +135,30 @@ fn transpile_hir_eager_expr_to_rust(
                 PrincipalEntityPath::MajorItem(_) => (),
             }
         }
-        HirEagerExprData::ConstVariable { ident, .. } => ident.transpile_to_rust(builder),
-        HirEagerExprData::Variable(hir_eager_runtime_symbol_idx) => {
-            hir_eager_runtime_symbol_idx.transpile_to_rust(builder)
-        }
+        HirEagerExprData::ComptimeVariable { ident, .. } => ident.transpile_to_rust(builder),
+        HirEagerExprData::RuntimeVariable(variable) => variable.transpile_to_rust(builder),
         HirEagerExprData::Binary { lopd, opr, ropd } => match opr {
             HirBinaryOpr::Closed(BinaryClosedOpr::RemEuclid) => {
-                (lopd, HirEagerExprSite::self_expr_on_site(false)).transpile_to_rust(builder);
+                (lopd, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 builder.rem_eulid();
                 builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
-                    (ropd, HirEagerExprSite::any_precedence()).transpile_to_rust(builder)
+                    (ropd, HirEagerExprRole::subexpr_with_any_precedence_range())
+                        .transpile_to_rust(builder)
                 })
             }
             HirBinaryOpr::Closed(BinaryClosedOpr::Power) => {
-                (lopd, HirEagerExprSite::self_expr_on_site(false)).transpile_to_rust(builder);
+                // ad hoc
+                (lopd, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Dot);
                 builder.pow();
                 builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
-                    (ropd, HirEagerExprSite::any_precedence()).transpile_to_rust(builder)
+                    (ropd, HirEagerExprRole::subexpr_with_any_precedence_range())
+                        .transpile_to_rust(builder)
                 })
             }
             HirBinaryOpr::Assign | HirBinaryOpr::AssignClosed(_) | HirBinaryOpr::AssignShift(_) => {
-                (lopd, HirEagerExprSite::self_expr_on_site(false)).transpile_to_rust(builder);
+                (lopd, HirEagerExprRole::assign_self_argument()).transpile_to_rust(builder);
                 opr.transpile_to_rust(builder);
                 (ropd, subexpr_greater()).transpile_to_rust(builder)
             }
@@ -161,15 +169,12 @@ fn transpile_hir_eager_expr_to_rust(
             }
         },
         HirEagerExprData::Be { src: _, pattern: _ } => builder.macro_name(RustMacroName::Matches),
-        HirEagerExprData::Prefix {
-            opr,
-            opd: opd_hir_expr_idx,
-        } => {
+        HirEagerExprData::Prefix { opr, opd } => {
             match opr {
                 HirPrefixOpr::NotInt => builder.delimited(RustDelimiter::Par, |builder| {
                     (
-                        opd_hir_expr_idx,
-                        HirEagerExprSite::subexpr(RustPrecedenceRange::Geq(
+                        opd,
+                        HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                             RustPrecedence::EqComparison,
                         )),
                     )
@@ -179,16 +184,13 @@ fn transpile_hir_eager_expr_to_rust(
                 _ => {
                     // todo: check some details
                     opr.transpile_to_rust(builder);
-                    (opd_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder)
+                    (opd, subexpr_geq()).transpile_to_rust(builder)
                 }
             }
         }
-        HirEagerExprData::Suffix {
-            opd: opd_hir_expr_idx,
-            opr,
-        } => match opr {
+        HirEagerExprData::Suffix { opd, opr } => match opr {
             HirSuffixOpr::Incr | HirSuffixOpr::Decr => {
-                (opd_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder);
+                (opd, HirEagerExprRole::assign_self_argument()).transpile_to_rust(builder);
                 opr.transpile_to_rust(builder)
             }
         },
@@ -219,109 +221,169 @@ fn transpile_hir_eager_expr_to_rust(
             })
         }
         HirEagerExprData::Unwrap { opd } => {
-            (opd, HirEagerExprSite::self_expr_on_site(false)).transpile_to_rust(builder);
+            (opd, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
             builder.call_unwrap()
         }
         HirEagerExprData::TypeConstructorCall {
             path,
             instantiation: _,
-            arguments: ref item_groups,
+            ref arguments,
         } => {
             builder.struct_ty_constructor_path(path);
-            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, arguments)
         }
         HirEagerExprData::TypeVariantConstructorCall {
             path,
             instantiation: _,
-            arguments: ref item_groups,
+            ref arguments,
         } => {
             path.transpile_to_rust(builder);
-            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, arguments)
         }
         HirEagerExprData::FunctionRitchieCall {
             path,
             instantiation: _,
-            arguments: ref item_groups,
+            ref arguments,
         } => {
             path.transpile_to_rust(builder);
-            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, arguments)
         }
         HirEagerExprData::AssocFunctionRitchieCall {
             path,
-            arguments: ref item_groups,
+            ref arguments,
             ..
         } => {
             path.transpile_to_rust(builder);
-            builder.delimited_comma_list(RustDelimiter::Par, item_groups)
+            builder.delimited_comma_list(RustDelimiter::Par, arguments)
         }
         HirEagerExprData::PropsStructField {
-            self_argument: owner_hir_expr_idx,
+            self_argument,
+            self_ty,
             ident,
+            ref indirections,
             ..
         } => {
             (
-                owner_hir_expr_idx,
-                HirEagerExprSite::self_expr_on_site(true),
+                self_argument,
+                HirEagerExprRole::leashless_self_argument(indirections),
             )
                 .transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);
             ident.transpile_to_rust(builder)
         }
         HirEagerExprData::MemoizedField {
-            self_argument: owner_hir_expr_idx,
+            self_argument,
+            self_argument_ty,
             ident,
+            ref indirections,
+            ref instantiation,
             ..
         } => {
-            (owner_hir_expr_idx, subexpr_geq()).transpile_to_rust(builder);
-            builder.punctuation(RustPunctuation::Dot);
+            let ItemPath::AssocItem(path) = instantiation.path() else {
+                unreachable!()
+            };
+            // ad hoc
+            let self_ty = self_argument_ty.deleash_if_leashed(db);
+            match path {
+                AssocItemPath::TypeItem(_) => {
+                    builder.delimited(RustDelimiter::Angle, |builder| {
+                        self_ty.transpile_to_rust(builder)
+                    });
+                }
+                AssocItemPath::TraitItem(_) => todo!(),
+                AssocItemPath::TraitForTypeItem(_) => todo!(),
+            }
+            builder.punctuation(RustPunctuation::ColonColon);
             ident.transpile_to_rust(builder);
-            builder.delimited(RustDelimiter::Par, |_| ())
+            builder.delimited(RustDelimiter::Par, |builder| {
+                (
+                    self_argument,
+                    HirEagerExprRole::leashed_self_argument(indirections, db),
+                )
+                    .transpile_to_rust(builder)
+            });
         }
         HirEagerExprData::MethodRitchieCall {
             self_argument,
+            self_ty,
             self_contract,
             ident,
             path,
+            ref indirections,
             ref instantiation,
-            arguments: ref item_groups,
+            ref arguments,
         } => {
-            (self_argument, HirEagerExprSite::self_expr_on_site(true)).transpile_to_rust(builder);
-            builder.punctuation(RustPunctuation::Dot);
-            let contracted_quaries = instantiation.contracted_quaries();
-            match contracted_quaries.len() {
-                0 => ident.transpile_to_rust(builder),
-                1 => match contracted_quaries[0].quary().place() {
-                    Some(place) => match place_contract_site[place] {
-                        HirContract::Pure => ident.transpile_to_rust(builder),
-                        HirContract::Move => todo!(),
-                        HirContract::Borrow => todo!(),
-                        HirContract::BorrowMut => builder.method_ritchie_ident_mut(ident),
-                        HirContract::Compterm => todo!(),
-                        HirContract::Leash => todo!(),
-                        HirContract::At => todo!(),
-                    },
-                    None => ident.transpile_to_rust(builder),
-                },
-                _ => todo!(),
-            }
-            match path.ident(db).unwrap().data(db) {
-                // ad hoc, should use path menu instead
-                "visualize" => builder.delimited(RustDelimiter::Par, |builder| {
-                    builder.visual_synchrotron_argument()
-                }),
-                _ => builder.delimited_comma_list(RustDelimiter::Par, item_groups),
+            match self_contract {
+                HirContract::Leash => {
+                    let ItemPath::AssocItem(path) = instantiation.path() else {
+                        unreachable!()
+                    };
+                    match path {
+                        AssocItemPath::TypeItem(_) => {
+                            builder.delimited(RustDelimiter::Angle, |builder| {
+                                self_ty.transpile_to_rust(builder)
+                            });
+                        }
+                        AssocItemPath::TraitItem(_) => todo!(),
+                        AssocItemPath::TraitForTypeItem(_) => todo!(),
+                    }
+                    builder.punctuation(RustPunctuation::ColonColon);
+                    ident.transpile_to_rust(builder);
+                    builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+                        builder.heterogeneous_comma_list_item((
+                            self_argument,
+                            HirEagerExprRole::leashed_self_argument(indirections, db),
+                        ));
+                        builder.heterogeneous_comma_list_items(arguments);
+                    });
+                }
+                _ => {
+                    (
+                        self_argument,
+                        HirEagerExprRole::leashless_self_argument(indirections),
+                    )
+                        .transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::Dot);
+                    let contracted_quaries = instantiation.contracted_quaries();
+                    match contracted_quaries.len() {
+                        0 => ident.transpile_to_rust(builder),
+                        1 => match contracted_quaries[0].quary().place() {
+                            Some(place) => match place_contract_site[place] {
+                                HirContract::Pure => ident.transpile_to_rust(builder),
+                                HirContract::Move => todo!(),
+                                HirContract::Borrow => todo!(),
+                                HirContract::BorrowMut => builder.method_ritchie_ident_mut(ident),
+                                HirContract::Compterm => todo!(),
+                                HirContract::Leash => todo!(),
+                                HirContract::At => todo!(),
+                            },
+                            None => ident.transpile_to_rust(builder),
+                        },
+                        _ => todo!(),
+                    }
+                    match path.ident(db).unwrap().data(db) {
+                        // ad hoc, should use path menu instead or refinement
+                        "visualize" => builder.delimited(RustDelimiter::Par, |builder| {
+                            builder.visual_synchrotron_argument()
+                        }),
+                        _ => builder.delimited_comma_list(RustDelimiter::Par, arguments),
+                    }
+                }
             }
         }
         HirEagerExprData::NewTuple { items: _ } => {
             todo!()
         }
-        HirEagerExprData::Index { owner, ref items } => {
+        HirEagerExprData::Index {
+            self_argument: owner,
+            ref items,
+        } => {
             // ad hoc
-            (owner, HirEagerExprSite::self_expr_on_site(true)).transpile_to_rust(builder);
+            (owner, HirEagerExprRole::simple_self_argument()).transpile_to_rust(builder);
             builder.delimited(RustDelimiter::Box, |builder| {
                 (
                     items[0],
-                    HirEagerExprSite::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
+                    HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
                 )
                     .transpile_to_rust(builder);
                 builder.keyword(RustKeyword::As);
@@ -337,7 +399,7 @@ fn transpile_hir_eager_expr_to_rust(
                 items
                     .iter()
                     .copied()
-                    .map(|item| (item, HirEagerExprSite::any_precedence())),
+                    .map(|item| (item, HirEagerExprRole::subexpr_with_any_precedence_range())),
             )
         }
         HirEagerExprData::Block { stmts } => stmts.transpile_to_rust(builder),
@@ -368,7 +430,7 @@ fn transpile_hir_eager_expr_to_rust(
         HirEagerExprData::As { opd, ty } => {
             (
                 opd,
-                HirEagerExprSite::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
+                HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(RustPrecedence::As)),
             )
                 .transpile_to_rust(builder);
             builder.keyword(RustKeyword::As);
@@ -386,14 +448,14 @@ fn transpile_hir_eager_expr_to_rust(
                     builder.punctuation(RustPunctuation::LightArrow);
                     return_ty.transpile_to_rust(builder);
                     builder.delimited(RustDelimiter::Curl, |builder| {
-                        (body, HirEagerExprSite::subexpr(RustPrecedenceRange::Any))
+                        (body, HirEagerExprRole::subexpr(RustPrecedenceRange::Any))
                             .transpile_to_rust(builder)
                     })
                 }
                 None => {
                     (
                         body,
-                        HirEagerExprSite::subexpr(RustPrecedenceRange::Geq(
+                        HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                             RustPrecedence::Closure,
                         )),
                     )
@@ -404,51 +466,12 @@ fn transpile_hir_eager_expr_to_rust(
     }
 }
 
-impl HirEagerExprSite {
-    fn hir_eager_expr_needs_deref(&self, entry: &HirEagerExprEntry) -> bool {
-        match *entry.data() {
-            HirEagerExprData::Variable(_) => match entry.quary() {
-                HirQuary::Compterm | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
-                HirQuary::Ref { .. } => true,
-                HirQuary::RefMut { .. } => true,
-                _ => false,
-            },
-            HirEagerExprData::ConstVariable { .. }
-            | HirEagerExprData::FunctionRitchieCall { .. }
-            | HirEagerExprData::AssocFunctionRitchieCall { .. }
-            | HirEagerExprData::MemoizedField { .. }
-            | HirEagerExprData::MethodRitchieCall { .. }
-            | HirEagerExprData::Suffix { .. }
-            | HirEagerExprData::Unveil { .. }
-            | HirEagerExprData::Unwrap { .. } => match entry.quary() {
-                HirQuary::Compterm | HirQuary::StackPure { .. } => !entry.is_always_copyable(),
-                quary => match quary.place() {
-                    Some(place) => match entry.place_contract_site().get(place) {
-                        Some(contract) => match contract {
-                            HirContract::Pure | HirContract::Compterm => {
-                                !entry.is_always_copyable()
-                            }
-                            HirContract::Move => false,
-                            HirContract::Borrow => true,
-                            HirContract::BorrowMut => true,
-                            HirContract::Leash => todo!(),
-                            HirContract::At => todo!(),
-                        },
-                        None => false,
-                    },
-                    None => false,
-                },
-            },
-            _ => false,
-        }
-    }
-}
 impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerRitchieArgument {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
             HirEagerRitchieArgument::Simple(param, hir_eager_expr_idx, coercion) => (
                 hir_eager_expr_idx,
-                HirEagerExprSite::regular_call_item(param, coercion, builder.db()),
+                HirEagerExprRole::regular_call_item(param.contract),
             )
                 .transpile_to_rust(builder),
             HirEagerRitchieArgument::Variadic => todo!(),

@@ -13,7 +13,7 @@ impl<'a> SemExprBuilder<'a> {
         opd: SynExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
     ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
-        let (opd_sem_expr_idx, opd_ty) = self.build_sem_expr_with_ty(opd, ExpectAnyOriginal);
+        let (opd_sem_expr_idx, opd_ty) = self.build_expr_with_ty(opd, ExpectAnyOriginal);
         let Some(opd_ty) = opd_ty else {
             // p!(self.expr_region_data.path().debug(self.db));
             // todo!();
@@ -22,7 +22,7 @@ impl<'a> SemExprBuilder<'a> {
                 Err(DerivedSemExprTypeError::UnableToInferUnwrapOperand.into()),
             );
         };
-        match opd_ty.data(self) {
+        match opd_ty.base_term_data(self) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path,

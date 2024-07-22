@@ -123,7 +123,7 @@ impl<'db> SemItemPathDepsBuilder<'db> {
                 rpar_regional_token_idx,
             } => (),
             SemExprData::MethodRitchieCall {
-                ref instance_dispatch,
+                dispatch: ref instance_dispatch,
                 ref template_arguments,
                 ..
             } => {
@@ -142,8 +142,8 @@ impl<'db> SemItemPathDepsBuilder<'db> {
             SemExprData::NewTuple { .. } => (),
             // ad hoc
             SemExprData::Index {
-                owner,
-                ref index_sem_list_items,
+                self_argument: owner,
+                items: ref index_sem_list_items,
                 ref index_dynamic_dispatch,
                 ..
             } => (),

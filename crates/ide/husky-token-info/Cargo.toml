@@ -4,9 +4,10 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
+smallvec.workspace = true
 # abstractions
-salsa.workspace = true
 enum-class.workspace = true
+salsa.workspace = true
 # fs
 husky-vfs.workspace = true
 # infer

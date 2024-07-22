@@ -6,8 +6,9 @@ pub use self::html::*;
 
 use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
-    variable::runtime::HirEagerRvarIdx, *,
+    variable::runtime::HirEagerRuntimeVariableIdx, *,
 };
+use coercion::{DedirectionHirEagerCoercion, HirEagerCoercion};
 use husky_entity_path::path::{
     assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
     major_item::{form::MajorFormPath, ty::TypePath, MajorItemPath},
@@ -17,16 +18,20 @@ use husky_entity_path::path::{
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::{field::FieldFlySignature, method::MethodFlySignature, OntologyDispatch},
+    quary::FlyQuary,
     signature::assoc_item::ty_item::TypeItemFlySignature,
+    ExpectationOutcome,
 };
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
+    indirections::HirIndirections,
     instantiation::HirInstantiation,
     place_contract_site::HirPlaceContractSite,
     quary::{HirContractedQuary, HirQuary},
     ritchie::HirContract,
     HirType,
 };
+use husky_place::place::EthPlace;
 use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
 use husky_sem_opr::{binary::SemBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::variable::{InheritedTemplateVariable, InheritedVariableKind};
@@ -42,15 +47,27 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerExprEntry {
     data: HirEagerExprData,
+    /// this is the type before coercion
+    base_ty: HirType,
+    /// note that the contract is only told when the quary has a place, i.e., not transient
     contracted_quary: HirContractedQuary,
-    is_always_copyable: bool,
+    always_copyable: bool,
     place_contract_site: HirPlaceContractSite,
+    /// None means it's not entirely known from expectation alone,
+    /// todo: remove Option
+    coercion: Option<HirEagerCoercion>,
+    /// note that the contract is only told when the quary has a place, i.e., not transient
+    contracted_quary_after_coercion: HirContractedQuary,
 }
 
 /// # getters
 impl HirEagerExprEntry {
     pub fn data(&self) -> &HirEagerExprData {
         &self.data
+    }
+
+    pub fn base_ty(&self) -> HirType {
+        self.base_ty
     }
 
     pub fn contracted_quary(&self) -> HirContractedQuary {
@@ -61,12 +78,21 @@ impl HirEagerExprEntry {
         self.contracted_quary.quary()
     }
 
-    pub fn is_always_copyable(&self) -> bool {
-        self.is_always_copyable
+    pub fn coercion(&self) -> Option<HirEagerCoercion> {
+        self.coercion
+    }
+
+    /// this is before coercion happens, the inner type of the expression
+    pub fn is_base_ty_always_copyable(&self) -> bool {
+        self.always_copyable
     }
 
     pub fn place_contract_site(&self) -> &HirPlaceContractSite {
         &self.place_contract_site
+    }
+
+    pub fn contracted_quary_after_coercion(&self) -> HirContractedQuary {
+        self.contracted_quary_after_coercion
     }
 }
 
@@ -78,10 +104,10 @@ pub enum HirEagerExprData {
     AssocRitchie {
         assoc_item_path: AssocItemPath,
     },
-    ConstVariable {
+    ComptimeVariable {
         ident: Ident,
     },
-    Variable(HirEagerRvarIdx),
+    RuntimeVariable(HirEagerRuntimeVariableIdx),
     Binary {
         lopd: HirEagerExprIdx,
         opr: HirBinaryOpr,
@@ -137,19 +163,24 @@ pub enum HirEagerExprData {
         self_ty: HirType,
         ident: Ident,
         field_ty: HirType,
+        indirections: HirIndirections,
     },
     MemoizedField {
         self_argument: HirEagerExprIdx,
+        self_argument_ty: HirType,
         self_ty: HirType,
         ident: Ident,
         path: AssocItemPath,
+        indirections: HirIndirections,
         instantiation: HirInstantiation,
     },
     MethodRitchieCall {
         self_argument: HirEagerExprIdx,
+        self_ty: HirType,
         self_contract: HirContract,
         ident: Ident,
         path: AssocItemPath,
+        indirections: HirIndirections,
         instantiation: HirInstantiation,
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
@@ -158,7 +189,7 @@ pub enum HirEagerExprData {
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     Index {
-        owner: HirEagerExprIdx,
+        self_argument: HirEagerExprIdx,
         items: SmallVec<[HirEagerExprIdx; 4]>,
     },
     NewList {
@@ -238,11 +269,11 @@ impl ToHirEager for SemExprIdx {
                     InheritedTemplateVariable::Place { label: _ } => todo!(),
                     InheritedTemplateVariable::Type { ident: _ } => todo!(),
                     InheritedTemplateVariable::Constant { ident } => {
-                        HirEagerExprData::ConstVariable { ident }
+                        HirEagerExprData::ComptimeVariable { ident }
                     }
                 },
                 InheritedVariableKind::Parenate { .. }
-                | InheritedVariableKind::SelfField { .. } => HirEagerExprData::Variable(
+                | InheritedVariableKind::SelfField { .. } => HirEagerExprData::RuntimeVariable(
                     builder
                         .inherited_variable_to_hir_eager_runtime_symbol(inherited_variable_idx)
                         .unwrap(),
@@ -251,7 +282,7 @@ impl ToHirEager for SemExprIdx {
             SemExprData::CurrentVariable {
                 current_variable_idx,
                 ..
-            } => HirEagerExprData::Variable(
+            } => HirEagerExprData::RuntimeVariable(
                 builder
                     .current_variable_to_hir_eager_runtime_symbol(current_variable_idx)
                     .unwrap(),
@@ -261,7 +292,7 @@ impl ToHirEager for SemExprIdx {
                 unreachable!()
             }
             SemExprData::SelfValue(_) => {
-                HirEagerExprData::Variable(builder.self_value_variable().unwrap())
+                HirEagerExprData::RuntimeVariable(builder.self_value_variable().unwrap())
             }
             SemExprData::Binary {
                 lopd, opr, ropd, ..
@@ -291,7 +322,7 @@ impl ToHirEager for SemExprIdx {
                     opr,
                     builder.expr_ty(opd_sem_expr_idx),
                     builder.db(),
-                    builder.fly_terms(),
+                    builder.terms(),
                 ),
                 opd: opd_sem_expr_idx.to_hir_eager(builder),
             },
@@ -360,7 +391,7 @@ impl ToHirEager for SemExprIdx {
                                     instantiation.as_ref().unwrap(),
                                     &place_contract_site,
                                     db,
-                                    builder.fly_terms(),
+                                    builder.terms(),
                                 ),
                                 arguments: item_groups,
                             },
@@ -371,7 +402,7 @@ impl ToHirEager for SemExprIdx {
                                     instantiation.as_ref().unwrap(),
                                     &place_contract_site,
                                     db,
-                                    builder.fly_terms(),
+                                    builder.terms(),
                                 ),
                                 arguments: item_groups,
                             },
@@ -383,7 +414,7 @@ impl ToHirEager for SemExprIdx {
                                     instantiation.as_ref().unwrap(),
                                     &place_contract_site,
                                     db,
-                                    builder.fly_terms(),
+                                    builder.terms(),
                                 ),
                                 arguments: item_groups,
                             }
@@ -401,7 +432,7 @@ impl ToHirEager for SemExprIdx {
                                         signature.instantiation(),
                                         &place_contract_site,
                                         db,
-                                        builder.fly_terms(),
+                                        builder.terms(),
                                     ),
                                     arguments: item_groups,
                                 }
@@ -424,58 +455,81 @@ impl ToHirEager for SemExprIdx {
             SemExprData::Ritchie { .. } => todo!(),
             SemExprData::Field {
                 self_argument,
-                self_ty,
+                self_argument_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
                 FieldFlySignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
                     self_argument: self_argument.to_hir_eager(builder),
-                    self_ty: HirType::from_fly(self_ty, builder.db(), builder.fly_terms()).unwrap(),
+                    self_ty: HirType::from_fly_base(
+                        self_argument_ty,
+                        builder.db(),
+                        builder.terms(),
+                    )
+                    .unwrap(),
                     ident: ident_token.ident(),
-                    field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
+                    field_ty: HirType::from_fly_base(ty, builder.db(), builder.terms()).unwrap(),
+                    indirections: HirIndirections::from_fly(dispatch.indirections()),
                 },
                 FieldFlySignature::Memoized {
-                    ty: _,
                     path,
+                    self_ty,
                     ref instantiation,
+                    ..
                 } => {
                     debug_assert!(instantiation.separator().is_some());
+                    let db = builder.db();
+                    let terms = builder.terms();
                     HirEagerExprData::MemoizedField {
+                        self_ty: HirType::from_fly(self_ty, db, terms).unwrap(),
                         self_argument: self_argument.to_hir_eager(builder),
-                        self_ty: HirType::from_fly(self_ty, builder.db(), builder.fly_terms())
-                            .unwrap(),
+                        self_argument_ty: HirType::from_fly_base(
+                            self_argument_ty,
+                            builder.db(),
+                            terms,
+                        )
+                        .unwrap(),
                         ident: ident_token.ident(),
                         path,
+                        indirections: HirIndirections::from_fly(dispatch.indirections()),
                         instantiation: HirInstantiation::from_fly(
                             instantiation,
                             &place_contract_site,
                             builder.db(),
-                            builder.fly_terms(),
+                            builder.terms(),
                         ),
                     }
                 }
             },
             SemExprData::MethodApplication { .. } => todo!(),
             SemExprData::MethodRitchieCall {
-                self_argument: self_argument_sem_expr_idx,
+                self_argument,
+                self_ty,
                 self_contract,
                 ident_token,
-                ref instance_dispatch,
+                ref dispatch,
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let signature = instance_dispatch.signature();
+                let signature = dispatch.signature();
                 HirEagerExprData::MethodRitchieCall {
-                    self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
+                    self_argument: self_argument.to_hir_eager(builder),
+                    self_ty: HirType::from_fly(
+                        self_ty,
+                        builder.db(),
+                        builder.sem_expr_region_data.fly_term_region().terms(),
+                    )
+                    .unwrap(),
                     self_contract: HirContract::from_contract(self_contract),
                     ident: ident_token.ident(),
                     path: signature.path(),
+                    indirections: HirIndirections::from_fly(dispatch.indirections()),
                     instantiation: HirInstantiation::from_fly(
                         signature.instantiation(),
                         &place_contract_site,
                         builder.db(),
-                        builder.fly_terms(),
+                        builder.terms(),
                     ),
                     arguments: builder.new_call_list_arguments(ritchie_parameter_argument_matches),
                 }
@@ -486,13 +540,12 @@ impl ToHirEager for SemExprIdx {
             SemExprData::Delimitered { item, .. } => return item.to_hir_eager(builder),
             SemExprData::NewTuple { .. } => todo!(),
             SemExprData::Index {
-                owner: owner_sem_expr_idx,
-                lbox_regional_token_idx: _,
-                ref index_sem_list_items,
+                self_argument,
+                ref items,
                 ..
             } => HirEagerExprData::Index {
-                owner: owner_sem_expr_idx.to_hir_eager(builder),
-                items: index_sem_list_items
+                self_argument: self_argument.to_hir_eager(builder),
+                items: items
                     .iter()
                     .map(|item| item.sem_expr_idx.to_hir_eager(builder))
                     .collect(),
@@ -509,7 +562,7 @@ impl ToHirEager for SemExprIdx {
                     .iter()
                     .map(|item| item.sem_expr_idx.to_hir_eager(builder))
                     .collect(),
-                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
+                element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.terms())
                     .unwrap(),
             },
             SemExprData::BoxColonList {
@@ -559,18 +612,74 @@ impl ToHirEager for SemExprIdx {
             },
         };
         let ty = self.ty(builder.sem_expr_arena_ref2());
-        let contracted_quary = ty
-            .quary()
+        let base_ty = HirType::from_fly_base(
+            ty,
+            builder.db(),
+            builder.sem_expr_region_data.fly_term_region().terms(),
+        )
+        .unwrap();
+        let quary = ty.quary();
+        let contracted_quary = quary
+            .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
+            .unwrap_or_default();
+        let coercion = match self.expectation_outcome(builder.sem_expr_region_data) {
+            Some(ref outcome) => match outcome {
+                ExpectationOutcome::Coercion(coersion_outcome) => {
+                    Some(coersion_outcome.coercion().to_hir_eager(builder))
+                }
+                _ => None,
+            },
+            None => None,
+        };
+        let quary_after_coercion = match coercion {
+            Some(coercion) => match coercion {
+                HirEagerCoercion::Trivial(_) => quary,
+                HirEagerCoercion::Never => None,
+                HirEagerCoercion::WrapInSome => Some(FlyQuary::Transient),
+                HirEagerCoercion::Redirection(_) => Some(FlyQuary::Transient),
+                HirEagerCoercion::Dedirection(dedirection) => match dedirection {
+                    DedirectionHirEagerCoercion::Deleash => {
+                        let place = match quary {
+                            Some(quary) => match quary {
+                                FlyQuary::Compterm => todo!(),
+                                FlyQuary::StackPure { place } => match place {
+                                    EthPlace::Idx(place_idx) => Some(place_idx),
+                                    EthPlace::SymbolicVariable(_) => todo!(),
+                                    EthPlace::Field(_) => todo!(),
+                                },
+                                FlyQuary::ImmutableOnStack { place } => todo!(),
+                                FlyQuary::MutableOnStack { place } => todo!(),
+                                FlyQuary::Transient => None,
+                                FlyQuary::Ref { guard } => todo!(),
+                                FlyQuary::RefMut { place, lifetime } => todo!(),
+                                FlyQuary::Leashed { place } => todo!(),
+                                FlyQuary::Todo => todo!(),
+                                FlyQuary::EtherealSymbol(_) => todo!(),
+                            },
+                            None => None,
+                        };
+                        Some(FlyQuary::Leashed { place })
+                    }
+                    DedirectionHirEagerCoercion::Deref { lifetime } => todo!(),
+                    DedirectionHirEagerCoercion::DerefMut => todo!(),
+                },
+            },
+            None => quary,
+        };
+        let contracted_quary_after_coercion = quary
             .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
             .unwrap_or_default();
         let entry = HirEagerExprEntry {
             data,
+            base_ty,
             contracted_quary,
-            is_always_copyable: ty
-                .is_always_copyable(builder.db(), builder.fly_terms())
+            always_copyable: ty
+                .always_copyable(builder.db(), builder.terms())
                 .unwrap()
                 .unwrap(),
             place_contract_site,
+            coercion,
+            contracted_quary_after_coercion,
         };
         builder.alloc_expr(*self, entry)
     }

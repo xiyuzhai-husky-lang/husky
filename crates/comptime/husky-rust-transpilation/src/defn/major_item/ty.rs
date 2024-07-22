@@ -1,5 +1,5 @@
 use super::*;
-use crate::{defn::attr::Attrs, expr::site::HirEagerExprSite};
+use crate::{defn::attr::Attrs, expr::role::HirEagerExprRole};
 use husky_coword::Ident;
 use husky_entity_tree::node::{attr::HasAttrPaths, ty_variant::HasTypeVariantPaths};
 use husky_hir_decl::decl::{
@@ -107,7 +107,7 @@ impl TranspileToRustWith for PropsStructHirDefn {
                                         builder.keyword(RustKeyword::Let);
                                         field.ident().transpile_to_rust(builder);
                                         builder.punctuation(RustPunctuation::Assign);
-                                        (value, HirEagerExprSite::new_root(None))
+                                        (value, HirEagerExprRole::new_root())
                                             .transpile_to_rust(builder)
                                     })
                                 }
