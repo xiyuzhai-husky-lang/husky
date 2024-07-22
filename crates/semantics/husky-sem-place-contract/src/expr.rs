@@ -162,13 +162,13 @@ impl<'a> PlaceContractEngine<'a> {
                 }
             }
             SemExprData::Index {
-                self_argument: owner,
+                self_argument,
                 items: ref index_sem_list_items,
                 ..
             } => {
-                self.infer_expr(owner, contract, site.clone());
+                self.infer_expr(self_argument, contract, site.clone());
                 for item in index_sem_list_items {
-                    self.infer_expr(item.sem_expr_idx, contract, Default::default());
+                    self.infer_expr(item.sem_expr_idx, Contract::Pure, Default::default());
                 }
             }
             SemExprData::CompositionWithList { .. } => (),

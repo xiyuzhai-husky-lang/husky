@@ -85,6 +85,21 @@ impl<'db> TranspileToRustWith<HirEagerExprRegion> for (HirEagerExprIdx, HirEager
         if needs_outermost_extra_pars {
             builder.rpar();
         }
+        if builder.is_defn_region("find_connected_components") {
+            if builder.result().ends_with("&mut j") {
+                use ::husky_print_utils::p;
+                use ::salsa::DebugWithDb;
+                p!(expr_entry.debug(db), bindings);
+                todo!()
+            }
+            // match *data {
+            //     HirEagerExprData::Index {
+            //         self_argument,
+            //         ref items,
+            //     } => todo!(),
+            //     _ => (),
+            // }
+        }
     }
 }
 

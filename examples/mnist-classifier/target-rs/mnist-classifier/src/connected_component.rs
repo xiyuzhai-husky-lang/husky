@@ -78,7 +78,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
             let a = unsearched[j as usize];
             let shift = a.ctz();
             let mut mask = mnist::BinaryImage28::new_zeros();
-            mask[&mut j as usize] = crate::connected_component::horizontal_extend(a, 1 << shift);
+            mask[j as usize] = crate::connected_component::horizontal_extend(a, 1 << shift);
             let mut flag = false;
             while !flag {
                 flag = true;
@@ -92,7 +92,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
                         }
                         if old_row != new_row {
                             flag = false;
-                            mask[&mut (i + 1) as usize] = new_row
+                            mask[(i + 1) as usize] = new_row
                         }
                     }
                     i += 1
@@ -103,14 +103,14 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
                         let new_row = old_row | crate::connected_component::horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
                         if old_row != new_row {
                             flag = false;
-                            mask[&mut i as usize] = new_row
+                            mask[i as usize] = new_row
                         }
                     }
                     i -= 1
                 }
             }
             for k in j..30 {
-                unsearched[&mut k as usize] &= !mask[k as usize]
+                unsearched[k as usize] &= !mask[k as usize]
             }
             result.push(crate::connected_component::ConnectedComponent::__constructor(mask))
         }
