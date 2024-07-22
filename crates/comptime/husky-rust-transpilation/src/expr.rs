@@ -265,7 +265,7 @@ fn transpile_hir_eager_expr_to_rust(
         } => {
             (
                 self_argument,
-                HirEagerExprRole::self_argument_with_indirections(indirections),
+                HirEagerExprRole::leashless_self_argument(indirections),
             )
                 .transpile_to_rust(builder);
             builder.punctuation(RustPunctuation::Dot);
@@ -282,7 +282,8 @@ fn transpile_hir_eager_expr_to_rust(
             let ItemPath::AssocItem(path) = instantiation.path() else {
                 unreachable!()
             };
-            let self_ty = self_argument_ty.deref_if_leashed(db);
+            // ad hoc
+            let self_ty = self_argument_ty.deleash_if_leashed(db);
             match path {
                 AssocItemPath::TypeItem(_) => {
                     builder.delimited(RustDelimiter::Angle, |builder| {
@@ -297,17 +298,14 @@ fn transpile_hir_eager_expr_to_rust(
             builder.delimited(RustDelimiter::Par, |builder| {
                 (
                     self_argument,
-                    HirEagerExprRole::memoized_field_self_argument(
-                        self_argument_ty,
-                        indirections,
-                        db,
-                    ),
+                    HirEagerExprRole::leashed_self_argument(indirections, db),
                 )
                     .transpile_to_rust(builder)
             });
         }
         HirEagerExprData::MethodRitchieCall {
             self_argument,
+            self_ty,
             self_contract,
             ident,
             path,
@@ -315,35 +313,62 @@ fn transpile_hir_eager_expr_to_rust(
             ref instantiation,
             ref arguments,
         } => {
-            (
-                self_argument,
-                HirEagerExprRole::self_argument_with_indirections(indirections),
-            )
-                .transpile_to_rust(builder);
-            builder.punctuation(RustPunctuation::Dot);
-            let contracted_quaries = instantiation.contracted_quaries();
-            match contracted_quaries.len() {
-                0 => ident.transpile_to_rust(builder),
-                1 => match contracted_quaries[0].quary().place() {
-                    Some(place) => match place_contract_site[place] {
-                        HirContract::Pure => ident.transpile_to_rust(builder),
-                        HirContract::Move => todo!(),
-                        HirContract::Borrow => todo!(),
-                        HirContract::BorrowMut => builder.method_ritchie_ident_mut(ident),
-                        HirContract::Compterm => todo!(),
-                        HirContract::Leash => todo!(),
-                        HirContract::At => todo!(),
-                    },
-                    None => ident.transpile_to_rust(builder),
-                },
-                _ => todo!(),
-            }
-            match path.ident(db).unwrap().data(db) {
-                // ad hoc, should use path menu instead or refinement
-                "visualize" => builder.delimited(RustDelimiter::Par, |builder| {
-                    builder.visual_synchrotron_argument()
-                }),
-                _ => builder.delimited_comma_list(RustDelimiter::Par, arguments),
+            match self_contract {
+                HirContract::Leash => {
+                    let ItemPath::AssocItem(path) = instantiation.path() else {
+                        unreachable!()
+                    };
+                    match path {
+                        AssocItemPath::TypeItem(_) => {
+                            builder.delimited(RustDelimiter::Angle, |builder| {
+                                self_ty.transpile_to_rust(builder)
+                            });
+                        }
+                        AssocItemPath::TraitItem(_) => todo!(),
+                        AssocItemPath::TraitForTypeItem(_) => todo!(),
+                    }
+                    builder.punctuation(RustPunctuation::ColonColon);
+                    ident.transpile_to_rust(builder);
+                    builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
+                        builder.heterogeneous_comma_list_item((
+                            self_argument,
+                            HirEagerExprRole::leashed_self_argument(indirections, db),
+                        ));
+                        builder.heterogeneous_comma_list_items(arguments);
+                    });
+                }
+                _ => {
+                    (
+                        self_argument,
+                        HirEagerExprRole::leashless_self_argument(indirections),
+                    )
+                        .transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::Dot);
+                    let contracted_quaries = instantiation.contracted_quaries();
+                    match contracted_quaries.len() {
+                        0 => ident.transpile_to_rust(builder),
+                        1 => match contracted_quaries[0].quary().place() {
+                            Some(place) => match place_contract_site[place] {
+                                HirContract::Pure => ident.transpile_to_rust(builder),
+                                HirContract::Move => todo!(),
+                                HirContract::Borrow => todo!(),
+                                HirContract::BorrowMut => builder.method_ritchie_ident_mut(ident),
+                                HirContract::Compterm => todo!(),
+                                HirContract::Leash => todo!(),
+                                HirContract::At => todo!(),
+                            },
+                            None => ident.transpile_to_rust(builder),
+                        },
+                        _ => todo!(),
+                    }
+                    match path.ident(db).unwrap().data(db) {
+                        // ad hoc, should use path menu instead or refinement
+                        "visualize" => builder.delimited(RustDelimiter::Par, |builder| {
+                            builder.visual_synchrotron_argument()
+                        }),
+                        _ => builder.delimited_comma_list(RustDelimiter::Par, arguments),
+                    }
+                }
             }
         }
         HirEagerExprData::NewTuple { items: _ } => {

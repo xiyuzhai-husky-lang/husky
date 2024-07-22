@@ -305,6 +305,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerExprData::MemoizedField {
                 self_argument,
                 self_argument_ty,
+                self_ty,
                 ident,
                 path,
                 ref indirections,
@@ -330,6 +331,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             }
             HirEagerExprData::MethodRitchieCall {
                 self_argument,
+                self_ty,
                 self_contract,
                 ident,
                 path,

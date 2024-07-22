@@ -16,6 +16,7 @@ pub struct TraitForTypeMethodRitchieFlySignature {
     pub path: TraitForTypeItemPath,
     pub self_value_parameter: FlyRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
+    pub self_ty: FlyTerm,
     pub return_ty: FlyTerm,
     pub instantiation: FlyInstantiation,
 }
@@ -43,6 +44,7 @@ impl TraitForTypeMethodRitchieFlySignature {
     ) -> Self {
         Self {
             path: eth_sig.path().into(),
+            self_ty: eth_sig.self_ty().into(),
             self_value_parameter: eth_sig.self_value_parameter.into(),
             parenate_parameters: eth_sig
                 .parenate_parameters()
@@ -65,6 +67,10 @@ impl TraitForTypeMethodRitchieFlySignature {
 impl TraitForTypeMethodRitchieFlySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
+    }
+
+    pub fn self_ty(&self) -> FlyTerm {
+        self.self_ty
     }
 
     pub fn return_ty(&self) -> FlyTerm {

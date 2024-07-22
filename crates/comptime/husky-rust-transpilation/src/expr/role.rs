@@ -14,10 +14,10 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 pub(crate) enum HirEagerExprRole<'db> {
     SimpleSelfArgument,
     AssignSelfArgument,
-    SelfArgumentWithIndirection {
+    LeashlessSelfArgument {
         indirections: &'db HirIndirections,
     },
-    MemoizedFieldSelfArgument {
+    LeashedSelfArgument {
         indirections: &'db HirIndirections,
     },
     Subexpr {
@@ -44,17 +44,16 @@ impl<'db> HirEagerExprRole<'db> {
         HirEagerExprRole::AssignSelfArgument
     }
 
-    pub(crate) fn self_argument_with_indirections(indirections: &'db HirIndirections) -> Self {
-        HirEagerExprRole::SelfArgumentWithIndirection { indirections }
+    pub(crate) fn leashless_self_argument(indirections: &'db HirIndirections) -> Self {
+        HirEagerExprRole::LeashlessSelfArgument { indirections }
     }
 
     /// we have to do more because the contract will not be automatically covered as in previous function
-    pub(crate) fn memoized_field_self_argument(
-        self_argument_ty: HirType,
+    pub(crate) fn leashed_self_argument(
         indirections: &'db HirIndirections,
         db: &'db ::salsa::Db,
     ) -> Self {
-        HirEagerExprRole::MemoizedFieldSelfArgument { indirections }
+        HirEagerExprRole::LeashedSelfArgument { indirections }
     }
 
     pub(crate) fn subexpr(outermost_precedence_range: RustPrecedenceRange) -> Self {

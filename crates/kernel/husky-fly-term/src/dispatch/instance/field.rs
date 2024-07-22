@@ -4,17 +4,14 @@ mod sol;
 
 pub(crate) use self::eth::*;
 
-use super::*;
-use crate::dispatch::instance::method::HasFlyMethodDispatch;
-use husky_coword::Ident;
-use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
-use husky_eth_signature::signature::package::PackageEthSignatureData;
-
 pub type FlyFieldInstanceDispatch = FlyInstanceDispatch<FieldFlySignature>;
 
 use super::*;
-use crate::quary::FlyQuary;
+use crate::{dispatch::instance::method::HasFlyMethodDispatch, quary::FlyQuary};
+use husky_coword::Ident;
 use husky_entity_path::path::assoc_item::AssocItemPath;
+use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
+use husky_eth_signature::signature::package::PackageEthSignatureData;
 use husky_eth_signature::signature::{
     assoc_item::ty_item::memo::TypeMemoizedFieldEthSignature,
     major_item::ty::PropsFieldEthSignature,
@@ -27,6 +24,7 @@ pub enum FieldFlySignature {
         ty: FlyTerm,
     },
     Memoized {
+        self_ty: FlyTerm,
         return_ty: FlyTerm,
         expr_ty: FlyTerm,
         path: AssocItemPath,
@@ -79,7 +77,7 @@ impl From<PropsFieldEthSignature> for FieldFlySignature {
 impl From<TypeMemoizedFieldEthSignature> for FieldFlySignature {
     fn from(signature: TypeMemoizedFieldEthSignature) -> Self {
         FieldFlySignature::Memoized {
-            // ad hoc
+            self_ty: signature.return_ty().into(),
             return_ty: signature.return_ty().into(),
             expr_ty: signature.expr_ty().into(),
             path: signature.path().into(),

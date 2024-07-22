@@ -134,7 +134,7 @@ impl crate::connected_component::ConnectedComponent {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 2, return_leash)]
     pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
-        let mut raw_contours = <crate::connected_component::ConnectedComponent>::raw_contours(__self).deleash().collect_leashes();
+        let mut raw_contours = <Vec<crate::raw_contour::RawContour>>::collect_leashes(<crate::connected_component::ConnectedComponent>::raw_contours(__self));
         let mut matches: Vec<Option<Leash<crate::raw_contour::RawContour>>> = vec![];
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));

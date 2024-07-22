@@ -230,6 +230,7 @@ pub enum SemExprData {
     },
     MethodRitchieCall {
         self_argument: SemExprIdx,
+        self_ty: FlyTerm,
         self_contract: Contract,
         dot_regional_token_idx: RegionalTokenIdx,
         ident_token: IdentRegionalToken,

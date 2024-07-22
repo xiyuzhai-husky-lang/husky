@@ -36,8 +36,8 @@ pub(crate) struct HirEagerExprBuilder<'a> {
     variable_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRuntimeVariableIdx>,
 }
 
-impl<'a> HirEagerExprBuilder<'a> {
-    fn new(db: &'a ::salsa::Db, sem_expr_region: SemExprRegion) -> Self {
+impl<'db> HirEagerExprBuilder<'db> {
+    fn new(db: &'db ::salsa::Db, sem_expr_region: SemExprRegion) -> Self {
         let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
         let syn_to_hir_eager_pattern_idx_map =
@@ -68,20 +68,20 @@ impl<'a> HirEagerExprBuilder<'a> {
         }
     }
 
-    pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
+    pub(crate) fn syn_expr_region_data(&self) -> &'db SynExprRegionData {
         self.syn_expr_region_data
     }
 
-    pub(crate) fn sem_expr_arena_ref(&self) -> SemExprArenaRef<'a> {
+    pub(crate) fn sem_expr_arena_ref(&self) -> SemExprArenaRef<'db> {
         self.sem_expr_region_data.sem_expr_arena()
     }
 
     #[deprecated(note = "ad hoc")]
-    pub(crate) fn sem_expr_arena_ref2(&self) -> &'a SemExprArena {
+    pub(crate) fn sem_expr_arena_ref2(&self) -> &'db SemExprArena {
         self.sem_expr_region_data.sem_expr_arena2()
     }
 
-    pub(crate) fn sem_stmt_arena_ref(&self) -> SemStmtArenaRef<'a> {
+    pub(crate) fn sem_stmt_arena_ref(&self) -> SemStmtArenaRef<'db> {
         self.sem_expr_region_data.sem_stmt_arena()
     }
 
@@ -182,7 +182,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         format!("{:?}", self.syn_expr_region_data.path().debug(self.db))
     }
 
-    pub fn db(&self) -> &'a ::salsa::Db {
+    pub fn db(&self) -> &'db ::salsa::Db {
         self.db
     }
 
@@ -272,11 +272,11 @@ impl<'a> HirEagerExprBuilder<'a> {
             .syn_pattern_ty(syn_pattern, self.db)
     }
 
-    pub(crate) fn fly_terms(&self) -> &FlyTerms {
+    pub(crate) fn terms(&self) -> &'db FlyTerms {
         self.sem_expr_region_data.fly_term_region().terms()
     }
 
-    pub(crate) fn sem_place_contract_region(&self) -> &'a SemPlaceContractRegion {
+    pub(crate) fn sem_place_contract_region(&self) -> &'db SemPlaceContractRegion {
         self.sem_place_contract_region
     }
 }

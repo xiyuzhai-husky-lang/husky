@@ -54,11 +54,15 @@ impl TypeMemoizedFieldEthTemplate {
         builder.try_add_rules_from_application(self_ty, target_self_ty_arguments, db)?;
         let instantiation = builder.try_into_instantiation().expect("business done");
         debug_assert!(instantiation.separator().is_some());
+        let self_ty = self.self_ty(db).instantiate(&instantiation, ctx, db);
+        let return_ty = self.return_ty(db).instantiate(&instantiation, ctx, db);
+        let expr_ty = self.expr_ty(db).instantiate(&instantiation, ctx, db);
         JustOk(TypeMemoizedFieldEthSignature {
             path: self.path(db),
+            self_ty,
             instantiation,
-            return_ty: self.return_ty(db),
-            expr_ty: self.expr_ty(db),
+            return_ty,
+            expr_ty,
         })
     }
 }
@@ -67,6 +71,7 @@ impl TypeMemoizedFieldEthTemplate {
 pub struct TypeMemoizedFieldEthSignature {
     path: TypeItemPath,
     instantiation: EthInstantiation,
+    self_ty: EthTerm,
     return_ty: EthTerm,
     expr_ty: EthTerm,
 }

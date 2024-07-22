@@ -389,7 +389,7 @@ impl RustBindings {
                 self.add_outer_binding(RustBinding::SelfValue);
             }
             HirEagerExprRole::AssignSelfArgument => self.add_outer_binding(RustBinding::DerefMut),
-            HirEagerExprRole::SelfArgumentWithIndirection { indirections } => {
+            HirEagerExprRole::LeashlessSelfArgument { indirections } => {
                 // the order matters!!!
                 // indirection order is from innermost to outermost
                 // so no need to rev
@@ -401,7 +401,7 @@ impl RustBindings {
                 }
                 self.add_outer_binding(RustBinding::SelfValue);
             }
-            HirEagerExprRole::MemoizedFieldSelfArgument { indirections } => {
+            HirEagerExprRole::LeashedSelfArgument { indirections } => {
                 // the order matters!!!
                 // indirection order is from innermost to outermost
                 // so no need to rev
