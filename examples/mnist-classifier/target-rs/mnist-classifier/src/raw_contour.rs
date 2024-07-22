@@ -247,9 +247,9 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
             let mut row_above = cc.deleash().mask[(i - 1) as usize];
             let mut row_below = cc.deleash().mask[i as usize];
             let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
-            let i0 = &mut i;
-            let j0 = &mut j;
-            let dir0 = &mut inward_direction;
+            let i0 = i;
+            let j0 = j;
+            let dir0 = inward_direction;
             let mut prev_angle_change1 = 0;
             let mut prev_angle_change2 = 0;
             let mut total_angle_change = 0;

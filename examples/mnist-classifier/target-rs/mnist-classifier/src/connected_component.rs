@@ -75,7 +75,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
     let mut unsearched = img.clone();
     for j in 0..30 {
         while unsearched[j as usize] != 0 {
-            let a = &mut unsearched[j as usize];
+            let a = unsearched[j as usize];
             let shift = a.ctz();
             let mut mask = mnist::BinaryImage28::new_zeros();
             mask[&mut j as usize] = crate::connected_component::horizontal_extend(a, 1 << shift);
@@ -85,7 +85,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
                 let mut i = j;
                 while i < 30 - 1 {
                     {
-                        let old_row = &mut mask[(i + 1) as usize];
+                        let old_row = mask[(i + 1) as usize];
                         let new_row = old_row | crate::connected_component::horizontal_extend(img[(i + 1) as usize], mask[i as usize]);
                         if (new_row == 0) {
                             break;
@@ -99,7 +99,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
                 }
                 while i >= j {
                     {
-                        let old_row = &mut mask[i as usize];
+                        let old_row = mask[i as usize];
                         let new_row = old_row | crate::connected_component::horizontal_extend(img[i as usize], mask[(i + 1) as usize]);
                         if old_row != new_row {
                             flag = false;
@@ -184,7 +184,7 @@ impl crate::connected_component::ConnectedComponent {
             }
             row_start += 1
         }
-        let mut row_end = &mut (row_start + 1);
+        let mut row_end = row_start + 1;
         while row_end < 29 {
             {
                 if (__self.deleash().mask[row_end as usize] == 0) {
@@ -193,7 +193,7 @@ impl crate::connected_component::ConnectedComponent {
             }
             row_end += 1
         }
-        let height = &mut (row_end - row_start);
+        let height = row_end - row_start;
         let half_height = height / 2;
         let mut upper_mass = 0;
         for i1 in row_start..row_start + half_height {

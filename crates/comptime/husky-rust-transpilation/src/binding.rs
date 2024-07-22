@@ -380,7 +380,28 @@ impl RustBindings {
                         self.add_outer_binding(RustBinding::Reref)
                     }
                 }
-                HirQuary::MutableOnStack { place } => self.add_outer_binding(RustBinding::RerefMut),
+                HirQuary::MutableOnStack { place } => {
+                    match contracted_quary_after_coercion.contract() {
+                        Some(contract) => match contract {
+                            HirContract::Pure => {
+                                if !is_always_copyable {
+                                    self.add_outer_binding(RustBinding::Reref)
+                                }
+                            }
+                            HirContract::Move => (),
+                            HirContract::Borrow => self.add_outer_binding(RustBinding::Reref),
+                            HirContract::BorrowMut => self.add_outer_binding(RustBinding::RerefMut),
+                            HirContract::Compterm => todo!(),
+                            HirContract::Leash => todo!(),
+                            HirContract::At => todo!(),
+                        },
+                        None => {
+                            if !is_always_copyable {
+                                self.add_outer_binding(RustBinding::Reref)
+                            }
+                        }
+                    }
+                }
                 HirQuary::Transient => (),
                 HirQuary::Ref { guard } => todo!(),
                 HirQuary::RefMut { place, lifetime } => todo!(),
