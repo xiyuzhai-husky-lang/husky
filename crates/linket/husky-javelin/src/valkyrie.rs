@@ -190,7 +190,10 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     }
                 }
                 HirEagerExprData::NewTuple { items: _ } => (),
-                HirEagerExprData::Index { self_argument: _, items: _ } => (),
+                HirEagerExprData::Index {
+                    self_argument: _,
+                    items: _,
+                } => (),
                 HirEagerExprData::NewList { element_ty, .. } => {
                     self.add_vec_constructor_ride(element_ty)
                 }
