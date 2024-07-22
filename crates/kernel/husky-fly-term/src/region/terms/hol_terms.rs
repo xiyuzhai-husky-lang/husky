@@ -89,10 +89,10 @@ impl HolTerms {
             })
     }
 
-    fn update_entries(&mut self, db: &::salsa::Db, solid_terms: &mut SolTerms) {
+    fn update_entries(&mut self, db: &::salsa::Db, sol_terms: &mut SolTerms) {
         let first_unresolved_idx = self.get_first_unresolved_term_idx();
         for idx in first_unresolved_idx..self.entries.len() {
-            self.try_update_entry(db, solid_terms, idx)
+            self.try_update_entry(db, sol_terms, idx)
         }
     }
 
@@ -110,7 +110,7 @@ impl HolTerms {
         idx
     }
 
-    fn try_update_entry(&mut self, db: &::salsa::Db, solid_terms: &mut SolTerms, idx: usize) {
+    fn try_update_entry(&mut self, db: &::salsa::Db, sol_terms: &mut SolTerms, idx: usize) {
         if self.entries[idx].is_resolved() {
             return;
         }

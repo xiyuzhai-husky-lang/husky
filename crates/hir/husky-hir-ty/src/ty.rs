@@ -14,7 +14,9 @@ use husky_eth_term::term::{
     symbolic_variable::EthTermSymbolIndexImpl,
     EthTerm,
 };
-use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
+use husky_fly_term::{
+    data::sol::SolTermData, quary::FlyQuary, FlyTerm, FlyTermBase, FlyTerms, SolTerm, SolTerms,
+};
 use husky_term_prelude::ItemPathTerm;
 use path::major_item::form::MajorFormPath;
 
@@ -29,6 +31,7 @@ pub enum HirType {
     TraitAssocType(HirTypeTraitAssocType),
     Ritchie(HirRitchieType),
     TypeVar(MajorFormPath),
+    Quaried,
 }
 
 #[salsa::interned(jar = HirTypeJar)]
@@ -73,14 +76,69 @@ impl HirType {
         }
     }
 
-    /// this will ignore the place
-    pub fn from_fly(term: FlyTerm, db: &::salsa::Db, fly_terms: &FlyTerms) -> Option<Self> {
-        // todo: consider place
-        match term.base_resolved_inner(fly_terms) {
+    /// this will ignore the quary
+    pub fn from_fly_base(term: FlyTerm, db: &::salsa::Db, terms: &FlyTerms) -> Option<Self> {
+        match term.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => HirType::from_eth(term, db),
-            FlyTermBase::Sol(_) => todo!(),
+            FlyTermBase::Sol(term) => HirType::from_sol(term, db, terms),
             FlyTermBase::Hol(_) => unreachable!("expected all fly terms to be resolved"),
             FlyTermBase::Place => todo!(),
+        }
+    }
+
+    pub fn from_sol(term: SolTerm, db: &::salsa::Db, terms: &FlyTerms) -> Option<Self> {
+        let sol_terms = terms.sol_terms();
+        let always_copyable = <_ as Into<FlyTerm>>::into(term)
+            .always_copyable(db, terms)
+            .unwrap()?;
+        match *term.data2(sol_terms) {
+            SolTermData::TypeOntology {
+                path,
+                ref arguments,
+                ..
+            } => {
+                let template_arguments = arguments
+                    .iter()
+                    .map(|&arg| match Self::from_fly(arg, db, terms) {
+                        Some(ty_arg) => ty_arg.into(),
+                        None => todo!(),
+                    })
+                    .collect();
+                Some(HirTypePathLeading::new(db, path, template_arguments, always_copyable).into())
+            }
+            SolTermData::Curry {
+                toolchain,
+                curry_kind,
+                variance,
+                parameter_hvar,
+                parameter_ty,
+                return_ty,
+            } => todo!(),
+            SolTermData::Ritchie {
+                ritchie_kind,
+                ref parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+        }
+    }
+
+    pub fn from_fly(term: FlyTerm, db: &::salsa::Db, terms: &FlyTerms) -> Option<Self> {
+        let base_ty = Self::from_fly_base(term, db, terms);
+        if let Some(quary) = term.quary() {
+            match quary {
+                FlyQuary::Compterm => todo!(),
+                FlyQuary::StackPure { place } => todo!(),
+                FlyQuary::ImmutableOnStack { place } => todo!(),
+                FlyQuary::MutableOnStack { place } => Some(HirType::Quaried),
+                FlyQuary::Transient => base_ty,
+                FlyQuary::Ref { guard } => todo!(),
+                FlyQuary::RefMut { place, lifetime } => todo!(),
+                FlyQuary::Leashed { place } => todo!(),
+                FlyQuary::Todo => todo!(),
+                FlyQuary::EtherealSymbol(_) => todo!(),
+            }
+        } else {
+            base_ty
         }
     }
 
@@ -105,7 +163,8 @@ impl HirType {
             HirType::TypeAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::TraitAssocType(_slf) => false, // ad hoc: todo check traits
             HirType::Ritchie(_slf) => true,
-            HirType::TypeVar(_) => false, // ad hoc: todo check traits
+            HirType::TypeVar(_) => false,
+            HirType::Quaried => todo!(), // ad hoc: todo check traits
         }
     }
     pub fn is_float(self, db: &::salsa::Db) -> bool {

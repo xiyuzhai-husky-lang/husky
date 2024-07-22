@@ -47,9 +47,11 @@ pub type HirEagerExprMap<V> = ArenaMap<HirEagerExprEntry, V>;
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirEagerExprEntry {
     data: HirEagerExprData,
+    /// this is the type before coercion
+    base_ty: HirType,
     /// note that the contract is only told when the quary has a place, i.e., not transient
     contracted_quary: HirContractedQuary,
-    is_always_copyable: bool,
+    always_copyable: bool,
     place_contract_site: HirPlaceContractSite,
     /// None means it's not entirely known from expectation alone,
     /// todo: remove Option
@@ -62,6 +64,10 @@ pub struct HirEagerExprEntry {
 impl HirEagerExprEntry {
     pub fn data(&self) -> &HirEagerExprData {
         &self.data
+    }
+
+    pub fn base_ty(&self) -> HirType {
+        self.base_ty
     }
 
     pub fn contracted_quary(&self) -> HirContractedQuary {
@@ -77,8 +83,8 @@ impl HirEagerExprEntry {
     }
 
     /// this is before coercion happens, the inner type of the expression
-    pub fn is_always_copyable(&self) -> bool {
-        self.is_always_copyable
+    pub fn is_base_ty_always_copyable(&self) -> bool {
+        self.always_copyable
     }
 
     pub fn place_contract_site(&self) -> &HirPlaceContractSite {
@@ -454,10 +460,15 @@ impl ToHirEager for SemExprIdx {
             } => match *dispatch.signature() {
                 FieldFlySignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
                     self_argument: self_argument.to_hir_eager(builder),
-                    self_ty: HirType::from_fly(self_argument_ty, builder.db(), builder.fly_terms())
-                        .unwrap(),
+                    self_ty: HirType::from_fly_base(
+                        self_argument_ty,
+                        builder.db(),
+                        builder.fly_terms(),
+                    )
+                    .unwrap(),
                     ident: ident_token.ident(),
-                    field_ty: HirType::from_fly(ty, builder.db(), builder.fly_terms()).unwrap(),
+                    field_ty: HirType::from_fly_base(ty, builder.db(), builder.fly_terms())
+                        .unwrap(),
                     indirections: HirIndirections::from_fly(dispatch.indirections()),
                 },
                 FieldFlySignature::Memoized {
@@ -468,7 +479,7 @@ impl ToHirEager for SemExprIdx {
                     debug_assert!(instantiation.separator().is_some());
                     HirEagerExprData::MemoizedField {
                         self_argument: self_argument.to_hir_eager(builder),
-                        self_argument_ty: HirType::from_fly(
+                        self_argument_ty: HirType::from_fly_base(
                             self_argument_ty,
                             builder.db(),
                             builder.fly_terms(),
@@ -539,7 +550,7 @@ impl ToHirEager for SemExprIdx {
                     .iter()
                     .map(|item| item.sem_expr_idx.to_hir_eager(builder))
                     .collect(),
-                element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
+                element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),
             },
             SemExprData::BoxColonList {
@@ -589,6 +600,12 @@ impl ToHirEager for SemExprIdx {
             },
         };
         let ty = self.ty(builder.sem_expr_arena_ref2());
+        let base_ty = HirType::from_fly_base(
+            ty,
+            builder.db(),
+            builder.sem_expr_region_data.fly_term_region().terms(),
+        )
+        .unwrap();
         let quary = ty.quary();
         let contracted_quary = quary
             .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
@@ -642,9 +659,10 @@ impl ToHirEager for SemExprIdx {
             .unwrap_or_default();
         let entry = HirEagerExprEntry {
             data,
+            base_ty,
             contracted_quary,
-            is_always_copyable: ty
-                .is_always_copyable(builder.db(), builder.fly_terms())
+            always_copyable: ty
+                .always_copyable(builder.db(), builder.fly_terms())
                 .unwrap()
                 .unwrap(),
             place_contract_site,

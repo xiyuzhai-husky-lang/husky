@@ -66,7 +66,7 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
         let curve_ls = __self.deleash().line_segment();
         let dp_norm = curve_ls.displacement().norm();
         for i in __self.deleash().strokes.deleash().start()..__self.deleash().strokes.deleash().end() {
-            let point = &__self.deleash().strokes[i as usize].end;
+            let point = &__self.deleash().strokes.deleash()[i as usize].end;
             let point_dist = curve_ls.dist_to_point(point);
             if point_dist > hausdorff_norm {
                 hausdorff_norm = point_dist
@@ -78,9 +78,9 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 18)]
     pub fn angle_change(&'static self) -> f32 {
         let mut angle_change = 0.0f32;
-        let mut dp0 = __self.deleash().strokes[__self.deleash().strokes.deleash().start() as usize].displacement();
+        let mut dp0 = __self.deleash().strokes.deleash()[__self.deleash().strokes.deleash().start() as usize].displacement();
         for i in (__self.deleash().strokes.deleash().start() + 1)..__self.deleash().strokes.deleash().end() {
-            let dp = __self.deleash().strokes[i as usize].displacement();
+            let dp = __self.deleash().strokes.deleash()[i as usize].displacement();
             angle_change += dp0.angle_to(&dp, true);
             dp0 = dp
         }
@@ -95,7 +95,7 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
         let mut ymin = start_point.y;
         let mut ymax = start_point.y;
         for i in __self.deleash().strokes.deleash().start()..__self.deleash().strokes.deleash().end() {
-            let point = &__self.deleash().strokes[i as usize].end;
+            let point = &__self.deleash().strokes.deleash()[i as usize].end;
             xmin = xmin.min(point.x);
             xmax = xmax.max(point.x);
             ymin = ymin.min(point.y);

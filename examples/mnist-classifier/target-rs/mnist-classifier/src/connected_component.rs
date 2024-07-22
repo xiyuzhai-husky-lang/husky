@@ -147,7 +147,7 @@ impl crate::connected_component::ConnectedComponent {
         let mut max_hole_ilen = 0;
         let raw_contours = <crate::connected_component::ConnectedComponent>::raw_contours(__self);
         for i in (0 + 1)..raw_contours.deleash().ilen() {
-            let hole_ilen = raw_contours[i as usize].points.ilen();
+            let hole_ilen = raw_contours.deleash()[i as usize].points.ilen();
             if max_hole_ilen < hole_ilen {
                 max_hole_ilen = hole_ilen
             }
