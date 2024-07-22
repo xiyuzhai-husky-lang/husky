@@ -52,7 +52,21 @@ pub(crate) struct RustBindings {
 
 impl RustBindings {
     pub(crate) fn new(expr_entry: &HirEagerExprEntry, role: HirEagerExprRole) -> Self {
-        let mut slf = match expr_entry.data() {
+        use husky_print_utils::p;
+        let mut slf = Self::init(expr_entry);
+        // the order is important!!!
+        slf.add_coercion(expr_entry.coercion());
+        slf.add_contracted_quary(
+            expr_entry.contracted_quary(),
+            expr_entry.is_always_copyable(),
+            expr_entry.coercion(),
+        );
+        slf.add_role(role);
+        slf
+    }
+
+    fn init(expr_entry: &HirEagerExprEntry) -> RustBindings {
+        match expr_entry.data() {
             HirEagerExprData::RuntimeVariable(_) => {
                 let variable_bindings = match expr_entry.contracted_quary().quary() {
                     HirQuary::Compterm => todo!(),
@@ -79,16 +93,7 @@ impl RustBindings {
             _ => RustBindings {
                 bindings: smallvec![],
             },
-        };
-        // the order is important!!!
-        slf.add_coercion(expr_entry.coercion());
-        slf.add_contracted_quary(
-            expr_entry.contracted_quary(),
-            expr_entry.is_always_copyable(),
-            expr_entry.coercion(),
-        );
-        slf.add_role(role);
-        slf
+        }
     }
 }
 
@@ -259,7 +264,9 @@ impl RustBindings {
                 RedirectionHirEagerCoercion::RerefMut => todo!(),
             },
             HirEagerCoercion::Dedirection(dedirection) => match dedirection {
-                DedirectionHirEagerCoercion::Deleash => todo!(),
+                DedirectionHirEagerCoercion::Deleash => {
+                    self.add_outer_binding(RustBinding::Deleash)
+                }
                 DedirectionHirEagerCoercion::Deref { lifetime } => {
                     self.add_outer_binding(RustBinding::Deref)
                 }
@@ -289,7 +296,8 @@ impl RustBindings {
                                     RedirectionHirEagerCoercion::RerefMut => false,
                                 }
                             }
-                            HirEagerCoercion::Dedirection(_) => todo!(),
+                            // ad hoc
+                            HirEagerCoercion::Dedirection(_) => false,
                         },
                         None => is_always_copyable,
                     };
@@ -457,5 +465,17 @@ fn rust_bindings_works() {
         bindings.add_outer_binding(RustBinding::Deref);
         bindings.add_outer_binding(RustBinding::RerefMut);
         assert_eq!(bindings.len(), 1)
+    }
+    {
+        // (*a).<field_name> -> a.<field_name>
+        let mut bindings: RustBindings = RustBinding::Deleash.into();
+        bindings.add_outer_binding(RustBinding::SelfValue);
+        assert_eq!(bindings.len(), 2)
+    }
+    {
+        // (~a).<field_name> -> a.<field_name>
+        let mut bindings: RustBindings = RustBinding::Deleash.into();
+        bindings.add_outer_binding(RustBinding::SelfValue);
+        assert_eq!(bindings.len(), 2)
     }
 }

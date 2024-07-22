@@ -33,8 +33,8 @@ impl crate::fermi::FermiMatchResult {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 21)]
     pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
-        for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].norm())
+        for i in 0..__self.deleash().others.ilen() {
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(__self.others[Leash(&i) as usize].deleash()))
         }
         return norm;
     }
@@ -42,8 +42,8 @@ impl crate::fermi::FermiMatchResult {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 22)]
     pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
-        for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].rel_norm())
+        for i in 0..__self.deleash().others.ilen() {
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::rel_norm(__self.others[Leash(&i) as usize].deleash()))
         }
         return norm;
     }
@@ -51,8 +51,8 @@ impl crate::fermi::FermiMatchResult {
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 23)]
     pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
-        for i in 0..self.others.ilen() {
-            norm = norm.max(self.others[i as usize].angle_change().abs())
+        for i in 0..__self.deleash().others.ilen() {
+            norm = norm.max(<crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(__self.others[Leash(&i) as usize].deleash()).abs())
         }
         return norm;
     }
