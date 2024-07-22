@@ -333,9 +333,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             SemExprData::TypeAsTraitItem { .. } => (),
             SemExprData::AssocItem { .. } => (),
             SemExprData::Index {
-                owner: _,
+                self_argument: _,
                 lbox_regional_token_idx: _,
-                index_sem_list_items: _,
+                items: _,
                 rbox_regional_token_idx: _,
                 index_dynamic_dispatch: _,
             } => (),

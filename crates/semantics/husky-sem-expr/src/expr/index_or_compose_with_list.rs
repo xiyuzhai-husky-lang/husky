@@ -26,9 +26,9 @@ impl<'a> SemExprBuilder<'a> {
             _ => match self.calc_index_expr_ty(expr_idx, owner_ty, items) {
                 Ok((index_sem_list_items, index_dynamic_dispatch, ty_result)) => (
                     Ok(SemExprData::Index {
-                        owner: owner_sem_expr_idx,
+                        self_argument: owner_sem_expr_idx,
                         lbox_regional_token_idx,
-                        index_sem_list_items,
+                        items: index_sem_list_items,
                         rbox_regional_token_idx,
                         index_dynamic_dispatch,
                     }),

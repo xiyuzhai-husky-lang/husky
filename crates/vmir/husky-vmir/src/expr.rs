@@ -356,7 +356,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 linket_impl: todo!(),
                 arguments: todo!(),
             },
-            HirEagerExprData::Index { owner, ref items } => VmirExprData::Index,
+            HirEagerExprData::Index { self_argument: owner, ref items } => VmirExprData::Index,
             HirEagerExprData::NewList {
                 ref exprs,
                 element_ty,

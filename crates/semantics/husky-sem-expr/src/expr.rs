@@ -263,9 +263,9 @@ pub enum SemExprData {
     /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
     /// the cases are determined by whether `$owner` is of curry type
     Index {
-        owner: SemExprIdx,
+        self_argument: SemExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        index_sem_list_items: SmallVec<[SemaCommaListItem; 2]>,
+        items: SmallVec<[SemaCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
         index_dynamic_dispatch: FlyIndexInstanceDispatch,
     },
@@ -1615,9 +1615,9 @@ impl<'a> SemExprBuilder<'a> {
             },
             SemExprData::Block { stmts } => todo!(),
             SemExprData::Index {
-                owner: owner_sem_expr_idx,
+                self_argument: owner_sem_expr_idx,
                 lbox_regional_token_idx,
-                ref index_sem_list_items,
+                items: ref index_sem_list_items,
                 rbox_regional_token_idx,
                 ref index_dynamic_dispatch,
             } => todo!(),
