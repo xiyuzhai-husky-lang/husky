@@ -134,7 +134,7 @@ impl crate::connected_component::ConnectedComponent {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 2, return_leash)]
     pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
-        let mut raw_contours = <crate::connected_component::ConnectedComponent>::raw_contours(__self).collect_leashes();
+        let mut raw_contours = <crate::connected_component::ConnectedComponent>::raw_contours(__self).deleash().collect_leashes();
         let mut matches: Vec<Option<Leash<crate::raw_contour::RawContour>>> = vec![];
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl));
@@ -147,7 +147,7 @@ impl crate::connected_component::ConnectedComponent {
         let mut max_hole_ilen = 0;
         let raw_contours = <crate::connected_component::ConnectedComponent>::raw_contours(__self);
         for i in (0 + 1)..raw_contours.deleash().ilen() {
-            let hole_ilen = raw_contours.deleash()[i as usize].points.ilen();
+            let hole_ilen = raw_contours[i as usize].points.ilen();
             if max_hole_ilen < hole_ilen {
                 max_hole_ilen = hole_ilen
             }
@@ -208,12 +208,12 @@ impl crate::connected_component::ConnectedComponent {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 7)]
     pub fn upper_mass(&'static self) -> f32 {
-        <crate::connected_component::ConnectedComponent>::distribution(__self).upper_mass as f32
+        <crate::connected_component::ConnectedComponent>::distribution(__self).deleash().upper_mass as f32
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 8)]
     pub fn lower_mass(&'static self) -> f32 {
-        <crate::connected_component::ConnectedComponent>::distribution(__self).lower_mass as f32
+        <crate::connected_component::ConnectedComponent>::distribution(__self).deleash().lower_mass as f32
     }
 
     pub fn top_k_row_span_sum(&self, k: i32) -> f32 {

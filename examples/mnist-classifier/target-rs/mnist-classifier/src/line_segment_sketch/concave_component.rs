@@ -106,7 +106,7 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 20, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(__self.line_segment_sketch.deleash()).relative_bounding_box(<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(__self))
+        <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(__self.line_segment_sketch.deleash()).deleash().relative_bounding_box(<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(__self).deleash())
     }
 
     pub fn line_segment(&self) -> crate::line_segment_sketch::line_segment::LineSegment {

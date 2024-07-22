@@ -3706,7 +3706,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 43,
+                                                                        value: 45,
                                                                     },
                                                                 ),
                                                             ),
@@ -3724,7 +3724,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 43,
+                                                                        value: 45,
                                                                     },
                                                                 ),
                                                             ),
@@ -4276,11 +4276,9 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4362,11 +4360,9 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
@@ -4452,21 +4448,15 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
-                                            is_always_copyable: false,
+                                            is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
                                                 place_contracts: [],
                                             },
                                             coersion: Some(
-                                                Trivial(
-                                                    TrivialHirEagerCoercion {
-                                                        expectee_quary: Leashed {
-                                                            place_idx: None,
-                                                        },
-                                                    },
+                                                Dedirection(
+                                                    Deleash,
                                                 ),
                                             ),
                                         },
@@ -4484,10 +4474,10 @@
                                                     ),
                                                 ),
                                                 indirections: HirIndirections {
-                                                    initial_place: Leashed {
-                                                        place_idx: None,
-                                                    },
-                                                    indirections: [],
+                                                    initial_place: Transient,
+                                                    indirections: [
+                                                        HirIndirection::Deleash,
+                                                    ],
                                                     final_place: Leashed {
                                                         place_idx: None,
                                                     },
@@ -4509,18 +4499,14 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 44,
+                                                                        value: 46,
                                                                     },
                                                                 ),
                                                             ),
                                                         },
                                                         7,
-                                                        Trivial(
-                                                            TrivialHirEagerCoercion {
-                                                                expectee_quary: Leashed {
-                                                                    place_idx: None,
-                                                                },
-                                                            },
+                                                        Dedirection(
+                                                            Deleash,
                                                         ),
                                                     ),
                                                 ],

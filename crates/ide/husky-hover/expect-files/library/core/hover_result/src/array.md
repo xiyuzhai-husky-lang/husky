@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::usize`",
+                            value: "\n\nentity `core::num::usize`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

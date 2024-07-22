@@ -27,17 +27,18 @@ pub enum FieldFlySignature {
         ty: FlyTerm,
     },
     Memoized {
-        ty: FlyTerm,
+        return_ty: FlyTerm,
+        expr_ty: FlyTerm,
         path: AssocItemPath,
         instantiation: FlyInstantiation,
     },
 }
 
 impl FieldFlySignature {
-    pub fn return_ty(&self) -> FlyTerm {
+    pub fn expr_ty(&self) -> FlyTerm {
         match *self {
             FieldFlySignature::PropsStruct { ty } => ty,
-            FieldFlySignature::Memoized { ty, .. } => ty,
+            FieldFlySignature::Memoized { expr_ty, .. } => expr_ty,
         }
     }
 }
@@ -48,7 +49,7 @@ impl IsInstanceItemFlySignature for FieldFlySignature {
         // todo: consider field mutability
         Ok(match *self {
             FieldFlySignature::PropsStruct { ty } => ty.with_quary(self_value_final_quary),
-            FieldFlySignature::Memoized { ty, .. } => ty.with_quary(self_value_final_quary),
+            FieldFlySignature::Memoized { expr_ty, .. } => expr_ty.with_quary(FlyQuary::Transient),
         })
     }
 
@@ -79,7 +80,8 @@ impl From<TypeMemoizedFieldEthSignature> for FieldFlySignature {
     fn from(signature: TypeMemoizedFieldEthSignature) -> Self {
         FieldFlySignature::Memoized {
             // ad hoc
-            ty: signature.return_ty().into(),
+            return_ty: signature.return_ty().into(),
+            expr_ty: signature.expr_ty().into(),
             path: signature.path().into(),
             instantiation: FlyInstantiation::from_eth(
                 FlyInstantiationEnvironment::MemoizedField,

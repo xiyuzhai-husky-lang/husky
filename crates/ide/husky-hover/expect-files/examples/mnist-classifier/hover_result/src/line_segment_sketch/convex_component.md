@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentSketch`",
+                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentSketch`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentStroke`",
+                            value: "\n\nentity `mnist_classifier::line_segment_sketch::LineSegmentStroke`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::visual::Visualize`",
+                            value: "\n\nentity `core::visual::Visualize`\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`",
+                            value: "\n\nentity `mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

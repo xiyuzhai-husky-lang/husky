@@ -1135,7 +1135,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 29,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -2101,7 +2101,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 50,
+                                                                        value: 52,
                                                                     },
                                                                 ),
                                                             ),
@@ -2241,7 +2241,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 29,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -2708,7 +2708,7 @@
                             self_ty: PathLeading(
                                 HirTypePathLeading(
                                     Id {
-                                        value: 40,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -3235,7 +3235,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 41,
+                                                                        value: 43,
                                                                     },
                                                                 ),
                                                             ),
@@ -5417,7 +5417,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 43,
+                                                                        value: 45,
                                                                     },
                                                                 ),
                                                             ),
@@ -5435,7 +5435,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 43,
+                                                                        value: 45,
                                                                     },
                                                                 ),
                                                             ),
@@ -6106,7 +6106,7 @@
                                                             ty: PathLeading(
                                                                 HirTypePathLeading(
                                                                     Id {
-                                                                        value: 46,
+                                                                        value: 48,
                                                                     },
                                                                 ),
                                                             ),

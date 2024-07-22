@@ -879,9 +879,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -890,9 +888,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Leashed {
-                                                            place_idx: None,
-                                                        },
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -948,9 +944,7 @@
                                                         10,
                                                         Trivial(
                                                             TrivialHirEagerCoercion {
-                                                                expectee_quary: Leashed {
-                                                                    place_idx: None,
-                                                                },
+                                                                expectee_quary: Transient,
                                                             },
                                                         ),
                                                     ),
@@ -1737,9 +1731,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -1748,9 +1740,7 @@
                                             coersion: Some(
                                                 Trivial(
                                                     TrivialHirEagerCoercion {
-                                                        expectee_quary: Leashed {
-                                                            place_idx: None,
-                                                        },
+                                                        expectee_quary: Transient,
                                                     },
                                                 ),
                                             ),
@@ -1806,9 +1796,7 @@
                                                         10,
                                                         Trivial(
                                                             TrivialHirEagerCoercion {
-                                                                expectee_quary: Leashed {
-                                                                    place_idx: None,
-                                                                },
+                                                                expectee_quary: Transient,
                                                             },
                                                         ),
                                                     ),
@@ -2595,9 +2583,7 @@
                                             },
                                             contracted_quary: HirContractedQuary {
                                                 contract: None,
-                                                quary: Leashed {
-                                                    place_idx: None,
-                                                },
+                                                quary: Transient,
                                             },
                                             is_always_copyable: true,
                                             place_contract_site: HirPlaceContractSite {
@@ -2619,13 +2605,9 @@
                                                     ),
                                                 ),
                                                 indirections: HirIndirections {
-                                                    initial_place: Leashed {
-                                                        place_idx: None,
-                                                    },
+                                                    initial_place: Transient,
                                                     indirections: [],
-                                                    final_place: Leashed {
-                                                        place_idx: None,
-                                                    },
+                                                    final_place: Transient,
                                                 },
                                                 instantiation: HirInstantiation {
                                                     path: ItemPath(`core::num::f32(0)::abs`),

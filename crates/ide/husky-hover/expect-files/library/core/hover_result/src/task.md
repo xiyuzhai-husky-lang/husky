@@ -700,7 +700,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::task::Task`",
+                            value: "\n\nentity `core::task::Task`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(

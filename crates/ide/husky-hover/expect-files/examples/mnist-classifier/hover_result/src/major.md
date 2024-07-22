@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::INPUT`",
+                            value: "\n\nentity `mnist::INPUT`\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Leashed {\n                place_idx: None,\n            },\n        },\n    ),\n)\n\ntype = `BinaryImage28 @ Some(Leashed { place_idx: None })`",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::connected_component::ConnectedComponent`",
+                            value: "\n\nentity `mnist_classifier::connected_component::ConnectedComponent`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::connected_components`",
+                            value: "\n\nentity `mnist_classifier::major::connected_components`\n\ncoercion = None\n\ntype = `Vec ConnectedComponent @ Some(Leashed { place_idx: None })`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::major_connected_component`",
+                            value: "\n\nentity `mnist_classifier::major::major_connected_component`\n\ncoercion = None\n\ntype = `Leash ConnectedComponent @ Some(Leashed { place_idx: None })`",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = Some(\n    Redirection(\n        Releash,\n    ),\n)\n\ntype = `Vec RawContour @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `Leash Vec RawContour @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::major_raw_contour`",
+                            value: "\n\nentity `mnist_classifier::major::major_raw_contour`\n\ncoercion = None\n\ntype = `Leash RawContour @ Some(Leashed { place_idx: None })`",
                         },
                     ),
                     range: Some(
@@ -640,7 +640,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = Some(\n    Redirection(\n        Releash,\n    ),\n)\n\ntype = `Vec ConcaveComponent @ Some(Leashed { place_idx: None })`",
+                            value: "\n\nfield\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `Leash Vec ConcaveComponent @ Some(Transient)`",
                         },
                     ),
                     range: Some(

@@ -452,9 +452,9 @@ impl ToHirEager for SemExprIdx {
                     indirections: HirIndirections::from_fly(dispatch.indirections()),
                 },
                 FieldFlySignature::Memoized {
-                    ty: _,
                     path,
                     ref instantiation,
+                    ..
                 } => {
                     debug_assert!(instantiation.separator().is_some());
                     HirEagerExprData::MemoizedField {

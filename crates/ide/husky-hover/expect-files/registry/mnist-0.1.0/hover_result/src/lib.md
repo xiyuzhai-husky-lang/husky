@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::ops::IntIndex`",
+                            value: "\n\nentity `core::ops::IntIndex`\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::raw_bits::r32`",
+                            value: "\n\nentity `core::raw_bits::r32`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::BinaryImage28`",
+                            value: "\n\nentity `mnist::BinaryImage28`\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
