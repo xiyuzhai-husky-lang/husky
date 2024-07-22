@@ -223,8 +223,8 @@ impl StreakCache {
 #[rustfmt::skip]
 pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::geom2d::Point2d {
     let N = points.ilen();
-    let p0 = &points[(N - 2) as usize];
-    let p2 = &points[(N - 1) as usize];
+    let p0 = &&points[(N - 2) as usize];
+    let p2 = &&points[(N - 1) as usize];
     crate::geom2d::Point2d::__constructor((p0.x + p2.x) / 2.0f32, (p0.y + p2.y) / 2.0f32)
 }
 
@@ -247,9 +247,9 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
             let mut row_above = cc.deleash().mask[(i - 1) as usize];
             let mut row_below = cc.deleash().mask[i as usize];
             let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
-            let i0 = i;
-            let j0 = j;
-            let dir0 = inward_direction;
+            let i0 = &mut i;
+            let j0 = &mut j;
+            let dir0 = &mut inward_direction;
             let mut prev_angle_change1 = 0;
             let mut prev_angle_change2 = 0;
             let mut total_angle_change = 0;
@@ -336,44 +336,44 @@ impl crate::raw_contour::RawContour {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 10, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = __self.deleash().points[0 as usize];
-        let mut xmin = start_point.deleash().x;
-        let mut xmax = start_point.deleash().x;
-        let mut ymin = start_point.deleash().y;
-        let mut ymax = start_point.deleash().y;
+        let start_point = &__self.deleash().points[0 as usize];
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
         for i in 0..__self.deleash().points.ilen() {
-            let point = __self.deleash().points[i as usize];
-            xmin = xmin.min(point.deleash().x);
-            xmax = xmax.max(point.deleash().x);
-            ymin = ymin.min(point.deleash().y);
-            ymax = ymax.max(point.deleash().y)
+            let point = &__self.deleash().points[i as usize];
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 11, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        <crate::raw_contour::RawContour>::bounding_box(<crate::connected_component::ConnectedComponent>::raw_contours(__self.cc.deleash())[0 as usize]).deleash().relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self).deleash())
+        <crate::raw_contour::RawContour>::bounding_box(Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(__self.deleash().cc)[0 as usize])).deleash().relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self).deleash())
     }
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 12)]
     pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..__self.deleash().points.ilen() {
-            let a = __self.deleash().points[(i - 1) as usize];
-            let b = __self.deleash().points[i as usize];
-            contour_len += (a.deleash().x - b.deleash().x).abs() + (a.deleash().y - b.deleash().y).abs()
+            let a = &__self.deleash().points[(i - 1) as usize];
+            let b = &__self.deleash().points[i as usize];
+            contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
         }
-        let a = __self.deleash().points[(__self.deleash().points.ilen() - 1) as usize];
-        let b = __self.deleash().points[0 as usize];
-        contour_len += (a.deleash().x - b.deleash().x).abs() + (a.deleash().y - b.deleash().y).abs();
+        let a = &__self.deleash().points[(__self.deleash().points.ilen() - 1) as usize];
+        let b = &__self.deleash().points[0 as usize];
+        contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
         return contour_len;
     }
 
     pub fn displacement(&self, start: i32, end: i32) -> crate::geom2d::Vector2d {
         let N = self.points.ilen();
-        let ct_start = &self.points[start.rem_euclid(N) as usize];
-        let ct_end = &self.points[end.rem_euclid(N) as usize];
+        let ct_start = &&self.points[start.rem_euclid(N) as usize];
+        let ct_end = &&self.points[end.rem_euclid(N) as usize];
         ct_start.to(ct_end)
     }
 }

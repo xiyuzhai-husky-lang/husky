@@ -61,7 +61,11 @@ impl RustBindings {
             expr_entry.is_always_copyable(),
             expr_entry.coercion(),
         );
-        slf.add_role(role);
+        slf.add_role(
+            role,
+            expr_entry.contracted_quary_after_coercion(),
+            expr_entry.is_always_copyable(),
+        );
         slf
     }
 
@@ -82,7 +86,7 @@ impl RustBindings {
                     HirQuary::Transient => unreachable!(),
                     HirQuary::Ref { guard } => smallvec![RustBinding::Deref],
                     HirQuary::RefMut { place, lifetime } => smallvec![RustBinding::DerefMut],
-                    HirQuary::Leashed { place_idx } => smallvec![RustBinding::Deleash],
+                    HirQuary::Leashed { place_idx } => smallvec![RustBinding::Deref],
                     HirQuary::Todo => todo!(),
                     HirQuary::Variable(_) => todo!(),
                 };
@@ -310,13 +314,29 @@ impl RustBindings {
                 HirContract::BorrowMut => self.add_outer_binding(RustBinding::RerefMut),
                 HirContract::Compterm => todo!(),
                 // ad hoc
-                HirContract::Leash => self.add_outer_binding(RustBinding::Releash),
+                HirContract::Leash => match contracted_quary.quary() {
+                    HirQuary::Compterm => todo!(),
+                    HirQuary::StackPure { place } => (),
+                    HirQuary::ImmutableOnStack { .. } => (),
+                    HirQuary::MutableOnStack { place } => (),
+                    HirQuary::Transient => todo!(),
+                    HirQuary::Ref { guard } => todo!(),
+                    HirQuary::RefMut { place, lifetime } => unreachable!(),
+                    HirQuary::Leashed { place_idx } => self.add_outer_binding(RustBinding::Releash),
+                    HirQuary::Todo => todo!(),
+                    HirQuary::Variable(_) => todo!(),
+                },
                 HirContract::At => todo!(),
             }
         }
     }
 
-    pub(crate) fn add_role(&mut self, role: HirEagerExprRole) {
+    pub(crate) fn add_role(
+        &mut self,
+        role: HirEagerExprRole,
+        contracted_quary_after_coercion: HirContractedQuary,
+        is_always_copyable: bool,
+    ) {
         match role {
             HirEagerExprRole::SimpleSelfArgument => self.add_outer_binding(RustBinding::SelfValue),
             HirEagerExprRole::AssignSelfArgument => self.add_outer_binding(RustBinding::DerefMut),
@@ -342,11 +362,36 @@ impl RustBindings {
                         HirIndirection::Deleash => self.add_outer_binding(RustBinding::Deleash),
                     }
                 }
+                // ad hoc
+                self.add_outer_binding(RustBinding::Releash)
             }
             HirEagerExprRole::Subexpr { .. } => (),
             HirEagerExprRole::RegularCallItem => (),
             HirEagerExprRole::Root => (),
-            HirEagerExprRole::LetInitialValue => (),
+            HirEagerExprRole::LetInitialValue => match contracted_quary_after_coercion.quary() {
+                HirQuary::Compterm => (),
+                HirQuary::StackPure { place } => {
+                    if !is_always_copyable {
+                        self.add_outer_binding(RustBinding::Reref)
+                    }
+                }
+                HirQuary::ImmutableOnStack { place } => {
+                    if !is_always_copyable {
+                        self.add_outer_binding(RustBinding::Reref)
+                    }
+                }
+                HirQuary::MutableOnStack { place } => self.add_outer_binding(RustBinding::RerefMut),
+                HirQuary::Transient => (),
+                HirQuary::Ref { guard } => todo!(),
+                HirQuary::RefMut { place, lifetime } => todo!(),
+                HirQuary::Leashed { place_idx } => {
+                    if !is_always_copyable {
+                        self.add_outer_binding(RustBinding::Reref)
+                    }
+                }
+                HirQuary::Todo => todo!(),
+                HirQuary::Variable(_) => todo!(),
+            },
         }
     }
 

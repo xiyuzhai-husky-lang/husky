@@ -31,27 +31,27 @@ pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 47)]
 pub fn is_two() -> malamute::OneVsAll {
     let cc_num = major_concave_components().deleash().ilen();
-    let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component().deleash());
+    let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());
     require!(let Option::None = eff_holes.deleash().matches[1 as usize]);
     let left_cc = two_match().matches[0 as usize];
     let right_cc = two_match().matches[1 as usize];
     let down_cc = two_match().matches[2 as usize];
     require!(cc_num <= 3);
-    let lower_excess = <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component().deleash()) - <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component().deleash());
+    let lower_excess = <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component());
     require!(lower_excess > 10.0f32);
     if cc_num == 2 {
         require!(let Some(_) = left_cc);
         require!(let Some(_) = right_cc);
-        let a = <crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(right_cc.unwrap().deleash());
+        let a = <crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(right_cc.unwrap());
         require!(a > -180.0f32);
         let end_tan = left_cc.unwrap().deleash().end_tangent().angle(true);
         let x = left_cc.unwrap().deleash().end_tangent().x;
         let y = left_cc.unwrap().deleash().end_tangent().y;
-        let left_ymax = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(left_cc.unwrap().deleash()).deleash().ymax();
-        let left_ymin = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(left_cc.unwrap().deleash()).deleash().ymin();
+        let left_ymax = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(left_cc.unwrap()).deleash().ymax();
+        let left_ymin = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(left_cc.unwrap()).deleash().ymin();
         let left_mid_y = (left_ymax + left_ymin) / 2.0f32;
-        let right_ymax = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(right_cc.unwrap().deleash()).deleash().ymax();
-        let right_ymin = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(right_cc.unwrap().deleash()).deleash().ymin();
+        let right_ymax = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(right_cc.unwrap()).deleash().ymax();
+        let right_ymin = <crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(right_cc.unwrap()).deleash().ymin();
         let right_mid_y = (right_ymax + right_ymin) / 2.0f32;
         require!(left_mid_y >= right_mid_y);
     }
@@ -59,8 +59,8 @@ pub fn is_two() -> malamute::OneVsAll {
         require!(let Some(_) = left_cc);
         require!(let Some(_) = right_cc);
         require!(let Some(_) = down_cc);
-        require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(down_cc.unwrap().deleash()).deleash().ymin() < 0.4f32);
-        let a = <crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(down_cc.unwrap().deleash());
+        require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(down_cc.unwrap()).deleash().ymin() < 0.4f32);
+        let a = <crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(down_cc.unwrap());
     }
     OneVsAll::Yes
 }

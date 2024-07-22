@@ -82,7 +82,7 @@ pub enum FlyQuary {
     /// stored in database
     /// always immutable
     Leashed {
-        place_idx: Option<PlaceIdx>,
+        place: Option<PlaceIdx>,
     },
     Todo,
     #[deprecated(note = "consider more carefully")]

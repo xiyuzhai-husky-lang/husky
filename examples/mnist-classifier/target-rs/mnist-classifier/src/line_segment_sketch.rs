@@ -180,7 +180,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
             start = crate::line_segment_sketch::extend_start(ct, start, end, r);
             let mut ls = crate::line_segment_sketch::LineSegmentStroke::new(ct, start, end);
             if line_segments.ilen() > 0 {
-                let ls_last = &line_segments.last().unwrap();
+                let ls_last = &mut &line_segments.last().unwrap();
                 let dp_last = ls_last.displacement();
                 let dp = ls.displacement();
                 let dp1 = ls_last.start.to(&ls.end);
@@ -198,7 +198,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
     }
     let N = ct.deleash().points.ilen();
     let first_line_segment_points_end = line_segments.first().unwrap().points.deleash().end();
-    let last_line_segment = &line_segments.last().unwrap();
+    let last_line_segment = &mut &line_segments.last().unwrap();
     if last_line_segment.points.deleash().end() >= first_line_segment_points_end + N {
         let last_line_segment = line_segments.pop().unwrap();
         line_segments.first_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, last_line_segment.points.deleash().start() - N, line_segments.first().unwrap().points.deleash().end() - 1)
@@ -217,7 +217,7 @@ impl Visualize for crate::line_segment_sketch::LineSegmentStroke {
 impl crate::line_segment_sketch::LineSegmentStroke {
     pub fn new(ct: Leash<crate::raw_contour::RawContour>, from: i32, to: i32) -> crate::line_segment_sketch::LineSegmentStroke {
         assert!(from <= to);
-        crate::line_segment_sketch::LineSegmentStroke::__constructor(ct.points.cyclic_slice_leashed(from, to + 1))
+        crate::line_segment_sketch::LineSegmentStroke::__constructor(ct.deleash().points.cyclic_slice_leashed(from, to + 1))
     }
 
     pub fn displacement(&self) -> crate::geom2d::Vector2d {
@@ -241,17 +241,17 @@ impl crate::line_segment_sketch::LineSegmentSketch {
 
     #[ad_hoc_devsoul_dependency::memo(ingredient_index = 14, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = __self.deleash().strokes[0 as usize].start;
-        let mut xmin = start_point.deleash().x;
-        let mut xmax = start_point.deleash().x;
-        let mut ymin = start_point.deleash().y;
-        let mut ymax = start_point.deleash().y;
+        let start_point = &__self.deleash().strokes[0 as usize].start;
+        let mut xmin = start_point.x;
+        let mut xmax = start_point.x;
+        let mut ymin = start_point.y;
+        let mut ymax = start_point.y;
         for i in 0..__self.deleash().strokes.ilen() {
-            let point = __self.deleash().strokes[i as usize].end;
-            xmin = xmin.min(point.deleash().x);
-            xmax = xmax.max(point.deleash().x);
-            ymin = ymin.min(point.deleash().y);
-            ymax = ymax.max(point.deleash().y)
+            let point = &__self.deleash().strokes[i as usize].end;
+            xmin = xmin.min(point.x);
+            xmax = xmax.max(point.x);
+            ymin = ymin.min(point.y);
+            ymax = ymax.max(point.y)
         }
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }

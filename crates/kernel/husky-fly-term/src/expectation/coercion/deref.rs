@@ -11,7 +11,7 @@ pub enum DedirectionFlyCoercion {
 impl DedirectionFlyCoercion {
     pub fn place_after_coercion(self) -> FlyQuary {
         match self {
-            DedirectionFlyCoercion::Deleash => FlyQuary::Leashed { place_idx: None },
+            DedirectionFlyCoercion::Deleash => FlyQuary::Leashed { place: None },
             DedirectionFlyCoercion::Deref { lifetime } => FlyQuary::Ref {
                 guard: Right(lifetime),
             },

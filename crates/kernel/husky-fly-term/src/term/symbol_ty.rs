@@ -109,7 +109,7 @@ impl SymbolType {
                         FlyQuary::Ref { guard } => todo!(),
                         FlyQuary::RefMut { .. } => todo!(),
                         FlyQuary::Leashed { .. } => FlyQuary::Leashed {
-                            place_idx: Some(engine.issue_new_place_idx(place_data)),
+                            place: Some(engine.issue_new_place_idx(place_data)),
                         },
                         FlyQuary::Todo => todo!(),
                         FlyQuary::EtherealSymbol(_) => todo!(),
