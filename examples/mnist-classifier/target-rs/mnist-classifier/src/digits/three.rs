@@ -11,9 +11,9 @@ pub fn three_fermi_match() -> crate::fermi::FermiMatchResult {
 pub fn is_three() -> malamute::OneVsAll {
     require!(major_concave_components().deleash().ilen() >= 2);
     require!(major_concave_components().deleash().ilen() <= 4);
-    let downarc = three_fermi_match().matches[0 as usize];
-    let uparc = three_fermi_match().matches[1 as usize];
-    let back = three_fermi_match().matches[2 as usize];
+    let downarc = three_fermi_match().deleash().matches[0 as usize];
+    let uparc = three_fermi_match().deleash().matches[1 as usize];
+    let back = three_fermi_match().deleash().matches[2 as usize];
     require!(let Some(_) = downarc);
     require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(downarc.unwrap()) > 3.0f32);
     require!(let Some(_) = uparc);
@@ -23,7 +23,7 @@ pub fn is_three() -> malamute::OneVsAll {
     let uparc_startpoint = uparc.unwrap().deleash().start();
     let distance = downarc_enpoint.dist(&uparc_startpoint);
     require!(distance < 20.0f32);
-    require!(<crate::fermi::FermiMatchResult>::norm(Leash(&three_fermi_match())) < 2.5f32);
+    require!(<crate::fermi::FermiMatchResult>::norm(three_fermi_match()) < 2.5f32);
     require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(downarc.unwrap()) < -100.0f32);
     OneVsAll::Yes
 }

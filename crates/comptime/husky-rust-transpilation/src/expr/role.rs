@@ -78,6 +78,6 @@ impl<'db> HirEagerExprRole<'db> {
     }
 
     pub(crate) fn html_argument() -> Self {
-        Self::subexpr(RustPrecedenceRange::GEQ_PREFIX)
+        HirEagerExprRole::RegularCallItem
     }
 }

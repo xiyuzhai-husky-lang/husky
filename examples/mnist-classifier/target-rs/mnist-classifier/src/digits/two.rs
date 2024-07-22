@@ -33,9 +33,9 @@ pub fn is_two() -> malamute::OneVsAll {
     let cc_num = major_concave_components().deleash().ilen();
     let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());
     require!(let Option::None = eff_holes.deleash().matches[1 as usize]);
-    let left_cc = two_match().matches[0 as usize];
-    let right_cc = two_match().matches[1 as usize];
-    let down_cc = two_match().matches[2 as usize];
+    let left_cc = two_match().deleash().matches[0 as usize];
+    let right_cc = two_match().deleash().matches[1 as usize];
+    let down_cc = two_match().deleash().matches[2 as usize];
     require!(cc_num <= 3);
     let lower_excess = <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component());
     require!(lower_excess > 10.0f32);

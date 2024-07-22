@@ -3,7 +3,7 @@ use crate::*;
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 48, return_leash)]
 pub fn connected_components() -> Vec<crate::connected_component::ConnectedComponent> {
-    crate::connected_component::find_connected_components(INPUT())
+    crate::connected_component::find_connected_components(INPUT().deleash())
 }
 
 #[rustfmt::skip]
@@ -11,7 +11,7 @@ pub fn connected_components() -> Vec<crate::connected_component::ConnectedCompon
 pub fn major_connected_component() -> Leash<crate::connected_component::ConnectedComponent> {
     let mut i0 = 0;
     let mut max_row_span_sum = 0.0f32;
-    for i in 0..connected_components().ilen() {
+    for i in 0..connected_components().deleash().ilen() {
         let row_span_sum = <crate::connected_component::ConnectedComponent>::row_span_sum(Leash(&connected_components()[i as usize]));
         if row_span_sum > max_row_span_sum {
             max_row_span_sum = row_span_sum;
@@ -25,7 +25,7 @@ pub fn major_connected_component() -> Leash<crate::connected_component::Connecte
 #[ad_hoc_devsoul_dependency::val(ingredient_index = 50)]
 pub fn ignored_connected_components_row_span_sum_sum() -> f32 {
     let mut sum = 0.0f32;
-    for i in 0..connected_components().ilen() {
+    for i in 0..connected_components().deleash().ilen() {
         sum += <crate::connected_component::ConnectedComponent>::row_span_sum(Leash(&connected_components()[i as usize]))
     }
     return sum - <crate::connected_component::ConnectedComponent>::row_span_sum(major_connected_component());
