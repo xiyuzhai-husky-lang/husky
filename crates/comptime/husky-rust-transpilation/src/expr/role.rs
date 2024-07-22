@@ -27,6 +27,9 @@ pub(crate) enum HirEagerExprRole<'db> {
         contract: HirContract,
     },
     Root,
+    InitialValue {
+        contract: HirContract,
+    },
     PatternOpd {
         contract: HirContract,
     },
@@ -76,7 +79,10 @@ impl<'db> HirEagerExprRole<'db> {
         HirEagerExprRole::Root
     }
 
-    #[deprecated(note = "change coercion type to HirEagerCoercion")]
+    pub(crate) fn new_initial_value(contract: HirContract) -> Self {
+        HirEagerExprRole::InitialValue { contract }
+    }
+
     pub(crate) fn new_pattern_opd(contract: HirContract) -> Self {
         HirEagerExprRole::PatternOpd { contract }
     }

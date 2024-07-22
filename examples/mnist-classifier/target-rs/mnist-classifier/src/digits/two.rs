@@ -8,21 +8,21 @@ pub fn two_match() -> crate::fermi::FermiMatchResult {
 
 #[rustfmt::skip]
 pub fn left_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn right_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y > 0.0f32);
     Some(dp.y)
 }
 
 #[rustfmt::skip]
 pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.x > 0.0f32);
     Some(dp.x)
 }

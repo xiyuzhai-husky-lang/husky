@@ -8,7 +8,7 @@ pub fn simple_seven_match() -> crate::fermi::FermiMatchResult {
 
 #[rustfmt::skip]
 pub fn simple_leftdown_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(-dp.y)
 }
@@ -21,7 +21,7 @@ pub fn special_seven_match() -> crate::fermi::FermiMatchResult {
 
 #[rustfmt::skip]
 pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymax() > 0.6f32);
     Some(cc.deleash().end().y)
@@ -29,7 +29,7 @@ pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component:
 
 #[rustfmt::skip]
 pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
-    let dp = &cc.deleash().displacement();
+    let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     require!(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().ymin() < 0.3f32);
     let ang = cc.deleash().start_tangent().angle(true);
@@ -46,7 +46,7 @@ pub fn is_seven() -> malamute::OneVsAll {
         require!(let Some(_) = simple_seven_match().deleash().matches[0 as usize]);
         let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component());
         if upper_excess < 10.0f32 {
-            let end_tangent = &simple_seven_match().deleash().matches[0 as usize].unwrap().deleash().end_tangent();
+            let end_tangent = simple_seven_match().deleash().matches[0 as usize].unwrap().deleash().end_tangent();
             let a = end_tangent.y;
             require!(a < -7.0f32);
         }

@@ -92,8 +92,8 @@ pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32)
             r_max = dp_norm
         }
         if dp_norm > r {
-            let dp_right = &crate::line_segment_sketch::go_right(&dp, r);
-            let dp_left = &crate::line_segment_sketch::go_left(&dp, r);
+            let dp_right = crate::line_segment_sketch::go_right(&dp, r);
+            let dp_left = crate::line_segment_sketch::go_left(&dp, r);
             if right_bound.rotation_direction_to(&dp_right) > 0 {
                 right_bound = dp_right
             }
@@ -124,7 +124,7 @@ pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end:
     let mut left_bound = crate::line_segment_sketch::go_left(&dp0, r);
     let mut r_max = 0.0f32;
     while start >= min_start {
-        let dp = &ct.deleash().displacement(end, start - 1);
+        let dp = ct.deleash().displacement(end, start - 1);
         let dp_norm = dp.norm();
         if dp_norm < r_max - r {
             break;
@@ -132,8 +132,8 @@ pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end:
             r_max = dp_norm
         }
         if dp_norm > r {
-            let dp_right = &crate::line_segment_sketch::go_right(&dp, r);
-            let dp_left = &crate::line_segment_sketch::go_left(&dp, r);
+            let dp_right = crate::line_segment_sketch::go_right(&dp, r);
+            let dp_left = crate::line_segment_sketch::go_left(&dp, r);
             if right_bound.rotation_direction_to(&dp_right) > 0 {
                 right_bound = dp_right
             }
@@ -165,11 +165,11 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
     let mut max_end = ct.deleash().points.ilen();
     while end <= max_end {
         end = crate::line_segment_sketch::extend_end(ct, start, r);
-        let ls_extend_end = &crate::line_segment_sketch::LineSegmentStroke::new(ct, start, end);
+        let ls_extend_end = crate::line_segment_sketch::LineSegmentStroke::new(ct, start, end);
         let mut extend_start_flag = true;
         if line_segments.ilen() > 0 {
-            let dp_extend_end = &ls_extend_end.displacement();
-            let dp_previous = &line_segments.last().unwrap().displacement();
+            let dp_extend_end = ls_extend_end.displacement();
+            let dp_previous = line_segments.last().unwrap().displacement();
             if dp_extend_end.cross(&dp_previous).abs() < 0.01f32 && dp_extend_end.dot(&dp_previous) > 0.0f32 {
                 let N = ct.deleash().points.ilen();
                 line_segments.last_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, line_segments.last().unwrap().points.deleash().start(), end);
@@ -181,11 +181,11 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
             let mut ls = crate::line_segment_sketch::LineSegmentStroke::new(ct, start, end);
             if line_segments.ilen() > 0 {
                 let ls_last = &line_segments.last().unwrap();
-                let dp_last = &ls_last.displacement();
-                let dp = &ls.displacement();
-                let dp1 = &ls_last.start.to(&ls.end);
+                let dp_last = ls_last.displacement();
+                let dp = ls.displacement();
+                let dp1 = ls_last.start.to(&ls.end);
                 if dp.cross(&dp_last).abs() < 0.001f32 && dp.dot(&dp_last) > 0.0f32 && dp.cross(&dp1).abs() < 0.001f32 && dp.dot(&dp1) > 0.0f32 {
-                    let ls_last = &line_segments.pop().unwrap();
+                    let ls_last = line_segments.pop().unwrap();
                     ls = crate::line_segment_sketch::LineSegmentStroke::new(ct, ls_last.points.deleash().start(), ls.points.deleash().end())
                 }
             } else {
@@ -200,7 +200,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
     let first_line_segment_points_end = line_segments.first().unwrap().points.deleash().end();
     let last_line_segment = &line_segments.last().unwrap();
     if last_line_segment.points.deleash().end() >= first_line_segment_points_end + N {
-        let last_line_segment = &line_segments.pop().unwrap();
+        let last_line_segment = line_segments.pop().unwrap();
         line_segments.first_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, last_line_segment.points.deleash().start() - N, line_segments.first().unwrap().points.deleash().end() - 1)
     }
     line_segments

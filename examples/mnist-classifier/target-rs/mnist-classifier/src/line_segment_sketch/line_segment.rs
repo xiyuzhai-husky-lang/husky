@@ -24,12 +24,12 @@ impl crate::line_segment_sketch::line_segment::LineSegment {
     }
 
     pub fn dist_to_point(&self, pt: &crate::geom2d::Point2d) -> f32 {
-        let ab = &self.displacement();
-        let ap = &self.start.to(pt);
+        let ab = self.displacement();
+        let ap = self.start.to(pt);
         if ab.dot(&ap) < 0.0f32 {
             ap.norm()
         } else {
-            let bp = &self.end.to(pt);
+            let bp = self.end.to(pt);
             if ab.dot(&bp) > 0.0f32 {
                 bp.norm()
             } else {

@@ -85,6 +85,7 @@ impl RustPrecedenceRange {
             HirEagerExprRole::MemoizedFieldSelfArgument { .. }
             | HirEagerExprRole::RegularCallItem { .. }
             | HirEagerExprRole::Root { .. }
+            | HirEagerExprRole::InitialValue { .. }
             | HirEagerExprRole::PatternOpd { .. } => Self::ANY,
             HirEagerExprRole::Subexpr {
                 outermost_precedence_range,
