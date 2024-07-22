@@ -112,7 +112,8 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'db>(
                     RitchieItemKind::Sn => todo!(),
                     RitchieItemKind::Tn => todo!(),
                 },
-                RitchieTypeKind::Closure(_) => todo!(),
+                // ad hoc, should check whether there are variables captured
+                RitchieTypeKind::Closure(_) => return Ok(false),
             },
             RitchieKind::Trait(_) => todo!(),
         },

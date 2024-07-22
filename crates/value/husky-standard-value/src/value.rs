@@ -24,7 +24,7 @@ use std::cmp::Ordering;
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
-#[husky_devsoul_interface::value]
+#[husky_devsoul_interface::value_ty]
 #[derive(Debug)]
 #[repr(u8)]
 pub enum Value {

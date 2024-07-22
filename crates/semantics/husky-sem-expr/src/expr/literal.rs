@@ -34,7 +34,7 @@ impl<'a> SemExprBuilder<'a> {
                             // match in the order of most frequent to least frequent
                             Ok(match expectation.destination() {
                                 FlyTermDestination::Specific(destination) => {
-                                    match destination.data(self) {
+                                    match destination.base_term_data(self) {
                                         FlyTermData::TypeOntology {
                                             refined_ty_path:
                                                 Left(PreludeTypePath::Num(PreludeNumTypePath::Int(
@@ -178,28 +178,30 @@ impl<'a> SemExprBuilder<'a> {
                 }
                 LiteralTokenData::Float(float_literal) => match float_literal {
                     FloatLiteralTokenData::Unspecified(_) => match expectation.destination() {
-                        FlyTermDestination::Specific(destination) => match destination.data(self) {
-                            FlyTermData::TypeOntology {
-                                refined_ty_path:
-                                    Left(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
-                                ..
-                            } => match path {
-                                PreludeFloatTypePath::F32 => {
-                                    Ok(self.term_menu().f32_ty_ontology().into())
+                        FlyTermDestination::Specific(destination) => {
+                            match destination.base_term_data(self) {
+                                FlyTermData::TypeOntology {
+                                    refined_ty_path:
+                                        Left(PreludeTypePath::Num(PreludeNumTypePath::Float(path))),
+                                    ..
+                                } => match path {
+                                    PreludeFloatTypePath::F32 => {
+                                        Ok(self.term_menu().f32_ty_ontology().into())
+                                    }
+                                    PreludeFloatTypePath::F64 => {
+                                        Ok(self.term_menu().f64_ty_ontology().into())
+                                    }
+                                },
+                                FlyTermData::Hole(HoleKind::UnspecifiedFloatType, destination) => {
+                                    return Ok(destination.into())
                                 }
-                                PreludeFloatTypePath::F64 => {
-                                    Ok(self.term_menu().f64_ty_ontology().into())
+                                _ => {
+                                    return Ok(self
+                                        .new_hole(expr_idx, HoleKind::UnspecifiedFloatType)
+                                        .into())
                                 }
-                            },
-                            FlyTermData::Hole(HoleKind::UnspecifiedFloatType, destination) => {
-                                return Ok(destination.into())
                             }
-                            _ => {
-                                return Ok(self
-                                    .new_hole(expr_idx, HoleKind::UnspecifiedFloatType)
-                                    .into())
-                            }
-                        },
+                        }
                         FlyTermDestination::AnyOriginal | FlyTermDestination::AnyDerived => {
                             return Ok(self
                                 .new_hole(expr_idx, HoleKind::UnspecifiedFloatType)

@@ -2,6 +2,7 @@ use crate::quary::HirQuary;
 use husky_fly_term::dispatch::{FlyIndirection, FlyIndirections};
 use smallvec::SmallVec;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirIndirections {
     initial_place: HirQuary,
@@ -9,10 +10,11 @@ pub struct HirIndirections {
     final_place: HirQuary,
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirIndirection {
     Place(HirQuary),
-    Leash,
+    Deleash,
 }
 
 impl std::ops::Deref for HirIndirections {
@@ -42,7 +44,7 @@ impl HirIndirection {
             FlyIndirection::QualifiedPlace(place) => {
                 HirIndirection::Place(HirQuary::from_fly(place))
             }
-            FlyIndirection::Leash => HirIndirection::Leash,
+            FlyIndirection::Leash => HirIndirection::Deleash,
         }
     }
 }

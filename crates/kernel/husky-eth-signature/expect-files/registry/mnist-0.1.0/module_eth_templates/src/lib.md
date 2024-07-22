@@ -68,6 +68,7 @@
                         MajorStaticVarEthTemplate {
                             path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             return_ty: EthTerm(`BinaryImage28`),
+                            expr_ty: EthTerm(`Leash BinaryImage28`),
                         },
                     ),
                 ),

@@ -56,6 +56,7 @@
             self_ty: Some(
                 EthTerm(`Self`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -117,6 +118,7 @@
             self_ty: Some(
                 EthTerm(`Cv2dFrontend`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -178,6 +180,7 @@
             self_ty: Some(
                 EthTerm(`Cv3dFrontend`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -239,6 +242,7 @@
             self_ty: Some(
                 EthTerm(`NlpFrontend`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -300,6 +304,7 @@
             self_ty: Some(
                 EthTerm(`Rl2dFrontend`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },

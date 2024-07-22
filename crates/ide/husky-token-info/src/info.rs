@@ -1,14 +1,18 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_entity_path::path::{EntityPath, PrincipalEntityPath};
+use husky_entity_path::{
+    path::{EntityPath, PrincipalEntityPath},
+    region::RegionPath,
+};
 use husky_entity_tree::{
     expr::r#use::UseExprIdx,
     node::ItemSynNodePath,
     presheet::{OnceUseRuleIdx, UseOneRuleState},
+    region_path::SynNodeRegionPath,
 };
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
-    entity_path::SynPrincipalEntityPathSynExprIdx,
+    entity_path::SynPrincipalEntityPathExprIdx,
     pattern::SynPatternIdx,
     region::SynExprRegion,
     variable::{
@@ -21,7 +25,7 @@ use husky_token_protocol::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenInfo {
-    src: TokenInfoSource,
+    source: TokenInfoSource,
     data: TokenInfoData,
 }
 
@@ -30,24 +34,24 @@ pub struct TokenInfo {
 #[enum_class::from_variants]
 pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
-    SemExpr(SemExprIdx),
-    SynPrincipalEntityPathExpr(SynPrincipalEntityPathSynExprIdx, PrincipalEntityPath),
-    Pattern(SynPatternIdx),
+    SemExpr(RegionPath, SemExprIdx),
+    SynPrincipalEntityPathExpr(SynPrincipalEntityPathExprIdx, PrincipalEntityPath),
+    Pattern(RegionPath, SynPatternIdx),
     // todo: add #[skip] attribute
     TemplateParameter(CurrentVariableIdx),
     AstIdentifiable,
 }
 
 impl TokenInfo {
-    pub fn new(src: impl Into<TokenInfoSource>, data: TokenInfoData) -> Self {
+    pub fn new(source: impl Into<TokenInfoSource>, data: TokenInfoData) -> Self {
         Self {
-            src: src.into(),
+            source: source.into(),
             data,
         }
     }
 
     pub fn src(&self) -> TokenInfoSource {
-        self.src
+        self.source
     }
 
     pub fn data(&self) -> &TokenInfoData {
@@ -89,12 +93,13 @@ pub enum TokenInfoData {
     UnitRightParenthesis,
     Todo,
     Unreachable,
-    SemaPrefixTypeOpr,
+    PrefixTypeOpr,
     CallPar,
     NestedBlockCurl,
     ClosureVert,
     ClosureLightArrow,
     ClosureEq,
+    Literal,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -156,12 +161,13 @@ impl TokenInfoData {
             }
             TokenInfoData::Todo => TokenClass::Todo,
             TokenInfoData::Unreachable => TokenClass::Unreachable,
-            TokenInfoData::SemaPrefixTypeOpr => TokenClass::TypeEntity,
+            TokenInfoData::PrefixTypeOpr => TokenClass::TypeEntity,
             TokenInfoData::CallPar => TokenClass::Punctuation,
             TokenInfoData::NestedBlockCurl => TokenClass::Punctuation,
             TokenInfoData::ClosureVert => TokenClass::Punctuation,
             TokenInfoData::ClosureLightArrow => TokenClass::Punctuation,
             TokenInfoData::ClosureEq => TokenClass::Punctuation,
+            TokenInfoData::Literal => TokenClass::Literal,
         }
     }
 }

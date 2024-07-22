@@ -19,12 +19,12 @@ impl SolTerm {
     ) -> FlyTermMaybeResult<FlyIndexInstanceDispatch> {
         let db = engine.db();
         match self.data(engine) {
-            SolidTermData::TypeOntology {
+            SolTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::Curry {
+            SolTermData::Curry {
                 toolchain,
                 curry_kind,
                 variance,
@@ -32,7 +32,7 @@ impl SolTerm {
                 parameter_ty,
                 return_ty,
             } => todo!(),
-            SolidTermData::Ritchie {
+            SolTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
                 return_ty,

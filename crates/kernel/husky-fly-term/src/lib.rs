@@ -1,7 +1,7 @@
 #![feature(let_chains)]
 #![feature(anonymous_lifetime_in_impl_trait)]
 #![feature(generic_arg_infer)]
-mod data;
+pub mod data;
 pub mod dispatch;
 mod engine;
 mod error;

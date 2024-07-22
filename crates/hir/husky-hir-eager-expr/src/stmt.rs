@@ -63,6 +63,7 @@ pub enum HirEagerStmtData {
     },
     Match {
         opd: HirEagerExprIdx,
+        contract: HirContract,
         case_branches: Vec<HirEagerCaseBranch>,
     },
 }
@@ -76,17 +77,17 @@ impl ToHirEager for SemStmtIdx {
     type Output = Option<HirEagerStmtData>;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        Some(match self.data(builder.sem_stmt_arena_ref()) {
-            &SemStmtData::Let {
+        Some(match *self.data(builder.sem_stmt_arena_ref()) {
+            SemStmtData::Let {
                 ref let_pattern_sem_obelisk,
                 contract,
-                initial_value: initial_value_sem_expr_idx,
+                initial_value,
                 ref coercion_outcome,
                 ..
             } => HirEagerStmtData::Let {
                 pattern: builder.new_let_variables_pattern(let_pattern_sem_obelisk),
                 contract: HirContract::from_contract(contract),
-                initial_value: initial_value_sem_expr_idx.to_hir_eager(builder),
+                initial_value: initial_value.to_hir_eager(builder),
                 coercion: coercion_outcome
                     .as_ref()
                     .map(|coercion_outcome| coercion_outcome.coercion().to_hir_eager(builder)),
@@ -111,18 +112,18 @@ impl ToHirEager for SemStmtIdx {
             },
             SemStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
             SemStmtData::Eval {
-                expr: sem_expr_idx,
-                outcome,
+                expr,
+                ref outcome,
                 eol_semicolon,
             } => HirEagerStmtData::Eval {
-                expr: sem_expr_idx.to_hir_eager(builder),
-                discarded: eol_semicolon.is_some(),
+                expr: expr.to_hir_eager(builder),
                 coercion: match outcome {
                     Some(ExpectationOutcome::Coercion(coercion_outcome)) => {
                         Some(coercion_outcome.coercion().to_hir_eager(builder))
                     }
                     _ => None,
                 },
+                discarded: eol_semicolon.is_some(),
             },
             SemStmtData::ForBetween {
                 ref particulars,
@@ -168,11 +169,13 @@ impl ToHirEager for SemStmtIdx {
                 else_branch: else_branch.to_hir_eager(builder),
             },
             SemStmtData::Match {
-                match_opd,
-                case_branches,
+                opd,
+                contract,
+                ref case_branches,
                 ..
             } => HirEagerStmtData::Match {
-                opd: match_opd.to_hir_eager(builder),
+                opd: opd.to_hir_eager(builder),
+                contract: HirContract::from_contract(contract),
                 case_branches: case_branches.to_hir_eager(builder),
             },
             SemStmtData::Narrate { narrate_token } => todo!(),
@@ -203,6 +206,7 @@ impl ToHirEager for SemStmtIdxRange {
 pub enum HirEagerCondition {
     Be {
         opd: HirEagerExprIdx,
+        contract: HirContract,
         pattern: HirEagerBeVariablesPattern,
     },
     Other {
@@ -219,10 +223,12 @@ impl ToHirEager for SemCondition {
         match *self {
             SemCondition::Be {
                 src,
+                contract,
                 be_regional_token_idx: _,
                 target,
             } => HirEagerCondition::Be {
                 opd: src.to_hir_eager(builder),
+                contract: HirContract::from_contract(contract),
                 pattern: target.to_hir_eager(builder),
             },
             SemCondition::Other {

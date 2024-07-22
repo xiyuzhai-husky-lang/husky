@@ -4,13 +4,13 @@ use husky_eth_signature::{
     context::EthTermContextRef,
     error::EthSignatureResult,
     signature::{
-        assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEthSignature,
+        assoc_item::ty_item::memo::HasTypeMemoizedFieldEthSignature,
         major_item::ty::HasPropsFieldEthSignature, package::PackageEthSignatureData,
     },
 };
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
-pub(super) fn ethereal_ty_field_dispatch<'db>(
+pub(super) fn eth_ty_field_dispatch<'db>(
     db: &'db ::salsa::Db,
     ty_term: EthTerm,
     ident: Ident,
@@ -20,26 +20,26 @@ pub(super) fn ethereal_ty_field_dispatch<'db>(
     // divide into cases for memoization
     match ty_term {
         EthTerm::ItemPath(ItemPathTerm::TypeOntology(ty_path)) => {
-            ethereal_ty_ontology_path_ty_field_dispatch(db, ty_path, ident, indirections, ctx)
+            eth_ty_ontology_path_ty_field_dispatch(db, ty_path, ident, indirections, ctx)
         }
         EthTerm::Application(ty_term) => {
-            ethereal_term_application_ty_field_dispatch(db, ty_term, ident, indirections, ctx)
+            eth_term_application_ty_field_dispatch(db, ty_term, ident, indirections, ctx)
         }
         _ => Nothing,
     }
 }
 
-pub(crate) fn ethereal_ty_ontology_path_ty_field_dispatch<'db>(
+pub(crate) fn eth_ty_ontology_path_ty_field_dispatch<'db>(
     db: &'db ::salsa::Db,
     ty_path: TypePath,
     ident: Ident,
     indirections: FlyIndirections,
     ctx: EthTermContextRef,
 ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
-    ethereal_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections, ctx)
+    eth_ty_field_dispatch_aux(db, ty_path, &[], ident, indirections, ctx)
 }
 
-pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
+pub(crate) fn eth_term_application_ty_field_dispatch<'db>(
     db: &'db ::salsa::Db,
     ty_term: EthApplication,
     ident: Ident,
@@ -48,7 +48,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
 ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
     let application_expansion = ty_term.application_expansion(db);
     match application_expansion.function() {
-        TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_field_dispatch_aux(
+        TermFunctionReduced::TypeOntology(ty_path) => eth_ty_field_dispatch_aux(
             db,
             ty_path,
             application_expansion.arguments(db),
@@ -61,7 +61,7 @@ pub(crate) fn ethereal_term_application_ty_field_dispatch<'db>(
     }
 }
 
-fn ethereal_ty_field_dispatch_aux<'db>(
+fn eth_ty_field_dispatch_aux<'db>(
     db: &'db ::salsa::Db,
     ty_path: TypePath,
     arguments: &'db [EthTerm],
@@ -79,7 +79,7 @@ fn ethereal_ty_field_dispatch_aux<'db>(
                     if arguments.len() != 1 {
                         todo!()
                     }
-                    return ethereal_ty_field_dispatch(db, arguments[0], ident, indirections, ctx);
+                    return eth_ty_field_dispatch(db, arguments[0], ident, indirections, ctx);
                 }
                 PreludeIndirectionTypePath::At => todo!(),
             }

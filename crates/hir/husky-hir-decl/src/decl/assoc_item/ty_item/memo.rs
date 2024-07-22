@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::assoc_item::ty_item::memo_field::TypeMemoizedFieldSynDecl;
+use husky_syn_decl::decl::assoc_item::ty_item::memo::TypeMemoizedFieldSynDecl;
 
 #[salsa::interned]
 pub struct TypeMemoFieldHirDecl {

@@ -71,9 +71,9 @@ pub struct HirDefnJar(
     crate::defn::assoc_item::ty_item::assoc_val::TypeAssocValHirDefn,
     crate::defn::assoc_item::ty_item::assoc_val::ty_assoc_val_hir_defn_deps,
     crate::defn::assoc_item::ty_item::assoc_val::ty_assoc_val_hir_defn_version_stamp,
-    crate::defn::assoc_item::ty_item::memo_field::TypeMemoizedFieldHirDefn,
-    crate::defn::assoc_item::ty_item::memo_field::ty_memo_field_hir_defn_deps,
-    crate::defn::assoc_item::ty_item::memo_field::ty_memo_field_hir_defn_version_stamp,
+    crate::defn::assoc_item::ty_item::memo::TypeMemoizedFieldHirDefn,
+    crate::defn::assoc_item::ty_item::memo::ty_memo_field_hir_defn_deps,
+    crate::defn::assoc_item::ty_item::memo::ty_memo_field_hir_defn_version_stamp,
     // - trait item
     crate::defn::assoc_item::trai_item::trai_item_hir_defn,
     crate::defn::assoc_item::trai_item::assoc_ritchie::TraitAssocRitchieHirDefn,

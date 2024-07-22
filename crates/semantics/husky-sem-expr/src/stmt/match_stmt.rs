@@ -31,7 +31,7 @@ impl<'a> SemExprBuilder<'a> {
             todo!()
         };
         let (match_target, match_target_ty) =
-            self.build_sem_expr_with_ty(match_target_syn_expr_idx, ExpectAnyOriginal);
+            self.build_expr_with_ty(match_target_syn_expr_idx, ExpectAnyOriginal);
         let Some(match_target_ty) = match_target_ty else {
             use husky_print_utils::p;
             p!(self.syn_expr_region_data()[match_target_syn_expr_idx].debug(self.db()));
@@ -62,8 +62,8 @@ impl<'a> SemExprBuilder<'a> {
         (
             Ok(SemStmtData::Match {
                 match_token,
-                match_opd: match_target,
-                match_contract,
+                opd: match_target,
+                contract: match_contract,
                 eol_with_token,
                 case_branches: sem_case_branches,
             }),

@@ -233,8 +233,8 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
     let mut result: Vec<crate::raw_contour::RawContour> = vec![];
     let mut boundary_unsearched = mnist::BinaryGrid28::new_zeros();
     for i in 1..=29 {
-        let r_ur = cc.mask[(i - 1) as usize];
-        let r_dr = cc.mask[i as usize];
+        let r_ur = cc.deleash().mask[(i - 1) as usize];
+        let r_dr = cc.deleash().mask[i as usize];
         let r_ul = r_ur << 1;
         let r_dl = r_dr << 1;
         boundary_unsearched[i as usize] = (r_ur | r_dr | r_ul | r_dl) & !(r_ur & r_dr & r_ul & r_dl)
@@ -244,8 +244,8 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
             let mut contour: Vec<crate::geom2d::Point2d> = vec![];
             let mut i = k;
             let mut j = boundary_unsearched[k as usize].ctz();
-            let mut row_above = cc.mask[(i - 1) as usize];
-            let mut row_below = cc.mask[i as usize];
+            let mut row_above = cc.deleash().mask[(i - 1) as usize];
+            let mut row_below = cc.deleash().mask[i as usize];
             let mut inward_direction = crate::raw_contour::get_inward_direction(row_above, row_below, j);
             let i0 = i;
             let j0 = j;
@@ -288,12 +288,12 @@ pub fn find_raw_contours(cc: Leash<crate::connected_component::ConnectedComponen
                         crate::raw_contour::Direction::Up => {
                             i = i - 1;
                             row_below = row_above;
-                            row_above = cc.mask[(i - 1) as usize]
+                            row_above = cc.deleash().mask[(i - 1) as usize]
                         }
                         crate::raw_contour::Direction::Down => {
                             i = i + 1;
                             row_above = row_below;
-                            row_below = cc.mask[i as usize]
+                            row_below = cc.deleash().mask[i as usize]
                         }
                         crate::raw_contour::Direction::Left => {
                             j = j + 1
@@ -329,20 +329,20 @@ impl Visualize for crate::raw_contour::RawContour {
 
 #[rustfmt::skip]
 impl crate::raw_contour::RawContour {
-    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 9, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 9, return_leash)]
     pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
-        crate::line_segment_sketch::LineSegmentSketch::new(&self, 1.4f32)
+        crate::line_segment_sketch::LineSegmentSketch::new(__self, 1.4f32)
     }
 
-    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 10, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 10, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
-        let start_point = &self.points[0 as usize];
+        let start_point = &__self.deleash().points[0 as usize];
         let mut xmin = start_point.x;
         let mut xmax = start_point.x;
         let mut ymin = start_point.y;
         let mut ymax = start_point.y;
-        for i in 0..self.points.ilen() {
-            let point = &self.points[i as usize];
+        for i in 0..__self.deleash().points.ilen() {
+            let point = &__self.deleash().points[i as usize];
             xmin = xmin.min(point.x);
             xmax = xmax.max(point.x);
             ymin = ymin.min(point.y);
@@ -351,21 +351,21 @@ impl crate::raw_contour::RawContour {
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
-    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 11, return_ref)]
+    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 11, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
-        self.cc.raw_contours()[0 as usize].bounding_box().relative_bounding_box(&self.bounding_box())
+        <crate::raw_contour::RawContour>::bounding_box(Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(__self.deleash().cc).deleash()[0 as usize])).deleash().relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self).deleash())
     }
 
-    #[ad_hoc_devsoul_dependency::memo_field(ingredient_index = 12)]
+    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 12)]
     pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
-        for i in (0 + 1)..self.points.ilen() {
-            let a = &self.points[(i - 1) as usize];
-            let b = &self.points[i as usize];
+        for i in (0 + 1)..__self.deleash().points.ilen() {
+            let a = &__self.deleash().points[(i - 1) as usize];
+            let b = &__self.deleash().points[i as usize];
             contour_len += (a.x - b.x).abs() + (a.y - b.y).abs()
         }
-        let a = &self.points[(self.points.ilen() - 1) as usize];
-        let b = &self.points[0 as usize];
+        let a = &__self.deleash().points[(__self.deleash().points.ilen() - 1) as usize];
+        let b = &__self.deleash().points[0 as usize];
         contour_len += (a.x - b.x).abs() + (a.y - b.y).abs();
         return contour_len;
     }

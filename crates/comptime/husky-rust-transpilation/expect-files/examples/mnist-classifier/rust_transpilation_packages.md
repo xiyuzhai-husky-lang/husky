@@ -16,12 +16,18 @@
                 },
             ),
         },
-        data: Source {
-            package_path: PackagePath(
-                Id {
-                    value: 1,
+        data: RustTranspilationPackageData::Source {
+            package_path: PackagePath {
+                toolchain: Toolchain {
+                    data: ToolchainData::Local {
+                        library_path: "../../../library",
+                    },
                 },
-            ),
+                name: `mnist-classifier`,
+                data: PackagePathSource::Local {
+                    path: "../../../examples/mnist-classifier",
+                },
+            },
         },
     },
     RustTranspilationPackage {
@@ -40,12 +46,25 @@
                 },
             ),
         },
-        data: Source {
-            package_path: PackagePath(
-                Id {
-                    value: 2,
+        data: RustTranspilationPackageData::Source {
+            package_path: PackagePath {
+                toolchain: Toolchain {
+                    data: ToolchainData::Local {
+                        library_path: "../../../library",
+                    },
                 },
-            ),
+                name: `malamute`,
+                data: PackagePathSource::Registry {
+                    registry_path: RegistryPath(
+                        "../../../.corgi/../registry",
+                    ),
+                    version: Version {
+                        major: 0,
+                        minor: 1,
+                        patch: 0,
+                    },
+                },
+            },
         },
     },
     RustTranspilationPackage {
@@ -64,12 +83,25 @@
                 },
             ),
         },
-        data: Source {
-            package_path: PackagePath(
-                Id {
-                    value: 3,
+        data: RustTranspilationPackageData::Source {
+            package_path: PackagePath {
+                toolchain: Toolchain {
+                    data: ToolchainData::Local {
+                        library_path: "../../../library",
+                    },
                 },
-            ),
+                name: `mnist`,
+                data: PackagePathSource::Registry {
+                    registry_path: RegistryPath(
+                        "../../../.corgi/../registry",
+                    ),
+                    version: Version {
+                        major: 0,
+                        minor: 1,
+                        patch: 0,
+                    },
+                },
+            },
         },
     },
     RustTranspilationPackage {
@@ -88,12 +120,25 @@
                 },
             ),
         },
-        data: Source {
-            package_path: PackagePath(
-                Id {
-                    value: 4,
+        data: RustTranspilationPackageData::Source {
+            package_path: PackagePath {
+                toolchain: Toolchain {
+                    data: ToolchainData::Local {
+                        library_path: "../../../library",
+                    },
                 },
-            ),
+                name: `ml-task`,
+                data: PackagePathSource::Registry {
+                    registry_path: RegistryPath(
+                        "../../../.corgi/../registry",
+                    ),
+                    version: Version {
+                        major: 0,
+                        minor: 1,
+                        patch: 0,
+                    },
+                },
+            },
         },
     },
     RustTranspilationPackage {
@@ -112,7 +157,7 @@
                 },
             ),
         },
-        data: Linkets,
+        data: RustTranspilationPackageData::Linkets,
     },
 ]
 ```

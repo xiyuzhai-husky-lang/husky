@@ -39,7 +39,7 @@ impl<'a> SemExprBuilder<'a> {
                 ..
             } => {
                 let unveil_output_ty_signature = unveil_output_ty_signature.clone();
-                let opd_sem_expr_idx = self.build_sem_expr(
+                let opd_sem_expr_idx = self.build_expr(
                     opd_syn_expr_idx,
                     ExpectCoercion::new(Contract::Move, opd_ty.into()),
                 );
@@ -56,7 +56,7 @@ impl<'a> SemExprBuilder<'a> {
             }
             Unveiler::UniquePartiallyInstanted { template } => {
                 let (opd_sem_expr_idx, opd_ty) =
-                    self.build_sem_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
+                    self.build_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
                     // p!(self.syn_expr_region_data.path().debug(db));
                     // p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(db));

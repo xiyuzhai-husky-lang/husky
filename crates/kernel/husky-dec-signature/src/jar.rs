@@ -67,7 +67,7 @@ pub struct DecSignatureJar(
     crate::signature::assoc_item::ty_item::method_curry::TypeMethodCurryDecTemplate,
     crate::signature::assoc_item::ty_item::assoc_ty::TypeAssocTypeDecTemplate,
     crate::signature::assoc_item::ty_item::assoc_val::TypeAssocValDecTemplate,
-    crate::signature::assoc_item::ty_item::memo_field::TypeMemoizedFieldDecTemplate,
+    crate::signature::assoc_item::ty_item::memo::TypeMemoizedFieldDecTemplate,
     // trait item
     crate::signature::assoc_item::trai_item::trai_item_syn_dec_template,
     crate::signature::assoc_item::trai_item::assoc_ritchie::TraitAssocRitchieDecTemplate,
@@ -76,7 +76,7 @@ pub struct DecSignatureJar(
     crate::signature::assoc_item::trai_item::assoc_static_mut::TraitAssocStaticMutDecTemplate,
     crate::signature::assoc_item::trai_item::assoc_static_var::TraitAssocStaticVarDecTemplate,
     crate::signature::assoc_item::trai_item::method_ritchie::TraitMethodRitchieDecTemplate,
-    crate::signature::assoc_item::trai_item::memo_field::TraitMemoizedFieldDecTemplate,
+    crate::signature::assoc_item::trai_item::memo::TraitMemoizedFieldDecTemplate,
     // type as trait item
     crate::signature::assoc_item::trai_for_ty_item::trai_for_ty_item_syn_declarative_signature_from_decl,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieDecTemplate,

@@ -71,7 +71,7 @@ impl FlyIndirection {
                 FlyQuary::Todo => todo!(),
                 FlyQuary::EtherealSymbol(_) => todo!(),
             },
-            FlyIndirection::Leash => FlyQuary::Leashed { place_idx: None },
+            FlyIndirection::Leash => FlyQuary::Leashed { place: None },
         }
     }
 }

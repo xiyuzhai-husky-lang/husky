@@ -13,9 +13,10 @@ use self::major_item::*;
 use self::ty_variant::*;
 use crate::parameter::EtherealParenateParameters;
 use crate::*;
+use fmt::with_item_eth_term_fmt_context;
 use husky_dec_signature::signature::{HasDecSignature, HasDecTemplate};
 use husky_entity_path::path::{submodule::SubmoduleItemPath, ItemPath};
-use husky_eth_term::{context::EthTermContextItd, fmt::with_eth_term_fmt_context};
+use husky_eth_term::context::EthTermContextItd;
 use salsa::fmt::WithFmtContext;
 
 #[salsa::derive_debug_with_db]
@@ -60,8 +61,7 @@ impl WithFmtContext for ItemEthTemplate {
         f: impl FnOnce() -> std::fmt::Result,
         db: &salsa::Db,
     ) -> std::fmt::Result {
-        let ctx = item_fmt_context(db, *self.path(db));
-        with_eth_term_fmt_context(ctx, f, db)
+        with_item_eth_term_fmt_context(self.path(db), f, db)
     }
 }
 

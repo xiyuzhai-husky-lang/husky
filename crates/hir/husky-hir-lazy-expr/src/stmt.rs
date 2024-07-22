@@ -151,6 +151,7 @@ impl ToHirLazy for SemCondition {
         match *self {
             SemCondition::Be {
                 src,
+                contract,
                 be_regional_token_idx: _,
                 target,
             } => HirLazyCondition::Be {

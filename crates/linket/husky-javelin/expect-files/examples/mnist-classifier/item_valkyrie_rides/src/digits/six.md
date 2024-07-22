@@ -137,6 +137,7 @@
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
+                            path: ItemPath(`malamute::narrow_down`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [
                                     (
@@ -156,7 +157,7 @@
                                                 PathLeading(
                                                     HirTypePathLeading(
                                                         Id {
-                                                            value: 36,
+                                                            value: 47,
                                                         },
                                                     ),
                                                 ),

@@ -502,16 +502,16 @@ impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
     ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
-            TokenInfoSource::SemExpr(sem_expr_idx) => Some(
+            TokenInfoSource::SemExpr(_, expr) => Some(
                 self.eager_expr_traces_issued
-                    .get_value_copied_or_insert_with(sem_expr_idx, || {
+                    .get_value_copied_or_insert_with(expr, || {
                         let hir_eager_expr_idx = self
                             .hir_eager_expr_source_map_data
-                            .sem_to_hir_eager_expr_idx(sem_expr_idx);
+                            .sem_to_hir_eager_expr_idx(expr);
                         Trace::new_eager_expr(
                             self.parent_trace.path(db),
                             self.parent_trace,
-                            sem_expr_idx,
+                            expr,
                             hir_eager_expr_idx,
                             self.sem_expr_region,
                             self.hir_eager_expr_region,
@@ -532,16 +532,16 @@ impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
                 }
                 PrincipalEntityPath::TypeVariant(_) => None,
             },
-            TokenInfoSource::Pattern(syn_pattern_idx) => Some(
+            TokenInfoSource::Pattern(_, pattern) => Some(
                 self.eager_pattern_expr_traces_issued
-                    .get_value_copied_or_insert_with(syn_pattern_idx, || {
+                    .get_value_copied_or_insert_with(pattern, || {
                         Trace::new_eager_pattern_expr(
                             self.parent_trace.path(db),
                             self.parent_trace,
-                            syn_pattern_idx,
+                            pattern,
                             self.syn_expr_region_data
                                 .syn_pattern_expr_current_variables_mapped(
-                                    syn_pattern_idx,
+                                    pattern,
                                     |current_variable_idx| {
                                         self.hir_eager_expr_source_map_data
                                             .current_variable_to_hir_eager_runtime_symbol(

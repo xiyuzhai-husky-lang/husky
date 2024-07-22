@@ -121,14 +121,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                    Pure,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                     Some(
@@ -338,14 +331,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                    Pure,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                     Some(
@@ -377,14 +363,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                    Pure,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                     Some(
@@ -1657,14 +1636,7 @@
                     ),
                     Some(
                         SemPlaceContractSite {
-                            place_contracts: [
-                                (
-                                    Idx(
-                                        PlaceIdx(0),
-                                    ),
-                                    Move,
-                                ),
-                            ],
+                            place_contracts: [],
                         },
                     ),
                 ],

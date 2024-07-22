@@ -1,10 +1,10 @@
-mod ethereal;
-mod hollow;
-mod solid;
+pub mod eth;
+pub mod hol;
+pub mod sol;
 
-pub(crate) use self::ethereal::*;
-pub(crate) use self::hollow::*;
-pub(crate) use self::solid::*;
+pub(crate) use self::eth::*;
+pub(crate) use self::hol::*;
+pub(crate) use self::sol::*;
 
 use crate::*;
 use husky_dec_term::term::LambdaVariableIndex;
@@ -183,17 +183,17 @@ pub enum FlyBaseTypeData<'a> {
 }
 
 impl FlyTerm {
-    pub fn data<'a, 'b>(self, engine: &'a impl FlyTermEngine<'b>) -> FlyTermData<'a>
+    pub fn base_term_data<'a, 'b>(self, engine: &'a impl FlyTermEngine<'b>) -> FlyTermData<'a>
     where
         'b: 'a,
     {
-        self.data2(engine.db(), engine.fly_terms())
+        self.base_term_data2(engine.db(), engine.fly_terms())
     }
 
-    pub fn data2<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
+    pub fn base_term_data2<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_data(db, term),
-            FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),
+            FlyTermBase::Sol(term) => term.data2(terms.sol_terms()).into(),
             FlyTermBase::Hol(term) => term.fly_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
@@ -213,7 +213,7 @@ impl FlyTerm {
     ) -> FlyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_fly_base_ty_data(db, term),
-            FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),
+            FlyTermBase::Sol(term) => term.data2(terms.sol_terms()).into(),
             FlyTermBase::Hol(term) => term.fly_base_ty_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
@@ -222,7 +222,7 @@ impl FlyTerm {
     /// `None` means the notion is not applicable,
     /// because the term is either a non type or a conceptual type
     #[deprecated(note = "ad hoc implementation")]
-    pub fn is_always_copyable<'db>(
+    pub fn always_copyable<'db>(
         self,
         db: &'db ::salsa::Db,
         terms: &FlyTerms,

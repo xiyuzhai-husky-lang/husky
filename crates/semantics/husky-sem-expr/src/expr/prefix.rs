@@ -6,7 +6,7 @@ use husky_syn_opr::SynPrefixOpr;
 /// # type
 
 impl<'a> SemExprBuilder<'a> {
-    pub(super) fn build_prefix_sem_expr(
+    pub(super) fn build_prefix_expr(
         &mut self,
         expr_idx: SynExprIdx,
         opr: SynPrefixOpr,
@@ -18,15 +18,14 @@ impl<'a> SemExprBuilder<'a> {
     ) {
         match opr {
             SynPrefixOpr::Minus => {
-                let (opd_sem_expr_idx, opd_ty) =
-                    self.build_sem_expr_with_ty(opd, ExpectAnyOriginal);
+                let (opd_sem_expr_idx, opd_ty) = self.build_expr_with_ty(opd, ExpectAnyOriginal);
                 let Some(opd_ty) = opd_ty else {
                     return (
                         Err(todo!()),
                         Err(DerivedSemExprTypeError::PrefixOperandTypeNotInferred.into()),
                     );
                 };
-                match opd_ty.data(self) {
+                match opd_ty.base_term_data(self) {
                     FlyTermData::Literal(_) => todo!(),
                     FlyTermData::TypeOntology {
                         ty_path,
@@ -71,7 +70,7 @@ impl<'a> SemExprBuilder<'a> {
                 }
             }
             SynPrefixOpr::Not => {
-                let opd_sem_expr_idx = self.build_sem_expr(opd, ExpectConditionType);
+                let opd_sem_expr_idx = self.build_expr(opd, ExpectConditionType);
                 // here we differs from Rust, but agrees with C
                 (
                     Ok((opd_sem_expr_idx, SemaPrefixOpr::Not)),
@@ -93,8 +92,7 @@ impl<'a> SemExprBuilder<'a> {
                 FinalDestination::TypeOntology
                 | FinalDestination::AnyOriginal
                 | FinalDestination::AnyDerived => {
-                    let (opd_sem_expr_idx, opd_ty) =
-                        self.build_sem_expr_with_ty(opd, ExpectIntType);
+                    let (opd_sem_expr_idx, opd_ty) = self.build_expr_with_ty(opd, ExpectIntType);
                     (
                         Ok((opd_sem_expr_idx, SemaPrefixOpr::BitNot)),
                         self.calc_bitnot_expr_ty(opd_ty),
@@ -103,7 +101,7 @@ impl<'a> SemExprBuilder<'a> {
                 FinalDestination::Ritchie(_) => todo!(),
             },
             SynPrefixOpr::Ref => {
-                let opd_sem_expr_idx = self.build_sem_expr(opd, self.expect_ty0_subtype());
+                let opd_sem_expr_idx = self.build_expr(opd, self.expect_ty0_subtype());
                 // Should consider more cases, could also be taking references
                 (
                     Ok((opd_sem_expr_idx, SemaPrefixOpr::RefType)),
@@ -112,7 +110,7 @@ impl<'a> SemExprBuilder<'a> {
             }
             SynPrefixOpr::Option => {
                 // todo!("consider universe");
-                let opd_sem_expr_idx = self.build_sem_expr(opd, self.expect_ty0_subtype());
+                let opd_sem_expr_idx = self.build_expr(opd, self.expect_ty0_subtype());
                 (
                     Ok((opd_sem_expr_idx, SemaPrefixOpr::OptionType)),
                     Ok(self.term_menu().ty0().into()),
@@ -123,7 +121,7 @@ impl<'a> SemExprBuilder<'a> {
 
     fn calc_bitnot_expr_ty(&mut self, opd_ty: Option<FlyTerm>) -> SemExprTypeResult<FlyTerm> {
         let opd_ty = opd_ty.ok_or(DerivedSemExprTypeError::BitNotOperandTypeNotInferred)?;
-        match opd_ty.data(self) {
+        match opd_ty.base_term_data(self) {
             FlyTermData::TypeOntology {
                 refined_ty_path: Left(prelude_ty_path),
                 ..
@@ -159,7 +157,7 @@ impl<'a> SemExprBuilder<'a> {
             SemaPrefixOpr::Minus => todo!(),
             SemaPrefixOpr::Not => todo!(),
             SemaPrefixOpr::BitNot => todo!(),
-            SemaPrefixOpr::LeashType => Ok(FlyTerm::new_leashed(self, opd_term)?),
+            SemaPrefixOpr::LeashType => Ok(opd_term.leashed(self)?),
             SemaPrefixOpr::RefType => {
                 // let opd_ty = self.infer
                 // match

@@ -1,3 +1,4 @@
+pub mod constructors;
 pub mod final_destination;
 pub mod toolchain;
 
@@ -86,7 +87,7 @@ impl EthTerm {
     pub fn new_ty_ontology(
         db: &::salsa::Db,
         path: TypePath,
-        arguments: impl Iterator<Item = EthTerm>,
+        arguments: impl IntoIterator<Item = EthTerm>,
     ) -> EthTermResult<Self> {
         let mut term: Self = ItemPathTerm::TypeOntology(path).into();
         for argument in arguments {

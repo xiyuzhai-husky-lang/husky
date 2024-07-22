@@ -20,6 +20,7 @@ pub struct TypeMethodRitchieFlySignature {
     pub path: TypeItemPath,
     pub self_value_parameter: FlyRitchieSimpleParameter,
     pub parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
+    pub self_ty: FlyTerm,
     pub return_ty: FlyTerm,
     pub instantiation: FlyInstantiation,
 }
@@ -50,6 +51,7 @@ impl TypeMethodRitchieFlySignature {
                 .iter()
                 .map(|&param| param.into())
                 .collect(),
+            self_ty: eth_sig.self_ty().into(),
             return_ty: eth_sig.return_ty().into(),
             instantiation: FlyInstantiation::from_eth(
                 FlyInstantiationEnvironment::MethodFn { self_place },
@@ -66,6 +68,10 @@ impl TypeMethodRitchieFlySignature {
 impl TypeMethodRitchieFlySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
+    }
+
+    pub fn self_ty(&self) -> FlyTerm {
+        self.self_ty
     }
 
     pub fn return_ty(&self) -> FlyTerm {
@@ -209,6 +215,9 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
             .iter()
             .map(|param| param.instantiate(engine, expr_idx, &instantiation))
             .collect(),
+        self_ty: template
+            .self_ty(db)
+            .instantiate(engine, expr_idx, &instantiation),
         return_ty: template
             .return_ty(db)
             .instantiate(engine, expr_idx, &instantiation),

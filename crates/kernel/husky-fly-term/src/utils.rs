@@ -2,7 +2,7 @@ use super::*;
 
 impl FlyTerm {
     pub(crate) fn curry_destination(self, db: &::salsa::Db, terms: &FlyTerms) -> FlyTerm {
-        match self.data2(db, terms) {
+        match self.base_term_data2(db, terms) {
             FlyTermData::TypeOntology { .. }
             | FlyTermData::Hole(_, _)
             | FlyTermData::Sort(_)
@@ -27,7 +27,7 @@ impl FlyTerm {
         db: &::salsa::Db,
         fly_terms: &FlyTerms,
     ) -> FinalDestination {
-        match self.data2(db, fly_terms) {
+        match self.base_term_data2(db, fly_terms) {
             FlyTermData::TypeOntology { .. } => FinalDestination::TypeOntology,
             FlyTermData::Trait { .. } => todo!(),
             FlyTermData::Curry { return_ty, .. } => {
@@ -59,7 +59,7 @@ impl FlyTerm {
     }
 
     pub fn curry_parameter_count_inner(self, db: &::salsa::Db, fly_terms: &FlyTerms) -> i8 {
-        match self.data2(db, fly_terms) {
+        match self.base_term_data2(db, fly_terms) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {
                 ty_path: path,

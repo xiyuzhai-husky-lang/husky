@@ -56,6 +56,7 @@
             self_ty: Some(
                 EthTerm(`bool`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -117,6 +118,7 @@
             self_ty: Some(
                 EthTerm(`never`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -178,6 +180,7 @@
             self_ty: Some(
                 EthTerm(`unit`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -239,6 +242,7 @@
             self_ty: Some(
                 EthTerm(`Trait`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -300,6 +304,7 @@
             self_ty: Some(
                 EthTerm(`Module`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -361,6 +366,7 @@
             self_ty: Some(
                 EthTerm(`Lifetime`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -422,6 +428,7 @@
             self_ty: Some(
                 EthTerm(`Place`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },
@@ -483,6 +490,7 @@
             self_ty: Some(
                 EthTerm(`Universe`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },

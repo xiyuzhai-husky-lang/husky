@@ -146,7 +146,7 @@ impl HirRitchieSimpleParameter {
     ) -> Self {
         Self {
             contract: HirContract::from_contract(param.contract),
-            ty: HirType::from_fly(param.ty, db, fly_terms).unwrap(),
+            ty: HirType::from_fly_base(param.ty, db, fly_terms).unwrap(),
         }
     }
 }

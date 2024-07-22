@@ -38,7 +38,7 @@ impl ExpectFlyTerm for ExpectConditionType {
         terms: &mut FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
-        match state.expectee().data2(db, terms) {
+        match state.expectee().base_term_data2(db, terms) {
             FlyTermData::TypeOntology {
                 refined_ty_path, ..
             } => match refined_ty_path {

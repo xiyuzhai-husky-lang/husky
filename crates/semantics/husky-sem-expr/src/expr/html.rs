@@ -71,7 +71,7 @@ impl<'a> SemExprBuilder<'a> {
                 property_ident,
                 eq,
                 lcurl,
-                argument: self.build_sem_expr(expr, ExpectAnyOriginal),
+                argument: self.build_expr(expr, ExpectAnyOriginal),
                 rcurl,
             },
             SynHtmlArgumentExpr::Shortened {

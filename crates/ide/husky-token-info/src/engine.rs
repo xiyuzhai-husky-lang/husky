@@ -1,4 +1,5 @@
 use crate::*;
+use config::{token_info_config, TokenInfoConfig};
 use husky_ast::HasAstSheet;
 use husky_ast::{AstData, AstSheet};
 use husky_entity_tree::{
@@ -17,7 +18,7 @@ use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 use husky_syn_expr::{
-    entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathSynExprIdx},
+    entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathExprIdx},
     pattern::{PatternVariable, SynPatternData},
     region::{SynExprRegion, SynExprRegionData},
     variable::{
@@ -26,23 +27,26 @@ use husky_syn_expr::{
     },
 };
 
-pub(crate) struct TokenInfoEngine<'a> {
-    db: &'a ::salsa::Db,
+pub(crate) struct TokenInfoEngine<'db> {
+    db: &'db ::salsa::Db,
     module_path: ModulePath,
-    token_sheet_data: &'a TokenSheetData,
-    ast_sheet: &'a AstSheet,
-    item_tree_presheet: &'a EntityTreePresheet,
-    item_tree_sheet: &'a EntityTreeSheet,
-    module_symbol_context: ModuleSymbolContext<'a>,
+    config: &'db TokenInfoConfig,
+    token_sheet_data: &'db TokenSheetData,
+    ast_sheet: &'db AstSheet,
+    item_tree_presheet: &'db EntityTreePresheet,
+    item_tree_sheet: &'db EntityTreeSheet,
+    module_symbol_context: ModuleSymbolContext<'db>,
     sheet: TokenInfoSheet,
 }
 
-impl<'a> TokenInfoEngine<'a> {
-    pub(crate) fn new(db: &'a ::salsa::Db, module_path: ModulePath) -> EntityTreeResult<Self> {
+impl<'db> TokenInfoEngine<'db> {
+    pub(crate) fn new(db: &'db ::salsa::Db, module_path: ModulePath) -> EntityTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path);
+        let config = token_info_config(db, module_path);
         Ok(Self {
             db,
             module_path,
+            config,
             token_sheet_data,
             ast_sheet: module_path.ast_sheet(db),
             item_tree_presheet: db.item_syn_tree_presheet(module_path),
@@ -181,23 +185,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
     fn add(
         &mut self,
         regional_token_idx: RegionalTokenIdx,
-        src: impl Into<TokenInfoSource>,
+        source: impl Into<TokenInfoSource>,
         token_info_data: TokenInfoData,
     ) {
         let base = self.regional_token_idx_base;
         self.sheet
-            .add(regional_token_idx.token_idx(base), src, token_info_data)
-    }
-
-    fn override_add(
-        &mut self,
-        regional_token_idx: RegionalTokenIdx,
-        src: impl Into<TokenInfoSource>,
-        token_info_data: TokenInfoData,
-    ) {
-        let base = self.regional_token_idx_base;
-        self.sheet
-            .override_add(regional_token_idx.token_idx(base), src, token_info_data)
+            .add(regional_token_idx.token_idx(base), source, token_info_data)
     }
 
     fn visit_all(mut self) {
@@ -222,8 +215,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         }
     }
 
-    fn visit_expr(&mut self, sem_expr_idx: SemExprIdx, sem_expr_data: &SemExprData) {
-        match sem_expr_data {
+    fn visit_expr(&mut self, expr: SemExprIdx, expr_data: &SemExprData) {
+        let source = TokenInfoSource::SemExpr(self.sem_expr_region_data.region_path(), expr);
+        match *expr_data {
             SemExprData::CurrentVariable {
                 regional_token_idx,
                 current_variable_idx,
@@ -236,11 +230,11 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 current_variable_kind,
                 ..
             } => self.add(
-                *regional_token_idx,
-                sem_expr_idx,
+                regional_token_idx,
+                source,
                 TokenInfoData::CurrentVariable {
-                    current_variable_idx: *current_variable_idx,
-                    current_variable_kind: *current_variable_kind,
+                    current_variable_idx,
+                    current_variable_kind,
                     syn_expr_region: self.syn_expr_region,
                 },
             ),
@@ -250,33 +244,33 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 inherited_variable_kind,
                 ..
             } => self.add(
-                *regional_token_idx,
-                sem_expr_idx,
+                regional_token_idx,
+                source,
                 TokenInfoData::InheritedVariable {
-                    inherited_variable_idx: *inherited_variable_idx,
+                    inherited_variable_idx,
                     syn_expr_region: self.syn_expr_region,
-                    inherited_variable_kind: *inherited_variable_kind,
+                    inherited_variable_kind,
                 },
             ),
             SemExprData::SelfType(regional_token_idx) => {
-                self.add(*regional_token_idx, sem_expr_idx, TokenInfoData::SelfType)
+                self.add(regional_token_idx, source, TokenInfoData::SelfType)
             }
             SemExprData::SelfValue(regional_token_idx) => {
-                self.add(*regional_token_idx, sem_expr_idx, TokenInfoData::SelfValue)
+                self.add(regional_token_idx, source, TokenInfoData::SelfValue)
             }
             SemExprData::Field { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
-                sem_expr_idx,
+                source,
                 TokenInfoData::Field,
             ),
             SemExprData::MethodApplication { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
-                sem_expr_idx,
+                source,
                 TokenInfoData::Method,
             ),
             SemExprData::MethodRitchieCall { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
-                sem_expr_idx,
+                source,
                 TokenInfoData::Method,
             ),
             SemExprData::At {
@@ -298,16 +292,33 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 SemaPrefixOpr::Not => (),
                 SemaPrefixOpr::BitNot => (),
                 SemaPrefixOpr::LeashType | SemaPrefixOpr::RefType | SemaPrefixOpr::OptionType => {
-                    self.add(
-                        *opr_regional_token_idx,
-                        sem_expr_idx,
-                        TokenInfoData::SemaPrefixTypeOpr,
-                    );
+                    self.add(opr_regional_token_idx, source, TokenInfoData::PrefixTypeOpr);
                 }
             },
-            SemExprData::Literal(_, _)
-            | SemExprData::PrincipalEntityPath { .. }
-            | SemExprData::Binary { .. }
+            SemExprData::Literal(regional_token_idx, _) => {
+                self.add(regional_token_idx, source, TokenInfoData::Literal)
+            }
+            SemExprData::PrincipalEntityPath {
+                path_expr_idx,
+                path,
+                ..
+            } => match self.syn_expr_region_data.principal_item_path_expr_arena()[path_expr_idx] {
+                SynPrincipalEntityPathExpr::Root {
+                    path_name_token, ..
+                } => self.add(
+                    path_name_token.regional_token_idx(),
+                    source,
+                    TokenInfoData::Entity(path.into()),
+                ),
+                SynPrincipalEntityPathExpr::Subitem {
+                    ref ident_token, ..
+                } => self.add(
+                    ident_token.as_ref().unwrap().regional_token_idx(),
+                    source,
+                    TokenInfoData::Entity(path.into()),
+                ),
+            },
+            SemExprData::Binary { .. }
             | SemExprData::Suffix { .. }
             | SemExprData::Unveil { .. }
             | SemExprData::Unwrap { .. }
@@ -322,16 +333,16 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             SemExprData::TypeAsTraitItem { .. } => (),
             SemExprData::AssocItem { .. } => (),
             SemExprData::Index {
-                owner: _,
+                self_argument: _,
                 lbox_regional_token_idx: _,
-                index_sem_list_items: _,
+                items: _,
                 rbox_regional_token_idx: _,
                 index_dynamic_dispatch: _,
             } => (),
             SemExprData::CompositionWithList {
                 owner: _,
                 lbox_regional_token_idx: _,
-                items: _indices,
+                items: ref _indices,
                 rbox_regional_token_idx: _,
             } => (),
             SemExprData::Unit {
@@ -339,13 +350,13 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 rpar_regional_token_idx,
             } => {
                 self.add(
-                    *lpar_regional_token_idx,
-                    sem_expr_idx,
+                    lpar_regional_token_idx,
+                    source,
                     TokenInfoData::UnitLeftParenthesis,
                 );
                 self.add(
-                    *rpar_regional_token_idx,
-                    sem_expr_idx,
+                    rpar_regional_token_idx,
+                    source,
                     TokenInfoData::UnitRightParenthesis,
                 );
             }
@@ -357,7 +368,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     function_ident.regional_token_idx(),
-                    sem_expr_idx,
+                    source,
                     TokenInfoData::HtmlFunctionIdent,
                 );
                 for argument in arguments.iter() {
@@ -365,52 +376,42 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         SemaHtmlArgumentExpr::Expanded { property_ident, .. }
                         | SemaHtmlArgumentExpr::Shortened { property_ident, .. } => self.add(
                             property_ident.regional_token_idx(),
-                            sem_expr_idx,
+                            source,
                             TokenInfoData::HtmlPropertyIdent,
                         ),
                     }
                 }
             }
-            &SemExprData::FunctionRitchieCall {
+            SemExprData::FunctionRitchieCall {
                 lpar_regional_token_idx,
                 rpar_regional_token_idx,
                 ..
             } => {
-                self.add(
-                    lpar_regional_token_idx,
-                    sem_expr_idx,
-                    TokenInfoData::CallPar,
-                );
-                self.add(
-                    rpar_regional_token_idx,
-                    sem_expr_idx,
-                    TokenInfoData::CallPar,
-                );
+                self.add(lpar_regional_token_idx, source, TokenInfoData::CallPar);
+                self.add(rpar_regional_token_idx, source, TokenInfoData::CallPar);
             }
             SemExprData::Ritchie { .. } => (),
             SemExprData::Sorry {
                 regional_token_idx: _,
             } => todo!(),
             SemExprData::Todo { regional_token_idx } => {
-                self.add(*regional_token_idx, sem_expr_idx, TokenInfoData::Todo)
+                self.add(regional_token_idx, source, TokenInfoData::Todo)
             }
-            SemExprData::Unreachable { regional_token_idx } => self.add(
-                *regional_token_idx,
-                sem_expr_idx,
-                TokenInfoData::Unreachable,
-            ),
+            SemExprData::Unreachable { regional_token_idx } => {
+                self.add(regional_token_idx, source, TokenInfoData::Unreachable)
+            }
             SemExprData::VecFunctor {
                 lbox_regional_token_idx,
                 rbox_regional_token_idx,
             } => {
                 self.add(
-                    *lbox_regional_token_idx,
-                    sem_expr_idx,
+                    lbox_regional_token_idx,
+                    source,
                     TokenInfoData::VecFunctorBoxPrefix,
                 );
                 self.add(
-                    *rbox_regional_token_idx,
-                    sem_expr_idx,
+                    rbox_regional_token_idx,
+                    source,
                     TokenInfoData::VecFunctorBoxPrefix,
                 )
             }
@@ -420,13 +421,13 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 rbox_regional_token_idx,
             } => {
                 self.add(
-                    *lbox_regional_token_idx,
-                    sem_expr_idx,
+                    lbox_regional_token_idx,
+                    source,
                     TokenInfoData::ArrayFunctorBoxPrefix,
                 );
                 self.add(
-                    *rbox_regional_token_idx,
-                    sem_expr_idx,
+                    rbox_regional_token_idx,
+                    source,
                     TokenInfoData::ArrayFunctorBoxPrefix,
                 )
             }
@@ -436,21 +437,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 rbox_regional_token_idx,
                 ..
             } => {
-                self.add(
-                    *lbox_regional_token_idx,
-                    sem_expr_idx,
-                    TokenInfoData::BoxColon,
-                );
-                self.add(
-                    *colon_regional_token_idx,
-                    sem_expr_idx,
-                    TokenInfoData::BoxColon,
-                );
-                self.add(
-                    *rbox_regional_token_idx,
-                    sem_expr_idx,
-                    TokenInfoData::BoxColon,
-                )
+                self.add(lbox_regional_token_idx, source, TokenInfoData::BoxColon);
+                self.add(colon_regional_token_idx, source, TokenInfoData::BoxColon);
+                self.add(rbox_regional_token_idx, source, TokenInfoData::BoxColon)
             }
             SemExprData::NestedBlock {
                 lcurl_regional_token_idx,
@@ -458,17 +447,17 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 ..
             } => {
                 self.add(
-                    *lcurl_regional_token_idx,
-                    sem_expr_idx,
+                    lcurl_regional_token_idx,
+                    source,
                     TokenInfoData::NestedBlockCurl,
                 );
                 self.add(
                     rcurl_regional_token.regional_token_idx(),
-                    sem_expr_idx,
+                    source,
                     TokenInfoData::NestedBlockCurl,
                 )
             }
-            &SemExprData::Closure {
+            SemExprData::Closure {
                 closure_kind_regional_token_idx,
                 lvert_regional_token_idx,
                 rvert_regional_token,
@@ -478,27 +467,19 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 if let Some(closure_kind_regional_token_idx) = closure_kind_regional_token_idx {
                     todo!()
                 }
-                self.add(
-                    lvert_regional_token_idx,
-                    sem_expr_idx,
-                    TokenInfoData::ClosureVert,
-                );
+                self.add(lvert_regional_token_idx, source, TokenInfoData::ClosureVert);
                 self.add(
                     rvert_regional_token.regional_token_idx(),
-                    sem_expr_idx,
+                    source,
                     TokenInfoData::ClosureVert,
                 );
                 if let Some((light_arrow, _, eq)) = return_ty {
                     self.add(
                         light_arrow.regional_token_idx(),
-                        sem_expr_idx,
+                        source,
                         TokenInfoData::ClosureLightArrow,
                     );
-                    self.add(
-                        eq.regional_token_idx(),
-                        sem_expr_idx,
-                        TokenInfoData::ClosureEq,
-                    );
+                    self.add(eq.regional_token_idx(), source, TokenInfoData::ClosureEq);
                 }
             }
         }
@@ -506,7 +487,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
 
     fn visit_item_path_expr(
         &mut self,
-        item_path_expr_idx: SynPrincipalEntityPathSynExprIdx,
+        item_path_expr_idx: SynPrincipalEntityPathExprIdx,
         item_path_expr: &SynPrincipalEntityPathExpr,
     ) {
         match item_path_expr {
@@ -565,9 +546,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         SynPatternData::Ident {
                             ident_token,
                             symbol_modifier_tokens: _,
-                        } => self.override_add(
+                        } => self.add(
                             ident_token.regional_token_idx(),
-                            pattern_idx,
+                            TokenInfoSource::Pattern(self.sem_expr_region_data.path(), pattern_idx),
                             TokenInfoData::CurrentVariable {
                                 current_variable_idx: current_variable_idx,
                                 syn_expr_region: self.syn_expr_region,

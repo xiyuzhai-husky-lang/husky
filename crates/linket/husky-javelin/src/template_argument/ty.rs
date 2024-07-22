@@ -90,6 +90,7 @@ impl JavType {
             )
             .into(),
             HirType::TypeVar(_) => todo!(),
+            HirType::Quaried => todo!(),
         }
     }
 }

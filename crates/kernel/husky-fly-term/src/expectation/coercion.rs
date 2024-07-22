@@ -3,14 +3,14 @@
 pub mod deref;
 pub mod holed;
 pub mod never;
-pub mod reref;
+pub mod redirection;
 pub mod trival;
 pub mod wrap_in_some;
 
 use self::trival::TrivialFlyCoercion;
-use self::{deref::DerefFlyCoercion, quary::FlyQuary};
-
+use self::{deref::DedirectionFlyCoercion, quary::FlyQuary};
 use super::*;
+use redirection::RedirectionFlyCoercion;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -18,16 +18,16 @@ pub enum FlyCoercion {
     Trivial(TrivialFlyCoercion),
     Never,
     WrapInSome,
-    PlaceToLeash,
-    Deref(DerefFlyCoercion),
+    Redirection(RedirectionFlyCoercion),
+    Dedirection(DedirectionFlyCoercion),
 }
 
 impl FlyCoercion {
     pub fn place_after_coercion(self) -> FlyQuary {
         match self {
             FlyCoercion::Trivial(slf) => slf.place_after_coercion(),
-            FlyCoercion::Deref(slf) => slf.place_after_coercion(),
-            FlyCoercion::Never | FlyCoercion::WrapInSome | FlyCoercion::PlaceToLeash => {
+            FlyCoercion::Dedirection(slf) => slf.place_after_coercion(),
+            FlyCoercion::Never | FlyCoercion::WrapInSome | FlyCoercion::Redirection(_) => {
                 FlyQuary::Transient
             }
         }
@@ -73,7 +73,7 @@ impl ExpectCoercion {
     /// this will reduce place type to type
     #[inline(always)]
     pub fn new_pure(engine: &impl FlyTermEngine, ty: FlyTerm) -> Self {
-        let ty = match ty.data(engine) {
+        let ty = match ty.base_term_data(engine) {
             // FlyTermData::TypeOntologyAtPlace {
             //     ty_path,
             //     ty_arguments,
@@ -150,7 +150,7 @@ impl ExpectFlyTerm for ExpectCoercion {
         self.resolve_never(db, terms, state)?;
         self.resolve_wrap_in_some(db, terms, state)?;
         self.resolve_deref(db, terms, state)?;
-        self.resolve_reref(db, terms, state)?;
+        self.resolve_redirection(db, terms, state)?;
         match state.resolve_progress() {
             ExpectationProgress::Intact => state.set_err(
                 OriginalFlyTermExpectationError::ExpectedCoercion {

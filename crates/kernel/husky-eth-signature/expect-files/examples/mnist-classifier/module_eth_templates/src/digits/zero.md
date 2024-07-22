@@ -9,6 +9,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
+                            expr_ty: EthTerm(`Leash FermiMatchResult`),
                         },
                     ),
                 ),
@@ -59,6 +60,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Zero`),
+                            expr_ty: EthTerm(`OneVsAll MnistLabel Zero`),
                         },
                     ),
                 ),

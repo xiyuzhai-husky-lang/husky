@@ -56,6 +56,7 @@
             self_ty: Some(
                 EthTerm(`A`),
             ),
+            self_value_ty: None,
             context_itd: EthTermContextItd {
                 task_ty: None,
             },

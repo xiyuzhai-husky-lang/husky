@@ -13,13 +13,13 @@ pub(crate) use self::keyword::*;
 pub(crate) use self::macro_name::*;
 pub(crate) use self::punctuation::*;
 
-use crate::{expr::site::HirEagerExprSite, *};
+use crate::{expr::role::HirEagerExprRole, *};
 use husky_corgi_config::transpilation_setup::{RustTranspilationSetupData, TranspilationSetup};
 use husky_coword::{Ident, Label};
 use husky_hir_eager_expr::{
     variable::{
         comptime::HirEagerComptimeVariableName,
-        runtime::{HirEagerRuntimeVariableName, HirEagerRvarIdx},
+        runtime::{HirEagerRuntimeVariableIdx, HirEagerRuntimeVariableName},
     },
     HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternArena,
     HirEagerStmtArena,
@@ -27,8 +27,8 @@ use husky_hir_eager_expr::{
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateVariable, HirType,
-    HirTypeTemplateVariable,
+    ritchie::HirContract, trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateVariable,
+    HirType, HirTypeTemplateVariable,
 };
 use husky_print_utils::p;
 use husky_term_prelude::literal::Literal;
@@ -153,7 +153,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         hir_eager_expr_region: HirEagerExprRegion,
         body: HirEagerExprIdx,
     ) {
-        (body, HirEagerExprSite::new_root(None)).transpile_to_rust(&mut RustTranspilationBuilder {
+        (body, HirEagerExprRole::new_root()).transpile_to_rust(&mut RustTranspilationBuilder {
             base: self,
             extension: hir_eager_expr_region,
         })
@@ -420,7 +420,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         let hir_comptime_symbol = symbol.into();
         let Some(symbol_name) = self
             .extension
-            .comptime_symbol_region_data(self.db)
+            .comptime_variable_region_data(self.db)
             .symbol_name(hir_comptime_symbol)
         else {
             let db = self.db;
@@ -428,7 +428,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
             p!(
                 self.extension.region_path(db).debug(db),
                 hir_comptime_symbol.debug(db),
-                self.extension.comptime_symbol_region_data(db).debug(db)
+                self.extension.comptime_variable_region_data(db).debug(db)
             );
             todo!()
         };
@@ -565,15 +565,27 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.word("&'static self")
     }
 }
-impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRvarIdx {
+impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRuntimeVariableIdx {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         let db = builder.db;
-        let hir_eager_runtime_symbol_region_data = builder.extension.runtime_symbol_region_data(db);
+        let hir_eager_runtime_symbol_region_data =
+            builder.extension.runtime_variable_region_data(db);
         if builder.result.ends_with(|c: char| c.is_alphabetic()) {
             builder.write_str(" ")
         }
         match hir_eager_runtime_symbol_region_data[self].name() {
-            HirEagerRuntimeVariableName::SelfValue => builder.word("self"),
+            HirEagerRuntimeVariableName::SelfValue => {
+                let needs_elision = builder
+                    .hir_eager_expr_region()
+                    .self_value_ty(db)
+                    .unwrap()
+                    .is_always_leashed(db);
+                if needs_elision {
+                    builder.word("__self")
+                } else {
+                    builder.word("self")
+                }
+            }
             HirEagerRuntimeVariableName::Ident(ident) => ident.transpile_to_rust(builder),
         }
     }

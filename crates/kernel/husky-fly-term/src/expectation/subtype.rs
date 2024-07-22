@@ -49,8 +49,8 @@ impl ExpectFlyTerm for ExpectSubtypeOrEqual {
     ) -> AltOption<FlyTermEffect> {
         let expectee = state.expectee();
         let expected = self.expected;
-        let t0 = expectee.data2(db, terms);
-        let t1 = expected.data2(db, terms);
+        let t0 = expectee.base_term_data2(db, terms);
+        let t1 = expected.base_term_data2(db, terms);
         match (t0, t1) {
             (t0, t1) if t0 == t1 => state.set_ok(ExpectSubtypeOutcome {}, smallvec![]),
             (FlyTermData::Hole(_, hole), _) => state.set_holed(hole, |_| HoleConstraint::Subtype {

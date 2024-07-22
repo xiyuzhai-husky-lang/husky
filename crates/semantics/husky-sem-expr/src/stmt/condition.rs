@@ -9,6 +9,7 @@ pub enum SemCondition {
     /// This requires special handling for many cases.
     Be {
         src: SemExprIdx,
+        contract: Contract,
         be_regional_token_idx: RegionalTokenIdx,
         target: BePatternSyndicate,
     },

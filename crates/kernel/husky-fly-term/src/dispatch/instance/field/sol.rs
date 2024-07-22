@@ -9,12 +9,12 @@ impl SolTerm {
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyFieldInstanceDispatch> {
         match self.data(engine) {
-            SolidTermData::TypeOntology {
+            SolTermData::TypeOntology {
                 path,
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Nothing,
+            SolTermData::Curry { .. } | SolTermData::Ritchie { .. } => Nothing,
         }
     }
 }

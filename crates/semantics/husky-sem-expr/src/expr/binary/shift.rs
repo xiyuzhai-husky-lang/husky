@@ -15,7 +15,7 @@ impl<'a> SemExprBuilder<'a> {
         SemExprTypeResult<FlyTerm>,
     ) {
         // todo: don't use resolved
-        let (lopd_sem_expr_idx, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
+        let (lopd_sem_expr_idx, lopd_ty) = self.build_expr_with_ty(lopd, ExpectAnyOriginal);
         let Some(lopd_ty) = lopd_ty else {
             match self.syn_expr_region_data()[lopd] {
                 SynExprData::CurrentVariable {
@@ -28,7 +28,7 @@ impl<'a> SemExprBuilder<'a> {
                 }
                 _ => todo!(),
             }
-            let ropd_sem_expr_idx = self.build_sem_expr(ropd, ExpectAnyDerived);
+            let ropd_sem_expr_idx = self.build_expr(ropd, ExpectAnyDerived);
             return (
                 lopd_sem_expr_idx,
                 SemBinaryOpr::Shift(opr),
@@ -37,13 +37,13 @@ impl<'a> SemExprBuilder<'a> {
                 Err(DerivedSemExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
-        match lopd_ty.data(self) {
+        match lopd_ty.base_term_data(self) {
             FlyTermData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
             | FlyTermData::Hole(HoleKind::UnspecifiedIntegerType, _) => {
-                let ropd_sem_expr_idx = self.build_sem_expr(ropd, ExpectIntType);
+                let ropd_sem_expr_idx = self.build_expr(ropd, ExpectIntType);
                 (
                     lopd_sem_expr_idx,
                     SemBinaryOpr::Shift(opr),

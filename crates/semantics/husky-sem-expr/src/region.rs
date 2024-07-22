@@ -26,51 +26,25 @@ impl WithFmtContext for SemExprRegion {
         f: impl FnOnce() -> ::std::fmt::Result,
         db: &::salsa::Db,
     ) -> ::std::fmt::Result {
-        use husky_eth_term::fmt::with_eth_term_fmt_context;
-
-        let ctx = sem_expr_region_eth_term_fmt_context(db, *self);
-        with_eth_term_fmt_context(ctx, f, db)
+        self.data(db).with_fmt_context(f, db)
     }
 }
 
-#[salsa::tracked(jar = SemExprJar)]
-fn sem_expr_region_eth_term_fmt_context(
-    db: &::salsa::Db,
-    region: SemExprRegion,
-) -> EthTermFmtContext {
-    let syn_expr_region_data = region.syn_expr_region(db).data(db);
-    let sem_expr_region_data = region.data(db);
-    let fly_terms = sem_expr_region_data.fly_term_region().terms();
-    let symbol_names = VecMap::from_iter_assuming_no_repetitions(
-        sem_expr_region_data
-            .symbol_terms
-            .inherited_variable_map()
-            .key_value_iter()
-            .map(|(idx, term)| {
-                let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =
-                    term.base_resolved_inner(fly_terms)
-                else {
-                    todo!();
-                };
-                (symbol, syn_expr_region_data.variable_region()[idx].name())
-            })
-            .chain(
-                sem_expr_region_data
-                    .symbol_terms
-                    .current_variable_map()
-                    .key_value_iter()
-                    .map(|(idx, term)| {
-                        let FlyTermBase::Eth(EthTerm::SymbolicVariable(symbol)) =
-                            term.base_resolved_inner(fly_terms)
-                        else {
-                            todo!();
-                        };
-                        (symbol, syn_expr_region_data.variable_region()[idx].name())
-                    }),
-            ),
-    )
-    .expect("no repetitions");
-    EthTermFmtContext::new(db, sem_expr_region_data.path, symbol_names)
+impl WithFmtContext for SemExprRegionData {
+    fn with_fmt_context(
+        &self,
+        f: impl FnOnce() -> ::std::fmt::Result,
+        db: &::salsa::Db,
+    ) -> ::std::fmt::Result {
+        use husky_eth_term::fmt::with_item_eth_term_fmt_context;
+
+        match self.path() {
+            RegionPath::CrateDecl(_) => todo!(),
+            RegionPath::ItemDecl(path) => with_item_eth_term_fmt_context(path, f, db),
+            RegionPath::ItemDefn(path) => with_item_eth_term_fmt_context(path, f, db),
+            RegionPath::Chunk(_) => todo!(),
+        }
+    }
 }
 
 impl SemExprRegion {
@@ -89,6 +63,7 @@ impl SemExprRegion {
         fly_term_region: FlyTermRegion,
         return_ty: Option<EthTerm>,
         self_ty: Option<EthTerm>,
+        self_value_ty: Option<FlyTerm>,
         context_itd: EthTermContextItd,
         db: &::salsa::Db,
     ) -> Self {
@@ -110,6 +85,7 @@ impl SemExprRegion {
                 fly_term_region,
                 return_ty,
                 self_ty,
+                self_value_ty,
                 context_itd,
             },
         )
@@ -132,6 +108,7 @@ pub struct SemExprRegionData {
     fly_term_region: FlyTermRegion,
     return_ty: Option<EthTerm>,
     self_ty: Option<EthTerm>,
+    self_value_ty: Option<FlyTerm>,
     // todo: this should be expr dependent, i.e., for any expr, this could be overriden
     context_itd: EthTermContextItd,
 }
@@ -235,6 +212,14 @@ impl SemExprRegionData {
 
     pub fn return_ty(&self) -> Option<EthTerm> {
         self.return_ty
+    }
+
+    pub fn self_ty(&self) -> Option<EthTerm> {
+        self.self_ty
+    }
+
+    pub fn self_value_ty(&self) -> Option<FlyTerm> {
+        self.self_value_ty
     }
 
     pub fn place_registry(&self) -> &PlaceRegistry {

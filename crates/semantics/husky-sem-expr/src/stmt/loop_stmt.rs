@@ -44,7 +44,7 @@ impl<'a> SemExprBuilder<'a> {
         let initial_bound_sem_expr_idx = match range.initial_boundary.bound_expr {
             Some(bound_expr) => {
                 let (bound_sem_expr_idx, num_ty_outcome) =
-                    self.build_sem_expr_with_outcome(bound_expr, ExpectIntType);
+                    self.build_expr_with_outcome(bound_expr, ExpectIntType);
                 match num_ty_outcome {
                     Some(num_ty_outcome) => {
                         expected_frame_var_ty = Some(num_ty_outcome.placeless_int_ty())
@@ -57,13 +57,13 @@ impl<'a> SemExprBuilder<'a> {
         };
         let final_bound_sem_expr_idx = match range.final_boundary.bound_expr {
             Some(bound_expr) => match expected_frame_var_ty {
-                Some(expected_frame_var_ty) => Some(self.build_sem_expr(
+                Some(expected_frame_var_ty) => Some(self.build_expr(
                     bound_expr,
                     ExpectCoercion::new_pure(self, expected_frame_var_ty),
                 )),
                 None => {
                     let (final_bound_sem_expr_idx, ty) =
-                        self.build_sem_expr_with_ty(bound_expr, ExpectAnyOriginal);
+                        self.build_expr_with_ty(bound_expr, ExpectAnyOriginal);
                     if let Some(ty) = ty {
                         expected_frame_var_ty = Some(ty)
                     }
@@ -88,7 +88,7 @@ impl<'a> SemExprBuilder<'a> {
         )
         .unwrap();
         self.add_symbol_ty(for_loop_varible_idx, frame_var_symbol_ty);
-        let for_between_loop_var_expr_idx = self.build_sem_expr(
+        let for_between_loop_var_expr_idx = self.build_expr(
             particulars.for_between_loop_var_expr_idx,
             ExpectCoercion::new_pure(self, frame_var_symbol_ty.term()),
         );
@@ -164,7 +164,7 @@ impl<'a> SemExprBuilder<'a> {
         forext_loop_var_sem_expr_idx: SemExprIdx,
         forext_loop_var_ty: FlyTerm,
     ) -> SemaForextParticulars {
-        let bound_expr_sem_expr_idx = self.build_sem_expr(
+        let bound_expr_sem_expr_idx = self.build_expr(
             particulars.bound_expr,
             ExpectCoercion::new_pure(self, forext_loop_var_ty),
         );

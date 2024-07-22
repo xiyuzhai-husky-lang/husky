@@ -83,11 +83,11 @@
     CodeLens {
         range: Range {
             start: Position {
-                line: 25,
+                line: 24,
                 character: 0,
             },
             end: Position {
-                line: 25,
+                line: 24,
                 character: 40,
             },
         },
@@ -103,11 +103,11 @@
     CodeLens {
         range: Range {
             start: Position {
-                line: 28,
+                line: 27,
                 character: 0,
             },
             end: Position {
-                line: 28,
+                line: 27,
                 character: 55,
             },
         },
@@ -123,11 +123,11 @@
     CodeLens {
         range: Range {
             start: Position {
-                line: 31,
+                line: 30,
                 character: 0,
             },
             end: Position {
-                line: 31,
+                line: 30,
                 character: 55,
             },
         },

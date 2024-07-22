@@ -9,6 +9,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
+                            expr_ty: EthTerm(`Leash FermiMatchResult`),
                         },
                     ),
                 ),
@@ -59,6 +60,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             return_ty: EthTerm(`FermiMatchResult`),
+                            expr_ty: EthTerm(`Leash FermiMatchResult`),
                         },
                     ),
                 ),
@@ -144,6 +146,7 @@
                         MajorValEthTemplate {
                             path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             return_ty: EthTerm(`OneVsAll MnistLabel Seven`),
+                            expr_ty: EthTerm(`OneVsAll MnistLabel Seven`),
                         },
                     ),
                 ),

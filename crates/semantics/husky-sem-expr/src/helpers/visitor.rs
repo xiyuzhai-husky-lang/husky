@@ -89,6 +89,7 @@ impl SemExprIdx {
                 }
                 SemExprData::Be {
                     src,
+                    contract,
                     be_regional_token_idx,
                     target,
                 } => todo!(),
@@ -138,7 +139,7 @@ impl SemExprIdx {
                 } => todo!(),
                 SemExprData::MethodRitchieCall {
                     self_argument,
-                    instance_dispatch: ref dispatch,
+                    ref dispatch,
                     ref template_arguments,
                     ref ritchie_parameter_argument_matches,
                     ..
@@ -164,8 +165,8 @@ impl SemExprIdx {
                     rpar_regional_token_idx,
                 } => todo!(),
                 SemExprData::Index {
-                    owner,
-                    ref index_sem_list_items,
+                    self_argument: owner,
+                    items: ref index_sem_list_items,
                     ..
                 } => {
                     owner.simulate(visitor);
@@ -363,8 +364,8 @@ impl SemStmtIdx {
                 }),
                 SemStmtData::Match {
                     match_token,
-                    match_opd,
-                    match_contract,
+                    opd: match_opd,
+                    contract: match_contract,
                     eol_with_token,
                     ref case_branches,
                 } => {

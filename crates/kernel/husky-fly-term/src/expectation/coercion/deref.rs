@@ -3,16 +3,16 @@ use crate::quary::FlyQuary;
 use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum DerefFlyCoercion {
-    Leash,
-    Ref { lifetime: FlyLifetime },
+pub enum DedirectionFlyCoercion {
+    Deleash,
+    Deref { lifetime: FlyLifetime },
 }
 
-impl DerefFlyCoercion {
+impl DedirectionFlyCoercion {
     pub fn place_after_coercion(self) -> FlyQuary {
         match self {
-            DerefFlyCoercion::Leash => FlyQuary::Leashed { place_idx: None },
-            DerefFlyCoercion::Ref { lifetime } => FlyQuary::Ref {
+            DedirectionFlyCoercion::Deleash => FlyQuary::Leashed { place: None },
+            DedirectionFlyCoercion::Deref { lifetime } => FlyQuary::Ref {
                 guard: Right(lifetime),
             },
         }
@@ -40,7 +40,7 @@ impl ExpectCoercion {
                         self.try_finalize_coercion(
                             self.ty_expected,
                             expectee_ty_arguments[1],
-                            DerefFlyCoercion::Ref {
+                            DedirectionFlyCoercion::Deref {
                                 lifetime: FlyLifetime::from_term(
                                     expectee_ty_arguments[0],
                                     db,
@@ -59,7 +59,7 @@ impl ExpectCoercion {
                         self.try_finalize_coercion(
                             self.ty_expected,
                             expectee_ty_arguments[0],
-                            DerefFlyCoercion::Leash,
+                            DedirectionFlyCoercion::Deleash,
                             db,
                             terms,
                             state,

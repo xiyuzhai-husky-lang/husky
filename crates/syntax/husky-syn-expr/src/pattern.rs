@@ -28,7 +28,7 @@ pub enum SynPatternData {
     },
     /// example: `A::B`
     UnitTypeVariant {
-        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: TypeVariantPath,
     },
     /// example: `(a, b)`
@@ -44,7 +44,7 @@ pub enum SynPatternData {
         rpar: RparRegionalToken,
     },
     TupleTypeVariant {
-        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathExprIdx,
         path: TypeVariantPath,
         lpar: LparRegionalToken,
         fields: PunctuatedSmallList<
@@ -232,7 +232,7 @@ where
 
 fn parse_overriding_ident_pattern<'a, C>(
     parser: &mut SynExprParser<'a, C>,
-    path_expr_idx: SynPrincipalEntityPathSynExprIdx,
+    path_expr_idx: SynPrincipalEntityPathExprIdx,
     symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
 ) -> Option<SynPatternData>
 where

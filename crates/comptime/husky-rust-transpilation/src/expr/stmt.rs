@@ -17,20 +17,29 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
                 let initial_value_entry = &builder.hir_eager_expr_arena()[initial_value];
-                (
-                    initial_value,
-                    HirEagerExprSite::new_let_initial_value(
-                        contract,
-                        initial_value_entry,
-                        coercion,
-                    ),
-                )
+                (initial_value, HirEagerExprRole::new_pattern_opd(contract))
                     .transpile_to_rust(builder)
             }),
             HirEagerStmtData::Return { result, coercion } => {
+                {
+                    let db = builder.db();
+                    match builder.hir_eager_expr_region().region_path(db) {
+                        husky_entity_path::region::RegionPath::CrateDecl(_) => (),
+                        husky_entity_path::region::RegionPath::ItemDecl(_) => (),
+                        husky_entity_path::region::RegionPath::ItemDefn(item_path) => {
+                            if item_path.ident(db).unwrap().data(db) == "major_line_segment_sketch"
+                            {
+                                use husky_print_utils::p;
+                                p!(coercion);
+                                todo!()
+                            }
+                        }
+                        husky_entity_path::region::RegionPath::Chunk(_) => (),
+                    }
+                }
                 builder.on_fresh_semicolon_line(|builder| {
                     builder.keyword(RustKeyword::Return);
-                    (result, HirEagerExprSite::new_root(Some(coercion))).transpile_to_rust(builder)
+                    (result, HirEagerExprRole::new_root()).transpile_to_rust(builder)
                 })
             }
             HirEagerStmtData::Require { ref condition } => {
@@ -43,14 +52,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }
             HirEagerStmtData::Assert { ref condition } => {
                 builder.on_fresh_semicolon_line(|builder| match *condition {
-                    HirEagerCondition::Be { opd: _, pattern: _ } => todo!(),
+                    HirEagerCondition::Be { .. } => todo!(),
                     HirEagerCondition::Other {
                         opd: hir_eager_expr_idx,
                         conversion,
                     } => {
                         builder.macro_name(RustMacroName::Assert);
                         builder.delimited_heterogeneous_list_with(RustDelimiter::Par, |builder| {
-                            (hir_eager_expr_idx, HirEagerExprSite::new_root(None))
+                            (hir_eager_expr_idx, HirEagerExprRole::new_root())
                                 .transpile_to_rust(builder);
                             match conversion {
                                 ConditionConversion::None => (),
@@ -69,15 +78,15 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 discarded,
             } => match discarded || !is_last_stmt {
                 true => builder.on_fresh_semicolon_line(|builder| {
-                    (expr, HirEagerExprSite::new_root(coercion)).transpile_to_rust(builder);
+                    (expr, HirEagerExprRole::new_root()).transpile_to_rust(builder);
                 }),
                 false => builder.on_fresh_line(|builder| {
-                    (expr, HirEagerExprSite::new_root(coercion)).transpile_to_rust(builder);
+                    (expr, HirEagerExprRole::new_root()).transpile_to_rust(builder);
                 }),
             },
             HirEagerStmtData::ForBetween {
                 ref particulars,
-                stmts: block,
+                stmts,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::StmtFor);
                 particulars.frame_var_ident.transpile_to_rust(builder);
@@ -86,7 +95,9 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 let t = |opd| {
                     (
                         opd,
-                        HirEagerExprSite::new(RustPrecedenceRange::Greater(RustPrecedence::Range)),
+                        HirEagerExprRole::subexpr(RustPrecedenceRange::Greater(
+                            RustPrecedence::Range,
+                        )),
                     )
                 };
                 match range.step {
@@ -101,7 +112,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                             builder.delimited(RustDelimiter::Par, |builder| {
                                                 (
                                                     initial_bound,
-                                                    HirEagerExprSite::new(
+                                                    HirEagerExprRole::subexpr(
                                                         RustPrecedenceRange::Greater(
                                                             RustPrecedence::Additive,
                                                         ),
@@ -146,7 +157,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                                 builder.delimited(RustDelimiter::Par, |builder| {
                                                     (
                                                         final_bound,
-                                                        HirEagerExprSite::new(
+                                                        HirEagerExprRole::subexpr(
                                                             RustPrecedenceRange::Greater(
                                                                 RustPrecedence::Additive,
                                                             ),
@@ -187,7 +198,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                         _ => todo!(),
                     },
                 }
-                block.transpile_to_rust(builder)
+                stmts.transpile_to_rust(builder)
             }),
             HirEagerStmtData::Forext {
                 particulars,
@@ -203,7 +214,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 }
                 (
                     particulars.bound_expr_hir_eager_expr_idx,
-                    HirEagerExprSite::new(RustPrecedenceRange::Greater(
+                    HirEagerExprRole::subexpr(RustPrecedenceRange::Greater(
                         RustPrecedence::OrdComparison,
                     )),
                 )
@@ -257,7 +268,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                         builder.punctuation(RustPunctuation::Not);
                                         (
                                             hir_eager_expr_idx,
-                                            HirEagerExprSite::new(RustPrecedenceRange::Geq(
+                                            HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                                                 RustPrecedence::Prefix,
                                             )),
                                         )
@@ -266,7 +277,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                     ConditionConversion::IntToBool(_) => {
                                         (
                                             hir_eager_expr_idx,
-                                            HirEagerExprSite::new(RustPrecedenceRange::Geq(
+                                            HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                                                 RustPrecedence::EqComparison,
                                             )),
                                         )
@@ -298,11 +309,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 else_branch.transpile_to_rust(builder)
             }),
             HirEagerStmtData::Match {
-                opd: match_target,
+                opd,
+                contract,
                 ref case_branches,
             } => builder.on_fresh_line(|builder| {
                 builder.keyword(RustKeyword::Match);
-                (match_target, HirEagerExprSite::new_root(None)).transpile_to_rust(builder);
+                (opd, HirEagerExprRole::new_pattern_opd(contract)).transpile_to_rust(builder);
                 builder.delimited_multiline_list(RustDelimiter::Curl, case_branches)
             }),
         }
@@ -313,24 +325,23 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
             HirEagerCondition::Be {
-                opd: src,
-                pattern: ref target,
+                opd,
+                contract,
+                ref pattern,
             } => {
                 builder.keyword(RustKeyword::Let);
-                target.pattern.transpile_to_rust(builder);
+                pattern.pattern.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Assign);
-                (src, HirEagerExprSite::new_root(None)).transpile_to_rust(builder)
+                (opd, HirEagerExprRole::new_root()).transpile_to_rust(builder)
             }
-            HirEagerCondition::Other {
-                opd: hir_eager_expr_idx,
-                conversion,
-            } => match conversion {
-                ConditionConversion::None => (hir_eager_expr_idx, HirEagerExprSite::new_root(None))
-                    .transpile_to_rust(builder),
+            HirEagerCondition::Other { opd, conversion } => match conversion {
+                ConditionConversion::None => {
+                    (opd, HirEagerExprRole::new_root()).transpile_to_rust(builder)
+                }
                 ConditionConversion::IntToBool(_) => {
                     (
-                        hir_eager_expr_idx,
-                        HirEagerExprSite::new(RustPrecedenceRange::Geq(
+                        opd,
+                        HirEagerExprRole::subexpr(RustPrecedenceRange::Geq(
                             RustPrecedence::EqComparison,
                         )),
                     )

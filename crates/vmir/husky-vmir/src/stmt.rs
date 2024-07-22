@@ -187,8 +187,9 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerStmtIdxRange {
                     else_branch: else_branch.to_vmir(builder),
                 },
                 HirEagerStmtData::Match {
-                    ref opd,
+                    opd,
                     ref case_branches,
+                    ..
                 } => VmirStmtData::Match {
                     opd: opd.to_vmir(builder),
                     case_branches: case_branches.to_vmir(builder),
@@ -232,7 +233,11 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &HirEagerCondition {
         Linktime: IsLinktime<LinketImpl = LinketImpl>,
     {
         match *self {
-            HirEagerCondition::Be { opd, ref pattern } => VmirCondition::Be {
+            HirEagerCondition::Be {
+                opd,
+                contract,
+                ref pattern,
+            } => VmirCondition::Be {
                 opd: opd.to_vmir(builder),
                 pattern: pattern.pattern.to_vmir(builder),
             },

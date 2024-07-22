@@ -28,10 +28,10 @@ impl<'a> SemExprBuilder<'a> {
     {
         match final_destination {
             FinalDestination::Sort => {
-                let (opd_sem_expr_idx, opd_ty) = self
-                    .build_sem_expr_with_ty(opd, ExpectFinalDestination::new(final_destination));
+                let (opd_sem_expr_idx, opd_ty) =
+                    self.build_expr_with_ty(opd, ExpectFinalDestination::new(final_destination));
                 match opd_ty {
-                    Some(opd_ty) => match opd_ty.data(self) {
+                    Some(opd_ty) => match opd_ty.base_term_data(self) {
                         FlyTermData::Literal(_) => todo!(),
                         FlyTermData::TypeOntology { .. } => {
                             let (sem_opr_result, ty_result) =

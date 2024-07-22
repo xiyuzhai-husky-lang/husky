@@ -190,7 +190,10 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     }
                 }
                 HirEagerExprData::NewTuple { items: _ } => (),
-                HirEagerExprData::Index { owner: _, items: _ } => (),
+                HirEagerExprData::Index {
+                    self_argument: _,
+                    items: _,
+                } => (),
                 HirEagerExprData::NewList { element_ty, .. } => {
                     self.add_vec_constructor_ride(element_ty)
                 }
@@ -208,8 +211,8 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     }
                 }
                 HirEagerExprData::Literal(_)
-                | HirEagerExprData::ConstVariable { .. }
-                | HirEagerExprData::Variable(_)
+                | HirEagerExprData::ComptimeVariable { .. }
+                | HirEagerExprData::RuntimeVariable(_)
                 | HirEagerExprData::Binary { .. }
                 | HirEagerExprData::Prefix { .. }
                 | HirEagerExprData::Suffix { .. }

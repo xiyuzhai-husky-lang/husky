@@ -19,6 +19,7 @@ use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};
 use context::EthTermContextItd;
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{
     menu::item_path_menu,
     path::major_item::{form::PreludeMajorFormPath, ty::PreludeTypePath},
@@ -152,7 +153,7 @@ impl EthTerm {
             }
             DecTerm::LeashOrBitNot(toolchain) => match ty_expectation {
                 TypeFinalDestinationExpectation::EqsSort => {
-                    db.ethereal_term_menu(toolchain).leash_ty_ontology()
+                    db.eth_term_menu(toolchain).leash_ty_ontology()
                 }
                 TypeFinalDestinationExpectation::EqsNonSortTypePath(path) => {
                     match path.prelude(db) {
@@ -219,7 +220,19 @@ impl EthTerm {
             )
             | EthTerm::Sort(_)
             | EthTerm::Universe(_) => self,
-            EthTerm::ItemPath(ItemPathTerm::MajorForm(_)) => todo!(),
+            EthTerm::ItemPath(ItemPathTerm::MajorForm(path)) => {
+                // ad hoc
+                match path.kind(db) {
+                    MajorFormKind::Ritchie(_) => todo!(),
+                    MajorFormKind::TypeAlias => todo!(),
+                    MajorFormKind::TypeVar => self,
+                    MajorFormKind::Val => todo!(),
+                    MajorFormKind::StaticMut => todo!(),
+                    MajorFormKind::StaticVar => todo!(),
+                    MajorFormKind::Compterm => todo!(),
+                    MajorFormKind::Conceptual => todo!(),
+                }
+            }
             EthTerm::Curry(_) => self,
             EthTerm::Ritchie(slf) => slf.reduce(db).into(),
             EthTerm::Abstraction(_) => todo!(),
@@ -263,7 +276,7 @@ pub(crate) fn ethereal_term_from_list_declarative_term(
     match term_ty_expectation {
         TypeFinalDestinationExpectation::EqsSort => {
             let toolchain = list.toolchain(db);
-            let term_menu = db.ethereal_term_menu(toolchain);
+            let term_menu = db.eth_term_menu(toolchain);
             let items = list.items(db);
             match items.len() {
                 0 => Ok(term_menu.list_ty_ontology()),
@@ -318,7 +331,7 @@ pub(crate) fn ethereal_term_from_dec_term_wrapper(
             let Some(toolchain) = inner_ty.toolchain(db) else {
                 todo!()
             };
-            let leash_ty_ontology = db.ethereal_term_menu(toolchain).leash_ty_ontology();
+            let leash_ty_ontology = db.eth_term_menu(toolchain).leash_ty_ontology();
             Ok(EthApplication::new_reduced(
                 db,
                 leash_ty_ontology,
