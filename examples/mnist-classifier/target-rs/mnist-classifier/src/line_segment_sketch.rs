@@ -180,7 +180,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
             start = crate::line_segment_sketch::extend_start(ct, start, end, r);
             let mut ls = crate::line_segment_sketch::LineSegmentStroke::new(ct, start, end);
             if line_segments.ilen() > 0 {
-                let ls_last = &mut &line_segments.last().unwrap();
+                let ls_last = &&line_segments.last().unwrap();
                 let dp_last = ls_last.displacement();
                 let dp = ls.displacement();
                 let dp1 = ls_last.start.to(&ls.end);
@@ -198,7 +198,7 @@ pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> 
     }
     let N = ct.deleash().points.ilen();
     let first_line_segment_points_end = line_segments.first().unwrap().points.deleash().end();
-    let last_line_segment = &mut &line_segments.last().unwrap();
+    let last_line_segment = &&line_segments.last().unwrap();
     if last_line_segment.points.deleash().end() >= first_line_segment_points_end + N {
         let last_line_segment = line_segments.pop().unwrap();
         line_segments.first_mut().unwrap() = crate::line_segment_sketch::LineSegmentStroke::new(ct, last_line_segment.points.deleash().start() - N, line_segments.first().unwrap().points.deleash().end() - 1)
