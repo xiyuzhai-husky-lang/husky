@@ -4340,7 +4340,11 @@ dependencies = [
 name = "husky-cybertron"
 version = "0.1.0"
 dependencies = [
+ "expect-test",
  "husky-cybertron-macros",
+ "husky-wild-utils",
+ "lazy_static",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
