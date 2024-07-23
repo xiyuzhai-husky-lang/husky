@@ -4,7 +4,7 @@
 # Duration over which to change the brightness, in seconds
 DURATION=0.5
 MONITOR=HDMI-2
-TARGET=husky-mono-linktime
+TARGET=husky-cybertron
 
 # Define a cleanup function
 cleanup() {
