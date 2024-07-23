@@ -3,8 +3,14 @@ use lazy_static::lazy_static;
 use shifted_unsigned_int::ShiftedU32;
 use std::{collections::HashMap, ops::Deref, sync::RwLock};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Ident(ShiftedU32);
+
+impl std::fmt::Debug for Ident {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "i`{}`", self.data())
+    }
+}
 
 #[derive(Default)]
 pub struct IdentStorage {
