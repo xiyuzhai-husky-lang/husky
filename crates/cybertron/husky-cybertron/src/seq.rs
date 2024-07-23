@@ -124,6 +124,26 @@ where
     }
 }
 
+#[test]
+fn seq_map_works() {
+    let seq = Seq::new(vec![1, 2]);
+    let mapped = seq.map(|&v| v + 1);
+    expect![[r#"
+        [
+            1,
+            2,
+        ]
+    "#]]
+    .assert_debug_eq(&seq);
+    expect![[r#"
+        [
+            2,
+            3,
+        ]
+    "#]]
+    .assert_debug_eq(&mapped);
+}
+
 impl<T1, T2> Seq<(T1, T2)>
 where
     T1: Any + Send + Sync,
