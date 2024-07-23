@@ -26,7 +26,7 @@ impl std::fmt::Debug for Token {
     }
 }
 
-fn tokenize(input: &str) -> Seq<Token> {
+pub fn tokenize(input: &str) -> Seq<Token> {
     Seq::new(Tokenizer::new(input).collect())
 }
 
