@@ -79,7 +79,20 @@ where
     T: Any + Send + Sync + std::fmt::Debug,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_list().entries(self.slice()).finish()
+        let mut one_line = String::from("[");
+
+        for (i, elem) in self.slice().iter().enumerate() {
+            if i > 0 {
+                one_line += ", ";
+            }
+            one_line += &format!("{:?}", elem);
+        }
+        one_line += "]";
+        if one_line.len() < 80 {
+            f.write_str(&one_line)
+        } else {
+            f.debug_list().entries(self.slice()).finish()
+        }
     }
 }
 
