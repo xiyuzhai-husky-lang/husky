@@ -3424,9 +3424,17 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-ast",
-        relative_path: "crates/cybertron/husky-cybertron-ast",
-        dependencies: [],
+        name: "husky-cybertron-mini-compiler",
+        relative_path: "crates/cybertron/husky-cybertron-mini-compiler",
+        dependencies: [
+            "enum-class",
+            "expect-test",
+            "husky-cybertron",
+            "husky-text-protocol",
+            "husky-wild-utils",
+            "lazy_static",
+            "shifted-unsigned-int",
+        ],
     },
     PackageSummary {
         name: "cargo-clean-repo",

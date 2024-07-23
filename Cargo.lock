@@ -4348,16 +4348,25 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-cybertron-ast"
-version = "0.1.0"
-
-[[package]]
 name = "husky-cybertron-macros"
 version = "0.1.0"
 dependencies = [
  "husky-proc-macro-utils",
  "quote",
  "syn 2.0.66",
+]
+
+[[package]]
+name = "husky-cybertron-mini-compiler"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-cybertron",
+ "husky-text-protocol",
+ "husky-wild-utils",
+ "lazy_static",
+ "shifted-unsigned-int",
 ]
 
 [[package]]

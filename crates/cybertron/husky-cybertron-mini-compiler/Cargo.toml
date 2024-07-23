@@ -1,5 +1,5 @@
 [package]
-name = "husky-cybertron-ast"
+name = "husky-cybertron-mini-compiler"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
@@ -12,6 +12,17 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+expect-test.workspace = true
+lazy_static.workspace = true
+# abstractions
+enum-class.workspace = true
+shifted-unsigned-int.workspace = true
+# cybertron
+husky-cybertron.workspace = true
+# protocols
+husky-text-protocol.workspace = true
+# utils
+husky-wild-utils.workspace = true
 
 [lints]
 workspace = true
