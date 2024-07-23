@@ -97,6 +97,33 @@ fn seq_debug_works() {
     .assert_debug_eq(&seq);
 }
 
+/// # map
+impl<T> Seq<T>
+where
+    T: Any + Send + Sync,
+{
+    pub fn map<R>(self, f: impl Fn(&T) -> R) -> Seq<R>
+    where
+        R: Any + Send + Sync,
+    {
+        Seq::new(self.slice().iter().map(f).collect())
+    }
+
+    pub fn map2<R1, R2>(self, f: impl Fn(&T) -> (R1, R2)) -> (Seq<R1>, Seq<R2>)
+    where
+        R1: Any + Send + Sync,
+        R2: Any + Send + Sync,
+    {
+        let mut r1s = vec![];
+        let mut r2s = vec![];
+        for (r1, r2) in self.slice().iter().map(f) {
+            r1s.push(r1);
+            r2s.push(r2);
+        }
+        (Seq::new(r1s), Seq::new(r2s))
+    }
+}
+
 impl<T1, T2> Seq<(T1, T2)>
 where
     T1: Any + Send + Sync,
