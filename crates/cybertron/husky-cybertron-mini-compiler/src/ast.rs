@@ -1,9 +1,8 @@
 use crate::{
-    position::Position,
     token::{ident::Ident, keyword::Keyword, literal::Literal, opr::Opr, Token},
     *,
 };
-use husky_cybertron::seq::Seq;
+use husky_cybertron::seq::{idx::Idx, Seq};
 use token::tokenize;
 
 #[enum_class::from_variants]
@@ -13,8 +12,8 @@ pub enum Ast {
     Ident(Ident),
     /// # exprs
     Binary {
-        lopd: Position,
-        ropd: Position,
+        lopd: Idx,
+        ropd: Idx,
     },
     /// # stmts
     LetInit,
@@ -47,7 +46,7 @@ impl From<Token> for PreAst {
 }
 
 pub fn calc_pre_ast_initial_seq(toks: Seq<Token>) -> Seq<PreAst> {
-    toks.map(|&tok| tok.into())
+    toks.map(Into::into)
 }
 
 #[test]
