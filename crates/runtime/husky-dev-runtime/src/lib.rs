@@ -1,3 +1,4 @@
+#![feature(negative_impls)]
 #![feature(try_trait_v2_residual)]
 #![feature(try_trait_v2)]
 mod config;
@@ -24,7 +25,12 @@ use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_linket::linket::Linket;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
-use std::{convert::Infallible, path::Path};
+use husky_wild_utils::arb_ref;
+use std::{
+    convert::Infallible,
+    path::Path,
+    pin::{pin, Pin},
+};
 
 /// Dropping libraries or linket_impls before runtime storage will lead to segmentation fault
 ///
@@ -35,18 +41,28 @@ pub struct DevRuntime<Devsoul: IsDevsoul> {
     comptime: DevComptime<Devsoul>,
 }
 
+impl<Devsoul> !Unpin for DevRuntime<Devsoul> {}
+
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn new(
         target_crate: impl AsRef<Path>,
         config: Option<DevRuntimeConfig<Devsoul>>,
-    ) -> VfsResult<Self> {
-        Ok(Self {
+    ) -> VfsResult<Pin<Box<Self>>> {
+        let mut slf = Box::pin(Self {
             config: config.unwrap_or_default(),
             storage: Default::default(),
             comptime: DevComptime::new(target_crate)?,
-        })
+        });
+        slf.init();
+        Ok(slf)
     }
 
+    fn init(self: &Self) {
+        self.comptime.init(unsafe { arb_ref(self) });
+    }
+}
+
+impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn db(&self) -> &::salsa::Db {
         self.comptime.db()
     }

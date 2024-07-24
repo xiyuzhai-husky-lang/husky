@@ -5628,6 +5628,7 @@ dependencies = [
  "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-value-protocol",
+ "husky-wild-utils",
  "rustc_version",
  "smallvec",
 ]
@@ -5763,6 +5764,7 @@ dependencies = [
  "husky-manifest",
  "husky-print-utils",
  "husky-rust-transpilation",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-vfs",
  "libloading 0.8.3",
