@@ -23,6 +23,6 @@ impl IsDevsoulInterface for StandardDevsoulInterface {
     }
 
     fn eval_context() -> DevEvalContext {
-        unsafe { EVAL_CONTEXT.unwrap() }
+        unsafe { EVAL_CONTEXT.expect("`EVAL_CONTEXT` not initialized!!!") }
     }
 }
