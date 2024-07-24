@@ -308,7 +308,6 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 }
 
 #[test]
-#[ignore]
 fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};

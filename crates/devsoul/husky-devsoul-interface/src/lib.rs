@@ -119,6 +119,8 @@ pub struct DevEvalContext<LinketImpl: IsLinketImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>,
 }
 
+unsafe impl<LinketImpl> Sync for DevEvalContext<LinketImpl> where LinketImpl: IsLinketImpl {}
+
 impl<LinketImpl: IsLinketImpl> Clone for DevEvalContext<LinketImpl> {
     fn clone(&self) -> Self {
         Self {
