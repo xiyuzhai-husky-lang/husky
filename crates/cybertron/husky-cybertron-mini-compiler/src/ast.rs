@@ -41,6 +41,7 @@ impl From<Token> for PreAst {
             Token::Keyword(kw) => PreAst::Keyword(kw),
             Token::Ident(ident) => PreAst::Ast(Ast::Ident(ident)),
             Token::Opr(opr) => PreAst::Opr(opr),
+            Token::Literal(lit) => PreAst::Ast(Ast::Literal(lit)),
         }
     }
 }
