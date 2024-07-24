@@ -85,6 +85,10 @@ fn fn_linket_impl_works() {
         fn eval_context() -> DevEvalContext<Self::LinketImpl> {
             todo!()
         }
+
+        fn set_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+            todo!()
+        }
     }
 
     fn_linket_impl!(|| ());
@@ -231,6 +235,10 @@ fn unveil_fn_linket_impl_works() {
         type LinketImpl = __LinketImpl;
 
         fn eval_context() -> DevEvalContext<Self::LinketImpl> {
+            todo!()
+        }
+
+        fn set_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
     }
