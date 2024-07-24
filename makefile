@@ -1,7 +1,10 @@
+.DEFAULT_GOAL := default
 examples_dir=examples
 tests_dir=tests
 
 include examples/makefile
+
+default:
 
 update-python-requirements:
 	pipreqs ./ --force
