@@ -1,3 +1,5 @@
+pub mod idx;
+
 use crate::*;
 use husky_wild_utils::arb_ref;
 use lazy_static::lazy_static;
@@ -51,7 +53,7 @@ impl<T> Seq<T>
 where
     T: Any + Send + Sync,
 {
-    pub fn slice(self) -> &'static [T] {
+    pub fn data(self) -> &'static [T] {
         let seq_storage_guard = SEQ_STORAGE.read().unwrap();
         let a: &Vec<T> = seq_storage_guard
             .0
@@ -81,7 +83,7 @@ where
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let mut one_line = String::from("[");
 
-        for (i, elem) in self.slice().iter().enumerate() {
+        for (i, elem) in self.data().iter().enumerate() {
             if i > 0 {
                 one_line += ", ";
             }
@@ -91,7 +93,7 @@ where
         if one_line.len() < 80 {
             f.write_str(&one_line)
         } else {
-            f.debug_list().entries(self.slice()).finish()
+            f.debug_list().entries(self.data()).finish()
         }
     }
 }
@@ -113,23 +115,23 @@ fn seq_debug_works() {
 /// # map
 impl<T> Seq<T>
 where
-    T: Any + Send + Sync,
+    T: Any + Send + Sync + Copy,
 {
-    pub fn map<R>(self, f: impl Fn(&T) -> R) -> Seq<R>
+    pub fn map<R>(self, f: impl Fn(T) -> R) -> Seq<R>
     where
         R: Any + Send + Sync,
     {
-        Seq::new(self.slice().iter().map(f).collect())
+        Seq::new(self.data().iter().copied().map(f).collect())
     }
 
-    pub fn map2<R1, R2>(self, f: impl Fn(&T) -> (R1, R2)) -> (Seq<R1>, Seq<R2>)
+    pub fn map2<R1, R2>(self, f: impl Fn(T) -> (R1, R2)) -> (Seq<R1>, Seq<R2>)
     where
         R1: Any + Send + Sync,
         R2: Any + Send + Sync,
     {
         let mut r1s = vec![];
         let mut r2s = vec![];
-        for (r1, r2) in self.slice().iter().map(f) {
+        for (r1, r2) in self.data().iter().copied().map(f) {
             r1s.push(r1);
             r2s.push(r2);
         }
@@ -140,7 +142,7 @@ where
 #[test]
 fn seq_map_works() {
     let seq = Seq::new(vec![1, 2]);
-    let mapped = seq.map(|&v| v + 1);
+    let mapped = seq.map(|v| v + 1);
     expect![[r#"
         [
             1,
