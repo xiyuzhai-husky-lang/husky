@@ -18,10 +18,10 @@ use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
 use husky_vfs::error::VfsResult;
-use std::path::Path;
+use std::{path::Path, pin::Pin};
 
 pub struct Devtime<Devsoul: IsDevsoul> {
-    runtime: DevRuntime<Devsoul>,
+    runtime: Pin<Box<DevRuntime<Devsoul>>>,
 }
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
@@ -43,17 +43,17 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     }
 }
 
-impl<Devsoul: IsDevsoul> Default for Devtime<Devsoul>
-where
-    Devsoul: Default,
-    Devsoul::Linktime: Default,
-{
-    fn default() -> Self {
-        Self {
-            runtime: Default::default(),
-        }
-    }
-}
+// impl<Devsoul: IsDevsoul> Default for Devtime<Devsoul>
+// where
+//     Devsoul: Default,
+//     Devsoul::Linktime: Default,
+// {
+//     fn default() -> Self {
+//         Self {
+//             runtime: Default::default(),
+//         }
+//     }
+// }
 
 impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     type Trace = Trace;
@@ -131,7 +131,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
             followed,
             accompanyings_except_followed,
             pedestal,
-            &self.runtime,
+            &*self.runtime,
             visual_synchrotron,
             val_visual_cache,
         )

@@ -8,10 +8,12 @@ pub use self::any::AnyLinketImpls;
 
 use husky_devsoul_interface::{
     devsoul::IsDevsoulInterface,
+    item_path::ItemPathIdInterface,
     ki_control_flow::KiControlFlow,
     ki_repr::{KiArgumentReprInterface, KiReprInterface},
-    DevEvalContext, IsLinketImpl, LinketImplKiControlFlow,
+    DevEvalContext, IsDevRuntimeDyn, IsLinketImpl, LinketImplKiControlFlow,
 };
+use husky_wild_utils::arb_ref;
 
 pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
     type FnOutput;
@@ -28,6 +30,10 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
     ) -> LinketImplKiControlFlow<LinketImpl, Self::FnOutput>;
 }
 
+pub type LinketImplsGetter = extern "C" fn() -> AnyLinketImpls;
+
+pub static LINKET_IMPLS_GETTER_IDENT: &[u8] = b"linket_impls";
+
 /// generates the function to acquire linket impls accessed through dynamic library,
 ///
 /// it also set up the jar index.
@@ -40,9 +46,37 @@ macro_rules! linket_impls {
                 vec![
                     $($linket_impl),*
                 ];
-            AnyLinketImpls::new(linkets)
+            AnyLinketImpls::new::<__DevsoulInterface>(linkets)
         }
     };
+}
+
+#[test]
+fn linket_impls_works() {
+    use crate::standard::{ugly::*, *};
+    use crate::IsFnLinketImplSource;
+    use husky_devsoul_interface::ugly::*;
+    use husky_standard_devsoul_interface::ugly::*;
+
+    type __LinketImpl = StandardLinketImpl<__Pedestal>;
+    type __DevEvalContext = DevEvalContext<__LinketImpl>;
+    struct __DevsoulInterface;
+    impl IsDevsoulInterface for __DevsoulInterface {
+        type LinketImpl = __LinketImpl;
+
+        fn eval_context() -> DevEvalContext<Self::LinketImpl> {
+            todo!()
+        }
+
+        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+            todo!()
+        }
+    }
+
+    linket_impls! {}
+
+    linket_impls as LinketImplsGetter;
+    || linket_impls();
 }
 
 #[macro_export]
@@ -86,7 +120,7 @@ fn fn_linket_impl_works() {
             todo!()
         }
 
-        fn set_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
     }
@@ -238,7 +272,7 @@ fn unveil_fn_linket_impl_works() {
             todo!()
         }
 
-        fn set_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
     }
@@ -320,4 +354,21 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
             }
         }
     };
+}
+
+pub struct LinketImpls<LinketImpl: IsLinketImpl> {
+    set_dev_eval_context: fn(DevEvalContext<LinketImpl>),
+    init_item_path_id_interface_caches: fn(&[ItemPathIdInterface]),
+    linket_impls: Vec<LinketImpl>,
+}
+
+impl<LinketImpl: IsLinketImpl> LinketImpls<LinketImpl> {
+    pub fn linket_impls(&self) -> &[LinketImpl] {
+        &self.linket_impls
+    }
+
+    /// the `&mut self` reflects some change on the otherside
+    pub fn set_dev_eval_context(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+        (self.set_dev_eval_context)(DevEvalContext::new(runtime))
+    }
 }

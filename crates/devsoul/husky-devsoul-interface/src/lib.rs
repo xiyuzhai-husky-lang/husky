@@ -1,6 +1,7 @@
 #![feature(try_trait_v2)]
 #![feature(try_trait_v2_residual)]
 pub mod devsoul;
+pub mod item_path;
 pub mod ki_control_flow;
 pub mod ki_repr;
 pub mod linket_impl;

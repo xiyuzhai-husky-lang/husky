@@ -46,9 +46,13 @@ where
         }
     }
 
-    fn new_linktime(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
+    fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
         Self {
             internal: std::sync::RwLock::new(BootLinkTimeInternal::new(target_path, db)),
         }
+    }
+
+    fn init(&self, runtime: &dyn husky_devsoul_interface::IsDevRuntimeDyn<Self::LinketImpl>) {
+        todo!()
     }
 }

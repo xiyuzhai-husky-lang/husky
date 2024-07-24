@@ -15,6 +15,7 @@ husky-standard-value.workspace = true
 husky-devsoul-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
+husky-wild-utils.workspace = true
 
 [dev-dependencies]
 husky-standard-devsoul-interface.workspace = true

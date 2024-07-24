@@ -15,7 +15,7 @@ static mut EVAL_CONTEXT: Option<DevEvalContext> = None;
 impl IsDevsoulInterface for StandardDevsoulInterface {
     type LinketImpl = StandardLinketImpl<StandardPedestal>;
 
-    fn set_eval_context(ctx: DevEvalContext) {
+    fn set_dev_eval_context(ctx: DevEvalContext) {
         unsafe {
             assert!(EVAL_CONTEXT.is_none());
             EVAL_CONTEXT = Some(ctx);

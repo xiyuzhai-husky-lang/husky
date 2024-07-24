@@ -1,33 +1,36 @@
 use super::*;
 use husky_cargo_utils::compile::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
-use husky_linket_impl::AnyLinketImpls;
+use husky_linket_impl::{
+    AnyLinketImpls, LinketImpls, LinketImplsGetter, LINKET_IMPLS_GETTER_IDENT,
+};
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
-use husky_devsoul_interface::HuskyJarIndex;
+use husky_devsoul_interface::{DevEvalContext, HuskyJarIndex};
 use husky_vfs::path::package_path::PackagePath;
 use libloading::Library;
 use std::path::PathBuf;
 use vec_like::{VecMap, VecPairMap};
 
-pub struct MonoLinketsLibrary {
+pub struct MonoLinketsLibrary<LinketImpl: IsLinketImpl> {
     pub cdylib: Cdylib,
+    pub linket_impls: LinketImpls<LinketImpl>,
 }
 
 #[salsa::derive_debug_with_db]
 pub struct Cdylib(Library);
 
 impl Cdylib {
-    pub(crate) fn linket_impls<LinketImpl: IsLinketImpl>(&self) -> Vec<LinketImpl> {
-        let package_linket_impls: libloading::Symbol<fn() -> AnyLinketImpls> =
-            unsafe { self.0.get(b"linket_impls").unwrap() };
-        package_linket_impls().downcast()
+    fn linket_impls<LinketImpl: IsLinketImpl>(&self) -> LinketImpls<LinketImpl> {
+        let linket_impls_getter: libloading::Symbol<LinketImplsGetter> =
+            unsafe { self.0.get(LINKET_IMPLS_GETTER_IDENT).unwrap() };
+        linket_impls_getter().downcast()
     }
 }
 
-impl MonoLinketsLibrary {
-    pub(super) fn generate(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Result<Self, ()> {
+impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {
+    pub(super) fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Result<Self, ()> {
         // useful for debugging
         match std::env::var("SKIP_COMPILATION") {
             Ok(s) => {
@@ -49,18 +52,31 @@ impl MonoLinketsLibrary {
                 Cdylib(Library::new(cdylib.path.clone()).unwrap())
             },
         )?;
-        Ok(Self { cdylib })
+        let linket_impls = cdylib.linket_impls();
+        Ok(Self {
+            cdylib,
+            linket_impls,
+        })
+    }
+
+    pub fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+        self.linket_impls.set_dev_eval_context(runtime);
     }
 }
 
 #[test]
-fn generate_linket_storage_works() {
+fn new_mono_linkets_libary_works() {
     use husky_dev_comptime::db::DevComptimeDb;
+    use husky_linket_impl::standard::StandardLinketImpl;
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
 
     DevComptimeDb::vfs_plain_test(
         |db, package_path: PackagePath| {
-            MonoLinketsLibrary::generate(LinktimeTargetPath::new_package(package_path, db), db)
-                .unwrap();
+            MonoLinketsLibrary::<StandardLinketImpl<StandardPedestal>>::new(
+                LinktimeTargetPath::new_package(package_path, db),
+                db,
+            )
+            .unwrap();
         },
         &VfsTestConfig::new(
             "generate_linket_storage",
@@ -69,3 +85,13 @@ fn generate_linket_storage_works() {
         ),
     );
 }
+
+/// # getters
+impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {
+    pub fn linket_impls(&self) -> &LinketImpls<LinketImpl> {
+        &self.linket_impls
+    }
+}
+
+/// # actions
+impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {}

@@ -315,7 +315,7 @@ fn ki_repr_eval_works() {
     use husky_path_utils::dev_paths::*;
 
     let dev_paths = HuskyLangDevPaths::new();
-    let runtime: DevRuntime<StandardDevsoul<()>> =
+    let runtime: Pin<Box<DevRuntime<StandardDevsoul<()>>>> =
         DevRuntime::new(dev_paths.dev_root().join("examples/mnist-classifier"), None).unwrap();
     let db = runtime.db();
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {

@@ -3,8 +3,8 @@ pub mod db;
 use self::db::DevComptimeDb;
 
 use husky_devsoul::{devsoul::IsDevsoul, linktime::IsLinktime};
-use husky_devsoul_interface::HuskyIngredientIndex;
 use husky_devsoul_interface::HuskyJarIndex;
+use husky_devsoul_interface::{HuskyIngredientIndex, IsDevRuntimeDyn};
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath};
 use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath};
@@ -95,7 +95,7 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
             .map(|target_path| ingredient_ki_infos(target_path, &db))
             .unwrap_or_default();
         Ok(Self {
-            linktime: IsLinktime::new_linktime(
+            linktime: IsLinktime::new(
                 /* ad hoc */
                 LinktimeTargetPath::new_package(target_crate_path.package_path(&db), &db),
                 &db,
@@ -107,6 +107,12 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
         })
     }
 
+    pub fn init(&self, runtime: &'static dyn IsDevRuntimeDyn<Devsoul::LinketImpl>) {
+        self.linktime.init(runtime)
+    }
+}
+
+impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
     pub fn target(&self) -> DevComptimeTarget {
         self.target
     }
