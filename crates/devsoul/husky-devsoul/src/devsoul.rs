@@ -64,7 +64,14 @@ pub trait IsDevsoul: 'static {
 }
 
 pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
-    // todo: consider caching policy
+    fn get_or_try_init_val_value(
+        &self,
+        val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
+        f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
+        db: &::salsa::Db,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
+
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,

@@ -33,7 +33,8 @@ impl<Devsoul: IsDevsoul> DevRuntimeConfig<Devsoul> {
             KiCachingClass::Variable => true,
             KiCachingClass::Expr => false,
             KiCachingClass::Stmt => false,
-            KiCachingClass::Condition => false,
+            /// this is because condition plays an important role in determining domain
+            KiCachingClass::Condition => true,
             KiCachingClass::RuntimeConstant => false,
         }
     }

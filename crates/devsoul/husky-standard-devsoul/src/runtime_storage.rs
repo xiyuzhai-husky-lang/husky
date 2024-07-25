@@ -10,6 +10,10 @@ use std::sync::{Arc, Mutex};
 
 #[derive(Debug, Default)]
 pub struct StandardDevRuntimeStorage {
+    val_values: DashMap<
+        StandardDevRuntimeValStorageKey,
+        Arc<Mutex<Option<(ValVersionStamp, StandardLinketImplKiControlFlow)>>>,
+    >,
     ki_values: DashMap<
         StandardDevRuntimeKiStorageKey,
         Arc<Mutex<Option<(KiVersionStamp, StandardLinketImplKiControlFlow)>>>,
@@ -18,6 +22,15 @@ pub struct StandardDevRuntimeStorage {
         StandardDevRuntimeMemoizedFieldStorageKey,
         Arc<Mutex<Option<StandardLinketImplKiControlFlow>>>,
     >,
+}
+
+// ad hoc
+type ValVersionStamp = ();
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
+pub struct StandardDevRuntimeValStorageKey {
+    val_item_path_id_interface: ItemPathIdInterface,
+    pedestal: StandardPedestal,
 }
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
@@ -43,6 +56,38 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage
 where
     LinketImpl: IsLinketImpl,
 {
+    fn get_or_try_init_val_value(
+        &self,
+        val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
+        f: impl FnOnce() -> StandardLinketImplKiControlFlow,
+        db: &salsa::Db,
+    ) -> StandardLinketImplKiControlFlow {
+        let key = StandardDevRuntimeValStorageKey {
+            val_item_path_id_interface,
+            pedestal,
+        };
+        let mu = self.val_values.entry(key.clone()).or_default().clone();
+        let mut opt_stored_control_flow_store_guard = mu.lock().expect("todo");
+        // ad hoc
+        let new_version_stamp = (); // key.val.version_stamp(db);
+        unsafe {
+            match *opt_stored_control_flow_store_guard {
+                Some((old_version_stamp, ref control_flow))
+                    if old_version_stamp == new_version_stamp =>
+                {
+                    return control_flow.share_unchecked()
+                }
+                _ => *opt_stored_control_flow_store_guard = Some((new_version_stamp, f())),
+            };
+            opt_stored_control_flow_store_guard
+                .as_ref()
+                .expect("should be some")
+                .1
+                .share_unchecked()
+        }
+    }
+
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,

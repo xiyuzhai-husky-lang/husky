@@ -1,3 +1,4 @@
+use crate::ItemPathIdInterface;
 use serde::{Deserialize, Serialize};
 
 pub trait IsPedestal:
@@ -6,7 +7,7 @@ pub trait IsPedestal:
     type StaticVarId: Clone + Copy;
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
 
-    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self;
+    fn from_ids(ids: impl Iterator<Item = (ItemPathIdInterface, Self::StaticVarId)>) -> Self;
 
     fn init_ui_buffer(&self) -> Self::UiBuffer;
 
@@ -30,7 +31,7 @@ impl IsPedestal for () {
 
     type UiBuffer = ();
 
-    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self {
+    fn from_ids(ids: impl Iterator<Item = (ItemPathIdInterface, Self::StaticVarId)>) -> Self {
         ()
     }
 

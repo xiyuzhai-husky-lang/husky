@@ -127,6 +127,10 @@ pub fn INPUT() -> Leash<BinaryImage28> {
 pub struct INPUT {}
 
 impl INPUT {
+    pub fn item_path_id_interface() -> __ItemPathIdInterface {
+        unsafe { __INPUT__ITEM_PATH_ID_INTERFACE.expect("__INPUT__ITEM_PATH_ID_INTERFACE") }
+    }
+
     pub fn set_up_for_testing(index: usize) {
         // todo: check range!
         set_input_id(MnistInputId::from_index(index))

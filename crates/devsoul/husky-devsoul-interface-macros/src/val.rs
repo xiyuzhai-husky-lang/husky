@@ -75,7 +75,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
                 #vis fn #ident() -> #return_ty {
                     __eval_eager_val_with(
                         unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
-                        todo!("pedestal"),
+                        pedestal!(#var_deps),
                         || __KiControlFlow::Continue(#aux_ident().into_value())
                     )
                 }
