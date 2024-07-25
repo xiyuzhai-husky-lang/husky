@@ -73,7 +73,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
             quote! {
                 #vis fn #ident() -> #return_ty {
                     __eval_eager_val_with(
-                        #ingredient_index,
+                        todo!("eager val item path id interface"),
                         || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
                     )
                 }

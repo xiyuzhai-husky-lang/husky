@@ -121,11 +121,11 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         self.result.is_empty() || self.result.ends_with("\n")
     }
 
-    pub(crate) fn write_str(&mut self, s: &str) {
+    fn write_str(&mut self, s: &str) {
         self.result += s
     }
 
-    fn word(&mut self, word: &str) {
+    pub(crate) fn word(&mut self, word: &str) {
         if self.result.ends_with(|c: char| c.is_alphanumeric()) {
             self.write_str(" ")
         }

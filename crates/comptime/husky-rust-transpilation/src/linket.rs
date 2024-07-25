@@ -518,7 +518,7 @@ impl<E> TranspileToRustWith<E> for LinRitchieParameter {
 
 impl<E> TranspileToRustWith<E> for LinLeashClass {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
-        builder.write_str(self.code())
+        builder.word(self.code())
     }
 }
 
