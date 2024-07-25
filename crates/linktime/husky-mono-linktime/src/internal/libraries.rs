@@ -1,13 +1,14 @@
 use super::*;
 use husky_cargo_utils::compile::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
+use husky_linket::linket::{target_linket_item_path_id_interfaces, target_linkets};
 use husky_linket_impl::{
     AnyLinketImpls, LinketImpls, LinketImplsGetter, LINKET_IMPLS_GETTER_IDENT,
 };
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
-use husky_devsoul_interface::DevEvalContext;
+use husky_devsoul_interface::{item_path::ItemPathIdInterface, DevEvalContext};
 use husky_vfs::path::package_path::PackagePath;
 use libloading::Library;
 use std::path::PathBuf;
@@ -22,10 +23,13 @@ pub struct MonoLinketsLibrary<LinketImpl: IsLinketImpl> {
 pub struct Cdylib(Library);
 
 impl Cdylib {
-    fn linket_impls<LinketImpl: IsLinketImpl>(&self) -> LinketImpls<LinketImpl> {
+    fn linket_impls<LinketImpl: IsLinketImpl>(
+        &self,
+        item_path_id_interfaces: &[Option<ItemPathIdInterface>],
+    ) -> LinketImpls<LinketImpl> {
         let linket_impls_getter: libloading::Symbol<LinketImplsGetter> =
             unsafe { self.0.get(LINKET_IMPLS_GETTER_IDENT).unwrap() };
-        linket_impls_getter().downcast()
+        linket_impls_getter(item_path_id_interfaces).downcast()
     }
 }
 
@@ -52,7 +56,8 @@ impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {
                 Cdylib(Library::new(cdylib.path.clone()).unwrap())
             },
         )?;
-        let linket_impls = cdylib.linket_impls();
+        let item_path_id_interfaces = target_linket_item_path_id_interfaces(db, target_path);
+        let linket_impls = cdylib.linket_impls(item_path_id_interfaces);
         Ok(Self {
             cdylib,
             linket_impls,

@@ -77,6 +77,7 @@ where
         get_id: fn() -> Pedestal::StaticVarId,
         set_id: fn(Pedestal::StaticVarId),
     },
+    // todo: memo
 }
 
 impl<Pedestal> Copy for StandardLinketImpl<Pedestal> where Pedestal: IsPedestalFull {}
@@ -177,11 +178,11 @@ where
             StandardLinketImpl::Val {
                 init_item_path_id_interface,
                 ..
-            } => init_item_path_id_interface(item_path_id_interface),
-            StandardLinketImpl::StaticVar {
+            }
+            | StandardLinketImpl::StaticVar {
                 init_item_path_id_interface,
                 ..
-            } => todo!(),
+            } => init_item_path_id_interface(item_path_id_interface),
         }
     }
 }

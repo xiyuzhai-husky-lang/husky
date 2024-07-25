@@ -19,6 +19,8 @@ vec-like.workspace = true
 husky-vfs.workspace = true
 husky-coword.workspace = true
 husky-entity-kind.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 
 [dev-dependencies]
 expect-test.workspace = true

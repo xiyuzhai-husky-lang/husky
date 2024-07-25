@@ -30,7 +30,7 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
     ) -> LinketImplKiControlFlow<LinketImpl, Self::FnOutput>;
 }
 
-pub type LinketImplsGetter = extern "C" fn() -> AnyLinketImpls;
+pub type LinketImplsGetter = extern "C" fn(&[Option<ItemPathIdInterface>]) -> AnyLinketImpls;
 
 pub static LINKET_IMPLS_GETTER_IDENT: &[u8] = b"linket_impls";
 
@@ -41,11 +41,16 @@ pub static LINKET_IMPLS_GETTER_IDENT: &[u8] = b"linket_impls";
 macro_rules! linket_impls {
     ($($linket_impl: expr),* $(,)?) => {
         #[no_mangle]
-        pub extern "C" fn linket_impls() -> AnyLinketImpls {
+        pub extern "C" fn linket_impls(item_path_id_interfaces: &[Option<__ItemPathIdInterface>]) -> AnyLinketImpls {
             let linkets: Vec<__LinketImpl> =
                 vec![
                     $($linket_impl),*
                 ];
+            for (&item_path_id_interface, &linket) in std::iter::zip(item_path_id_interfaces,&linkets) {
+                if let Some(item_path_id_interface) = item_path_id_interface {
+                    linket.init_item_path_id_interface(item_path_id_interface)
+                }
+            }
             AnyLinketImpls::new::<__DevsoulInterface>(linkets)
         }
     };
@@ -76,7 +81,7 @@ fn linket_impls_works() {
     linket_impls! {}
 
     linket_impls as LinketImplsGetter;
-    || linket_impls();
+    linket_impls(&[]);
 }
 
 #[macro_export]

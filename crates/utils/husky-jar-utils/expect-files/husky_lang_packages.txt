@@ -567,6 +567,7 @@
             "either",
             "enum-class",
             "husky-coword",
+            "husky-devsoul-interface",
             "husky-entity-kind",
             "husky-vfs",
             "once_cell",
@@ -578,6 +579,80 @@
             "vec-like",
             "expect-test",
             "husky-vfs",
+        ],
+    },
+    PackageSummary {
+        name: "husky-devsoul-interface",
+        relative_path: "crates/devsoul/husky-devsoul-interface",
+        dependencies: [
+            "husky-decl-macro-utils",
+            "husky-devsoul-interface-macros",
+            "husky-value-interface",
+            "husky-value-protocol",
+            "husky-visual-protocol",
+            "once_cell",
+            "serde",
+            "serde-impl",
+            "shifted-unsigned-int",
+            "smallvec",
+        ],
+    },
+    PackageSummary {
+        name: "husky-decl-macro-utils",
+        relative_path: "crates/utils/husky-decl-macro-utils",
+        dependencies: [
+            "husky-path-utils",
+        ],
+    },
+    PackageSummary {
+        name: "husky-path-utils",
+        relative_path: "crates/utils/husky-path-utils",
+        dependencies: [
+            "husky-check-utils",
+            "husky-coword",
+            "husky-minimal-toml-utils",
+            "husky-print-utils",
+            "pathdiff",
+            "relative-path",
+            "salsa",
+            "thiserror",
+            "expect-test",
+        ],
+    },
+    PackageSummary {
+        name: "husky-minimal-toml-utils",
+        relative_path: "crates/utils/husky-minimal-toml-utils",
+        dependencies: [
+            "husky-coword",
+            "husky-print-utils",
+            "salsa",
+            "thiserror",
+        ],
+    },
+    PackageSummary {
+        name: "husky-devsoul-interface-macros",
+        relative_path: "crates/devsoul/husky-devsoul-interface-macros",
+        dependencies: [
+            "husky-proc-macro-utils",
+            "proc-macro2",
+            "quote",
+            "syn",
+        ],
+    },
+    PackageSummary {
+        name: "husky-value-interface",
+        relative_path: "crates/value/husky-value-interface",
+        dependencies: [
+            "husky-value-protocol",
+            "husky-visual-protocol",
+        ],
+    },
+    PackageSummary {
+        name: "husky-value-protocol",
+        relative_path: "crates/protocols/husky-value-protocol",
+        dependencies: [
+            "ordered-float",
+            "serde",
         ],
     },
     PackageSummary {
@@ -639,31 +714,6 @@
         dependencies: [
             "dirs",
             "husky-path-utils",
-            "thiserror",
-        ],
-    },
-    PackageSummary {
-        name: "husky-path-utils",
-        relative_path: "crates/utils/husky-path-utils",
-        dependencies: [
-            "husky-check-utils",
-            "husky-coword",
-            "husky-minimal-toml-utils",
-            "husky-print-utils",
-            "pathdiff",
-            "relative-path",
-            "salsa",
-            "thiserror",
-            "expect-test",
-        ],
-    },
-    PackageSummary {
-        name: "husky-minimal-toml-utils",
-        relative_path: "crates/utils/husky-minimal-toml-utils",
-        dependencies: [
-            "husky-coword",
-            "husky-print-utils",
-            "salsa",
             "thiserror",
         ],
     },
@@ -802,55 +852,6 @@
             "ordered-float",
             "salsa",
             "thiserror",
-        ],
-    },
-    PackageSummary {
-        name: "husky-devsoul-interface",
-        relative_path: "crates/devsoul/husky-devsoul-interface",
-        dependencies: [
-            "husky-decl-macro-utils",
-            "husky-devsoul-interface-macros",
-            "husky-value-interface",
-            "husky-value-protocol",
-            "husky-visual-protocol",
-            "once_cell",
-            "serde",
-            "serde-impl",
-            "shifted-unsigned-int",
-            "smallvec",
-        ],
-    },
-    PackageSummary {
-        name: "husky-decl-macro-utils",
-        relative_path: "crates/utils/husky-decl-macro-utils",
-        dependencies: [
-            "husky-path-utils",
-        ],
-    },
-    PackageSummary {
-        name: "husky-devsoul-interface-macros",
-        relative_path: "crates/devsoul/husky-devsoul-interface-macros",
-        dependencies: [
-            "husky-proc-macro-utils",
-            "proc-macro2",
-            "quote",
-            "syn",
-        ],
-    },
-    PackageSummary {
-        name: "husky-value-interface",
-        relative_path: "crates/value/husky-value-interface",
-        dependencies: [
-            "husky-value-protocol",
-            "husky-visual-protocol",
-        ],
-    },
-    PackageSummary {
-        name: "husky-value-protocol",
-        relative_path: "crates/protocols/husky-value-protocol",
-        dependencies: [
-            "ordered-float",
-            "serde",
         ],
     },
     PackageSummary {

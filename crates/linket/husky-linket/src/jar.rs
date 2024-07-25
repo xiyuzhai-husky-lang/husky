@@ -3,6 +3,8 @@ pub struct LinketJar(
     crate::linket::Linket,
     crate::linket::linkets_emancipated_by_javelin,
     crate::linket::package_linkets,
+    crate::linket::target_linkets,
+    crate::linket::target_linket_item_path_id_interfaces,
     crate::template_argument::ty::LinTypePathLeading,
     crate::template_argument::ty::LinRitchieType,
     crate::version_stamp::LinketVersionStamp,
