@@ -20,7 +20,7 @@ use husky_devsoul_interface::{
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
     DevEvalContext, IsDevRuntime, IsLinketImpl, LinketImplKiControlFlow,
 };
-use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
+use husky_entity_path::path::{major_item::MajorItemPath, ItemPath, ItemPathId};
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_linket::linket::Linket;
@@ -124,6 +124,17 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
         &*(unsafe { self as *const _ })
+    }
+
+    fn eval_eager_val_with(
+        &self,
+        val_item_path_id_interface: ItemPathIdInterface,
+        f: fn() -> LinketImplKiControlFlow<Devsoul::LinketImpl>,
+    ) -> DevsoulKiControlFlow<Devsoul> {
+        let db = self.db();
+        let val_item_path_id: ItemPathId = val_item_path_id_interface.into();
+        let val_item_path = val_item_path_id.item_path(db);
+        todo!()
     }
 
     fn eval_ki_repr_interface(
