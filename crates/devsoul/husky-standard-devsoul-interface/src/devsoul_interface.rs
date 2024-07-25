@@ -3,6 +3,7 @@ use husky_devsoul_interface::{
     devsoul::IsDevsoulInterface, item_path::ItemPathIdInterface, KiControlFlow,
 };
 use husky_linket_impl::standard::{StandardLinketImpl, StandardLinketImplKiControlFlow};
+use husky_standard_value::FromValue;
 use std::cell::OnceCell;
 
 pub struct StandardDevsoulInterface {}
@@ -29,9 +30,16 @@ impl IsDevsoulInterface for StandardDevsoulInterface {
     }
 }
 
+fn eval_context() -> DevEvalContext {
+    unsafe { EVAL_CONTEXT.expect("`EVAL_CONTEXT` not initialized!!!") }
+}
+
 pub fn eval_eager_val_with<T>(
-    item_path_id: ItemPathIdInterface,
-    f: impl Fn() -> StandardLinketImplKiControlFlow,
-) -> T {
-    todo!()
+    item_path_id_interface: ItemPathIdInterface,
+    f: fn() -> StandardLinketImplKiControlFlow,
+) -> T
+where
+    T: FromValue,
+{
+    T::from_value_static(eval_context().eval_eager_val_with(item_path_id_interface, f))
 }

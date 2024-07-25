@@ -166,6 +166,12 @@ pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
 
     unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf;
 
+    fn eval_eager_val_with(
+        &self,
+        val_item_path_id_interface: ItemPathIdInterface,
+        f: fn() -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
+
     /// the computation is done by the runtime
     /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
     fn eval_ki_repr_interface(
@@ -243,8 +249,7 @@ where
         item_path_id_interface: ItemPathIdInterface,
         f: fn() -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl> {
-        todo!()
-        // self.eval_ingredient_with(item_path_id_interface, f)
+        self.eval_eager_val_with(item_path_id_interface, f)
     }
 
     fn eval_lazy_val_dyn(

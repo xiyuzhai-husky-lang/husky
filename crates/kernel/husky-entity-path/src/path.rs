@@ -31,6 +31,12 @@ pub struct ItemPathId {
     pub data: ItemPathData,
 }
 
+impl From<ItemPathIdInterface> for ItemPathId {
+    fn from(item_path_id_interface: ItemPathIdInterface) -> Self {
+        unsafe { std::mem::transmute(item_path_id_interface) }
+    }
+}
+
 impl Into<ItemPathIdInterface> for ItemPathId {
     fn into(self) -> ItemPathIdInterface {
         ItemPathIdInterface::new(self.0.as_u32())
@@ -44,6 +50,8 @@ fn into_item_path_id_interface_works() {
     let b: ItemPathIdInterface = a.into();
     let c: ItemPathIdInterface = unsafe { std::mem::transmute(a) };
     assert_eq!(b, c);
+    assert_eq!(a, unsafe { std::mem::transmute(b) });
+    assert_eq!(a, unsafe { std::mem::transmute(c) });
 }
 
 impl ItemPathId {
