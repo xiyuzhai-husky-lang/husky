@@ -19,6 +19,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         &self,
         ki_domain_repr: KiDomainRepr,
     ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
+        todo!("caching");
         match ki_domain_repr {
             KiDomainRepr::Omni => KiControlFlow::Continue(()),
             KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {
@@ -59,6 +60,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     }
 
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+        todo!("caching");
         let db = self.db();
         let ctx = self.eval_context();
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
