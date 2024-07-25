@@ -132,10 +132,10 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
         pedestal: <Devsoul::LinketImpl as IsLinketImpl>::Pedestal,
         f: fn() -> LinketImplKiControlFlow<Devsoul::LinketImpl>,
     ) -> DevsoulKiControlFlow<Devsoul> {
-        let db = self.db();
-        let val_item_path_id: ItemPathId = val_item_path_id_interface.into();
-        let val_item_path = val_item_path_id.item_path(db);
-        todo!()
+        use ::husky_print_utils::p;
+        use ::salsa::DebugWithDb;
+        self.storage
+            .get_or_try_init_val_value(val_item_path_id_interface, pedestal, f, self.db())
     }
 
     fn eval_ki_repr_interface(
