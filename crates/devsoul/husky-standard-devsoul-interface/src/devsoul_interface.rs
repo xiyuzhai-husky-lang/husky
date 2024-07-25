@@ -1,5 +1,5 @@
 use crate::{pedestal::StandardPedestal, DevEvalContext};
-use husky_devsoul_interface::devsoul::IsDevsoulInterface;
+use husky_devsoul_interface::{devsoul::IsDevsoulInterface, item_path::ItemPathIdInterface};
 use husky_linket_impl::standard::StandardLinketImpl;
 use std::cell::OnceCell;
 
@@ -25,4 +25,8 @@ impl IsDevsoulInterface for StandardDevsoulInterface {
     fn eval_context() -> DevEvalContext {
         unsafe { EVAL_CONTEXT.expect("`EVAL_CONTEXT` not initialized!!!") }
     }
+}
+
+fn __eval_eager_val<T>(item_path_id: ItemPathIdInterface, f: impl Fn() -> T) -> T {
+    todo!()
 }

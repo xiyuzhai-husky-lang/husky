@@ -2571,6 +2571,7 @@
             "husky-wild-utils",
             "rustc_version",
             "smallvec",
+            "husky-core",
             "husky-standard-devsoul-interface",
         ],
     },
@@ -2605,6 +2606,15 @@
             "proc-macro2",
             "quote",
             "syn",
+        ],
+    },
+    PackageSummary {
+        name: "husky-core",
+        relative_path: "library/core",
+        dependencies: [
+            "husky-standard-value",
+            "husky-visual-protocol",
+            "ordered-float",
         ],
     },
     PackageSummary {
@@ -3232,15 +3242,6 @@
             "lazy_static",
             "serde",
             "shifted-unsigned-int",
-        ],
-    },
-    PackageSummary {
-        name: "husky-core",
-        relative_path: "library/core",
-        dependencies: [
-            "husky-standard-value",
-            "husky-visual-protocol",
-            "ordered-float",
         ],
     },
     PackageSummary {

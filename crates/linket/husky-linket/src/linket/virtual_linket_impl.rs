@@ -97,10 +97,15 @@ impl IsLinketImpl for VirtualLinketImpl {
                 path,
                 instantiation,
             } => todo!(),
-            LinketData::StructField { self_ty, field } => todo!(),
+            LinketData::StructField {
+                self_ty,
+                field,
+                field_ty_leash_class,
+            } => todo!(),
             LinketData::EnumVariantField {
                 path,
                 instantiation,
+                field_ty_leash_class,
                 field,
             } => todo!(),
             LinketData::Index => todo!(),

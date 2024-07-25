@@ -113,7 +113,26 @@ where
         todo!()
     }
 }
+
 impl<T> __IntoValue for Leash<T>
+where
+    T: __Static,
+{
+    fn into_value(self) -> __Value {
+        todo!()
+    }
+}
+
+impl<T> __FromValue for Leash<[T]>
+where
+    T: __Static,
+{
+    fn from_value_aux(value: __Value, value_stands: Option<&mut __ValueStands>) -> Self {
+        todo!()
+    }
+}
+
+impl<T> __IntoValue for Leash<[T]>
 where
     T: __Static,
 {

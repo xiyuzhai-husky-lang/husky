@@ -1,5 +1,5 @@
 use crate::{
-    instantiation::{LinInstantiation, LinketInstantiate},
+    instantiation::{LinInstantiate, LinInstantiation},
     jar::LinketJar,
     template_argument::{LinTemplateArgument, LinTemplateArguments},
 };
@@ -14,10 +14,10 @@ pub struct LinketTrait {
     pub template_arguments: LinTemplateArguments,
 }
 
-impl LinketInstantiate for HirTrait {
+impl LinInstantiate for HirTrait {
     type Output = LinketTrait;
 
-    fn linket_instantiate(self, instantiation: &LinInstantiation, db: &salsa::Db) -> Self::Output {
+    fn lin_instantiate(self, instantiation: &LinInstantiation, db: &salsa::Db) -> Self::Output {
         let trai_path = self.trai_path(db);
         let template_arguments = LinTemplateArgument::from_hir_template_arguments(
             self.template_arguments(db),

@@ -1,4 +1,4 @@
-mod ty;
+pub mod ty;
 pub mod virtual_linket_impl;
 
 use crate::{
@@ -28,6 +28,7 @@ use husky_javelin::{
 };
 use husky_vfs::path::package_path::PackagePath;
 use smallvec::{smallvec, SmallVec};
+use ty::LinLeashClass;
 
 #[salsa::interned(constructor = pub(crate) new)]
 pub struct Linket {
@@ -93,12 +94,14 @@ pub enum LinketData {
     },
     StructField {
         self_ty: LinTypePathLeading,
-        field: LinketField,
+        field_ty_leash_class: LinLeashClass,
+        field: LinField,
     },
     EnumVariantField {
         path: TypeVariantPath,
         instantiation: LinInstantiation,
-        field: LinketField,
+        field_ty_leash_class: LinLeashClass,
+        field: LinField,
     },
     Index,
     VecConstructor {
@@ -113,7 +116,7 @@ pub enum LinketData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LinketField {
+pub enum LinField {
     Tuple { index: usize },
     Props { ident: Ident },
 }
@@ -159,8 +162,9 @@ impl Linket {
             unreachable!()
         };
         let data = LinketData::StructField {
+            field_ty_leash_class: todo!(),
             self_ty,
-            field: LinketField::Props { ident },
+            field: LinField::Props { ident },
         };
         Self::new(db, data)
     }

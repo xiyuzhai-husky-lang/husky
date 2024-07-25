@@ -85,13 +85,11 @@ macro_rules! fn_linket_impl {
         fn fn_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
-                __ValueLeashTest(
-                    FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                        std::marker::PhantomData,
-                        $fn_item,
-                    )
-                    .fn_wrapper_aux(arguments)?,
+                FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
+                    std::marker::PhantomData,
+                    $fn_item,
                 )
+                .fn_wrapper_aux(arguments)?
                 .into_value(),
             )
         }

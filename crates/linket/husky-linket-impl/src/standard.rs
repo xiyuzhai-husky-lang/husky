@@ -227,3 +227,16 @@ fn gn_linket_impl_works() {
 //         .into_value(),
 //     )
 // }
+
+#[macro_export]
+macro_rules! class_specific_leashed_field_into_value {
+    (copyable $expr: expr) => {{
+        (*$expr).into_value()
+    }};
+    (vec $expr: expr) => {{
+        Leash::<[_]>::new($expr).into_value()
+    }};
+    (other $expr: expr) => {{
+        Leash::new($expr).into_value()
+    }};
+}

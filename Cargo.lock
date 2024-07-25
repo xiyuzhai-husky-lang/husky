@@ -5622,6 +5622,7 @@ name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
  "colored",
+ "husky-core",
  "husky-decl-macro-utils",
  "husky-devsoul-interface",
  "husky-linket-impl",
