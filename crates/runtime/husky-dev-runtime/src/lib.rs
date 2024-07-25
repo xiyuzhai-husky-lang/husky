@@ -138,6 +138,34 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
             .get_or_try_init_val_value(val_item_path_id_interface, pedestal, f, self.db())
     }
 
+    fn eval_lazy_val(
+        &self,
+        val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: <Devsoul::LinketImpl as IsLinketImpl>::Pedestal,
+    ) -> DevsoulKiControlFlow<Devsoul> {
+        let db = self.db();
+        let val_item_path_id: ItemPathId = val_item_path_id_interface.into();
+        let val_ki = match val_item_path_id.item_path(db) {
+            ItemPath::Submodule(_, _) => todo!(),
+            ItemPath::MajorItem(path) => match path {
+                MajorItemPath::Type(_) => todo!(),
+                MajorItemPath::Trait(_) => todo!(),
+                MajorItemPath::Form(path) => KiRepr::new_val(path, db),
+            },
+            ItemPath::AssocItem(_) => todo!(),
+            ItemPath::TypeVariant(_, _) => todo!(),
+            ItemPath::ImplBlock(_) => todo!(),
+            ItemPath::Attr(_, _) => todo!(),
+            ItemPath::Chunk(_, _) => todo!(),
+        };
+        self.storage.get_or_try_init_val_value(
+            val_item_path_id_interface,
+            pedestal,
+            || self.eval_ki_repr(val_ki),
+            self.db(),
+        )
+    }
+
     fn eval_ki_repr_interface(
         &self,
         ki_repr_interface: KiReprInterface,

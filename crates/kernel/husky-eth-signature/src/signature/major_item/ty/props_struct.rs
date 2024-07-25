@@ -67,6 +67,7 @@ impl PropsStructEthTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
 pub struct PropsFieldEthTemplate {
+    self_ty: EthTerm,
     ident: Ident,
     ty: EthTerm,
 }
@@ -77,6 +78,7 @@ impl PropsFieldEthTemplate {
         dec_template: PropsStructFieldDecTemplate,
     ) -> EthSignatureResult<Self> {
         Ok(Self {
+            self_ty: EthTerm::ty_from_dec(db, dec_template.self_ty())?,
             ident: dec_template.ident(),
             ty: EthTerm::ty_from_dec(db, dec_template.ty())?,
         })
@@ -94,6 +96,7 @@ impl PropsFieldEthTemplate {
 
         if template_parameters.data().len() == 0 {
             return PropsStructFieldEthSignature {
+                self_ty: self.self_ty,
                 ident: self.ident,
                 ty: self.ty,
             };
@@ -113,11 +116,16 @@ impl PropsFieldEthTemplate {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct PropsStructFieldEthSignature {
+    self_ty: EthTerm,
     ident: Ident,
     ty: EthTerm,
 }
 
 impl PropsStructFieldEthSignature {
+    pub fn self_ty(&self) -> EthTerm {
+        self.self_ty
+    }
+
     pub fn ident(&self) -> Ident {
         self.ident
     }

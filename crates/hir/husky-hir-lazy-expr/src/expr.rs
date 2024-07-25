@@ -78,8 +78,8 @@ pub enum HirLazyExprData {
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
     PropsStructField {
-        owner: HirLazyExprIdx,
-        owner_base_ty: HirType,
+        self_argument: HirLazyExprIdx,
+        self_ty: HirType,
         ident: Ident,
     },
     MemoizedField {
@@ -323,22 +323,20 @@ impl ToHirLazy for SemExprIdx {
                 return_ty: _,
             } => todo!(),
             SemExprData::Field {
-                self_argument: owner,
-                self_argument_ty: owner_ty,
+                self_argument,
+                self_argument_ty,
                 ident_token,
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
-                FieldFlySignature::PropsStruct { ty: _ } => HirLazyExprData::PropsStructField {
-                    owner: owner.to_hir_lazy(builder),
-                    owner_base_ty: HirType::from_fly_base(
-                        owner_ty,
-                        builder.db(),
-                        builder.fly_terms(),
-                    )
-                    .unwrap(),
-                    ident: ident_token.ident(),
-                },
+                FieldFlySignature::PropsStruct { self_ty, .. } => {
+                    HirLazyExprData::PropsStructField {
+                        self_argument: self_argument.to_hir_lazy(builder),
+                        self_ty: HirType::from_fly_base(self_ty, builder.db(), builder.fly_terms())
+                            .unwrap(),
+                        ident: ident_token.ident(),
+                    }
+                }
                 FieldFlySignature::Memoized {
                     path,
                     ref instantiation,
@@ -346,7 +344,7 @@ impl ToHirLazy for SemExprIdx {
                 } => {
                     debug_assert!(instantiation.separator().is_some());
                     HirLazyExprData::MemoizedField {
-                        owner: owner.to_hir_lazy(builder),
+                        owner: self_argument.to_hir_lazy(builder),
                         ident: ident_token.ident(),
                         path,
                         indirections: HirIndirections::from_fly(dispatch.indirections()),

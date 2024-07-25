@@ -34,56 +34,37 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
-    let return_leash_ty = match return_leash_ty {
-        Some(return_leash_ty) => quote! { #return_leash_ty },
-        None => quote! { Leash<#return_ty> },
-    };
-    if lazy {
-        if return_leash {
-            quote! {
-                #vis fn #ident() -> #return_leash_ty {
-                    todo!("return leash for lazy val")
-                    // __eval_lazy_val(#item_path_id_interface)
-                }
-            }
-            .into()
-        } else {
-            quote! {
-                #vis fn #ident() -> #return_ty {
-                    todo!("return copied for lazy val")
-                    // __eval_lazy_val(#item_path_id_interface)
-                }
-            }
-            .into()
+    let expr_ty = if return_leash {
+        match return_leash_ty {
+            Some(return_leash_ty) => quote! { #return_leash_ty },
+            None => quote! { Leash<#return_ty> },
         }
     } else {
-        if return_leash {
-            quote! {
-                #vis fn #ident() -> #return_leash_ty {
-                    todo!("return leash for eager val, change the return type")
-                    // __eval_eager_val_with(
-                    //     #item_path_id_interface,
-                    //     || __KiControlFlow::Continue(#aux_ident().into_value())
-                    // )
-                }
-
-                #vis fn #aux_ident() -> #return_ty #block
+        quote! {#return_ty}
+    };
+    if lazy {
+        quote! {
+            #vis fn #ident() -> #expr_ty {
+                __eval_lazy_val(
+                    unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
+                    pedestal!(#var_deps),
+                )
             }
-            .into()
-        } else {
-            quote! {
-                #vis fn #ident() -> #return_ty {
-                    __eval_eager_val_with(
-                        unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
-                        pedestal!(#var_deps),
-                        || __KiControlFlow::Continue(#aux_ident().into_value())
-                    )
-                }
-
-                #vis fn #aux_ident() -> #return_ty #block
-            }
-            .into()
         }
+        .into()
+    } else {
+        quote! {
+            #vis fn #ident() -> #expr_ty {
+                __eval_eager_val_with(
+                    unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
+                    pedestal!(#var_deps),
+                    || __KiControlFlow::Continue(#aux_ident().into_value())
+                )
+            }
+
+            #vis fn #aux_ident() -> #return_ty #block
+        }
+        .into()
     }
 }
 

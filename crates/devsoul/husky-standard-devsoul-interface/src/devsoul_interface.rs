@@ -44,3 +44,13 @@ where
 {
     T::from_value_static(eval_context().eval_eager_val_with(item_path_id_interface, pedestal, f))
 }
+
+pub fn eval_lazy_val<T>(
+    item_path_id_interface: ItemPathIdInterface,
+    pedestal: StandardPedestal,
+) -> T
+where
+    T: FromValue,
+{
+    T::from_value_static(eval_context().eval_lazy_val(item_path_id_interface, pedestal))
+}
