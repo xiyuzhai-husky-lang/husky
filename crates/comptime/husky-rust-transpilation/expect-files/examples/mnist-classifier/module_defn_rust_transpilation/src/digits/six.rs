@@ -1,19 +1,19 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 28, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 28, return_leash)]
 pub fn six_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![upmost])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 29, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 29, return_leash)]
 pub fn six_match_refined1() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![upmost, bottom1])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 30, lazy)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 30, lazy)]
 pub fn is_six() -> malamute::OneVsAll {}
 
 #[rustfmt::skip]

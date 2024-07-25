@@ -5,7 +5,7 @@ use syn::{Ident, ItemFn, ReturnType, Signature};
 // todo: allow customization on self value type
 pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
     let MemoizedFieldArgs {
-        ingredient_index,
+        item_path_id_interface,
         return_leash,
         return_leash_ty,
     } = syn::parse_macro_input!(args as MemoizedFieldArgs);
@@ -42,7 +42,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
                 todo!("return leash for eager val, change the return type")
                 // __eval_memo_field_return_ref_with(
                 //     self,
-                //     #ingredient_index,
+                //     #item_path_id_interface,
                 //     |slf| {
                 //         // todo: catch unwind
                 //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
@@ -59,7 +59,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
                 todo!("return copied for memo")
                 // __eval_memo_field_with(
                 //     self,
-                //     #ingredient_index,
+                //     #item_path_id_interface,
                 //     |slf| {
                 //         // todo: catch unwind
                 //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
@@ -74,7 +74,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 struct MemoizedFieldArgs {
-    ingredient_index: usize,
+    item_path_id_interface: Ident,
     // default false
     return_leash: bool,
     return_leash_ty: Option<syn::Type>,
@@ -83,12 +83,11 @@ struct MemoizedFieldArgs {
 impl syn::parse::Parse for MemoizedFieldArgs {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let ident: syn::Ident = syn::Ident::parse_any(input)?;
-        assert!(ident == "ingredient_index");
+        assert!(ident == "item_path_id_interface");
         let _eq = Equals::parse(input)?;
-        let lit = syn::LitInt::parse(input)?;
-        let ingredient_index: usize = lit.base10_parse()?;
+        let item_path_id_interface = syn::Ident::parse(input)?;
         let mut slf = Self {
-            ingredient_index,
+            item_path_id_interface,
             return_leash: false,
             return_leash_ty: None,
         };

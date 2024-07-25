@@ -1,5 +1,7 @@
 use crate::*;
 
+pub static mut __FermiMatchResult__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -17,6 +19,8 @@ impl FermiMatchResult {
     }
 }
 
+pub static mut __fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>>, templates: &Vec<fn(Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32>>) -> crate::fermi::FermiMatchResult {
     let mut others = <Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>>::collect_leashes(concave_components);
@@ -30,7 +34,7 @@ pub fn fermi_match(concave_components: Leash<Vec<crate::line_segment_sketch::con
 
 #[rustfmt::skip]
 impl crate::fermi::FermiMatchResult {
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 21)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __FermiMatchResult__norm__ITEM_PATH_ID_INTERFACE)]
     pub fn norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..__self.deleash().others.ilen() {
@@ -39,7 +43,7 @@ impl crate::fermi::FermiMatchResult {
         return norm;
     }
 
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 22)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __FermiMatchResult__rel_norm__ITEM_PATH_ID_INTERFACE)]
     pub fn rel_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..__self.deleash().others.ilen() {
@@ -48,7 +52,7 @@ impl crate::fermi::FermiMatchResult {
         return norm;
     }
 
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 23)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __FermiMatchResult__angle_change_norm__ITEM_PATH_ID_INTERFACE)]
     pub fn angle_change_norm(&'static self) -> f32 {
         let mut norm: f32 = 0.0f32;
         for i in 0..__self.deleash().others.ilen() {
@@ -57,3 +61,14 @@ impl crate::fermi::FermiMatchResult {
         return norm;
     }
 }
+
+pub static mut __FermiMatchResult__norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+pub static mut __FermiMatchResult__rel_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+pub static mut __FermiMatchResult__angle_change_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+

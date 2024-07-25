@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_path::path::ItemPath;
-use husky_entity_tree::helpers::ingredient::HasIngredientIndex;
+use mangle::item_path_id_interface_cache_path;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn val_attr(
@@ -18,9 +18,9 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let return_leash = !is_return_ty_always_copyable;
         write!(
             self.result,
-            "#[{}::val(ingredient_index = {}{}{})]\n",
+            "#[{}::val(item_path_id_interface = {}{}{})]\n",
             task_dependency_ident,
-            path.ingredient_index(db).unwrap().index(),
+            item_path_id_interface_cache_path(path, db).unwrap(),
             is_lazy.then_some(", lazy").unwrap_or_default(),
             return_leash.then_some(", return_leash").unwrap_or_default(),
         )
@@ -37,9 +37,9 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
         let return_leash = !is_return_ty_always_copyable;
         write!(
             self.result,
-            "#[{}::memo(ingredient_index = {}{})]\n    ",
+            "#[{}::memo(item_path_id_interface = {}{})]\n    ",
             task_dependency_ident,
-            path.ingredient_index(db).unwrap().index(),
+            item_path_id_interface_cache_path(path, db).unwrap(),
             return_leash.then_some(", return_leash").unwrap_or_default(),
         )
         .unwrap()

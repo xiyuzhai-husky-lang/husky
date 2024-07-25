@@ -1,7 +1,7 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 46, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 46, return_leash)]
 pub fn two_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
@@ -28,7 +28,7 @@ pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 47)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 47)]
 pub fn is_two() -> malamute::OneVsAll {
     let cc_num = major_concave_components().deleash().ilen();
     let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());

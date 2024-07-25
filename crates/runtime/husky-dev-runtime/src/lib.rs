@@ -16,9 +16,9 @@ use husky_devsoul::{
     helpers::{DevsoulKiControlFlow, DevsoulValueResult},
 };
 use husky_devsoul_interface::{
+    item_path::ItemPathIdInterface,
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
-    DevEvalContext, HuskyIngredientIndex, HuskyJarIndex, IsDevRuntime, IsLinketImpl,
-    LinketImplKiControlFlow,
+    DevEvalContext, IsDevRuntime, IsLinketImpl, LinketImplKiControlFlow,
 };
 use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
@@ -126,29 +126,6 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
         &*(unsafe { self as *const _ })
     }
 
-    fn eval_ingredient_with(
-        &self,
-        jar_index: HuskyJarIndex,
-        ingredient_index: HuskyIngredientIndex,
-        f: impl FnOnce() -> DevsoulValueResult<Devsoul>,
-    ) -> DevsoulKiControlFlow<Devsoul> {
-        let (ki, var_deps) = self
-            .comptime
-            .ingredient_ki_and_var_deps(jar_index, ingredient_index);
-        self.get_or_try_init_ki_value(ki, var_deps, f)
-    }
-
-    fn eval_ingredient(
-        &self,
-        jar_index: HuskyJarIndex,
-        ingredient_index: HuskyIngredientIndex,
-    ) -> DevsoulKiControlFlow<Devsoul> {
-        self.eval_ki_repr(
-            self.comptime
-                .ingredient_ki_repr(jar_index, ingredient_index),
-        )
-    }
-
     fn eval_ki_repr_interface(
         &self,
         ki_repr_interface: KiReprInterface,
@@ -181,13 +158,12 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
 
     fn eval_memo_field(
         &self,
-        jar_index: HuskyJarIndex,
-        ingredient_index: HuskyIngredientIndex,
+        item_path_id_interface: ItemPathIdInterface,
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> DevsoulKiControlFlow<Devsoul>,
     ) -> DevsoulKiControlFlow<Devsoul> {
         self.storage
-            .get_or_try_init_memo_field_value(jar_index, ingredient_index, slf, f)
+            .get_or_try_init_memo_field_value(item_path_id_interface, slf, f)
     }
 
     fn eval_val_runtime_constant(

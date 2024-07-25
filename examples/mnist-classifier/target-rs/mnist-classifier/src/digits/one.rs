@@ -1,14 +1,20 @@
 use super::*;
 
+pub static mut __one_fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 26, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __one_fermi_match__ITEM_PATH_ID_INTERFACE, return_leash)]
 pub fn one_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downmost, upmost, hat])
 }
 
+pub static mut __is_one__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 27, lazy)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_one__ITEM_PATH_ID_INTERFACE, lazy)]
 pub fn is_one() -> malamute::OneVsAll {}
+
+pub static mut __upmost__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn upmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
@@ -17,12 +23,16 @@ pub fn upmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveCo
     Some(dp.y)
 }
 
+pub static mut __downmost__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn downmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y <= 0.0f32);
     Some(-cc.deleash().end().y)
 }
+
+pub static mut __hat__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn hat(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {

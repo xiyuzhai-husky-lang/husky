@@ -1,5 +1,7 @@
 use super::*;
 
+pub static mut __is_convex__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn is_convex(line_segment_sketch: &crate::line_segment_sketch::LineSegmentSketch, index: i32) -> bool {
     let L = line_segment_sketch.strokes.ilen();

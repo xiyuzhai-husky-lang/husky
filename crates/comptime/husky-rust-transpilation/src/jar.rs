@@ -7,4 +7,5 @@ pub struct RustTranspilationJar(
     crate::manifest::linktime_target_rust_workspace_manifest,
     crate::manifest::source_package_manifest,
     crate::manifest::linkets_package_manifest,
+    crate::mangle::item_path_id_interface_cache_path_aux,
 );

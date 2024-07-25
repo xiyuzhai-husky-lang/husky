@@ -1,13 +1,17 @@
 use super::*;
 
+pub static mut __three_fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 31, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __three_fermi_match__ITEM_PATH_ID_INTERFACE, return_leash)]
 pub fn three_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
 
+pub static mut __is_three__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 32)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_three__ITEM_PATH_ID_INTERFACE)]
 pub fn is_three() -> malamute::OneVsAll {
     require!(major_concave_components().deleash().ilen() >= 2);
     require!(major_concave_components().deleash().ilen() <= 4);
@@ -28,6 +32,8 @@ pub fn is_three() -> malamute::OneVsAll {
     OneVsAll::Yes
 }
 
+pub static mut __uparc__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn uparc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
@@ -35,12 +41,16 @@ pub fn uparc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveCom
     Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
 
+pub static mut __downarc__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn downarc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y <= 0.0f32);
     Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
+
+pub static mut __back__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn back(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {

@@ -20,6 +20,7 @@ use husky_hir_eager_expr::HirEagerExprRegion;
 use husky_hir_ty::ritchie::{HirContract, HirRitchieParameter, HirRitchieSimpleParameter};
 use husky_manifest::HasManifest;
 use husky_vfs::path::module_path::ModulePathData;
+use mangle::item_path_id_interface_cache_path;
 
 #[salsa::tracked(return_ref)]
 pub(crate) fn module_defn_rust_transpilation(
@@ -75,7 +76,11 @@ use {}::{{*, ugly::*}};
         },
         ModulePathData::Chunk { .. } => unreachable!(),
     });
-    for item_path in module_item_paths(db, module_path) {
+
+    for &item_path in module_item_paths(db, module_path) {
+        if let Some(cache_path) = item_path_id_interface_cache_path(item_path, db) {
+            builder.item_path_id_interface_cache(cache_path);
+        }
         match item_path.entity_kind(db) {
             EntityKind::MajorItem {
                 module_item_kind: MajorItemKind::Form(MajorFormKind::Ritchie(ritchie_item_kind)),

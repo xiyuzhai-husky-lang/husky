@@ -1,7 +1,7 @@
 use crate::*;
 use dashmap::DashMap;
 use husky_devsoul::devsoul::IsRuntimeStorage;
-use husky_devsoul_interface::{HuskyIngredientIndex, HuskyJarIndex, IsLinketImpl};
+use husky_devsoul_interface::{item_path::ItemPathIdInterface, IsLinketImpl};
 use husky_entity_path::path::ItemPath;
 use husky_ki::{version_stamp::KiVersionStamp, Ki};
 use husky_linket_impl::standard::StandardLinketImplKiControlFlow;
@@ -28,8 +28,7 @@ pub struct StandardDevRuntimeKiStorageKey {
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct StandardDevRuntimeMemoizedFieldStorageKey {
-    jar_index: HuskyJarIndex,
-    ingredient_index: HuskyIngredientIndex,
+    item_path_id_interface: ItemPathIdInterface,
     slf: AnyPointer,
 }
 
@@ -79,15 +78,13 @@ where
 
     fn get_or_try_init_memo_field_value(
         &self,
-        jar_index: HuskyJarIndex,
-        ingredient_index: HuskyIngredientIndex,
+        item_path_id_interface: ItemPathIdInterface,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinketImplKiControlFlow,
     ) -> StandardLinketImplKiControlFlow {
         // todo: maybe add version stamp?
         let key = StandardDevRuntimeMemoizedFieldStorageKey {
-            jar_index,
-            ingredient_index,
+            item_path_id_interface,
             slf: AnyPointer(slf as _),
         };
         let mu = self.memo_field_values.entry(key).or_default().clone();

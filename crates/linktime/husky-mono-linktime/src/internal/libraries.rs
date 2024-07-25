@@ -7,7 +7,7 @@ use husky_linket_impl::{
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
-use husky_devsoul_interface::{DevEvalContext, HuskyJarIndex};
+use husky_devsoul_interface::DevEvalContext;
 use husky_vfs::path::package_path::PackagePath;
 use libloading::Library;
 use std::path::PathBuf;
