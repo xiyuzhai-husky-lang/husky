@@ -4,7 +4,11 @@ use super::*;
 pub static mut __one_fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __one_fermi_match__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __one_fermi_match__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn one_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downmost, upmost, hat])
 }
@@ -13,7 +17,11 @@ pub fn one_fermi_match() -> crate::fermi::FermiMatchResult {
 pub static mut __is_one__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_one__ITEM_PATH_ID_INTERFACE, lazy)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_one__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    lazy
+)]
 pub fn is_one() -> malamute::OneVsAll {}
 
 #[allow(non_upper_case_globals)]

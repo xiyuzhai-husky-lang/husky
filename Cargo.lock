@@ -4975,6 +4975,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-fmt-utils"
+version = "0.1.0"
+
+[[package]]
 name = "husky-folding-range"
 version = "0.1.0"
 dependencies = [
@@ -5972,6 +5976,7 @@ dependencies = [
  "husky-eth-term",
  "husky-expr",
  "husky-fly-term",
+ "husky-fmt-utils",
  "husky-hir-decl",
  "husky-hir-defn",
  "husky-hir-eager-expr",

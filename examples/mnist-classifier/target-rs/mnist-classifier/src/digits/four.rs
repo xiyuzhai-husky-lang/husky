@@ -4,7 +4,11 @@ use super::*;
 pub static mut __left_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __left_components__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __left_components__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn left_components() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
@@ -21,7 +25,11 @@ pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_compone
 pub static mut __components_max_downwards__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __components_max_downwards__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __components_max_downwards__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
@@ -30,7 +38,11 @@ pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
 pub static mut __components_max_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __components_max_heights__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __components_max_heights__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
@@ -39,7 +51,10 @@ pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
 pub static mut __is_four__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_four__ITEM_PATH_ID_INTERFACE)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_four__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn is_four() -> malamute::OneVsAll {
     require!(let Some(_) = left_components().deleash().matches[0 as usize]);
     require!(let Some(_) = left_components().deleash().matches[1 as usize]);

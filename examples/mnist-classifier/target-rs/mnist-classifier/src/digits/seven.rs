@@ -4,7 +4,11 @@ use super::*;
 pub static mut __simple_seven_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __simple_seven_match__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __simple_seven_match__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn simple_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![simple_leftdown_pattern])
 }
@@ -23,7 +27,11 @@ pub fn simple_leftdown_pattern(cc: Leash<crate::line_segment_sketch::concave_com
 pub static mut __special_seven_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __special_seven_match__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __special_seven_match__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn special_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![leftupcc_pattern, leftdowncc_pattern])
 }
@@ -56,7 +64,10 @@ pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_componen
 pub static mut __is_seven__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_seven__ITEM_PATH_ID_INTERFACE)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_seven__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn is_seven() -> malamute::OneVsAll {
     require!(<crate::connected_component::ConnectedComponent>::max_hole_ilen(major_connected_component()) == 0.0f32);
     let simple_match_norm = <crate::fermi::FermiMatchResult>::norm(simple_seven_match());

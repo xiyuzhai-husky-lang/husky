@@ -2833,6 +2833,7 @@
             "husky-entity-tree",
             "husky-eth-signature",
             "husky-expr",
+            "husky-fmt-utils",
             "husky-hir-decl",
             "husky-hir-defn",
             "husky-hir-eager-expr",
@@ -2847,6 +2848,7 @@
             "husky-opr",
             "husky-place",
             "husky-print-utils",
+            "husky-sem-var-deps",
             "husky-term-prelude",
             "husky-vfs",
             "is",
@@ -2884,6 +2886,11 @@
             "husky-toml-ast",
             "husky-toml-token",
         ],
+    },
+    PackageSummary {
+        name: "husky-fmt-utils",
+        relative_path: "crates/utils/husky-fmt-utils",
+        dependencies: [],
     },
     PackageSummary {
         name: "husky-standard-trace-protocol",

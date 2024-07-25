@@ -5,7 +5,7 @@ pub mod ugly;
 pub mod val;
 
 pub use husky_standard_value::{
-    frozen::ValueStands, value_conversion, DeprecatedValueLeashTest, FromValue, IntoValue, Value,
+    frozen::ValueStands, value_conversion, FromValue, IntoValue, Value,
 };
 
 use self::StandardLinketImpl as LinketImpl;
@@ -238,23 +238,6 @@ macro_rules! gn_linket_impl {
 fn gn_linket_impl_works() {
     todo!()
 }
-
-// fn gn_ki_wrapper(val_argument_reprs: &[__KiArgumentReprInterface]) -> __KiControlFlow {
-//     let value_stands = &mut Default::default();
-//     let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
-//         <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value_temp(
-//             value_at_generic_pedestal,
-//             value_stands,
-//         );
-//     // todo: catch unwind
-//     __KiControlFlow::Continue(
-//         __ValueLeashTest(<$gn_item as __IsGnItem>::eval(
-//             val_argument_reprs,
-//             value_at_generic_pedestal,
-//         ))
-//         .into_value(),
-//     )
-// }
 
 #[macro_export]
 macro_rules! class_specific_leashed_field_into_value {

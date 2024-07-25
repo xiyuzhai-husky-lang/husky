@@ -129,6 +129,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
     fn eval_eager_val_with(
         &self,
         val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: <Devsoul::LinketImpl as IsLinketImpl>::Pedestal,
         f: fn() -> LinketImplKiControlFlow<Devsoul::LinketImpl>,
     ) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();

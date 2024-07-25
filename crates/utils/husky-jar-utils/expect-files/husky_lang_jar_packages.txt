@@ -1104,6 +1104,7 @@
             "husky-linket",
             "husky-manifest",
             "husky-place",
+            "husky-sem-var-deps",
             "husky-term-prelude",
             "husky-vfs",
             "husky-ast",

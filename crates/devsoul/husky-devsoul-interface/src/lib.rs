@@ -110,16 +110,21 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
     pub fn eval_eager_val_with(
         self,
         item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
         f: fn() -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImpl::Value {
         self.runtime
-            .eval_eager_val_with_dyn(item_path_id_interface, f)
+            .eval_eager_val_with_dyn(item_path_id_interface, pedestal, f)
             .unwrap()
     }
 
-    pub fn eval_lazy_val(self, item_path_id_interface: ItemPathIdInterface) -> LinketImpl::Value {
+    pub fn eval_lazy_val(
+        self,
+        item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
+    ) -> LinketImpl::Value {
         self.runtime
-            .eval_lazy_val_dyn(item_path_id_interface)
+            .eval_lazy_val_dyn(item_path_id_interface, pedestal)
             .unwrap()
     }
 
@@ -169,6 +174,7 @@ pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
     fn eval_eager_val_with(
         &self,
         val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
         f: fn() -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
@@ -209,12 +215,14 @@ pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
     fn eval_eager_val_with_dyn(
         &self,
         item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
         f: fn() -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_lazy_val_dyn(
         &self,
         item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_ki_repr_interface_dyn(
@@ -247,14 +255,16 @@ where
     fn eval_eager_val_with_dyn(
         &self,
         item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
         f: fn() -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl> {
-        self.eval_eager_val_with(item_path_id_interface, f)
+        self.eval_eager_val_with(item_path_id_interface, pedestal, f)
     }
 
     fn eval_lazy_val_dyn(
         &self,
         item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
     ) -> LinketImplKiControlFlow<LinketImpl> {
         todo!()
         // self.eval_ingredient(item_path_id_interface)

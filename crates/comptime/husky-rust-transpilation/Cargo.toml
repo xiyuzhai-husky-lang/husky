@@ -42,12 +42,14 @@ husky-linket.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
+husky-sem-var-deps.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 # utils
-husky-io-utils = { path = "../../utils/husky-io-utils" }
+husky-fmt-utils.workspace = true
+husky-io-utils.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]

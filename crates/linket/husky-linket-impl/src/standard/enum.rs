@@ -339,7 +339,6 @@ macro_rules! enum_variant_field_linket_impl {
 
 #[test]
 fn enum_props_variant_field_linket_impl_works() {
-    use crate::standard::ugly::__ValueLeashTest;
     use husky_core::*;
 
     enum Animal {
@@ -354,7 +353,6 @@ fn enum_props_variant_field_linket_impl_works() {
 
 #[test]
 fn enum_tuple_variant_field_linket_impl_works() {
-    use crate::standard::ugly::__ValueLeashTest;
     use husky_core::*;
 
     enum Animal {

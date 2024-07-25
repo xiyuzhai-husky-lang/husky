@@ -342,6 +342,7 @@ husky-control-flow-utils = { path = "crates/utils/husky-control-flow-utils" }
 husky-debug-utils = { path = "crates/utils/husky-debug-utils" }
 husky-decl-macro-utils = { path = "crates/utils/husky-decl-macro-utils" }
 husky-error-utils = { path = "crates/utils/husky-error-utils" }
+husky-fmt-utils = { path = "crates/utils/husky-fmt-utils" }
 husky-git-utils = { path = "crates/utils/husky-git-utils" }
 husky-io-utils = { path = "crates/utils/husky-io-utils" }
 husky-iter-utils = { path = "crates/utils/husky-iter-utils" }

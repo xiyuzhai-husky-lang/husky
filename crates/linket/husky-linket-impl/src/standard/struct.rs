@@ -53,7 +53,6 @@ macro_rules! struct_field_linket_impl {
 
 #[test]
 fn struct_field_linket_impl_works() {
-    use crate::standard::ugly::__ValueLeashTest;
     use husky_core::*;
     use husky_standard_value::ugly::*;
 

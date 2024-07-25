@@ -4,7 +4,11 @@ use super::*;
 pub static mut __three_fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __three_fermi_match__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __three_fermi_match__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn three_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
@@ -13,7 +17,10 @@ pub fn three_fermi_match() -> crate::fermi::FermiMatchResult {
 pub static mut __is_three__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_three__ITEM_PATH_ID_INTERFACE)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_three__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn is_three() -> malamute::OneVsAll {
     require!(major_concave_components().deleash().ilen() >= 2);
     require!(major_concave_components().deleash().ilen() <= 4);

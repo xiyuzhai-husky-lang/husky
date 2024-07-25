@@ -45,7 +45,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
                 //     #item_path_id_interface,
                 //     |slf| {
                 //         // todo: catch unwind
-                //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
+                //         __KiControlFlow::Continue(slf.#aux_ident().into_value())
                 //     }
                 // )
             }
@@ -62,7 +62,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
                 //     #item_path_id_interface,
                 //     |slf| {
                 //         // todo: catch unwind
-                //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
+                //         __KiControlFlow::Continue(slf.#aux_ident().into_value())
                 //     }
                 // )
             }
