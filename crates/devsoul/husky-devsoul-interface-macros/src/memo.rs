@@ -56,7 +56,7 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
     } else {
         quote! {
             #vis fn #ident(__self: Leash<Self>) -> #return_ty {
-                todo!("return copied for eager val")
+                todo!("return copied for memo")
                 // __eval_memo_field_with(
                 //     self,
                 //     #ingredient_index,

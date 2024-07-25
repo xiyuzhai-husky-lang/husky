@@ -16,12 +16,12 @@ use husky_hir_ty::{ritchie::HirContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linket::{
     context::LinComptimeVarOverride,
-    instantiation::{LinInstantiation, LinTermSymbolResolution, LinketInstantiate},
-    linket::LinketField,
+    instantiation::{LinInstantiate, LinInstantiation, LinTermSymbolResolution},
+    linket::{ty::LinLeashClass, LinField},
     template_argument::{
         constant::LinConstant,
         qual,
-        ty::{LinType, LinketRitchieParameter, LinketRitchieType},
+        ty::{LinRitchieParameter, LinRitchieType, LinType},
         LinTemplateArgument,
     },
     trai::LinketTrait,
@@ -195,6 +195,7 @@ impl TranspileToRustWith<()> for Linket {
             LinketData::EnumVariantField {
                 path,
                 ref instantiation,
+                field_ty_leash_class,
                 field,
             } => builder.macro_call(RustMacroName::EnumVariantFieldLinketImpl, |builder| {
                 path.parent_ty_path(db).transpile_to_rust(builder);
@@ -216,14 +217,16 @@ impl TranspileToRustWith<()> for Linket {
                 path.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);
                 match field {
-                    LinketField::Tuple { index } => builder
-                        .delimited(RustDelimiter::Par, |builder| {
-                            TupleFieldVariable(index.into()).transpile_to_rust(builder)
-                        }),
-                    LinketField::Props { ident } => builder
-                        .delimited(RustDelimiter::Curl, |builder| {
-                            ident.transpile_to_rust(builder)
-                        }),
+                    LinField::Tuple { index } => builder.delimited(RustDelimiter::Par, |builder| {
+                        field_ty_leash_class.transpile_to_rust(builder);
+                        TupleFieldVariable(index.into()).transpile_to_rust(builder);
+                    }),
+                    LinField::Props { ident } => {
+                        builder.delimited(RustDelimiter::Curl, |builder| {
+                            field_ty_leash_class.transpile_to_rust(builder);
+                            ident.transpile_to_rust(builder);
+                        })
+                    }
                 }
             }),
             LinketData::EnumUnitToJsonValue { ty_path } => builder
@@ -257,16 +260,19 @@ impl TranspileToRustWith<()> for Linket {
                     }
                 })
             }
-            LinketData::StructField { self_ty, field } => {
-                builder.macro_call(RustMacroName::StructFieldLinketImpl, |builder| {
-                    self_ty.transpile_to_rust(builder);
-                    builder.punctuation(RustPunctuation::CommaSpaced);
-                    match field {
-                        LinketField::Tuple { index } => todo!(),
-                        LinketField::Props { ident } => ident.transpile_to_rust(builder),
-                    }
-                })
-            }
+            LinketData::StructField {
+                self_ty,
+                field_ty_leash_class,
+                field,
+            } => builder.macro_call(RustMacroName::StructFieldLinketImpl, |builder| {
+                self_ty.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                field_ty_leash_class.transpile_to_rust(builder);
+                match field {
+                    LinField::Tuple { index } => todo!(),
+                    LinField::Props { ident } => ident.transpile_to_rust(builder),
+                }
+            }),
             LinketData::AssocRitchie {
                 path,
                 ref instantiation,
@@ -372,7 +378,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
             db,
         )
         .unwrap()
-        .linket_instantiate(lin_instantiation, db);
+        .lin_instantiate(lin_instantiation, db);
         let ident = path.ident(db);
         builder.delimited(RustDelimiter::Angle, |builder| {
             match self_ty {
@@ -483,7 +489,7 @@ impl<E> TranspileToRustWith<E> for LinTemplateArgument {
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinketRitchieType {
+impl<E> TranspileToRustWith<E> for LinRitchieType {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         builder.keyword(RustKeyword::Fn);
@@ -493,7 +499,7 @@ impl<E> TranspileToRustWith<E> for LinketRitchieType {
     }
 }
 
-impl<E> TranspileToRustWith<E> for LinketRitchieParameter {
+impl<E> TranspileToRustWith<E> for LinRitchieParameter {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self.contract() {
             // ad hoc
@@ -507,6 +513,12 @@ impl<E> TranspileToRustWith<E> for LinketRitchieParameter {
             HirContract::At => todo!(),
         }
         self.parameter_ty().transpile_to_rust(builder)
+    }
+}
+
+impl<E> TranspileToRustWith<E> for LinLeashClass {
+    fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
+        builder.write_str(self.code())
     }
 }
 
@@ -529,11 +541,11 @@ impl<E> TranspileToRustWith<E> for (TraitForTypeItemPath, &LinInstantiation) {
                 path.impl_block(db).eth_template(db).unwrap();
             let self_ty = HirType::from_eth(trait_for_type_impl_block_eth_template.self_ty(db), db)
                 .unwrap()
-                .linket_instantiate(lin_instantiation, db);
+                .lin_instantiate(lin_instantiation, db);
             self_ty.transpile_to_rust(builder);
             builder.keyword(RustKeyword::As);
             let trai = HirTrait::from_eth(trait_for_type_impl_block_eth_template.trai(db), db);
-            trai.linket_instantiate(lin_instantiation, db)
+            trai.lin_instantiate(lin_instantiation, db)
                 .transpile_to_rust(builder)
         });
         builder.punctuation(RustPunctuation::ColonColon);

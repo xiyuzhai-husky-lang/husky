@@ -121,7 +121,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         self.result.is_empty() || self.result.ends_with("\n")
     }
 
-    fn write_str(&mut self, s: &str) {
+    pub(crate) fn write_str(&mut self, s: &str) {
         self.result += s
     }
 

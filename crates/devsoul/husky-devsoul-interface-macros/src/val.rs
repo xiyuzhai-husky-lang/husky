@@ -72,11 +72,10 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
         } else {
             quote! {
                 #vis fn #ident() -> #return_ty {
-                    todo!("return copied for eager val")
-                    // __eval_eager_val_with(
-                    //     #ingredient_index,
-                    //     || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
-                    // )
+                    __eval_eager_val_with(
+                        #ingredient_index,
+                        || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
+                    )
                 }
 
                 #vis fn #aux_ident() -> #return_ty #block

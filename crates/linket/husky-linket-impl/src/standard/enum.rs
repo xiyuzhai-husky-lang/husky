@@ -225,7 +225,7 @@ fn enum_tuple_variant_discriminator_linket_impl_works() {
 
 #[macro_export]
 macro_rules! enum_variant_field_linket_impl {
-    ($self_ty: ty, $variant_path: path, {$field: ident}) => {{
+    ($self_ty: ty, $variant_path: path, {$class: ident $field: ident}) => {{
         fn enum_variant_field_wrapper(owner: Value) -> Value {
             match owner {
                 Value::Owned(owner) => {
@@ -233,7 +233,7 @@ macro_rules! enum_variant_field_linket_impl {
                     else {
                         unreachable!()
                     };
-                    __ValueLeashTest($field).into_value()
+                    $field.into_value()
                 }
                 Value::Leash(owner) => {
                     let $variant_path { $field, .. } = (owner as &'static dyn std::any::Any)
@@ -242,7 +242,7 @@ macro_rules! enum_variant_field_linket_impl {
                     else {
                         unreachable!()
                     };
-                    __ValueLeashTest(($field as &'static _)).into_value()
+                    class_specific_leashed_field_into_value!($class $field)
                 }
                 Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
                 Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
@@ -253,14 +253,14 @@ macro_rules! enum_variant_field_linket_impl {
             enum_variant_field_wrapper,
         }
     }};
-    ($self_ty: ty, $variant_path: path, (v0)) => {{
+    ($self_ty: ty, $variant_path: path, ($class: ident v0)) => {{
         fn enum_variant_field_wrapper(owner: Value) -> Value {
             match owner {
                 Value::Owned(owner) => {
                     let $variant_path(v0, ..) = owner.downcast_into_owned::<$self_ty>() else {
                         unreachable!()
                     };
-                    __ValueLeashTest(v0).into_value()
+                    v0.into_value()
                 }
                 Value::Leash(owner) => {
                     let $variant_path(v0, ..) = (owner as &'static dyn std::any::Any)
@@ -269,7 +269,7 @@ macro_rules! enum_variant_field_linket_impl {
                     else {
                         unreachable!()
                     };
-                    __ValueLeashTest((v0 as &'static _)).into_value()
+                    class_specific_leashed_field_into_value!($class v0)
                 }
                 Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
                 Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
@@ -280,14 +280,14 @@ macro_rules! enum_variant_field_linket_impl {
             enum_variant_field_wrapper,
         }
     }};
-    ($self_ty: ty, $variant_path: path, (v1)) => {{
+    ($self_ty: ty, $variant_path: path, ($class: ident v1)) => {{
         fn enum_variant_field_wrapper(owner: Value) -> Value {
             match owner {
                 Value::Owned(owner) => {
                     let $variant_path(_, v1, ..) = owner.downcast_into_owned::<$self_ty>() else {
                         unreachable!()
                     };
-                    __ValueLeashTest(v1).into_value()
+                    v1.into_value()
                 }
                 Value::Leash(owner) => {
                     let $variant_path(_, v1, ..) = (owner as &'static dyn std::any::Any)
@@ -296,7 +296,7 @@ macro_rules! enum_variant_field_linket_impl {
                     else {
                         unreachable!()
                     };
-                    __ValueLeashTest((v1 as &'static _)).into_value()
+                    class_specific_leashed_field_into_value!($class v1)
                 }
                 Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
                 Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
@@ -307,7 +307,7 @@ macro_rules! enum_variant_field_linket_impl {
             enum_variant_field_wrapper,
         }
     }};
-    ($self_ty: ty, $variant_path: path, (v2)) => {{
+    ($self_ty: ty, $variant_path: path, ($class: ident v2)) => {{
         fn enum_variant_field_wrapper(owner: Value) -> Value {
             match owner {
                 Value::Owned(owner) => {
@@ -315,7 +315,7 @@ macro_rules! enum_variant_field_linket_impl {
                     else {
                         unreachable!()
                     };
-                    __ValueLeashTest(v1).into_value()
+                    v1.into_value()
                 }
                 Value::Leash(owner) => {
                     let $variant_path(_, _, v2, ..) = (owner as &'static dyn std::any::Any)
@@ -324,7 +324,7 @@ macro_rules! enum_variant_field_linket_impl {
                     else {
                         unreachable!()
                     };
-                    __ValueLeashTest((v2 as &'static _)).into_value()
+                    class_specific_leashed_field_into_value!($class v2)
                 }
                 Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
                 Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
@@ -340,6 +340,7 @@ macro_rules! enum_variant_field_linket_impl {
 #[test]
 fn enum_props_variant_field_linket_impl_works() {
     use crate::standard::ugly::__ValueLeashTest;
+    use husky_core::*;
 
     enum Animal {
         Frog {},
@@ -348,12 +349,13 @@ fn enum_props_variant_field_linket_impl_works() {
     }
 
     let _: StandardLinketImpl<()> =
-        enum_variant_field_linket_impl!(Animal, Animal::Cat, { weight });
+        enum_variant_field_linket_impl!(Animal, Animal::Cat, { copyable weight });
 }
 
 #[test]
 fn enum_tuple_variant_field_linket_impl_works() {
     use crate::standard::ugly::__ValueLeashTest;
+    use husky_core::*;
 
     enum Animal {
         Frog(),
@@ -361,9 +363,12 @@ fn enum_tuple_variant_field_linket_impl_works() {
         Cat(i32, i32),
     }
 
-    let _: StandardLinketImpl<()> = enum_variant_field_linket_impl!(Animal, Animal::Dog, (v0));
-    let _: StandardLinketImpl<()> = enum_variant_field_linket_impl!(Animal, Animal::Cat, (v0));
-    let _: StandardLinketImpl<()> = enum_variant_field_linket_impl!(Animal, Animal::Cat, (v1));
+    let _: StandardLinketImpl<()> =
+        enum_variant_field_linket_impl!(Animal, Animal::Dog, (copyable v0));
+    let _: StandardLinketImpl<()> =
+        enum_variant_field_linket_impl!(Animal, Animal::Cat, (copyable v0));
+    let _: StandardLinketImpl<()> =
+        enum_variant_field_linket_impl!(Animal, Animal::Cat, (copyable v1));
 }
 
 #[macro_export]

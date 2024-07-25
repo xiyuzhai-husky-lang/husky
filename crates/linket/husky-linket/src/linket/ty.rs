@@ -62,7 +62,11 @@ pub(super) fn enum_ty_linkets_emancipated_by_javelin(
                             LinketData::EnumVariantField {
                                 path,
                                 instantiation: instantiation.clone(),
-                                field: LinketField::Props {
+                                field_ty_leash_class: field
+                                    .ty()
+                                    .lin_instantiate(&instantiation, db)
+                                    .ty_leash_class(db),
+                                field: LinField::Props {
                                     ident: field.ident(),
                                 },
                             },
@@ -84,7 +88,11 @@ pub(super) fn enum_ty_linkets_emancipated_by_javelin(
                             LinketData::EnumVariantField {
                                 path,
                                 instantiation: instantiation.clone(),
-                                field: LinketField::Tuple {
+                                field_ty_leash_class: field
+                                    .ty()
+                                    .lin_instantiate(&instantiation, db)
+                                    .ty_leash_class(db),
+                                field: LinField::Tuple {
                                     index: index.try_into().unwrap(),
                                 },
                             },
@@ -104,20 +112,28 @@ pub(super) fn struct_ty_linkets_emancipated_by_javelin(
     db: &::salsa::Db,
 ) -> SmallVec<[Linket; 4]> {
     let mut linkets: SmallVec<[Linket; 4]> = smallvec![];
-    let fields: Vec<LinketField> = match path.hir_decl(db).unwrap() {
-        TypeHirDecl::PropsStruct(hir_decl) => hir_decl
-            .fields(db)
-            .iter()
-            .map(|field| LinketField::Props {
-                ident: field.ident(),
-            })
-            .collect(),
-        TypeHirDecl::UnitStruct(_) => vec![],
-        TypeHirDecl::TupleStruct(_) => todo!(),
-        TypeHirDecl::Union(_) => todo!(),
-        _ => unreachable!(),
-    };
     for instantiation in LinInstantiation::from_jav(instantiation, db) {
+        let fields: Vec<(LinLeashClass, LinField)> = match path.hir_decl(db).unwrap() {
+            TypeHirDecl::PropsStruct(hir_decl) => hir_decl
+                .fields(db)
+                .iter()
+                .map(|field| {
+                    (
+                        field
+                            .ty()
+                            .lin_instantiate(&instantiation, db)
+                            .ty_leash_class(db),
+                        LinField::Props {
+                            ident: field.ident(),
+                        },
+                    )
+                })
+                .collect(),
+            TypeHirDecl::UnitStruct(_) => vec![],
+            TypeHirDecl::TupleStruct(_) => todo!(),
+            TypeHirDecl::Union(_) => todo!(),
+            _ => unreachable!(),
+        };
         let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);
         linkets.push(Linket::new(
             db,
@@ -129,9 +145,48 @@ pub(super) fn struct_ty_linkets_emancipated_by_javelin(
         if !fields.is_empty() {
             linkets.push(Linket::new(db, LinketData::StructDestructor { self_ty }));
         }
-        for &field in &fields {
-            linkets.push(Linket::new(db, LinketData::StructField { self_ty, field }))
+        for (field_ty_leash_class, field) in fields {
+            linkets.push(Linket::new(
+                db,
+                LinketData::StructField {
+                    self_ty,
+                    field_ty_leash_class,
+                    field,
+                },
+            ))
         }
     }
     linkets
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum LinLeashClass {
+    Copyable,
+    Vec,
+    Other,
+}
+
+impl LinType {
+    fn ty_leash_class(self, db: &::salsa::Db) -> LinLeashClass {
+        match self {
+            LinType::PathLeading(slf) => {
+                if slf.is_copyable(db) {
+                    LinLeashClass::Copyable
+                } else {
+                    LinLeashClass::Other
+                }
+            }
+            LinType::Ritchie(_) => LinLeashClass::Copyable,
+        }
+    }
+}
+
+impl LinLeashClass {
+    pub fn code(self) -> &'static str {
+        match self {
+            LinLeashClass::Copyable => "copyable",
+            LinLeashClass::Vec => "vec",
+            LinLeashClass::Other => "other",
+        }
+    }
 }
