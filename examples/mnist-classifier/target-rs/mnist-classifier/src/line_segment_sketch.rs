@@ -10,6 +10,8 @@ pub use self::line_segment::*;
 
 use crate::*;
 
+pub static mut __LineSegmentStroke__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -31,6 +33,8 @@ impl LineSegmentStroke {
     }
 }
 
+pub static mut __LineSegmentSketch__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -48,6 +52,8 @@ impl LineSegmentSketch {
     }
 }
 
+pub static mut __go_right__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();
@@ -58,6 +64,8 @@ pub fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d 
     crate::geom2d::Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
+pub static mut __go_left__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     let L = (u.x * u.x + u.y * u.y).sqrt();
@@ -67,6 +75,8 @@ pub fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     let dy = dr * u.x / L;
     crate::geom2d::Vector2d::__constructor(u.x + dx, u.y + dy)
 }
+
+pub static mut __extend_end__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32) -> i32 {
@@ -107,6 +117,8 @@ pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32)
     assert!(end > start);
     return end;
 }
+
+pub static mut __extend_start__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end: i32, r: f32) -> i32 {
@@ -156,6 +168,8 @@ pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end:
         return start0;
     }
 }
+
+pub static mut __find_line_segments__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn find_line_segments(ct: Leash<crate::raw_contour::RawContour>, r: f32) -> Vec<crate::line_segment_sketch::LineSegmentStroke> {
@@ -213,6 +227,8 @@ impl Visualize for crate::line_segment_sketch::LineSegmentStroke {
     }
 }
 
+pub static mut __Visualize__for__LineSegmentStroke__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentStroke {
     pub fn new(ct: Leash<crate::raw_contour::RawContour>, from: i32, to: i32) -> crate::line_segment_sketch::LineSegmentStroke {
@@ -225,6 +241,12 @@ impl crate::line_segment_sketch::LineSegmentStroke {
     }
 }
 
+pub static mut __LineSegmentStroke__new__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+pub static mut __LineSegmentStroke__displacement__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
     fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
@@ -232,14 +254,16 @@ impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
     }
 }
 
+pub static mut __Visualize__for__LineSegmentSketch__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentSketch {
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 13, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __LineSegmentSketch__concave_components__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
         crate::line_segment_sketch::concave_component::find_concave_components(__self)
     }
 
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 14, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __LineSegmentSketch__bounding_box__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &__self.deleash().strokes[0 as usize].start;
         let mut xmin = start_point.x;
@@ -260,3 +284,14 @@ impl crate::line_segment_sketch::LineSegmentSketch {
         crate::line_segment_sketch::LineSegmentSketch::__constructor(ct, crate::line_segment_sketch::find_line_segments(ct, r))
     }
 }
+
+pub static mut __LineSegmentSketch__concave_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+pub static mut __LineSegmentSketch__bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+pub static mut __LineSegmentSketch__new__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+

@@ -329,12 +329,12 @@ impl Visualize for crate::raw_contour::RawContour {
 
 #[rustfmt::skip]
 impl crate::raw_contour::RawContour {
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 9, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 9, return_leash)]
     pub fn line_segment_sketch(&'static self) -> crate::line_segment_sketch::LineSegmentSketch {
         crate::line_segment_sketch::LineSegmentSketch::new(__self, 1.4f32)
     }
 
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 10, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 10, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &__self.deleash().points[0 as usize];
         let mut xmin = start_point.x;
@@ -351,12 +351,12 @@ impl crate::raw_contour::RawContour {
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 11, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 11, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
         <crate::raw_contour::RawContour>::bounding_box(Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(__self.deleash().cc).deleash()[0 as usize])).deleash().relative_bounding_box(<crate::raw_contour::RawContour>::bounding_box(__self).deleash())
     }
 
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 12)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 12)]
     pub fn contour_len(&'static self) -> f32 {
         let mut contour_len = 0.0f32;
         for i in (0 + 1)..__self.deleash().points.ilen() {

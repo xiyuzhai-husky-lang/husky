@@ -1,13 +1,12 @@
 use crate::*;
 use husky_devsoul_interface::{
+    item_path::ItemPathIdInterface,
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
     pedestal::{IsPedestal, IsPedestalFull},
     DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
 };
-use husky_devsoul_interface::{
-    HuskyIngredientIndex, HuskyJarIndex, IsLinketImpl, LinketImplKiControlFlow,
-};
+use husky_devsoul_interface::{IsLinketImpl, LinketImplKiControlFlow};
 use husky_entity_path::path::ItemPath;
 use husky_ki::Ki;
 use husky_trace_protocol::{
@@ -76,8 +75,7 @@ pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
 
     fn get_or_try_init_memo_field_value(
         &self,
-        jar_index: HuskyJarIndex,
-        ingredient_index: HuskyIngredientIndex,
+        item_path_id_interface: ItemPathIdInterface,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;

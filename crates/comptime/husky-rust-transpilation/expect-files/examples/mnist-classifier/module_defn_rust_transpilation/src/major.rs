@@ -1,13 +1,13 @@
 use crate::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 48, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 48, return_leash)]
 pub fn connected_components() -> Vec<crate::connected_component::ConnectedComponent> {
     crate::connected_component::find_connected_components(INPUT().deleash())
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 49)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 49)]
 pub fn major_connected_component() -> Leash<crate::connected_component::ConnectedComponent> {
     let mut i0 = 0;
     let mut max_row_span_sum = 0.0f32;
@@ -22,7 +22,7 @@ pub fn major_connected_component() -> Leash<crate::connected_component::Connecte
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 50)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 50)]
 pub fn ignored_connected_components_row_span_sum_sum() -> f32 {
     let mut sum = 0.0f32;
     for i in 0..connected_components().deleash().ilen() {
@@ -32,25 +32,25 @@ pub fn ignored_connected_components_row_span_sum_sum() -> f32 {
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 51)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 51)]
 pub fn major_raw_contours() -> Leash<Vec<crate::raw_contour::RawContour>> {
     <crate::connected_component::ConnectedComponent>::raw_contours(major_connected_component())
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 52)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 52)]
 pub fn major_raw_contour() -> Leash<crate::raw_contour::RawContour> {
     Leash(&<crate::connected_component::ConnectedComponent>::raw_contours(major_connected_component()).deleash()[0 as usize])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 53)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 53)]
 pub fn major_line_segment_sketch() -> Leash<crate::line_segment_sketch::LineSegmentSketch> {
     <crate::raw_contour::RawContour>::line_segment_sketch(major_raw_contour())
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 54)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 54)]
 pub fn major_concave_components() -> Leash<Vec<crate::line_segment_sketch::concave_component::ConcaveComponent>> {
     <crate::line_segment_sketch::LineSegmentSketch>::concave_components(major_line_segment_sketch())
 }

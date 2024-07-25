@@ -28,7 +28,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     }
 }
 
-impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
+impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
     pub(crate) fn one(&mut self) {
         self.write_str("1")
     }
@@ -247,5 +247,18 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 
     pub(crate) fn deleash(&mut self) {
         self.result += ".deleash()";
+    }
+}
+
+impl<'a, 'b> RustTranspilationBuilder<'a, 'b, ()> {
+    pub(crate) fn item_path_id_interface_cache(&mut self, cache_path: &str) {
+        use std::fmt::Write;
+
+        write!(
+            &mut self.result,
+            "\n\npub static mut {}: Option<__ItemPathIdInterface> = None;\n\n",
+            cache_path
+        )
+        .unwrap()
     }
 }

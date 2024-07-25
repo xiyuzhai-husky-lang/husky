@@ -1,13 +1,13 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 41, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 41, return_leash)]
 pub fn upper_mouth_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![big_mouth])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 42)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 42)]
 pub fn is_eight() -> malamute::OneVsAll {
     let upper_excess = <crate::connected_component::ConnectedComponent>::upper_mass(major_connected_component()) - <crate::connected_component::ConnectedComponent>::lower_mass(major_connected_component());
     if let Option::None = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component()).deleash().matches[1 as usize] {

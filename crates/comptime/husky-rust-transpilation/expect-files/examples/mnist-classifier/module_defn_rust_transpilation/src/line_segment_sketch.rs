@@ -234,12 +234,12 @@ impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
 
 #[rustfmt::skip]
 impl crate::line_segment_sketch::LineSegmentSketch {
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 13, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 13, return_leash)]
     pub fn concave_components(&'static self) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
         crate::line_segment_sketch::concave_component::find_concave_components(__self)
     }
 
-    #[ad_hoc_devsoul_dependency::memo(ingredient_index = 14, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 14, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &__self.deleash().strokes[0 as usize].start;
         let mut xmin = start_point.x;

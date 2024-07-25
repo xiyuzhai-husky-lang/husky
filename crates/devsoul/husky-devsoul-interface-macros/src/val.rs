@@ -5,7 +5,7 @@ use syn::parse::discouraged::AnyDelimiter;
 
 pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
     let ValArgs {
-        ingredient_index,
+        item_path_id_interface,
         lazy,
         return_leash,
         return_leash_ty,
@@ -42,7 +42,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
             quote! {
                 #vis fn #ident() -> #return_leash_ty {
                     todo!("return leash for lazy val")
-                    // __eval_lazy_val(#ingredient_index)
+                    // __eval_lazy_val(#item_path_id_interface)
                 }
             }
             .into()
@@ -50,7 +50,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
             quote! {
                 #vis fn #ident() -> #return_ty {
                     todo!("return copied for lazy val")
-                    // __eval_lazy_val(#ingredient_index)
+                    // __eval_lazy_val(#item_path_id_interface)
                 }
             }
             .into()
@@ -61,7 +61,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
                 #vis fn #ident() -> #return_leash_ty {
                     todo!("return leash for eager val, change the return type")
                     // __eval_eager_val_with(
-                    //     #ingredient_index,
+                    //     #item_path_id_interface,
                     //     || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
                     // )
                 }
@@ -73,7 +73,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
             quote! {
                 #vis fn #ident() -> #return_ty {
                     __eval_eager_val_with(
-                        todo!("eager val item path id interface"),
+                        unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
                         || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
                     )
                 }
@@ -86,7 +86,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 struct ValArgs {
-    ingredient_index: usize,
+    item_path_id_interface: Ident,
     // default false
     lazy: bool,
     // default false
@@ -97,12 +97,11 @@ struct ValArgs {
 impl syn::parse::Parse for ValArgs {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let ident: syn::Ident = syn::Ident::parse_any(input)?;
-        assert!(ident == "ingredient_index");
+        assert!(ident == "item_path_id_interface");
         let _eq = Equals::parse(input)?;
-        let lit = syn::LitInt::parse(input)?;
-        let ingredient_index: usize = lit.base10_parse()?;
+        let item_path_id_interface = syn::Ident::parse(input)?;
         let mut slf = Self {
-            ingredient_index,
+            item_path_id_interface,
             lazy: false,
             return_leash: false,
             return_leash_ty: None,

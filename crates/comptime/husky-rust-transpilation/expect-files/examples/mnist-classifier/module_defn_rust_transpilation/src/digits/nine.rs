@@ -1,19 +1,19 @@
 use super::*;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 43, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 43, return_leash)]
 pub fn nine_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downmost])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 44, return_leash)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 44, return_leash)]
 pub fn nine_match_refine() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![big_cc])
 }
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 45)]
+#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 45)]
 pub fn is_nine() -> malamute::OneVsAll {
     let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());
     require!(let Option::None = eff_holes.deleash().matches[1 as usize]);
