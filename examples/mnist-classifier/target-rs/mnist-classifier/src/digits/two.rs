@@ -4,7 +4,11 @@ use super::*;
 pub static mut __two_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __two_match__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __two_match__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn two_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_cc_pattern, right_cc_pattern, down_cc_pattern])
 }
@@ -43,7 +47,10 @@ pub fn down_cc_pattern(cc: Leash<crate::line_segment_sketch::concave_component::
 pub static mut __is_two__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_two__ITEM_PATH_ID_INTERFACE)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_two__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn is_two() -> malamute::OneVsAll {
     let cc_num = major_concave_components().deleash().ilen();
     let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());

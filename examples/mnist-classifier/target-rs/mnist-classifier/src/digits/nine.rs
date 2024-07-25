@@ -4,7 +4,11 @@ use super::*;
 pub static mut __nine_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __nine_match__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __nine_match__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn nine_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downmost])
 }
@@ -13,7 +17,11 @@ pub fn nine_match() -> crate::fermi::FermiMatchResult {
 pub static mut __nine_match_refine__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __nine_match_refine__ITEM_PATH_ID_INTERFACE, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __nine_match_refine__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn nine_match_refine() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![big_cc])
 }
@@ -22,7 +30,10 @@ pub fn nine_match_refine() -> crate::fermi::FermiMatchResult {
 pub static mut __is_nine__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_nine__ITEM_PATH_ID_INTERFACE)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_nine__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn is_nine() -> malamute::OneVsAll {
     let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());
     require!(let Option::None = eff_holes.deleash().matches[1 as usize]);

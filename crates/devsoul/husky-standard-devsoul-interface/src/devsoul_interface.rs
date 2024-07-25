@@ -36,10 +36,11 @@ fn eval_context() -> DevEvalContext {
 
 pub fn eval_eager_val_with<T>(
     item_path_id_interface: ItemPathIdInterface,
+    pedestal: StandardPedestal,
     f: fn() -> StandardLinketImplKiControlFlow,
 ) -> T
 where
     T: FromValue,
 {
-    T::from_value_static(eval_context().eval_eager_val_with(item_path_id_interface, f))
+    T::from_value_static(eval_context().eval_eager_val_with(item_path_id_interface, pedestal, f))
 }

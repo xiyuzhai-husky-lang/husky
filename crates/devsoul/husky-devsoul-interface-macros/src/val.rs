@@ -6,6 +6,7 @@ use syn::parse::discouraged::AnyDelimiter;
 pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
     let ValArgs {
         item_path_id_interface,
+        var_deps,
         lazy,
         return_leash,
         return_leash_ty,
@@ -62,7 +63,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
                     todo!("return leash for eager val, change the return type")
                     // __eval_eager_val_with(
                     //     #item_path_id_interface,
-                    //     || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
+                    //     || __KiControlFlow::Continue(#aux_ident().into_value())
                     // )
                 }
 
@@ -74,7 +75,8 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
                 #vis fn #ident() -> #return_ty {
                     __eval_eager_val_with(
                         unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
-                        || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
+                        todo!("pedestal"),
+                        || __KiControlFlow::Continue(#aux_ident().into_value())
                     )
                 }
 
@@ -87,6 +89,7 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
 
 struct ValArgs {
     item_path_id_interface: Ident,
+    var_deps: syn::punctuated::Punctuated<syn::Path, syn::Token![,]>,
     // default false
     lazy: bool,
     // default false
@@ -100,8 +103,16 @@ impl syn::parse::Parse for ValArgs {
         assert!(ident == "item_path_id_interface");
         let _eq = Equals::parse(input)?;
         let item_path_id_interface = syn::Ident::parse(input)?;
+        let _comma = Comma::parse(input)?;
+        let ident: syn::Ident = syn::Ident::parse_any(input)?;
+        assert!(ident == "var_deps");
+        let _eq = Equals::parse(input)?;
+        let inside_brackets;
+        let brackets = syn::bracketed!(inside_brackets in input);
+        let var_deps = syn::punctuated::Punctuated::parse_terminated(&inside_brackets)?;
         let mut slf = Self {
             item_path_id_interface,
+            var_deps,
             lazy: false,
             return_leash: false,
             return_leash_ty: None,

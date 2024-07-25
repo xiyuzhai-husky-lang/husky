@@ -235,13 +235,11 @@ macro_rules! unveil_fn_linket_impl {
         fn fn_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
-                __ValueLeashTest(
-                    UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                        std::marker::PhantomData,
-                        $fn_item,
-                    )
-                    .unveil_fn_wrapper_aux(arguments)?,
+                UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
+                    std::marker::PhantomData,
+                    $fn_item,
                 )
+                .unveil_fn_wrapper_aux(arguments)?
                 .into_value(),
             )
         }
@@ -301,7 +299,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
             Pedestal: IsPedestalFull,
             DevsoulInterface: IsDevsoulInterface<LinketImpl = LinketImpl<Pedestal>>,
             F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
-            B: IntoValue, // no need to use DeprecatedValueLeashTest because B is definitely not leashed
+            B: IntoValue,
             Target: Send + FromValue,
             $($runtime_constant: Send + FromValue,)*
             $output: Send,

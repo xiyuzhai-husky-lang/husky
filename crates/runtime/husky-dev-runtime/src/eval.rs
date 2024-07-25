@@ -60,7 +60,15 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     }
 
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
-        todo!("caching");
+        let db = self.comptime.db();
+        if self.config.needs_caching(ki_repr.caching_class(db)) {
+            todo!()
+        } else {
+            self.eval_ki_repr_aux(ki_repr)
+        }
+    }
+
+    fn eval_ki_repr_aux(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
         let ctx = self.eval_context();
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
