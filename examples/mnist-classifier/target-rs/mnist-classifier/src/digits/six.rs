@@ -1,5 +1,6 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __six_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -8,6 +9,7 @@ pub fn six_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![upmost])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __six_match_refined1__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -16,12 +18,14 @@ pub fn six_match_refined1() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![upmost, bottom1])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __is_six__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::val(item_path_id_interface = __is_six__ITEM_PATH_ID_INTERFACE, lazy)]
 pub fn is_six() -> malamute::OneVsAll {}
 
+#[allow(non_upper_case_globals)]
 pub static mut __upmost__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -31,6 +35,7 @@ pub fn upmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveCo
     Some(dp.y)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __bottom1__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]

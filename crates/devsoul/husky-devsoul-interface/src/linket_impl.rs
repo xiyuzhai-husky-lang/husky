@@ -11,6 +11,9 @@ pub trait IsLinketImpl: Send + Copy + 'static {
     type Value: IsValue;
     type Exception: std::fmt::Debug + Serialize;
 
+    ///
+    fn init_item_path_id_interface(self, item_path_id_interface: ItemPathIdInterface);
+
     /// assumed that pedestal has already been
     fn eval_ki(
         self,

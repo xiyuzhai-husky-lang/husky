@@ -1,5 +1,6 @@
 use crate::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __FermiMatchResult__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -19,6 +20,7 @@ impl FermiMatchResult {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -62,13 +64,16 @@ impl crate::fermi::FermiMatchResult {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __FermiMatchResult__norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __FermiMatchResult__rel_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __FermiMatchResult__angle_change_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

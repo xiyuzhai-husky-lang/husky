@@ -116,6 +116,9 @@ thread_local! {
     static __INPUT: std::cell::Cell<Option<Leash<BinaryImage28>>> = Default::default();
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __INPUT__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[allow(non_snake_case)]
 pub fn INPUT() -> Leash<BinaryImage28> {
     __INPUT.get().unwrap()
@@ -137,6 +140,9 @@ impl INPUT {
         todo!()
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __TASK__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 // ad hoc
 #[allow(non_snake_case)]

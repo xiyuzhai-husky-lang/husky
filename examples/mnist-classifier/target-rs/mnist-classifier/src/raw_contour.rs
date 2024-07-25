@@ -1,5 +1,6 @@
 use crate::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __RawContour__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -19,6 +20,7 @@ impl RawContour {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __Direction__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -31,6 +33,7 @@ pub enum Direction {
     Right,
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __get_pixel_pair__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -38,6 +41,7 @@ pub fn get_pixel_pair(row: u32, j: i32) -> u32 {
     row >> j - 1 & 3
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __get_pixel_to_the_left__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -45,6 +49,7 @@ pub fn get_pixel_to_the_left(row: u32, j: i32) -> u32 {
     row >> j & 1
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __get_pixel_to_the_right__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -52,6 +57,7 @@ pub fn get_pixel_to_the_right(row: u32, j: i32) -> u32 {
     row >> j - 1 & 1
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __get_inward_direction__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -110,6 +116,7 @@ pub fn get_inward_direction(row_above: u32, row_below: u32, j: i32) -> crate::ra
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __get_angle_change__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -128,6 +135,7 @@ pub fn get_angle_change(inward: crate::raw_contour::Direction, outward: crate::r
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __get_outward_direction__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -219,6 +227,7 @@ pub fn get_outward_direction(row_above: u32, row_below: u32, j: i32, inward_dire
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __StreakCache__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -238,6 +247,7 @@ impl StreakCache {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __get_concave_middle_point__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -248,6 +258,7 @@ pub fn get_concave_middle_point(points: &Vec<crate::geom2d::Point2d>) -> crate::
     crate::geom2d::Point2d::__constructor((p0.x + p2.x) / 2.0f32, (p0.y + p2.y) / 2.0f32)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __find_raw_contours__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -349,6 +360,7 @@ impl Visualize for crate::raw_contour::RawContour {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __Visualize__for__RawContour__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -402,21 +414,26 @@ impl crate::raw_contour::RawContour {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __RawContour__line_segment_sketch__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __RawContour__bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __RawContour__relative_bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __RawContour__contour_len__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __RawContour__displacement__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

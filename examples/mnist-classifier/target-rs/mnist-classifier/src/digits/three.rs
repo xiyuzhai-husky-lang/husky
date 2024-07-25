@@ -1,5 +1,6 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __three_fermi_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -8,6 +9,7 @@ pub fn three_fermi_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downarc, uparc, back])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __is_three__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -32,6 +34,7 @@ pub fn is_three() -> malamute::OneVsAll {
     OneVsAll::Yes
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __uparc__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -41,6 +44,7 @@ pub fn uparc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveCom
     Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __downarc__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -50,6 +54,7 @@ pub fn downarc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveC
     Option::Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(cc).deleash().ymin())
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __back__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]

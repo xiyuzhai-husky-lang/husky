@@ -10,6 +10,7 @@ pub use self::line_segment::*;
 
 use crate::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __LineSegmentStroke__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -33,6 +34,7 @@ impl LineSegmentStroke {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __LineSegmentSketch__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -52,6 +54,7 @@ impl LineSegmentSketch {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __go_right__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -64,6 +67,7 @@ pub fn go_right(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d 
     crate::geom2d::Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __go_left__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -76,6 +80,7 @@ pub fn go_left(u: &crate::geom2d::Vector2d, r: f32) -> crate::geom2d::Vector2d {
     crate::geom2d::Vector2d::__constructor(u.x + dx, u.y + dy)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __extend_end__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -118,6 +123,7 @@ pub fn extend_end(ct: Leash<crate::raw_contour::RawContour>, start: i32, r: f32)
     return end;
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __extend_start__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -169,6 +175,7 @@ pub fn extend_start(ct: Leash<crate::raw_contour::RawContour>, start0: i32, end:
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __find_line_segments__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -227,6 +234,7 @@ impl Visualize for crate::line_segment_sketch::LineSegmentStroke {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __Visualize__for__LineSegmentStroke__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -241,10 +249,12 @@ impl crate::line_segment_sketch::LineSegmentStroke {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __LineSegmentStroke__new__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __LineSegmentStroke__displacement__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -254,6 +264,7 @@ impl Visualize for crate::line_segment_sketch::LineSegmentSketch {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __Visualize__for__LineSegmentSketch__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -285,13 +296,16 @@ impl crate::line_segment_sketch::LineSegmentSketch {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __LineSegmentSketch__concave_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __LineSegmentSketch__bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __LineSegmentSketch__new__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

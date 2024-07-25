@@ -1,5 +1,6 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -19,6 +20,7 @@ impl ConcaveComponent {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __find_concave_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -51,6 +53,7 @@ impl Visualize for crate::line_segment_sketch::concave_component::ConcaveCompone
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __Visualize__for__ConcaveComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -140,49 +143,61 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__rel_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__hausdorff_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__angle_change__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__relative_bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__line_segment__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__start__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__end__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__displacement__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__start_tangent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConcaveComponent__end_tangent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

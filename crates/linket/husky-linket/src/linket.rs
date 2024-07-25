@@ -47,6 +47,7 @@ pub enum LinketData {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
+    /// includes both eager and lazy ones
     MajorVal {
         path: MajorFormPath,
         instantiation: LinInstantiation,

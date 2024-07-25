@@ -1,5 +1,6 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __simple_seven_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -8,6 +9,7 @@ pub fn simple_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![simple_leftdown_pattern])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __simple_leftdown_pattern__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -17,6 +19,7 @@ pub fn simple_leftdown_pattern(cc: Leash<crate::line_segment_sketch::concave_com
     Some(-dp.y)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __special_seven_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -25,6 +28,7 @@ pub fn special_seven_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![leftupcc_pattern, leftdowncc_pattern])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __leftupcc_pattern__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -35,6 +39,7 @@ pub fn leftupcc_pattern(cc: Leash<crate::line_segment_sketch::concave_component:
     Some(cc.deleash().end().y)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __leftdowncc_pattern__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -47,6 +52,7 @@ pub fn leftdowncc_pattern(cc: Leash<crate::line_segment_sketch::concave_componen
     Some(ang)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __is_seven__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]

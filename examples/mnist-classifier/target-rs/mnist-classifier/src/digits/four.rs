@@ -1,5 +1,6 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __left_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -8,6 +9,7 @@ pub fn left_components() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __left_coordinate_max__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -15,6 +17,7 @@ pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_compone
     Some(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().xmax())
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __components_max_downwards__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -23,6 +26,7 @@ pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __components_max_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -31,6 +35,7 @@ pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __is_four__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -64,6 +69,7 @@ pub fn is_four() -> malamute::OneVsAll {
     OneVsAll::Yes
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __displacement_downwards__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -73,6 +79,7 @@ pub fn displacement_downwards(cc: Leash<crate::line_segment_sketch::concave_comp
     Some(dp.y)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __cc_box_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
