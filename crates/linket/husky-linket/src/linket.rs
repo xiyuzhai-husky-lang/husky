@@ -8,6 +8,7 @@ use crate::{
 };
 use either::*;
 use husky_coword::Ident;
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::path::{
     assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
@@ -26,7 +27,7 @@ use husky_javelin::{
     javelin::{package_javelins, Javelin, JavelinData},
     path::JavPath,
 };
-use husky_vfs::path::package_path::PackagePath;
+use husky_vfs::path::{linktime_target_path::LinktimeTargetPath, package_path::PackagePath};
 use smallvec::{smallvec, SmallVec};
 use ty::LinLeashClass;
 
@@ -557,6 +558,42 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
 pub fn package_linkets(db: &::salsa::Db, package_path: PackagePath) -> Vec<Linket> {
     package_javelins(db, package_path)
         .flat_map(|javelin| linkets_emancipated_by_javelin(db, javelin).iter().copied())
+        .collect()
+}
+
+#[salsa::tracked(return_ref)]
+pub fn target_linkets(db: &::salsa::Db, target_path: LinktimeTargetPath) -> Vec<Linket> {
+    use husky_manifest::manifest::HasManifest;
+
+    target_path
+        .full_dependencies(db)
+        .unwrap()
+        .iter()
+        .map(|&dep| package_linkets(db, dep))
+        .flatten()
+        .copied()
+        .collect()
+}
+
+#[salsa::tracked(return_ref)]
+pub fn target_linket_item_path_id_interfaces(
+    db: &::salsa::Db,
+    target_path: LinktimeTargetPath,
+) -> Vec<Option<ItemPathIdInterface>> {
+    use husky_manifest::manifest::HasManifest;
+
+    target_path
+        .full_dependencies(db)
+        .unwrap()
+        .iter()
+        .map(|&dep| package_linkets(db, dep))
+        .flatten()
+        .copied()
+        .map(|linket| {
+            linket
+                .path_and_instantiation_for_definition(db)
+                .map(|(path, _)| (*path).into())
+        })
         .collect()
 }
 
