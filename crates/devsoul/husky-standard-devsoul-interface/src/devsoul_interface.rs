@@ -1,6 +1,8 @@
 use crate::{pedestal::StandardPedestal, DevEvalContext};
-use husky_devsoul_interface::{devsoul::IsDevsoulInterface, item_path::ItemPathIdInterface};
-use husky_linket_impl::standard::StandardLinketImpl;
+use husky_devsoul_interface::{
+    devsoul::IsDevsoulInterface, item_path::ItemPathIdInterface, KiControlFlow,
+};
+use husky_linket_impl::standard::{StandardLinketImpl, StandardLinketImplKiControlFlow};
 use std::cell::OnceCell;
 
 pub struct StandardDevsoulInterface {}
@@ -27,6 +29,9 @@ impl IsDevsoulInterface for StandardDevsoulInterface {
     }
 }
 
-fn __eval_eager_val<T>(item_path_id: ItemPathIdInterface, f: impl Fn() -> T) -> T {
+pub fn eval_eager_val_with<T>(
+    item_path_id: ItemPathIdInterface,
+    f: impl Fn() -> StandardLinketImplKiControlFlow,
+) -> T {
     todo!()
 }
