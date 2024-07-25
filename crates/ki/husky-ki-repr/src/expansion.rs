@@ -559,19 +559,19 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 (opn, arguments)
             }
             HirLazyExprData::PropsStructField {
-                owner,
-                owner_base_ty,
+                self_argument,
+                self_ty,
                 ident,
                 ..
             } => (
                 KiOpn::Linket(Linket::new_props_struct_field(
-                    owner_base_ty,
+                    self_ty,
                     ident,
                     &self.lin_instantiation,
                     self.db,
                 )),
                 smallvec![KiArgumentRepr::Simple(
-                    self.build_expr(ki_domain_repr_guard, owner)
+                    self.build_expr(ki_domain_repr_guard, self_argument)
                 )],
             ),
             HirLazyExprData::MemoizedField {

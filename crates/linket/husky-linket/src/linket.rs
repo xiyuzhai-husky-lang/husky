@@ -163,8 +163,23 @@ impl Linket {
         let LinType::PathLeading(self_ty) = LinType::from_hir(self_ty, instantiation, db) else {
             unreachable!()
         };
+        let ty_hir_decl = self_ty.ty_path(db).hir_decl(db).unwrap();
+        let TypeHirDecl::PropsStruct(ty_hir_decl) = ty_hir_decl else {
+            use ::husky_print_utils::p;
+            use ::salsa::DebugWithDb;
+            p!(ty_hir_decl.debug(db));
+            unreachable!()
+        };
+        let field_hir_decl = ty_hir_decl
+            .fields(db)
+            .iter()
+            .find(|field_hir_decl| field_hir_decl.ident() == ident)
+            .unwrap();
         let data = LinketData::StructField {
-            field_ty_leash_class: todo!(),
+            field_ty_leash_class: field_hir_decl
+                .ty()
+                .lin_instantiate(instantiation, db)
+                .ty_leash_class(db),
             self_ty,
             field: LinField::Props { ident },
         };

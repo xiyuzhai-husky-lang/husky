@@ -167,7 +167,7 @@ pub enum LinLeashClass {
 }
 
 impl LinType {
-    fn ty_leash_class(self, db: &::salsa::Db) -> LinLeashClass {
+    pub fn ty_leash_class(self, db: &::salsa::Db) -> LinLeashClass {
         match self {
             LinType::PathLeading(slf) => {
                 if slf.is_copyable(db) {

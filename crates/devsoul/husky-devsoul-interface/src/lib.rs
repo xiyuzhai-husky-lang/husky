@@ -178,6 +178,12 @@ pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
         f: fn() -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
+    fn eval_lazy_val(
+        &self,
+        val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
+
     /// the computation is done by the runtime
     /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
     fn eval_ki_repr_interface(
@@ -266,8 +272,7 @@ where
         item_path_id_interface: ItemPathIdInterface,
         pedestal: LinketImpl::Pedestal,
     ) -> LinketImplKiControlFlow<LinketImpl> {
-        todo!()
-        // self.eval_ingredient(item_path_id_interface)
+        self.eval_lazy_val(item_path_id_interface, pedestal)
     }
 
     fn eval_ki_repr_interface_dyn(

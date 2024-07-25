@@ -15,6 +15,7 @@ pub struct PropsStructDecTemplate {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct PropsStructFieldDecTemplate {
+    self_ty: DecTerm,
     ident: Ident,
     ty: DecTerm,
     has_initialization: bool,
@@ -41,6 +42,7 @@ impl PropsStructDecTemplate {
             .enumerate()
             .map(|(i, field)| {
                 Ok(PropsStructFieldDecTemplate {
+                    self_ty,
                     ident: field.ident(),
                     ty: match dec_term_region.expr_term(field.ty()) {
                         Ok(ty) => ty,
@@ -75,6 +77,10 @@ impl PropsStructDecTemplate {
 }
 
 impl PropsStructFieldDecTemplate {
+    pub fn self_ty(&self) -> DecTerm {
+        self.self_ty
+    }
+
     pub fn ident(&self) -> Ident {
         self.ident
     }
