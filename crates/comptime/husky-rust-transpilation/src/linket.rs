@@ -93,21 +93,26 @@ impl TranspileToRustWith<()> for Linket {
                 RitchieItemKind::Sn => todo!(),
                 RitchieItemKind::Tn => todo!(),
             },
-            LinketData::MajorStaticVar { path, .. } => builder
-                .macro_call(RustMacroName::StaticVarLinketImpl, |builder| {
-                    path.transpile_to_rust(builder)
-                }),
+            LinketData::MajorStaticVar { path, .. } => {
+                builder.macro_call(RustMacroName::StaticVarLinketImpl, |builder| {
+                    path.transpile_to_rust(builder);
+                    builder.punctuation(RustPunctuation::CommaSpaced);
+                    builder.item_path_id_interface_cache(path);
+                })
+            }
             LinketData::MajorVal {
                 path,
                 instantiation: _,
-            } => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
-                path.transpile_to_rust(builder)
+            } => builder.macro_call(RustMacroName::ValLinketImpl, |builder| {
+                path.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                builder.item_path_id_interface_cache(path);
             }),
             LinketData::MethodRitchie {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
-                (path, instantiation).transpile_to_rust(builder)
+                (path, instantiation).transpile_to_rust(builder);
             }),
             LinketData::EnumVariantConstructor {
                 self_ty,

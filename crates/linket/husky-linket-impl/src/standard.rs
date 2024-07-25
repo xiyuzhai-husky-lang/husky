@@ -2,6 +2,7 @@ pub mod r#enum;
 pub mod static_var;
 pub mod r#struct;
 pub mod ugly;
+pub mod val;
 
 pub use husky_standard_value::{
     frozen::ValueStands, value_conversion, DeprecatedValueLeashTest, FromValue, IntoValue, Value,
@@ -66,7 +67,12 @@ where
     StructField {
         struct_field_wrapper: fn(Value) -> Value,
     },
+    Val {
+        init_item_path_id_interface: fn(ItemPathIdInterface),
+        ki_wrapper: fn() -> StandardLinketImplKiControlFlow,
+    },
     StaticVar {
+        init_item_path_id_interface: fn(ItemPathIdInterface),
         set_up_for_testing: fn(usize),
         get_id: fn() -> Pedestal::StaticVarId,
         set_id: fn(Pedestal::StaticVarId),
@@ -123,11 +129,14 @@ where
                 let owner = ctx.eval_ki_repr_interface(owner)?;
                 StandardLinketImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
-            StandardLinketImpl::StaticVar {
-                set_up_for_testing,
-                get_id,
-                set_id,
-            } => todo!(),
+            StandardLinketImpl::StaticVar { .. } => todo!(),
+            StandardLinketImpl::Val {
+                ki_wrapper,
+                init_item_path_id_interface: set_item_path_id_interface,
+            } => {
+                debug_assert!(ki_argument_reprs.is_empty());
+                ki_wrapper()
+            }
         }
     }
 
@@ -147,15 +156,33 @@ where
     }
 
     fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
-        let StandardLinketImpl::StaticVar {
-            set_up_for_testing,
-            get_id,
-            set_id,
-        } = self
-        else {
+        let StandardLinketImpl::StaticVar { get_id, .. } = self else {
             unreachable!()
         };
         get_id()
+    }
+
+    fn init_item_path_id_interface(self, item_path_id_interface: ItemPathIdInterface) {
+        match self {
+            StandardLinketImpl::RitchieFn { .. } => (),
+            StandardLinketImpl::RitchieUnveilFn { .. } => (),
+            StandardLinketImpl::RitchieGn { .. } => (),
+            StandardLinketImpl::EnumVariantConstructor { .. } => (),
+            StandardLinketImpl::EnumVariantDestructor { .. } => (),
+            StandardLinketImpl::EnumVariantDiscriminator { .. } => (),
+            StandardLinketImpl::EnumVariantField { .. } => (),
+            StandardLinketImpl::EnumUnitValuePresenter { .. } => (),
+            StandardLinketImpl::StructDestructor { .. } => (),
+            StandardLinketImpl::StructField { .. } => (),
+            StandardLinketImpl::Val {
+                init_item_path_id_interface,
+                ..
+            } => init_item_path_id_interface(item_path_id_interface),
+            StandardLinketImpl::StaticVar {
+                init_item_path_id_interface,
+                ..
+            } => todo!(),
+        }
     }
 }
 

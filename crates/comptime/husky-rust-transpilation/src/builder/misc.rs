@@ -3,10 +3,13 @@ use husky_entity_path::path::{
     major_item::{trai::TraitPath, ty::TypePath},
     submodule::SubmoduleItemPath,
     ty_variant::TypeVariantPath,
+    ItemPath,
 };
 use husky_hir_defn::defn::{major_item::ty::TypeHirDefn, HasHirDefn};
 use husky_linket::template_argument::{qual::LinQual, ty::LinType};
 use husky_manifest::dependency::PackageDependency;
+use mangle::item_path_id_interface_cache_path;
+use salsa::DisplayWithDb;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn pub_use_all_in_submodule(&mut self, submodule_path: SubmoduleItemPath) {
@@ -251,12 +254,36 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
 }
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b, ()> {
-    pub(crate) fn item_path_id_interface_cache(&mut self, cache_path: &str) {
+    pub(crate) fn item_path_id_interface_cache_defn(&mut self, item_path: ItemPath) {
+        if let Some(cache_path) = item_path_id_interface_cache_path(item_path, self.db()) {
+            use std::fmt::Write;
+
+            write!(
+                &mut self.result,
+                r#"
+
+#[allow(non_upper_case_globals)]
+pub static mut {}: Option<__ItemPathIdInterface> = None;
+
+"#,
+                cache_path
+            )
+            .unwrap()
+        }
+    }
+
+    pub(crate) fn item_path_id_interface_cache(&mut self, item_path: impl Into<ItemPath>) {
         use std::fmt::Write;
 
+        let db = self.db();
+        let item_path = item_path.into();
+        let Some(cache_path) = item_path_id_interface_cache_path(item_path, self.db()) else {
+            unreachable!()
+        };
         write!(
             &mut self.result,
-            "\n\npub static mut {}: Option<__ItemPathIdInterface> = None;\n\n",
+            "{}::{}",
+            item_path.module_path(db).display(db),
             cache_path
         )
         .unwrap()

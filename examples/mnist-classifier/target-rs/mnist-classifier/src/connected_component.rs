@@ -1,5 +1,6 @@
 use crate::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponentDistribution__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -23,6 +24,7 @@ impl ConnectedComponentDistribution {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __EffHoles__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -40,6 +42,7 @@ impl EffHoles {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __hole_tmpl__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -49,6 +52,7 @@ pub fn hole_tmpl(ct: Leash<crate::raw_contour::RawContour>) -> Option<f32> {
     Some(len + 0.0f32)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -66,6 +70,7 @@ impl ConnectedComponent {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __horizontal_extend__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -79,6 +84,7 @@ pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     return y;
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __find_connected_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -137,6 +143,7 @@ impl Visualize for crate::connected_component::ConnectedComponent {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __Visualize__for__ConnectedComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -267,41 +274,51 @@ impl crate::connected_component::ConnectedComponent {
     }
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__raw_contours__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__eff_holes__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__max_hole_ilen__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__max_row_span__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__row_span_sum__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__distribution__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__upper_mass__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__lower_mass__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__top_k_row_span_sum__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 
 
+#[allow(non_upper_case_globals)]
 pub static mut __ConnectedComponent__top_k_row_right_mass_sum__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 

@@ -21,6 +21,7 @@ pub use self::major::*;
 use malamute::*;
 use mnist::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __main__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]

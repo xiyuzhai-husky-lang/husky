@@ -1,5 +1,6 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
 pub static mut __open_one_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -8,6 +9,7 @@ pub fn open_one_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![almost_closed])
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __almost_closed__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
@@ -16,6 +18,7 @@ pub fn almost_closed(cc: Leash<crate::line_segment_sketch::concave_component::Co
     Some(-<crate::line_segment_sketch::concave_component::ConcaveComponent>::angle_change(cc) + 0.0f32)
 }
 
+#[allow(non_upper_case_globals)]
 pub static mut __is_zero__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]

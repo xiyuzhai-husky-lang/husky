@@ -127,4 +127,11 @@ impl IsLinketImpl for VirtualLinketImpl {
     fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
         todo!()
     }
+
+    fn init_item_path_id_interface(
+        self,
+        item_path_id_interface: husky_devsoul_interface::ugly::__ItemPathIdInterface,
+    ) {
+        ()
+    }
 }

@@ -78,9 +78,7 @@ use {}::{{*, ugly::*}};
     });
 
     for &item_path in module_item_paths(db, module_path) {
-        if let Some(cache_path) = item_path_id_interface_cache_path(item_path, db) {
-            builder.item_path_id_interface_cache(cache_path);
-        }
+        builder.item_path_id_interface_cache_defn(item_path);
         match item_path.entity_kind(db) {
             EntityKind::MajorItem {
                 module_item_kind: MajorItemKind::Form(MajorFormKind::Ritchie(ritchie_item_kind)),
