@@ -3248,8 +3248,27 @@
             "husky-standard-devsoul-interface",
             "husky-standard-value",
             "lazy_static",
+            "ml-task",
             "serde",
             "shifted-unsigned-int",
+        ],
+    },
+    PackageSummary {
+        name: "ml-task",
+        relative_path: "registry/ml-task-0.1.0",
+        dependencies: [
+            "ad-hoc-devsoul-dependency",
+            "husky-core",
+        ],
+    },
+    PackageSummary {
+        name: "ad-hoc-devsoul-dependency",
+        relative_path: "registry/ad-hoc-devsoul-dependency",
+        dependencies: [
+            "husky-devsoul-interface",
+            "husky-linket-impl",
+            "husky-standard-devsoul-interface",
+            "husky-standard-value",
         ],
     },
     PackageSummary {
@@ -3843,31 +3862,14 @@
         dependencies: [],
     },
     PackageSummary {
-        name: "ad-hoc-devsoul-dependency",
-        relative_path: "registry/ad-hoc-devsoul-dependency",
-        dependencies: [
-            "husky-devsoul-interface",
-            "husky-linket-impl",
-            "husky-standard-devsoul-interface",
-            "husky-standard-value",
-        ],
-    },
-    PackageSummary {
         name: "malamute",
         relative_path: "registry/malamute-0.1.0",
         dependencies: [
             "ad-hoc-devsoul-dependency",
             "husky-core",
+            "ml-task",
             "serde",
             "smallvec",
-        ],
-    },
-    PackageSummary {
-        name: "ml-task",
-        relative_path: "registry/ml-task-0.1.0",
-        dependencies: [
-            "ad-hoc-devsoul-dependency",
-            "husky-core",
         ],
     },
     PackageSummary {

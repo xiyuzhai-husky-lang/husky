@@ -5,6 +5,7 @@ pub use crate::{
         KiDomainReprInterface as __KiDomainReprInterface, KiReprInterface as __KiReprInterface,
         KiRuntimeConstantInterface as __ValRuntimeConstantInterface,
     },
+    static_var::IsStaticVar as __IsStaticVar,
 };
 pub use husky_visual_protocol::ugly::*;
 

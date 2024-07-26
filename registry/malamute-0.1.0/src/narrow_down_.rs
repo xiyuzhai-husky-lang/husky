@@ -6,10 +6,10 @@ use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
 use ml_task::IsMlTask;
 use smallvec::SmallVec;
 
-#[allow(warnings, non_camel_case)]
+#[allow(warnings, non_camel_case_types)]
 pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
-impl<Task, Label> narrow_down<Task, Label> {
+impl<Task: IsMlTask<__StaticVarId>, Label> narrow_down<Task, Label> {
     pub fn gn_ki_wrapper(
         pedestal: __Pedestal,
         arguments: &[__KiArgumentReprInterface],
@@ -89,7 +89,7 @@ where
 
 impl<Task, Label> __IsGnItem for narrow_down<Task, Label>
 where
-    Task: IsMlTask,
+    Task: IsMlTask<__StaticVarId>,
     Label: IsLabel,
 {
     type LinketImpl = __LinketImpl;

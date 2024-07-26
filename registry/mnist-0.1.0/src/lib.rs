@@ -5,10 +5,9 @@ pub mod task;
 use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
-use husky_linket_impl::standard::ugly::*;
-use husky_standard_devsoul_interface::{label::IsLabel, static_var::StandardStaticVarId, ugly::*};
-
 use husky_devsoul_interface::ugly::*;
+use husky_linket_impl::standard::ugly::*;
+use husky_standard_devsoul_interface::{label::IsLabel, ugly::*};
 
 #[husky_standard_value::value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -126,6 +125,20 @@ pub fn INPUT() -> Leash<BinaryImage28> {
 
 pub struct INPUT {}
 
+impl __IsStaticVar<__StaticVarId> for INPUT {
+    fn item_path_id_interface() -> __ItemPathIdInterface {
+        unsafe { __INPUT__ITEM_PATH_ID_INTERFACE.expect("__INPUT__ITEM_PATH_ID_INTERFACE") }
+    }
+
+    fn get_id() -> __StaticVarId {
+        input_id().index().into()
+    }
+
+    fn set_id(id: __StaticVarId) {
+        todo!()
+    }
+}
+
 impl INPUT {
     pub fn item_path_id_interface() -> __ItemPathIdInterface {
         unsafe { __INPUT__ITEM_PATH_ID_INTERFACE.expect("__INPUT__ITEM_PATH_ID_INTERFACE") }
@@ -134,14 +147,6 @@ impl INPUT {
     pub fn set_up_for_testing(index: usize) {
         // todo: check range!
         set_input_id(MnistInputId::from_index(index))
-    }
-
-    pub fn get_id() -> StandardStaticVarId {
-        input_id().index().into()
-    }
-
-    pub fn set_id(id: StandardStaticVarId) {
-        todo!()
     }
 }
 
@@ -159,11 +164,11 @@ impl TASK {
         todo!()
     }
 
-    pub fn get_id() -> StandardStaticVarId {
+    pub fn get_id() -> __StaticVarId {
         todo!()
     }
 
-    pub fn set_id(id: StandardStaticVarId) {
+    pub fn set_id(id: __StaticVarId) {
         todo!()
     }
 }

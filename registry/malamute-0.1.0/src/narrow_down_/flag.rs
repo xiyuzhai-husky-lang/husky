@@ -20,7 +20,7 @@ impl<Label> FlagVectorField<Label>
 where
     Label: IsLabel,
 {
-    pub fn from_features<Task: IsMlTask>(
+    pub fn from_features<Task: IsMlTask<__StaticVarId>>(
         ki_domain_repr: __KiDomainReprInterface,
         arguments: &[__KiReprInterface],
         label0: Label,
