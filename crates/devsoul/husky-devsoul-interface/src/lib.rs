@@ -6,6 +6,7 @@ pub mod ki_control_flow;
 pub mod ki_repr;
 pub mod linket_impl;
 pub mod pedestal;
+pub mod static_var;
 pub mod ugly;
 pub mod vm_control_flow;
 
