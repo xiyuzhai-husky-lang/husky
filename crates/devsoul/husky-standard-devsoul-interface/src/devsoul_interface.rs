@@ -1,4 +1,4 @@
-use crate::{pedestal::StandardPedestal, DevEvalContext};
+use crate::{dev_eval_context, pedestal::StandardPedestal, set_dev_eval_context, DevEvalContext};
 use husky_devsoul_interface::ki_repr::KiDomainReprInterface;
 use husky_devsoul_interface::ki_repr::KiReprInterface;
 use husky_devsoul_interface::{
@@ -15,25 +15,17 @@ pub struct StandardDevsoulInterface {}
 /// However, the program is only going to touch this place in a mutable way, and in a sequential manner.
 ///
 /// Then it will become immutable effectively;
-static mut EVAL_CONTEXT: Option<DevEvalContext> = None;
 
 impl IsDevsoulInterface for StandardDevsoulInterface {
     type LinketImpl = StandardLinketImpl<StandardPedestal>;
 
     fn set_dev_eval_context(ctx: DevEvalContext) {
-        unsafe {
-            assert!(EVAL_CONTEXT.is_none());
-            EVAL_CONTEXT = Some(ctx);
-        }
+        set_dev_eval_context(ctx)
     }
 
-    fn eval_context() -> DevEvalContext {
-        unsafe { EVAL_CONTEXT.expect("`EVAL_CONTEXT` not initialized!!!") }
+    fn dev_eval_context() -> DevEvalContext {
+        dev_eval_context()
     }
-}
-
-fn eval_context() -> DevEvalContext {
-    unsafe { EVAL_CONTEXT.expect("`EVAL_CONTEXT` not initialized!!!") }
 }
 
 pub fn eval_eager_val_with<T>(
@@ -44,7 +36,11 @@ pub fn eval_eager_val_with<T>(
 where
     T: FromValue,
 {
-    T::from_value_static(eval_context().eval_eager_val_with(item_path_id_interface, pedestal, f))
+    T::from_value_static(dev_eval_context().eval_eager_val_with(
+        item_path_id_interface,
+        pedestal,
+        f,
+    ))
 }
 
 pub fn eval_lazy_val<T>(
@@ -54,7 +50,7 @@ pub fn eval_lazy_val<T>(
 where
     T: FromValue,
 {
-    T::from_value_static(eval_context().eval_lazy_val(item_path_id_interface, pedestal))
+    T::from_value_static(dev_eval_context().eval_lazy_val(item_path_id_interface, pedestal))
 }
 
 pub fn eval_generic_gn_with<T>(
@@ -65,5 +61,5 @@ pub fn eval_generic_gn_with<T>(
 where
     T: FromValue,
 {
-    T::from_value_static(eval_context().eval_generic_gn_with(ki_repr_interface, pedestal, f))
+    T::from_value_static(dev_eval_context().eval_generic_gn_with(ki_repr_interface, pedestal, f))
 }

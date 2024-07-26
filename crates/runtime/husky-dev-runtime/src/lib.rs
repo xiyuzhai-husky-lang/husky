@@ -73,7 +73,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         self.comptime.target()
     }
 
-    pub(crate) fn eval_context(&self) -> DevEvalContext<Devsoul::LinketImpl> {
+    pub(crate) fn dev_eval_context(&self) -> DevEvalContext<Devsoul::LinketImpl> {
         DevEvalContext::new(unsafe { husky_wild_utils::arb_ref(self) })
     }
 

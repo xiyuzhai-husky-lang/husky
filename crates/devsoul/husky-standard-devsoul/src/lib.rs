@@ -1,6 +1,6 @@
 mod runtime_storage;
 
-pub use husky_standard_devsoul_interface::{pedestal::StandardPedestal, DEV_EVAL_CONTEXT};
+pub use husky_standard_devsoul_interface::pedestal::StandardPedestal;
 
 use self::runtime_storage::*;
 use husky_devsoul::devsoul::{DevEvalContextLocalKey, IsDevsoul};
@@ -39,10 +39,6 @@ where
     type RuntimeSpecificConfig = ();
 
     type TraceProtocol = StandardTraceProtocol<Figure>;
-
-    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<LinketImpl> {
-        &DEV_EVAL_CONTEXT
-    }
 
     fn calc_figure(
         followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
