@@ -97,9 +97,9 @@ where
     ) -> StandardLinketImplKiControlFlow {
         use husky_devsoul_interface::pedestal::IsPedestal;
 
-        let pedestal = <LinketImpl as IsLinketImpl>::Pedestal::from_ids(
-            var_deps.map(|(path, id)| (unsafe { std::mem::transmute(*path) }, id)),
-        );
+        let pedestal = var_deps
+            .map(|(path, id)| (unsafe { std::mem::transmute(*path) }, id))
+            .collect();
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key.clone()).or_default().clone();
         let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");

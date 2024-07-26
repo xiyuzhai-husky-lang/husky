@@ -1,6 +1,8 @@
 use super::*;
 use husky_devsoul_interface::{
-    pedestal::IsPedestal, vm_control_flow::LinketImplVmControlFlow, IsLinketImpl, VmArgumentValue,
+    pedestal::{virtual_pedestal::VirtualPedestal, IsPedestal},
+    vm_control_flow::LinketImplVmControlFlow,
+    IsLinketImpl, VmArgumentValue,
 };
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use husky_virtual_value::value::Value;
@@ -24,7 +26,7 @@ impl From<Linket> for VirtualLinketImpl {
 }
 
 impl IsLinketImpl for VirtualLinketImpl {
-    type Pedestal = ();
+    type Pedestal = VirtualPedestal;
 
     type Value = Value;
 

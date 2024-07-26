@@ -16,6 +16,8 @@ macro_rules! static_var_linket_impl {
 
 #[test]
 fn static_var_linket_impl_works() {
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+    use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
     use StandardLinketImpl as __LinketImpl;
 
     #[allow(non_camel_case_types)]
@@ -26,12 +28,13 @@ fn static_var_linket_impl_works() {
             STATIC_VAR_A.set(index.try_into().unwrap())
         }
 
-        pub fn get_id() -> () {
-            ()
+        pub fn get_id() -> StandardStaticVarId {
+            todo!()
+            // StandardStaticVarId::
         }
 
-        pub fn set_id(id: ()) {
-            ()
+        pub fn set_id(id: StandardStaticVarId) {
+            todo!()
         }
     }
 
@@ -43,7 +46,7 @@ fn static_var_linket_impl_works() {
     #[allow(non_upper_case_globals)]
     pub static mut STATIC_VAR_A__ITEM_PATH_ID_INTERFACE: Option<ItemPathIdInterface> = None;
 
-    let LinketImpl::<()>::StaticVar {
+    let LinketImpl::<StandardPedestal>::StaticVar {
         init_item_path_id_interface,
         set_up_for_testing,
         get_id,

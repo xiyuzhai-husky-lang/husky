@@ -164,6 +164,10 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
         self.runtime
             .eval_val_runtime_constant_dyn(val_runtime_constant)
     }
+
+    pub fn eval_ki_pedestal(self, ki_repr: KiReprInterface) -> LinketImpl::Pedestal {
+        self.runtime.eval_ki_pedestal_dyn(ki_repr)
+    }
 }
 
 pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
@@ -215,6 +219,8 @@ pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
     ) -> LinketImpl::Value;
+
+    fn eval_ki_pedestal(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal;
 }
 
 pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
@@ -252,6 +258,8 @@ pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
     ) -> LinketImpl::Value;
+
+    fn eval_ki_pedestal_dyn(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal;
 }
 
 impl<LinketImpl: IsLinketImpl, Runtime> IsDevRuntimeDyn<LinketImpl> for Runtime
@@ -303,5 +311,9 @@ where
         val_runtime_constant: KiRuntimeConstantInterface,
     ) -> <LinketImpl as IsLinketImpl>::Value {
         self.eval_val_runtime_constant(val_runtime_constant)
+    }
+
+    fn eval_ki_pedestal_dyn(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal {
+        self.eval_ki_pedestal(ki_repr_interface)
     }
 }

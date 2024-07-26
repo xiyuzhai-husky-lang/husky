@@ -1,13 +1,22 @@
+pub mod virtual_pedestal;
+
 use crate::ItemPathIdInterface;
 use serde::{Deserialize, Serialize};
 
 pub trait IsPedestal:
-    std::fmt::Debug + Default + PartialEq + Eq + Clone + Send + Sync + std::hash::Hash + 'static
+    std::fmt::Debug
+    + Default
+    + PartialEq
+    + Eq
+    + Clone
+    + Send
+    + Sync
+    + std::hash::Hash
+    + 'static
+    + FromIterator<(ItemPathIdInterface, Self::StaticVarId)>
 {
     type StaticVarId: Clone + Copy;
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
-
-    fn from_ids(ids: impl Iterator<Item = (ItemPathIdInterface, Self::StaticVarId)>) -> Self;
 
     fn init_ui_buffer(&self) -> Self::UiBuffer;
 
@@ -24,28 +33,4 @@ pub trait IsPedestalUiBuffer {
     type Pedestal;
 
     fn update(&mut self, pedestal: &Self::Pedestal);
-}
-
-impl IsPedestal for () {
-    type StaticVarId = ();
-
-    type UiBuffer = ();
-
-    fn from_ids(ids: impl Iterator<Item = (ItemPathIdInterface, Self::StaticVarId)>) -> Self {
-        ()
-    }
-
-    fn init_ui_buffer(&self) -> () {
-        ()
-    }
-
-    fn is_closed(&self) -> bool {
-        true
-    }
-}
-
-impl IsPedestalUiBuffer for () {
-    type Pedestal = ();
-
-    fn update(&mut self, _pedestal: &Self::Pedestal) {}
 }

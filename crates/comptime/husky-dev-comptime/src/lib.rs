@@ -9,7 +9,7 @@ use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::MajorItemPa
 use husky_ki::Ki;
 use husky_ki_repr::{
     repr::{KiCachingClass, KiRepr},
-    var_deps::KiStaticVarDeps,
+    var_deps::KiVarDeps,
 };
 use husky_linket::linket::Linket;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
@@ -35,7 +35,7 @@ pub struct IngredientKiInfo {
     ki_repr: KiRepr,
     ki: Ki,
     caching_class: KiCachingClass,
-    ki_var_deps: KiStaticVarDeps,
+    ki_var_deps: KiVarDeps,
 }
 
 impl IngredientKiInfo {
@@ -51,7 +51,7 @@ impl IngredientKiInfo {
         self.caching_class
     }
 
-    pub fn ki_var_deps(&self) -> &KiStaticVarDeps {
+    pub fn ki_var_deps(&self) -> &KiVarDeps {
         &self.ki_var_deps
     }
 }

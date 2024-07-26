@@ -117,7 +117,7 @@ fn val_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     };
     let opn = match Linket::new_val(path, db) {
         Some(linket) => KiOpn::Linket(linket),
-        None => KiOpn::ValLazilyDefined(path),
+        None => KiOpn::Val(path),
     };
     let opds = smallvec![];
     let caching_class = KiCachingClass::Val;

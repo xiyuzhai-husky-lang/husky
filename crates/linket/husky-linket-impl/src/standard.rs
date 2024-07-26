@@ -43,7 +43,7 @@ where
         fn_pointer: fn(),
     },
     RitchieGn {
-        gn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinketImplKiControlFlow,
+        gn_ki_wrapper: fn(Pedestal, &[KiArgumentReprInterface]) -> StandardLinketImplKiControlFlow,
     },
     // todo: this should be merged into RichieFn?
     EnumVariantConstructor {
@@ -92,7 +92,7 @@ where
 
     fn eval_ki(
         self,
-        ki_repr: KiReprInterface,
+        ki_repr_interface: KiReprInterface,
         ki_argument_reprs: &[KiArgumentReprInterface],
         ctx: DevEvalContext<StandardLinketImpl<Pedestal>>,
     ) -> StandardLinketImplKiControlFlow {
@@ -100,15 +100,8 @@ where
             StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ki_argument_reprs),
             StandardLinketImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ki_argument_reprs),
             StandardLinketImpl::RitchieGn { gn_ki_wrapper } => {
-                todo!()
-                // let value_at_generic_pedestal = ctx
-                //     .eval_ki_repr_interface_at_generic_pedestal_with(
-                //         ki_repr,
-                //         generic_pedestal,
-                //         gn_generic_wrapper,
-                //         ki_argument_reprs,
-                //     )?;
-                // gn_specific_wrapper(ki_argument_reprs, value_at_generic_pedestal)
+                let pedestal = ctx.eval_ki_pedestal(ki_repr_interface);
+                gn_ki_wrapper(pedestal, ki_argument_reprs)
             }
             StandardLinketImpl::EnumVariantConstructor { .. } => todo!(),
             StandardLinketImpl::EnumVariantDestructor { .. } => todo!(),
