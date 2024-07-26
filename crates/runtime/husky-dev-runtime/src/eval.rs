@@ -70,7 +70,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 
     fn eval_ki_repr_aux(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
-        let ctx = self.eval_context();
+        let ctx = self.dev_eval_context();
         let ki_domain_repr = ki_repr.ki_domain_repr(db);
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
             KiOpn::Return => todo!(),

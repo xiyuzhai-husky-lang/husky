@@ -33,13 +33,6 @@ pub trait IsDevsoul: 'static {
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
-    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<Self::LinketImpl>;
-
-    /// final
-    #[track_caller]
-    fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
-        Self::dev_eval_context_local_key().get().unwrap()
-    }
 
     /// final
     fn get_ki_visual(

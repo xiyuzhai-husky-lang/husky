@@ -69,7 +69,7 @@ fn linket_impls_works() {
     impl IsDevsoulInterface for __DevsoulInterface {
         type LinketImpl = __LinketImpl;
 
-        fn eval_context() -> DevEvalContext<Self::LinketImpl> {
+        fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
             todo!()
         }
 
@@ -119,7 +119,7 @@ fn fn_linket_impl_works() {
     impl IsDevsoulInterface for __DevsoulInterface {
         type LinketImpl = __LinketImpl;
 
-        fn eval_context() -> DevEvalContext<Self::LinketImpl> {
+        fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
             todo!()
         }
 
@@ -170,7 +170,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                 self,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardLinketImplKiControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::eval_context();
+                let ctx = DevsoulInterface::dev_eval_context();
                 #[allow(unused_variables)]
                 let mut arguments = arguments.iter();
                 #[allow(unused_variables)]
@@ -269,7 +269,7 @@ fn unveil_fn_linket_impl_works() {
     impl IsDevsoulInterface for __DevsoulInterface {
         type LinketImpl = __LinketImpl;
 
-        fn eval_context() -> DevEvalContext<Self::LinketImpl> {
+        fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
             todo!()
         }
 
@@ -325,7 +325,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 self,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardLinketImplKiControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::eval_context();
+                let ctx = DevsoulInterface::dev_eval_context();
                 debug_assert_eq!(arguments.len(), 2);
                 let KiArgumentReprInterface::Simple(target) = arguments[0] else {
                     unreachable!("expect ordinary argument")

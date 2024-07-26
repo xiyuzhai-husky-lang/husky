@@ -5,5 +5,5 @@ pub trait IsDevsoulInterface {
 
     fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>);
 
-    fn eval_context() -> DevEvalContext<Self::LinketImpl>;
+    fn dev_eval_context() -> DevEvalContext<Self::LinketImpl>;
 }

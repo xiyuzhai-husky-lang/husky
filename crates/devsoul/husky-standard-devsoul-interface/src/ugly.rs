@@ -8,5 +8,4 @@ pub use crate::{
     eval_ki_repr_interface as __eval_ki_repr_interface,
     eval_val_runtime_constant as __eval_val_runtime_constant,
     pedestal::StandardPedestal as __Pedestal, static_var::StandardStaticVarId as __StaticVarId,
-    DEV_EVAL_CONTEXT as __DEV_EVAL_CONTEXT,
 };
