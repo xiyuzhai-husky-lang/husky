@@ -11,7 +11,8 @@ pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
 impl<Task: IsMlTask<__StaticVarId>, Label> narrow_down<Task, Label>
 where
-    Label: __WeakStatic<Static = Label>
+    Label: IsLabel
+        + __WeakStatic<Static = Label>
         + __Static<Frozen = Label>
         + __Frozen<Static = Label>
         + __Serialize,
@@ -24,8 +25,10 @@ where
     ) -> __KiControlFlow {
         let generic_pedestal = pedestal.exclude::<Task::INPUT>();
         println!("pedestal = {:?}", generic_pedestal);
-        let _: NarrowDownInternal<Label> =
-            __eval_generic_gn_with(ki_repr_interface, generic_pedestal, || todo!());
+        let internal: Leash<NarrowDownInternal<Label>> =
+            __eval_generic_gn_with(ki_repr_interface, generic_pedestal, || {
+                Self::train(ki_domain_repr_interface, arguments).map(__IntoValue::into_value)
+            });
         todo!()
     }
 }
@@ -114,13 +117,13 @@ where
 
     fn train(
         ki_domain_repr: __KiDomainReprInterface,
-        val_argument_reprs: &[__KiArgumentReprInterface],
+        ki_argument_reprs: &[__KiArgumentReprInterface],
     ) -> __KiControlFlow<Self::ValueAtGenericPedestal> {
-        debug_assert_eq!(val_argument_reprs.len(), 3);
-        let __KiArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
+        debug_assert_eq!(ki_argument_reprs.len(), 3);
+        let __KiArgumentReprInterface::Variadic(ref features) = ki_argument_reprs[0] else {
             unreachable!()
         };
-        let __KiArgumentReprInterface::Keyed(skip) = val_argument_reprs[1] else {
+        let __KiArgumentReprInterface::Keyed(skip) = ki_argument_reprs[1] else {
             unreachable!()
         };
         let skip: i32 = match skip {
@@ -128,7 +131,7 @@ where
             None => 5,
         };
         let __KiArgumentReprInterface::RuntimeConstants(ref runtime_constants) =
-            val_argument_reprs[2]
+            ki_argument_reprs[2]
         else {
             unreachable!()
         };
@@ -146,10 +149,10 @@ where
     type EvalOutput = OneVsAllResult;
 
     fn eval(
-        val_argument_reprs: &[__KiArgumentReprInterface],
+        ki_argument_reprs: &[__KiArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
     ) -> OneVsAllResult {
-        let __KiArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
+        let __KiArgumentReprInterface::Variadic(ref features) = ki_argument_reprs[0] else {
             unreachable!()
         };
         debug_assert_eq!(features.len(), value_at_generic_pedestal.flag_ranges.len());
