@@ -14,7 +14,9 @@ impl IsPedestal for VirtualPedestal {
 
     type UiBuffer = VirtualPedestalUiBuffer;
 
-    fn exclude<V: IsStaticVar<()>>(&mut self) {}
+    fn exclude<V: IsStaticVar<()>>(self) -> Self {
+        Self
+    }
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {
         todo!()
