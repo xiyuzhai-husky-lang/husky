@@ -131,7 +131,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 };
                 KiControlFlow::Continue(value)
             }
-            KiOpn::ValLazilyDefined(_path) => {
+            KiOpn::Val(_path) => {
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }

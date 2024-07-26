@@ -15,11 +15,13 @@ use husky_devsoul::{
     devsoul::IsRuntimeStorage,
     helpers::{DevsoulKiControlFlow, DevsoulValueResult},
 };
+use husky_devsoul_interface::pedestal::IsPedestal;
 use husky_devsoul_interface::{
     item_path::ItemPathIdInterface,
     ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
     DevEvalContext, IsDevRuntime, IsLinketImpl, LinketImplKiControlFlow,
 };
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{major_item::MajorItemPath, ItemPath, ItemPathId};
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
@@ -82,7 +84,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     fn get_or_try_init_ki_value(
         &self,
         ki: husky_ki::Ki,
-        var_deps: &husky_ki_repr::var_deps::KiStaticVarDeps,
+        var_deps: &husky_ki_repr::var_deps::KiVarDeps,
         f: impl FnOnce() -> LinketImplKiControlFlow<Devsoul::LinketImpl>,
     ) -> LinketImplKiControlFlow<Devsoul::LinketImpl> {
         self.storage.get_or_try_init_ki_value(
@@ -227,5 +229,47 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
                 DevsoulValue::<Devsoul>::from_enum_index(path.index(db).raw(), presenter)
             }
         }
+    }
+
+    /// there is room for optimization, see the definition of KiVarDeps
+    fn eval_ki_pedestal(
+        &self,
+        ki_repr_interface: KiReprInterface,
+    ) -> <Devsoul::LinketImpl as IsLinketImpl>::Pedestal {
+        let db = self.db();
+        let ki_repr: KiRepr = ki_repr_interface.into();
+        ki_repr
+            .var_deps(db)
+            .iter()
+            .map(|&var_dep_item_path| match var_dep_item_path {
+                ItemPath::Submodule(_, _) => todo!(),
+                ItemPath::MajorItem(var_dep_major_item_path) => match var_dep_major_item_path {
+                    MajorItemPath::Type(_) => todo!(),
+                    MajorItemPath::Trait(_) => todo!(),
+                    MajorItemPath::Form(var_dep_major_form_path) => {
+                        match var_dep_major_form_path.kind(db) {
+                            MajorFormKind::Ritchie(_) => todo!(),
+                            MajorFormKind::TypeAlias => todo!(),
+                            MajorFormKind::TypeVar => todo!(),
+                            MajorFormKind::Val => todo!(),
+                            MajorFormKind::StaticMut => todo!(),
+                            MajorFormKind::StaticVar => {
+                                let linket = Linket::new_static_var(var_dep_major_form_path, db);
+                                let linket_impl = self.comptime.linket_impl(linket);
+                                let static_var_id = linket_impl.get_static_var_id();
+                                ((*var_dep_item_path).into(), static_var_id)
+                            }
+                            MajorFormKind::Compterm => todo!(),
+                            MajorFormKind::Conceptual => todo!(),
+                        }
+                    }
+                },
+                ItemPath::AssocItem(_) => todo!(),
+                ItemPath::TypeVariant(_, _) => todo!(),
+                ItemPath::ImplBlock(_) => todo!(),
+                ItemPath::Attr(_, _) => todo!(),
+                ItemPath::Chunk(_, _) => todo!(),
+            })
+            .collect()
     }
 }

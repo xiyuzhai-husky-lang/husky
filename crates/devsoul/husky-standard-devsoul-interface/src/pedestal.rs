@@ -16,19 +16,15 @@ impl FromIterator<(ItemPathIdInterface, StandardStaticVarId)> for StandardPedest
     fn from_iter<T: IntoIterator<Item = (ItemPathIdInterface, StandardStaticVarId)>>(
         iter: T,
     ) -> Self {
-        Self::from_ids(iter.into_iter())
+        Self {
+            static_var_ids: iter.into_iter().collect(),
+        }
     }
 }
 
 impl IsPedestal for StandardPedestal {
     type StaticVarId = StandardStaticVarId;
     type UiBuffer = MlPedestalUiBuffer;
-
-    fn from_ids(ids: impl Iterator<Item = (ItemPathIdInterface, Self::StaticVarId)>) -> Self {
-        Self {
-            static_var_ids: ids.collect(),
-        }
-    }
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {
         todo!()

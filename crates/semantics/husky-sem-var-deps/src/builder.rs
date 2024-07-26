@@ -1,5 +1,5 @@
 use crate::{
-    region::SemStaticVarDepsRegion,
+    region::ItemDefnSemVarDepsRegion,
     var_deps::{EffectiveMergeCounter, SemControlFlowVarDeps, SemVarDeps},
 };
 use husky_entity_path::{
@@ -25,7 +25,7 @@ use husky_syn_expr::{region::SynExprRegionData, variable::CurrentVariableIdxRang
 use husky_term_prelude::Contract;
 use vec_like::OrderedSmallVecSet;
 
-pub(crate) struct SemStaticVarDepsBuilder<'db, 'a, F>
+pub(crate) struct SemVarDepsBuilder<'db, 'a, F>
 where
     F: Fn(ItemPath) -> &'a SemVarDeps,
 {
@@ -44,7 +44,7 @@ where
 }
 
 /// # constructor
-impl<'db, 'a, F> SemStaticVarDepsBuilder<'db, 'a, F>
+impl<'db, 'a, F> SemVarDepsBuilder<'db, 'a, F>
 where
     F: Fn(ItemPath) -> &'a SemVarDeps,
 {
@@ -79,10 +79,10 @@ where
 }
 
 /// # getters
-impl<'db, 'a, F> SemStaticVarDepsBuilder<'db, 'a, F> where F: Fn(ItemPath) -> &'a SemVarDeps {}
+impl<'db, 'a, F> SemVarDepsBuilder<'db, 'a, F> where F: Fn(ItemPath) -> &'a SemVarDeps {}
 
 /// # actions
-impl<'db, 'a, F> SemStaticVarDepsBuilder<'db, 'a, F>
+impl<'db, 'a, F> SemVarDepsBuilder<'db, 'a, F>
 where
     F: Fn(ItemPath) -> &'a SemVarDeps,
 {
@@ -824,12 +824,20 @@ where
         }
     }
 
-    fn finish(self) -> SemStaticVarDepsRegion {
-        todo!()
+    pub(crate) fn finish(self) -> ItemDefnSemVarDepsRegion {
+        ItemDefnSemVarDepsRegion::new(
+            self.db,
+            self.expr_value_var_deps_table,
+            self.expr_control_flow_var_deps_table,
+            self.stmt_value_var_deps_table,
+            self.stmt_control_flow_var_deps_table,
+            self.self_value_var_deps,
+            self.variable_var_deps_table,
+        )
     }
 }
 
-impl<'db, 'a, F> VisitSemExpr<'db> for SemStaticVarDepsBuilder<'db, 'a, F>
+impl<'db, 'a, F> VisitSemExpr<'db> for SemVarDepsBuilder<'db, 'a, F>
 where
     F: Fn(ItemPath) -> &'a SemVarDeps,
 {

@@ -9,7 +9,11 @@ use smallvec::SmallVec;
 pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
 impl<Task, Label> narrow_down<Task, Label> {
-    pub fn gn_ki_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
+    pub fn gn_ki_wrapper(
+        pedestal: __Pedestal,
+        arguments: &[__KiArgumentReprInterface],
+    ) -> __KiControlFlow {
+        println!("pedestal = {:?}", pedestal);
         todo!()
     }
 }

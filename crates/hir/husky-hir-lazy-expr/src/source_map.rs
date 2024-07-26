@@ -47,6 +47,14 @@ impl HirLazyExprSourceMapData {
         self.sem_to_hir_lazy_expr_idx_map.get(sem_expr_idx).copied()
     }
 
+    pub fn hir_lazy_to_sem_expr_idx(
+        &self,
+        hir_lazy_expr_idx: HirLazyExprIdx,
+    ) -> Option<SemExprIdx> {
+        self.sem_to_hir_lazy_expr_idx_map
+            .get_expr_by_value_copied(hir_lazy_expr_idx)
+    }
+
     pub fn sem_to_hir_lazy_stmt_idx(&self, sem_stmt_idx: SemStmtIdx) -> Option<HirLazyStmtIdx> {
         self.sem_to_hir_lazy_stmt_idx_map.get(sem_stmt_idx).copied()
     }

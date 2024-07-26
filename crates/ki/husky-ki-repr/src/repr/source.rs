@@ -47,7 +47,7 @@ impl KiReprSource {
             } => match parent_ki_repr.opn(db) {
                 KiOpn::Require => todo!(),
                 KiOpn::Assert => todo!(),
-                KiOpn::ValLazilyDefined(path) => {
+                KiOpn::Val(path) => {
                     let ItemSynDefn {
                         syn_expr_region, ..
                     } = item_syn_defn(db, path.into()).unwrap();

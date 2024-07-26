@@ -83,31 +83,35 @@ macro_rules! enum_variant_destructor_linket_impl {
 
 #[test]
 fn enum_props_variant_destructor_linket_impl_works() {
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+
     enum Animal {
         Frog {},
         Dog { weight: i32 },
         Cat { height: i32, weight: i32 },
     }
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_destructor_linket_impl!(Animal, Animal::Cat, { height, weight });
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_destructor_linket_impl!(Animal, Animal::Dog, { weight });
 }
 
 #[test]
 fn enum_tuple_variant_destructor_linket_impl_works() {
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+
     enum Animal {
         Frog(),
         Dog(i32),
         Cat(i32, i32),
     }
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_destructor_linket_impl!(Animal, Animal::Cat, (height, weight));
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_destructor_linket_impl!(Animal, Animal::Dog, (weight));
 }
 
@@ -191,33 +195,37 @@ macro_rules! enum_variant_discriminator_linket_impl {
 
 #[test]
 fn enum_props_variant_discriminator_linket_impl_works() {
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+
     enum Animal {
         Frog {},
         Dog { weight: i32 },
         Cat { height: i32, weight: i32 },
     }
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_discriminator_linket_impl!(Animal, Animal::Frog, {});
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_discriminator_linket_impl!(Animal, Animal::Dog, {});
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_discriminator_linket_impl!(Animal, Animal::Cat, {});
 }
 
 #[test]
 fn enum_tuple_variant_discriminator_linket_impl_works() {
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+
     enum Animal {
         Frog(),
         Dog(i32),
         Cat(i32, i32),
     }
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_discriminator_linket_impl!(Animal, Animal::Frog, ());
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_discriminator_linket_impl!(Animal, Animal::Dog, ());
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_discriminator_linket_impl!(Animal, Animal::Cat, ());
 }
 
@@ -340,6 +348,7 @@ macro_rules! enum_variant_field_linket_impl {
 #[test]
 fn enum_props_variant_field_linket_impl_works() {
     use husky_core::*;
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
 
     enum Animal {
         Frog {},
@@ -347,13 +356,14 @@ fn enum_props_variant_field_linket_impl_works() {
         Cat { height: i32, weight: i32 },
     }
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_field_linket_impl!(Animal, Animal::Cat, { copyable weight });
 }
 
 #[test]
 fn enum_tuple_variant_field_linket_impl_works() {
     use husky_core::*;
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
 
     enum Animal {
         Frog(),
@@ -361,11 +371,11 @@ fn enum_tuple_variant_field_linket_impl_works() {
         Cat(i32, i32),
     }
 
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_field_linket_impl!(Animal, Animal::Dog, (copyable v0));
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_field_linket_impl!(Animal, Animal::Cat, (copyable v0));
-    let _: StandardLinketImpl<()> =
+    let _: StandardLinketImpl<StandardPedestal> =
         enum_variant_field_linket_impl!(Animal, Animal::Cat, (copyable v1));
 }
 

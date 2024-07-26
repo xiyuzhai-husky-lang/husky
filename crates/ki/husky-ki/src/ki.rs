@@ -65,7 +65,7 @@ pub enum KiOpn {
     Return,
     Require,
     Assert,
-    ValLazilyDefined(MajorFormPath),
+    Val(MajorFormPath),
     FunctionRitchie(MajorFormPath),
     Prefix(HirPrefixOpr),
     Suffix(HirSuffixOpr),
