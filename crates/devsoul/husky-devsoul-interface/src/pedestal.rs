@@ -19,7 +19,7 @@ pub trait IsPedestal:
     type StaticVarId: Clone + Copy;
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
 
-    fn exclude<V: IsStaticVar<Self::StaticVarId>>(&mut self);
+    fn exclude<V: IsStaticVar<Self::StaticVarId>>(self) -> Self;
 
     fn init_ui_buffer(&self) -> Self::UiBuffer;
 

@@ -29,8 +29,9 @@ impl IsPedestal for StandardPedestal {
     type StaticVarId = StandardStaticVarId;
     type UiBuffer = MlPedestalUiBuffer;
 
-    fn exclude<V: IsStaticVar<StandardStaticVarId>>(&mut self) {
+    fn exclude<V: IsStaticVar<StandardStaticVarId>>(mut self) -> Self {
         let _ = self.static_var_ids.remove(V::item_path_id_interface());
+        self
     }
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {

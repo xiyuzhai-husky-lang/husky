@@ -22,10 +22,10 @@ where
         mut pedestal: __Pedestal,
         arguments: &[__KiArgumentReprInterface],
     ) -> __KiControlFlow {
-        pedestal.exclude::<Task::INPUT>();
-        println!("pedestal = {:?}", pedestal);
+        let generic_pedestal = pedestal.exclude::<Task::INPUT>();
+        println!("pedestal = {:?}", generic_pedestal);
         let _: NarrowDownInternal<Label> =
-            __eval_generic_gn_with(ki_repr_interface, pedestal, || todo!());
+            __eval_generic_gn_with(ki_repr_interface, generic_pedestal, || todo!());
         todo!()
     }
 }
