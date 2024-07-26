@@ -373,4 +373,5 @@ husky-core = { path = "library/core" }
 # registry
 ad-hoc-devsoul-dependency = { path = "registry/ad-hoc-devsoul-dependency" }
 malamute = { path = "registry/malamute-0.1.0" }
+ml-task = { path = "registry/ml-task-0.1.0" }
 standard-devsoul = { path = "registry/standard-devsoul-0.1.0" }

@@ -10,3 +10,4 @@ serde.workspace = true
 husky-core.workspace = true
 # registry
 ad-hoc-devsoul-dependency.workspace = true
+ml-task.workspace = true

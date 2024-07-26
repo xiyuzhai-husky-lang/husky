@@ -1,6 +1,7 @@
 use super::*;
 use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
 use ad_hoc_devsoul_dependency::IsLabel;
+use ml_task::IsMlTask;
 use smallvec::*;
 
 pub struct FlagVectorField<Label> {
@@ -19,8 +20,8 @@ impl<Label> FlagVectorField<Label>
 where
     Label: IsLabel,
 {
-    pub fn from_features(
-        ki_domain_repr: __ValDomainReprInterface,
+    pub fn from_features<Task: IsMlTask>(
+        ki_domain_repr: __KiDomainReprInterface,
         arguments: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Self, ()> {
@@ -36,7 +37,7 @@ where
     }
 
     fn from_features_aux(
-        ki_domain_repr: __ValDomainReprInterface,
+        ki_domain_repr: __KiDomainReprInterface,
         arguments: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Option<Stalk>, ()> {
