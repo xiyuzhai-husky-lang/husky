@@ -205,11 +205,11 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             }
             KiOpn::EvalDiscarded => todo!(),
             KiOpn::Branches => {
-                for val_argument_repr in ki_repr.arguments(db) {
+                for ki_argument_repr in ki_repr.arguments(db) {
                     let KiArgumentRepr::Branch {
                         condition,
                         ref stmts,
-                    } = *val_argument_repr
+                    } = *ki_argument_repr
                     else {
                         unreachable!()
                     };
@@ -301,12 +301,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         self.eval_ki_repr(*stmt_ki_reprs.last().unwrap())
     }
 
-    fn eval_val_argument(
+    fn eval_ki_argument(
         &self,
-        val_argument_repr: &KiArgumentRepr,
+        ki_argument_repr: &KiArgumentRepr,
     ) -> KiControlFlow<DevsoulValue<Devsoul>, DevsoulValue<Devsoul>, DevsoulException<Devsoul>>
     {
-        match *val_argument_repr {
+        match *ki_argument_repr {
             KiArgumentRepr::Simple(ki_repr) => self.eval_ki_repr(ki_repr),
             KiArgumentRepr::Keyed(_) => todo!(),
             KiArgumentRepr::Variadic(_) => todo!(),

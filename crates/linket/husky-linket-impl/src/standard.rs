@@ -216,14 +216,14 @@ pub trait IsGnItem {
 
     /// compute `generic_pedestal` here for efficiency
     fn train(
-        ki_domain_repr: KiDomainReprInterface,
-        val_argument_reprs: &[KiArgumentReprInterface],
+        ki_domain_repr_interface: KiDomainReprInterface,
+        ki_argument_repr_interfaces: &[KiArgumentReprInterface],
     ) -> LinketImplKiControlFlow<Self::LinketImpl, Self::ValueAtGenericPedestal>;
 
     type EvalOutput;
 
     fn eval(
-        val_argument_reprs: &[KiArgumentReprInterface],
+        ki_argument_reprs: &[KiArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
     ) -> Self::EvalOutput;
 }

@@ -58,7 +58,7 @@ pub enum KiArgumentRepr {
 }
 
 #[test]
-fn val_argument_repr_size_works() {
+fn ki_argument_repr_size_works() {
     use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
 
     assert_eq!(
@@ -195,13 +195,13 @@ fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
         ki_repr
             .arguments(db)
             .iter()
-            .map(|ki_repr| ki_repr.val_argument(db))
+            .map(|ki_repr| ki_repr.ki_argument(db))
             .collect(),
     )
 }
 
 impl KiArgumentRepr {
-    fn val_argument(&self, db: &::salsa::Db) -> KiArgument {
+    fn ki_argument(&self, db: &::salsa::Db) -> KiArgument {
         match *self {
             KiArgumentRepr::Simple(ki_repr) => KiArgument::Simple(ki_repr.ki(db)),
             KiArgumentRepr::Keyed(ki_repr) => {
