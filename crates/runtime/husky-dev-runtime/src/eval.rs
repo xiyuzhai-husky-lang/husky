@@ -71,6 +71,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     fn eval_ki_repr_aux(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
         let ctx = self.eval_context();
+        let ki_domain_repr = ki_repr.ki_domain_repr(db);
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
             KiOpn::Return => todo!(),
             KiOpn::Require => {
@@ -139,6 +140,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 let linket_impl = self.comptime.linket_impl(linket);
                 let control_flow = linket_impl.eval_ki(
                     ki_repr.into(),
+                    ki_domain_repr.into(),
                     unsafe {
                         std::mem::transmute::<_, &[KiArgumentReprInterface]>(
                             ki_repr.arguments(db) as &[KiArgumentRepr]

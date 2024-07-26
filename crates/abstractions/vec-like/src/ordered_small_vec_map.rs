@@ -346,6 +346,17 @@ where
         }
     }
 
+    pub fn remove(&mut self, key: K) -> Option<E>
+    where
+        K: Ord + Copy,
+    {
+        if let Some(position) = self.entries.iter().position(|entry| entry.key() == key) {
+            Some(self.entries.remove(position))
+        } else {
+            None
+        }
+    }
+
     /// `f` should preserve the key
     #[inline(always)]
     pub fn map_collect_on_entries<E2>(&self, f: impl Fn(&E) -> E2) -> OrderedSmallVecMap<E2, N>

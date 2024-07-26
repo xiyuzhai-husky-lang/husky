@@ -1,4 +1,6 @@
 use crate::{pedestal::StandardPedestal, DevEvalContext};
+use husky_devsoul_interface::ki_repr::KiDomainReprInterface;
+use husky_devsoul_interface::ki_repr::KiReprInterface;
 use husky_devsoul_interface::{
     devsoul::IsDevsoulInterface, item_path::ItemPathIdInterface, KiControlFlow,
 };
@@ -53,4 +55,15 @@ where
     T: FromValue,
 {
     T::from_value_static(eval_context().eval_lazy_val(item_path_id_interface, pedestal))
+}
+
+pub fn eval_generic_gn_with<T>(
+    ki_repr_interface: KiReprInterface,
+    pedestal: StandardPedestal,
+    f: impl FnOnce() -> StandardLinketImplKiControlFlow,
+) -> T
+where
+    T: FromValue,
+{
+    T::from_value_static(eval_context().eval_generic_gn_with(ki_repr_interface, pedestal, f))
 }

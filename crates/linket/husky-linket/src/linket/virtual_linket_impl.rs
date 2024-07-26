@@ -1,4 +1,6 @@
 use super::*;
+use husky_devsoul_interface::ki_repr::KiDomainReprInterface;
+use husky_devsoul_interface::ki_repr::KiReprInterface;
 use husky_devsoul_interface::{
     pedestal::{virtual_pedestal::VirtualPedestal, IsPedestal},
     vm_control_flow::LinketImplVmControlFlow,
@@ -35,7 +37,8 @@ impl IsLinketImpl for VirtualLinketImpl {
 
     fn eval_ki(
         self,
-        ki_repr_interface: husky_devsoul_interface::ugly::__KiReprInterface,
+        ki_repr_interface: KiReprInterface,
+        ki_domain_repr_interface: KiDomainReprInterface,
         arguments: &[husky_devsoul_interface::ugly::__KiArgumentReprInterface],
         ctx: husky_devsoul_interface::DevEvalContext<Self>,
     ) -> husky_devsoul_interface::LinketImplKiControlFlow<Self> {

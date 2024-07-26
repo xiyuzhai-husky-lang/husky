@@ -91,7 +91,8 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             ki,
             var_deps
                 .iter()
-                .map(|&path| (path, self.get_static_var_id(path))),
+                .map(|&path| ((*path).into(), self.get_static_var_id(path)))
+                .collect(),
             f,
             self.db(),
         )
@@ -271,5 +272,17 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
                 ItemPath::Chunk(_, _) => todo!(),
             })
             .collect()
+    }
+
+    fn eval_generic_gn_with<'a>(
+        &'a self,
+        ki_repr_interface: KiReprInterface,
+        pedestal: <Devsoul::LinketImpl as IsLinketImpl>::Pedestal,
+        f: Box<dyn FnOnce() -> LinketImplKiControlFlow<Devsoul::LinketImpl> + 'a>,
+    ) -> LinketImplKiControlFlow<Devsoul::LinketImpl> {
+        let db = self.db();
+        let ki_repr: KiRepr = ki_repr_interface.into();
+        let ki = ki_repr.ki(db);
+        self.storage.get_or_try_init_ki_value(ki, pedestal, f, db)
     }
 }

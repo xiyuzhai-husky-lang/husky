@@ -18,6 +18,7 @@ pub trait IsLinketImpl: Send + Copy + 'static {
     fn eval_ki(
         self,
         ki_repr_interface: KiReprInterface,
+        ki_domain_repr_interface: KiDomainReprInterface,
         arguments: &[KiArgumentReprInterface],
         ctx: DevEvalContext<Self>,
     ) -> LinketImplKiControlFlow<Self>;
