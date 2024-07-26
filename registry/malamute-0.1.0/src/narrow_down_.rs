@@ -3,9 +3,10 @@ mod flag;
 use self::flag::*;
 use crate::*;
 use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
+use ml_task::IsMlTask;
 use smallvec::SmallVec;
 
-#[allow(warnings, non_snake_case)]
+#[allow(warnings, non_camel_case)]
 pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
 impl<Task, Label> narrow_down<Task, Label> {
@@ -44,6 +45,7 @@ where
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
     }
+
     fn serialize_to_value(&self) -> __JsonValue {
         __to_json_value(self).unwrap()
     }
@@ -58,7 +60,9 @@ where
     Label: __Frozen<Static = Label> + __Static<Frozen = Label> + __Serialize,
 {
     type Static = NarrowDownInternal<<Label as __Frozen>::Static>;
+
     type Stand = ();
+
     fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
         todo!()
     }
@@ -85,6 +89,7 @@ where
 
 impl<Task, Label> __IsGnItem for narrow_down<Task, Label>
 where
+    Task: IsMlTask,
     Label: IsLabel,
 {
     type LinketImpl = __LinketImpl;
@@ -97,7 +102,7 @@ where
     type ValueAtGenericPedestal = NarrowDownInternal<Label>;
 
     fn train(
-        ki_domain_repr: __ValDomainReprInterface,
+        ki_domain_repr: __KiDomainReprInterface,
         val_argument_reprs: &[__KiArgumentReprInterface],
     ) -> __KiControlFlow<Self::ValueAtGenericPedestal> {
         debug_assert_eq!(val_argument_reprs.len(), 3);
@@ -118,7 +123,7 @@ where
         };
         debug_assert_eq!(runtime_constants.len(), 1);
         let label: Label = __eval_val_runtime_constant(runtime_constants[0]);
-        let fvf = FlagVectorField::from_features(ki_domain_repr, features, label)?;
+        let fvf = FlagVectorField::from_features::<Task>(ki_domain_repr, features, label)?;
         // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
         // let ntrim = opds[1].value().downcast_i32();
         __KiControlFlow::Continue(NarrowDownInternal {

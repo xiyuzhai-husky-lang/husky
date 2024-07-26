@@ -512,6 +512,7 @@ version = "0.1.0"
 dependencies = [
  "ad-hoc-devsoul-dependency",
  "husky-core",
+ "ml-task",
  "serde",
  "smallvec",
 ]
