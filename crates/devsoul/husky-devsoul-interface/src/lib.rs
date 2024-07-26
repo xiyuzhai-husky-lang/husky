@@ -129,6 +129,17 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
             .unwrap()
     }
 
+    pub fn eval_generic_gn_with(
+        self,
+        ki_repr_interface: KiReprInterface,
+        pedestal: LinketImpl::Pedestal,
+        f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImpl::Value {
+        self.runtime
+            .eval_generic_gn_with_dyn(ki_repr_interface, pedestal, Box::new(f))
+            .unwrap()
+    }
+
     pub fn eval_ki_repr_interface(
         self,
         ki_repr_interface: KiReprInterface,
@@ -222,6 +233,13 @@ pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
     ) -> LinketImpl::Value;
 
     fn eval_ki_pedestal(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal;
+
+    fn eval_generic_gn_with<'a>(
+        &'a self,
+        ki_repr_interface: KiReprInterface,
+        pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
+        f: Box<dyn FnOnce() -> LinketImplKiControlFlow<LinketImpl> + 'a>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
 }
 
 pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
@@ -236,6 +254,13 @@ pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
         &self,
         item_path_id_interface: ItemPathIdInterface,
         pedestal: LinketImpl::Pedestal,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
+
+    fn eval_generic_gn_with_dyn<'a>(
+        &'a self,
+        ki_repr_interface: KiReprInterface,
+        pedestal: LinketImpl::Pedestal,
+        f: Box<dyn FnOnce() -> LinketImplKiControlFlow<LinketImpl> + 'a>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn eval_ki_repr_interface_dyn(
@@ -316,5 +341,14 @@ where
 
     fn eval_ki_pedestal_dyn(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal {
         self.eval_ki_pedestal(ki_repr_interface)
+    }
+
+    fn eval_generic_gn_with_dyn<'a>(
+        &'a self,
+        ki_repr_interface: KiReprInterface,
+        pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
+        f: Box<dyn FnOnce() -> LinketImplKiControlFlow<LinketImpl> + 'a>,
+    ) -> LinketImplKiControlFlow<LinketImpl> {
+        self.eval_generic_gn_with(ki_repr_interface, pedestal, f)
     }
 }

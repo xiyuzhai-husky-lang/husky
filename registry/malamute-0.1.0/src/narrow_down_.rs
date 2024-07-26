@@ -9,12 +9,23 @@ use smallvec::SmallVec;
 #[allow(warnings, non_camel_case_types)]
 pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
-impl<Task: IsMlTask<__StaticVarId>, Label> narrow_down<Task, Label> {
+impl<Task: IsMlTask<__StaticVarId>, Label> narrow_down<Task, Label>
+where
+    Label: __WeakStatic<Static = Label>
+        + __Static<Frozen = Label>
+        + __Frozen<Static = Label>
+        + __Serialize,
+{
     pub fn gn_ki_wrapper(
-        pedestal: __Pedestal,
+        ki_repr_interface: __KiReprInterface,
+        ki_domain_repr_interface: __KiDomainReprInterface,
+        mut pedestal: __Pedestal,
         arguments: &[__KiArgumentReprInterface],
     ) -> __KiControlFlow {
+        pedestal.exclude::<Task::INPUT>();
         println!("pedestal = {:?}", pedestal);
+        let _: NarrowDownInternal<Label> =
+            __eval_generic_gn_with(ki_repr_interface, pedestal, || todo!());
         todo!()
     }
 }

@@ -1,5 +1,6 @@
 pub mod virtual_pedestal;
 
+use crate::static_var::IsStaticVar;
 use crate::ItemPathIdInterface;
 use serde::{Deserialize, Serialize};
 
@@ -17,6 +18,8 @@ pub trait IsPedestal:
 {
     type StaticVarId: Clone + Copy;
     type UiBuffer: IsPedestalUiBuffer<Pedestal = Self>;
+
+    fn exclude<V: IsStaticVar<Self::StaticVarId>>(&mut self);
 
     fn init_ui_buffer(&self) -> Self::UiBuffer;
 

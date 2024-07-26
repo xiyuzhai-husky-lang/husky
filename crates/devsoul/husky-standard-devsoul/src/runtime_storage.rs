@@ -52,14 +52,11 @@ pub struct AnyPointer(*const std::ffi::c_void);
 
 unsafe impl Send for AnyPointer {}
 
-impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage
-where
-    LinketImpl: IsLinketImpl,
-{
+impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
     fn get_or_try_init_val_value(
         &self,
         val_item_path_id_interface: ItemPathIdInterface,
-        pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
+        pedestal: StandardPedestal,
         f: impl FnOnce() -> StandardLinketImplKiControlFlow,
         db: &salsa::Db,
     ) -> StandardLinketImplKiControlFlow {
@@ -91,15 +88,12 @@ where
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
-        var_deps: impl Iterator<Item = (ItemPath, StandardStaticVarId)>,
+        pedestal: StandardPedestal,
         f: impl FnOnce() -> StandardLinketImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinketImplKiControlFlow {
         use husky_devsoul_interface::pedestal::IsPedestal;
 
-        let pedestal = var_deps
-            .map(|(path, id)| (unsafe { std::mem::transmute(*path) }, id))
-            .collect();
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key.clone()).or_default().clone();
         let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");

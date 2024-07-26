@@ -3,7 +3,10 @@ mod egui;
 
 use super::*;
 use husky_devsoul_interface::item_path::ItemPathIdInterface;
-use husky_devsoul_interface::pedestal::{IsPedestal, IsPedestalUiBuffer};
+use husky_devsoul_interface::{
+    pedestal::{IsPedestal, IsPedestalUiBuffer},
+    static_var::IsStaticVar,
+};
 use static_var::StandardStaticVarId;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
@@ -25,6 +28,10 @@ impl FromIterator<(ItemPathIdInterface, StandardStaticVarId)> for StandardPedest
 impl IsPedestal for StandardPedestal {
     type StaticVarId = StandardStaticVarId;
     type UiBuffer = MlPedestalUiBuffer;
+
+    fn exclude<V: IsStaticVar<StandardStaticVarId>>(&mut self) {
+        let _ = self.static_var_ids.remove(V::item_path_id_interface());
+    }
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {
         todo!()
