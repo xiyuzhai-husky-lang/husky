@@ -199,14 +199,14 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
         self.get_or_try_init_ki_value(ki_repr.ki(db), ki_repr.var_deps(db), || f(ki_domain_repr))
     }
 
-    fn eval_memo_field(
+    fn eval_memo_field_with(
         &self,
         item_path_id_interface: ItemPathIdInterface,
-        slf: &'static std::ffi::c_void,
+        __self: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> DevsoulKiControlFlow<Devsoul>,
     ) -> DevsoulKiControlFlow<Devsoul> {
         self.storage
-            .get_or_try_init_memo_field_value(item_path_id_interface, slf, f)
+            .get_or_try_init_memo_field_value(item_path_id_interface, __self, f)
     }
 
     fn eval_val_runtime_constant(
