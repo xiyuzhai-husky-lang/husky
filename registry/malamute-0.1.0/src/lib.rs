@@ -30,24 +30,20 @@ where
         todo!()
     }
 
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> __Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> __Value {
-        todo!()
-    }
-
-    fn copy(&self) -> Box<dyn __StaticDyn> {
-        Box::<Class<Label>>::new(self.clone())
-    }
-
     fn serialize_to_value(&self) -> __JsonValue {
         __to_json_value(self).unwrap()
     }
 
     fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         __Visual::Void
+    }
+
+    fn is_copyable() -> bool {
+        true
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        Some((*self).into_value())
     }
 }
 

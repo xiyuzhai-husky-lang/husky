@@ -30,6 +30,15 @@ where
     T: __Static,
 {
     type Frozen = Self;
+
+    fn is_copyable() -> bool {
+        todo!()
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        todo!()
+    }
+
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
     }
@@ -41,15 +50,8 @@ where
     fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         todo!()
     }
-
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> __Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> __Value {
-        todo!()
-    }
 }
+
 impl<T> __Frozen for CyclicSliceLeashed<T>
 where
     T: __Static,

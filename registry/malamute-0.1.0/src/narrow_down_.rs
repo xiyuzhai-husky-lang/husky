@@ -63,14 +63,6 @@ where
         todo!()
     }
 
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> __Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> __Value {
-        todo!()
-    }
-
     fn serialize_to_value(&self) -> __JsonValue {
         __to_json_value(self).unwrap()
     }
@@ -78,6 +70,14 @@ where
     fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         // ad hoc
         __Visual::Void
+    }
+
+    fn is_copyable() -> bool {
+        false
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        None
     }
 }
 impl<Label> __Frozen for NarrowDownInternal<Label>

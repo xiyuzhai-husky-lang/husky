@@ -78,6 +78,14 @@ where
         todo!()
     }
 
+    fn is_copyable() -> bool {
+        true
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        Some((*self).into_value())
+    }
+
     fn serialize_to_value(&self) -> __JsonValue {
         todo!("CyclicSlice serialize_to_value")
     }
@@ -85,15 +93,8 @@ where
     fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         todo!()
     }
-
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> __Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> __Value {
-        todo!("type_name = `{}`", std::any::type_name::<T>())
-    }
 }
+
 impl<T> __Frozen for Leash<T>
 where
     T: __Static,
