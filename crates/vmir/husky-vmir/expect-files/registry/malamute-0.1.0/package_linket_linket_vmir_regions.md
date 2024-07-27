@@ -1414,6 +1414,7 @@
                     ],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Tuple {
                     index: 0,
                 },
@@ -1720,6 +1721,7 @@
                     ],
                     separator: None,
                 },
+                field_ty_leash_class: Other,
                 field: Tuple {
                     index: 0,
                 },

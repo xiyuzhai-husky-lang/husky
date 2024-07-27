@@ -5,6 +5,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
@@ -29,6 +30,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
@@ -53,6 +55,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
@@ -77,6 +80,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
@@ -101,6 +105,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
@@ -125,6 +130,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
@@ -149,6 +155,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::Submodule(
@@ -173,6 +180,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         2,
                     ),
@@ -194,6 +202,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         1,
                     ),
@@ -217,6 +226,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         5,
                     ),
@@ -238,6 +248,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         4,
                     ),
@@ -261,6 +272,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         8,
                     ),
@@ -282,6 +294,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         7,
                     ),
@@ -306,6 +319,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         11,
                     ),
@@ -327,6 +341,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         10,
                     ),
@@ -350,6 +365,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         14,
                     ),
@@ -371,6 +387,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         13,
                     ),
@@ -394,6 +411,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         17,
                     ),
@@ -415,6 +433,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         16,
                     ),
@@ -438,6 +457,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         19,
                     ),
@@ -463,6 +483,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         21,
                     ),
@@ -488,6 +509,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -507,6 +529,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::main`),
@@ -524,6 +551,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -543,6 +575,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::main`),
@@ -560,6 +597,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -580,6 +622,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -597,6 +644,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -617,6 +669,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -634,6 +691,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -654,6 +716,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -671,6 +738,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -691,6 +763,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -708,6 +785,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::MajorItem(
@@ -728,6 +810,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -745,6 +832,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::MajorItem(
@@ -765,6 +857,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -782,6 +879,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
                         PrincipalEntityPath::MajorItem(
@@ -802,6 +904,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -819,6 +926,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         6,
                         PrincipalEntityPath::MajorItem(
@@ -839,6 +951,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -856,6 +973,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         7,
                         PrincipalEntityPath::MajorItem(
@@ -876,6 +998,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -893,6 +1020,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         8,
                         PrincipalEntityPath::MajorItem(
@@ -913,6 +1045,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         9,
                         PrincipalEntityPath::MajorItem(
@@ -933,6 +1070,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::main`),
@@ -949,6 +1091,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         10,
                         PrincipalEntityPath::TypeVariant(

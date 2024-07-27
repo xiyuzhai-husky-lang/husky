@@ -5,6 +5,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         2,
                     ),
@@ -26,6 +27,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         1,
                     ),
@@ -49,6 +51,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         4,
                     ),
@@ -73,6 +76,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -105,6 +109,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
@@ -125,6 +134,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
@@ -142,6 +156,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -162,6 +181,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::TemplateParameter(
                         1,
                     ),
@@ -182,6 +206,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
@@ -199,6 +228,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -219,6 +253,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::TemplateParameter(
                         2,
                     ),
@@ -239,6 +278,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
@@ -256,6 +300,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -276,6 +325,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::TemplateParameter(
                         3,
                     ),
@@ -296,6 +350,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
@@ -313,6 +372,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::MajorItem(
@@ -336,6 +400,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -368,6 +433,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
@@ -388,6 +458,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::EffHoles`),
@@ -401,6 +476,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::EffHoles`),
@@ -414,6 +494,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::EffHoles`),
@@ -427,6 +512,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::EffHoles`),
@@ -440,6 +530,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::EffHoles`),
@@ -457,6 +552,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -479,6 +579,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -502,6 +603,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -520,6 +626,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -533,6 +644,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -550,6 +666,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -571,6 +692,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -584,6 +710,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -601,6 +732,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -622,6 +758,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -640,6 +781,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -660,6 +806,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -674,6 +825,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -694,6 +850,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -707,6 +868,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -727,6 +893,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
@@ -742,6 +913,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -774,6 +946,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::TemplateParameter(
                         0,
                     ),
@@ -794,6 +971,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -811,6 +993,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -832,6 +1019,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
@@ -849,6 +1041,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -869,6 +1066,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
@@ -886,6 +1088,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -907,6 +1114,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -947,6 +1155,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`),
@@ -964,6 +1177,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -984,6 +1202,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`),
@@ -998,6 +1221,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`),
@@ -1012,6 +1240,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`),
@@ -1028,6 +1261,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
@@ -1045,6 +1283,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -1066,6 +1309,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -1100,6 +1344,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
@@ -1113,6 +1362,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
@@ -1126,6 +1380,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
@@ -1143,6 +1402,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -1163,6 +1427,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
@@ -1182,6 +1451,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -1205,6 +1479,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
@@ -1218,6 +1497,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
@@ -1231,6 +1515,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
@@ -1245,6 +1534,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -1279,6 +1569,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1296,6 +1591,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -1318,6 +1618,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1336,6 +1641,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1350,6 +1660,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1364,6 +1679,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1381,6 +1701,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1399,6 +1724,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1412,6 +1742,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1425,6 +1760,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1438,6 +1778,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1451,6 +1796,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1468,6 +1818,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -1490,6 +1845,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1510,6 +1870,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1524,6 +1889,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1543,6 +1913,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -1568,6 +1943,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            31,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1588,6 +1968,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            33,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1602,6 +1987,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1622,6 +2012,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            37,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1636,6 +2031,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            39,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1655,6 +2055,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            39,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -1680,6 +2085,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            42,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1700,6 +2110,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            44,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1714,6 +2129,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1734,6 +2154,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            48,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1748,6 +2173,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1767,6 +2197,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::MajorItem(
@@ -1793,6 +2228,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            54,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1810,6 +2250,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            54,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::MajorItem(
@@ -1829,6 +2274,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            55,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1842,6 +2292,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1861,6 +2316,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            57,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
@@ -1875,6 +2335,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -1909,6 +2370,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -1926,6 +2392,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -1948,6 +2419,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -1966,6 +2442,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -1980,6 +2461,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -1998,6 +2484,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2012,6 +2503,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2026,6 +2522,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2040,6 +2541,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2060,6 +2566,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2080,6 +2591,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2097,6 +2613,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2115,6 +2636,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2132,9 +2658,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            27,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2152,10 +2700,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            29,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
+                        ),
+                        SemExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            31,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2170,6 +2740,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            33,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2186,6 +2761,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            37,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2206,6 +2786,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            39,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2226,6 +2811,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            41,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2246,6 +2836,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            43,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2266,6 +2861,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            45,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2286,6 +2886,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
@@ -2303,6 +2908,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -2323,6 +2933,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -2357,6 +2968,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2374,6 +2990,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -2396,6 +3017,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2414,6 +3040,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2431,6 +3062,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -2451,6 +3087,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2465,6 +3106,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2479,6 +3125,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2499,6 +3150,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2513,6 +3169,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2533,6 +3194,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2553,6 +3219,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2567,6 +3238,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2581,6 +3257,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2592,9 +3273,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2612,10 +3315,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2633,6 +3358,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            33,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2653,6 +3383,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
@@ -2670,6 +3405,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -2690,6 +3430,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -2724,6 +3465,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2741,6 +3487,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -2763,6 +3514,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2781,6 +3537,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2795,6 +3556,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2809,6 +3575,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2829,6 +3600,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2843,6 +3619,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2863,6 +3644,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2877,6 +3663,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2888,9 +3679,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
+                        ),
+                        SemExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2908,10 +3721,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
+                        ),
+                        SemExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            22,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2928,6 +3763,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2948,6 +3788,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`),
@@ -2965,6 +3810,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -2985,6 +3835,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -3019,6 +3870,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3036,6 +3892,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -3058,6 +3919,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3076,6 +3942,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3090,6 +3961,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3110,6 +3986,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3125,6 +4006,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3139,6 +4025,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3150,9 +4041,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3170,13 +4083,35 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [],
             [],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            22,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3195,6 +4130,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3215,6 +4155,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3229,6 +4174,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3249,6 +4199,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            30,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3265,6 +4220,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            34,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3279,6 +4239,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3290,9 +4255,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            37,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            38,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3310,12 +4297,34 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            39,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            15,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            43,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3334,6 +4343,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            45,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3354,6 +4368,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3374,6 +4393,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            49,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3392,6 +4416,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            51,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3412,6 +4441,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3427,6 +4461,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3445,6 +4484,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            58,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3459,6 +4503,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            60,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3479,6 +4528,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            62,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3499,6 +4553,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            64,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3519,6 +4578,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            66,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3539,6 +4603,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3559,6 +4628,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            70,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3573,6 +4647,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            72,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3584,9 +4663,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            73,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            33,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            74,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3604,10 +4705,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            75,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            33,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            77,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3625,6 +4748,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            82,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3643,6 +4771,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            84,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3657,6 +4790,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            86,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3677,6 +4815,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            88,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3697,6 +4840,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            90,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3717,6 +4865,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            92,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3737,6 +4890,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            94,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3757,6 +4915,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            96,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3771,6 +4934,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            98,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3782,9 +4950,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            99,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            46,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3802,10 +4992,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            101,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
+                        ),
+                        SemExprIdx(
+                            46,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            103,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3822,6 +5034,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            107,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3839,6 +5056,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            107,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -3858,6 +5080,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            108,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3871,6 +5098,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            109,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3891,6 +5123,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            111,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3911,6 +5148,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            113,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3931,6 +5173,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            115,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3951,6 +5198,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            117,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
@@ -3965,6 +5217,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -3999,6 +5252,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
@@ -4016,6 +5274,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -4036,6 +5299,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
@@ -4050,6 +5318,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
@@ -4064,6 +5337,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
@@ -4078,6 +5356,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
@@ -4095,6 +5378,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -4115,6 +5403,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -4149,6 +5438,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
@@ -4166,6 +5460,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -4186,6 +5485,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
@@ -4200,6 +5504,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
@@ -4214,6 +5523,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
@@ -4228,6 +5542,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
@@ -4245,6 +5564,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -4265,6 +5589,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -4303,6 +5628,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4321,6 +5651,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4338,6 +5673,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -4359,6 +5699,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4376,6 +5721,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -4398,6 +5748,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4416,6 +5771,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4430,6 +5790,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4450,6 +5815,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4465,6 +5835,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4483,6 +5858,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4497,6 +5877,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4517,6 +5902,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4532,6 +5922,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4546,6 +5941,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4557,9 +5957,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4577,12 +5999,34 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            30,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4603,6 +6047,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4623,6 +6072,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            34,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4643,6 +6097,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4663,6 +6122,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            38,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4683,6 +6147,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            40,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4697,6 +6166,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            42,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4708,9 +6182,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            43,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
+                        ),
+                        SemExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            44,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4728,10 +6224,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            45,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
+                        ),
+                        SemExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4748,6 +6266,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            51,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4768,6 +6291,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`),
@@ -4785,6 +6313,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -4805,6 +6338,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::AssocItem(
@@ -4843,6 +6377,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -4861,6 +6400,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -4878,6 +6422,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -4899,6 +6448,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -4916,6 +6470,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -4938,6 +6497,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -4956,6 +6520,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -4970,6 +6539,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -4990,6 +6564,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5005,6 +6584,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5023,6 +6607,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5037,6 +6626,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5057,6 +6651,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5072,6 +6671,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5086,6 +6690,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5097,9 +6706,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5117,12 +6748,34 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            30,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5143,6 +6796,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5163,6 +6821,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            34,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5183,6 +6846,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5203,6 +6871,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            38,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5223,6 +6896,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            40,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5237,6 +6915,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            42,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5248,9 +6931,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            43,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
+                        ),
+                        SemExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            44,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5268,10 +6973,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            45,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
+                        ),
+                        SemExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            47,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5288,6 +7015,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            51,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5308,6 +7040,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`),
@@ -5325,6 +7062,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -5345,6 +7087,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -5368,6 +7111,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5386,6 +7134,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5403,6 +7156,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -5423,6 +7181,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5441,6 +7204,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5458,6 +7226,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -5479,6 +7252,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5496,6 +7274,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -5518,6 +7301,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5536,6 +7324,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5557,6 +7350,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5578,6 +7376,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5598,6 +7401,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5614,6 +7422,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5634,6 +7447,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5651,6 +7469,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5669,6 +7492,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5690,6 +7518,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            29,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5711,6 +7544,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5731,6 +7569,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            34,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5747,6 +7590,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            38,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5767,6 +7615,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            40,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5783,6 +7636,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            44,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5803,6 +7661,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5823,6 +7686,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            48,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5843,6 +7711,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5862,6 +7735,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            51,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5882,6 +7760,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5903,6 +7786,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5924,6 +7812,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            59,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5944,6 +7837,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            61,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5960,6 +7858,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            65,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5980,6 +7883,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            67,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -5996,6 +7904,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            71,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
@@ -6017,6 +7930,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -6040,6 +7954,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6058,6 +7977,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6075,6 +7999,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -6096,6 +8025,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6109,6 +8043,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6122,6 +8061,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6139,6 +8083,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -6161,6 +8110,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6179,6 +8133,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6192,6 +8151,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6205,6 +8169,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6222,6 +8191,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -6246,6 +8220,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6264,6 +8243,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6284,6 +8268,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6300,6 +8289,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6320,6 +8314,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6335,6 +8334,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6352,9 +8356,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            27,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6372,11 +8398,33 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            29,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6395,6 +8443,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            34,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6412,9 +8465,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            13,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6432,10 +8507,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            37,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            13,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            39,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6454,6 +8551,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            41,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6474,6 +8576,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            43,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6491,6 +8598,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            48,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6509,6 +8621,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -6530,6 +8647,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            53,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6543,6 +8665,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            54,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6556,6 +8683,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            55,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6573,9 +8705,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            57,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6593,10 +8747,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            58,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            60,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6616,6 +8792,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            60,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -6639,6 +8820,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            61,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6652,6 +8838,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            62,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6672,6 +8863,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            64,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6686,6 +8882,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            66,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6705,6 +8906,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            67,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6720,6 +8926,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            70,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6738,6 +8949,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            72,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6753,6 +8969,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            75,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6773,6 +8994,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            77,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6793,6 +9019,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            79,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6808,6 +9039,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            82,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6826,6 +9062,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            84,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6846,6 +9087,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            86,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6866,6 +9112,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            88,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6880,6 +9131,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            90,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6895,6 +9151,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            93,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6913,6 +9174,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            95,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6930,9 +9196,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            96,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            43,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            97,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6953,6 +9241,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            99,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6964,10 +9257,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            43,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            102,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -6986,6 +9301,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            104,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7006,6 +9326,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            106,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7025,6 +9350,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            106,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::MajorItem(
@@ -7048,6 +9378,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            107,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7061,6 +9396,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            108,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7078,9 +9418,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            109,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            50,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            110,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7101,6 +9463,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            112,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7112,10 +9479,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            113,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            50,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            115,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7133,9 +9522,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            116,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            53,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            117,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7153,9 +9564,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            118,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            53,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            119,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7171,6 +9604,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            122,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7193,6 +9631,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            126,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7213,6 +9656,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            128,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7233,6 +9681,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            130,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7253,6 +9706,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            132,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7266,6 +9724,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            133,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7283,9 +9746,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            134,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            68,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            135,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7306,6 +9791,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            137,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7317,10 +9807,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            138,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            68,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            140,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7341,6 +9853,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            142,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7361,6 +9878,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            144,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7382,6 +9904,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            147,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7400,6 +9927,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            149,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7417,9 +9949,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            150,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            75,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            151,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7437,10 +9991,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            152,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            75,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            154,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7459,6 +10035,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            156,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7479,6 +10060,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            158,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7498,6 +10084,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            158,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::MajorItem(
@@ -7521,6 +10112,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            159,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7534,6 +10130,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            160,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7551,9 +10152,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            161,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            80,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            162,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7571,10 +10194,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            163,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            80,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            165,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7592,9 +10237,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            166,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            85,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            167,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7615,6 +10282,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            169,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7626,9 +10298,31 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            170,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            85,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            171,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7643,6 +10337,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            173,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7663,6 +10362,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            175,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7683,6 +10387,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            177,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7703,6 +10412,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            179,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7716,6 +10430,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            180,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7733,9 +10452,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            181,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            96,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            182,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7753,10 +10494,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            183,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            96,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            185,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7777,6 +10540,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            187,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7797,6 +10565,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            189,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7817,6 +10590,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            191,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7831,6 +10609,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            193,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7848,9 +10631,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            194,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            104,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            195,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7868,12 +10673,34 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            196,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            104,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            200,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7891,9 +10718,31 @@ Ok(
                     },
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            201,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            107,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            202,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7911,10 +10760,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            203,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::connected_component::find_connected_components`),
+                        ),
+                        SemExprIdx(
+                            107,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            205,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7935,6 +10806,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            207,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7949,6 +10825,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            209,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7966,6 +10847,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            209,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
                         PrincipalEntityPath::MajorItem(
@@ -7985,6 +10871,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            210,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -7998,6 +10889,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            211,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -8017,6 +10913,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            212,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),
@@ -8032,6 +10933,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            215,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::connected_component::find_connected_components`),

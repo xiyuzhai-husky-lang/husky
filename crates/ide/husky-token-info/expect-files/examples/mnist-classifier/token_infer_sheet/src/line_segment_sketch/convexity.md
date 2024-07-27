@@ -5,6 +5,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         2,
                     ),
@@ -26,6 +27,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         1,
                     ),
@@ -49,6 +51,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         5,
                     ),
@@ -70,6 +73,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         4,
                     ),
@@ -93,6 +97,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         8,
                     ),
@@ -114,6 +119,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         7,
                     ),
@@ -138,6 +144,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -161,6 +168,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -179,6 +191,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -196,6 +213,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -216,6 +238,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -234,6 +261,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -251,6 +283,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -272,6 +309,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -289,6 +331,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -310,6 +357,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -328,6 +380,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -348,6 +405,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -362,6 +424,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -378,6 +445,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -396,6 +468,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -416,6 +493,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -427,9 +509,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -450,6 +554,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -467,10 +576,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -487,6 +618,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            27,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -505,6 +641,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            29,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -525,6 +666,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            31,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -536,10 +682,32 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            32,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            18,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            34,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -560,6 +728,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -575,6 +748,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            39,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -592,10 +770,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            40,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            18,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            42,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -612,6 +812,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -630,6 +835,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            48,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -650,6 +860,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -664,6 +879,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            52,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -685,6 +905,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            55,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -705,6 +930,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            57,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -721,6 +951,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            61,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -740,6 +975,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            64,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -754,6 +994,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            66,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -772,6 +1017,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -792,6 +1042,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            70,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -803,10 +1058,32 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            71,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            36,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            73,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -827,6 +1104,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            75,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -842,6 +1124,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            78,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -859,10 +1146,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            79,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            36,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            81,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -877,6 +1186,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            83,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -897,6 +1211,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            85,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -913,6 +1232,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            89,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -933,6 +1257,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            91,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -953,6 +1282,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            93,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -970,6 +1304,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            98,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -988,6 +1327,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1008,6 +1352,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            102,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1022,6 +1371,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            104,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1036,6 +1390,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            106,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1056,6 +1415,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            108,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1072,6 +1436,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            112,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1092,6 +1461,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            114,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1112,6 +1486,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            116,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1132,6 +1511,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            118,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1146,6 +1530,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            120,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1166,6 +1555,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            122,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1180,6 +1574,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            124,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1203,6 +1602,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            129,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1222,6 +1626,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            132,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1236,6 +1645,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            134,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1254,6 +1668,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            136,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1274,6 +1693,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            138,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1285,9 +1709,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            139,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            63,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            140,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1308,6 +1754,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            142,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1325,10 +1776,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            143,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
+                        ),
+                        SemExprIdx(
+                            63,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            145,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1343,6 +1816,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            147,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1363,6 +1841,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            149,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1379,6 +1862,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            153,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1399,6 +1887,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            155,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1419,6 +1912,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            157,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1436,6 +1934,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            162,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1454,6 +1957,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            164,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1474,6 +1982,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            166,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1488,6 +2001,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            168,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1502,6 +2020,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            170,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1522,6 +2045,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            172,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1538,6 +2066,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            176,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1558,6 +2091,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            178,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1578,6 +2116,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            180,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1598,6 +2141,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            182,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1612,6 +2160,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            184,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1632,6 +2185,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            186,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1646,6 +2204,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            188,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1668,6 +2231,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            192,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1688,6 +2256,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            194,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1710,6 +2283,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            198,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),
@@ -1730,6 +2308,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            200,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`),

@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity node",
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `syntax_errors::ast::A`\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `syntax_errors::ast::A`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(

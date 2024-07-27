@@ -5,6 +5,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         1,
                     ),
@@ -29,6 +30,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -48,6 +50,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::nine_match`),
@@ -65,6 +72,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -85,6 +97,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match`),
@@ -104,6 +121,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -127,6 +149,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match`),
@@ -140,6 +167,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match`),
@@ -157,6 +189,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -178,6 +215,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match`),
@@ -197,6 +239,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -221,6 +268,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match`),
@@ -235,6 +287,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -254,6 +307,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
@@ -271,6 +329,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -291,6 +354,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
@@ -310,6 +378,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            1,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -333,6 +406,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
@@ -346,6 +424,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
@@ -363,6 +446,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -384,6 +472,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
@@ -403,6 +496,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -427,6 +525,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
@@ -445,6 +548,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -464,6 +568,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -481,6 +590,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -500,6 +614,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -517,6 +636,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            9,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -536,6 +660,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -556,6 +685,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -572,6 +706,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::TypeVariant(
@@ -590,6 +729,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -608,6 +752,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -625,6 +774,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -645,6 +799,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -659,6 +818,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            8,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -679,6 +843,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -690,9 +859,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -704,10 +895,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            13,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::TypeVariant(
@@ -725,6 +938,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -743,6 +961,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -760,6 +983,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            19,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
@@ -780,6 +1008,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            21,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -791,9 +1024,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            22,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            23,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -805,10 +1060,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            26,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -829,6 +1106,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            28,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::TypeVariant(
@@ -849,6 +1131,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            33,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -867,6 +1154,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            35,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -884,10 +1176,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            36,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            14,
+                        ),
+                    ),
+                    data: TokenInfoData::UnwrapExclamation,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            38,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -904,6 +1218,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            42,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -918,6 +1237,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            44,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -936,6 +1260,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -953,6 +1282,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            46,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::MajorItem(
@@ -973,6 +1307,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            48,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -987,6 +1326,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1004,6 +1348,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            50,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         5,
                         PrincipalEntityPath::MajorItem(
@@ -1024,6 +1373,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            52,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1038,6 +1392,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            54,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1058,6 +1417,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            56,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1072,6 +1436,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            58,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1092,6 +1461,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            60,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1103,9 +1477,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            61,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            28,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            62,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1117,10 +1513,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            63,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            28,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            65,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         6,
                         PrincipalEntityPath::TypeVariant(
@@ -1139,6 +1557,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1156,6 +1579,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            68,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         7,
                         PrincipalEntityPath::MajorItem(
@@ -1176,6 +1604,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            70,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1192,6 +1625,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            74,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1206,6 +1644,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            76,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1224,6 +1667,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            78,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1241,6 +1689,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            78,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         8,
                         PrincipalEntityPath::MajorItem(
@@ -1261,6 +1714,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            80,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1272,9 +1730,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            81,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            37,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            82,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1286,10 +1766,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            83,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            37,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            85,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1310,6 +1812,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            87,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         9,
                         PrincipalEntityPath::TypeVariant(
@@ -1330,6 +1837,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            92,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1347,6 +1859,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            92,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         10,
                         PrincipalEntityPath::MajorItem(
@@ -1367,6 +1884,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            94,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1381,6 +1903,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            96,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1395,6 +1922,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            98,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1413,6 +1945,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1430,6 +1967,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            100,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         11,
                         PrincipalEntityPath::MajorItem(
@@ -1450,6 +1992,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            102,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1464,6 +2011,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            104,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1481,6 +2033,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            104,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         12,
                         PrincipalEntityPath::MajorItem(
@@ -1501,6 +2058,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            106,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1515,6 +2077,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            108,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1533,6 +2100,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            110,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1550,6 +2122,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            110,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         13,
                         PrincipalEntityPath::MajorItem(
@@ -1570,6 +2147,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            112,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1581,9 +2163,31 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ],
-            [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            113,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            52,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            114,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1595,10 +2199,32 @@ Ok(
                     data: TokenInfoData::Literal,
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            115,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            52,
+                        ),
+                    ),
+                    data: TokenInfoData::IndexColon,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            117,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1619,6 +2245,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            119,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         14,
                         PrincipalEntityPath::TypeVariant(
@@ -1639,6 +2270,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            124,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1656,10 +2292,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            125,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            56,
+                        ),
+                    ),
+                    data: TokenInfoData::UnwrapExclamation,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            127,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1676,6 +2334,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            131,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1690,6 +2353,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            133,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1704,6 +2372,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            135,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1721,10 +2394,32 @@ Ok(
                     },
                 },
             ],
-            [],
+            [
+                TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            136,
+                        ),
+                    ),
+                    source: TokenInfoSource::SemExpr(
+                        RegionPath::ItemDefn(
+                            ItemPath(`mnist_classifier::digits::nine::is_nine`),
+                        ),
+                        SemExprIdx(
+                            62,
+                        ),
+                    ),
+                    data: TokenInfoData::UnwrapExclamation,
+                },
+            ],
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            138,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1740,6 +2435,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            141,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1754,6 +2454,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            143,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1771,6 +2476,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            143,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         15,
                         PrincipalEntityPath::MajorItem(
@@ -1791,6 +2501,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            145,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1805,6 +2520,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            147,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1819,6 +2539,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            149,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1837,6 +2562,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            151,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1854,6 +2584,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            151,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         16,
                         PrincipalEntityPath::MajorItem(
@@ -1874,6 +2609,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            153,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1888,6 +2628,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            155,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1903,6 +2648,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            158,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1923,6 +2673,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            160,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1937,6 +2692,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            162,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1957,6 +2717,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            164,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -1971,6 +2736,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            166,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         17,
                         PrincipalEntityPath::MajorItem(
@@ -1991,6 +2761,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            168,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -2007,6 +2782,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            168,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         18,
                         PrincipalEntityPath::TypeVariant(
@@ -2023,6 +2803,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            169,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         19,
                         PrincipalEntityPath::MajorItem(
@@ -2043,6 +2828,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            171,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::is_nine`),
@@ -2059,6 +2849,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            171,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         20,
                         PrincipalEntityPath::TypeVariant(
@@ -2076,6 +2871,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -2099,6 +2895,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2117,6 +2918,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2130,6 +2936,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2147,6 +2958,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -2168,6 +2984,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2181,6 +3002,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2198,6 +3024,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -2219,6 +3050,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2237,6 +3073,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2257,6 +3098,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2273,6 +3119,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2293,6 +3144,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2307,6 +3163,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2320,6 +3181,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            15,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2340,6 +3206,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            17,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::downmost`),
@@ -2354,6 +3225,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
@@ -2377,6 +3249,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2395,6 +3272,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2408,6 +3290,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2425,6 +3312,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            7,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
@@ -2446,6 +3338,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2459,6 +3356,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2476,6 +3378,11 @@ Ok(
                     ),
                 },
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
                     source: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
@@ -2497,6 +3404,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
                     source: TokenInfoSource::Pattern(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2515,6 +3427,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2535,6 +3452,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2551,6 +3473,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2571,6 +3498,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            12,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2585,6 +3517,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            14,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2599,6 +3536,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            16,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2619,6 +3561,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            18,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2633,6 +3580,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            20,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2649,6 +3601,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            24,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2662,6 +3619,11 @@ Ok(
             ],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            25,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2682,6 +3644,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            27,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),
@@ -2696,6 +3663,11 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: Some(
+                        RegionalTokenIdx(
+                            29,
+                        ),
+                    ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDefn(
                             ItemPath(`mnist_classifier::digits::nine::big_cc`),

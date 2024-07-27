@@ -6,6 +6,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         2,
                     ),
@@ -27,6 +28,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         1,
                     ),
@@ -51,6 +53,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         5,
                     ),
@@ -72,6 +75,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         4,
                     ),
@@ -96,6 +100,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         8,
                     ),
@@ -117,6 +122,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         7,
                     ),
@@ -141,6 +147,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         11,
                     ),
@@ -162,6 +169,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         10,
                     ),
@@ -186,6 +194,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         14,
                     ),
@@ -207,6 +216,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         13,
                     ),
@@ -231,6 +241,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         17,
                     ),
@@ -252,6 +263,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         16,
                     ),
@@ -276,6 +288,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         20,
                     ),
@@ -297,6 +310,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         19,
                     ),
@@ -321,6 +335,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         23,
                     ),
@@ -342,6 +357,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         22,
                     ),
@@ -366,6 +382,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         26,
                     ),
@@ -387,6 +404,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         25,
                     ),
@@ -411,6 +429,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         29,
                     ),
@@ -432,6 +451,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         28,
                     ),
@@ -456,6 +476,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         32,
                     ),
@@ -477,6 +498,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         31,
                     ),
@@ -501,6 +523,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         35,
                     ),
@@ -522,6 +545,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         34,
                     ),
@@ -546,6 +570,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         38,
                     ),
@@ -567,6 +592,7 @@ Ok(
             [],
             [
                 TokenInfo {
+                    regional_token_idx: None,
                     source: TokenInfoSource::UseExpr(
                         37,
                     ),

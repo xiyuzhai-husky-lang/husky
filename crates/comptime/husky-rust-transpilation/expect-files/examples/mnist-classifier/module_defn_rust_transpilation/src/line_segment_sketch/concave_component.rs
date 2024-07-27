@@ -1,5 +1,8 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -16,6 +19,9 @@ impl ConcaveComponent {
         }
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __find_concave_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sketch::LineSegmentSketch>) -> Vec<crate::line_segment_sketch::concave_component::ConcaveComponent> {
@@ -47,19 +53,22 @@ impl Visualize for crate::line_segment_sketch::concave_component::ConcaveCompone
     }
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __Visualize__for__ConcaveComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 impl crate::line_segment_sketch::concave_component::ConcaveComponent {
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 15)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__norm__ITEM_PATH_ID_INTERFACE)]
     pub fn norm(&'static self) -> f32 {
         <crate::line_segment_sketch::concave_component::ConcaveComponent>::hausdorff_norm(__self)
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 16)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__rel_norm__ITEM_PATH_ID_INTERFACE)]
     pub fn rel_norm(&'static self) -> f32 {
         <crate::line_segment_sketch::concave_component::ConcaveComponent>::norm(__self) / __self.deleash().displacement().norm()
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 17)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__hausdorff_norm__ITEM_PATH_ID_INTERFACE)]
     pub fn hausdorff_norm(&'static self) -> f32 {
         let mut hausdorff_norm = 0.0f32;
         let curve_start = &__self.deleash().strokes.deleash().first().unwrap().deleash().start;
@@ -75,7 +84,7 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
         return hausdorff_norm;
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 18)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__angle_change__ITEM_PATH_ID_INTERFACE)]
     pub fn angle_change(&'static self) -> f32 {
         let mut angle_change = 0.0f32;
         let mut dp0 = __self.deleash().strokes.deleash()[__self.deleash().strokes.deleash().start() as usize].displacement();
@@ -87,7 +96,7 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
         return angle_change;
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 19, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__bounding_box__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn bounding_box(&'static self) -> crate::geom2d::BoundingBox {
         let start_point = &__self.deleash().strokes.deleash().first().unwrap().deleash().start;
         let mut xmin = start_point.x;
@@ -104,7 +113,7 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
         return crate::geom2d::BoundingBox::__constructor(crate::geom2d::ClosedRange::__constructor(xmin, xmax), crate::geom2d::ClosedRange::__constructor(ymin, ymax));
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 20, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConcaveComponent__relative_bounding_box__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn relative_bounding_box(&'static self) -> crate::geom2d::RelativeBoundingBox {
         <crate::line_segment_sketch::LineSegmentSketch>::bounding_box(__self.deleash().line_segment_sketch).deleash().relative_bounding_box(<crate::line_segment_sketch::concave_component::ConcaveComponent>::bounding_box(__self).deleash())
     }
@@ -133,3 +142,62 @@ impl crate::line_segment_sketch::concave_component::ConcaveComponent {
         self.strokes.deleash().last().unwrap().deleash().displacement()
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__rel_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__hausdorff_norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__angle_change__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__relative_bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__line_segment__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__start__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__end__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__displacement__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__start_tangent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConcaveComponent__end_tangent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+

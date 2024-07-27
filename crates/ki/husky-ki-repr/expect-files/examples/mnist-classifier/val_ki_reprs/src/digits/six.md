@@ -54,7 +54,7 @@
         MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::ValLazilyDefined(
+            opn: KiOpn::Val(
                 MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
             arguments: [],

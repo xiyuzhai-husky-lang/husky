@@ -29,7 +29,7 @@
         MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
         KiRepr {
             ki_domain_repr: Omni,
-            opn: KiOpn::ValLazilyDefined(
+            opn: KiOpn::Val(
                 MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
             arguments: [],

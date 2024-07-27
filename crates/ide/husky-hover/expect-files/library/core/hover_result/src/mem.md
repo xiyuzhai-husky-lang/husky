@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity node",
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n];\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n];\n",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity node",
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        3,\n    ),\n];\n",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::marker::Copy`\n\ncoercion = None\n\ntype = `Trait @ None`",
+                            value: "\n\nentity `core::marker::Copy`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::mem::Leash`\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
+                            value: "\n\nentity `core::mem::Leash`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None -> Type @ None @ None`",
                         },
                     ),
                     range: Some(
@@ -640,7 +640,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -670,7 +670,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -700,7 +700,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -730,7 +730,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -760,7 +760,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(

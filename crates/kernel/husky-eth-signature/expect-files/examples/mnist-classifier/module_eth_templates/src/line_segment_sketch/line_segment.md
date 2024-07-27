@@ -13,10 +13,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`LineSegment`),
                                     ident: `start`,
                                     ty: EthTerm(`Point2d`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`LineSegment`),
                                     ident: `end`,
                                     ty: EthTerm(`Point2d`),
                                 },

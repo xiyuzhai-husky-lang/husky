@@ -13,10 +13,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`Point2d`),
                                     ident: `x`,
                                     ty: EthTerm(`f32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`Point2d`),
                                     ident: `y`,
                                     ty: EthTerm(`f32`),
                                 },
@@ -62,10 +64,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`RelativePoint2d`),
                                     ident: `x`,
                                     ty: EthTerm(`f32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`RelativePoint2d`),
                                     ident: `y`,
                                     ty: EthTerm(`f32`),
                                 },
@@ -111,10 +115,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`Vector2d`),
                                     ident: `x`,
                                     ty: EthTerm(`f32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`Vector2d`),
                                     ident: `y`,
                                     ty: EthTerm(`f32`),
                                 },
@@ -160,10 +166,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ClosedRange`),
                                     ident: `min`,
                                     ty: EthTerm(`f32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ClosedRange`),
                                     ident: `max`,
                                     ty: EthTerm(`f32`),
                                 },
@@ -209,10 +217,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`BoundingBox`),
                                     ident: `xrange`,
                                     ty: EthTerm(`ClosedRange`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`BoundingBox`),
                                     ident: `yrange`,
                                     ty: EthTerm(`ClosedRange`),
                                 },
@@ -258,10 +268,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`RelativeBoundingBox`),
                                     ident: `xrange`,
                                     ty: EthTerm(`ClosedRange`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`RelativeBoundingBox`),
                                     ident: `yrange`,
                                     ty: EthTerm(`ClosedRange`),
                                 },

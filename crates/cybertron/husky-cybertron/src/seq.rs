@@ -102,12 +102,7 @@ where
 fn seq_debug_works() {
     let seq = seq![1, 2, 3, 4];
     expect![[r#"
-        [
-            1,
-            2,
-            3,
-            4,
-        ]
+        [1, 2, 3, 4]
     "#]]
     .assert_debug_eq(&seq);
 }
@@ -144,17 +139,11 @@ fn seq_map_works() {
     let seq = Seq::new(vec![1, 2]);
     let mapped = seq.map(|v| v + 1);
     expect![[r#"
-        [
-            1,
-            2,
-        ]
+        [1, 2]
     "#]]
     .assert_debug_eq(&seq);
     expect![[r#"
-        [
-            2,
-            3,
-        ]
+        [2, 3]
     "#]]
     .assert_debug_eq(&mapped);
 }

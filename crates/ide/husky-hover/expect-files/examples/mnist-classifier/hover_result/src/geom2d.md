@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::geom2d::Point2d`\n\ncoercion = None\n\ntype = `fn(...) -> Point2d @ None @ None`",
+                            value: "\n\nentity `mnist_classifier::geom2d::Point2d`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        1,\n    ),\n    RegionalTokenIdx(\n        1,\n    ),\n];\n\n\ncoercion = None\n\ntype = `fn(...) -> Point2d @ None @ None`",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::geom2d::Point2d`\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist_classifier::geom2d::Point2d`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity node",
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "This is a form keyword\n\n",
+                            value: "This is a form keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::f32`\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        46,\n    ),\n    RegionalTokenIdx(\n        46,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::f32`\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `core::num::f32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        75,\n    ),\n    RegionalTokenIdx(\n        75,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nself value\n\ncoercion = None\n\ntype = `ClosedRange @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
+                            value: "Other keyword\n\nself value\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        2,\n    ),\n];\n\n\ncoercion = None\n\ntype = `ClosedRange @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nvariable\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: ImmutableOnStack {\n                place: Idx(\n                    PlaceIdx(1),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `f32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(1)) })`",
+                            value: "\n\nvariable\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        19,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: ImmutableOnStack {\n                place: Idx(\n                    PlaceIdx(1),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `f32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(1)) })`",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nself value\n\ncoercion = None\n\ntype = `BoundingBox @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
+                            value: "Other keyword\n\nself value\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        1,\n    ),\n];\n\n\ncoercion = None\n\ntype = `BoundingBox @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nself value\n\ncoercion = None\n\ntype = `RelativeBoundingBox @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
+                            value: "Other keyword\n\nself value\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        1,\n    ),\n];\n\n\ncoercion = None\n\ntype = `RelativeBoundingBox @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: StackPure {\n                place: Idx(\n                    PlaceIdx(0),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `f32 @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
+                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        5,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: StackPure {\n                place: Idx(\n                    PlaceIdx(0),\n                ),\n            },\n        },\n    ),\n)\n\ntype = `f32 @ Some(StackPure { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(

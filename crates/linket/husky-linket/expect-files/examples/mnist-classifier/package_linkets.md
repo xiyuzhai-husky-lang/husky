@@ -38,6 +38,7 @@
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -55,6 +56,7 @@
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -72,6 +74,7 @@
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -89,6 +92,7 @@
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -126,6 +130,7 @@
                 ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -177,6 +182,7 @@
                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -217,7 +223,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
@@ -236,7 +242,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -255,7 +261,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
@@ -274,7 +280,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
@@ -293,7 +299,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
@@ -312,7 +318,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
@@ -331,7 +337,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -350,7 +356,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -436,6 +442,7 @@
                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -453,6 +460,7 @@
                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -707,6 +715,7 @@
                 ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -724,6 +733,7 @@
                 ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -764,7 +774,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
@@ -783,7 +793,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
@@ -802,7 +812,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
@@ -821,7 +831,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
@@ -886,6 +896,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -903,6 +914,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -940,6 +952,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -957,6 +970,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -994,6 +1008,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1011,6 +1026,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1048,6 +1064,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1065,6 +1082,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1102,6 +1120,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1119,6 +1138,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1156,6 +1176,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1173,6 +1194,7 @@
                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1735,6 +1757,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1752,6 +1775,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1769,6 +1793,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1806,6 +1831,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1823,6 +1849,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -1947,7 +1974,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
@@ -1966,7 +1993,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
@@ -2031,6 +2058,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2048,6 +2076,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2074,7 +2103,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -2093,7 +2122,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
@@ -2112,7 +2141,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
@@ -2131,7 +2160,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -2150,7 +2179,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
@@ -2169,7 +2198,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -2339,6 +2368,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2356,6 +2386,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Copyable,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2407,6 +2438,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2424,6 +2456,7 @@
                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2503,6 +2536,7 @@
                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2520,6 +2554,7 @@
                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                 template_arguments: [],
             },
+            field_ty_leash_class: Other,
             field: Props {
                 ident: Ident(
                     Coword(
@@ -2546,7 +2581,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -2565,7 +2600,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
@@ -2584,7 +2619,7 @@
         },
     },
     Linket {
-        data: LinketData::MemoizedField {
+        data: LinketData::Memo {
             path: AssocItemPath::TypeItem(
                 TypeItemPath(
                     `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
@@ -3298,7 +3333,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3340,7 +3375,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -3388,7 +3423,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 20,
+                                            value: 8,
                                         },
                                     ),
                                 ),
@@ -3432,7 +3467,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -3482,7 +3517,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 4,
+                                            value: 3,
                                         },
                                     ),
                                 ),
@@ -3554,7 +3589,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 21,
+                                            value: 4,
                                         },
                                     ),
                                 ),
@@ -3604,7 +3639,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 22,
+                                            value: 5,
                                         },
                                     ),
                                 ),
@@ -3654,7 +3689,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 4,
+                                            value: 3,
                                         },
                                     ),
                                 ),
@@ -3698,7 +3733,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -3762,7 +3797,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -3814,7 +3849,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -3866,7 +3901,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -3916,7 +3951,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -3966,7 +4001,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 4,
+                                            value: 3,
                                         },
                                     ),
                                 ),
@@ -4016,7 +4051,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -4054,7 +4089,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -4098,7 +4133,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -4152,7 +4187,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4196,7 +4231,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4248,7 +4283,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4300,7 +4335,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -4344,7 +4379,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4394,7 +4429,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -4438,7 +4473,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4488,7 +4523,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4540,7 +4575,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4592,7 +4627,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 7,
+                                            value: 11,
                                         },
                                     ),
                                 ),
@@ -4646,7 +4681,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4690,7 +4725,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -4740,7 +4775,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4784,7 +4819,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4828,7 +4863,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4872,7 +4907,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 13,
+                                            value: 23,
                                         },
                                     ),
                                 ),
@@ -4916,7 +4951,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -4986,7 +5021,7 @@
                         Explicit(
                             Type(
                                 Ritchie(
-                                    LinketRitchieType(
+                                    LinRitchieType(
                                         Id {
                                             value: 1,
                                         },
@@ -5032,7 +5067,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 23,
+                                            value: 32,
                                         },
                                     ),
                                 ),
@@ -5082,7 +5117,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 24,
+                                            value: 33,
                                         },
                                     ),
                                 ),
@@ -5132,7 +5167,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 23,
+                                            value: 32,
                                         },
                                     ),
                                 ),
@@ -5149,14 +5184,14 @@
     Linket {
         data: LinketData::VecConstructor {
             element_ty: LinType::Ritchie(
-                LinketRitchieType {
+                LinRitchieType {
                     parameters: [
-                        LinketRitchieParameter {
+                        LinRitchieParameter {
                             contract: Pure,
                             parameter_ty: PathLeading(
                                 LinTypePathLeading(
                                     Id {
-                                        value: 23,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -5211,7 +5246,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 3,
+                                            value: 9,
                                         },
                                     ),
                                 ),
@@ -5249,7 +5284,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 27,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -5273,7 +5308,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5325,7 +5360,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 15,
+                                            value: 29,
                                         },
                                     ),
                                 ),
@@ -5375,7 +5410,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5423,7 +5458,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5471,7 +5506,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5506,7 +5541,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5516,6 +5551,7 @@
                 ],
                 separator: None,
             },
+            field_ty_leash_class: Copyable,
             field: Tuple {
                 index: 0,
             },
@@ -5557,7 +5593,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5605,7 +5641,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 25,
+                                            value: 15,
                                         },
                                     ),
                                 ),
@@ -5653,7 +5689,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5701,7 +5737,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5749,7 +5785,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5784,7 +5820,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5794,6 +5830,7 @@
                 ],
                 separator: None,
             },
+            field_ty_leash_class: Other,
             field: Tuple {
                 index: 0,
             },
@@ -5835,7 +5872,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5883,7 +5920,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 19,
+                                            value: 37,
                                         },
                                     ),
                                 ),
@@ -5948,7 +5985,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -5970,7 +6007,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6035,7 +6072,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -6057,7 +6094,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6122,7 +6159,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -6144,7 +6181,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6179,7 +6216,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -6201,7 +6238,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6211,6 +6248,7 @@
                 ],
                 separator: None,
             },
+            field_ty_leash_class: Copyable,
             field: Tuple {
                 index: 0,
             },
@@ -6269,7 +6307,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -6291,7 +6329,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6356,7 +6394,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -6378,7 +6416,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6443,7 +6481,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -6465,7 +6503,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6500,7 +6538,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 29,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -6522,7 +6560,7 @@
                                 PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 30,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -6532,6 +6570,7 @@
                 ],
                 separator: None,
             },
+            field_ty_leash_class: Other,
             field: Tuple {
                 index: 0,
             },
