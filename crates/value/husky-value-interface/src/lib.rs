@@ -91,6 +91,7 @@ pub trait IsValue:
     /// should unreachable if not an option
     fn is_some(self) -> bool;
     fn index(self, index: usize) -> Self;
+    fn unwrap(self) -> Self;
     fn present(
         &self,
         value_presenter_cache: &mut ValuePresenterCache,

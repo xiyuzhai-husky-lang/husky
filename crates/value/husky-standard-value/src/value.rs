@@ -490,6 +490,47 @@ impl IsValue for Value {
     fn from_str_literal(str_value: Arc<str>) -> Self {
         todo!()
     }
+
+    fn unwrap(self) -> Self {
+        match self {
+            Value::Uninit => todo!(),
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(_) => todo!(),
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+            Value::Owned(_) => todo!(),
+            Value::Leash(slf) => Value::Leash(slf.unwrap_ref_dyn()),
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+            Value::EnumUnit { index, presenter } => todo!(),
+        }
+    }
 }
 
 impl PartialEq for Value {
