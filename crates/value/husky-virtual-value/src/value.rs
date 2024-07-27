@@ -47,6 +47,12 @@ pub enum Value {
     StringLiteral(Arc<str>),
 }
 
+impl From<std::convert::Infallible> for Value {
+    fn from(_: std::convert::Infallible) -> Self {
+        unreachable!()
+    }
+}
+
 impl IsValue for Value {
     fn new_uninit() -> Self {
         Value::Uninit

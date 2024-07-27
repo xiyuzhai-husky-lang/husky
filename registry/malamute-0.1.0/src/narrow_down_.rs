@@ -21,15 +21,18 @@ where
         ki_repr_interface: __KiReprInterface,
         ki_domain_repr_interface: __KiDomainReprInterface,
         mut pedestal: __Pedestal,
-        arguments: &[__KiArgumentReprInterface],
+        ki_argument_repr_interfaces: &[__KiArgumentReprInterface],
     ) -> __KiControlFlow {
         let generic_pedestal = pedestal.exclude::<Task::INPUT>();
-        println!("pedestal = {:?}", generic_pedestal);
+        __eval_ki_domain_repr_interface(ki_domain_repr_interface)?;
         let internal: Leash<NarrowDownInternal<Label>> =
             __eval_generic_gn_with(ki_repr_interface, generic_pedestal, || {
-                Self::train(ki_domain_repr_interface, arguments).map(__IntoValue::into_value)
+                Self::train(ki_domain_repr_interface, ki_argument_repr_interfaces)
+                    .map(__IntoValue::into_value)
             });
-        todo!()
+        __KiControlFlow::Continue(
+            Self::eval(ki_argument_repr_interfaces, internal.deleash()).into_value(),
+        )
     }
 }
 

@@ -290,11 +290,13 @@ impl TranspileToRustWith<()> for Linket {
             } => builder.macro_call(RustMacroName::UnveilLinketImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinketData::MemoizedField {
+            LinketData::Memo {
                 path,
                 instantiation: _,
-            } => builder.macro_call(RustMacroName::FnLinketImpl, |builder| {
-                path.transpile_to_rust(builder)
+            } => builder.macro_call(RustMacroName::MemoLinketImpl, |builder| {
+                path.transpile_to_rust(builder);
+                builder.punctuation(RustPunctuation::CommaSpaced);
+                builder.item_path_id_interface_cache(path);
             }),
             LinketData::Index => todo!(),
             LinketData::TypeDefault { ty } => builder

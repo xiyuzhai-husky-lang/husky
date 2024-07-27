@@ -88,7 +88,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.comptime.db();
         if self.config.needs_caching(ki_repr.caching_class(db)) {
-            todo!()
+            let ki = ki_repr.ki(db);
+            let var_deps = ki_repr.var_deps(db);
+            self.get_or_try_init_ki_value(ki, var_deps, || self.eval_ki_repr_aux(ki_repr))
         } else {
             self.eval_ki_repr_aux(ki_repr)
         }

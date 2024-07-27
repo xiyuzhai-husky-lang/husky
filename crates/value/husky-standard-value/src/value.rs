@@ -94,6 +94,12 @@ fn regular_value_size_works() {
     )
 }
 
+impl From<std::convert::Infallible> for Value {
+    fn from(_: std::convert::Infallible) -> Self {
+        unreachable!()
+    }
+}
+
 impl Value {
     pub fn from_owned<T>(t: T) -> Self
     where

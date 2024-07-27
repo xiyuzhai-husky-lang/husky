@@ -69,7 +69,7 @@ fn linket_version_stamp(db: &::salsa::Db, linket: Linket) -> LinketVersionStamp 
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinketData::MemoizedField {
+        LinketData::Memo {
             path,
             ref instantiation,
         } => {

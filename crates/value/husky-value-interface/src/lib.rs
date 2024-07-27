@@ -61,6 +61,7 @@ pub trait IsValue:
     + Into<f32>
     + From<f64>
     + Into<f64>
+    + From<std::convert::Infallible>
     + 'static
 {
     fn new_uninit() -> Self;
