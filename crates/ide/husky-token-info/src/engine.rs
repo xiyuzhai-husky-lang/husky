@@ -84,11 +84,13 @@ impl<'db> TokenInfoEngine<'db> {
         match use_expr {
             UseExpr::All { star_token } => self.sheet.add(
                 star_token.token_idx(),
+                None,
                 rule.use_expr_idx(),
                 TokenInfoData::UseExprStar,
             ),
             UseExpr::IdentLeaf { ident_token } => self.sheet.add(
                 ident_token.token_idx(),
+                None,
                 rule.use_expr_idx(),
                 TokenInfoData::UseExpr {
                     use_expr_idx,
@@ -100,6 +102,7 @@ impl<'db> TokenInfoEngine<'db> {
                 parent_name_token, ..
             }) => self.sheet.add(
                 parent_name_token.token_idx(),
+                None,
                 rule.use_expr_idx(),
                 TokenInfoData::UseExpr {
                     use_expr_idx,
@@ -130,6 +133,7 @@ impl<'db> TokenInfoEngine<'db> {
                 ..
             } => self.sheet.add(
                 ident_token.token_idx(),
+                None,
                 TokenInfoSource::AstIdentifiable,
                 TokenInfoData::EntityNode(syn_node_path, item_kind),
             ),
@@ -189,8 +193,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         token_info_data: TokenInfoData,
     ) {
         let base = self.regional_token_idx_base;
-        self.sheet
-            .add(regional_token_idx.token_idx(base), source, token_info_data)
+        self.sheet.add(
+            regional_token_idx.token_idx(base),
+            regional_token_idx,
+            source,
+            token_info_data,
+        )
     }
 
     fn visit_all(mut self) {

@@ -10,6 +10,7 @@ use husky_entity_tree::{
     presheet::{OnceUseRuleIdx, UseOneRuleState},
     region_path::SynNodeRegionPath,
 };
+use husky_regional_token::RegionalTokenIdx;
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
     entity_path::SynPrincipalEntityPathExprIdx,
@@ -25,6 +26,7 @@ use husky_token_protocol::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct TokenInfo {
+    regional_token_idx: Option<RegionalTokenIdx>,
     source: TokenInfoSource,
     data: TokenInfoData,
 }
@@ -43,14 +45,23 @@ pub enum TokenInfoSource {
 }
 
 impl TokenInfo {
-    pub fn new(source: impl Into<TokenInfoSource>, data: TokenInfoData) -> Self {
+    pub fn new(
+        regional_token_idx: Option<RegionalTokenIdx>,
+        source: impl Into<TokenInfoSource>,
+        data: TokenInfoData,
+    ) -> Self {
         Self {
+            regional_token_idx,
             source: source.into(),
             data,
         }
     }
 
-    pub fn src(&self) -> TokenInfoSource {
+    pub fn regional_token_idx(&self) -> Option<RegionalTokenIdx> {
+        self.regional_token_idx
+    }
+
+    pub fn source(&self) -> TokenInfoSource {
         self.source
     }
 

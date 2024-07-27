@@ -5300,6 +5300,7 @@ dependencies = [
  "husky-manifest-ast",
  "husky-place",
  "husky-print-utils",
+ "husky-regional-token",
  "husky-sem-expr",
  "husky-sem-place-contract",
  "husky-syn-decl",

@@ -8,7 +8,7 @@ once_cell.workspace = true
 smallvec.workspace = true
 serde.workspace = true
 # abstractions
-shifted-unsigned-int.workspace = true
+shifted-unsigned-int = { workspace = true, features = ["serde"] }
 serde-impl.workspace = true
 # protocols
 husky-value-protocol.workspace = true
