@@ -101,18 +101,29 @@ fn ki_repr_var_deps(db: &::salsa::Db, ki_repr: KiRepr) -> KiVarDeps {
                         .unwrap();
                     (&region.variable_var_deps_table(db)[current_variable_idx]).into()
                 }
-                KiReprExpansionSource::RequireDefault { stmt } => todo!(),
-                KiReprExpansionSource::RequireCondition { stmt } => todo!(),
-                KiReprExpansionSource::AssertCondition { stmt } => todo!(),
-                KiReprExpansionSource::IfCondition { stmt } => todo!(),
-                KiReprExpansionSource::ElifCondition { stmt, branch_idx } => todo!(),
+                // ad hoc, refine this
+                KiReprExpansionSource::RequireCondition { stmt }
+                | KiReprExpansionSource::AssertCondition { stmt }
+                | KiReprExpansionSource::IfCondition { stmt }
+                | KiReprExpansionSource::ElifCondition { stmt, .. } => {
+                    let stmt = parent_expr_source_map_data
+                        .hir_lazy_to_sem_stmt_idx(stmt)
+                        .unwrap();
+                    (&region.stmt_value_var_deps_table(db)[stmt]).into()
+                }
                 KiReprExpansionSource::Expr { expr } => {
                     let expr = parent_expr_source_map_data
                         .hir_lazy_to_sem_expr_idx(expr)
                         .unwrap();
                     (&region.expr_value_var_deps_table(db)[expr]).into()
                 }
-                KiReprExpansionSource::Stmt { stmt } => todo!(),
+                KiReprExpansionSource::RequireDefault { stmt }
+                | KiReprExpansionSource::Stmt { stmt } => {
+                    let stmt = parent_expr_source_map_data
+                        .hir_lazy_to_sem_stmt_idx(stmt)
+                        .unwrap();
+                    (&region.stmt_value_var_deps_table(db)[stmt]).into()
+                }
             }
         }
     }

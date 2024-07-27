@@ -279,28 +279,28 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 )
             }
             KiOpn::Unwrap {} => {
-                use husky_print_utils::p;
-                // let pedestal = Devsoul::dev_eval_context_local_key()
-                //     .get()
-                //     .expect("`DEV_EVAL_CONTEXT` not set")
-                //     .pedestal();
-                // p!(pedestal);
-                // p!(ki_repr.source(db).debug_info(db));
-                todo!()
+                let arguments: &[_] = ki_repr.arguments(db);
+                debug_assert_eq!(arguments.len(), 1);
+                let KiArgumentRepr::Simple(self_argument) = arguments[0] else {
+                    unreachable!()
+                };
+                let self_argument = self.eval_ki_repr(self_argument)?;
+                // ad hoc, todo: consider null case
+                KiControlFlow::Continue(self_argument.unwrap())
             }
             KiOpn::Index => {
                 // ad hoc
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
-                let KiArgumentRepr::Simple(owner) = arguments[0] else {
+                let KiArgumentRepr::Simple(self_argument) = arguments[0] else {
                     unreachable!()
                 };
-                let owner = self.eval_ki_repr(owner)?;
+                let self_argument = self.eval_ki_repr(self_argument)?;
                 let KiArgumentRepr::Simple(index) = arguments[1] else {
                     unreachable!()
                 };
                 let index = self.eval_ki_repr(index)?.to_usize();
-                KiControlFlow::Continue(owner.index(index))
+                KiControlFlow::Continue(self_argument.index(index))
             }
         };
         result

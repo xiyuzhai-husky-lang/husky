@@ -534,10 +534,7 @@ impl<V> SemExprMap<V> {
     where
         V: PartialEq + Copy,
     {
-        self.0
-            .key_value_iter()
-            .find_map(|(expr, &v1)| (v == v1).then_some(expr))
-            .map(SemExprIdx)
+        self.0.get_idx_by_value(&v).map(SemExprIdx)
     }
 
     pub fn iter(&self) -> impl Iterator<Item = (SemExprIdx, &V)> {

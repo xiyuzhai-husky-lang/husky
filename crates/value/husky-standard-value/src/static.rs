@@ -39,6 +39,13 @@ pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
         )
     }
 
+    fn unwrap_ref<'a>(&'a self) -> &'a dyn StaticDyn {
+        panic!(
+            "type `{}` doesn't support unwrapping",
+            std::any::type_name_of_val(self)
+        )
+    }
+
     fn serialize_to_value(&self) -> serde_json::Value;
 
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
@@ -76,6 +83,8 @@ pub trait StaticDyn:
 
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
 
+    fn unwrap_ref_dyn<'a>(&'a self) -> &'a dyn StaticDyn;
+
     fn copy_dyn(&self) -> Box<dyn StaticDyn>;
 
     fn present_dyn(&self) -> ValuePresentation;
@@ -105,6 +114,10 @@ where
 
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
         self.index_ref(index)
+    }
+
+    fn unwrap_ref_dyn<'a>(&'a self) -> &'a dyn StaticDyn {
+        self.unwrap_ref()
     }
 
     fn copy_dyn(&self) -> Box<dyn StaticDyn> {
@@ -179,6 +192,10 @@ where
     }
     fn is_none(&self) -> bool {
         self.is_none()
+    }
+
+    fn unwrap_ref(&self) -> &dyn StaticDyn {
+        self.as_ref().unwrap()
     }
 
     unsafe fn freeze(&self) -> Self::Frozen {

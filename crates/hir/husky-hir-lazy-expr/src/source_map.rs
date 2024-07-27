@@ -68,6 +68,14 @@ impl HirLazyExprSourceMapData {
             .get_expr_by_value_copied(hir_lazy_expr_idx)
     }
 
+    pub fn hir_lazy_to_sem_stmt_idx(
+        &self,
+        hir_lazy_stmt_idx: HirLazyStmtIdx,
+    ) -> Option<SemStmtIdx> {
+        self.sem_to_hir_lazy_stmt_idx_map
+            .get_stmt_by_value_copied(hir_lazy_stmt_idx)
+    }
+
     pub fn hir_lazy_to_current_variable(
         &self,
         hir_variable_idx: HirLazyVariableIdx,

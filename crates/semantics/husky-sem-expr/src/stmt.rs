@@ -277,6 +277,13 @@ impl<V> SemStmtMap<V> {
     pub fn get(&self, stmt: SemStmtIdx) -> Option<&V> {
         self.0.get(stmt.0)
     }
+
+    pub fn get_stmt_by_value_copied(&self, v: V) -> Option<SemStmtIdx>
+    where
+        V: PartialEq + Copy,
+    {
+        self.0.get_idx_by_value(&v).map(SemStmtIdx)
+    }
 }
 
 impl<V> std::ops::Index<SemStmtIdx> for SemStmtMap<V> {
