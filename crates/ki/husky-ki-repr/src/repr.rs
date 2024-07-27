@@ -190,7 +190,7 @@ impl KiRepr {
 fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
     Ki::new(
         db,
-        ki_repr.ki_domain_repr(db).val(db),
+        ki_repr.ki_domain_repr(db).ki_domain(db),
         ki_repr.opn(db),
         ki_repr
             .arguments(db)
@@ -225,7 +225,7 @@ impl KiArgumentRepr {
 }
 
 impl KiDomainRepr {
-    pub fn val(self, db: &::salsa::Db) -> KiDomain {
+    pub fn ki_domain(self, db: &::salsa::Db) -> KiDomain {
         match self {
             KiDomainRepr::Omni => KiDomain::Omni,
             KiDomainRepr::ConditionSatisfied(ki_repr) => {

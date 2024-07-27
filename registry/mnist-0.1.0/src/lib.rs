@@ -111,16 +111,12 @@ impl std::ops::IndexMut<usize> for BinaryGrid28 {
 
 impl BinaryGrid28 {}
 
-thread_local! {
-    static __INPUT: std::cell::Cell<Option<Leash<BinaryImage28>>> = Default::default();
-}
-
 #[allow(non_upper_case_globals)]
 pub static mut __INPUT__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[allow(non_snake_case)]
 pub fn INPUT() -> Leash<BinaryImage28> {
-    __INPUT.get().unwrap()
+    MNIST_DATASET.input_leashed(input_id())
 }
 
 pub struct INPUT {}
@@ -135,7 +131,11 @@ impl __IsStaticVar<__StaticVarId> for INPUT {
     }
 
     fn set_id(id: __StaticVarId) {
-        todo!()
+        set_input_id(id.into())
+    }
+
+    fn ids() -> impl Iterator<Item = __StaticVarId> {
+        input_ids().map(Into::into)
     }
 }
 

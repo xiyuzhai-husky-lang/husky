@@ -14,6 +14,7 @@ use vec_like::OrderedSmallVecSet;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
 pub struct KiVarDeps(OrderedSmallVecSet<ItemPath, 4>);
+
 impl std::ops::Deref for KiVarDeps {
     type Target = OrderedSmallVecSet<ItemPath, 4>;
 
@@ -108,6 +109,18 @@ fn ki_repr_var_deps(db: &::salsa::Db, ki_repr: KiRepr) -> KiVarDeps {
                 }
                 KiReprExpansionSource::Stmt { stmt } => todo!(),
             }
+        }
+    }
+}
+
+impl KiDomainRepr {
+    pub fn var_deps(self, db: &::salsa::Db) -> Option<&KiVarDeps> {
+        match self {
+            KiDomainRepr::Omni => None,
+            KiDomainRepr::ConditionSatisfied(ki_repr)
+            | KiDomainRepr::ConditionNotSatisfied(ki_repr)
+            | KiDomainRepr::StmtNotReturned(ki_repr)
+            | KiDomainRepr::ExprNotReturned(ki_repr) => Some(ki_repr.var_deps(db)),
         }
     }
 }

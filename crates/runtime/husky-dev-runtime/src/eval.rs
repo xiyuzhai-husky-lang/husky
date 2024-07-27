@@ -19,7 +19,33 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         &self,
         ki_domain_repr: KiDomainRepr,
     ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
-        todo!("caching");
+        let db = self.db();
+        let ki_domain = ki_domain_repr.ki_domain(db);
+        let Some(var_deps) = ki_domain_repr.var_deps(db) else {
+            match ki_domain_repr {
+                KiDomainRepr::Omni => (),
+                KiDomainRepr::ConditionSatisfied(_) => unreachable!(),
+                KiDomainRepr::ConditionNotSatisfied(_) => unreachable!(),
+                KiDomainRepr::StmtNotReturned(_) => unreachable!(),
+                KiDomainRepr::ExprNotReturned(_) => unreachable!(),
+            }
+            return KiControlFlow::Continue(());
+        };
+        self.storage.get_or_try_init_ki_domain_value(
+            ki_domain,
+            var_deps
+                .iter()
+                .map(|&path| ((*path).into(), self.get_static_var_id(path)))
+                .collect(),
+            || self.eval_ki_domain_repr_aux(ki_domain_repr),
+            db,
+        )
+    }
+
+    pub fn eval_ki_domain_repr_aux(
+        &self,
+        ki_domain_repr: KiDomainRepr,
+    ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
         match ki_domain_repr {
             KiDomainRepr::Omni => KiControlFlow::Continue(()),
             KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {

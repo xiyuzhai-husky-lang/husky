@@ -35,6 +35,10 @@ impl MnistDataset {
         &self.inputs[self.index(input_id)]
     }
 
+    pub fn input_leashed(&'static self, input_id: MnistInputId) -> Leash<BinaryImage28> {
+        Leash(&self.inputs[self.index(input_id)])
+    }
+
     pub fn label(&self, input_id: MnistInputId) -> MnistLabel {
         self.labels[self.index(input_id)]
     }
