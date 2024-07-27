@@ -68,8 +68,7 @@ where
         }
         Ok(Some(Stalk {
             features,
-            flag: todo!(),
-            // Label::label_at_input(input_id) == label0,
+            flag: Label::label() == label0,
         }))
     }
 

@@ -20,7 +20,7 @@ impl Linket {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
-            LinketData::MemoizedField {
+            LinketData::Memo {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),

@@ -1,4 +1,5 @@
 pub mod r#enum;
+pub mod memo;
 pub mod static_var;
 pub mod r#struct;
 pub mod ugly;
@@ -76,6 +77,10 @@ where
         init_item_path_id_interface: fn(ItemPathIdInterface),
         ki_wrapper: fn() -> StandardLinketImplKiControlFlow,
     },
+    Memo {
+        init_item_path_id_interface: fn(ItemPathIdInterface),
+        ki_wrapper: fn(Value) -> StandardLinketImplKiControlFlow,
+    },
     StaticVar {
         init_item_path_id_interface: fn(ItemPathIdInterface),
         set_up_for_testing: fn(usize),
@@ -135,12 +140,20 @@ where
                 StandardLinketImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
             StandardLinketImpl::StaticVar { .. } => todo!(),
-            StandardLinketImpl::Val {
+            StandardLinketImpl::Val { ki_wrapper, .. } => {
+                debug_assert!(ki_argument_reprs.is_empty());
+                ki_wrapper()
+            }
+            StandardLinketImpl::Memo {
                 ki_wrapper,
                 init_item_path_id_interface: set_item_path_id_interface,
             } => {
-                debug_assert!(ki_argument_reprs.is_empty());
-                ki_wrapper()
+                debug_assert_eq!(ki_argument_reprs.len(), 1);
+                let KiArgumentReprInterface::Simple(__self) = ki_argument_reprs[0] else {
+                    unreachable!()
+                };
+                let __self = ctx.eval_ki_repr_interface(__self)?;
+                ki_wrapper(__self)
             }
         }
     }
@@ -180,6 +193,10 @@ where
             StandardLinketImpl::StructDestructor { .. } => (),
             StandardLinketImpl::StructField { .. } => (),
             StandardLinketImpl::Val {
+                init_item_path_id_interface,
+                ..
+            }
+            | StandardLinketImpl::Memo {
                 init_item_path_id_interface,
                 ..
             }

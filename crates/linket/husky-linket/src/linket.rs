@@ -53,7 +53,7 @@ pub enum LinketData {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
-    MemoizedField {
+    Memo {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
@@ -195,7 +195,7 @@ impl Linket {
     ) -> Self {
         Self::new(
             db,
-            LinketData::MemoizedField {
+            LinketData::Memo {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -446,7 +446,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                         |instantiation| {
                             Linket::new(
                                 db,
-                                LinketData::MemoizedField {
+                                LinketData::Memo {
                                     path: path.into(),
                                     instantiation,
                                 },

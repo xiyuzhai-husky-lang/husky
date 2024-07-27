@@ -119,7 +119,7 @@ where
     T: __Static,
 {
     fn into_value(self) -> __Value {
-        todo!()
+        __Value::from_leash(self.deleash())
     }
 }
 

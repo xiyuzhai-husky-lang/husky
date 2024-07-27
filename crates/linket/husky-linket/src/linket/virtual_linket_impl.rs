@@ -66,7 +66,7 @@ impl IsLinketImpl for VirtualLinketImpl {
                 path,
                 instantiation,
             } => todo!(),
-            LinketData::MemoizedField {
+            LinketData::Memo {
                 path,
                 instantiation,
             } => todo!(),
