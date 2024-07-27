@@ -192,6 +192,7 @@ impl Value {
 
     pub fn into_leash<T>(self) -> &'static T {
         match self {
+            // ad hoc, we maybe encounter &'static Leash<T> here, so can't always just unwrap it
             Value::Leash(slf) => (slf as &dyn std::any::Any).downcast_ref().unwrap(),
             _ => unreachable!(),
         }
