@@ -1877,6 +1877,7 @@
             "husky-eth-signature",
             "husky-eth-term",
             "husky-print-utils",
+            "husky-regional-token",
             "husky-sem-expr",
             "husky-sem-place-contract",
             "husky-syn-expr",
