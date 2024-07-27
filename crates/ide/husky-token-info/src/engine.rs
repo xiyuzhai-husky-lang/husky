@@ -326,10 +326,19 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     TokenInfoData::Entity(path.into()),
                 ),
             },
+            SemExprData::Unwrap {
+                opr_regional_token_idx,
+                ..
+            } => {
+                self.add(
+                    opr_regional_token_idx,
+                    source,
+                    TokenInfoData::UnwrapExclamation,
+                );
+            }
             SemExprData::Binary { .. }
             | SemExprData::Suffix { .. }
             | SemExprData::Unveil { .. }
-            | SemExprData::Unwrap { .. }
             | SemExprData::TemplateInstantiation { .. }
             | SemExprData::NewTuple { .. }
             | SemExprData::NewList { .. }

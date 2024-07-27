@@ -285,6 +285,7 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::ClosureLightArrow => write!(debug_content, "closure light arrow"),
                 TokenInfoData::ClosureEq => write!(debug_content, "closure eq"),
                 TokenInfoData::IndexColon => write!(debug_content, "index colon"),
+                TokenInfoData::UnwrapExclamation => write!(debug_content, "unwrap exclamation"),
             },
             None => write!(debug_content, ""),
         }

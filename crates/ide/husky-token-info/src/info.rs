@@ -112,6 +112,7 @@ pub enum TokenInfoData {
     ClosureEq,
     Literal,
     IndexColon,
+    UnwrapExclamation,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -181,6 +182,7 @@ impl TokenInfoData {
             TokenInfoData::ClosureEq => TokenClass::Punctuation,
             TokenInfoData::Literal => TokenClass::Literal,
             TokenInfoData::IndexColon => TokenClass::Punctuation,
+            TokenInfoData::UnwrapExclamation => TokenClass::Punctuation,
         }
     }
 }
