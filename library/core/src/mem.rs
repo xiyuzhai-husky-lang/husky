@@ -110,7 +110,7 @@ where
     T: __Static,
 {
     fn from_value_aux(_value: __Value, _: Option<&mut __ValueStands>) -> Self {
-        todo!()
+        Leash(_value.into_leash())
     }
 }
 
