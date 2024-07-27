@@ -26,9 +26,10 @@ where
         label0: Label,
     ) -> Result<Self, ()> {
         let mut stalks: Vec<Stalk> = vec![];
+        let mut ids = Task::INPUT::ids();
         for i in 0..5 {
-            todo!("use IsMlTask");
-            // let input_id = __InputId::from_index(i);
+            let Some(id) = ids.next() else { break };
+            Task::INPUT::set_id(id);
             if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
                 stalks.push(stalk)
             }

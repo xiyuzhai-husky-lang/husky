@@ -8,7 +8,7 @@ use husky_devsoul_interface::{
 };
 use husky_devsoul_interface::{IsLinketImpl, LinketImplKiControlFlow};
 use husky_entity_path::path::ItemPath;
-use husky_ki::Ki;
+use husky_ki::{Ki, KiDomain};
 use husky_trace_protocol::{
     id::TraceId,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
@@ -16,7 +16,7 @@ use husky_trace_protocol::{
 };
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
-use std::{cell::Cell, thread::LocalKey};
+use std::{cell::Cell, convert::Infallible, thread::LocalKey};
 
 pub trait IsDevsoul: 'static {
     type Pedestal: IsPedestalFull;
@@ -65,6 +65,13 @@ pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
         db: &::salsa::Db,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
+    fn get_or_try_init_memo_field_value(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+        slf: &'static std::ffi::c_void,
+        f: impl FnOnce(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
+
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
@@ -73,12 +80,13 @@ pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
         db: &::salsa::Db,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
-    fn get_or_try_init_memo_field_value(
+    fn get_or_try_init_ki_domain_value(
         &self,
-        item_path_id_interface: ItemPathIdInterface,
-        slf: &'static std::ffi::c_void,
-        f: impl FnOnce(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
-    ) -> LinketImplKiControlFlow<LinketImpl>;
+        ki_domain: KiDomain,
+        pedestal: LinketImpl::Pedestal,
+        f: impl FnOnce() -> KiControlFlow<(), Infallible, LinketImpl::Exception>,
+        db: &::salsa::Db,
+    ) -> KiControlFlow<(), Infallible, LinketImpl::Exception>;
 }
 
 pub type DevEvalContextLocalKey<LinketImpl> =

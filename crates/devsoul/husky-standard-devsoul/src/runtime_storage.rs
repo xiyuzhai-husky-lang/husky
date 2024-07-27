@@ -141,4 +141,18 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
             }
         }
     }
+
+    fn get_or_try_init_ki_domain_value(
+        &self,
+        ki_domain: husky_ki::KiDomain,
+        pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
+        f: impl FnOnce() -> KiControlFlow<
+            (),
+            std::convert::Infallible,
+            <LinketImpl as IsLinketImpl>::Exception,
+        >,
+        db: &salsa::Db,
+    ) -> KiControlFlow<(), std::convert::Infallible, <LinketImpl as IsLinketImpl>::Exception> {
+        todo!()
+    }
 }
