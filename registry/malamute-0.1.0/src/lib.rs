@@ -30,6 +30,14 @@ where
         todo!()
     }
 
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> __Value {
+        todo!()
+    }
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> __Value {
+        todo!()
+    }
+
     fn copy(&self) -> Box<dyn __StaticDyn> {
         Box::<Class<Label>>::new(self.clone())
     }

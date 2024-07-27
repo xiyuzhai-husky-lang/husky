@@ -285,7 +285,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     unreachable!()
                 };
                 let self_argument = self.eval_ki_repr(self_argument)?;
+                use ::husky_print_utils::p;
+                use ::salsa::DebugWithDb;
                 // ad hoc, todo: consider null case
+                p!(ki_repr.source(db).debug_info(db));
                 KiControlFlow::Continue(self_argument.unwrap())
             }
             KiOpn::Index => {

@@ -85,6 +85,14 @@ where
     fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         todo!()
     }
+
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> __Value {
+        todo!()
+    }
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> __Value {
+        todo!("type_name = `{}`", std::any::type_name::<T>())
+    }
 }
 impl<T> __Frozen for Leash<T>
 where
