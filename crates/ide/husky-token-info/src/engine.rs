@@ -342,11 +342,14 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             SemExprData::AssocItem { .. } => (),
             SemExprData::Index {
                 self_argument: _,
-                lbox_regional_token_idx: _,
+                lbox_regional_token_idx,
                 items: _,
-                rbox_regional_token_idx: _,
+                rbox_regional_token_idx,
                 index_dynamic_dispatch: _,
-            } => (),
+            } => {
+                self.add(lbox_regional_token_idx, source, TokenInfoData::IndexColon);
+                self.add(rbox_regional_token_idx, source, TokenInfoData::IndexColon);
+            }
             SemExprData::CompositionWithList {
                 owner: _,
                 lbox_regional_token_idx: _,
