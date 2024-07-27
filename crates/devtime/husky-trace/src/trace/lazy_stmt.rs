@@ -289,9 +289,7 @@ impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
                                     pattern,
                                     |current_variable_idx| {
                                         self.hir_lazy_expr_source_map_data
-                                            .current_variable_to_hir_lazy_variable(
-                                                current_variable_idx,
-                                            )
+                                            .current_to_hir_lazy_variable(current_variable_idx)
                                     },
                                 ),
                             self.sem_expr_region,

@@ -1,6 +1,6 @@
 use crate::{
     jar::HirLazyExprJar, variable::HirLazyVariableIdx, HirLazyExprIdx, HirLazyPatternIdx,
-    HirLazyStmtIdx,
+    HirLazyStmtIdx, HirLazyVariable,
 };
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
 use husky_syn_expr::{
@@ -47,19 +47,11 @@ impl HirLazyExprSourceMapData {
         self.sem_to_hir_lazy_expr_idx_map.get(sem_expr_idx).copied()
     }
 
-    pub fn hir_lazy_to_sem_expr_idx(
-        &self,
-        hir_lazy_expr_idx: HirLazyExprIdx,
-    ) -> Option<SemExprIdx> {
-        self.sem_to_hir_lazy_expr_idx_map
-            .get_expr_by_value_copied(hir_lazy_expr_idx)
-    }
-
     pub fn sem_to_hir_lazy_stmt_idx(&self, sem_stmt_idx: SemStmtIdx) -> Option<HirLazyStmtIdx> {
         self.sem_to_hir_lazy_stmt_idx_map.get(sem_stmt_idx).copied()
     }
 
-    pub fn current_variable_to_hir_lazy_variable(
+    pub fn current_to_hir_lazy_variable(
         &self,
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<HirLazyVariableIdx> {
@@ -68,11 +60,20 @@ impl HirLazyExprSourceMapData {
             .copied()
     }
 
-    pub fn sem_expr_idx(&self, expr: HirLazyExprIdx) -> SemExprIdx {
+    pub fn hir_lazy_to_sem_expr_idx(
+        &self,
+        hir_lazy_expr_idx: HirLazyExprIdx,
+    ) -> Option<SemExprIdx> {
         self.sem_to_hir_lazy_expr_idx_map
-            .iter()
-            .find_map(|(sem_expr, &expr1)| (expr == expr1).then_some(sem_expr))
-            .unwrap()
+            .get_expr_by_value_copied(hir_lazy_expr_idx)
+    }
+
+    pub fn hir_lazy_to_current_variable(
+        &self,
+        hir_variable_idx: HirLazyVariableIdx,
+    ) -> Option<CurrentVariableIdx> {
+        self.variable_to_hir_lazy_variable_map
+            .get_current_variable_idx_by_value(&hir_variable_idx)
     }
 }
 

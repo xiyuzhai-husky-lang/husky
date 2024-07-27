@@ -45,7 +45,7 @@ fn val_runtime_constants_works() {
     )
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum KiDomain {
     ConditionSatisfied(Ki),
     ConditionNotSatisfied(Ki),

@@ -22,7 +22,7 @@ impl<T> ArenaIdx<T> {
         }
     }
 
-    pub unsafe fn from_raw(raw: usize) -> Self {
+    pub unsafe fn new_ext(raw: usize) -> Self {
         Self::new(raw)
     }
     pub fn is(self, raw: usize) -> bool {

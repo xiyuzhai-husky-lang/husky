@@ -3,16 +3,30 @@ use dashmap::DashMap;
 use husky_devsoul::devsoul::IsRuntimeStorage;
 use husky_devsoul_interface::{item_path::ItemPathIdInterface, IsLinketImpl};
 use husky_entity_path::path::ItemPath;
-use husky_ki::{version_stamp::KiVersionStamp, Ki};
+use husky_ki::{version_stamp::KiVersionStamp, Ki, KiDomain};
 use husky_linket_impl::standard::StandardLinketImplKiControlFlow;
 use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
-use std::sync::{Arc, Mutex};
+use std::{
+    convert::Infallible,
+    sync::{Arc, Mutex},
+};
 
 #[derive(Debug, Default)]
 pub struct StandardDevRuntimeStorage {
     val_values: DashMap<
         StandardDevRuntimeValStorageKey,
         Arc<Mutex<Option<(ValVersionStamp, StandardLinketImplKiControlFlow)>>>,
+    >,
+    ki_domain_values: DashMap<
+        StandardDevRuntimeKiDomainStorageKey,
+        Arc<
+            Mutex<
+                Option<(
+                    KiVersionStamp,
+                    StandardLinketImplKiControlFlow<(), Infallible>,
+                )>,
+            >,
+        >,
     >,
     ki_values: DashMap<
         StandardDevRuntimeKiStorageKey,
@@ -30,6 +44,12 @@ type ValVersionStamp = ();
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
 pub struct StandardDevRuntimeValStorageKey {
     val_item_path_id_interface: ItemPathIdInterface,
+    pedestal: StandardPedestal,
+}
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
+pub struct StandardDevRuntimeKiDomainStorageKey {
+    ki_domain: KiDomain,
     pedestal: StandardPedestal,
 }
 
@@ -144,15 +164,40 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
 
     fn get_or_try_init_ki_domain_value(
         &self,
-        ki_domain: husky_ki::KiDomain,
+        ki_domain: KiDomain,
         pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
-        f: impl FnOnce() -> KiControlFlow<
-            (),
-            std::convert::Infallible,
-            <LinketImpl as IsLinketImpl>::Exception,
-        >,
+        f: impl FnOnce() -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception>,
         db: &salsa::Db,
-    ) -> KiControlFlow<(), std::convert::Infallible, <LinketImpl as IsLinketImpl>::Exception> {
-        todo!()
+    ) -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception> {
+        use husky_devsoul_interface::pedestal::IsPedestal;
+
+        let key = StandardDevRuntimeKiDomainStorageKey {
+            ki_domain,
+            pedestal,
+        };
+        let mu = self
+            .ki_domain_values
+            .entry(key.clone())
+            .or_default()
+            .clone();
+        let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");
+        let new_version_stamp = key.ki_domain.version_stamp(db);
+        unsafe {
+            match *opt_stored_ki_control_flow_store_guard {
+                Some((old_version_stamp, ref ki_control_flow))
+                    if old_version_stamp == new_version_stamp =>
+                {
+                    // ad hoc, think about sharing here
+                    return ki_control_flow.clone();
+                }
+                _ => *opt_stored_ki_control_flow_store_guard = Some((new_version_stamp, f())),
+            };
+            // ad hoc, think about sharing here
+            opt_stored_ki_control_flow_store_guard
+                .as_ref()
+                .expect("should be some")
+                .1
+                .clone()
+        }
     }
 }
