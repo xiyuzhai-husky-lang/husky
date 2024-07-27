@@ -1,10 +1,12 @@
 pub mod r#enum;
+pub mod memo;
 pub mod static_var;
 pub mod r#struct;
 pub mod ugly;
+pub mod val;
 
 pub use husky_standard_value::{
-    frozen::ValueStands, value_conversion, DeprecatedValueLeashTest, FromValue, IntoValue, Value,
+    frozen::ValueStands, value_conversion, FromValue, IntoValue, Value,
 };
 
 use self::StandardLinketImpl as LinketImpl;
@@ -42,7 +44,12 @@ where
         fn_pointer: fn(),
     },
     RitchieGn {
-        gn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinketImplKiControlFlow,
+        gn_ki_wrapper: fn(
+            KiReprInterface,
+            KiDomainReprInterface,
+            Pedestal,
+            &[KiArgumentReprInterface],
+        ) -> StandardLinketImplKiControlFlow,
     },
     // todo: this should be merged into RichieFn?
     EnumVariantConstructor {
@@ -66,11 +73,21 @@ where
     StructField {
         struct_field_wrapper: fn(Value) -> Value,
     },
+    Val {
+        init_item_path_id_interface: fn(ItemPathIdInterface),
+        ki_wrapper: fn() -> StandardLinketImplKiControlFlow,
+    },
+    Memo {
+        init_item_path_id_interface: fn(ItemPathIdInterface),
+        ki_wrapper: fn(Value) -> StandardLinketImplKiControlFlow,
+    },
     StaticVar {
+        init_item_path_id_interface: fn(ItemPathIdInterface),
         set_up_for_testing: fn(usize),
         get_id: fn() -> Pedestal::StaticVarId,
         set_id: fn(Pedestal::StaticVarId),
     },
+    // todo: memo
 }
 
 impl<Pedestal> Copy for StandardLinketImpl<Pedestal> where Pedestal: IsPedestalFull {}
@@ -85,7 +102,8 @@ where
 
     fn eval_ki(
         self,
-        ki_repr: KiReprInterface,
+        ki_repr_interface: KiReprInterface,
+        ki_domain_repr_interface: KiDomainReprInterface,
         ki_argument_reprs: &[KiArgumentReprInterface],
         ctx: DevEvalContext<StandardLinketImpl<Pedestal>>,
     ) -> StandardLinketImplKiControlFlow {
@@ -93,15 +111,13 @@ where
             StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ki_argument_reprs),
             StandardLinketImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ki_argument_reprs),
             StandardLinketImpl::RitchieGn { gn_ki_wrapper } => {
-                todo!()
-                // let value_at_generic_pedestal = ctx
-                //     .eval_ki_repr_interface_at_generic_pedestal_with(
-                //         ki_repr,
-                //         generic_pedestal,
-                //         gn_generic_wrapper,
-                //         ki_argument_reprs,
-                //     )?;
-                // gn_specific_wrapper(ki_argument_reprs, value_at_generic_pedestal)
+                let pedestal = ctx.eval_ki_pedestal(ki_repr_interface);
+                gn_ki_wrapper(
+                    ki_repr_interface,
+                    ki_domain_repr_interface,
+                    pedestal,
+                    ki_argument_reprs,
+                )
             }
             StandardLinketImpl::EnumVariantConstructor { .. } => todo!(),
             StandardLinketImpl::EnumVariantDestructor { .. } => todo!(),
@@ -123,11 +139,22 @@ where
                 let owner = ctx.eval_ki_repr_interface(owner)?;
                 StandardLinketImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
-            StandardLinketImpl::StaticVar {
-                set_up_for_testing,
-                get_id,
-                set_id,
-            } => todo!(),
+            StandardLinketImpl::StaticVar { .. } => todo!(),
+            StandardLinketImpl::Val { ki_wrapper, .. } => {
+                debug_assert!(ki_argument_reprs.is_empty());
+                ki_wrapper()
+            }
+            StandardLinketImpl::Memo {
+                ki_wrapper,
+                init_item_path_id_interface: set_item_path_id_interface,
+            } => {
+                debug_assert_eq!(ki_argument_reprs.len(), 1);
+                let KiArgumentReprInterface::Simple(__self) = ki_argument_reprs[0] else {
+                    unreachable!()
+                };
+                let __self = ctx.eval_ki_repr_interface(__self)?;
+                ki_wrapper(__self)
+            }
         }
     }
 
@@ -147,15 +174,37 @@ where
     }
 
     fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
-        let StandardLinketImpl::StaticVar {
-            set_up_for_testing,
-            get_id,
-            set_id,
-        } = self
-        else {
+        let StandardLinketImpl::StaticVar { get_id, .. } = self else {
             unreachable!()
         };
         get_id()
+    }
+
+    fn init_item_path_id_interface(self, item_path_id_interface: ItemPathIdInterface) {
+        match self {
+            StandardLinketImpl::RitchieFn { .. } => (),
+            StandardLinketImpl::RitchieUnveilFn { .. } => (),
+            StandardLinketImpl::RitchieGn { .. } => (),
+            StandardLinketImpl::EnumVariantConstructor { .. } => (),
+            StandardLinketImpl::EnumVariantDestructor { .. } => (),
+            StandardLinketImpl::EnumVariantDiscriminator { .. } => (),
+            StandardLinketImpl::EnumVariantField { .. } => (),
+            StandardLinketImpl::EnumUnitValuePresenter { .. } => (),
+            StandardLinketImpl::StructDestructor { .. } => (),
+            StandardLinketImpl::StructField { .. } => (),
+            StandardLinketImpl::Val {
+                init_item_path_id_interface,
+                ..
+            }
+            | StandardLinketImpl::Memo {
+                init_item_path_id_interface,
+                ..
+            }
+            | StandardLinketImpl::StaticVar {
+                init_item_path_id_interface,
+                ..
+            } => init_item_path_id_interface(item_path_id_interface),
+        }
     }
 }
 
@@ -184,14 +233,14 @@ pub trait IsGnItem {
 
     /// compute `generic_pedestal` here for efficiency
     fn train(
-        ki_domain_repr: KiDomainReprInterface,
-        val_argument_reprs: &[KiArgumentReprInterface],
+        ki_domain_repr_interface: KiDomainReprInterface,
+        ki_argument_repr_interfaces: &[KiArgumentReprInterface],
     ) -> LinketImplKiControlFlow<Self::LinketImpl, Self::ValueAtGenericPedestal>;
 
     type EvalOutput;
 
     fn eval(
-        val_argument_reprs: &[KiArgumentReprInterface],
+        ki_argument_reprs: &[KiArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
     ) -> Self::EvalOutput;
 }
@@ -211,19 +260,15 @@ fn gn_linket_impl_works() {
     todo!()
 }
 
-// fn gn_ki_wrapper(val_argument_reprs: &[__KiArgumentReprInterface]) -> __KiControlFlow {
-//     let value_stands = &mut Default::default();
-//     let value_at_generic_pedestal: &<$gn_item as __IsGnItem>::ValueAtGenericPedestal =
-//         <&<$gn_item as __IsGnItem>::ValueAtGenericPedestal as FromValue>::from_value_temp(
-//             value_at_generic_pedestal,
-//             value_stands,
-//         );
-//     // todo: catch unwind
-//     __KiControlFlow::Continue(
-//         __ValueLeashTest(<$gn_item as __IsGnItem>::eval(
-//             val_argument_reprs,
-//             value_at_generic_pedestal,
-//         ))
-//         .into_value(),
-//     )
-// }
+#[macro_export]
+macro_rules! class_specific_leashed_field_into_value {
+    (copyable $expr: expr) => {{
+        (*$expr).into_value()
+    }};
+    (vec $expr: expr) => {{
+        Leash::<[_]>::new($expr).into_value()
+    }};
+    (other $expr: expr) => {{
+        Leash::new($expr).into_value()
+    }};
+}

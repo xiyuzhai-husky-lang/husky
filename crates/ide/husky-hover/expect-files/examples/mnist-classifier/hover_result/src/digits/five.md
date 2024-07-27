@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\nuse",
+                            value: "Other keyword\n\nuse\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "This is a form keyword\n\n",
+                            value: "This is a form keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity node",
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll`\n\ncoercion = None\n\ntype = `<hvar(0, Type @ None) @ None: Type @ None> -> hvar(0, Type @ None) @ None -> Type @ None @ None @ None`",
+                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `<hvar(0, Type @ None) @ None: Type @ None> -> hvar(0, Type @ None) @ None -> Type @ None @ None @ None`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::MnistLabel`\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\nentity `mnist::MnistLabel`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        9,\n    ),\n    RegionalTokenIdx(\n        9,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::MnistLabel`",
+                            value: "\n\nentity `mnist::MnistLabel`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n];\n",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist::MnistLabel::Five`\n\ncoercion = None\n\ntype = `MnistLabel @ None`",
+                            value: "\n\nentity `mnist::MnistLabel::Five`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `MnistLabel @ None`",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll`",
+                            value: "\n\nentity `malamute::OneVsAll`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        1,\n    ),\n];\n",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel Five @ None`",
+                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        3,\n    ),\n    RegionalTokenIdx(\n        3,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel Five @ None`",
                         },
                     ),
                     range: Some(

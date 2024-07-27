@@ -160,6 +160,7 @@ pub enum HirEagerExprData {
     },
     PropsStructField {
         self_argument: HirEagerExprIdx,
+        self_argument_ty: HirType,
         self_ty: HirType,
         ident: Ident,
         field_ty: HirType,
@@ -460,18 +461,23 @@ impl ToHirEager for SemExprIdx {
                 ref dispatch,
                 ..
             } => match *dispatch.signature() {
-                FieldFlySignature::PropsStruct { ty } => HirEagerExprData::PropsStructField {
-                    self_argument: self_argument.to_hir_eager(builder),
-                    self_ty: HirType::from_fly_base(
-                        self_argument_ty,
-                        builder.db(),
-                        builder.terms(),
-                    )
-                    .unwrap(),
-                    ident: ident_token.ident(),
-                    field_ty: HirType::from_fly_base(ty, builder.db(), builder.terms()).unwrap(),
-                    indirections: HirIndirections::from_fly(dispatch.indirections()),
-                },
+                FieldFlySignature::PropsStruct { self_ty, ty } => {
+                    HirEagerExprData::PropsStructField {
+                        self_argument: self_argument.to_hir_eager(builder),
+                        self_argument_ty: HirType::from_fly_base(
+                            self_argument_ty,
+                            builder.db(),
+                            builder.terms(),
+                        )
+                        .unwrap(),
+                        self_ty: HirType::from_fly_base(self_ty, builder.db(), builder.terms())
+                            .unwrap(),
+                        ident: ident_token.ident(),
+                        field_ty: HirType::from_fly_base(ty, builder.db(), builder.terms())
+                            .unwrap(),
+                        indirections: HirIndirections::from_fly(dispatch.indirections()),
+                    }
+                }
                 FieldFlySignature::Memoized {
                     path,
                     self_ty,

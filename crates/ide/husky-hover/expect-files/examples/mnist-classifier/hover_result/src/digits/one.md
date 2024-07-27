@@ -10,7 +10,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::narrow_down`\n\ncoercion = None\n\ntype = `fn(...) -> OneVsAllResult MnistLabel One @ None @ None`",
+                            value: "\n\nentity `malamute::narrow_down`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        1,\n    ),\n    RegionalTokenIdx(\n        1,\n    ),\n];\n\n\ncoercion = None\n\ntype = `fn(...) -> OneVsAllResult MnistLabel One @ None @ None`",
                         },
                     ),
                     range: Some(
@@ -70,7 +70,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::narrow_down`\n\ncoercion = None\n\ntype = `fn(...) -> OneVsAllResult MnistLabel One @ None @ None`",
+                            value: "\n\nentity `malamute::narrow_down`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        32,\n    ),\n    RegionalTokenIdx(\n        32,\n    ),\n];\n\n\ncoercion = None\n\ntype = `fn(...) -> OneVsAllResult MnistLabel One @ None @ None`",
                         },
                     ),
                     range: Some(
@@ -100,7 +100,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `mnist_classifier::major::major_connected_component`\n\ncoercion = None\n\ntype = `Leash ConnectedComponent @ Some(Transient)`",
+                            value: "\n\nentity `mnist_classifier::major::major_connected_component`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        63,\n    ),\n    RegionalTokenIdx(\n        63,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConnectedComponent @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -130,7 +130,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -160,7 +160,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -190,7 +190,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `f32 @ Some(Transient)`",
+                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        187,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `f32 @ Some(Transient)`",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -280,7 +280,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -340,7 +340,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nliteral\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `i32 @ Some(Compterm)`",
+                            value: "\n\nliteral\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        311,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Compterm,\n        },\n    ),\n)\n\ntype = `i32 @ Some(Compterm)`",
                         },
                     ),
                     range: Some(
@@ -370,7 +370,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\nunwrap exclamation\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        373,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Leash ConcaveComponent @ None`",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nmethod\n\ncoercion = None\n\ntype = `i32 @ None`",
+                            value: "\n\nmethod\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        404,\n    ),\n];\n\n\ncoercion = None\n\ntype = `i32 @ None`",
                         },
                     ),
                     range: Some(
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n",
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel One @ None`",
+                            value: "\n\nentity `malamute::OneVsAll::Yes`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        497,\n    ),\n    RegionalTokenIdx(\n        497,\n    ),\n];\n\n\ncoercion = Some(\n    Trivial(\n        TrivialFlyCoercion {\n            expectee_quary: Transient,\n        },\n    ),\n)\n\ntype = `OneVsAll MnistLabel One @ None`",
                         },
                     ),
                     range: Some(
@@ -550,7 +550,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity node",
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -580,7 +580,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nfield\n\ncoercion = None\n\ntype = `f32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(0)) })`",
+                            value: "\n\nfield\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        18,\n    ),\n];\n\n\ncoercion = None\n\ntype = `f32 @ Some(ImmutableOnStack { place: Idx(PlaceIdx(0)) })`",
                         },
                     ),
                     range: Some(

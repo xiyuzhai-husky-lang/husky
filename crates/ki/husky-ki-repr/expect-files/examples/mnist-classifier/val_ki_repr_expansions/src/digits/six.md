@@ -108,18 +108,10 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                        template_arguments: [],
-                                                    },
-                                                ),
-                                            ),
-                                        ],
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        template_arguments: [],
                                     },
+                                    field_ty_leash_class: Other,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -144,7 +136,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -172,7 +164,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -209,7 +201,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -246,7 +238,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -294,7 +286,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -325,7 +317,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -372,7 +364,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -403,7 +395,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -450,7 +442,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -481,7 +473,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -528,7 +520,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -553,7 +545,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -584,7 +576,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -612,18 +604,10 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                                        template_arguments: [],
-                                                    },
-                                                ),
-                                            ),
-                                        ],
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
                                     },
+                                    field_ty_leash_class: Other,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -648,7 +632,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -682,7 +666,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -725,7 +709,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -772,7 +756,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -803,7 +787,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -850,7 +834,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
@@ -881,7 +865,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -913,7 +897,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1035,7 +1019,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1094,7 +1078,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1143,18 +1127,10 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                        template_arguments: [],
-                                                    },
-                                                ),
-                                            ),
-                                        ],
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        template_arguments: [],
                                     },
+                                    field_ty_leash_class: Other,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -1179,7 +1155,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1213,7 +1189,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1256,7 +1232,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1299,7 +1275,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1336,7 +1312,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1397,7 +1373,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1458,7 +1434,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1489,6 +1465,7 @@
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
                                     },
+                                    field_ty_leash_class: Copyable,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -1513,7 +1490,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1550,7 +1527,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1587,7 +1564,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1648,7 +1625,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1678,6 +1655,7 @@
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
                                     },
+                                    field_ty_leash_class: Copyable,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -1702,7 +1680,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1751,18 +1729,10 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                        template_arguments: [],
-                                                    },
-                                                ),
-                                            ),
-                                        ],
+                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        template_arguments: [],
                                     },
+                                    field_ty_leash_class: Other,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -1787,7 +1757,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1834,7 +1804,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -1865,7 +1835,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1902,7 +1872,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1949,7 +1919,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -1992,7 +1962,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2023,6 +1993,7 @@
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
                                     },
+                                    field_ty_leash_class: Copyable,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -2047,7 +2018,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2085,7 +2056,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2123,7 +2094,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2170,7 +2141,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2229,7 +2200,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2276,7 +2247,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2306,6 +2277,7 @@
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
                                     },
+                                    field_ty_leash_class: Copyable,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -2330,7 +2302,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2363,7 +2335,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2480,7 +2452,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2539,7 +2511,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2569,7 +2541,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2616,7 +2588,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
@@ -2647,7 +2619,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2684,7 +2656,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2721,7 +2693,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2782,7 +2754,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2850,7 +2822,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2880,6 +2852,7 @@
                                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                         template_arguments: [],
                                     },
+                                    field_ty_leash_class: Copyable,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -2904,7 +2877,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -2974,7 +2947,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3029,7 +3002,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3097,7 +3070,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3129,7 +3102,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3261,7 +3234,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3320,7 +3293,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3388,7 +3361,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3419,6 +3392,7 @@
                                         ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                         template_arguments: [],
                                     },
+                                    field_ty_leash_class: Copyable,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -3443,7 +3417,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3480,7 +3454,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3527,7 +3501,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3557,7 +3531,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3587,7 +3561,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3634,7 +3608,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -3665,7 +3639,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3697,7 +3671,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3814,7 +3788,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3873,7 +3847,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3920,7 +3894,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -3951,7 +3925,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -3988,7 +3962,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4035,7 +4009,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4082,7 +4056,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -4113,7 +4087,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4150,7 +4124,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4197,7 +4171,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4222,7 +4196,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -4253,7 +4227,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4281,18 +4255,10 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                                        template_arguments: [],
-                                                    },
-                                                ),
-                                            ),
-                                        ],
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
                                     },
+                                    field_ty_leash_class: Other,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -4317,7 +4283,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4351,7 +4317,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4394,7 +4360,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4430,7 +4396,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4455,7 +4421,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
@@ -4486,7 +4452,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4547,7 +4513,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4584,7 +4550,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4631,7 +4597,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4656,7 +4622,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -4687,7 +4653,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4715,18 +4681,10 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                                        template_arguments: [],
-                                                    },
-                                                ),
-                                            ),
-                                        ],
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
                                     },
+                                    field_ty_leash_class: Other,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -4751,7 +4709,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4785,7 +4743,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4828,7 +4786,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4853,7 +4811,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -4884,7 +4842,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4912,18 +4870,10 @@
                             Linket {
                                 data: LinketData::StructField {
                                     self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                                        template_arguments: [],
-                                                    },
-                                                ),
-                                            ),
-                                        ],
+                                        ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        template_arguments: [],
                                     },
+                                    field_ty_leash_class: Other,
                                     field: Props {
                                         ident: Ident(
                                             Coword(
@@ -4948,7 +4898,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -4982,7 +4932,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5025,7 +4975,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5061,7 +5011,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5086,7 +5036,7 @@
                         ),
                         opn: KiOpn::Linket(
                             Linket {
-                                data: LinketData::MemoizedField {
+                                data: LinketData::Memo {
                                     path: AssocItemPath::TypeItem(
                                         TypeItemPath(
                                             `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
@@ -5117,7 +5067,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5178,7 +5128,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5215,7 +5165,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5262,7 +5212,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5309,7 +5259,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5347,7 +5297,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5394,7 +5344,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5424,7 +5374,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5469,7 +5419,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5512,7 +5462,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5548,7 +5498,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5584,7 +5534,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5627,7 +5577,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5687,7 +5637,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5732,7 +5682,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5768,7 +5718,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5811,7 +5761,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5854,7 +5804,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5891,7 +5841,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -5961,7 +5911,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6006,7 +5956,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6049,7 +5999,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6094,7 +6044,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6137,7 +6087,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6176,7 +6126,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6246,7 +6196,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6305,7 +6255,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6350,7 +6300,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6393,7 +6343,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6438,7 +6388,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6481,7 +6431,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],
@@ -6511,7 +6461,7 @@
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
                                 ki_domain_repr: Omni,
-                                opn: KiOpn::ValLazilyDefined(
+                                opn: KiOpn::Val(
                                     MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 ),
                                 arguments: [],

@@ -30,6 +30,15 @@ where
     T: __Static,
 {
     type Frozen = Self;
+
+    fn is_copyable() -> bool {
+        todo!()
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        todo!()
+    }
+
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
     }
@@ -42,6 +51,7 @@ where
         todo!()
     }
 }
+
 impl<T> __Frozen for CyclicSliceLeashed<T>
 where
     T: __Static,

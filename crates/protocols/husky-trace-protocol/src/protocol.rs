@@ -9,12 +9,6 @@ pub trait IsTraceProtocol:
     type Figure: IsFigure<Self::Pedestal>;
 }
 
-impl IsTraceProtocol for () {
-    type Pedestal = ();
-
-    type Figure = ();
-}
-
 pub trait IsTraceProtocolFull: IsTraceProtocol + Serialize + for<'a> Deserialize<'a> {}
 
 impl<T> IsTraceProtocolFull for T where T: IsTraceProtocol + Serialize + for<'a> Deserialize<'a> {}

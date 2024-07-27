@@ -1,6 +1,8 @@
+use crate::{IsLinketImpl, LinketImpls};
 use colored::Colorize;
-
-use crate::IsLinketImpl;
+use husky_devsoul_interface::{
+    devsoul::IsDevsoulInterface, item_path::ItemPathIdInterface, DevEvalContext,
+};
 use std::any::Any;
 
 pub struct AnyLinketImpls {
@@ -10,15 +12,22 @@ pub struct AnyLinketImpls {
 }
 
 impl AnyLinketImpls {
-    pub fn new<LinketImpl: IsLinketImpl>(linket_impls: Vec<LinketImpl>) -> Self {
+    pub fn new<DevsoulInterface: IsDevsoulInterface>(
+        linket_impls: Vec<DevsoulInterface::LinketImpl>,
+    ) -> Self {
         Self {
-            linket_impls: Box::new(linket_impls),
+            linket_impls: Box::new(LinketImpls {
+                set_dev_eval_context: DevsoulInterface::set_dev_eval_context,
+                init_item_path_id_interface_caches: |_| todo!(),
+                linket_impls,
+            }),
             rustc_version: rustc_version::version().unwrap(),
-            linket_impl_type_name: std::any::type_name::<LinketImpl>(),
+            linket_impl_type_name: std::any::type_name::<DevsoulInterface::LinketImpl>(),
         }
     }
 
-    pub fn downcast<LinketImpl: IsLinketImpl>(self) -> Vec<LinketImpl> {
+    /// a stable downcast method instead of the unstable builtin one using typeids
+    pub fn downcast<LinketImpl: IsLinketImpl>(self) -> LinketImpls<LinketImpl> {
         if !self.is_same_ty::<LinketImpl>() {
             panic!(
                 r#"expected `{}` compiled with rustc version {},

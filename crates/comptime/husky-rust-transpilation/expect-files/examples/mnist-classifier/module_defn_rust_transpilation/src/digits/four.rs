@@ -1,30 +1,60 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
+pub static mut __left_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 33, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __left_components__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn left_components() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![left_coordinate_max, left_coordinate_max])
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __left_coordinate_max__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn left_coordinate_max(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     Some(<crate::line_segment_sketch::concave_component::ConcaveComponent>::relative_bounding_box(cc).deleash().xmax())
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __components_max_downwards__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 34, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __components_max_downwards__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn components_max_downwards() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![displacement_downwards])
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __components_max_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 35, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __components_max_heights__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn components_max_heights() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![cc_box_heights])
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __is_four__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(ingredient_index = 36)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_four__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn is_four() -> malamute::OneVsAll {
     require!(let Some(_) = left_components().deleash().matches[0 as usize]);
     require!(let Some(_) = left_components().deleash().matches[1 as usize]);
@@ -54,12 +84,18 @@ pub fn is_four() -> malamute::OneVsAll {
     OneVsAll::Yes
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __displacement_downwards__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn displacement_downwards(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __cc_box_heights__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn cc_box_heights(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {

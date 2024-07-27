@@ -517,7 +517,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 1,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -532,6 +532,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `others`,
@@ -881,7 +888,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 6,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -896,6 +903,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `others`,
@@ -1687,7 +1701,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 1,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -1702,6 +1716,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `others`,
@@ -2051,7 +2072,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 6,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -2066,6 +2087,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `others`,
@@ -2857,7 +2885,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 1,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -2872,6 +2900,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `others`,
@@ -3221,7 +3256,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 6,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -3236,6 +3271,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `others`,

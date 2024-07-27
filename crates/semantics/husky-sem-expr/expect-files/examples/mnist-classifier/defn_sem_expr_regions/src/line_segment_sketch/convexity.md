@@ -150,6 +150,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentSketch`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -409,6 +415,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentSketch`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -868,6 +880,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentSketch`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -1906,6 +1924,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentSketch`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -2318,6 +2342,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentStroke`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -2838,6 +2868,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentSketch`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -4019,6 +4055,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentSketch`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -4315,6 +4357,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentStroke`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -4835,6 +4883,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`LineSegmentSketch`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(

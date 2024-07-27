@@ -2,23 +2,36 @@
 mod egui;
 
 use super::*;
-use husky_devsoul_interface::pedestal::{IsPedestal, IsPedestalUiBuffer};
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
+use husky_devsoul_interface::{
+    pedestal::{IsPedestal, IsPedestalUiBuffer},
+    static_var::IsStaticVar,
+};
 use static_var::StandardStaticVarId;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
 #[derive(Debug, Default, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct StandardPedestal {
-    static_var_ids: OrderedSmallVecPairMap<u32, StandardStaticVarId, 2>,
+    static_var_ids: OrderedSmallVecPairMap<ItemPathIdInterface, StandardStaticVarId, 2>,
+}
+
+impl FromIterator<(ItemPathIdInterface, StandardStaticVarId)> for StandardPedestal {
+    fn from_iter<T: IntoIterator<Item = (ItemPathIdInterface, StandardStaticVarId)>>(
+        iter: T,
+    ) -> Self {
+        Self {
+            static_var_ids: iter.into_iter().collect(),
+        }
+    }
 }
 
 impl IsPedestal for StandardPedestal {
     type StaticVarId = StandardStaticVarId;
     type UiBuffer = MlPedestalUiBuffer;
 
-    fn from_ids(ids: impl Iterator<Item = (u32, Self::StaticVarId)>) -> Self {
-        Self {
-            static_var_ids: ids.collect(),
-        }
+    fn exclude<V: IsStaticVar<StandardStaticVarId>>(mut self) -> Self {
+        let _ = self.static_var_ids.remove(V::item_path_id_interface());
+        self
     }
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {
@@ -45,6 +58,13 @@ impl IsPedestal for StandardPedestal {
 }
 
 impl StandardPedestal {}
+
+#[macro_export]
+macro_rules! pedestal {
+    ($($static_var: path),*) => {{
+        [$((<$static_var>::item_path_id_interface(), <$static_var>::get_id())),*].into_iter().collect()
+    }};
+}
 
 pub struct MlPedestalUiBuffer {
     input_id_to_be: String,

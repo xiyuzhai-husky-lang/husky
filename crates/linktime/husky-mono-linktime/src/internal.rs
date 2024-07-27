@@ -1,9 +1,10 @@
 mod libraries;
 mod linket_impls;
 
-use self::linket_impls::generate_linket_impls;
+use self::linket_impls::generate_linket_impl_map;
 use self::{libraries::MonoLinketsLibrary, linket_impls::LinketImplMap};
 use crate::*;
+use husky_devsoul_interface::IsDevRuntimeDyn;
 use husky_linket::version_stamp::LinketVersionStamp;
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use version_stamp::HasVersionStamp;
@@ -14,9 +15,9 @@ where
 {
     target_path: LinktimeTargetPath,
     /// this is needed to kep Box<dyn StaticDyn> valid
-    past_libraries: Vec<MonoLinketsLibrary>,
-    libraries: MonoLinketsLibrary,
-    linket_impls: LinketImplMap<LinketImpl>,
+    past_libraries: Vec<MonoLinketsLibrary<LinketImpl>>,
+    current_library: MonoLinketsLibrary<LinketImpl>,
+    linket_impl_map: LinketImplMap<LinketImpl>,
 }
 
 impl<LinketImpl: IsLinketImpl> MonoLinktimeInternal<LinketImpl>
@@ -24,23 +25,33 @@ where
     LinketImpl: IsLinketImpl,
 {
     pub(crate) fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self {
-        let Ok(libraries) = MonoLinketsLibrary::generate(target_path, db) else {
-            todo!("error in generating libraries")
+        let Ok(current_library) = MonoLinketsLibrary::new(target_path, db) else {
+            panic!("error in generating libraries")
         };
-        let linket_impls = generate_linket_impls(target_path, &libraries, db);
+        let linket_impl_map = generate_linket_impl_map(target_path, &current_library, db);
         Self {
             target_path,
             past_libraries: vec![],
-            libraries,
-            linket_impls,
+            current_library,
+            linket_impl_map,
         }
     }
 
+    /// although nothing on this side is modified, we do have modification on the linket side.
+    pub(crate) fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+        self.current_library.init(runtime);
+    }
+}
+
+impl<LinketImpl: IsLinketImpl> MonoLinktimeInternal<LinketImpl>
+where
+    LinketImpl: IsLinketImpl,
+{
     pub(crate) fn get_linket_impl(&self, linket: Linket, db: &::salsa::Db) -> Option<LinketImpl> {
-        let Some(&(version_stamp, linket_impl)) = self.linket_impls.get(&linket) else {
+        let Some(&(version_stamp, linket_impl)) = self.linket_impl_map.get(&linket) else {
             use husky_print_utils::p;
             use salsa::DebugWithDb;
-            let _linkets: Vec<Linket> = self.linket_impls.clone().into_keys().collect();
+            let _linkets: Vec<Linket> = self.linket_impl_map.clone().into_keys().collect();
             // let old_linket: Linket = unsafe { std::mem::transmute(194u32) };
             // let LinketData::UnveilAssocFunctionRitchie {
             //     path: old_path,
@@ -69,7 +80,7 @@ where
         db: &::salsa::Db,
     ) -> LinketImpl {
         let (deps, linket) = self
-            .linket_impls
+            .linket_impl_map
             .get(&key)
             .copied()
             .expect("should be some");
@@ -77,7 +88,7 @@ where
             return linket;
         }
         self.reload(db);
-        self.linket_impls
+        self.linket_impl_map
             .get(&key)
             .copied()
             .expect("should be some")
@@ -86,10 +97,10 @@ where
 
     fn reload(&mut self, db: &::salsa::Db) {
         let libraries = std::mem::replace(
-            &mut self.libraries,
-            MonoLinketsLibrary::generate(self.target_path, db).unwrap(),
+            &mut self.current_library,
+            MonoLinketsLibrary::new(self.target_path, db).unwrap(),
         );
         self.past_libraries.push(libraries);
-        self.linket_impls = generate_linket_impls(self.target_path, &self.libraries, db)
+        self.linket_impl_map = generate_linket_impl_map(self.target_path, &self.current_library, db)
     }
 }

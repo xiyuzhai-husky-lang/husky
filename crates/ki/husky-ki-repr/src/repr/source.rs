@@ -47,7 +47,7 @@ impl KiReprSource {
             } => match parent_ki_repr.opn(db) {
                 KiOpn::Require => todo!(),
                 KiOpn::Assert => todo!(),
-                KiOpn::ValLazilyDefined(path) => {
+                KiOpn::Val(path) => {
                     let ItemSynDefn {
                         syn_expr_region, ..
                     } = item_syn_defn(db, path.into()).unwrap();
@@ -64,7 +64,8 @@ impl KiReprSource {
                         KiReprExpansionSource::IfCondition { stmt } => todo!(),
                         KiReprExpansionSource::ElifCondition { stmt, branch_idx } => todo!(),
                         KiReprExpansionSource::Expr { expr } => {
-                            sem_expr_range_region_data[source_map_data.sem_expr_idx(expr)]
+                            sem_expr_range_region_data
+                                [source_map_data.hir_lazy_to_sem_expr_idx(expr).unwrap()]
                         }
                         KiReprExpansionSource::Stmt { stmt } => todo!(),
                     }

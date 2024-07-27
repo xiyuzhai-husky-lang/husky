@@ -258,7 +258,7 @@ fn transpile_hir_eager_expr_to_rust(
         }
         HirEagerExprData::PropsStructField {
             self_argument,
-            self_ty,
+            self_argument_ty: self_ty,
             ident,
             ref indirections,
             ..

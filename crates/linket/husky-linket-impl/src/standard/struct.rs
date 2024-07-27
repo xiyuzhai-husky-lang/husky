@@ -1,5 +1,7 @@
 #[cfg(test)]
 use super::*;
+#[cfg(test)]
+use husky_linket_impl::standard::ugly::serde;
 
 /// # destructor
 
@@ -27,19 +29,17 @@ macro_rules! struct_destructor_linket_impl {
 
 #[macro_export]
 macro_rules! struct_field_linket_impl {
-    ($self_ty: ty, $field: ident) => {{
+    ($self_ty: ty, $class: ident $field: ident) => {{
         fn struct_field_wrapper(owner: Value) -> Value {
             match owner {
-                Value::Owned(owner) => {
-                    __ValueLeashTest(owner.downcast_into_owned::<$self_ty>().$field).into_value()
-                }
-                Value::Leash(owner) => __ValueLeashTest(
-                    (&((owner as &'static dyn std::any::Any)
-                        .downcast_ref::<$self_ty>()
-                        .unwrap()
-                        .$field) as &'static _),
-                )
-                .into_value(),
+                Value::Owned(owner) => owner.downcast_into_owned::<$self_ty>().$field.into_value(),
+                Value::Leash(owner) => class_specific_leashed_field_into_value!(
+                    $class
+                        & (owner as &'static dyn std::any::Any)
+                            .downcast_ref::<$self_ty>()
+                            .unwrap()
+                            .$field
+                ),
                 Value::Ref(owner) => todo!("struct_field_wrapper Ref"),
                 Value::Mut(owner) => todo!("struct_field_wrapper Mut"),
                 _ => unreachable!(),
@@ -53,10 +53,21 @@ macro_rules! struct_field_linket_impl {
 
 #[test]
 fn struct_field_linket_impl_works() {
-    use crate::standard::ugly::__ValueLeashTest;
+    use husky_core::*;
+    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+    use husky_standard_value::ugly::*;
+
+    #[husky_standard_value::value_conversion]
+    #[derive(Debug, PartialEq, Eq, Clone)]
+    struct B(Vec<i32>);
+
     struct A {
         x: i32,
+        y: Vec<i32>,
+        b: B,
     }
 
-    let _: StandardLinketImpl<()> = struct_field_linket_impl!(A, x);
+    let _: StandardLinketImpl<StandardPedestal> = struct_field_linket_impl!(A, copyable x);
+    let _: StandardLinketImpl<StandardPedestal> = struct_field_linket_impl!(A, vec y);
+    let _: StandardLinketImpl<StandardPedestal> = struct_field_linket_impl!(A, other b);
 }

@@ -1,6 +1,4 @@
 mod available_trai_item;
-pub mod ingredient;
-pub mod jar;
 pub mod paths;
 pub mod tokra_region;
 mod trai_impl;

@@ -1,5 +1,8 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
+pub static mut __ConvexComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -23,3 +26,7 @@ impl Visualize for crate::line_segment_sketch::convex_component::ConvexComponent
         self.line_segments.deleash().visualize(__visual_synchrotron)
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __Visualize__for__ConvexComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+

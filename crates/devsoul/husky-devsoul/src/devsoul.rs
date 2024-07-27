@@ -1,15 +1,14 @@
 use crate::*;
 use husky_devsoul_interface::{
+    item_path::ItemPathIdInterface,
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
     pedestal::{IsPedestal, IsPedestalFull},
     DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
 };
-use husky_devsoul_interface::{
-    HuskyIngredientIndex, HuskyJarIndex, IsLinketImpl, LinketImplKiControlFlow,
-};
+use husky_devsoul_interface::{IsLinketImpl, LinketImplKiControlFlow};
 use husky_entity_path::path::ItemPath;
-use husky_ki::Ki;
+use husky_ki::{Ki, KiDomain};
 use husky_trace_protocol::{
     id::TraceId,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
@@ -17,7 +16,7 @@ use husky_trace_protocol::{
 };
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
-use std::{cell::Cell, thread::LocalKey};
+use std::{cell::Cell, convert::Infallible, thread::LocalKey};
 
 pub trait IsDevsoul: 'static {
     type Pedestal: IsPedestalFull;
@@ -34,13 +33,6 @@ pub trait IsDevsoul: 'static {
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
-    fn dev_eval_context_local_key() -> &'static DevEvalContextLocalKey<Self::LinketImpl>;
-
-    /// final
-    #[track_caller]
-    fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
-        Self::dev_eval_context_local_key().get().unwrap()
-    }
 
     /// final
     fn get_ki_visual(
@@ -65,22 +57,36 @@ pub trait IsDevsoul: 'static {
 }
 
 pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
-    // todo: consider caching policy
-    fn get_or_try_init_ki_value(
+    fn get_or_try_init_val_value(
         &self,
-        ki: Ki,
-        var_deps: impl Iterator<Item = (ItemPath, <LinketImpl::Pedestal as IsPedestal>::StaticVarId)>,
+        val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: LinketImpl::Pedestal,
         f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
         db: &::salsa::Db,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn get_or_try_init_memo_field_value(
         &self,
-        jar_index: HuskyJarIndex,
-        ingredient_index: HuskyIngredientIndex,
+        item_path_id_interface: ItemPathIdInterface,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
+
+    fn get_or_try_init_ki_value(
+        &self,
+        ki: Ki,
+        pedestal: LinketImpl::Pedestal,
+        f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
+        db: &::salsa::Db,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
+
+    fn get_or_try_init_ki_domain_value(
+        &self,
+        ki_domain: KiDomain,
+        pedestal: LinketImpl::Pedestal,
+        f: impl FnOnce() -> KiControlFlow<(), Infallible, LinketImpl::Exception>,
+        db: &::salsa::Db,
+    ) -> KiControlFlow<(), Infallible, LinketImpl::Exception>;
 }
 
 pub type DevEvalContextLocalKey<LinketImpl> =

@@ -17,6 +17,7 @@ use self::utils::item_debug_fmt_with_db;
 use self::{attr::*, trai::TraitPath};
 use crate::*;
 use enum_class::Room32;
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_vfs::{
     chunk::Chunk,
     path::{crate_path::CratePath, module_path::ModulePath},
@@ -28,6 +29,29 @@ use salsa::DisplayWithDb;
 #[salsa::interned(override_debug)]
 pub struct ItemPathId {
     pub data: ItemPathData,
+}
+
+impl From<ItemPathIdInterface> for ItemPathId {
+    fn from(item_path_id_interface: ItemPathIdInterface) -> Self {
+        unsafe { std::mem::transmute(item_path_id_interface) }
+    }
+}
+
+impl Into<ItemPathIdInterface> for ItemPathId {
+    fn into(self) -> ItemPathIdInterface {
+        ItemPathIdInterface::new(self.0.as_u32())
+    }
+}
+
+#[test]
+fn into_item_path_id_interface_works() {
+    let a: ItemPathId = unsafe { std::mem::transmute(1u32) };
+    assert_eq!(a.0.as_u32(), 0);
+    let b: ItemPathIdInterface = a.into();
+    let c: ItemPathIdInterface = unsafe { std::mem::transmute(a) };
+    assert_eq!(b, c);
+    assert_eq!(a, unsafe { std::mem::transmute(b) });
+    assert_eq!(a, unsafe { std::mem::transmute(c) });
 }
 
 impl ItemPathId {

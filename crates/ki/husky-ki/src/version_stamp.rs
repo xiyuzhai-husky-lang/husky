@@ -9,3 +9,9 @@ impl Ki {
         KiVersionStamp::new(db)
     }
 }
+
+impl KiDomain {
+    pub fn version_stamp(self, db: &::salsa::Db) -> KiVersionStamp {
+        KiVersionStamp::new(db)
+    }
+}

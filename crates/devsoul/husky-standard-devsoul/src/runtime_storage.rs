@@ -1,15 +1,33 @@
 use crate::*;
 use dashmap::DashMap;
 use husky_devsoul::devsoul::IsRuntimeStorage;
-use husky_devsoul_interface::{HuskyIngredientIndex, HuskyJarIndex, IsLinketImpl};
+use husky_devsoul_interface::{item_path::ItemPathIdInterface, IsLinketImpl};
 use husky_entity_path::path::ItemPath;
-use husky_ki::{version_stamp::KiVersionStamp, Ki};
+use husky_ki::{version_stamp::KiVersionStamp, Ki, KiDomain};
 use husky_linket_impl::standard::StandardLinketImplKiControlFlow;
 use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
-use std::sync::{Arc, Mutex};
+use std::{
+    convert::Infallible,
+    sync::{Arc, Mutex},
+};
 
 #[derive(Debug, Default)]
 pub struct StandardDevRuntimeStorage {
+    val_values: DashMap<
+        StandardDevRuntimeValStorageKey,
+        Arc<Mutex<Option<(ValVersionStamp, StandardLinketImplKiControlFlow)>>>,
+    >,
+    ki_domain_values: DashMap<
+        StandardDevRuntimeKiDomainStorageKey,
+        Arc<
+            Mutex<
+                Option<(
+                    KiVersionStamp,
+                    StandardLinketImplKiControlFlow<(), Infallible>,
+                )>,
+            >,
+        >,
+    >,
     ki_values: DashMap<
         StandardDevRuntimeKiStorageKey,
         Arc<Mutex<Option<(KiVersionStamp, StandardLinketImplKiControlFlow)>>>,
@@ -20,6 +38,21 @@ pub struct StandardDevRuntimeStorage {
     >,
 }
 
+// ad hoc
+type ValVersionStamp = ();
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
+pub struct StandardDevRuntimeValStorageKey {
+    val_item_path_id_interface: ItemPathIdInterface,
+    pedestal: StandardPedestal,
+}
+
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
+pub struct StandardDevRuntimeKiDomainStorageKey {
+    ki_domain: KiDomain,
+    pedestal: StandardPedestal,
+}
+
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
 pub struct StandardDevRuntimeKiStorageKey {
     ki: Ki,
@@ -28,8 +61,7 @@ pub struct StandardDevRuntimeKiStorageKey {
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct StandardDevRuntimeMemoizedFieldStorageKey {
-    jar_index: HuskyJarIndex,
-    ingredient_index: HuskyIngredientIndex,
+    item_path_id_interface: ItemPathIdInterface,
     slf: AnyPointer,
 }
 
@@ -40,22 +72,48 @@ pub struct AnyPointer(*const std::ffi::c_void);
 
 unsafe impl Send for AnyPointer {}
 
-impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage
-where
-    LinketImpl: IsLinketImpl,
-{
+impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
+    fn get_or_try_init_val_value(
+        &self,
+        val_item_path_id_interface: ItemPathIdInterface,
+        pedestal: StandardPedestal,
+        f: impl FnOnce() -> StandardLinketImplKiControlFlow,
+        db: &salsa::Db,
+    ) -> StandardLinketImplKiControlFlow {
+        let key = StandardDevRuntimeValStorageKey {
+            val_item_path_id_interface,
+            pedestal,
+        };
+        let mu = self.val_values.entry(key.clone()).or_default().clone();
+        let mut opt_stored_control_flow_store_guard = mu.lock().expect("todo");
+        // ad hoc
+        let new_version_stamp = (); // key.val.version_stamp(db);
+        unsafe {
+            match *opt_stored_control_flow_store_guard {
+                Some((old_version_stamp, ref control_flow))
+                    if old_version_stamp == new_version_stamp =>
+                {
+                    return control_flow.share_unchecked()
+                }
+                _ => *opt_stored_control_flow_store_guard = Some((new_version_stamp, f())),
+            };
+            opt_stored_control_flow_store_guard
+                .as_ref()
+                .expect("should be some")
+                .1
+                .share_unchecked()
+        }
+    }
+
     fn get_or_try_init_ki_value(
         &self,
         ki: Ki,
-        var_deps: impl Iterator<Item = (ItemPath, StandardStaticVarId)>,
+        pedestal: StandardPedestal,
         f: impl FnOnce() -> StandardLinketImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinketImplKiControlFlow {
         use husky_devsoul_interface::pedestal::IsPedestal;
 
-        let pedestal = <LinketImpl as IsLinketImpl>::Pedestal::from_ids(
-            var_deps.map(|(path, id)| (unsafe { std::mem::transmute(*path) }, id)),
-        );
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key.clone()).or_default().clone();
         let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");
@@ -79,15 +137,13 @@ where
 
     fn get_or_try_init_memo_field_value(
         &self,
-        jar_index: HuskyJarIndex,
-        ingredient_index: HuskyIngredientIndex,
+        item_path_id_interface: ItemPathIdInterface,
         slf: &'static std::ffi::c_void,
         f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinketImplKiControlFlow,
     ) -> StandardLinketImplKiControlFlow {
         // todo: maybe add version stamp?
         let key = StandardDevRuntimeMemoizedFieldStorageKey {
-            jar_index,
-            ingredient_index,
+            item_path_id_interface,
             slf: AnyPointer(slf as _),
         };
         let mu = self.memo_field_values.entry(key).or_default().clone();
@@ -103,6 +159,45 @@ where
                         .share_unchecked()
                 }
             }
+        }
+    }
+
+    fn get_or_try_init_ki_domain_value(
+        &self,
+        ki_domain: KiDomain,
+        pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
+        f: impl FnOnce() -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception>,
+        db: &salsa::Db,
+    ) -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception> {
+        use husky_devsoul_interface::pedestal::IsPedestal;
+
+        let key = StandardDevRuntimeKiDomainStorageKey {
+            ki_domain,
+            pedestal,
+        };
+        let mu = self
+            .ki_domain_values
+            .entry(key.clone())
+            .or_default()
+            .clone();
+        let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");
+        let new_version_stamp = key.ki_domain.version_stamp(db);
+        unsafe {
+            match *opt_stored_ki_control_flow_store_guard {
+                Some((old_version_stamp, ref ki_control_flow))
+                    if old_version_stamp == new_version_stamp =>
+                {
+                    // ad hoc, think about sharing here
+                    return ki_control_flow.clone();
+                }
+                _ => *opt_stored_ki_control_flow_store_guard = Some((new_version_stamp, f())),
+            };
+            // ad hoc, think about sharing here
+            opt_stored_ki_control_flow_store_guard
+                .as_ref()
+                .expect("should be some")
+                .1
+                .clone()
         }
     }
 }

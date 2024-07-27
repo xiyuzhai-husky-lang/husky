@@ -18,19 +18,16 @@ pub type DevEvalContext = husky_devsoul_interface::DevEvalContext<
     husky_linket_impl::standard::StandardLinketImpl<StandardPedestal>,
 >;
 
-thread_local! {
-    pub static DEV_EVAL_CONTEXT: Cell<std::option::Option<DevEvalContext>> = Cell::new(None);
-}
+static mut DEV_EVAL_CONTEXT: std::option::Option<DevEvalContext> = None;
 
 pub fn dev_eval_context() -> DevEvalContext {
-    DEV_EVAL_CONTEXT.get().expect("`DEV_EVAL_CONTEXT` not set")
+    unsafe { DEV_EVAL_CONTEXT.expect("`DEV_EVAL_CONTEXT` not set") }
 }
-
-pub fn with_dev_eval_context<R>(ctx: DevEvalContext, f: impl FnOnce() -> R) -> R {
-    let old = DEV_EVAL_CONTEXT.replace(Some(ctx));
-    let r = f();
-    DEV_EVAL_CONTEXT.set(old);
-    r
+pub(crate) fn set_dev_eval_context(ctx: DevEvalContext) {
+    unsafe {
+        assert!(DEV_EVAL_CONTEXT.is_none());
+        DEV_EVAL_CONTEXT = Some(ctx);
+    }
 }
 
 pub fn eval_ki_repr_interface<T>(

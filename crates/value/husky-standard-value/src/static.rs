@@ -7,35 +7,43 @@ use husky_value_protocol::presentation::ValuePresentation;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 /// Stand is the static version of a type
-pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
+pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type Frozen: Frozen<Static = Self>;
     unsafe fn freeze(&self) -> Self::Frozen;
 
-    fn copy(&self) -> Box<dyn StaticDyn> {
-        panic!(
-            "type `{}` is not copyable",
-            std::any::type_name_of_val(self)
-        )
-    }
+    fn is_copyable() -> bool;
+
+    /// copy if the type is copyable
+    ///
+    /// note that it should always be either some or none for a fixed type
+    fn try_copy(&self) -> Option<Value>;
 
     fn is_some(&self) -> bool {
-        panic!(
-            "type `{}` is not an Option",
-            std::any::type_name_of_val(self)
-        )
+        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
     fn is_none(&self) -> bool {
-        panic!(
-            "type `{}` is not an Option",
-            std::any::type_name_of_val(self)
-        )
+        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
     fn index_ref<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
         panic!(
             "type `{}` doesn't support indexing",
-            std::any::type_name_of_val(self)
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn unwrap_ref<'a>(&'a self) -> Value {
+        panic!(
+            "type `{}` doesn't support unwrap",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn unwrap_leash(&'static self) -> Value {
+        panic!(
+            "type `{}` doesn't support unwrap",
+            std::any::type_name::<Self>()
         )
     }
 
@@ -49,6 +57,14 @@ where
     T: Static,
 {
     type Frozen = MutFrozen<T>;
+
+    fn is_copyable() -> bool {
+        false
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        None
+    }
 
     unsafe fn freeze(&self) -> Self::Frozen {
         MutFrozen::new(*self)
@@ -76,7 +92,11 @@ pub trait StaticDyn:
 
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
 
-    fn copy_dyn(&self) -> Box<dyn StaticDyn>;
+    fn unwrap_ref_dyn<'a>(&'a self) -> Value;
+
+    fn unwrap_leash_dyn(&'static self) -> Value;
+
+    fn try_copy_dyn(&self) -> Option<Value>;
 
     fn present_dyn(&self) -> ValuePresentation;
 
@@ -107,8 +127,16 @@ where
         self.index_ref(index)
     }
 
-    fn copy_dyn(&self) -> Box<dyn StaticDyn> {
-        self.copy()
+    fn unwrap_ref_dyn<'a>(&'a self) -> Value {
+        T::unwrap_ref(self)
+    }
+
+    fn unwrap_leash_dyn(&'static self) -> Value {
+        T::unwrap_leash(self)
+    }
+
+    fn try_copy_dyn(&self) -> Option<Value> {
+        self.try_copy()
     }
 
     fn present_dyn(&self) -> ValuePresentation {
@@ -127,6 +155,14 @@ where
     T: Static,
 {
     type Frozen = Vec<T::Frozen>;
+
+    fn is_copyable() -> bool {
+        false
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        todo!()
+    }
 
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
@@ -155,6 +191,14 @@ where
 {
     type Frozen = Self;
 
+    fn is_copyable() -> bool {
+        true
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        Some(Value::from_ref(self))
+    }
+
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
     }
@@ -174,11 +218,38 @@ where
 {
     type Frozen = Option<T::Frozen>;
 
+    fn is_copyable() -> bool {
+        T::is_copyable()
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        if !Self::is_copyable() {
+            return None;
+        }
+        self.as_ref().map(|v| v.try_copy().unwrap())
+    }
+
     fn is_some(&self) -> bool {
         self.is_some()
     }
     fn is_none(&self) -> bool {
         self.is_none()
+    }
+
+    fn unwrap_ref<'a>(&'a self) -> Value {
+        let slf = self.as_ref().unwrap();
+        match slf.try_copy() {
+            Some(_) => todo!(),
+            None => todo!(),
+        }
+    }
+
+    fn unwrap_leash(&'static self) -> Value {
+        let slf = self.as_ref().unwrap();
+        match slf.try_copy() {
+            Some(slf) => slf,
+            None => Value::from_leash(slf),
+        }
     }
 
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -201,6 +272,14 @@ macro_rules! impl_static_for_primitive_ty {
         impl Static for $primitive_ty {
             type Frozen = Self;
 
+            fn is_copyable() -> bool {
+                true
+            }
+
+            fn try_copy(&self) -> Option<Value> {
+                Some((*self).into())
+            }
+
             unsafe fn freeze(&self) -> Self::Frozen {
                 *self
             }
@@ -220,6 +299,14 @@ for_all_primitive_tys!(impl_static_for_primitive_ty);
 
 impl Static for &'static str {
     type Frozen = Self;
+
+    fn is_copyable() -> bool {
+        todo!()
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        todo!()
+    }
 
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
@@ -243,6 +330,14 @@ macro_rules! impl_static_for_ritchie_ty {
             $($input: Static, )*
             $output: Static, {
             type Frozen = Self;
+
+            fn is_copyable() -> bool {
+                todo!()
+            }
+
+            fn try_copy(&self) -> Option<Value> {
+                todo!()
+            }
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 *self
@@ -270,6 +365,14 @@ macro_rules! impl_static_for_non_unit_tuple_ty {
             $($field: Static,)*
         {
             type Frozen = ($(<$field as Static>::Frozen,)*);
+
+            fn is_copyable() -> bool {
+                todo!()
+            }
+
+            fn try_copy(&self) -> Option<Value> {
+                todo!()
+            }
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 todo!()

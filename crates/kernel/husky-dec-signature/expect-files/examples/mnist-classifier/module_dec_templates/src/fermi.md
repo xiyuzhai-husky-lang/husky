@@ -17,6 +17,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `matches`,
                                     ty: DecTerm::Application(
                                         DecApplication {
@@ -60,6 +65,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `others`,
                                     ty: DecTerm::Application(
                                         DecApplication {

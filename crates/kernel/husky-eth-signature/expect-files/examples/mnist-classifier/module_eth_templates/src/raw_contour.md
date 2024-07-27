@@ -13,10 +13,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`RawContour`),
                                     ident: `cc`,
                                     ty: EthTerm(`Leash ConnectedComponent`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`RawContour`),
                                     ident: `points`,
                                     ty: EthTerm(`Vec Point2d`),
                                 },
@@ -343,10 +345,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`StreakCache`),
                                     ident: `prev1`,
                                     ty: EthTerm(`i32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`StreakCache`),
                                     ident: `prev2`,
                                     ty: EthTerm(`i32`),
                                 },

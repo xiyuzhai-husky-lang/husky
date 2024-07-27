@@ -308,6 +308,7 @@ dependencies = [
  "husky-devsoul-interface",
  "husky-standard-value",
  "husky-value-protocol",
+ "husky-wild-utils",
  "rustc_version",
  "smallvec",
 ]
@@ -511,6 +512,7 @@ version = "0.1.0"
 dependencies = [
  "ad-hoc-devsoul-dependency",
  "husky-core",
+ "ml-task",
  "serde",
  "smallvec",
 ]
@@ -541,6 +543,7 @@ dependencies = [
  "husky-standard-devsoul-interface",
  "husky-standard-value",
  "lazy_static",
+ "ml-task",
  "serde",
  "shifted-unsigned-int",
 ]

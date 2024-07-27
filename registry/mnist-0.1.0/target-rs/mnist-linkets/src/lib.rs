@@ -25,9 +25,9 @@ linket_impls![
     enum_variant_discriminator_linket_impl!(mnist::MnistLabel, mnist::MnistLabel::Eight),
     enum_variant_constructor_linket_impl!(mnist::MnistLabel, mnist::MnistLabel::Nine),
     enum_variant_discriminator_linket_impl!(mnist::MnistLabel, mnist::MnistLabel::Nine),
-    static_var_linket_impl!(mnist::INPUT),
+    static_var_linket_impl!(mnist::INPUT, mnist::__INPUT__ITEM_PATH_ID_INTERFACE),
     fn_linket_impl!(<mnist::BinaryImage28>::new_zeros),
     fn_linket_impl!(<mnist::BinaryGrid28>::new_zeros),
     fn_linket_impl!(<mnist::task::MnistTask>::new),
-    static_var_linket_impl!(mnist::TASK),
+    static_var_linket_impl!(mnist::TASK, mnist::__TASK__ITEM_PATH_ID_INTERFACE),
 ];

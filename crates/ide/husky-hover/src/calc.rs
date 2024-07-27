@@ -46,7 +46,7 @@ impl<'a> HoverResultCalculator<'a> {
         let token_infos = token_info_sheet[token_idx].as_ref();
         let sem_expr_region_data = token_infos
             .iter()
-            .map(|token_info| match token_info.src() {
+            .map(|token_info| match token_info.source() {
                 TokenInfoSource::SemExpr(region_path, _) => {
                     sem_expr_region_from_region_path(region_path, db).map(|region| region.data(db))
                 }
@@ -117,6 +117,10 @@ impl<'a> HoverResultCalculator<'a> {
 
         // lex
 
+        if !debug_content.is_empty() && !debug_content.ends_with("\n") {
+            debug_content += "\n";
+        }
+
         if self.config.token_idx {
             write!(debug_content, "\ntoken_idx = {};\n", self.token_idx.index()).unwrap();
         }
@@ -143,13 +147,30 @@ impl<'a> HoverResultCalculator<'a> {
             .unwrap();
         }
 
+        if self.config.regional_token_indices {
+            use husky_regional_token::RegionalTokenIdx;
+
+            let regional_token_indices: Vec<RegionalTokenIdx> = self
+                .token_infos
+                .iter()
+                .filter_map(|info| info.regional_token_idx())
+                .collect();
+
+            write!(
+                debug_content,
+                "\nregional_token_indices = {:#?};\n",
+                regional_token_indices
+            )
+            .unwrap();
+        }
+
         // syntax
 
         // semantics
 
         if self.config.coersion {
             for token_info in self.token_infos {
-                if let TokenInfoSource::SemExpr(_, expr) = token_info.src() {
+                if let TokenInfoSource::SemExpr(_, expr) = token_info.source() {
                     let sem_expr_region_data = self.sem_expr_region_data.unwrap();
                     write!(
                         debug_content,
@@ -166,7 +187,7 @@ impl<'a> HoverResultCalculator<'a> {
         if self.config.ty {
             for token_info in self.token_infos {
                 // ad hoc
-                match token_info.src() {
+                match token_info.source() {
                     TokenInfoSource::UseExpr(_) => (),
                     TokenInfoSource::SemExpr(_, expr) => {
                         let sem_expr_region_data = &self.sem_expr_region_data.unwrap();
@@ -263,6 +284,8 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::ClosureVert => write!(debug_content, "closure vert"),
                 TokenInfoData::ClosureLightArrow => write!(debug_content, "closure light arrow"),
                 TokenInfoData::ClosureEq => write!(debug_content, "closure eq"),
+                TokenInfoData::IndexColon => write!(debug_content, "index colon"),
+                TokenInfoData::UnwrapExclamation => write!(debug_content, "unwrap exclamation"),
             },
             None => write!(debug_content, ""),
         }

@@ -94,6 +94,12 @@ fn regular_value_size_works() {
     )
 }
 
+impl From<std::convert::Infallible> for Value {
+    fn from(_: std::convert::Infallible) -> Self {
+        unreachable!()
+    }
+}
+
 impl Value {
     pub fn from_owned<T>(t: T) -> Self
     where
@@ -108,9 +114,11 @@ impl Value {
     {
         match self {
             Value::Owned(slf) => slf.downcast_into_owned(),
-            Value::Leash(slf) => *(slf.copy_dyn() as Box<dyn std::any::Any>)
-                .downcast()
-                .unwrap(),
+            // ad hoc
+            Value::Leash(slf) => slf.try_copy_dyn().unwrap().into_owned(),
+            // *(slf.try_copy_dyn() as Box<dyn std::any::Any>)
+            //     .downcast()
+            //     .unwrap(),
             _ => unreachable!("self is {self:?}"),
         }
     }
@@ -185,7 +193,11 @@ impl Value {
     }
 
     pub fn into_leash<T>(self) -> &'static T {
-        todo!()
+        match self {
+            // ad hoc, we maybe encounter &'static Leash<T> here, so can't always just unwrap it
+            Value::Leash(slf) => (slf as &dyn std::any::Any).downcast_ref().unwrap(),
+            _ => unreachable!(),
+        }
     }
 
     pub fn from_mut<'a, T>(t: &'a mut T) -> Self {
@@ -480,6 +492,47 @@ impl IsValue for Value {
 
     fn from_str_literal(str_value: Arc<str>) -> Self {
         todo!()
+    }
+
+    fn unwrap(self) -> Self {
+        match self {
+            Value::Uninit => todo!(),
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(_) => todo!(),
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+            Value::Owned(_) => todo!(),
+            Value::Leash(slf) => slf.unwrap_leash_dyn(),
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+            Value::EnumUnit { index, presenter } => todo!(),
+        }
     }
 }
 
@@ -1038,6 +1091,21 @@ impl Into<f64> for Value {
     fn into(self) -> f64 {
         match self {
             Value::F64(value) => value,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl From<char> for Value {
+    fn from(value: char) -> Self {
+        Value::Char(value)
+    }
+}
+
+impl Into<char> for Value {
+    fn into(self) -> char {
+        match self {
+            Value::Char(value) => value,
             _ => unreachable!(),
         }
     }

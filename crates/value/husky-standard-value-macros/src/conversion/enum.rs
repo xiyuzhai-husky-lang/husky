@@ -40,6 +40,14 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             impl #generics __Static for #self_ty where #impl_static_generic_constraints {
                 type Frozen = #impl_static_assoc_ty_frozen;
 
+                fn is_copyable() -> bool {
+                    todo!()
+                }
+
+                fn try_copy(&self) -> Option<__Value> {
+                    todo!()
+                }
+
                 unsafe fn freeze(&self) -> Self::Frozen {
                     // MutFrozen::new(*self)
                     todo!()
@@ -105,6 +113,14 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
             impl #generics __Static for #self_ty where #impl_static_generic_constraints {
                 type Frozen = #impl_static_assoc_ty_frozen;
+
+                fn is_copyable() -> bool {
+                    todo!()
+                }
+
+                fn try_copy(&self) -> Option<__Value> {
+                    todo!()
+                }
 
                 unsafe fn freeze(&self) -> Self::Frozen {
                     // MutFrozen::new(*self)

@@ -696,6 +696,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 0,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -4124,6 +4131,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 8,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -5168,7 +5182,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 5,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -5183,6 +5197,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `mask`,
@@ -6028,7 +6049,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 4,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6043,6 +6064,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `mask`,
@@ -6714,7 +6742,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 2,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6729,6 +6757,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `mask`,
@@ -7069,7 +7104,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 10,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7084,6 +7119,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `mask`,
@@ -7834,7 +7876,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 27,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7849,6 +7891,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `mask`,
@@ -8405,7 +8454,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 39,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -8420,6 +8469,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `mask`,
@@ -9609,7 +9665,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 1,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -9624,6 +9680,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `upper_mass`,
@@ -10031,7 +10094,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 1,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -10046,6 +10109,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `lower_mass`,
@@ -10573,6 +10643,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 6,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -11001,6 +11078,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 15,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -11928,6 +12012,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 6,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -12356,6 +12447,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 15,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),

@@ -78,6 +78,14 @@ where
         todo!()
     }
 
+    fn is_copyable() -> bool {
+        true
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        Some((*self).into_value())
+    }
+
     fn serialize_to_value(&self) -> __JsonValue {
         todo!("CyclicSlice serialize_to_value")
     }
@@ -86,6 +94,7 @@ where
         todo!()
     }
 }
+
 impl<T> __Frozen for Leash<T>
 where
     T: __Static,
@@ -110,10 +119,29 @@ where
     T: __Static,
 {
     fn from_value_aux(_value: __Value, _: Option<&mut __ValueStands>) -> Self {
+        Leash(_value.into_leash())
+    }
+}
+
+impl<T> __IntoValue for Leash<T>
+where
+    T: __Static,
+{
+    fn into_value(self) -> __Value {
+        __Value::from_leash(self.deleash())
+    }
+}
+
+impl<T> __FromValue for Leash<[T]>
+where
+    T: __Static,
+{
+    fn from_value_aux(value: __Value, value_stands: Option<&mut __ValueStands>) -> Self {
         todo!()
     }
 }
-impl<T> __IntoValue for Leash<T>
+
+impl<T> __IntoValue for Leash<[T]>
 where
     T: __Static,
 {

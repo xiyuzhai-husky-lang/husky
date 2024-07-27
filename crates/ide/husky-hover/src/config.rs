@@ -9,6 +9,7 @@ pub struct HoverConfig {
     pub token_line_group_idx: bool,
     pub token: bool,
     pub token_info: bool,
+    pub regional_token_indices: bool,
     // syntax
     // semantics
     pub coersion: bool,
@@ -33,6 +34,7 @@ pub(crate) fn hover_config(db: &::salsa::Db, module_path: ModulePath) -> HoverCo
         token_line_group_idx: false,
         token: false,
         token_info: false,
+        regional_token_indices: true,
         coersion: true,
         ty: true,
     }

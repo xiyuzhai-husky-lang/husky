@@ -125,7 +125,7 @@ impl<'a> RustTranspilationBuilderBase<'a> {
         self.result += s
     }
 
-    fn word(&mut self, word: &str) {
+    pub(crate) fn word(&mut self, word: &str) {
         if self.result.ends_with(|c: char| c.is_alphanumeric()) {
             self.write_str(" ")
         }

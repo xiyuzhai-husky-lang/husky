@@ -1,5 +1,6 @@
 use super::*;
-use husky_entity_path::path::major_item::ty::TypePath;
+use either::*;
+use husky_entity_path::path::major_item::ty::{PreludeTypePath, TypePath};
 use husky_hir_ty::{
     ritchie::{HirContract, HirRitchieParameter},
     HirType,
@@ -13,13 +14,22 @@ use smallvec::SmallVec;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum LinType {
     PathLeading(LinTypePathLeading),
-    Ritchie(LinketRitchieType),
+    Ritchie(LinRitchieType),
 }
 
-impl LinketInstantiate for HirType {
+impl LinType {
+    pub fn is_copyable(self, db: &::salsa::Db) -> bool {
+        match self {
+            LinType::PathLeading(slf) => slf.is_copyable(db),
+            LinType::Ritchie(slf) => true,
+        }
+    }
+}
+
+impl LinInstantiate for HirType {
     type Output = LinType;
 
-    fn linket_instantiate(self, instantiation: &LinInstantiation, db: &salsa::Db) -> Self::Output {
+    fn lin_instantiate(self, instantiation: &LinInstantiation, db: &salsa::Db) -> Self::Output {
         match self {
             HirType::PathLeading(slf) => LinType::PathLeading(LinTypePathLeading::new(
                 db,
@@ -79,18 +89,44 @@ impl LinTypePathLeading {
     }
 }
 
+impl LinTypePathLeading {
+    pub fn is_copyable(self, db: &::salsa::Db) -> bool {
+        match self.ty_path(db).refine(db) {
+            Left(prelude_ty_path) => match prelude_ty_path {
+                PreludeTypePath::Basic(_) => true,
+                PreludeTypePath::Num(_) => true,
+                PreludeTypePath::Indirection(_) => true,
+                PreludeTypePath::Container(_) => false,
+                PreludeTypePath::Nat => unreachable!(),
+                PreludeTypePath::Lifetime => unreachable!(),
+                PreludeTypePath::Place => unreachable!(),
+                PreludeTypePath::Module => unreachable!(),
+                PreludeTypePath::Trait => unreachable!(),
+                PreludeTypePath::List => unreachable!(),
+                PreludeTypePath::StringLiteral => unreachable!(),
+                PreludeTypePath::Str => false,
+                PreludeTypePath::Option => todo!(),
+                PreludeTypePath::Result => todo!(),
+                PreludeTypePath::Universe => unreachable!(),
+            },
+            // ad hoc
+            Right(_) => false,
+        }
+    }
+}
+
 #[salsa::interned(constructor = new)]
-pub struct LinketRitchieType {
-    pub parameters: SmallVec<[LinketRitchieParameter; 4]>,
+pub struct LinRitchieType {
+    pub parameters: SmallVec<[LinRitchieParameter; 4]>,
     pub return_ty: LinType,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct LinketRitchieParameter {
+pub struct LinRitchieParameter {
     contract: HirContract,
     parameter_ty: LinType,
 }
-impl LinketRitchieParameter {
+impl LinRitchieParameter {
     fn from_jav(
         param: JavRitchieParameter,
         lin_instantiation: &LinInstantiation,
@@ -156,12 +192,12 @@ impl LinType {
             },
             HirType::TypeAssocType(_) => unreachable!(),
             HirType::TraitAssocType(_) => unreachable!(),
-            HirType::Ritchie(hir_ty) => LinketRitchieType::new(
+            HirType::Ritchie(hir_ty) => LinRitchieType::new(
                 db,
                 hir_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| LinketRitchieParameter::from_hir(param, instantiation, db))
+                    .map(|&param| LinRitchieParameter::from_hir(param, instantiation, db))
                     .collect(),
                 LinType::from_hir(hir_ty.return_ty(db), instantiation, db),
             )
@@ -180,12 +216,12 @@ impl LinType {
             JavType::PathLeading(javelin_ty) => {
                 LinTypePathLeading::from_jav(javelin_ty, instantiation, db).into()
             }
-            JavType::Ritchie(javelin_ty) => LinketRitchieType::new(
+            JavType::Ritchie(javelin_ty) => LinRitchieType::new(
                 db,
                 javelin_ty
                     .parameters(db)
                     .iter()
-                    .map(|&param| LinketRitchieParameter::from_jav(param, instantiation, db))
+                    .map(|&param| LinRitchieParameter::from_jav(param, instantiation, db))
                     .collect(),
                 LinType::from_jav(javelin_ty.return_ty(db), instantiation, db),
             )

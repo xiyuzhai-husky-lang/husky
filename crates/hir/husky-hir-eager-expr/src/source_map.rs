@@ -61,6 +61,7 @@ impl HirEagerExprSourceMapData {
     pub fn hir_eager_to_sem_expr_idx(&self, hir_eager_expr: HirEagerExprIdx) -> SemExprIdx {
         self.sem_to_hir_eager_expr_idx_map
             .get_expr_by_value_copied(hir_eager_expr)
+            .unwrap()
     }
 
     pub fn sem_to_hir_eager_stmt_idx(&self, sem_stmt_idx: SemStmtIdx) -> Option<HirEagerStmtIdx> {

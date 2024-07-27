@@ -1206,6 +1206,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 0,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -1988,7 +1995,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 0,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -2003,6 +2010,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -2169,6 +2183,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 4,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2263,6 +2284,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 6,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2357,6 +2385,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 8,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2451,6 +2486,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 10,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2566,7 +2608,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 12,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -2581,6 +2623,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -2802,7 +2851,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 15,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -2817,6 +2866,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -3086,6 +3142,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 21,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3406,6 +3469,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 27,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3726,6 +3796,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 33,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4046,6 +4123,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 39,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -5153,7 +5237,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 0,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -5168,6 +5252,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `cc`,
@@ -6006,7 +6097,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 2,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6021,6 +6112,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -6248,7 +6346,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 5,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6263,6 +6361,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -6527,7 +6632,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 11,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -6542,6 +6647,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -6767,6 +6879,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 16,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -6861,6 +6980,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 18,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -7052,6 +7178,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 22,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -7146,6 +7279,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 24,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -7434,7 +7574,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 30,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7449,6 +7589,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -7575,7 +7722,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 32,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7590,6 +7737,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -7905,7 +8059,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 38,
-                                                self_ty: HirType::PathLeading(
+                                                self_argument_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                                                         template_arguments: [
@@ -7920,6 +8074,13 @@
                                                             ),
                                                         ],
                                                         always_copyable: true,
+                                                    },
+                                                ),
+                                                self_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
                                                     },
                                                 ),
                                                 ident: `points`,
@@ -8130,6 +8291,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 43,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -8224,6 +8392,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 45,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -8415,6 +8590,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 49,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -8509,6 +8691,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 51,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -9238,6 +9427,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 0,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -9473,6 +9669,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 3,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -9783,6 +9986,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 9,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),

@@ -1139,6 +1139,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -1354,6 +1360,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -2236,6 +2248,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -2451,6 +2469,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -3333,6 +3357,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -3548,6 +3578,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -4654,6 +4690,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`EffHoles`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -4925,6 +4967,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`FermiMatchResult`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -5156,6 +5204,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`FermiMatchResult`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -5387,6 +5441,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`FermiMatchResult`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -7363,6 +7423,12 @@
                                             final_place: Transient,
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -7613,6 +7679,12 @@
                                             final_place: Transient,
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`Vector2d`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(

@@ -61,6 +61,9 @@ pub trait IsValue:
     + Into<f32>
     + From<f64>
     + Into<f64>
+    + From<char>
+    + Into<char>
+    + From<std::convert::Infallible>
     + 'static
 {
     fn new_uninit() -> Self;
@@ -90,6 +93,7 @@ pub trait IsValue:
     /// should unreachable if not an option
     fn is_some(self) -> bool;
     fn index(self, index: usize) -> Self;
+    fn unwrap(self) -> Self;
     fn present(
         &self,
         value_presenter_cache: &mut ValuePresenterCache,

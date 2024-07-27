@@ -5,7 +5,7 @@ use syn::{Ident, ItemFn, ReturnType, Signature};
 // todo: allow customization on self value type
 pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
     let MemoizedFieldArgs {
-        ingredient_index,
+        item_path_id_interface,
         return_leash,
         return_leash_ty,
     } = syn::parse_macro_input!(args as MemoizedFieldArgs);
@@ -32,49 +32,33 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
-    let return_leash_ty = match return_leash_ty {
-        Some(return_leash_ty) => quote! { #return_leash_ty },
-        None => quote! { Leash<#return_ty> },
-    };
-    if return_leash {
-        quote! {
-            #vis fn #ident(__self: Leash<Self>) -> #return_leash_ty {
-                todo!("return leash for eager val, change the return type")
-                // __eval_memo_field_return_ref_with(
-                //     self,
-                //     #ingredient_index,
-                //     |slf| {
-                //         // todo: catch unwind
-                //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
-                //     }
-                // )
-            }
-
-            #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
+    let expr_ty = if return_leash {
+        match return_leash_ty {
+            Some(return_leash_ty) => quote! { #return_leash_ty },
+            None => quote! { Leash<#return_ty> },
         }
-        .into()
     } else {
-        quote! {
-            #vis fn #ident(__self: Leash<Self>) -> #return_ty {
-                todo!("return copied for eager val")
-                // __eval_memo_field_with(
-                //     self,
-                //     #ingredient_index,
-                //     |slf| {
-                //         // todo: catch unwind
-                //         __KiControlFlow::Continue(__ValueLeashTest(slf.#aux_ident()).into_value())
-                //     }
-                // )
-            }
-
-            #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
+        quote! {#return_ty}
+    };
+    quote! {
+        #vis fn #ident(__self: Leash<Self>) -> #expr_ty {
+            __eval_memo_field_with(
+                unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
+                __self.deleash(),
+                |__self| {
+                    // todo: catch unwind
+                    __KiControlFlow::Continue(Self::#aux_ident(Leash(__self)).into_value())
+                }
+            )
         }
-        .into()
+
+        #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
     }
+    .into()
 }
 
 struct MemoizedFieldArgs {
-    ingredient_index: usize,
+    item_path_id_interface: Ident,
     // default false
     return_leash: bool,
     return_leash_ty: Option<syn::Type>,
@@ -83,12 +67,11 @@ struct MemoizedFieldArgs {
 impl syn::parse::Parse for MemoizedFieldArgs {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let ident: syn::Ident = syn::Ident::parse_any(input)?;
-        assert!(ident == "ingredient_index");
+        assert!(ident == "item_path_id_interface");
         let _eq = Equals::parse(input)?;
-        let lit = syn::LitInt::parse(input)?;
-        let ingredient_index: usize = lit.base10_parse()?;
+        let item_path_id_interface = syn::Ident::parse(input)?;
         let mut slf = Self {
-            ingredient_index,
+            item_path_id_interface,
             return_leash: false,
             return_leash_ty: None,
         };

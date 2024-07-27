@@ -41,6 +41,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `points`,
                                     ty: DecTerm::Application(
                                         DecApplication {
@@ -70,6 +75,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `start`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -79,6 +89,11 @@
                                     has_initialization: true,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `end`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -155,6 +170,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `contour`,
                                     ty: DecTerm::Application(
                                         DecApplication {
@@ -175,6 +195,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `strokes`,
                                     ty: DecTerm::Application(
                                         DecApplication {

@@ -19227,6 +19227,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -24124,6 +24130,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`RawContour`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -26538,6 +26550,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -28561,6 +28579,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -30252,6 +30276,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -30735,6 +30765,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -31666,6 +31702,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -32412,6 +32454,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -36894,6 +36942,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponentDistribution`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -37553,6 +37607,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponentDistribution`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -38391,6 +38451,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -38933,6 +38999,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -41503,6 +41575,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
@@ -42045,6 +42123,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConnectedComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
