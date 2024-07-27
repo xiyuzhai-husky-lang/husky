@@ -20,6 +20,7 @@ husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-text-protocol.workspace = true
+husky-regional-token.workspace = true
 # kernel
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true

@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_tree::region_path::SynNodeRegionPath;
+use husky_regional_token::RegionalTokenIdx;
 use husky_text_protocol::range::TextRange;
 use husky_token_data::TokenData;
 use smallvec::{smallvec, SmallVec};
@@ -53,10 +54,15 @@ impl TokenInfoSheet {
     pub(crate) fn add(
         &mut self,
         token_idx: TokenIdx,
+        regional_token_idx: impl Into<Option<RegionalTokenIdx>>,
         src: impl Into<TokenInfoSource>,
         token_info_data: TokenInfoData,
     ) {
-        self.token_infos_list[token_idx.index()].push(TokenInfo::new(src, token_info_data))
+        self.token_infos_list[token_idx.index()].push(TokenInfo::new(
+            regional_token_idx.into(),
+            src,
+            token_info_data,
+        ))
     }
 
     pub fn informative_ranged_token_iter<'db>(
