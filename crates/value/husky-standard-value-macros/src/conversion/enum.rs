@@ -45,6 +45,14 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                     todo!()
                 }
 
+                fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> __Value {
+                    todo!()
+                }
+
+                fn unwrap_option_leash(__self: &'static Option<Self>) -> __Value {
+                    todo!()
+                }
+
                 fn serialize_to_value(&self) -> __JsonValue {
                     __to_json_value(self).unwrap()
                 }

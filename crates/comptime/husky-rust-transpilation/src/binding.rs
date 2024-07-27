@@ -112,7 +112,13 @@ impl RustBindings {
                             None => todo!(),
                         }
                     }
-                    HirQuary::Leashed { place_idx } => smallvec![RustBinding::Deref],
+                    HirQuary::Leashed { place_idx } => {
+                        if expr_entry.is_base_ty_always_copyable() {
+                            todo!()
+                        } else {
+                            smallvec![RustBinding::Deref]
+                        }
+                    }
                     HirQuary::Todo => todo!(),
                     HirQuary::Variable(_) => todo!(),
                 };
@@ -154,6 +160,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             f,
         )
     }
+
     fn transpile_bindings_aux(
         &mut self,
         mut from_outermost_to_innermost: impl Iterator<Item = (RustBinding, Option<RustBinding>)>,
@@ -328,25 +335,25 @@ impl RustBindings {
         coercion: Option<HirEagerCoercion>,
     ) {
         if let Some(contract) = contracted_quary_after_coercion.contract() {
+            let is_always_copyable_after_coercion: bool = match coercion {
+                Some(coercion) => match coercion {
+                    HirEagerCoercion::Trivial(_) => always_copyable,
+                    HirEagerCoercion::Never => true,
+                    HirEagerCoercion::WrapInSome => always_copyable,
+                    HirEagerCoercion::Redirection(redirection_coercion) => {
+                        match redirection_coercion {
+                            RedirectionHirEagerCoercion::Releash => true,
+                            RedirectionHirEagerCoercion::Reref => true,
+                            RedirectionHirEagerCoercion::RerefMut => false,
+                        }
+                    }
+                    // ad hoc
+                    HirEagerCoercion::Dedirection(_) => false,
+                },
+                None => always_copyable,
+            };
             match contract {
                 HirContract::Pure => {
-                    let is_always_copyable_after_coercion: bool = match coercion {
-                        Some(coercion) => match coercion {
-                            HirEagerCoercion::Trivial(_) => always_copyable,
-                            HirEagerCoercion::Never => true,
-                            HirEagerCoercion::WrapInSome => always_copyable,
-                            HirEagerCoercion::Redirection(redirection_coercion) => {
-                                match redirection_coercion {
-                                    RedirectionHirEagerCoercion::Releash => true,
-                                    RedirectionHirEagerCoercion::Reref => true,
-                                    RedirectionHirEagerCoercion::RerefMut => false,
-                                }
-                            }
-                            // ad hoc
-                            HirEagerCoercion::Dedirection(_) => false,
-                        },
-                        None => always_copyable,
-                    };
                     if !is_always_copyable_after_coercion {
                         self.add_outer_binding(RustBinding::Reref)
                     }
@@ -364,7 +371,11 @@ impl RustBindings {
                     HirQuary::Transient => todo!(),
                     HirQuary::Ref { guard } => todo!(),
                     HirQuary::RefMut { place, lifetime } => unreachable!(),
-                    HirQuary::Leashed { place_idx } => self.add_outer_binding(RustBinding::Releash),
+                    HirQuary::Leashed { place_idx } => {
+                        if !is_always_copyable_after_coercion {
+                            self.add_outer_binding(RustBinding::Releash)
+                        }
+                    }
                     HirQuary::Todo => todo!(),
                     HirQuary::Variable(_) => todo!(),
                 },

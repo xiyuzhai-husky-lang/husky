@@ -7,44 +7,46 @@ use husky_value_protocol::presentation::ValuePresentation;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 /// Stand is the static version of a type
-pub trait Static: std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
+pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type Frozen: Frozen<Static = Self>;
     unsafe fn freeze(&self) -> Self::Frozen;
 
     fn copy(&self) -> Box<dyn StaticDyn> {
-        panic!(
-            "type `{}` is not copyable",
-            std::any::type_name_of_val(self)
-        )
+        panic!("type `{}` is not copyable", std::any::type_name::<Self>())
     }
 
     fn is_some(&self) -> bool {
-        panic!(
-            "type `{}` is not an Option",
-            std::any::type_name_of_val(self)
-        )
+        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
     fn is_none(&self) -> bool {
-        panic!(
-            "type `{}` is not an Option",
-            std::any::type_name_of_val(self)
-        )
+        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
     fn index_ref<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
         panic!(
             "type `{}` doesn't support indexing",
-            std::any::type_name_of_val(self)
+            std::any::type_name::<Self>()
         )
     }
 
-    fn unwrap_ref<'a>(&'a self) -> &'a dyn StaticDyn {
+    fn unwrap_ref<'a>(&'a self) -> Value {
         panic!(
-            "type `{}` doesn't support unwrapping",
-            std::any::type_name_of_val(self)
+            "type `{}` doesn't support unwrap",
+            std::any::type_name::<Self>()
         )
     }
+
+    fn unwrap_leash(&'static self) -> Value {
+        panic!(
+            "type `{}` doesn't support unwrap",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value;
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value;
 
     fn serialize_to_value(&self) -> serde_json::Value;
 
@@ -68,6 +70,14 @@ where
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
+
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+        todo!()
+    }
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+        todo!()
+    }
 }
 
 pub trait StaticDyn:
@@ -83,7 +93,9 @@ pub trait StaticDyn:
 
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
 
-    fn unwrap_ref_dyn<'a>(&'a self) -> &'a dyn StaticDyn;
+    fn unwrap_ref_dyn<'a>(&'a self) -> Value;
+
+    fn unwrap_leash_dyn(&'static self) -> Value;
 
     fn copy_dyn(&self) -> Box<dyn StaticDyn>;
 
@@ -116,8 +128,12 @@ where
         self.index_ref(index)
     }
 
-    fn unwrap_ref_dyn<'a>(&'a self) -> &'a dyn StaticDyn {
-        self.unwrap_ref()
+    fn unwrap_ref_dyn<'a>(&'a self) -> Value {
+        T::unwrap_ref(self)
+    }
+
+    fn unwrap_leash_dyn(&'static self) -> Value {
+        T::unwrap_leash(self)
     }
 
     fn copy_dyn(&self) -> Box<dyn StaticDyn> {
@@ -160,6 +176,14 @@ where
             .collect();
         Visual::new_group_visual(elements, visual_synchrotron)
     }
+
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+        todo!()
+    }
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+        todo!()
+    }
 }
 
 impl<T> Static for &'static T
@@ -179,6 +203,14 @@ where
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
+
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+        todo!()
+    }
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+        todo!()
+    }
 }
 
 impl<T> Static for Option<T>
@@ -194,8 +226,12 @@ where
         self.is_none()
     }
 
-    fn unwrap_ref(&self) -> &dyn StaticDyn {
-        self.as_ref().unwrap()
+    fn unwrap_ref<'a>(&'a self) -> Value {
+        T::unwrap_option_ref(self)
+    }
+
+    fn unwrap_leash(&'static self) -> Value {
+        T::unwrap_option_leash(self)
     }
 
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -211,6 +247,14 @@ where
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
+
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+        todo!()
+    }
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+        todo!()
+    }
 }
 
 macro_rules! impl_static_for_primitive_ty {
@@ -220,6 +264,14 @@ macro_rules! impl_static_for_primitive_ty {
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 *self
+            }
+
+            fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+                (*__self.as_ref().unwrap()).into_value()
+            }
+
+            fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+                (*__self.as_ref().unwrap()).into_value()
             }
 
             fn serialize_to_value(&self) -> serde_json::Value {
@@ -249,6 +301,14 @@ impl Static for &'static str {
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
+
+    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+        todo!()
+    }
+
+    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+        todo!()
+    }
 }
 
 macro_rules! impl_static_for_ritchie_ty {
@@ -260,6 +320,14 @@ macro_rules! impl_static_for_ritchie_ty {
             $($input: Static, )*
             $output: Static, {
             type Frozen = Self;
+
+            fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+                todo!()
+            }
+
+            fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+                todo!()
+            }
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 *self
@@ -287,6 +355,14 @@ macro_rules! impl_static_for_non_unit_tuple_ty {
             $($field: Static,)*
         {
             type Frozen = ($(<$field as Static>::Frozen,)*);
+
+            fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+                todo!()
+            }
+
+            fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+                todo!()
+            }
 
             unsafe fn freeze(&self) -> Self::Frozen {
                 todo!()

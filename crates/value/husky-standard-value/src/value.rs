@@ -522,7 +522,7 @@ impl IsValue for Value {
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
             Value::Owned(_) => todo!(),
-            Value::Leash(slf) => Value::Leash(slf.unwrap_ref_dyn()),
+            Value::Leash(slf) => slf.unwrap_leash_dyn(),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),
