@@ -1,6 +1,10 @@
 use super::*;
+use husky_devsoul_interface::ki_repr::KiDomainReprInterface;
+use husky_devsoul_interface::ki_repr::KiReprInterface;
 use husky_devsoul_interface::{
-    pedestal::IsPedestal, vm_control_flow::LinketImplVmControlFlow, IsLinketImpl, VmArgumentValue,
+    pedestal::{virtual_pedestal::VirtualPedestal, IsPedestal},
+    vm_control_flow::LinketImplVmControlFlow,
+    IsLinketImpl, VmArgumentValue,
 };
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use husky_virtual_value::value::Value;
@@ -24,7 +28,7 @@ impl From<Linket> for VirtualLinketImpl {
 }
 
 impl IsLinketImpl for VirtualLinketImpl {
-    type Pedestal = ();
+    type Pedestal = VirtualPedestal;
 
     type Value = Value;
 
@@ -33,7 +37,8 @@ impl IsLinketImpl for VirtualLinketImpl {
 
     fn eval_ki(
         self,
-        ki_repr_interface: husky_devsoul_interface::ugly::__KiReprInterface,
+        ki_repr_interface: KiReprInterface,
+        ki_domain_repr_interface: KiDomainReprInterface,
         arguments: &[husky_devsoul_interface::ugly::__KiArgumentReprInterface],
         ctx: husky_devsoul_interface::DevEvalContext<Self>,
     ) -> husky_devsoul_interface::LinketImplKiControlFlow<Self> {
@@ -61,7 +66,7 @@ impl IsLinketImpl for VirtualLinketImpl {
                 path,
                 instantiation,
             } => todo!(),
-            LinketData::MemoizedField {
+            LinketData::Memo {
                 path,
                 instantiation,
             } => todo!(),
@@ -97,10 +102,15 @@ impl IsLinketImpl for VirtualLinketImpl {
                 path,
                 instantiation,
             } => todo!(),
-            LinketData::StructField { self_ty, field } => todo!(),
+            LinketData::StructField {
+                self_ty,
+                field,
+                field_ty_leash_class,
+            } => todo!(),
             LinketData::EnumVariantField {
                 path,
                 instantiation,
+                field_ty_leash_class,
                 field,
             } => todo!(),
             LinketData::Index => todo!(),
@@ -121,5 +131,12 @@ impl IsLinketImpl for VirtualLinketImpl {
 
     fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
         todo!()
+    }
+
+    fn init_item_path_id_interface(
+        self,
+        item_path_id_interface: husky_devsoul_interface::ugly::__ItemPathIdInterface,
+    ) {
+        ()
     }
 }

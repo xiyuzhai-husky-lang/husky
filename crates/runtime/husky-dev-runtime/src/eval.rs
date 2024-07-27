@@ -19,6 +19,33 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         &self,
         ki_domain_repr: KiDomainRepr,
     ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
+        let db = self.db();
+        let ki_domain = ki_domain_repr.ki_domain(db);
+        let Some(var_deps) = ki_domain_repr.var_deps(db) else {
+            match ki_domain_repr {
+                KiDomainRepr::Omni => (),
+                KiDomainRepr::ConditionSatisfied(_) => unreachable!(),
+                KiDomainRepr::ConditionNotSatisfied(_) => unreachable!(),
+                KiDomainRepr::StmtNotReturned(_) => unreachable!(),
+                KiDomainRepr::ExprNotReturned(_) => unreachable!(),
+            }
+            return KiControlFlow::Continue(());
+        };
+        self.storage.get_or_try_init_ki_domain_value(
+            ki_domain,
+            var_deps
+                .iter()
+                .map(|&path| ((*path).into(), self.get_static_var_id(path)))
+                .collect(),
+            || self.eval_ki_domain_repr_aux(ki_domain_repr),
+            db,
+        )
+    }
+
+    pub fn eval_ki_domain_repr_aux(
+        &self,
+        ki_domain_repr: KiDomainRepr,
+    ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
         match ki_domain_repr {
             KiDomainRepr::Omni => KiControlFlow::Continue(()),
             KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {
@@ -59,8 +86,20 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     }
 
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
+        let db = self.comptime.db();
+        if self.config.needs_caching(ki_repr.caching_class(db)) {
+            let ki = ki_repr.ki(db);
+            let var_deps = ki_repr.var_deps(db);
+            self.get_or_try_init_ki_value(ki, var_deps, || self.eval_ki_repr_aux(ki_repr))
+        } else {
+            self.eval_ki_repr_aux(ki_repr)
+        }
+    }
+
+    fn eval_ki_repr_aux(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
-        let ctx = self.eval_context();
+        let ctx = self.dev_eval_context();
+        let ki_domain_repr = ki_repr.ki_domain_repr(db);
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
             KiOpn::Return => todo!(),
             KiOpn::Require => {
@@ -121,7 +160,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 };
                 KiControlFlow::Continue(value)
             }
-            KiOpn::ValLazilyDefined(_path) => {
+            KiOpn::Val(_path) => {
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }
@@ -129,6 +168,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 let linket_impl = self.comptime.linket_impl(linket);
                 let control_flow = linket_impl.eval_ki(
                     ki_repr.into(),
+                    ki_domain_repr.into(),
                     unsafe {
                         std::mem::transmute::<_, &[KiArgumentReprInterface]>(
                             ki_repr.arguments(db) as &[KiArgumentRepr]
@@ -193,11 +233,11 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             }
             KiOpn::EvalDiscarded => todo!(),
             KiOpn::Branches => {
-                for val_argument_repr in ki_repr.arguments(db) {
+                for ki_argument_repr in ki_repr.arguments(db) {
                     let KiArgumentRepr::Branch {
                         condition,
                         ref stmts,
-                    } = *val_argument_repr
+                    } = *ki_argument_repr
                     else {
                         unreachable!()
                     };
@@ -239,28 +279,31 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 )
             }
             KiOpn::Unwrap {} => {
-                use husky_print_utils::p;
-                // let pedestal = Devsoul::dev_eval_context_local_key()
-                //     .get()
-                //     .expect("`DEV_EVAL_CONTEXT` not set")
-                //     .pedestal();
-                // p!(pedestal);
-                // p!(ki_repr.source(db).debug_info(db));
-                todo!()
+                let arguments: &[_] = ki_repr.arguments(db);
+                debug_assert_eq!(arguments.len(), 1);
+                let KiArgumentRepr::Simple(self_argument) = arguments[0] else {
+                    unreachable!()
+                };
+                let self_argument = self.eval_ki_repr(self_argument)?;
+                use ::husky_print_utils::p;
+                use ::salsa::DebugWithDb;
+                // ad hoc, todo: consider null case
+                p!(ki_repr.source(db).debug_info(db));
+                KiControlFlow::Continue(self_argument.unwrap())
             }
             KiOpn::Index => {
                 // ad hoc
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
-                let KiArgumentRepr::Simple(owner) = arguments[0] else {
+                let KiArgumentRepr::Simple(self_argument) = arguments[0] else {
                     unreachable!()
                 };
-                let owner = self.eval_ki_repr(owner)?;
+                let self_argument = self.eval_ki_repr(self_argument)?;
                 let KiArgumentRepr::Simple(index) = arguments[1] else {
                     unreachable!()
                 };
                 let index = self.eval_ki_repr(index)?.to_usize();
-                KiControlFlow::Continue(owner.index(index))
+                KiControlFlow::Continue(self_argument.index(index))
             }
         };
         result
@@ -289,12 +332,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         self.eval_ki_repr(*stmt_ki_reprs.last().unwrap())
     }
 
-    fn eval_val_argument(
+    fn eval_ki_argument(
         &self,
-        val_argument_repr: &KiArgumentRepr,
+        ki_argument_repr: &KiArgumentRepr,
     ) -> KiControlFlow<DevsoulValue<Devsoul>, DevsoulValue<Devsoul>, DevsoulException<Devsoul>>
     {
-        match *val_argument_repr {
+        match *ki_argument_repr {
             KiArgumentRepr::Simple(ki_repr) => self.eval_ki_repr(ki_repr),
             KiArgumentRepr::Keyed(_) => todo!(),
             KiArgumentRepr::Variadic(_) => todo!(),
@@ -308,7 +351,6 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 }
 
 #[test]
-#[ignore]
 fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
@@ -316,7 +358,7 @@ fn ki_repr_eval_works() {
     use husky_path_utils::dev_paths::*;
 
     let dev_paths = HuskyLangDevPaths::new();
-    let runtime: DevRuntime<StandardDevsoul<()>> =
+    let runtime: Pin<Box<DevRuntime<StandardDevsoul<()>>>> =
         DevRuntime::new(dev_paths.dev_root().join("examples/mnist-classifier"), None).unwrap();
     let db = runtime.db();
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {

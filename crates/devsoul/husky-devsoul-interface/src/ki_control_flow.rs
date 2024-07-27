@@ -45,13 +45,16 @@ impl<C, B, E> std::ops::Try for KiControlFlow<C, B, E> {
     }
 }
 
-impl<C, B, E> FromResidual<KiControlFlow<Infallible, B, E>> for KiControlFlow<C, B, E> {
-    fn from_residual(residual: KiControlFlow<Infallible, B, E>) -> Self {
+impl<C, B1, B2, E> FromResidual<KiControlFlow<Infallible, B1, E>> for KiControlFlow<C, B2, E>
+where
+    B2: From<B1>,
+{
+    fn from_residual(residual: KiControlFlow<Infallible, B1, E>) -> Self {
         match residual {
             KiControlFlow::Continue(_) => unreachable!(),
             KiControlFlow::LoopContinue => KiControlFlow::LoopContinue,
-            KiControlFlow::LoopExit(b) => KiControlFlow::LoopExit(b),
-            KiControlFlow::Return(b) => KiControlFlow::Return(b),
+            KiControlFlow::LoopExit(b) => KiControlFlow::LoopExit(b.into()),
+            KiControlFlow::Return(b) => KiControlFlow::Return(b.into()),
             KiControlFlow::Undefined => KiControlFlow::Undefined,
             KiControlFlow::Throw(e) => KiControlFlow::Throw(e),
         }

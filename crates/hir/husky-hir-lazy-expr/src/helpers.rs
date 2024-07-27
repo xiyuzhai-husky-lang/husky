@@ -27,6 +27,19 @@ pub fn hir_lazy_body_with_expr_region(
     Some((body, hir_lazy_expr_region))
 }
 
+#[inline(always)]
+pub fn hir_lazy_expr_source_map(
+    item_path: ItemPath,
+    db: &::salsa::Db,
+) -> Option<HirLazyExprSourceMap> {
+    let ItemSynDefn {
+        body,
+        syn_expr_region,
+    } = item_syn_defn(db, item_path)?;
+    let sem_expr_region = db.sem_expr_region(syn_expr_region);
+    Some(hir_lazy_expr_region_with_source_map(db, sem_expr_region).1)
+}
+
 pub fn hir_lazy_expr_region_from_syn(
     syn_expr_region: SynExprRegion,
     db: &::salsa::Db,

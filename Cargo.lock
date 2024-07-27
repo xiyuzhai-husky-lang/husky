@@ -4340,12 +4340,12 @@ dependencies = [
 name = "husky-cybertron"
 version = "0.1.0"
 dependencies = [
+ "expect-test",
  "husky-cybertron-macros",
+ "husky-wild-utils",
+ "lazy_static",
+ "shifted-unsigned-int",
 ]
-
-[[package]]
-name = "husky-cybertron-ast"
-version = "0.1.0"
 
 [[package]]
 name = "husky-cybertron-macros"
@@ -4354,6 +4354,19 @@ dependencies = [
  "husky-proc-macro-utils",
  "quote",
  "syn 2.0.66",
+]
+
+[[package]]
+name = "husky-cybertron-mini-compiler"
+version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-cybertron",
+ "husky-text-protocol",
+ "husky-wild-utils",
+ "lazy_static",
+ "shifted-unsigned-int",
 ]
 
 [[package]]
@@ -4739,6 +4752,7 @@ dependencies = [
  "enum-class",
  "expect-test",
  "husky-coword",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-vfs",
@@ -4959,6 +4973,10 @@ dependencies = [
  "thiserror",
  "vec-like",
 ]
+
+[[package]]
+name = "husky-fmt-utils"
+version = "0.1.0"
 
 [[package]]
 name = "husky-folding-range"
@@ -5282,6 +5300,7 @@ dependencies = [
  "husky-manifest-ast",
  "husky-place",
  "husky-print-utils",
+ "husky-regional-token",
  "husky-sem-expr",
  "husky-sem-place-contract",
  "husky-syn-decl",
@@ -5609,12 +5628,14 @@ name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
  "colored",
+ "husky-core",
  "husky-decl-macro-utils",
  "husky-devsoul-interface",
  "husky-linket-impl",
  "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-value-protocol",
+ "husky-wild-utils",
  "rustc_version",
  "smallvec",
 ]
@@ -5750,6 +5771,7 @@ dependencies = [
  "husky-manifest",
  "husky-print-utils",
  "husky-rust-transpilation",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-vfs",
  "libloading 0.8.3",
@@ -5955,6 +5977,7 @@ dependencies = [
  "husky-eth-term",
  "husky-expr",
  "husky-fly-term",
+ "husky-fmt-utils",
  "husky-hir-decl",
  "husky-hir-defn",
  "husky-hir-eager-expr",
@@ -7943,6 +7966,7 @@ version = "0.1.0"
 dependencies = [
  "ad-hoc-devsoul-dependency",
  "husky-core",
+ "ml-task",
  "serde",
  "smallvec",
 ]
@@ -8162,6 +8186,7 @@ dependencies = [
  "husky-standard-devsoul-interface",
  "husky-standard-value",
  "lazy_static",
+ "ml-task",
  "serde",
  "shifted-unsigned-int",
 ]

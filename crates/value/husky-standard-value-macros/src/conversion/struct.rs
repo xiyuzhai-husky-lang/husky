@@ -40,6 +40,15 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
                 todo!()
             }
 
+            fn is_copyable() -> bool {
+                todo!()
+            }
+
+            fn try_copy(&self) -> Option<__Value> {
+                todo!()
+            }
+
+
             fn serialize_to_value(&self) -> __JsonValue {
                 __to_json_value(self).unwrap()
             }

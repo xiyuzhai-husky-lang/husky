@@ -1,4 +1,5 @@
 use crate::*;
+use ml_task::IsMlTask;
 
 #[husky_standard_value::value_conversion]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -8,4 +9,10 @@ impl MnistTask {
     pub fn new() -> Self {
         Self
     }
+}
+
+impl IsMlTask<__StaticVarId> for MnistTask {
+    type Input = Leash<BinaryImage28>;
+
+    type INPUT = INPUT;
 }

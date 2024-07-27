@@ -17,6 +17,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `line_segment_sketch`,
                                     ty: DecTerm::Application(
                                         DecApplication {
@@ -37,6 +42,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `strokes`,
                                     ty: DecTerm::Application(
                                         DecApplication {

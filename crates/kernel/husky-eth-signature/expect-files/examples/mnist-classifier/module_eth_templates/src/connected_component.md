@@ -13,18 +13,22 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ConnectedComponentDistribution`),
                                     ident: `row_start`,
                                     ty: EthTerm(`i32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ConnectedComponentDistribution`),
                                     ident: `row_end`,
                                     ty: EthTerm(`i32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ConnectedComponentDistribution`),
                                     ident: `upper_mass`,
                                     ty: EthTerm(`i32`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ConnectedComponentDistribution`),
                                     ident: `lower_mass`,
                                     ty: EthTerm(`i32`),
                                 },
@@ -82,6 +86,7 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`EffHoles`),
                                     ident: `matches`,
                                     ty: EthTerm(`Vec Option Leash RawContour`),
                                 },
@@ -156,6 +161,7 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ConnectedComponent`),
                                     ident: `mask`,
                                     ty: EthTerm(`BinaryImage28`),
                                 },

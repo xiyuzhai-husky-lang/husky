@@ -44,7 +44,7 @@ impl KiRepr {
 #[salsa::tracked]
 fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansion> {
     match ki_repr.opn(db) {
-        KiOpn::ValLazilyDefined(form_path) => {
+        KiOpn::Val(form_path) => {
             let MajorFormHirDefn::Val(hir_defn) = form_path.hir_defn(db)? else {
                 unreachable!()
             };
@@ -559,19 +559,19 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 (opn, arguments)
             }
             HirLazyExprData::PropsStructField {
-                owner,
-                owner_base_ty,
+                self_argument,
+                self_ty,
                 ident,
                 ..
             } => (
                 KiOpn::Linket(Linket::new_props_struct_field(
-                    owner_base_ty,
+                    self_ty,
                     ident,
                     &self.lin_instantiation,
                     self.db,
                 )),
                 smallvec![KiArgumentRepr::Simple(
-                    self.build_expr(ki_domain_repr_guard, owner)
+                    self.build_expr(ki_domain_repr_guard, self_argument)
                 )],
             ),
             HirLazyExprData::MemoizedField {

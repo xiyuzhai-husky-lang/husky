@@ -5,7 +5,8 @@ use syn::parse::discouraged::AnyDelimiter;
 
 pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
     let ValArgs {
-        ingredient_index,
+        item_path_id_interface,
+        var_deps,
         lazy,
         return_leash,
         return_leash_ty,
@@ -33,61 +34,43 @@ pub(crate) fn val(args: TokenStream, input: TokenStream) -> TokenStream {
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
-    let return_leash_ty = match return_leash_ty {
-        Some(return_leash_ty) => quote! { #return_leash_ty },
-        None => quote! { Leash<#return_ty> },
-    };
-    if lazy {
-        if return_leash {
-            quote! {
-                #vis fn #ident() -> #return_leash_ty {
-                    todo!("return leash for lazy val")
-                    // __eval_lazy_val(#ingredient_index)
-                }
-            }
-            .into()
-        } else {
-            quote! {
-                #vis fn #ident() -> #return_ty {
-                    todo!("return copied for lazy val")
-                    // __eval_lazy_val(#ingredient_index)
-                }
-            }
-            .into()
+    let expr_ty = if return_leash {
+        match return_leash_ty {
+            Some(return_leash_ty) => quote! { #return_leash_ty },
+            None => quote! { Leash<#return_ty> },
         }
     } else {
-        if return_leash {
-            quote! {
-                #vis fn #ident() -> #return_leash_ty {
-                    todo!("return leash for eager val, change the return type")
-                    // __eval_eager_val_with(
-                    //     #ingredient_index,
-                    //     || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
-                    // )
-                }
-
-                #vis fn #aux_ident() -> #return_ty #block
+        quote! {#return_ty}
+    };
+    if lazy {
+        quote! {
+            #vis fn #ident() -> #expr_ty {
+                __eval_lazy_val(
+                    unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
+                    pedestal!(#var_deps),
+                )
             }
-            .into()
-        } else {
-            quote! {
-                #vis fn #ident() -> #return_ty {
-                    todo!("return copied for eager val")
-                    // __eval_eager_val_with(
-                    //     #ingredient_index,
-                    //     || __KiControlFlow::Continue(__ValueLeashTest(#aux_ident()).into_value())
-                    // )
-                }
-
-                #vis fn #aux_ident() -> #return_ty #block
-            }
-            .into()
         }
+        .into()
+    } else {
+        quote! {
+            #vis fn #ident() -> #expr_ty {
+                __eval_eager_val_with(
+                    unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
+                    pedestal!(#var_deps),
+                    || __KiControlFlow::Continue(#aux_ident().into_value())
+                )
+            }
+
+            #vis fn #aux_ident() -> #return_ty #block
+        }
+        .into()
     }
 }
 
 struct ValArgs {
-    ingredient_index: usize,
+    item_path_id_interface: Ident,
+    var_deps: syn::punctuated::Punctuated<syn::Path, syn::Token![,]>,
     // default false
     lazy: bool,
     // default false
@@ -98,12 +81,19 @@ struct ValArgs {
 impl syn::parse::Parse for ValArgs {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let ident: syn::Ident = syn::Ident::parse_any(input)?;
-        assert!(ident == "ingredient_index");
+        assert!(ident == "item_path_id_interface");
         let _eq = Equals::parse(input)?;
-        let lit = syn::LitInt::parse(input)?;
-        let ingredient_index: usize = lit.base10_parse()?;
+        let item_path_id_interface = syn::Ident::parse(input)?;
+        let _comma = Comma::parse(input)?;
+        let ident: syn::Ident = syn::Ident::parse_any(input)?;
+        assert!(ident == "var_deps");
+        let _eq = Equals::parse(input)?;
+        let inside_brackets;
+        let brackets = syn::bracketed!(inside_brackets in input);
+        let var_deps = syn::punctuated::Punctuated::parse_terminated(&inside_brackets)?;
         let mut slf = Self {
-            ingredient_index,
+            item_path_id_interface,
+            var_deps,
             lazy: false,
             return_leash: false,
             return_leash_ty: None,

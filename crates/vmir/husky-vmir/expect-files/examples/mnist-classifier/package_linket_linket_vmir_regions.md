@@ -63,7 +63,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -113,7 +113,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -163,7 +163,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -213,7 +213,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -263,7 +263,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -313,7 +313,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -363,7 +363,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -413,7 +413,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -463,7 +463,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -625,6 +625,7 @@
                     ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -645,6 +646,7 @@
                     ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -665,6 +667,7 @@
                     ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -685,6 +688,7 @@
                     ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -731,6 +735,7 @@
                     ty_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -787,7 +792,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
@@ -939,6 +944,7 @@
                     ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -1461,7 +1467,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 20,
+                                                                        value: 8,
                                                                     },
                                                                 ),
                                                             ),
@@ -1946,7 +1952,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 3,
+                                                                        value: 9,
                                                                     },
                                                                 ),
                                                             ),
@@ -2344,7 +2350,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
@@ -2365,7 +2371,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
@@ -2448,7 +2454,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -2469,7 +2475,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -2499,7 +2505,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
@@ -2558,7 +2564,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 4,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -2659,7 +2665,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 21,
+                                                                        value: 4,
                                                                     },
                                                                 ),
                                                             ),
@@ -2735,7 +2741,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 21,
+                                                                        value: 4,
                                                                     },
                                                                 ),
                                                             ),
@@ -2802,7 +2808,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 5,
                                                                     },
                                                                 ),
                                                             ),
@@ -2878,7 +2884,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 21,
+                                                                        value: 4,
                                                                     },
                                                                 ),
                                                             ),
@@ -2945,7 +2951,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 22,
+                                                                        value: 5,
                                                                     },
                                                                 ),
                                                             ),
@@ -3094,7 +3100,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
@@ -3115,7 +3121,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
@@ -3150,7 +3156,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
@@ -3186,6 +3192,7 @@
                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -3238,7 +3245,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -3406,7 +3413,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
@@ -3427,7 +3434,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
@@ -3613,7 +3620,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
@@ -3634,7 +3641,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
@@ -3778,7 +3785,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
@@ -3799,7 +3806,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
@@ -4255,7 +4262,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -4276,7 +4283,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -4306,7 +4313,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
@@ -4338,18 +4345,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -4405,7 +4404,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -4426,7 +4425,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -4456,7 +4455,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
@@ -4488,18 +4487,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -5074,6 +5065,7 @@
                     ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -5094,6 +5086,7 @@
                     ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -7106,6 +7099,7 @@
                     ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -7126,6 +7120,7 @@
                     ty_path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -7211,7 +7206,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -7248,6 +7243,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -7280,6 +7276,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -7341,6 +7338,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -7373,6 +7371,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -8376,7 +8375,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -8534,7 +8533,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -8741,7 +8740,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -9022,7 +9021,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -9245,7 +9244,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -9741,7 +9740,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -9844,7 +9843,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 4,
+                                                                        value: 3,
                                                                     },
                                                                 ),
                                                             ),
@@ -10708,7 +10707,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
@@ -10729,7 +10728,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
@@ -10832,7 +10831,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
@@ -10853,7 +10852,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
@@ -10889,6 +10888,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -10921,6 +10921,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -10953,6 +10954,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -10985,6 +10987,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -11026,6 +11029,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -11113,6 +11117,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -11200,6 +11205,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -11287,6 +11293,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -11618,7 +11625,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
@@ -11639,7 +11646,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
@@ -11666,7 +11673,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
@@ -11700,7 +11707,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
@@ -11795,7 +11802,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
@@ -11816,7 +11823,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
@@ -11864,6 +11871,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -11896,6 +11904,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -11971,6 +11980,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -12003,6 +12013,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -12106,6 +12117,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -12138,6 +12150,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -12213,6 +12226,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -12245,6 +12259,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -12510,6 +12525,7 @@
                                             ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -12562,7 +12578,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -12730,6 +12746,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12750,6 +12767,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12796,6 +12814,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12816,6 +12835,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12862,6 +12882,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12882,6 +12903,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12928,6 +12950,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12948,6 +12971,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -12994,6 +13018,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -13014,6 +13039,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -13060,6 +13086,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -13080,6 +13107,7 @@
                     ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -13313,6 +13341,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13345,6 +13374,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13485,6 +13515,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13517,6 +13548,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13560,6 +13592,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13592,6 +13625,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13743,6 +13777,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13775,6 +13810,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13818,6 +13854,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -13850,6 +13887,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14170,6 +14208,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14202,6 +14241,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14342,6 +14382,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14374,6 +14415,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14417,6 +14459,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14449,6 +14492,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14600,6 +14644,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14632,6 +14677,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14675,6 +14721,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14707,6 +14754,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14871,6 +14919,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14903,6 +14952,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14946,6 +14996,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -14978,6 +15029,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -15110,6 +15162,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -15142,6 +15195,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -15185,6 +15239,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -15217,6 +15272,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -15349,6 +15405,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -15537,6 +15594,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16652,6 +16710,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16684,6 +16743,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16727,6 +16787,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16759,6 +16820,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16802,6 +16864,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16834,6 +16897,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16892,6 +16956,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -16924,6 +16989,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17142,6 +17208,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17174,6 +17241,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17221,6 +17289,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17369,6 +17438,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17401,6 +17471,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17471,6 +17542,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17503,6 +17575,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17681,6 +17754,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17713,6 +17787,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17783,6 +17858,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17815,6 +17891,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -17993,6 +18070,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18021,6 +18099,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18131,6 +18210,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18159,6 +18239,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18269,6 +18350,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18297,6 +18379,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18407,6 +18490,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18435,6 +18519,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18545,6 +18630,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18573,6 +18659,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18683,6 +18770,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18711,6 +18799,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18821,6 +18910,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18849,6 +18939,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18959,6 +19050,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -18987,6 +19079,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19068,6 +19161,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -19088,6 +19182,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -19108,6 +19203,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -19154,6 +19250,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -19174,6 +19271,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -19235,6 +19333,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19267,6 +19366,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19310,6 +19410,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19342,6 +19443,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19562,6 +19664,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19630,6 +19733,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19688,6 +19792,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19735,6 +19840,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19932,6 +20038,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -19964,6 +20071,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20007,6 +20115,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20039,6 +20148,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20265,6 +20375,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20327,6 +20438,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20385,6 +20497,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20432,6 +20545,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20702,18 +20816,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -20766,7 +20872,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -22265,18 +22371,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -22329,7 +22427,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -23951,18 +24049,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -24015,7 +24105,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -24218,7 +24308,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -24329,7 +24419,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -24577,18 +24667,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -24641,7 +24723,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -24700,7 +24782,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -24776,7 +24858,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -24820,6 +24902,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -24872,7 +24955,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -25141,7 +25224,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -25216,7 +25299,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -25336,6 +25419,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -25368,6 +25452,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -25815,7 +25900,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -25869,6 +25954,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -25921,7 +26007,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -25956,6 +26042,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -26008,7 +26095,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -26102,18 +26189,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -26166,7 +26245,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -26249,7 +26328,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -26343,18 +26422,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -26407,7 +26478,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -26466,7 +26537,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -26510,6 +26581,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -26562,7 +26634,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -26621,7 +26693,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -26669,6 +26741,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -26721,7 +26794,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -26810,7 +26883,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -26880,7 +26953,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -26932,6 +27005,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -26984,7 +27058,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -27058,7 +27132,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -27102,6 +27176,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -27154,7 +27229,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -27824,18 +27899,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -27912,7 +27979,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -28069,6 +28136,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28101,6 +28169,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28189,7 +28258,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
@@ -28210,7 +28279,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
@@ -28293,7 +28362,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
@@ -28314,7 +28383,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
@@ -28346,6 +28415,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28378,6 +28448,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28410,6 +28481,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28442,6 +28514,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28474,6 +28547,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28503,6 +28577,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28543,6 +28618,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28630,6 +28706,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28717,6 +28794,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -28804,6 +28882,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -29318,6 +29397,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -29338,6 +29418,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -29419,18 +29500,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -29483,7 +29556,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -29799,18 +29872,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -29871,7 +29936,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -29968,7 +30033,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 29,
                                                                     },
                                                                 ),
                                                             ),
@@ -30259,7 +30324,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -30280,7 +30345,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -30310,7 +30375,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
@@ -30367,7 +30432,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
@@ -30388,7 +30453,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
@@ -30418,7 +30483,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -30554,7 +30619,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
@@ -30575,7 +30640,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
@@ -30614,18 +30679,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -30678,7 +30735,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -30711,18 +30768,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -30856,6 +30905,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31098,7 +31148,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -31119,7 +31169,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -31404,7 +31454,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
@@ -31425,7 +31475,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
@@ -31457,18 +31507,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31521,7 +31563,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -31554,18 +31596,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31598,6 +31632,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31630,6 +31665,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31662,6 +31698,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31694,6 +31731,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31723,6 +31761,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31763,6 +31802,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31850,6 +31890,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -31937,6 +31978,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -32024,6 +32066,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -32355,7 +32398,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -32376,7 +32419,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -32408,18 +32451,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -32443,7 +32478,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
@@ -32477,7 +32512,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
@@ -32632,6 +32667,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -32684,7 +32720,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -32717,18 +32753,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -32775,7 +32803,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -32810,6 +32838,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -32862,7 +32891,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -32895,18 +32924,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -32953,7 +32974,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -33096,6 +33117,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -33148,7 +33170,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -33181,18 +33203,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -33239,7 +33253,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -33352,6 +33366,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -33404,7 +33419,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -33437,18 +33452,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -33495,7 +33502,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -33754,6 +33761,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -33806,7 +33814,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -33956,6 +33964,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -34008,7 +34017,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -34129,6 +34138,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -34149,6 +34159,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -34210,6 +34221,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -34262,7 +34274,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -34439,6 +34451,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -34471,6 +34484,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -34527,7 +34541,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -34721,6 +34735,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -34753,6 +34768,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -34809,7 +34825,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 7,
+                                                                        value: 11,
                                                                     },
                                                                 ),
                                                             ),
@@ -35269,6 +35285,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -35289,6 +35306,7 @@
                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -35364,6 +35382,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -35396,6 +35415,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -35580,6 +35600,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -35754,6 +35775,7 @@
                                             ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -36206,6 +36228,7 @@
                     ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -36226,6 +36249,7 @@
                     ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                     template_arguments: [],
                 },
+                field_ty_leash_class: Other,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -36311,7 +36335,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 29,
                                                                     },
                                                                 ),
                                                             ),
@@ -36420,7 +36444,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 23,
+                                                                        value: 32,
                                                                     },
                                                                 ),
                                                             ),
@@ -36487,7 +36511,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 24,
+                                                                        value: 33,
                                                                     },
                                                                 ),
                                                             ),
@@ -36649,7 +36673,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -36670,7 +36694,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -36712,7 +36736,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -36851,7 +36875,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
@@ -36872,7 +36896,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
@@ -36914,7 +36938,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
@@ -37053,7 +37077,7 @@
     ),
     (
         Linket {
-            data: LinketData::MemoizedField {
+            data: LinketData::Memo {
                 path: AssocItemPath::TypeItem(
                     TypeItemPath(
                         `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
@@ -37074,7 +37098,7 @@
         Some(
             VmirRegion {
                 linket: Linket {
-                    data: LinketData::MemoizedField {
+                    data: LinketData::Memo {
                         path: AssocItemPath::TypeItem(
                             TypeItemPath(
                                 `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
@@ -37116,7 +37140,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -37324,14 +37348,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -37470,7 +37494,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -37546,7 +37570,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -37689,14 +37713,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -37891,6 +37915,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -37941,6 +37966,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38093,6 +38119,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38175,6 +38202,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38333,6 +38361,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38383,6 +38412,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38433,6 +38463,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38471,6 +38502,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38597,14 +38629,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -38740,14 +38772,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -38942,6 +38974,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -38992,6 +39025,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -39144,6 +39178,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -39200,6 +39235,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -39232,6 +39268,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -39320,7 +39357,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -39406,18 +39443,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -39441,7 +39470,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
@@ -39554,6 +39583,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -39636,6 +39666,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -39796,14 +39827,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -39964,7 +39995,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 29,
                                                                     },
                                                                 ),
                                                             ),
@@ -40036,7 +40067,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 29,
                                                                     },
                                                                 ),
                                                             ),
@@ -40094,7 +40125,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
@@ -40442,7 +40473,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -40499,7 +40530,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -40829,6 +40860,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -40874,7 +40906,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
@@ -40977,7 +41009,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 25,
+                                                                        value: 15,
                                                                     },
                                                                 ),
                                                             ),
@@ -41131,6 +41163,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -41176,7 +41209,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
@@ -41279,7 +41312,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 25,
+                                                                        value: 15,
                                                                     },
                                                                 ),
                                                             ),
@@ -41433,6 +41466,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -41478,7 +41512,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
@@ -41581,7 +41615,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 25,
+                                                                        value: 15,
                                                                     },
                                                                 ),
                                                             ),
@@ -41691,14 +41725,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -41837,7 +41871,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -41963,14 +41997,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -42105,14 +42139,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -42246,7 +42280,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -42328,6 +42362,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -42352,7 +42387,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -42383,7 +42418,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -42477,7 +42512,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 29,
                                                                     },
                                                                 ),
                                                             ),
@@ -42525,7 +42560,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -42574,7 +42609,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -42605,7 +42640,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -42697,6 +42732,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -42747,7 +42783,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -42802,7 +42838,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -43311,6 +43347,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -43361,6 +43398,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -43513,6 +43551,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -43558,7 +43597,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -43642,7 +43681,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -43857,14 +43896,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -44044,6 +44083,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -44094,6 +44134,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -44208,14 +44249,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -44395,6 +44436,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -44440,7 +44482,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -44561,6 +44603,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -44721,6 +44764,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -44766,7 +44810,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -45060,7 +45104,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
@@ -45109,7 +45153,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -45163,7 +45207,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -45194,7 +45238,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -45304,6 +45348,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -45379,7 +45424,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -45410,7 +45455,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -45478,18 +45523,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -45776,14 +45813,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -45915,7 +45952,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -45946,7 +45983,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -46136,7 +46173,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -46222,18 +46259,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -46286,7 +46315,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -46319,18 +46348,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -46359,6 +46380,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -46388,18 +46410,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -46452,7 +46466,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 13,
+                                                                        value: 23,
                                                                     },
                                                                 ),
                                                             ),
@@ -46485,18 +46499,10 @@
                                 Linket {
                                     data: LinketData::StructField {
                                         self_ty: LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                            template_arguments: [],
-                                                        },
-                                                    ),
-                                                ),
-                                            ],
+                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                            template_arguments: [],
                                         },
+                                        field_ty_leash_class: Other,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -46525,6 +46531,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -46563,7 +46570,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -46714,14 +46721,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -46856,14 +46863,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -46995,7 +47002,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -47077,6 +47084,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -47101,7 +47109,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -47132,7 +47140,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -47226,7 +47234,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 29,
                                                                     },
                                                                 ),
                                                             ),
@@ -47274,7 +47282,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -47323,7 +47331,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -47354,7 +47362,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -47446,6 +47454,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -47496,7 +47505,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -47551,7 +47560,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
@@ -48034,6 +48043,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -48084,6 +48094,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -48236,6 +48247,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -48281,7 +48293,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -48365,7 +48377,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -48521,14 +48533,14 @@
                                 Linket {
                                     data: LinketData::VecConstructor {
                                         element_ty: LinType::Ritchie(
-                                            LinketRitchieType {
+                                            LinRitchieType {
                                                 parameters: [
-                                                    LinketRitchieParameter {
+                                                    LinRitchieParameter {
                                                         contract: Pure,
                                                         parameter_ty: PathLeading(
                                                             LinTypePathLeading(
                                                                 Id {
-                                                                    value: 23,
+                                                                    value: 32,
                                                                 },
                                                             ),
                                                         ),
@@ -48708,6 +48720,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -48758,6 +48771,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -48910,6 +48924,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -48960,6 +48975,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -49112,6 +49128,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -49162,6 +49179,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -49295,7 +49313,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 15,
+                                                                        value: 29,
                                                                     },
                                                                 ),
                                                             ),
@@ -49322,7 +49340,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
@@ -49377,7 +49395,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
@@ -49408,7 +49426,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
@@ -49508,7 +49526,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -49696,6 +49714,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -49765,6 +49784,7 @@
                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                             template_arguments: [],
                                         },
+                                        field_ty_leash_class: Copyable,
                                         field: Props {
                                             ident: Ident(
                                                 Coword(
@@ -49797,7 +49817,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -49868,7 +49888,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -49976,7 +49996,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -50047,7 +50067,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -50206,7 +50226,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
@@ -50295,7 +50315,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
@@ -50840,7 +50860,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
@@ -51079,7 +51099,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
@@ -51125,7 +51145,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
@@ -51256,7 +51276,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
@@ -51408,7 +51428,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
@@ -51499,7 +51519,7 @@
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
-                                    data: LinketData::MemoizedField {
+                                    data: LinketData::Memo {
                                         path: AssocItemPath::TypeItem(
                                             TypeItemPath(
                                                 `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
@@ -51585,7 +51605,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -51631,7 +51651,7 @@
                                             PathLeading(
                                                 LinTypePathLeading(
                                                     Id {
-                                                        value: 19,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -51693,7 +51713,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -51770,7 +51790,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 29,
+                                                                        value: 41,
                                                                     },
                                                                 ),
                                                             ),
@@ -51792,7 +51812,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 30,
+                                                                        value: 42,
                                                                     },
                                                                 ),
                                                             ),
@@ -51874,7 +51894,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 29,
+                                                                        value: 41,
                                                                     },
                                                                 ),
                                                             ),
@@ -51896,7 +51916,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 30,
+                                                                        value: 42,
                                                                     },
                                                                 ),
                                                             ),
@@ -52013,7 +52033,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -52057,7 +52077,7 @@
                                             PathLeading(
                                                 LinTypePathLeading(
                                                     Id {
-                                                        value: 19,
+                                                        value: 37,
                                                     },
                                                 ),
                                             ),
@@ -52119,7 +52139,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 19,
+                                                                        value: 37,
                                                                     },
                                                                 ),
                                                             ),
@@ -52196,7 +52216,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 29,
+                                                                        value: 41,
                                                                     },
                                                                 ),
                                                             ),
@@ -52218,7 +52238,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 30,
+                                                                        value: 42,
                                                                     },
                                                                 ),
                                                             ),
@@ -52300,7 +52320,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 29,
+                                                                        value: 41,
                                                                     },
                                                                 ),
                                                             ),
@@ -52322,7 +52342,7 @@
                                                             PathLeading(
                                                                 LinTypePathLeading(
                                                                     Id {
-                                                                        value: 30,
+                                                                        value: 42,
                                                                     },
                                                                 ),
                                                             ),
@@ -52448,7 +52468,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 20,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -52495,7 +52515,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 3,
+                                                value: 9,
                                             },
                                         ),
                                     ),
@@ -52548,7 +52568,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 4,
+                                                value: 3,
                                             },
                                         ),
                                     ),
@@ -52626,7 +52646,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 21,
+                                                value: 4,
                                             },
                                         ),
                                     ),
@@ -52679,7 +52699,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 22,
+                                                value: 5,
                                             },
                                         ),
                                     ),
@@ -52732,7 +52752,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 4,
+                                                value: 3,
                                             },
                                         ),
                                     ),
@@ -52779,7 +52799,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -52852,7 +52872,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -52907,7 +52927,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -52962,7 +52982,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53015,7 +53035,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53068,7 +53088,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 4,
+                                                value: 3,
                                             },
                                         ),
                                     ),
@@ -53121,7 +53141,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53162,7 +53182,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53209,7 +53229,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53269,7 +53289,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53316,7 +53336,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53371,7 +53391,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53426,7 +53446,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53473,7 +53493,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53526,7 +53546,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53573,7 +53593,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53626,7 +53646,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53681,7 +53701,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53736,7 +53756,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 7,
+                                                value: 11,
                                             },
                                         ),
                                     ),
@@ -53796,7 +53816,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53843,7 +53863,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 15,
+                                                value: 29,
                                             },
                                         ),
                                     ),
@@ -53896,7 +53916,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53943,7 +53963,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -53990,7 +54010,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -54037,7 +54057,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 13,
+                                                value: 23,
                                             },
                                         ),
                                     ),
@@ -54084,7 +54104,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 15,
+                                                value: 29,
                                             },
                                         ),
                                     ),
@@ -54160,7 +54180,7 @@
                             Explicit(
                                 Type(
                                     Ritchie(
-                                        LinketRitchieType(
+                                        LinRitchieType(
                                             Id {
                                                 value: 1,
                                             },
@@ -54209,7 +54229,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 23,
+                                                value: 32,
                                             },
                                         ),
                                     ),
@@ -54262,7 +54282,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 24,
+                                                value: 33,
                                             },
                                         ),
                                     ),
@@ -54315,7 +54335,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 23,
+                                                value: 32,
                                             },
                                         ),
                                     ),
@@ -54335,14 +54355,14 @@
         Linket {
             data: LinketData::VecConstructor {
                 element_ty: LinType::Ritchie(
-                    LinketRitchieType {
+                    LinRitchieType {
                         parameters: [
-                            LinketRitchieParameter {
+                            LinRitchieParameter {
                                 contract: Pure,
                                 parameter_ty: PathLeading(
                                     LinTypePathLeading(
                                         Id {
-                                            value: 23,
+                                            value: 32,
                                         },
                                     ),
                                 ),
@@ -54400,7 +54420,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 3,
+                                                value: 9,
                                             },
                                         ),
                                     ),
@@ -54441,7 +54461,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 27,
+                                                value: 39,
                                             },
                                         ),
                                     ),
@@ -54465,7 +54485,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -54523,7 +54543,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 15,
+                                                value: 29,
                                             },
                                         ),
                                     ),
@@ -54576,7 +54596,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 25,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -54627,7 +54647,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 25,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -54678,7 +54698,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 25,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -54716,7 +54736,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 25,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -54726,6 +54746,7 @@
                     ],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Tuple {
                     index: 0,
                 },
@@ -54770,7 +54791,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 25,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -54821,7 +54842,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 25,
+                                                value: 15,
                                             },
                                         ),
                                     ),
@@ -54872,7 +54893,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -54923,7 +54944,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -54974,7 +54995,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -55012,7 +55033,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -55022,6 +55043,7 @@
                     ],
                     separator: None,
                 },
+                field_ty_leash_class: Other,
                 field: Tuple {
                     index: 0,
                 },
@@ -55066,7 +55088,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -55117,7 +55139,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 19,
+                                                value: 37,
                                             },
                                         ),
                                     ),
@@ -55185,7 +55207,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55207,7 +55229,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55275,7 +55297,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55297,7 +55319,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55365,7 +55387,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55387,7 +55409,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55425,7 +55447,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55447,7 +55469,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55457,6 +55479,7 @@
                     ],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Tuple {
                     index: 0,
                 },
@@ -55518,7 +55541,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55540,7 +55563,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55608,7 +55631,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55630,7 +55653,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55698,7 +55721,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55720,7 +55743,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55758,7 +55781,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 29,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -55780,7 +55803,7 @@
                                     PathLeading(
                                         LinTypePathLeading(
                                             Id {
-                                                value: 30,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -55790,6 +55813,7 @@
                     ],
                     separator: None,
                 },
+                field_ty_leash_class: Other,
                 field: Tuple {
                     index: 0,
                 },

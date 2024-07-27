@@ -32,5 +32,8 @@ husky-cargo-utils.workspace = true
 husky-print-utils.workspace = true
 
 [dev-dependencies]
+# devsoul
+husky-standard-devsoul-interface.workspace = true
+# comptime
 husky-dev-comptime.workspace = true
 husky-vfs = { workspace = true, features = ["test_utils"] }

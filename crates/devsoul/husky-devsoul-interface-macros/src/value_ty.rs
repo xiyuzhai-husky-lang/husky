@@ -264,26 +264,6 @@ pub(crate) fn value_ty(
         }
 
         for_all_non_unit_tuple_tys! { impl_non_unit_tuple_value_conversion }
-
-        /// conversion into Value must go through this builder,
-        /// so that we can distinguish `&'static T` from other types
-        pub struct DeprecatedValueLeashTest<T>(pub T);
-
-        /// distinguish `&'static T` from other types
-        impl<T> DeprecatedValueLeashTest<&'static T> where T: Static {
-            pub fn into_value(self)  -> #value_ty {
-                #value_ty::from_leash(self.0)
-            }
-        }
-
-        impl<T> IntoValue for DeprecatedValueLeashTest<T> where T: IntoValue {
-            /// fallback to use <T as IntoValue>::into_value
-            fn into_value(self)  -> #value_ty {
-                // can't use `self.0.into_value()`,
-                // because rustc will interpret this as calling <&T as IntoValue>::into_value
-                <T as IntoValue>::into_value(self.0)
-            }
-        }
     }
     .into()
 }

@@ -1,5 +1,8 @@
 use crate::*;
 
+#[allow(non_upper_case_globals)]
+pub static mut __Point2d__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -16,6 +19,9 @@ impl Point2d {
         }
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __RelativePoint2d__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
@@ -34,6 +40,9 @@ impl RelativePoint2d {
     }
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -50,6 +59,9 @@ impl Vector2d {
         }
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __ClosedRange__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
@@ -68,6 +80,9 @@ impl ClosedRange {
     }
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __BoundingBox__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -84,6 +99,9 @@ impl BoundingBox {
         }
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __RelativeBoundingBox__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
@@ -124,6 +142,29 @@ impl crate::geom2d::Point2d {
         self.to(other).norm()
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __Point2d__from_i_shift28__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Point2d__vector__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Point2d__to__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Point2d__norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Point2d__dist__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 impl crate::geom2d::Vector2d {
@@ -183,6 +224,44 @@ impl crate::geom2d::Vector2d {
     }
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__point__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__to__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__norm__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__dot__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__cross__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__angle__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__rotation_direction_to__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __Vector2d__angle_to__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 impl crate::geom2d::ClosedRange {
     pub fn relative_range(&self, other: &crate::geom2d::ClosedRange) -> crate::geom2d::ClosedRange {
@@ -198,6 +277,14 @@ impl crate::geom2d::ClosedRange {
         (v - self.min) / span
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __ClosedRange__relative_range__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ClosedRange__relative_point__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 impl crate::geom2d::BoundingBox {
@@ -226,6 +313,34 @@ impl crate::geom2d::BoundingBox {
     }
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __BoundingBox__relative_bounding_box__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __BoundingBox__relative_point__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __BoundingBox__xmin__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __BoundingBox__xmax__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __BoundingBox__ymin__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __BoundingBox__ymax__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 impl crate::geom2d::RelativeBoundingBox {
     pub fn xmin(&self) -> f32 {
@@ -244,3 +359,22 @@ impl crate::geom2d::RelativeBoundingBox {
         self.yrange.max
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __RelativeBoundingBox__xmin__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __RelativeBoundingBox__xmax__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __RelativeBoundingBox__ymin__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __RelativeBoundingBox__ymax__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+

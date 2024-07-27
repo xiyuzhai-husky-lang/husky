@@ -1,4 +1,4 @@
-mod ty;
+pub mod ty;
 pub mod virtual_linket_impl;
 
 use crate::{
@@ -8,6 +8,7 @@ use crate::{
 };
 use either::*;
 use husky_coword::Ident;
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::path::{
     assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
@@ -26,8 +27,9 @@ use husky_javelin::{
     javelin::{package_javelins, Javelin, JavelinData},
     path::JavPath,
 };
-use husky_vfs::path::package_path::PackagePath;
+use husky_vfs::path::{linktime_target_path::LinktimeTargetPath, package_path::PackagePath};
 use smallvec::{smallvec, SmallVec};
+use ty::LinLeashClass;
 
 #[salsa::interned(constructor = pub(crate) new)]
 pub struct Linket {
@@ -46,11 +48,12 @@ pub enum LinketData {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
+    /// includes both eager and lazy ones
     MajorVal {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
-    MemoizedField {
+    Memo {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
@@ -93,12 +96,14 @@ pub enum LinketData {
     },
     StructField {
         self_ty: LinTypePathLeading,
-        field: LinketField,
+        field_ty_leash_class: LinLeashClass,
+        field: LinField,
     },
     EnumVariantField {
         path: TypeVariantPath,
         instantiation: LinInstantiation,
-        field: LinketField,
+        field_ty_leash_class: LinLeashClass,
+        field: LinField,
     },
     Index,
     VecConstructor {
@@ -113,7 +118,7 @@ pub enum LinketData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LinketField {
+pub enum LinField {
     Tuple { index: usize },
     Props { ident: Ident },
 }
@@ -158,9 +163,25 @@ impl Linket {
         let LinType::PathLeading(self_ty) = LinType::from_hir(self_ty, instantiation, db) else {
             unreachable!()
         };
+        let ty_hir_decl = self_ty.ty_path(db).hir_decl(db).unwrap();
+        let TypeHirDecl::PropsStruct(ty_hir_decl) = ty_hir_decl else {
+            use ::husky_print_utils::p;
+            use ::salsa::DebugWithDb;
+            p!(ty_hir_decl.debug(db));
+            unreachable!()
+        };
+        let field_hir_decl = ty_hir_decl
+            .fields(db)
+            .iter()
+            .find(|field_hir_decl| field_hir_decl.ident() == ident)
+            .unwrap();
         let data = LinketData::StructField {
+            field_ty_leash_class: field_hir_decl
+                .ty()
+                .lin_instantiate(instantiation, db)
+                .ty_leash_class(db),
             self_ty,
-            field: LinketField::Props { ident },
+            field: LinField::Props { ident },
         };
         Self::new(db, data)
     }
@@ -174,7 +195,7 @@ impl Linket {
     ) -> Self {
         Self::new(
             db,
-            LinketData::MemoizedField {
+            LinketData::Memo {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -425,7 +446,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                         |instantiation| {
                             Linket::new(
                                 db,
-                                LinketData::MemoizedField {
+                                LinketData::Memo {
                                     path: path.into(),
                                     instantiation,
                                 },
@@ -552,6 +573,42 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
 pub fn package_linkets(db: &::salsa::Db, package_path: PackagePath) -> Vec<Linket> {
     package_javelins(db, package_path)
         .flat_map(|javelin| linkets_emancipated_by_javelin(db, javelin).iter().copied())
+        .collect()
+}
+
+#[salsa::tracked(return_ref)]
+pub fn target_linkets(db: &::salsa::Db, target_path: LinktimeTargetPath) -> Vec<Linket> {
+    use husky_manifest::manifest::HasManifest;
+
+    target_path
+        .full_dependencies(db)
+        .unwrap()
+        .iter()
+        .map(|&dep| package_linkets(db, dep))
+        .flatten()
+        .copied()
+        .collect()
+}
+
+#[salsa::tracked(return_ref)]
+pub fn target_linket_item_path_id_interfaces(
+    db: &::salsa::Db,
+    target_path: LinktimeTargetPath,
+) -> Vec<Option<ItemPathIdInterface>> {
+    use husky_manifest::manifest::HasManifest;
+
+    target_path
+        .full_dependencies(db)
+        .unwrap()
+        .iter()
+        .map(|&dep| package_linkets(db, dep))
+        .flatten()
+        .copied()
+        .map(|linket| {
+            linket
+                .path_and_instantiation_for_definition(db)
+                .map(|(path, _)| (*path).into())
+        })
         .collect()
 }
 

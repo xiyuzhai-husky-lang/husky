@@ -216,10 +216,10 @@ impl LinTermSymbolResolution {
     }
 }
 
-pub trait LinketInstantiate {
+pub trait LinInstantiate {
     type Output;
 
-    fn linket_instantiate(
+    fn lin_instantiate(
         self,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,

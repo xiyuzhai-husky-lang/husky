@@ -14,3 +14,5 @@ husky-devsoul-interface.workspace = true
 husky-rng-utils.workspace = true
 lazy_static.workspace = true
 serde.workspace = true
+# registry
+ml-task.workspace = true

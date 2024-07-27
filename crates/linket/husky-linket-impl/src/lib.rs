@@ -8,10 +8,12 @@ pub use self::any::AnyLinketImpls;
 
 use husky_devsoul_interface::{
     devsoul::IsDevsoulInterface,
+    item_path::ItemPathIdInterface,
     ki_control_flow::KiControlFlow,
     ki_repr::{KiArgumentReprInterface, KiReprInterface},
-    DevEvalContext, IsLinketImpl, LinketImplKiControlFlow,
+    DevEvalContext, IsDevRuntimeDyn, IsLinketImpl, LinketImplKiControlFlow,
 };
+use husky_wild_utils::arb_ref;
 
 pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
     type FnOutput;
@@ -28,6 +30,10 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
     ) -> LinketImplKiControlFlow<LinketImpl, Self::FnOutput>;
 }
 
+pub type LinketImplsGetter = extern "C" fn(&[Option<ItemPathIdInterface>]) -> AnyLinketImpls;
+
+pub static LINKET_IMPLS_GETTER_IDENT: &[u8] = b"linket_impls";
+
 /// generates the function to acquire linket impls accessed through dynamic library,
 ///
 /// it also set up the jar index.
@@ -35,14 +41,47 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
 macro_rules! linket_impls {
     ($($linket_impl: expr),* $(,)?) => {
         #[no_mangle]
-        pub extern "C" fn linket_impls() -> AnyLinketImpls {
+        pub extern "C" fn linket_impls(item_path_id_interfaces: &[Option<__ItemPathIdInterface>]) -> AnyLinketImpls {
             let linkets: Vec<__LinketImpl> =
                 vec![
                     $($linket_impl),*
                 ];
-            AnyLinketImpls::new(linkets)
+            for (&item_path_id_interface, &linket) in std::iter::zip(item_path_id_interfaces,&linkets) {
+                if let Some(item_path_id_interface) = item_path_id_interface {
+                    linket.init_item_path_id_interface(item_path_id_interface)
+                }
+            }
+            AnyLinketImpls::new::<__DevsoulInterface>(linkets)
         }
     };
+}
+
+#[test]
+fn linket_impls_works() {
+    use crate::standard::{ugly::*, *};
+    use crate::IsFnLinketImplSource;
+    use husky_devsoul_interface::ugly::*;
+    use husky_standard_devsoul_interface::ugly::*;
+
+    type __LinketImpl = StandardLinketImpl<__Pedestal>;
+    type __DevEvalContext = DevEvalContext<__LinketImpl>;
+    struct __DevsoulInterface;
+    impl IsDevsoulInterface for __DevsoulInterface {
+        type LinketImpl = __LinketImpl;
+
+        fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
+            todo!()
+        }
+
+        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+            todo!()
+        }
+    }
+
+    linket_impls! {}
+
+    linket_impls as LinketImplsGetter;
+    linket_impls(&[]);
 }
 
 #[macro_export]
@@ -51,13 +90,11 @@ macro_rules! fn_linket_impl {
         fn fn_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
-                __ValueLeashTest(
-                    FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                        std::marker::PhantomData,
-                        $fn_item,
-                    )
-                    .fn_wrapper_aux(arguments)?,
+                FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
+                    std::marker::PhantomData,
+                    $fn_item,
                 )
+                .fn_wrapper_aux(arguments)?
                 .into_value(),
             )
         }
@@ -82,7 +119,11 @@ fn fn_linket_impl_works() {
     impl IsDevsoulInterface for __DevsoulInterface {
         type LinketImpl = __LinketImpl;
 
-        fn eval_context() -> DevEvalContext<Self::LinketImpl> {
+        fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
+            todo!()
+        }
+
+        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
     }
@@ -129,7 +170,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                 self,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardLinketImplKiControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::eval_context();
+                let ctx = DevsoulInterface::dev_eval_context();
                 #[allow(unused_variables)]
                 let mut arguments = arguments.iter();
                 #[allow(unused_variables)]
@@ -194,13 +235,11 @@ macro_rules! unveil_fn_linket_impl {
         fn fn_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
-                __ValueLeashTest(
-                    UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
-                        std::marker::PhantomData,
-                        $fn_item,
-                    )
-                    .unveil_fn_wrapper_aux(arguments)?,
+                UnveilFnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
+                    std::marker::PhantomData,
+                    $fn_item,
                 )
+                .unveil_fn_wrapper_aux(arguments)?
                 .into_value(),
             )
         }
@@ -230,7 +269,11 @@ fn unveil_fn_linket_impl_works() {
     impl IsDevsoulInterface for __DevsoulInterface {
         type LinketImpl = __LinketImpl;
 
-        fn eval_context() -> DevEvalContext<Self::LinketImpl> {
+        fn dev_eval_context() -> DevEvalContext<Self::LinketImpl> {
+            todo!()
+        }
+
+        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
     }
@@ -256,7 +299,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
             Pedestal: IsPedestalFull,
             DevsoulInterface: IsDevsoulInterface<LinketImpl = LinketImpl<Pedestal>>,
             F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
-            B: IntoValue, // no need to use DeprecatedValueLeashTest because B is definitely not leashed
+            B: IntoValue,
             Target: Send + FromValue,
             $($runtime_constant: Send + FromValue,)*
             $output: Send,
@@ -282,7 +325,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 self,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardLinketImplKiControlFlow<Self::FnOutput> {
-                let ctx = DevsoulInterface::eval_context();
+                let ctx = DevsoulInterface::dev_eval_context();
                 debug_assert_eq!(arguments.len(), 2);
                 let KiArgumentReprInterface::Simple(target) = arguments[0] else {
                     unreachable!("expect ordinary argument")
@@ -312,4 +355,21 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
             }
         }
     };
+}
+
+pub struct LinketImpls<LinketImpl: IsLinketImpl> {
+    set_dev_eval_context: fn(DevEvalContext<LinketImpl>),
+    init_item_path_id_interface_caches: fn(&[ItemPathIdInterface]),
+    linket_impls: Vec<LinketImpl>,
+}
+
+impl<LinketImpl: IsLinketImpl> LinketImpls<LinketImpl> {
+    pub fn linket_impls(&self) -> &[LinketImpl] {
+        &self.linket_impls
+    }
+
+    /// the `&mut self` reflects some change on the otherside
+    pub fn set_dev_eval_context(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+        (self.set_dev_eval_context)(DevEvalContext::new(runtime))
+    }
 }

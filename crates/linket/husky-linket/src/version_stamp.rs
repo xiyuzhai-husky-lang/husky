@@ -1,6 +1,6 @@
 use crate::{
     template_argument::{
-        ty::{LinType, LinTypePathLeading, LinketRitchieType},
+        ty::{LinRitchieType, LinType, LinTypePathLeading},
         LinTemplateArgument, LinTemplateArguments,
     },
     *,
@@ -69,7 +69,7 @@ fn linket_version_stamp(db: &::salsa::Db, linket: Linket) -> LinketVersionStamp 
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinketData::MemoizedField {
+        LinketData::Memo {
             path,
             ref instantiation,
         } => {
@@ -173,7 +173,7 @@ fn linket_ty_path_leading_version_stamp(
 #[salsa::tracked]
 fn linket_ty_ritchie_version_stamp(
     db: &::salsa::Db,
-    linket_ty: LinketRitchieType,
+    linket_ty: LinRitchieType,
 ) -> LinketVersionStamp {
     let builder = LinketVersionStampBuilder::new(LinType::Ritchie(linket_ty), db);
     builder.finish()

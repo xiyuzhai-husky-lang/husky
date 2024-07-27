@@ -98,6 +98,12 @@
                                             },
                                         },
                                         signature: FieldFlySignature::PropsStruct {
+                                            self_ty: FlyTerm {
+                                                quary: None,
+                                                base: FlyTermBase::Eth(
+                                                    EthTerm(`ConvexComponent`),
+                                                ),
+                                            },
                                             ty: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(

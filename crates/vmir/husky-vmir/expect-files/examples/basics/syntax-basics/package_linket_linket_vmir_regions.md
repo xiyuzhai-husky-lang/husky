@@ -106,6 +106,7 @@
                     symbol_resolutions: [],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -187,6 +188,7 @@
                     symbol_resolutions: [],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -211,6 +213,7 @@
                     symbol_resolutions: [],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Props {
                     ident: Ident(
                         Coword(
@@ -292,6 +295,7 @@
                     symbol_resolutions: [],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Tuple {
                     index: 0,
                 },
@@ -367,6 +371,7 @@
                     symbol_resolutions: [],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Tuple {
                     index: 0,
                 },
@@ -385,6 +390,7 @@
                     symbol_resolutions: [],
                     separator: None,
                 },
+                field_ty_leash_class: Copyable,
                 field: Tuple {
                     index: 1,
                 },

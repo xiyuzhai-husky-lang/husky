@@ -21,6 +21,7 @@ use husky_eth_signature::signature::{
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FieldFlySignature {
     PropsStruct {
+        self_ty: FlyTerm,
         ty: FlyTerm,
     },
     Memoized {
@@ -35,7 +36,7 @@ pub enum FieldFlySignature {
 impl FieldFlySignature {
     pub fn expr_ty(&self) -> FlyTerm {
         match *self {
-            FieldFlySignature::PropsStruct { ty } => ty,
+            FieldFlySignature::PropsStruct { ty, .. } => ty,
             FieldFlySignature::Memoized { expr_ty, .. } => expr_ty,
         }
     }
@@ -46,7 +47,7 @@ impl IsInstanceItemFlySignature for FieldFlySignature {
         // ad hoc
         // todo: consider field mutability
         Ok(match *self {
-            FieldFlySignature::PropsStruct { ty } => ty.with_quary(self_value_final_quary),
+            FieldFlySignature::PropsStruct { ty, .. } => ty.with_quary(self_value_final_quary),
             FieldFlySignature::Memoized { expr_ty, .. } => expr_ty.with_quary(FlyQuary::Transient),
         })
     }
@@ -68,6 +69,7 @@ impl From<PropsFieldEthSignature> for FieldFlySignature {
     fn from(signature: PropsFieldEthSignature) -> Self {
         match signature {
             PropsFieldEthSignature::PropsStruct(signature) => FieldFlySignature::PropsStruct {
+                self_ty: signature.self_ty().into(),
                 ty: signature.ty().into(),
             },
         }

@@ -70,8 +70,19 @@ impl Default for ShiftedU32 {
 }
 
 impl ShiftedU32 {
+    pub fn new(value: u32) -> Self {
+        ShiftedU32(unsafe { NonZeroU32::new_unchecked(value + 1) })
+    }
+
     pub unsafe fn unchecked_add(self, rhs: u32) -> Self {
         Self(self.0.unchecked_add(rhs))
+    }
+}
+
+impl From<u32> for ShiftedU32 {
+    fn from(value: u32) -> Self {
+        debug_assert!(value + 1 < u32::MAX as u32);
+        ShiftedU32(unsafe { NonZeroU32::new_unchecked((value + 1) as u32) })
     }
 }
 

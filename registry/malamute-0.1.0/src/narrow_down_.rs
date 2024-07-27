@@ -3,14 +3,36 @@ mod flag;
 use self::flag::*;
 use crate::*;
 use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
+use ml_task::IsMlTask;
 use smallvec::SmallVec;
 
-#[allow(warnings, non_snake_case)]
+#[allow(warnings, non_camel_case_types)]
 pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
-impl<Task, Label> narrow_down<Task, Label> {
-    pub fn gn_ki_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
-        todo!()
+impl<Task: IsMlTask<__StaticVarId>, Label> narrow_down<Task, Label>
+where
+    Label: IsLabel
+        + __WeakStatic<Static = Label>
+        + __Static<Frozen = Label>
+        + __Frozen<Static = Label>
+        + __Serialize,
+{
+    pub fn gn_ki_wrapper(
+        ki_repr_interface: __KiReprInterface,
+        ki_domain_repr_interface: __KiDomainReprInterface,
+        mut pedestal: __Pedestal,
+        ki_argument_repr_interfaces: &[__KiArgumentReprInterface],
+    ) -> __KiControlFlow {
+        let generic_pedestal = pedestal.exclude::<Task::INPUT>();
+        __eval_ki_domain_repr_interface(ki_domain_repr_interface)?;
+        let internal: Leash<NarrowDownInternal<Label>> =
+            __eval_generic_gn_with(ki_repr_interface, generic_pedestal, || {
+                Self::train(ki_domain_repr_interface, ki_argument_repr_interfaces)
+                    .map(__IntoValue::into_value)
+            });
+        __KiControlFlow::Continue(
+            Self::eval(ki_argument_repr_interfaces, internal.deleash()).into_value(),
+        )
     }
 }
 
@@ -40,6 +62,7 @@ where
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
     }
+
     fn serialize_to_value(&self) -> __JsonValue {
         __to_json_value(self).unwrap()
     }
@@ -48,13 +71,23 @@ where
         // ad hoc
         __Visual::Void
     }
+
+    fn is_copyable() -> bool {
+        false
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        None
+    }
 }
 impl<Label> __Frozen for NarrowDownInternal<Label>
 where
     Label: __Frozen<Static = Label> + __Static<Frozen = Label> + __Serialize,
 {
     type Static = NarrowDownInternal<<Label as __Frozen>::Static>;
+
     type Stand = ();
+
     fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
         todo!()
     }
@@ -81,6 +114,7 @@ where
 
 impl<Task, Label> __IsGnItem for narrow_down<Task, Label>
 where
+    Task: IsMlTask<__StaticVarId>,
     Label: IsLabel,
 {
     type LinketImpl = __LinketImpl;
@@ -93,14 +127,14 @@ where
     type ValueAtGenericPedestal = NarrowDownInternal<Label>;
 
     fn train(
-        ki_domain_repr: __ValDomainReprInterface,
-        val_argument_reprs: &[__KiArgumentReprInterface],
+        ki_domain_repr: __KiDomainReprInterface,
+        ki_argument_reprs: &[__KiArgumentReprInterface],
     ) -> __KiControlFlow<Self::ValueAtGenericPedestal> {
-        debug_assert_eq!(val_argument_reprs.len(), 3);
-        let __KiArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
+        debug_assert_eq!(ki_argument_reprs.len(), 3);
+        let __KiArgumentReprInterface::Variadic(ref features) = ki_argument_reprs[0] else {
             unreachable!()
         };
-        let __KiArgumentReprInterface::Keyed(skip) = val_argument_reprs[1] else {
+        let __KiArgumentReprInterface::Keyed(skip) = ki_argument_reprs[1] else {
             unreachable!()
         };
         let skip: i32 = match skip {
@@ -108,13 +142,13 @@ where
             None => 5,
         };
         let __KiArgumentReprInterface::RuntimeConstants(ref runtime_constants) =
-            val_argument_reprs[2]
+            ki_argument_reprs[2]
         else {
             unreachable!()
         };
         debug_assert_eq!(runtime_constants.len(), 1);
         let label: Label = __eval_val_runtime_constant(runtime_constants[0]);
-        let fvf = FlagVectorField::from_features(ki_domain_repr, features, label)?;
+        let fvf = FlagVectorField::from_features::<Task>(ki_domain_repr, features, label)?;
         // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
         // let ntrim = opds[1].value().downcast_i32();
         __KiControlFlow::Continue(NarrowDownInternal {
@@ -126,10 +160,10 @@ where
     type EvalOutput = OneVsAllResult;
 
     fn eval(
-        val_argument_reprs: &[__KiArgumentReprInterface],
+        ki_argument_reprs: &[__KiArgumentReprInterface],
         value_at_generic_pedestal: &Self::ValueAtGenericPedestal,
     ) -> OneVsAllResult {
-        let __KiArgumentReprInterface::Variadic(ref features) = val_argument_reprs[0] else {
+        let __KiArgumentReprInterface::Variadic(ref features) = ki_argument_reprs[0] else {
             unreachable!()
         };
         debug_assert_eq!(features.len(), value_at_generic_pedestal.flag_ranges.len());

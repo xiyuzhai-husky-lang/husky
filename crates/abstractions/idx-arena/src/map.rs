@@ -99,6 +99,19 @@ impl<T, V> ArenaMap<T, V> {
         }
     }
 
+    pub fn get_idx_by_value(&self, v: &V) -> Option<ArenaIdx<T>>
+    where
+        V: PartialEq,
+    {
+        self.data
+            .iter()
+            .position(|v1| match v1 {
+                Some(v1) => v1 == v,
+                None => false,
+            })
+            .map(ArenaIdx::new)
+    }
+
     pub fn key_value_iter(&self) -> impl Iterator<Item = (ArenaIdx<T>, &V)> {
         self.data.iter().enumerate().filter_map(|(i, v)| match v {
             Some(ref v) => Some((ArenaIdx::new(i), v)),

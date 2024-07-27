@@ -12,6 +12,7 @@ use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
 use husky_linket::linket::Linket;
 use smallvec::{smallvec, SmallVec};
 
+/// has more information than `Ki`
 #[salsa::tracked(constructor = new_inner)]
 pub struct KiRepr {
     pub ki_domain_repr: KiDomainRepr,
@@ -57,7 +58,7 @@ pub enum KiArgumentRepr {
 }
 
 #[test]
-fn val_argument_repr_size_works() {
+fn ki_argument_repr_size_works() {
     use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
 
     assert_eq!(
@@ -116,7 +117,7 @@ fn val_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     };
     let opn = match Linket::new_val(path, db) {
         Some(linket) => KiOpn::Linket(linket),
-        None => KiOpn::ValLazilyDefined(path),
+        None => KiOpn::Val(path),
     };
     let opds = smallvec![];
     let caching_class = KiCachingClass::Val;
@@ -189,18 +190,18 @@ impl KiRepr {
 fn ki_repr_ki(db: &::salsa::Db, ki_repr: KiRepr) -> Ki {
     Ki::new(
         db,
-        ki_repr.ki_domain_repr(db).val(db),
+        ki_repr.ki_domain_repr(db).ki_domain(db),
         ki_repr.opn(db),
         ki_repr
             .arguments(db)
             .iter()
-            .map(|ki_repr| ki_repr.val_argument(db))
+            .map(|ki_repr| ki_repr.ki_argument(db))
             .collect(),
     )
 }
 
 impl KiArgumentRepr {
-    fn val_argument(&self, db: &::salsa::Db) -> KiArgument {
+    fn ki_argument(&self, db: &::salsa::Db) -> KiArgument {
         match *self {
             KiArgumentRepr::Simple(ki_repr) => KiArgument::Simple(ki_repr.ki(db)),
             KiArgumentRepr::Keyed(ki_repr) => {
@@ -224,7 +225,7 @@ impl KiArgumentRepr {
 }
 
 impl KiDomainRepr {
-    pub fn val(self, db: &::salsa::Db) -> KiDomain {
+    pub fn ki_domain(self, db: &::salsa::Db) -> KiDomain {
         match self {
             KiDomainRepr::Omni => KiDomain::Omni,
             KiDomainRepr::ConditionSatisfied(ki_repr) => {

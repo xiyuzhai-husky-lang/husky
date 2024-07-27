@@ -17,6 +17,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `x`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -26,6 +31,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `y`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -92,6 +102,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `x`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -101,6 +116,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `y`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -167,6 +187,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `x`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -176,6 +201,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `y`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -242,6 +272,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `min`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -251,6 +286,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `max`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -317,6 +357,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `xrange`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -326,6 +371,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `yrange`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -392,6 +442,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `xrange`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -401,6 +456,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `yrange`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(

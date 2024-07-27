@@ -13,10 +13,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ConcaveComponent`),
                                     ident: `line_segment_sketch`,
                                     ty: EthTerm(`Leash LineSegmentSketch`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`ConcaveComponent`),
                                     ident: `strokes`,
                                     ty: EthTerm(`Leash CyclicSlice LineSegmentStroke`),
                                 },

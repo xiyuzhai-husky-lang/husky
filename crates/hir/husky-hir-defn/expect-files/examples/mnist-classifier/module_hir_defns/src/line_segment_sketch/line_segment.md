@@ -270,6 +270,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 0,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -386,6 +393,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 2,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -921,6 +935,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 2,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -1550,6 +1571,13 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
                                                 self_argument: 13,
+                                                self_argument_ty: HirType::PathLeading(
+                                                    HirTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                        template_arguments: [],
+                                                        always_copyable: false,
+                                                    },
+                                                ),
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
