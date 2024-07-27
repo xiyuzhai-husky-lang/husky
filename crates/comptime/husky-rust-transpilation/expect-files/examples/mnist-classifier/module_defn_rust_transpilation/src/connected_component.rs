@@ -1,5 +1,8 @@
 use crate::*;
 
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponentDistribution__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
 #[derive(Debug, Clone, PartialEq)]
@@ -12,7 +15,7 @@ pub struct ConnectedComponentDistribution {
 
 impl ConnectedComponentDistribution {
     pub fn __constructor(row_start: i32, row_end: i32, upper_mass: i32, lower_mass: i32) -> Self {
-        Self {
+        Self{
             row_start,
             row_end,
             upper_mass,
@@ -20,6 +23,9 @@ impl ConnectedComponentDistribution {
         }
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __EffHoles__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
@@ -30,9 +36,14 @@ pub struct EffHoles {
 
 impl EffHoles {
     pub fn __constructor(matches: Vec<Option<Leash<crate::raw_contour::RawContour>>>) -> Self {
-        Self { matches }
+        Self{
+            matches,
+        }
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __hole_tmpl__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn hole_tmpl(ct: Leash<crate::raw_contour::RawContour>) -> Option<f32> {
@@ -40,6 +51,9 @@ pub fn hole_tmpl(ct: Leash<crate::raw_contour::RawContour>) -> Option<f32> {
     require!(len > 4.0f32);
     Some(len + 0.0f32)
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 #[ad_hoc_devsoul_dependency::value_conversion]
@@ -50,9 +64,14 @@ pub struct ConnectedComponent {
 
 impl ConnectedComponent {
     pub fn __constructor(mask: mnist::BinaryImage28) -> Self {
-        Self { mask }
+        Self{
+            mask,
+        }
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __horizontal_extend__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn horizontal_extend(a: u32, x: u32) -> u32 {
@@ -64,6 +83,9 @@ pub fn horizontal_extend(a: u32, x: u32) -> u32 {
     }
     return y;
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __find_connected_components__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::connected_component::ConnectedComponent> {
@@ -121,14 +143,17 @@ impl Visualize for crate::connected_component::ConnectedComponent {
     }
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __Visualize__for__ConnectedComponent__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 impl crate::connected_component::ConnectedComponent {
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 1, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__raw_contours__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn raw_contours(&'static self) -> Vec<crate::raw_contour::RawContour> {
         crate::raw_contour::find_raw_contours(__self)
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 2, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__eff_holes__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn eff_holes(&'static self) -> crate::connected_component::EffHoles {
         let mut raw_contours = <Vec<crate::raw_contour::RawContour>>::collect_leashes(<crate::connected_component::ConnectedComponent>::raw_contours(__self));
         let mut matches: Vec<Option<Leash<crate::raw_contour::RawContour>>> = vec![];
@@ -138,7 +163,7 @@ impl crate::connected_component::ConnectedComponent {
         return crate::connected_component::EffHoles::__constructor(matches);
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 3)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__max_hole_ilen__ITEM_PATH_ID_INTERFACE)]
     pub fn max_hole_ilen(&'static self) -> f32 {
         let mut max_hole_ilen = 0;
         let raw_contours = <crate::connected_component::ConnectedComponent>::raw_contours(__self);
@@ -151,7 +176,7 @@ impl crate::connected_component::ConnectedComponent {
         return max_hole_ilen as f32;
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 4)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__max_row_span__ITEM_PATH_ID_INTERFACE)]
     pub fn max_row_span(&'static self) -> f32 {
         let mut max_row: i32 = 0;
         for i in (0 + 1)..29 {
@@ -160,7 +185,7 @@ impl crate::connected_component::ConnectedComponent {
         return max_row as f32;
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 5)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__row_span_sum__ITEM_PATH_ID_INTERFACE)]
     pub fn row_span_sum(&'static self) -> f32 {
         let mut row_span_sum = 0;
         for i in (0 + 1)..29 {
@@ -169,7 +194,7 @@ impl crate::connected_component::ConnectedComponent {
         return row_span_sum as f32;
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 6, return_leash)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__distribution__ITEM_PATH_ID_INTERFACE, return_leash)]
     pub fn distribution(&'static self) -> crate::connected_component::ConnectedComponentDistribution {
         let mut row_start = 1;
         while row_start < 29 {
@@ -202,12 +227,12 @@ impl crate::connected_component::ConnectedComponent {
         return crate::connected_component::ConnectedComponentDistribution::__constructor(row_start, row_end, upper_mass, lower_mass);
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 7)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__upper_mass__ITEM_PATH_ID_INTERFACE)]
     pub fn upper_mass(&'static self) -> f32 {
         <crate::connected_component::ConnectedComponent>::distribution(__self).deleash().upper_mass as f32
     }
 
-    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = 8)]
+    #[ad_hoc_devsoul_dependency::memo(item_path_id_interface = __ConnectedComponent__lower_mass__ITEM_PATH_ID_INTERFACE)]
     pub fn lower_mass(&'static self) -> f32 {
         <crate::connected_component::ConnectedComponent>::distribution(__self).deleash().lower_mass as f32
     }
@@ -248,3 +273,52 @@ impl crate::connected_component::ConnectedComponent {
         return top_k_row_span_sum as f32;
     }
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__raw_contours__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__eff_holes__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__max_hole_ilen__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__max_row_span__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__row_span_sum__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__distribution__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__upper_mass__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__lower_mass__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__top_k_row_span_sum__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
+
+
+#[allow(non_upper_case_globals)]
+pub static mut __ConnectedComponent__top_k_row_right_mass_sum__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+

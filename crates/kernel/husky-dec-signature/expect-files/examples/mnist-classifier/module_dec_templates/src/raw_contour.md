@@ -17,6 +17,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `cc`,
                                     ty: DecTerm::Application(
                                         DecApplication {
@@ -37,6 +42,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `points`,
                                     ty: DecTerm::Application(
                                         DecApplication {
@@ -469,6 +479,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `prev1`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -478,6 +493,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `prev2`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(

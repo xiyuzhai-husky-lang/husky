@@ -21,8 +21,14 @@ pub use self::major::*;
 use malamute::*;
 use mnist::*;
 
+#[allow(non_upper_case_globals)]
+pub static mut __main__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 0)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __main__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn main() -> malamute::Class<mnist::MnistLabel> {
     unveil!(malamute::Class<mnist::MnistLabel>, is_one(), (mnist::MnistLabel::One, ));
     unveil!(malamute::Class<mnist::MnistLabel>, is_six(), (mnist::MnistLabel::Six, ));

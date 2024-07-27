@@ -17,6 +17,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `row_start`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -26,6 +31,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `row_end`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -35,6 +45,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `upper_mass`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -44,6 +59,11 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `lower_mass`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(
@@ -130,6 +150,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `matches`,
                                     ty: DecTerm::Application(
                                         DecApplication {
@@ -310,6 +335,11 @@
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
+                                    self_ty: DecTerm::EntityPath(
+                                        DecItemPath::Type(
+                                            TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ),
+                                    ),
                                     ident: `mask`,
                                     ty: DecTerm::EntityPath(
                                         DecItemPath::Type(

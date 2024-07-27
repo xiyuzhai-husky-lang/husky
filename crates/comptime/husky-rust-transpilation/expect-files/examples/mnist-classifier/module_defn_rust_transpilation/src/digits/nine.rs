@@ -1,19 +1,39 @@
 use super::*;
 
+#[allow(non_upper_case_globals)]
+pub static mut __nine_match__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 43, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __nine_match__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn nine_match() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![downmost])
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __nine_match_refine__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 44, return_leash)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __nine_match_refine__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT],
+    return_leash
+)]
 pub fn nine_match_refine() -> crate::fermi::FermiMatchResult {
     crate::fermi::fermi_match(major_concave_components(), &vec![big_cc])
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __is_nine__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
-#[ad_hoc_devsoul_dependency::val(item_path_id_interface = 45)]
+#[ad_hoc_devsoul_dependency::val(
+    item_path_id_interface = __is_nine__ITEM_PATH_ID_INTERFACE,
+    var_deps = [mnist::INPUT]
+)]
 pub fn is_nine() -> malamute::OneVsAll {
     let eff_holes = <crate::connected_component::ConnectedComponent>::eff_holes(major_connected_component());
     require!(let Option::None = eff_holes.deleash().matches[1 as usize]);
@@ -41,12 +61,18 @@ pub fn is_nine() -> malamute::OneVsAll {
     OneVsAll::Yes
 }
 
+#[allow(non_upper_case_globals)]
+pub static mut __downmost__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
+
 #[rustfmt::skip]
 pub fn downmost(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {
     let dp = cc.deleash().displacement();
     require!(dp.y < 0.0f32);
     Some(dp.y)
 }
+
+#[allow(non_upper_case_globals)]
+pub static mut __big_cc__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;
 
 #[rustfmt::skip]
 pub fn big_cc(cc: Leash<crate::line_segment_sketch::concave_component::ConcaveComponent>) -> Option<f32> {

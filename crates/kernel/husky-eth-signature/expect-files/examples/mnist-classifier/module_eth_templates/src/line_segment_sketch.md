@@ -45,14 +45,17 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`LineSegmentStroke`),
                                     ident: `points`,
                                     ty: EthTerm(`Leash CyclicSlice Point2d`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`LineSegmentStroke`),
                                     ident: `start`,
                                     ty: EthTerm(`Point2d`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`LineSegmentStroke`),
                                     ident: `end`,
                                     ty: EthTerm(`Point2d`),
                                 },
@@ -92,10 +95,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`LineSegmentSketch`),
                                     ident: `contour`,
                                     ty: EthTerm(`Leash RawContour`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`LineSegmentSketch`),
                                     ident: `strokes`,
                                     ty: EthTerm(`Vec LineSegmentStroke`),
                                 },

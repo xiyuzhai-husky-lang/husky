@@ -13,10 +13,12 @@
                             },
                             fields: [
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`FermiMatchResult`),
                                     ident: `matches`,
                                     ty: EthTerm(`Vec Option Leash ConcaveComponent`),
                                 },
                                 PropsFieldEthTemplate {
+                                    self_ty: EthTerm(`FermiMatchResult`),
                                     ident: `others`,
                                     ty: EthTerm(`Vec Leash ConcaveComponent`),
                                 },
