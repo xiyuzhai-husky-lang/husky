@@ -185,7 +185,10 @@ impl Value {
     }
 
     pub fn into_leash<T>(self) -> &'static T {
-        todo!()
+        match self {
+            Value::Leash(slf) => (slf as &dyn std::any::Any).downcast_ref().unwrap(),
+            _ => unreachable!(),
+        }
     }
 
     pub fn from_mut<'a, T>(t: &'a mut T) -> Self {
