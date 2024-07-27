@@ -11,9 +11,12 @@ pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
     type Frozen: Frozen<Static = Self>;
     unsafe fn freeze(&self) -> Self::Frozen;
 
-    fn copy(&self) -> Box<dyn StaticDyn> {
-        panic!("type `{}` is not copyable", std::any::type_name::<Self>())
-    }
+    fn is_copyable() -> bool;
+
+    /// copy if the type is copyable
+    ///
+    /// note that it should always be either some or none for a fixed type
+    fn try_copy(&self) -> Option<Value>;
 
     fn is_some(&self) -> bool {
         panic!("type `{}` is not an Option", std::any::type_name::<Self>())
@@ -44,10 +47,6 @@ pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
         )
     }
 
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value;
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value;
-
     fn serialize_to_value(&self) -> serde_json::Value;
 
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
@@ -59,6 +58,14 @@ where
 {
     type Frozen = MutFrozen<T>;
 
+    fn is_copyable() -> bool {
+        false
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        None
+    }
+
     unsafe fn freeze(&self) -> Self::Frozen {
         MutFrozen::new(*self)
     }
@@ -68,14 +75,6 @@ where
     }
 
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
-    }
-
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
         todo!()
     }
 }
@@ -97,7 +96,7 @@ pub trait StaticDyn:
 
     fn unwrap_leash_dyn(&'static self) -> Value;
 
-    fn copy_dyn(&self) -> Box<dyn StaticDyn>;
+    fn try_copy_dyn(&self) -> Option<Value>;
 
     fn present_dyn(&self) -> ValuePresentation;
 
@@ -136,8 +135,8 @@ where
         T::unwrap_leash(self)
     }
 
-    fn copy_dyn(&self) -> Box<dyn StaticDyn> {
-        self.copy()
+    fn try_copy_dyn(&self) -> Option<Value> {
+        self.try_copy()
     }
 
     fn present_dyn(&self) -> ValuePresentation {
@@ -156,6 +155,14 @@ where
     T: Static,
 {
     type Frozen = Vec<T::Frozen>;
+
+    fn is_copyable() -> bool {
+        false
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        todo!()
+    }
 
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
@@ -176,14 +183,6 @@ where
             .collect();
         Visual::new_group_visual(elements, visual_synchrotron)
     }
-
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
-        todo!()
-    }
 }
 
 impl<T> Static for &'static T
@@ -191,6 +190,14 @@ where
     T: Static,
 {
     type Frozen = Self;
+
+    fn is_copyable() -> bool {
+        true
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        Some(Value::from_ref(self))
+    }
 
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
@@ -203,14 +210,6 @@ where
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
-
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
-        todo!()
-    }
 }
 
 impl<T> Static for Option<T>
@@ -218,6 +217,17 @@ where
     T: Static,
 {
     type Frozen = Option<T::Frozen>;
+
+    fn is_copyable() -> bool {
+        T::is_copyable()
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        if !Self::is_copyable() {
+            return None;
+        }
+        self.as_ref().map(|v| v.try_copy().unwrap())
+    }
 
     fn is_some(&self) -> bool {
         self.is_some()
@@ -227,11 +237,19 @@ where
     }
 
     fn unwrap_ref<'a>(&'a self) -> Value {
-        T::unwrap_option_ref(self)
+        let slf = self.as_ref().unwrap();
+        match slf.try_copy() {
+            Some(_) => todo!(),
+            None => todo!(),
+        }
     }
 
     fn unwrap_leash(&'static self) -> Value {
-        T::unwrap_option_leash(self)
+        let slf = self.as_ref().unwrap();
+        match slf.try_copy() {
+            Some(slf) => slf,
+            None => Value::from_leash(slf),
+        }
     }
 
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -247,14 +265,6 @@ where
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
-
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
-        todo!()
-    }
 }
 
 macro_rules! impl_static_for_primitive_ty {
@@ -262,16 +272,16 @@ macro_rules! impl_static_for_primitive_ty {
         impl Static for $primitive_ty {
             type Frozen = Self;
 
+            fn is_copyable() -> bool {
+                true
+            }
+
+            fn try_copy(&self) -> Option<Value> {
+                Some((*self).into())
+            }
+
             unsafe fn freeze(&self) -> Self::Frozen {
                 *self
-            }
-
-            fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
-                (*__self.as_ref().unwrap()).into_value()
-            }
-
-            fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
-                (*__self.as_ref().unwrap()).into_value()
             }
 
             fn serialize_to_value(&self) -> serde_json::Value {
@@ -290,6 +300,14 @@ for_all_primitive_tys!(impl_static_for_primitive_ty);
 impl Static for &'static str {
     type Frozen = Self;
 
+    fn is_copyable() -> bool {
+        todo!()
+    }
+
+    fn try_copy(&self) -> Option<Value> {
+        todo!()
+    }
+
     unsafe fn freeze(&self) -> Self::Frozen {
         todo!()
     }
@@ -299,14 +317,6 @@ impl Static for &'static str {
     }
 
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
-    }
-
-    fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
-        todo!()
-    }
-
-    fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
         todo!()
     }
 }
@@ -321,11 +331,11 @@ macro_rules! impl_static_for_ritchie_ty {
             $output: Static, {
             type Frozen = Self;
 
-            fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+            fn is_copyable() -> bool {
                 todo!()
             }
 
-            fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+            fn try_copy(&self) -> Option<Value> {
                 todo!()
             }
 
@@ -356,11 +366,11 @@ macro_rules! impl_static_for_non_unit_tuple_ty {
         {
             type Frozen = ($(<$field as Static>::Frozen,)*);
 
-            fn unwrap_option_ref<'a>(__self: &'a Option<Self>) -> Value {
+            fn is_copyable() -> bool {
                 todo!()
             }
 
-            fn unwrap_option_leash(__self: &'static Option<Self>) -> Value {
+            fn try_copy(&self) -> Option<Value> {
                 todo!()
             }
 

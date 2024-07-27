@@ -114,9 +114,11 @@ impl Value {
     {
         match self {
             Value::Owned(slf) => slf.downcast_into_owned(),
-            Value::Leash(slf) => *(slf.copy_dyn() as Box<dyn std::any::Any>)
-                .downcast()
-                .unwrap(),
+            // ad hoc
+            Value::Leash(slf) => slf.try_copy_dyn().unwrap().into_owned(),
+            // *(slf.try_copy_dyn() as Box<dyn std::any::Any>)
+            //     .downcast()
+            //     .unwrap(),
             _ => unreachable!("self is {self:?}"),
         }
     }
@@ -1089,6 +1091,21 @@ impl Into<f64> for Value {
     fn into(self) -> f64 {
         match self {
             Value::F64(value) => value,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl From<char> for Value {
+    fn from(value: char) -> Self {
+        Value::Char(value)
+    }
+}
+
+impl Into<char> for Value {
+    fn into(self) -> char {
+        match self {
+            Value::Char(value) => value,
             _ => unreachable!(),
         }
     }

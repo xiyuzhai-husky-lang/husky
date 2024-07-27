@@ -61,6 +61,8 @@ pub trait IsValue:
     + Into<f32>
     + From<f64>
     + Into<f64>
+    + From<char>
+    + Into<char>
     + From<std::convert::Infallible>
     + 'static
 {

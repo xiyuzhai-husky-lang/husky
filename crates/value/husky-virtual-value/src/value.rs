@@ -712,3 +712,18 @@ impl Into<f64> for Value {
         }
     }
 }
+
+impl From<char> for Value {
+    fn from(value: char) -> Self {
+        Value::Char(value)
+    }
+}
+
+impl Into<char> for Value {
+    fn into(self) -> char {
+        match self {
+            Value::Char(value) => value,
+            _ => unreachable!(),
+        }
+    }
+}
