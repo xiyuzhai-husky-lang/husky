@@ -541,6 +541,13 @@ impl<V> VariableMap<V> {
     pub fn get_current(&self, current_variable_idx: CurrentVariableIdx) -> Option<&V> {
         self.current_variable_map.get(current_variable_idx)
     }
+
+    pub fn get_current_variable_idx_by_value(&self, v: &V) -> Option<CurrentVariableIdx>
+    where
+        V: PartialEq,
+    {
+        self.current_variable_map.get_idx_by_value(v)
+    }
 }
 
 impl<V> VariableMap<V> {

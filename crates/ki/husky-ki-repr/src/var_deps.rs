@@ -95,7 +95,12 @@ fn ki_repr_var_deps(db: &::salsa::Db, ki_repr: KiRepr) -> KiVarDeps {
                 .unwrap()
                 .data(db);
             match source {
-                KiReprExpansionSource::LetVariable { stmt, variable_idx } => todo!(),
+                KiReprExpansionSource::LetVariable { variable_idx, .. } => {
+                    let current_variable_idx = parent_expr_source_map_data
+                        .hir_lazy_to_current_variable(variable_idx)
+                        .unwrap();
+                    (&region.variable_var_deps_table(db)[current_variable_idx]).into()
+                }
                 KiReprExpansionSource::RequireDefault { stmt } => todo!(),
                 KiReprExpansionSource::RequireCondition { stmt } => todo!(),
                 KiReprExpansionSource::AssertCondition { stmt } => todo!(),
