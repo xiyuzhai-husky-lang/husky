@@ -63,3 +63,16 @@ where
 {
     T::from_value_static(dev_eval_context().eval_generic_gn_with(ki_repr_interface, pedestal, f))
 }
+
+/// currently, it's intentional that `__Self` must be sized
+/// todo: generalize this to ?Sized
+pub fn eval_memo_field_with<__Self, T>(
+    item_path_id_interface: ItemPathIdInterface,
+    __self: &'static __Self,
+    f: fn(&'static __Self) -> StandardLinketImplKiControlFlow,
+) -> T
+where
+    T: FromValue,
+{
+    T::from_value_static(dev_eval_context().eval_memo_field_with(item_path_id_interface, __self, f))
+}

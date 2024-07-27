@@ -32,45 +32,29 @@ pub(crate) fn memo(args: TokenStream, input: TokenStream) -> TokenStream {
         unreachable!()
     };
     let aux_ident = Ident::new(&format!("__{}", ident), ident.span());
-    let return_leash_ty = match return_leash_ty {
-        Some(return_leash_ty) => quote! { #return_leash_ty },
-        None => quote! { Leash<#return_ty> },
-    };
-    if return_leash {
-        quote! {
-            #vis fn #ident(__self: Leash<Self>) -> #return_leash_ty {
-                todo!("return leash for eager val, change the return type")
-                // __eval_memo_field_return_ref_with(
-                //     self,
-                //     #item_path_id_interface,
-                //     |slf| {
-                //         // todo: catch unwind
-                //         __KiControlFlow::Continue(slf.#aux_ident().into_value())
-                //     }
-                // )
-            }
-
-            #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
+    let expr_ty = if return_leash {
+        match return_leash_ty {
+            Some(return_leash_ty) => quote! { #return_leash_ty },
+            None => quote! { Leash<#return_ty> },
         }
-        .into()
     } else {
-        quote! {
-            #vis fn #ident(__self: Leash<Self>) -> #return_ty {
-                todo!("return copied for memo")
-                // __eval_memo_field_with(
-                //     self,
-                //     #item_path_id_interface,
-                //     |slf| {
-                //         // todo: catch unwind
-                //         __KiControlFlow::Continue(slf.#aux_ident().into_value())
-                //     }
-                // )
-            }
-
-            #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
+        quote! {#return_ty}
+    };
+    quote! {
+        #vis fn #ident(__self: Leash<Self>) -> #expr_ty {
+            __eval_memo_field_with(
+                unsafe { #item_path_id_interface.expect("ITEM_PATH_ID_INTERFACE not initialized") },
+                __self.deleash(),
+                |__self| {
+                    // todo: catch unwind
+                    __KiControlFlow::Continue(Self::#aux_ident(Leash(__self)).into_value())
+                }
+            )
         }
-        .into()
+
+        #vis fn #aux_ident(__self: Leash<Self>) -> #return_ty #block
     }
+    .into()
 }
 
 struct MemoizedFieldArgs {

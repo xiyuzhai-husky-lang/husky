@@ -155,13 +155,13 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
             .eval_ki_domain_repr_interface_dyn(ki_domain_repr_interface)
     }
 
-    pub fn eval_memo_field_with<Slf>(
+    pub fn eval_memo_field_with<__Self>(
         self,
         item_path_id_interface: ItemPathIdInterface,
-        slf: &'static Slf,
-        f: fn(&'static Slf) -> LinketImplKiControlFlow<LinketImpl>,
+        __self: &'static __Self,
+        f: fn(&'static __Self) -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImpl::Value {
-        let slf: &'static std::ffi::c_void = unsafe { std::mem::transmute(slf) };
+        let slf: &'static std::ffi::c_void = unsafe { std::mem::transmute(__self) };
         let f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl> =
             unsafe { std::mem::transmute(f) };
         self.runtime
@@ -220,7 +220,7 @@ pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
         f: impl FnOnce(KiDomainReprInterface) -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
-    fn eval_memo_field(
+    fn eval_memo_field_with(
         &self,
         item_path_id_interface: ItemPathIdInterface,
         slf: &'static std::ffi::c_void,
@@ -329,7 +329,7 @@ where
         slf: &'static std::ffi::c_void,
         f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl>,
     ) -> LinketImplKiControlFlow<LinketImpl> {
-        self.eval_memo_field(item_path_id_interface, slf, f)
+        self.eval_memo_field_with(item_path_id_interface, slf, f)
     }
 
     fn eval_val_runtime_constant_dyn(
