@@ -1,13 +1,26 @@
+mod alloc;
+mod reduce;
+
+use self::{alloc::*, reduce::*};
 use crate::{
     token::{ident::Ident, keyword::Keyword, literal::Literal, opr::Opr, Token},
     *,
 };
-use husky_cybertron::seq::{idx::Idx, Seq};
+use husky_cybertron::seq::idx::Option2;
+use husky_cybertron::{
+    prelude::*,
+    seq::{idx::Idx, Seq},
+};
 use token::tokenize;
+
+pub struct Ast {
+    pub parent: Option<Idx>,
+    pub data: AstData,
+}
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum Ast {
+pub enum AstData {
     Literal(Literal),
     Ident(Ident),
     /// # exprs
@@ -19,10 +32,17 @@ pub enum Ast {
     LetInit,
 }
 
+#[enum_class::from_variants]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum AstError {
+    Opr,
+}
+
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum PreAst {
     Keyword(Keyword),
     Opr(Opr),
-    Ast(Ast),
+    Ast(AstData),
 }
 
 impl std::fmt::Debug for PreAst {
@@ -39,15 +59,15 @@ impl From<Token> for PreAst {
     fn from(tok: Token) -> Self {
         match tok {
             Token::Keyword(kw) => PreAst::Keyword(kw),
-            Token::Ident(ident) => PreAst::Ast(Ast::Ident(ident)),
+            Token::Ident(ident) => PreAst::Ast(AstData::Ident(ident)),
             Token::Opr(opr) => PreAst::Opr(opr),
-            Token::Literal(lit) => PreAst::Ast(Ast::Literal(lit)),
+            Token::Literal(lit) => PreAst::Ast(AstData::Literal(lit)),
         }
     }
 }
 
-pub fn calc_pre_ast_initial_seq(toks: Seq<Token>) -> Seq<PreAst> {
-    toks.map(Into::into)
+pub fn calc_pre_ast_initial_seq(toks: Seq<Token>) -> Seq<Option<PreAst>> {
+    toks.map(|tok| Some(tok.into()))
 }
 
 #[test]
@@ -58,28 +78,40 @@ fn calc_pre_ast_initial_seq_works() {
     t(
         "hello",
         expect![[r#"
-            [Ident(i`hello`)]
+            [Some(Ident(i`hello`))]
         "#]],
     );
     t(
         "let hello = world + humans",
         expect![[r#"
             [
-                Let,
-                Ident(
-                    i`hello`,
+                Some(
+                    Let,
                 ),
-                Binary(
-                    Assign,
+                Some(
+                    Ident(
+                        i`hello`,
+                    ),
                 ),
-                Ident(
-                    i`world`,
+                Some(
+                    Binary(
+                        Assign,
+                    ),
                 ),
-                Binary(
-                    Add,
+                Some(
+                    Ident(
+                        i`world`,
+                    ),
                 ),
-                Ident(
-                    i`humans`,
+                Some(
+                    Binary(
+                        Add,
+                    ),
+                ),
+                Some(
+                    Ident(
+                        i`humans`,
+                    ),
                 ),
             ]
         "#]],
