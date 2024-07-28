@@ -4,14 +4,25 @@ use super::*;
 pub struct Idx(ShiftedU32);
 
 impl Idx {
-    fn new(i: usize) -> Self {
+    pub(super) fn new(i: usize) -> Self {
         Self(i.into())
     }
 }
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Option2<T> {
     first: Option<T>,
     second: Option<T>,
+}
+
+impl<T> Option2<T> {
+    pub fn first(self) -> Option<T> {
+        self.first
+    }
+
+    pub fn second(self) -> Option<T> {
+        self.second
+    }
 }
 
 impl<T> FromIterator<T> for Option2<T> {

@@ -1,3 +1,5 @@
+pub mod any;
+pub mod apply;
 pub mod idx;
 
 use crate::*;
@@ -150,22 +152,36 @@ fn seq_map_works() {
 
 impl<T1, T2> Seq<(T1, T2)>
 where
-    T1: Any + Send + Sync,
-    T2: Any + Send + Sync,
+    T1: Any + Send + Sync + Copy,
+    T2: Any + Send + Sync + Copy,
 {
-    fn decouple(self) -> (Seq<T1>, Seq<T2>) {
-        todo!()
+    pub fn decouple(self) -> (Seq<T1>, Seq<T2>) {
+        let mut t1s = vec![];
+        let mut t2s = vec![];
+        for &(t1, t2) in self.data() {
+            t1s.push(t1);
+            t2s.push(t2);
+        }
+        (Seq::new(t1s), Seq::new(t2s))
     }
 }
 
 impl<T1, T2, T3> Seq<(T1, T2, T3)>
 where
-    T1: Any + Send + Sync,
-    T2: Any + Send + Sync,
-    T3: Any + Send + Sync,
+    T1: Any + Send + Sync + Copy,
+    T2: Any + Send + Sync + Copy,
+    T3: Any + Send + Sync + Copy,
 {
-    fn decouple(self) -> (Seq<T1>, Seq<T2>, Seq<T3>) {
-        todo!()
+    pub fn decouple(self) -> (Seq<T1>, Seq<T2>, Seq<T3>) {
+        let mut t1s = vec![];
+        let mut t2s = vec![];
+        let mut t3s = vec![];
+        for &(t1, t2, t3) in self.data() {
+            t1s.push(t1);
+            t2s.push(t2);
+            t3s.push(t3);
+        }
+        (Seq::new(t1s), Seq::new(t2s), Seq::new(t3s))
     }
 }
 

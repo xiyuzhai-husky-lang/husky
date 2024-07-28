@@ -3439,8 +3439,10 @@
         relative_path: "crates/cybertron/husky-cybertron",
         dependencies: [
             "husky-cybertron-macros",
+            "husky-decl-macro-utils",
             "husky-wild-utils",
             "lazy_static",
+            "paste",
             "shifted-unsigned-int",
             "expect-test",
         ],

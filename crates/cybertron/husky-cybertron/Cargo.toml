@@ -15,9 +15,11 @@ keywords.workspace = true
 lazy_static.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
+paste.workspace = true
 # cybertron
 husky-cybertron-macros.workspace = true
 # utils
+husky-decl-macro-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [dev-dependencies]
