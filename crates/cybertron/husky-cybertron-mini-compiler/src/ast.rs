@@ -13,6 +13,7 @@ use husky_cybertron::{
 };
 use token::{opr::BinaryOpr, tokenize};
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Ast {
     pub parent: Option<Idx>,
     pub data: AstData,
@@ -33,14 +34,15 @@ pub enum AstData {
     LetInit,
 }
 
-impl Into<Option<AstData>> for Token {
-    fn into(self) -> Option<AstData> {
-        match self {
+impl Into<Option<Ast>> for Token {
+    fn into(self) -> Option<Ast> {
+        let data = match self {
             Token::Literal(lit) => Some(AstData::Literal(lit)),
             Token::Keyword(_) => None,
             Token::Ident(ident) => Some(AstData::Ident(ident)),
             Token::Opr(_) => None,
-        }
+        }?;
+        Some(Ast { parent: None, data })
     }
 }
 

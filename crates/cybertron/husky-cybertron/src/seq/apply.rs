@@ -1,4 +1,4 @@
-use super::{idx::Idx, Seq};
+use super::{idx::Idx, *};
 use husky_decl_macro_utils::for_all_non_unit_tuple_tys;
 use paste::paste;
 use std::any::Any;
@@ -60,7 +60,7 @@ macro_rules! impl_apply_enumerated {
                     $(assert_eq!([< $t:snake _data >].len(), len);)*
                     let result: Vec<_> = (0..len)
                                 .into_iter()
-                                .map(|i| self(Idx::new(i), $([< $t:snake _data >][i]),*))
+                                .map(|i| self(idx!(i), $([< $t:snake _data >][i]),*))
                                 .collect();
                     Seq::new(result)
                 }
