@@ -17,13 +17,33 @@ pub enum Token {
     Opr(Opr),
 }
 
+pub enum Convexity {
+    Convex,
+    Concave,
+}
+
+impl Token {
+    pub fn right_convexity(self) -> Convexity {
+        match self {
+            Token::Literal(_) => Convexity::Convex,
+            Token::Keyword(_) => Convexity::Concave,
+            Token::Ident(_) => Convexity::Convex,
+            Token::Opr(opr) => match opr {
+                Opr::Prefix(_) => Convexity::Concave,
+                Opr::Binary(_) => Convexity::Concave,
+                Opr::Suffix(_) => Convexity::Convex,
+            },
+        }
+    }
+}
+
 impl std::fmt::Debug for Token {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Token::Literal(lit) => write!(f, "l`{}`", lit),
-            Token::Keyword(kw) => write!(f, "k`{}`", kw.data()),
-            Token::Ident(ident) => write!(f, "i`{}`", ident.data()),
-            Token::Opr(opr) => write!(f, "o`{}`", opr.data()),
+            Token::Literal(lit) => write!(f, "`{}`", lit),
+            Token::Keyword(kw) => write!(f, "`{}`", kw.data()),
+            Token::Ident(ident) => write!(f, "`{}`", ident.data()),
+            Token::Opr(opr) => write!(f, "`{}`", opr.data()),
         }
     }
 }
@@ -34,12 +54,14 @@ pub fn tokenize(input: &str) -> Seq<Token> {
 
 struct Tokenizer<'a> {
     chars: TextCharIter<'a>,
+    last_token_right_convexity: Convexity,
 }
 
 impl<'a> Tokenizer<'a> {
     fn new(input: &'a str) -> Self {
         Self {
             chars: TextCharIter::new(input),
+            last_token_right_convexity: Convexity::Concave,
         }
     }
 }
@@ -48,10 +70,24 @@ impl<'a> Iterator for Tokenizer<'a> {
     type Item = Token;
 
     fn next(&mut self) -> Option<Self::Item> {
+        let token = self.next_aux();
+        if let Some(token) = token {
+            self.last_token_right_convexity = token.right_convexity();
+        }
+        token
+    }
+}
+
+/// # actions
+impl<'a> Tokenizer<'a> {
+    fn next_aux(&mut self) -> Option<Token> {
         match self.chars.next()? {
             ' ' => self.next(),
             '+' => Some(Opr::ADD.into()),
-            '-' => Some(Opr::SUB.into()),
+            '-' => match self.last_token_right_convexity {
+                Convexity::Convex => Some(Opr::SUB.into()),
+                Convexity::Concave => Some(Opr::MINUS.into()),
+            },
             '*' => Some(Opr::MUL.into()),
             '/' => Some(Opr::DIV.into()),
             '=' => Some(Opr::ASSIGN.into()),
@@ -60,10 +96,7 @@ impl<'a> Iterator for Tokenizer<'a> {
             c => todo!(),
         }
     }
-}
 
-/// # actions
-impl<'a> Tokenizer<'a> {
     fn next_keyword_or_ident(&mut self, c: char) -> Token {
         let mut s = String::from(c);
         s += self
@@ -85,28 +118,61 @@ impl<'a> Tokenizer<'a> {
 
 #[test]
 fn tokenize_works() {
-    expect![[r#"
-        [i`hello`]
-    "#]]
-    .assert_debug_eq(&tokenize("hello"));
-    expect![[r#"
-        [i`hello`]
-    "#]]
-    .assert_debug_eq(&tokenize("hello "));
-    expect![[r#"
-        [i`hello`]
-    "#]]
-    .assert_debug_eq(&tokenize(" hello "));
-    expect![[r#"
-        [k`let`, i`hello`, o`=`, i`world`]
-    "#]]
-    .assert_debug_eq(&tokenize(" let hello = world"));
-    expect![[r#"
-        [k`let`, i`hello`, o`=`, l`1`]
-    "#]]
-    .assert_debug_eq(&tokenize(" let hello = 1"));
-    expect![[r#"
-        [k`let`, i`hello`, o`=`, i`world`, o`+`, l`1`]
-    "#]]
-    .assert_debug_eq(&tokenize(" let hello = world + 1"));
+    fn t(input: &str, expect: Expect) {
+        expect.assert_debug_eq(&tokenize(input));
+    }
+    t(
+        "hello",
+        expect![[r#"
+        [`hello`]
+    "#]],
+    );
+    t(
+        "hello ",
+        expect![[r#"
+        [`hello`]
+    "#]],
+    );
+    t(
+        " hello ",
+        expect![[r#"
+        [`hello`]
+    "#]],
+    );
+    t(
+        " let hello = world",
+        expect![[r#"
+            [`let`, `hello`, `=`, `world`]
+        "#]],
+    );
+    t(
+        " let hello = 1",
+        expect![[r#"
+            [`let`, `hello`, `=`, `1`]
+        "#]],
+    );
+    t(
+        " let hello = world + 1",
+        expect![[r#"
+            [`let`, `hello`, `=`, `world`, `+`, `1`]
+        "#]],
+    );
+    t(
+        "-1",
+        expect![[r#"
+            [`-(minus)`, `1`]
+        "#]],
+    );
+    t(
+        "1+-1",
+        expect![[r#"
+            [`1`, `+`, `-(minus)`, `1`]
+        "#]],
+    );
+    t(
+        "1-1",
+        expect![[r#"
+            [`1`, `-(sub)`, `1`]
+        "#]],
+    );
 }
