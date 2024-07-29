@@ -33,6 +33,17 @@ pub enum AstData {
     LetInit,
 }
 
+impl Into<Option<AstData>> for Token {
+    fn into(self) -> Option<AstData> {
+        match self {
+            Token::Literal(lit) => Some(AstData::Literal(lit)),
+            Token::Keyword(_) => None,
+            Token::Ident(ident) => Some(AstData::Ident(ident)),
+            Token::Opr(_) => None,
+        }
+    }
+}
+
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AstError {
