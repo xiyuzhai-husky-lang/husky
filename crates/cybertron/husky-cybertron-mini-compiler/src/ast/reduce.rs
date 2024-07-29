@@ -1,6 +1,6 @@
 use super::*;
 use husky_cybertron::seq::any::AnySeq;
-use std::collections::HashMap;
+use indexmap::IndexMap;
 
 pub(super) fn reduce_asts_by_opr(
     pre_asts: Seq<Option<PreAst>>,
@@ -20,21 +20,26 @@ fn reduce_asts_by_opr_works() {
     fn t(input: &str, expect: Expect) {
         let toks = tokenize(input);
         let pre_asts = calc_pre_ast_initial_seq(toks);
-        let mut seqs: HashMap<String, AnySeq> = Default::default();
+        let mut seqs: IndexMap<String, AnySeq> = Default::default();
         seqs.insert("pre_asts".into(), pre_asts.into());
         let allocated_asts: Seq<Option<AstData>> = (|_| None).apply(toks);
         let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
         seqs.insert("pre_asts1".into(), pre_asts1.into());
         seqs.insert("allocated_asts1".into(), allocated_asts1.into());
+        let (pre_asts2, allocated_asts2) = reduce_asts_by_opr(pre_asts1, allocated_asts1);
+        seqs.insert("pre_asts2".into(), pre_asts2.into());
+        seqs.insert("allocated_asts2".into(), allocated_asts2.into());
         expect.assert_debug_eq(&seqs)
     }
     t(
         "hello",
         expect![[r#"
             {
+                "pre_asts": [Some(Ident(`hello`))],
                 "pre_asts1": [None],
                 "allocated_asts1": [None],
-                "pre_asts": [Some(Ident(i`hello`))],
+                "pre_asts2": [None],
+                "allocated_asts2": [None],
             }
         "#]],
     );
@@ -42,9 +47,11 @@ fn reduce_asts_by_opr_works() {
         "1",
         expect![[r#"
             {
-                "pre_asts": [Some(Literal(Int(1)))],
+                "pre_asts": [Some(Literal(`1`))],
                 "pre_asts1": [None],
                 "allocated_asts1": [None],
+                "pre_asts2": [None],
+                "allocated_asts2": [None],
             }
         "#]],
     );
@@ -52,9 +59,81 @@ fn reduce_asts_by_opr_works() {
         "1+1",
         expect![[r#"
             {
-                "allocated_asts1": [None, Some(Binary { lopd: Idx(0), ropd: Idx(2) }), None],
-                "pre_asts": [Some(Literal(Int(1))), Some(Binary(Add)), Some(Literal(Int(1)))],
-                "pre_asts1": [None, Some(Binary { lopd: Idx(0), ropd: Idx(2) }), None],
+                "pre_asts": [Some(Literal(`1`)), Some(`+`), Some(Literal(`1`))],
+                "pre_asts1": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+                "allocated_asts1": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+                "pre_asts2": [None, None, None],
+                "allocated_asts2": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+            }
+        "#]],
+    );
+    t(
+        "1+1+1",
+        expect![[r#"
+            {
+                "pre_asts": [
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                    Some(
+                        `+`,
+                    ),
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                    Some(
+                        `+`,
+                    ),
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                ],
+                "pre_asts1": [
+                    None,
+                    Some(
+                        Binary {
+                            lopd: #0,
+                            opr: `+`,
+                            ropd: #2,
+                        },
+                    ),
+                    None,
+                    Some(
+                        `+`,
+                    ),
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                ],
+                "allocated_asts1": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None, None, None],
+                "pre_asts2": [None, None, None, Some(Binary { lopd: #1, opr: `+`, ropd: #4 }), None],
+                "allocated_asts2": [
+                    None,
+                    Some(
+                        Binary {
+                            lopd: #0,
+                            opr: `+`,
+                            ropd: #2,
+                        },
+                    ),
+                    None,
+                    Some(
+                        Binary {
+                            lopd: #1,
+                            opr: `+`,
+                            ropd: #4,
+                        },
+                    ),
+                    None,
+                ],
             }
         "#]],
     );
@@ -70,15 +149,43 @@ pub(crate) fn new_opr_ast(
         return None;
     };
     match opr {
-        Opr::Binary(_) => {
+        Opr::Binary(opr) => {
             let Some((lopd, PreAst::Ast(_))) = nearest_left2.first() else {
                 return None;
             };
             let Some((ropd, PreAst::Ast(_))) = nearest_right2.first() else {
                 return None;
             };
+            if let Some((_, ast)) = nearest_left2.second() {
+                match ast {
+                    PreAst::Keyword(_) => (),
+                    PreAst::Opr(left_opr) => match left_opr {
+                        Opr::Binary(left_opr) => {
+                            /// every binary opr in our small language is left associative, so `>=` instead of `>`
+                            if left_opr.precedence() >= opr.precedence() {
+                                return None;
+                            }
+                        }
+                    },
+                    PreAst::Ast(_) => (),
+                }
+            };
+            if let Some((_, ast)) = nearest_right2.second() {
+                match ast {
+                    PreAst::Keyword(_) => (),
+                    PreAst::Opr(right_opr) => match right_opr {
+                        Opr::Binary(right_opr) => {
+                            /// every binary opr in our small language is left associative, so `<` instead of `<=`
+                            if right_opr.precedence() > opr.precedence() {
+                                return None;
+                            }
+                        }
+                    },
+                    PreAst::Ast(_) => (),
+                }
+            };
             // todo: check precedence
-            Some(AstData::Binary { lopd, ropd })
+            Some(AstData::Binary { lopd, opr, ropd })
         }
     }
 }
@@ -111,7 +218,7 @@ fn reduce_pre_ast_by_opr_left(
     };
     match new_ast_data {
         AstData::Literal(_) | AstData::Ident(_) => unreachable!(),
-        AstData::Binary { lopd, ropd } => {
+        AstData::Binary { lopd, ropd, .. } => {
             if ropd == idx {
                 (None, Some(new_ast_idx))
             } else {
@@ -139,7 +246,7 @@ fn reduce_pre_ast_by_opr_right(
     };
     match new_ast_data {
         AstData::Literal(_) | AstData::Ident(_) => unreachable!(),
-        AstData::Binary { lopd, ropd } => {
+        AstData::Binary { lopd, ropd, .. } => {
             if lopd == idx {
                 (None, Some(new_ast_idx))
             } else {

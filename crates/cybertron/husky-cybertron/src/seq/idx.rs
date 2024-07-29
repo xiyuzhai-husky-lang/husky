@@ -1,7 +1,13 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Idx(ShiftedU32);
+
+impl std::fmt::Debug for Idx {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("#{}", self.0.index()))
+    }
+}
 
 impl Idx {
     pub(super) fn new(i: usize) -> Self {

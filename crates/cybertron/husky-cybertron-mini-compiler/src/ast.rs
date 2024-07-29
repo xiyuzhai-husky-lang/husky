@@ -11,7 +11,7 @@ use husky_cybertron::{
     prelude::*,
     seq::{idx::Idx, Seq},
 };
-use token::tokenize;
+use token::{opr::BinaryOpr, tokenize};
 
 pub struct Ast {
     pub parent: Option<Idx>,
@@ -26,6 +26,7 @@ pub enum AstData {
     /// # exprs
     Binary {
         lopd: Idx,
+        opr: BinaryOpr,
         ropd: Idx,
     },
     /// # stmts
@@ -78,7 +79,7 @@ fn calc_pre_ast_initial_seq_works() {
     t(
         "hello",
         expect![[r#"
-            [Some(Ident(i`hello`))]
+            [Some(Ident(`hello`))]
         "#]],
     );
     t(
@@ -86,31 +87,27 @@ fn calc_pre_ast_initial_seq_works() {
         expect![[r#"
             [
                 Some(
-                    Let,
+                    `let`,
                 ),
                 Some(
                     Ident(
-                        i`hello`,
+                        `hello`,
                     ),
                 ),
                 Some(
-                    Binary(
-                        Assign,
-                    ),
-                ),
-                Some(
-                    Ident(
-                        i`world`,
-                    ),
-                ),
-                Some(
-                    Binary(
-                        Add,
-                    ),
+                    `=`,
                 ),
                 Some(
                     Ident(
-                        i`humans`,
+                        `world`,
+                    ),
+                ),
+                Some(
+                    `+`,
+                ),
+                Some(
+                    Ident(
+                        `humans`,
                     ),
                 ),
             ]
