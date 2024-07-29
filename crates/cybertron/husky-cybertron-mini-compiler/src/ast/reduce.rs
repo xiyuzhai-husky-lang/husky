@@ -22,7 +22,7 @@ fn reduce_asts_by_opr_works() {
         let pre_asts = calc_pre_ast_initial_seq(toks);
         let mut seqs: IndexMap<String, AnySeq> = Default::default();
         seqs.insert("pre_asts".into(), pre_asts.into());
-        let allocated_asts: Seq<Option<AstData>> = (|_| None).apply(toks);
+        let allocated_asts: Seq<Option<AstData>> = toks.map(|tok| tok.into());
         let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
         seqs.insert("pre_asts1".into(), pre_asts1.into());
         seqs.insert("allocated_asts1".into(), allocated_asts1.into());
@@ -37,9 +37,9 @@ fn reduce_asts_by_opr_works() {
             {
                 "pre_asts": [Some(Ident(`hello`))],
                 "pre_asts1": [None],
-                "allocated_asts1": [None],
+                "allocated_asts1": [Some(Ident(`hello`))],
                 "pre_asts2": [None],
-                "allocated_asts2": [None],
+                "allocated_asts2": [Some(Ident(`hello`))],
             }
         "#]],
     );
@@ -49,9 +49,9 @@ fn reduce_asts_by_opr_works() {
             {
                 "pre_asts": [Some(Literal(`1`))],
                 "pre_asts1": [None],
-                "allocated_asts1": [None],
+                "allocated_asts1": [Some(Literal(`1`))],
                 "pre_asts2": [None],
-                "allocated_asts2": [None],
+                "allocated_asts2": [Some(Literal(`1`))],
             }
         "#]],
     );
@@ -61,9 +61,45 @@ fn reduce_asts_by_opr_works() {
             {
                 "pre_asts": [Some(Literal(`1`)), Some(`+`), Some(Literal(`1`))],
                 "pre_asts1": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
-                "allocated_asts1": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+                "allocated_asts1": [
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                    Some(
+                        Binary {
+                            lopd: #0,
+                            opr: `+`,
+                            ropd: #2,
+                        },
+                    ),
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                ],
                 "pre_asts2": [None, None, None],
-                "allocated_asts2": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+                "allocated_asts2": [
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                    Some(
+                        Binary {
+                            lopd: #0,
+                            opr: `+`,
+                            ropd: #2,
+                        },
+                    ),
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                ],
             }
         "#]],
     );
@@ -113,10 +149,12 @@ fn reduce_asts_by_opr_works() {
                         ),
                     ),
                 ],
-                "allocated_asts1": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None, None, None],
-                "pre_asts2": [None, None, None, Some(Binary { lopd: #1, opr: `+`, ropd: #4 }), None],
-                "allocated_asts2": [
-                    None,
+                "allocated_asts1": [
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
                     Some(
                         Binary {
                             lopd: #0,
@@ -124,7 +162,37 @@ fn reduce_asts_by_opr_works() {
                             ropd: #2,
                         },
                     ),
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
                     None,
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                ],
+                "pre_asts2": [None, None, None, Some(Binary { lopd: #1, opr: `+`, ropd: #4 }), None],
+                "allocated_asts2": [
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                    Some(
+                        Binary {
+                            lopd: #0,
+                            opr: `+`,
+                            ropd: #2,
+                        },
+                    ),
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
                     Some(
                         Binary {
                             lopd: #1,
@@ -132,7 +200,11 @@ fn reduce_asts_by_opr_works() {
                             ropd: #4,
                         },
                     ),
-                    None,
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
                 ],
             }
         "#]],
