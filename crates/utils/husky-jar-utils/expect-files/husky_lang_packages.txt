@@ -3465,6 +3465,7 @@
             "husky-cybertron",
             "husky-text-protocol",
             "husky-wild-utils",
+            "indexmap",
             "lazy_static",
             "shifted-unsigned-int",
         ],

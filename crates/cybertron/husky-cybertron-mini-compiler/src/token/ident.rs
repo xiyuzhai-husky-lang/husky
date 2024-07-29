@@ -8,7 +8,7 @@ pub struct Ident(ShiftedU32);
 
 impl std::fmt::Debug for Ident {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "i`{}`", self.data())
+        write!(f, "`{}`", self.data())
     }
 }
 

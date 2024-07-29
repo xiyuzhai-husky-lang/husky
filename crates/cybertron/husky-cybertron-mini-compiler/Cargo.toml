@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 expect-test.workspace = true
+indexmap.workspace = true
 lazy_static.workspace = true
 # abstractions
 enum-class.workspace = true
