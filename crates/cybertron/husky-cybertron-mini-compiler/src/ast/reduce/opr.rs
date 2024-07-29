@@ -4,7 +4,6 @@ pub(super) fn reduce_asts_by_opr(
     pre_asts: Seq<Option<PreAst>>,
     allocated_asts: Seq<Option<Ast>>,
 ) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
-    use husky_print_utils::p;
     let pre_asts_nearest_left2 = pre_asts.nearest_left2();
     let pre_asts_nearest_right2 = pre_asts.nearest_right2();
     let new_opr_asts = new_opr_ast.apply(pre_asts_nearest_left2, pre_asts, pre_asts_nearest_right2);
@@ -714,6 +713,7 @@ pub(crate) fn new_opr_ast(
         return None;
     };
     match opr {
+        Opr::Prefix(_) => todo!(),
         Opr::Binary(opr) => {
             let Some((lopd, PreAst::Ast(_))) = nearest_left2.first() else {
                 return None;
@@ -725,12 +725,14 @@ pub(crate) fn new_opr_ast(
                 match ast {
                     PreAst::Keyword(_) => (),
                     PreAst::Opr(left_opr) => match left_opr {
+                        Opr::Prefix(_) => todo!(),
                         Opr::Binary(left_opr) => {
                             /// every binary opr in our small language is left associative, so `>=` instead of `>`
                             if left_opr.precedence() >= opr.precedence() {
                                 return None;
                             }
                         }
+                        Opr::Suffix(_) => todo!(),
                     },
                     PreAst::Ast(_) => (),
                 }
@@ -739,12 +741,14 @@ pub(crate) fn new_opr_ast(
                 match ast {
                     PreAst::Keyword(_) => (),
                     PreAst::Opr(right_opr) => match right_opr {
+                        Opr::Prefix(_) => todo!(),
                         Opr::Binary(right_opr) => {
                             /// every binary opr in our small language is left associative, so `<` instead of `<=`
                             if right_opr.precedence() > opr.precedence() {
                                 return None;
                             }
                         }
+                        Opr::Suffix(_) => todo!(),
                     },
                     PreAst::Ast(_) => (),
                 }
@@ -752,6 +756,7 @@ pub(crate) fn new_opr_ast(
             // todo: check precedence
             Some(AstData::Binary { lopd, opr, ropd })
         }
+        Opr::Suffix(_) => todo!(),
     }
 }
 

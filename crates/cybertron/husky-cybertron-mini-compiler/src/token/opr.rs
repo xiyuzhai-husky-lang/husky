@@ -1,6 +1,8 @@
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Opr {
+    Prefix(PrefixOpr),
     Binary(BinaryOpr),
+    Suffix(SuffixOpr),
 }
 
 impl std::fmt::Debug for Opr {
@@ -8,6 +10,38 @@ impl std::fmt::Debug for Opr {
         f.write_fmt(format_args!("`{}`", self.data()))
     }
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+pub enum Precedence {
+    AddOrSub,
+    MulOrDiv,
+    Prefix,
+    Suffix,
+}
+
+impl Opr {
+    /// # prefix
+    pub const NOT: Self = Opr::Prefix(PrefixOpr::Not);
+    pub const MINUS: Self = Opr::Prefix(PrefixOpr::Minus);
+    /// # binary
+    pub const ADD: Self = Opr::Binary(BinaryOpr::Add);
+    pub const SUB: Self = Opr::Binary(BinaryOpr::Sub);
+    pub const MUL: Self = Opr::Binary(BinaryOpr::Mul);
+    pub const DIV: Self = Opr::Binary(BinaryOpr::Div);
+    pub const ASSIGN: Self = Opr::Binary(BinaryOpr::Assign);
+}
+
+impl Opr {
+    pub fn data(self) -> &'static str {
+        match self {
+            Opr::Prefix(slf) => slf.data(),
+            Opr::Binary(slf) => slf.data(),
+            Opr::Suffix(slf) => todo!(),
+        }
+    }
+}
+
+/// # binary
 
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum BinaryOpr {
@@ -34,38 +68,38 @@ impl BinaryOpr {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
-pub enum Precedence {
-    AddOrSub,
-    MulOrDiv,
-    Prefix,
-    Suffix,
-}
-
-impl Opr {
-    pub const ADD: Self = Opr::Binary(BinaryOpr::Add);
-    pub const SUB: Self = Opr::Binary(BinaryOpr::Sub);
-    pub const MUL: Self = Opr::Binary(BinaryOpr::Mul);
-    pub const DIV: Self = Opr::Binary(BinaryOpr::Div);
-    pub const ASSIGN: Self = Opr::Binary(BinaryOpr::Assign);
-}
-
-impl Opr {
-    pub fn data(self) -> &'static str {
-        match self {
-            Opr::Binary(slf) => slf.data(),
-        }
-    }
-}
-
 impl BinaryOpr {
     pub fn data(self) -> &'static str {
         match self {
             BinaryOpr::Add => "+",
-            BinaryOpr::Sub => "-",
+            BinaryOpr::Sub => "-(sub)",
             BinaryOpr::Mul => "*",
             BinaryOpr::Div => "/",
             BinaryOpr::Assign => "=",
         }
     }
 }
+
+/// # prefix
+
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum PrefixOpr {
+    Not,
+    Minus,
+}
+
+impl PrefixOpr {
+    pub fn data(self) -> &'static str {
+        match self {
+            PrefixOpr::Not => "!",
+            PrefixOpr::Minus => "-(minus)",
+        }
+    }
+}
+
+/// # suffix
+
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum SuffixOpr {}
+
+impl SuffixOpr {}
