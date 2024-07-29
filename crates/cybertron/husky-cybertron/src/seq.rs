@@ -46,7 +46,7 @@ where
 
 #[macro_export]
 macro_rules! seq {
-    ($($elements: expr),*) => {{
+    ($($elements: expr),* $(,)?) => {{
         Seq::new(vec![$($elements),*])
     }};
 }
@@ -77,6 +77,17 @@ where
 }
 
 impl<T> Copy for Seq<T> where T: Any + Send + Sync {}
+
+impl<T> PartialEq for Seq<T>
+where
+    T: Any + Send + Sync + PartialEq,
+{
+    fn eq(&self, other: &Self) -> bool {
+        self.data() == other.data()
+    }
+}
+
+impl<T> Eq for Seq<T> where T: Any + Send + Sync + Eq {}
 
 impl<T> std::fmt::Debug for Seq<T>
 where

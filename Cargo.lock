@@ -4365,6 +4365,8 @@ dependencies = [
  "enum-class",
  "expect-test",
  "husky-cybertron",
+ "husky-debug-utils",
+ "husky-print-utils",
  "husky-text-protocol",
  "husky-wild-utils",
  "indexmap 2.2.6",

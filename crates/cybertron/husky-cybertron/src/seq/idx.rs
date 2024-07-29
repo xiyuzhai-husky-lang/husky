@@ -10,7 +10,7 @@ impl std::fmt::Debug for Idx {
 }
 
 impl Idx {
-    pub(super) fn new(i: usize) -> Self {
+    pub fn new(i: usize) -> Self {
         Self(i.into())
     }
 }

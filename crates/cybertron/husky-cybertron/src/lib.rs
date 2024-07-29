@@ -1,3 +1,4 @@
+pub mod debug;
 pub mod prelude;
 pub mod seq;
 
