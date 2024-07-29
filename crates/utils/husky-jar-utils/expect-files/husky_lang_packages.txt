@@ -3463,6 +3463,8 @@
             "enum-class",
             "expect-test",
             "husky-cybertron",
+            "husky-debug-utils",
+            "husky-print-utils",
             "husky-text-protocol",
             "husky-wild-utils",
             "indexmap",

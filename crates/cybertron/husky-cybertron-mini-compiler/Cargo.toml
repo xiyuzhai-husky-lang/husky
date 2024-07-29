@@ -23,6 +23,8 @@ husky-cybertron.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # utils
+husky-debug-utils.workspace = true
+husky-print-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [lints]
