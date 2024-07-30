@@ -1,17 +1,41 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub struct Idx(ShiftedU32);
 
+impl std::fmt::Debug for Idx {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("#{}", self.0.index()))
+    }
+}
+
 impl Idx {
-    fn new(i: usize) -> Self {
+    pub fn new(i: usize) -> Self {
         Self(i.into())
     }
 }
 
+#[macro_export]
+macro_rules! idx {
+    ($i: expr) => {
+        $crate::seq::idx::Idx::new($i)
+    };
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Option2<T> {
     first: Option<T>,
     second: Option<T>,
+}
+
+impl<T> Option2<T> {
+    pub fn first(self) -> Option<T> {
+        self.first
+    }
+
+    pub fn second(self) -> Option<T> {
+        self.second
+    }
 }
 
 impl<T> FromIterator<T> for Option2<T> {
@@ -70,7 +94,7 @@ where
 {
     (1..=i)
         .into_iter()
-        .filter_map(|j| ts[(i - j)].map(|t| (Idx::new(i - j), t)))
+        .filter_map(|j| ts[(i - j)].map(|t| (idx!(i - j), t)))
         .next()
 }
 
@@ -80,7 +104,7 @@ where
 {
     (1..=i)
         .into_iter()
-        .filter_map(|j| ts[(i - j)].map(|t| (Idx::new(i - j), t)))
+        .filter_map(|j| ts[(i - j)].map(|t| (idx!(i - j), t)))
         .collect()
 }
 
@@ -90,7 +114,7 @@ where
 {
     ((i + 1)..ts.len())
         .into_iter()
-        .filter_map(|j| ts[j].map(|t| (Idx::new(j), t)))
+        .filter_map(|j| ts[j].map(|t| (idx!(j), t)))
         .next()
 }
 
@@ -100,7 +124,7 @@ where
 {
     ((i + 1)..ts.len())
         .into_iter()
-        .filter_map(|j| ts[j].map(|t| (Idx::new(j), t)))
+        .filter_map(|j| ts[j].map(|t| (idx!(j), t)))
         .collect()
 }
 
@@ -115,16 +139,16 @@ fn seq_nearest_left_works() {
     t::<i32>(seq![], &[]);
     t::<i32>(seq![None], &[None]);
     t::<i32>(seq![None, Some(1)], &[None, None]);
-    t::<i32>(seq![Some(1), None], &[None, Some((Idx::new(0), 1))]);
+    t::<i32>(seq![Some(1), None], &[None, Some((idx!(0), 1))]);
     t(
         seq![None, Some(1), Some(2), Some(3), Some(4), None],
         &[
             None,
             None,
-            Some((Idx::new(1), 1)),
-            Some((Idx::new(2), 2)),
-            Some((Idx::new(3), 3)),
-            Some((Idx::new(4), 4)),
+            Some((idx!(1), 1)),
+            Some((idx!(2), 2)),
+            Some((idx!(3), 3)),
+            Some((idx!(4), 4)),
         ],
     );
 }
@@ -139,15 +163,15 @@ fn seq_nearest_right_works() {
     }
     t::<i32>(seq![], &[]);
     t::<i32>(seq![None], &[None]);
-    t::<i32>(seq![None, Some(1)], &[Some((Idx::new(1), 1)), None]);
+    t::<i32>(seq![None, Some(1)], &[Some((idx!(1), 1)), None]);
     t::<i32>(seq![Some(1), None], &[None, None]);
     t(
         seq![None, Some(1), Some(2), Some(3), Some(4), None],
         &[
-            Some((Idx::new(1), 1)),
-            Some((Idx::new(2), 2)),
-            Some((Idx::new(3), 3)),
-            Some((Idx::new(4), 4)),
+            Some((idx!(1), 1)),
+            Some((idx!(2), 2)),
+            Some((idx!(3), 3)),
+            Some((idx!(4), 4)),
             None,
             None,
         ],

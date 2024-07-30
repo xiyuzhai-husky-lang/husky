@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_path::path::ItemPath;
-use husky_fmt_utils::FmtPunctuated;
+use husky_fmt_utils::punctuated::FmtPunctuated;
 use husky_sem_var_deps::{item_sem_var_deps, var_deps::SemVarDep};
 use mangle::item_path_id_interface_cache_path;
 use salsa::DisplayWithDb;
