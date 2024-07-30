@@ -122,7 +122,7 @@ fn reduce_asts_by_opr_works_as_expected() {
         "1+1",
         expect![[r#"
             {
-                "pre_asts": [Some(Literal(`1`)), Some(`+`), Some(Literal(`1`))],
+                "pre_asts": [Some(Literal(`1`)), Some(`+(add)`), Some(Literal(`1`))],
                 "allocated_asts": [
                     Some(
                         Ast {
@@ -142,7 +142,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         },
                     ),
                 ],
-                "pre_asts1": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+                "pre_asts1": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None],
                 "allocated_asts1": [
                     Some(
                         Ast {
@@ -159,7 +159,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #2,
                             },
                         },
@@ -175,7 +175,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         },
                     ),
                 ],
-                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None],
                 "allocated_asts2": [
                     Some(
                         Ast {
@@ -192,7 +192,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #2,
                             },
                         },
@@ -208,7 +208,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         },
                     ),
                 ],
-                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #2 }), None],
+                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None],
                 "allocated_asts3": [
                     Some(
                         Ast {
@@ -225,7 +225,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #2,
                             },
                         },
@@ -255,7 +255,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         ),
                     ),
                     Some(
-                        `+`,
+                        `+(add)`,
                     ),
                     Some(
                         Literal(
@@ -263,7 +263,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         ),
                     ),
                     Some(
-                        `+`,
+                        `+(add)`,
                     ),
                     Some(
                         Literal(
@@ -304,13 +304,13 @@ fn reduce_asts_by_opr_works_as_expected() {
                     Some(
                         Binary {
                             lopd: #0,
-                            opr: `+`,
+                            opr: `+(add)`,
                             ropd: #2,
                         },
                     ),
                     None,
                     Some(
-                        `+`,
+                        `+(add)`,
                     ),
                     Some(
                         Literal(
@@ -334,7 +334,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #2,
                             },
                         },
@@ -359,7 +359,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         },
                     ),
                 ],
-                "pre_asts2": [None, None, None, Some(Binary { lopd: #1, opr: `+`, ropd: #4 }), None],
+                "pre_asts2": [None, None, None, Some(Binary { lopd: #1, opr: `+(add)`, ropd: #4 }), None],
                 "allocated_asts2": [
                     Some(
                         Ast {
@@ -378,7 +378,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             ),
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #2,
                             },
                         },
@@ -398,7 +398,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #1,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #4,
                             },
                         },
@@ -414,7 +414,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         },
                     ),
                 ],
-                "pre_asts3": [None, None, None, Some(Binary { lopd: #1, opr: `+`, ropd: #4 }), None],
+                "pre_asts3": [None, None, None, Some(Binary { lopd: #1, opr: `+(add)`, ropd: #4 }), None],
                 "allocated_asts3": [
                     Some(
                         Ast {
@@ -433,7 +433,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             ),
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #2,
                             },
                         },
@@ -453,7 +453,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #1,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #4,
                             },
                         },
@@ -484,7 +484,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         ),
                     ),
                     Some(
-                        `+`,
+                        `+(add)`,
                     ),
                     Some(
                         Literal(
@@ -535,7 +535,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         ),
                     ),
                     Some(
-                        `+`,
+                        `+(add)`,
                     ),
                     None,
                     Some(
@@ -588,7 +588,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         },
                     ),
                 ],
-                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #3 }), None, None, None],
+                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #3 }), None, None, None],
                 "allocated_asts2": [
                     Some(
                         Ast {
@@ -605,7 +605,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #3,
                             },
                         },
@@ -643,7 +643,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                         },
                     ),
                 ],
-                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+`, ropd: #3 }), None, None, None],
+                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #3 }), None, None, None],
                 "allocated_asts3": [
                     Some(
                         Ast {
@@ -660,7 +660,7 @@ fn reduce_asts_by_opr_works_as_expected() {
                             parent: None,
                             data: Binary {
                                 lopd: #0,
-                                opr: `+`,
+                                opr: `+(add)`,
                                 ropd: #3,
                             },
                         },
