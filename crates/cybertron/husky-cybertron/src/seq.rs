@@ -3,6 +3,7 @@ pub mod apply;
 pub mod idx;
 
 use crate::*;
+use husky_fmt_utils::compact::FmtCompact;
 use husky_wild_utils::arb_ref;
 use lazy_static::lazy_static;
 use shifted_unsigned_int::ShiftedU32;
@@ -106,7 +107,9 @@ where
         if one_line.len() < 80 {
             f.write_str(&one_line)
         } else {
-            f.debug_list().entries(self.data()).finish()
+            f.debug_list()
+                .entries(self.data().iter().map(FmtCompact))
+                .finish()
         }
     }
 }
