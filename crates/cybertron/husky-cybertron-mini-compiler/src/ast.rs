@@ -11,7 +11,10 @@ use husky_cybertron::{
     prelude::*,
     seq::{idx::Idx, Seq},
 };
-use token::{opr::BinaryOpr, tokenize};
+use token::{
+    opr::{BinaryOpr, PrefixOpr},
+    tokenize,
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Ast {
@@ -25,6 +28,10 @@ pub enum AstData {
     Literal(Literal),
     Ident(Ident),
     /// # exprs
+    Prefix {
+        opr: PrefixOpr,
+        opd: Idx,
+    },
     Binary {
         lopd: Idx,
         opr: BinaryOpr,

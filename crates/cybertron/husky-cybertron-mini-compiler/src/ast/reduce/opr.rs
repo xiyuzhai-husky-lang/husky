@@ -1,3 +1,5 @@
+use token::opr::PrefixOpr;
+
 use super::*;
 
 pub(super) fn reduce_asts_by_opr(
@@ -15,7 +17,7 @@ pub(super) fn reduce_asts_by_opr(
 }
 
 #[test]
-fn reduce_asts_by_opr_works1() {
+fn reduce_asts_by_binary_opr_works1() {
     let pre_asts = seq![
         Some(PreAst::Ast(AstData::Literal(Literal::Int(1)))),
         Some(PreAst::Opr(Opr::Binary(BinaryOpr::Add))),
@@ -62,6 +64,48 @@ fn reduce_asts_by_opr_works1() {
             }),
             Some(Ast {
                 parent: Some(idx!(1)),
+                data: AstData::Literal(Literal::Int(1))
+            }),
+        ]
+    );
+}
+
+#[test]
+fn reduce_asts_by_prefix_opr_works1() {
+    let pre_asts = seq![
+        Some(PreAst::Opr(Opr::Prefix(PrefixOpr::Minus))),
+        Some(PreAst::Ast(AstData::Literal(Literal::Int(1)))),
+    ];
+    let allocated_asts = seq![
+        None,
+        Some(Ast {
+            parent: None,
+            data: AstData::Literal(Literal::Int(1))
+        }),
+    ];
+    let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
+    assert_eq!(
+        pre_asts1,
+        seq![
+            Some(PreAst::Ast(AstData::Prefix {
+                opr: PrefixOpr::Minus,
+                opd: idx!(1),
+            })),
+            None
+        ]
+    );
+    assert_eq!(
+        allocated_asts1,
+        seq![
+            Some(Ast {
+                parent: None,
+                data: AstData::Prefix {
+                    opr: PrefixOpr::Minus,
+                    opd: idx!(1),
+                }
+            }),
+            Some(Ast {
+                parent: Some(idx!(0)),
                 data: AstData::Literal(Literal::Int(1))
             }),
         ]
@@ -701,6 +745,78 @@ fn reduce_asts_by_opr_works_as_expected() {
             }
         "#]],
     );
+    t("-1", expect![[r#"
+        {
+            "pre_asts": [Some(`-(minus)`), Some(Literal(`1`))],
+            "allocated_asts": [None, Some(Ast { parent: None, data: Literal(`1`) })],
+            "pre_asts1": [Some(Prefix { opr: `-(minus)`, opd: #1 }), None],
+            "allocated_asts1": [
+                Some(
+                    Ast {
+                        parent: None,
+                        data: Prefix {
+                            opr: `-(minus)`,
+                            opd: #1,
+                        },
+                    },
+                ),
+                Some(
+                    Ast {
+                        parent: Some(
+                            #0,
+                        ),
+                        data: Literal(
+                            `1`,
+                        ),
+                    },
+                ),
+            ],
+            "pre_asts2": [Some(Prefix { opr: `-(minus)`, opd: #1 }), None],
+            "allocated_asts2": [
+                Some(
+                    Ast {
+                        parent: None,
+                        data: Prefix {
+                            opr: `-(minus)`,
+                            opd: #1,
+                        },
+                    },
+                ),
+                Some(
+                    Ast {
+                        parent: Some(
+                            #0,
+                        ),
+                        data: Literal(
+                            `1`,
+                        ),
+                    },
+                ),
+            ],
+            "pre_asts3": [Some(Prefix { opr: `-(minus)`, opd: #1 }), None],
+            "allocated_asts3": [
+                Some(
+                    Ast {
+                        parent: None,
+                        data: Prefix {
+                            opr: `-(minus)`,
+                            opd: #1,
+                        },
+                    },
+                ),
+                Some(
+                    Ast {
+                        parent: Some(
+                            #0,
+                        ),
+                        data: Literal(
+                            `1`,
+                        ),
+                    },
+                ),
+            ],
+        }
+    "#]]);
 }
 
 /// a finite function
@@ -713,7 +829,28 @@ pub(crate) fn new_opr_ast(
         return None;
     };
     match opr {
-        Opr::Prefix(_) => todo!(),
+        Opr::Prefix(opr) => {
+            let Some((opd, PreAst::Ast(_))) = nearest_right2.first() else {
+                return None;
+            };
+            if let Some((_, ast)) = nearest_right2.second() {
+                match ast {
+                    PreAst::Keyword(_) => (),
+                    PreAst::Opr(right_opr) => match right_opr {
+                        Opr::Prefix(_) => (),
+                        Opr::Binary(right_opr) => {
+                            /// every binary opr in our small language is left associative, so `<` instead of `<=`
+                            if right_opr.precedence() > opr.precedence() {
+                                return None;
+                            }
+                        }
+                        Opr::Suffix(_) => todo!(),
+                    },
+                    PreAst::Ast(_) => (),
+                }
+            };
+            Some(AstData::Prefix { opr, opd })
+        }
         Opr::Binary(opr) => {
             let Some((lopd, PreAst::Ast(_))) = nearest_left2.first() else {
                 return None;
@@ -753,7 +890,6 @@ pub(crate) fn new_opr_ast(
                     PreAst::Ast(_) => (),
                 }
             };
-            // todo: check precedence
             Some(AstData::Binary { lopd, opr, ropd })
         }
         Opr::Suffix(_) => todo!(),
@@ -805,6 +941,13 @@ fn reduce_pre_ast_by_opr_left(
             }
         }
         AstData::LetInit => todo!(),
+        AstData::Prefix { opr, opd } => {
+            if opd == idx {
+                (None, Some(new_ast_idx))
+            } else {
+                (Some(pre_ast), None)
+            }
+        }
     }
 }
 
@@ -833,6 +976,7 @@ fn reduce_pre_ast_by_opr_right(
             }
         }
         AstData::LetInit => todo!(),
+        AstData::Prefix { opr, opd } => todo!(),
     }
 }
 
