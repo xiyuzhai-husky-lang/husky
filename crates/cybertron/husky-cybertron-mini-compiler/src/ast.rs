@@ -50,6 +50,10 @@ pub enum AstData {
         data: DelimitedData,
         right_delimiter: Idx,
     },
+    SeparatedItem {
+        content: Option<Idx>,
+        separator: Separator,
+    },
     /// things like `f(...)` or `a[...]`
     CallOrIndex {
         caller: Idx,
