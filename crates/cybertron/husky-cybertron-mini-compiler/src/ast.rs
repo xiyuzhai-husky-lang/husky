@@ -110,30 +110,12 @@ fn calc_pre_ast_initial_seq_works() {
         "let hello = world + humans",
         expect![[r#"
             [
-                Some(
-                    `let`,
-                ),
-                Some(
-                    Ident(
-                        `hello`,
-                    ),
-                ),
-                Some(
-                    `=`,
-                ),
-                Some(
-                    Ident(
-                        `world`,
-                    ),
-                ),
-                Some(
-                    `+(add)`,
-                ),
-                Some(
-                    Ident(
-                        `humans`,
-                    ),
-                ),
+                Some(`let`),
+                Some(Ident(`hello`)),
+                Some(`=`),
+                Some(Ident(`world`)),
+                Some(`+(add)`),
+                Some(Ident(`humans`)),
             ]
         "#]],
     );

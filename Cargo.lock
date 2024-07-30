@@ -4343,6 +4343,7 @@ dependencies = [
  "expect-test",
  "husky-cybertron-macros",
  "husky-decl-macro-utils",
+ "husky-fmt-utils",
  "husky-wild-utils",
  "lazy_static",
  "paste",

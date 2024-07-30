@@ -20,6 +20,7 @@ paste.workspace = true
 husky-cybertron-macros.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
+husky-fmt-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [dev-dependencies]
