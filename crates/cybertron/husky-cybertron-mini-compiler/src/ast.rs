@@ -45,8 +45,39 @@ pub enum AstData {
         opd: Idx,
         opr: SuffixOpr,
     },
+    Delimited {
+        left_delimiter: Idx,
+        data: DelimitedData,
+        right_delimiter: Idx,
+    },
+    /// things like `f(...)` or `a[...]`
+    CallOrIndex {
+        caller: Idx,
+        arguments: Idx,
+    },
+    Defn {
+        keyword: Keyword,
+        name: Ident,
+        data: DefnData,
+    },
     /// # stmts
-    LetInit,
+    LetInit {
+        pattern: Idx,
+        initial_value: Idx,
+    },
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DelimitedData {
+    Empty,
+    OnlyOne,
+    List,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum DefnData {
+    Type { content: Idx },
+    Func { head: Idx, body: Idx },
 }
 
 impl Into<Option<Ast>> for Token {
