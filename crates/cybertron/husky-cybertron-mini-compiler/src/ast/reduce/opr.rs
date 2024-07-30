@@ -424,17 +424,22 @@ pub(crate) fn new_opr_ast(
                     PreAst::Opr(right_opr) => match right_opr {
                         Opr::Prefix(_) => (),
                         Opr::Binary(right_opr) => {
-                            /// every binary opr in our small language is left associative, so `<` instead of `<=`
+                            // every binary opr in our small language is left associative, so `<` instead of `<=`
                             if right_opr.precedence() > opr.precedence() {
                                 return None;
                             }
                         }
-                        Opr::Suffix(_) => todo!(),
+                        Opr::Suffix(right_opr) => {
+                            if right_opr.precedence() > opr.precedence() {
+                                return None;
+                            }
+                        }
                     },
                     PreAst::Ast(_) => (),
-                    PreAst::LeftDelimiter(_) => todo!(),
-                    PreAst::RightDelimiter(_) => todo!(),
-                    PreAst::Separator(_) => todo!(),
+                    // function call or index takes higher precedence
+                    PreAst::LeftDelimiter(_) => return None,
+                    PreAst::RightDelimiter(_) => (),
+                    PreAst::Separator(_) => (),
                 }
             };
             Some(AstData::Prefix { opr, opd })
@@ -450,38 +455,47 @@ pub(crate) fn new_opr_ast(
                 match ast {
                     PreAst::Keyword(_) => (),
                     PreAst::Opr(left_opr) => match left_opr {
-                        Opr::Prefix(_) => todo!(),
+                        Opr::Prefix(left_opr) => {
+                            if left_opr.precedence() >= opr.precedence() {
+                                return None;
+                            }
+                        }
                         Opr::Binary(left_opr) => {
                             /// every binary opr in our small language is left associative, so `>=` instead of `>`
                             if left_opr.precedence() >= opr.precedence() {
                                 return None;
                             }
                         }
-                        Opr::Suffix(_) => todo!(),
+                        Opr::Suffix(_) => (), // actually this will be a syntax error
                     },
                     PreAst::Ast(_) => (),
-                    PreAst::LeftDelimiter(_) => todo!(),
-                    PreAst::RightDelimiter(_) => todo!(),
-                    PreAst::Separator(_) => todo!(),
+                    PreAst::LeftDelimiter(_) => (),
+                    PreAst::RightDelimiter(_) => (),
+                    PreAst::Separator(_) => (),
                 }
             };
             if let Some((_, ast)) = nearest_right2.second() {
                 match ast {
                     PreAst::Keyword(_) => (),
                     PreAst::Opr(right_opr) => match right_opr {
-                        Opr::Prefix(_) => todo!(),
+                        Opr::Prefix(_) => (), // actually this will be a syntax error
                         Opr::Binary(right_opr) => {
                             /// every binary opr in our small language is left associative, so `<` instead of `<=`
                             if right_opr.precedence() > opr.precedence() {
                                 return None;
                             }
                         }
-                        Opr::Suffix(_) => todo!(),
+                        Opr::Suffix(right_opr) => {
+                            if right_opr.precedence() >= opr.precedence() {
+                                return None;
+                            }
+                        }
                     },
-                    PreAst::LeftDelimiter(_) => todo!(),
-                    PreAst::RightDelimiter(_) => todo!(),
+                    // function call or index takes higher precedence
+                    PreAst::LeftDelimiter(_) => return None,
+                    PreAst::RightDelimiter(_) => (),
                     PreAst::Ast(_) => (),
-                    PreAst::Separator(_) => todo!(),
+                    PreAst::Separator(_) => (),
                 }
             };
             Some(AstData::Binary { lopd, opr, ropd })
@@ -494,7 +508,11 @@ pub(crate) fn new_opr_ast(
                 match ast {
                     PreAst::Keyword(_) => (),
                     PreAst::Opr(right_opr) => match right_opr {
-                        Opr::Prefix(_) => todo!(),
+                        Opr::Prefix(right_opr) => {
+                            if right_opr.precedence() > opr.precedence() {
+                                return None;
+                            }
+                        }
                         Opr::Binary(right_opr) => {
                             /// every binary opr in our small language is left associative, so `<` instead of `<=`
                             if right_opr.precedence() > opr.precedence() {
@@ -503,10 +521,10 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => (),
                     },
-                    PreAst::LeftDelimiter(_) => todo!(),
-                    PreAst::RightDelimiter(_) => todo!(),
+                    PreAst::LeftDelimiter(_) => (),
+                    PreAst::RightDelimiter(_) => (),
                     PreAst::Ast(_) => (),
-                    PreAst::Separator(_) => todo!(),
+                    PreAst::Separator(_) => (),
                 }
             };
             Some(AstData::Suffix { opr, opd })
