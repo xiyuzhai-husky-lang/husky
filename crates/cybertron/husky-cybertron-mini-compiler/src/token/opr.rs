@@ -122,6 +122,18 @@ pub enum SuffixOpr {
 }
 
 impl SuffixOpr {
+    pub fn precedence(self) -> Precedence {
+        Precedence::Suffix
+    }
+}
+
+impl std::fmt::Debug for SuffixOpr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.data()))
+    }
+}
+
+impl SuffixOpr {
     pub fn data(self) -> &'static str {
         match self {
             SuffixOpr::Incr => "++",
