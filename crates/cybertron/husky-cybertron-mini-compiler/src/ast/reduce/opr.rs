@@ -862,6 +862,169 @@ fn reduce_asts_by_opr_works_as_expected() {
         }
     "#]],
     );
+    t(
+        "1+-1",
+        expect![[r#"
+            {
+                "pre_asts": [Some(Literal(`1`)), Some(`+(add)`), Some(`-(minus)`), Some(Literal(`1`))],
+                "allocated_asts": [
+                    Some(
+                        Ast {
+                            parent: None,
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                    None,
+                    None,
+                    Some(
+                        Ast {
+                            parent: None,
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                ],
+                "pre_asts1": [
+                    Some(
+                        Literal(
+                            `1`,
+                        ),
+                    ),
+                    Some(
+                        `+(add)`,
+                    ),
+                    Some(
+                        Prefix {
+                            opr: `-(minus)`,
+                            opd: #3,
+                        },
+                    ),
+                    None,
+                ],
+                "allocated_asts1": [
+                    Some(
+                        Ast {
+                            parent: None,
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                    None,
+                    Some(
+                        Ast {
+                            parent: None,
+                            data: Prefix {
+                                opr: `-(minus)`,
+                                opd: #3,
+                            },
+                        },
+                    ),
+                    Some(
+                        Ast {
+                            parent: Some(
+                                #2,
+                            ),
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                ],
+                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None, None],
+                "allocated_asts2": [
+                    Some(
+                        Ast {
+                            parent: Some(
+                                #1,
+                            ),
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                    Some(
+                        Ast {
+                            parent: None,
+                            data: Binary {
+                                lopd: #0,
+                                opr: `+(add)`,
+                                ropd: #2,
+                            },
+                        },
+                    ),
+                    Some(
+                        Ast {
+                            parent: Some(
+                                #1,
+                            ),
+                            data: Prefix {
+                                opr: `-(minus)`,
+                                opd: #3,
+                            },
+                        },
+                    ),
+                    Some(
+                        Ast {
+                            parent: Some(
+                                #2,
+                            ),
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                ],
+                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None, None],
+                "allocated_asts3": [
+                    Some(
+                        Ast {
+                            parent: Some(
+                                #1,
+                            ),
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                    Some(
+                        Ast {
+                            parent: None,
+                            data: Binary {
+                                lopd: #0,
+                                opr: `+(add)`,
+                                ropd: #2,
+                            },
+                        },
+                    ),
+                    Some(
+                        Ast {
+                            parent: Some(
+                                #1,
+                            ),
+                            data: Prefix {
+                                opr: `-(minus)`,
+                                opd: #3,
+                            },
+                        },
+                    ),
+                    Some(
+                        Ast {
+                            parent: Some(
+                                #2,
+                            ),
+                            data: Literal(
+                                `1`,
+                            ),
+                        },
+                    ),
+                ],
+            }
+        "#]],
+    );
 }
 
 /// a finite function
