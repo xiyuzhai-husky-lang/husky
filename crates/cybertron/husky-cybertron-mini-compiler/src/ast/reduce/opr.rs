@@ -1,4 +1,4 @@
-use token::opr::PrefixOpr;
+use token::opr::{PrefixOpr, SuffixOpr};
 
 use super::*;
 
@@ -107,6 +107,48 @@ fn reduce_asts_by_prefix_opr_works1() {
             Some(Ast {
                 parent: Some(idx!(0)),
                 data: AstData::Literal(Literal::Int(1))
+            }),
+        ]
+    );
+}
+
+#[test]
+fn reduce_asts_by_suffix_opr_works1() {
+    let pre_asts = seq![
+        Some(PreAst::Ast(AstData::Literal(Literal::Int(1)))),
+        Some(PreAst::Opr(Opr::Suffix(SuffixOpr::Decr))),
+    ];
+    let allocated_asts = seq![
+        Some(Ast {
+            parent: None,
+            data: AstData::Literal(Literal::Int(1))
+        }),
+        None,
+    ];
+    let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
+    assert_eq!(
+        pre_asts1,
+        seq![
+            None,
+            Some(PreAst::Ast(AstData::Suffix {
+                opr: SuffixOpr::Decr,
+                opd: idx!(0),
+            })),
+        ]
+    );
+    assert_eq!(
+        allocated_asts1,
+        seq![
+            Some(Ast {
+                parent: Some(idx!(1)),
+                data: AstData::Literal(Literal::Int(1))
+            }),
+            Some(Ast {
+                parent: None,
+                data: AstData::Suffix {
+                    opr: SuffixOpr::Decr,
+                    opd: idx!(0),
+                }
             }),
         ]
     );
@@ -745,7 +787,9 @@ fn reduce_asts_by_opr_works_as_expected() {
             }
         "#]],
     );
-    t("-1", expect![[r#"
+    t(
+        "-1",
+        expect![[r#"
         {
             "pre_asts": [Some(`-(minus)`), Some(Literal(`1`))],
             "allocated_asts": [None, Some(Ast { parent: None, data: Literal(`1`) })],
@@ -816,7 +860,8 @@ fn reduce_asts_by_opr_works_as_expected() {
                 ),
             ],
         }
-    "#]]);
+    "#]],
+    );
 }
 
 /// a finite function
@@ -892,7 +937,28 @@ pub(crate) fn new_opr_ast(
             };
             Some(AstData::Binary { lopd, opr, ropd })
         }
-        Opr::Suffix(_) => todo!(),
+        Opr::Suffix(opr) => {
+            let Some((opd, PreAst::Ast(_))) = nearest_left2.first() else {
+                return None;
+            };
+            if let Some((_, ast)) = nearest_left2.second() {
+                match ast {
+                    PreAst::Keyword(_) => (),
+                    PreAst::Opr(right_opr) => match right_opr {
+                        Opr::Prefix(_) => todo!(),
+                        Opr::Binary(right_opr) => {
+                            /// every binary opr in our small language is left associative, so `<` instead of `<=`
+                            if right_opr.precedence() > opr.precedence() {
+                                return None;
+                            }
+                        }
+                        Opr::Suffix(_) => (),
+                    },
+                    PreAst::Ast(_) => (),
+                }
+            };
+            Some(AstData::Suffix { opr, opd })
+        }
     }
 }
 
@@ -932,22 +998,10 @@ fn reduce_pre_ast_by_opr_left(
         return (Some(pre_ast), None);
     };
     match new_ast_data {
-        AstData::Literal(_) | AstData::Ident(_) => unreachable!(),
-        AstData::Binary { ropd, .. } => {
-            if ropd == idx {
-                (None, Some(new_ast_idx))
-            } else {
-                (Some(pre_ast), None)
-            }
+        AstData::Binary { ropd: opd, .. } | AstData::Prefix { opd, .. } if opd == idx => {
+            (None, Some(new_ast_idx))
         }
-        AstData::LetInit => todo!(),
-        AstData::Prefix { opr, opd } => {
-            if opd == idx {
-                (None, Some(new_ast_idx))
-            } else {
-                (Some(pre_ast), None)
-            }
-        }
+        _ => (Some(pre_ast), None),
     }
 }
 
@@ -967,16 +1021,10 @@ fn reduce_pre_ast_by_opr_right(
         return (Some(pre_ast), None);
     };
     match new_ast_data {
-        AstData::Literal(_) | AstData::Ident(_) => unreachable!(),
-        AstData::Binary { lopd, .. } => {
-            if lopd == idx {
-                (None, Some(new_ast_idx))
-            } else {
-                (Some(pre_ast), None)
-            }
+        AstData::Binary { lopd: opd, .. } | AstData::Suffix { opd, .. } if opd == idx => {
+            (None, Some(new_ast_idx))
         }
-        AstData::LetInit => todo!(),
-        AstData::Prefix { opr, opd } => todo!(),
+        _ => (Some(pre_ast), None),
     }
 }
 

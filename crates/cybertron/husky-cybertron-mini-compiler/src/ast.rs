@@ -12,7 +12,7 @@ use husky_cybertron::{
     seq::{idx::Idx, Seq},
 };
 use token::{
-    opr::{BinaryOpr, PrefixOpr},
+    opr::{BinaryOpr, PrefixOpr, SuffixOpr},
     tokenize,
 };
 
@@ -36,6 +36,10 @@ pub enum AstData {
         lopd: Idx,
         opr: BinaryOpr,
         ropd: Idx,
+    },
+    Suffix {
+        opd: Idx,
+        opr: SuffixOpr,
     },
     /// # stmts
     LetInit,
