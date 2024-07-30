@@ -1,6 +1,8 @@
 mod alloc;
 mod reduce;
 
+use std::fmt::Pointer;
+
 use self::{alloc::*, reduce::*};
 use crate::{
     token::{ident::Ident, keyword::Keyword, literal::Literal, opr::Opr, Token},
@@ -12,7 +14,9 @@ use husky_cybertron::{
     seq::{idx::Idx, Seq},
 };
 use token::{
+    delimiter::{LeftDelimiter, RightDelimiter},
     opr::{BinaryOpr, PrefixOpr, SuffixOpr},
+    separator::Separator,
     tokenize,
 };
 
@@ -52,6 +56,9 @@ impl Into<Option<Ast>> for Token {
             Token::Keyword(_) => None,
             Token::Ident(ident) => Some(AstData::Ident(ident)),
             Token::Opr(_) => None,
+            Token::LeftDelimiter(_) => None,
+            Token::RightDelimiter(_) => None,
+            Token::Separator(_) => None,
         }?;
         Some(Ast { parent: None, data })
     }
@@ -67,26 +74,35 @@ pub enum AstError {
 pub enum PreAst {
     Keyword(Keyword),
     Opr(Opr),
+    LeftDelimiter(LeftDelimiter),
+    RightDelimiter(RightDelimiter),
     Ast(AstData),
+    Separator(Separator),
 }
 
 impl std::fmt::Debug for PreAst {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Keyword(slf) => slf.fmt(f),
-            Self::Opr(slf) => slf.fmt(f),
-            Self::Ast(slf) => slf.fmt(f),
+            PreAst::Keyword(slf) => slf.fmt(f),
+            PreAst::Opr(slf) => slf.fmt(f),
+            PreAst::LeftDelimiter(slf) => slf.fmt(f),
+            PreAst::RightDelimiter(slf) => slf.fmt(f),
+            PreAst::Ast(slf) => slf.fmt(f),
+            PreAst::Separator(slf) => slf.fmt(f),
         }
     }
 }
 
 impl From<Token> for PreAst {
-    fn from(tok: Token) -> Self {
-        match tok {
+    fn from(token: Token) -> Self {
+        match token {
             Token::Keyword(kw) => PreAst::Keyword(kw),
             Token::Ident(ident) => PreAst::Ast(AstData::Ident(ident)),
             Token::Opr(opr) => PreAst::Opr(opr),
             Token::Literal(lit) => PreAst::Ast(AstData::Literal(lit)),
+            Token::LeftDelimiter(delimiter) => PreAst::LeftDelimiter(delimiter),
+            Token::RightDelimiter(delimiter) => PreAst::RightDelimiter(delimiter),
+            Token::Separator(separator) => PreAst::Separator(separator),
         }
     }
 }

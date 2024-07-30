@@ -432,6 +432,9 @@ pub(crate) fn new_opr_ast(
                         Opr::Suffix(_) => todo!(),
                     },
                     PreAst::Ast(_) => (),
+                    PreAst::LeftDelimiter(_) => todo!(),
+                    PreAst::RightDelimiter(_) => todo!(),
+                    PreAst::Separator(_) => todo!(),
                 }
             };
             Some(AstData::Prefix { opr, opd })
@@ -457,6 +460,9 @@ pub(crate) fn new_opr_ast(
                         Opr::Suffix(_) => todo!(),
                     },
                     PreAst::Ast(_) => (),
+                    PreAst::LeftDelimiter(_) => todo!(),
+                    PreAst::RightDelimiter(_) => todo!(),
+                    PreAst::Separator(_) => todo!(),
                 }
             };
             if let Some((_, ast)) = nearest_right2.second() {
@@ -472,7 +478,10 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => todo!(),
                     },
+                    PreAst::LeftDelimiter(_) => todo!(),
+                    PreAst::RightDelimiter(_) => todo!(),
                     PreAst::Ast(_) => (),
+                    PreAst::Separator(_) => todo!(),
                 }
             };
             Some(AstData::Binary { lopd, opr, ropd })
@@ -494,7 +503,10 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => (),
                     },
+                    PreAst::LeftDelimiter(_) => todo!(),
+                    PreAst::RightDelimiter(_) => todo!(),
                     PreAst::Ast(_) => (),
+                    PreAst::Separator(_) => todo!(),
                 }
             };
             Some(AstData::Suffix { opr, opd })
