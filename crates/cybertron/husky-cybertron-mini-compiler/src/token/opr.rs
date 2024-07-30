@@ -93,6 +93,12 @@ pub enum PrefixOpr {
     Plus,
 }
 
+impl std::fmt::Debug for PrefixOpr {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.data()))
+    }
+}
+
 impl PrefixOpr {
     pub fn data(self) -> &'static str {
         match self {
@@ -100,6 +106,10 @@ impl PrefixOpr {
             PrefixOpr::Plus => "+(plus)",
             PrefixOpr::Minus => "-(minus)",
         }
+    }
+
+    pub fn precedence(self) -> Precedence {
+        Precedence::Prefix
     }
 }
 
