@@ -83,10 +83,25 @@ impl<'a> Tokenizer<'a> {
     fn next_aux(&mut self) -> Option<Token> {
         match self.chars.next()? {
             ' ' => self.next(),
-            '+' => Some(Opr::ADD.into()),
-            '-' => match self.last_token_right_convexity {
-                Convexity::Convex => Some(Opr::SUB.into()),
-                Convexity::Concave => Some(Opr::MINUS.into()),
+            '+' => match self.chars.peek() {
+                Some('+') => {
+                    self.chars.next();
+                    Some(Opr::INCR.into())
+                }
+                _ => match self.last_token_right_convexity {
+                    Convexity::Convex => Some(Opr::ADD.into()),
+                    Convexity::Concave => Some(Opr::PLUS.into()),
+                },
+            },
+            '-' => match self.chars.peek() {
+                Some('-') => {
+                    self.chars.next();
+                    Some(Opr::DECR.into())
+                }
+                _ => match self.last_token_right_convexity {
+                    Convexity::Convex => Some(Opr::SUB.into()),
+                    Convexity::Concave => Some(Opr::MINUS.into()),
+                },
             },
             '*' => Some(Opr::MUL.into()),
             '/' => Some(Opr::DIV.into()),
@@ -154,7 +169,7 @@ fn tokenize_works() {
     t(
         " let hello = world + 1",
         expect![[r#"
-            [`let`, `hello`, `=`, `world`, `+`, `1`]
+            [`let`, `hello`, `=`, `world`, `+(add)`, `1`]
         "#]],
     );
     t(
@@ -166,13 +181,25 @@ fn tokenize_works() {
     t(
         "1+-1",
         expect![[r#"
-            [`1`, `+`, `-(minus)`, `1`]
+            [`1`, `+(add)`, `-(minus)`, `1`]
         "#]],
     );
     t(
         "1-1",
         expect![[r#"
             [`1`, `-(sub)`, `1`]
+        "#]],
+    );
+    t(
+        "x++",
+        expect![[r#"
+            [`x`, `++`]
+        "#]],
+    );
+    t(
+        "x--",
+        expect![[r#"
+            [`x`, `--`]
         "#]],
     );
 }

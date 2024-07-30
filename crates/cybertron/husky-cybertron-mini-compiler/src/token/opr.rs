@@ -22,6 +22,7 @@ pub enum Precedence {
 impl Opr {
     /// # prefix
     pub const NOT: Self = Opr::Prefix(PrefixOpr::Not);
+    pub const PLUS: Self = Opr::Prefix(PrefixOpr::Plus);
     pub const MINUS: Self = Opr::Prefix(PrefixOpr::Minus);
     /// # binary
     pub const ADD: Self = Opr::Binary(BinaryOpr::Add);
@@ -29,6 +30,9 @@ impl Opr {
     pub const MUL: Self = Opr::Binary(BinaryOpr::Mul);
     pub const DIV: Self = Opr::Binary(BinaryOpr::Div);
     pub const ASSIGN: Self = Opr::Binary(BinaryOpr::Assign);
+    /// # suffix
+    pub const INCR: Self = Opr::Suffix(SuffixOpr::Incr);
+    pub const DECR: Self = Opr::Suffix(SuffixOpr::Decr);
 }
 
 impl Opr {
@@ -36,7 +40,7 @@ impl Opr {
         match self {
             Opr::Prefix(slf) => slf.data(),
             Opr::Binary(slf) => slf.data(),
-            Opr::Suffix(slf) => todo!(),
+            Opr::Suffix(slf) => slf.data(),
         }
     }
 }
@@ -71,7 +75,7 @@ impl BinaryOpr {
 impl BinaryOpr {
     pub fn data(self) -> &'static str {
         match self {
-            BinaryOpr::Add => "+",
+            BinaryOpr::Add => "+(add)",
             BinaryOpr::Sub => "-(sub)",
             BinaryOpr::Mul => "*",
             BinaryOpr::Div => "/",
@@ -86,12 +90,14 @@ impl BinaryOpr {
 pub enum PrefixOpr {
     Not,
     Minus,
+    Plus,
 }
 
 impl PrefixOpr {
     pub fn data(self) -> &'static str {
         match self {
             PrefixOpr::Not => "!",
+            PrefixOpr::Plus => "+(plus)",
             PrefixOpr::Minus => "-(minus)",
         }
     }
@@ -100,6 +106,16 @@ impl PrefixOpr {
 /// # suffix
 
 #[derive(Clone, Copy, PartialEq, Eq)]
-pub enum SuffixOpr {}
+pub enum SuffixOpr {
+    Incr,
+    Decr,
+}
 
-impl SuffixOpr {}
+impl SuffixOpr {
+    pub fn data(self) -> &'static str {
+        match self {
+            SuffixOpr::Incr => "++",
+            SuffixOpr::Decr => "--",
+        }
+    }
+}

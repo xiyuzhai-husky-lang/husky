@@ -116,7 +116,7 @@ fn calc_pre_ast_initial_seq_works() {
                     ),
                 ),
                 Some(
-                    `+`,
+                    `+(add)`,
                 ),
                 Some(
                     Ident(
