@@ -1,6 +1,12 @@
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Keyword {
     Let,
+}
+
+impl std::fmt::Debug for Keyword {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.data()))
+    }
 }
 
 impl Keyword {

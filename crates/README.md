@@ -1,89 +1,93 @@
-# abstraction
+# crates
+
+## abstraction
 
 abstraction of data structure and traits.
 
-# apps
+## apps
 
 applications for language users.
 
-# benchmarks
+## benchmarks
 
 benchmarks.
 
-# comptime
+## comptime
 
 everything about compilation.
 
-# devtime
+## devsoul
 
-everything about development in husky.
+The specification of husky devtime implementation.
 
-# devtools
+## devtime
 
-simple tools for language develepment
+The backend, functioning as compiler + debugger.
 
-# fs
+## fs
 
-Everything about file system, such as toolchain, workspace, package, crate, module, etc.
+Everything about file system, such as toolchain, workspace, package, crate, module, etc. A safe wrapper that supports incremental computation.
 
-# gui
+## gadgets
 
-Graphics user interface for husky debugger.
+simple tools for husky language develepment
 
-# hir
+## gui
 
-High-level intermediate representation.
+Graphics user interface libraries for husky debugger.
 
-# ide
+## hir
 
-IDE support, such as auto completion, diagnostics et al.
+High-level intermediate representation. It includes only runtime constructs, and excludes those compterms that don't affect runtime behavior. Everything is carefully stored as interned values for version stamp purposes.
 
-# kernel
+## ide
 
-a minimal set of axioms for the language.
+IDE support, such as hover info, auto completion, diagnostics et al.
 
-# ki
+## kernel
 
-`Ki` is a the function a generalized computation graph node represents.
+The kernel of the language, fundamental things of the language design including the definition of entity paths, terms, etc.
+
+## ki
+
+`Ki` is a node in the generalized computation graph.
 
 This crate group is about its definition, representation, etc.
 
-# lex
+## lex
 
-lexical analysis.
+Lexical analysis.
 
-decomposed source code to tokens.
+Decompose source code to tokens.
 
-# linkage
+There are two kinds of tokens, absolute and regional.
 
-Linkage is the way that runtime or interpreter is able to run compiled code.
+## linket
 
-# linktime
+Linket is the way that runtime or interpreter is able to run compiled code.
+
+## linktime
 
 Linktime is the struct that stores dynamic libraries and provides up-to-date linkages.
 
-# protocols
+## protocols
 
 Protocols are communication standards between husky debugger server and client.
 
-# runtime
+## runtime
 
 Runtime.
 
-# semantics
+## semantics
 
 everything about semantics, such as type inference, implicit augment inference.
 
-# syntax
+## syntax
 
-# tasks
-
-The definition of task trait and various implementations.
-
-# toml
+## toml
 
 Everything about toml. Husky implements its own toml parser to provide the best error messages.
 
-# utils
+## utils
 
-# vm
+## vm

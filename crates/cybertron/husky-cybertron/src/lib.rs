@@ -1,3 +1,5 @@
+pub mod debug;
+pub mod prelude;
 pub mod seq;
 
 pub use husky_cybertron_macros::*;

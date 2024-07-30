@@ -1,6 +1,9 @@
+pub mod any;
+pub mod apply;
 pub mod idx;
 
 use crate::*;
+use husky_fmt_utils::compact::FmtCompact;
 use husky_wild_utils::arb_ref;
 use lazy_static::lazy_static;
 use shifted_unsigned_int::ShiftedU32;
@@ -44,7 +47,7 @@ where
 
 #[macro_export]
 macro_rules! seq {
-    ($($elements: expr),*) => {{
+    ($($elements: expr),* $(,)?) => {{
         Seq::new(vec![$($elements),*])
     }};
 }
@@ -76,6 +79,17 @@ where
 
 impl<T> Copy for Seq<T> where T: Any + Send + Sync {}
 
+impl<T> PartialEq for Seq<T>
+where
+    T: Any + Send + Sync + PartialEq,
+{
+    fn eq(&self, other: &Self) -> bool {
+        self.data() == other.data()
+    }
+}
+
+impl<T> Eq for Seq<T> where T: Any + Send + Sync + Eq {}
+
 impl<T> std::fmt::Debug for Seq<T>
 where
     T: Any + Send + Sync + std::fmt::Debug,
@@ -93,7 +107,9 @@ where
         if one_line.len() < 80 {
             f.write_str(&one_line)
         } else {
-            f.debug_list().entries(self.data()).finish()
+            f.debug_list()
+                .entries(self.data().iter().map(FmtCompact))
+                .finish()
         }
     }
 }
@@ -150,22 +166,36 @@ fn seq_map_works() {
 
 impl<T1, T2> Seq<(T1, T2)>
 where
-    T1: Any + Send + Sync,
-    T2: Any + Send + Sync,
+    T1: Any + Send + Sync + Copy,
+    T2: Any + Send + Sync + Copy,
 {
-    fn decouple(self) -> (Seq<T1>, Seq<T2>) {
-        todo!()
+    pub fn decouple(self) -> (Seq<T1>, Seq<T2>) {
+        let mut t1s = vec![];
+        let mut t2s = vec![];
+        for &(t1, t2) in self.data() {
+            t1s.push(t1);
+            t2s.push(t2);
+        }
+        (Seq::new(t1s), Seq::new(t2s))
     }
 }
 
 impl<T1, T2, T3> Seq<(T1, T2, T3)>
 where
-    T1: Any + Send + Sync,
-    T2: Any + Send + Sync,
-    T3: Any + Send + Sync,
+    T1: Any + Send + Sync + Copy,
+    T2: Any + Send + Sync + Copy,
+    T3: Any + Send + Sync + Copy,
 {
-    fn decouple(self) -> (Seq<T1>, Seq<T2>, Seq<T3>) {
-        todo!()
+    pub fn decouple(self) -> (Seq<T1>, Seq<T2>, Seq<T3>) {
+        let mut t1s = vec![];
+        let mut t2s = vec![];
+        let mut t3s = vec![];
+        for &(t1, t2, t3) in self.data() {
+            t1s.push(t1);
+            t2s.push(t2);
+            t3s.push(t3);
+        }
+        (Seq::new(t1s), Seq::new(t2s), Seq::new(t3s))
     }
 }
 
