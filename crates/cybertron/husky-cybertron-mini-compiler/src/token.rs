@@ -1,10 +1,14 @@
+pub mod delimiter;
 pub mod ident;
 pub mod keyword;
 pub mod literal;
 pub mod opr;
+pub mod separator;
 
 use self::{ident::Ident, keyword::Keyword, literal::Literal, opr::Opr};
+use crate::token::separator::Separator;
 use crate::*;
+use delimiter::{Delimiter, LeftDelimiter, RightDelimiter};
 use husky_cybertron::seq::Seq;
 use husky_text_protocol::char::TextCharIter;
 
@@ -15,6 +19,9 @@ pub enum Token {
     Keyword(Keyword),
     Ident(Ident),
     Opr(Opr),
+    LeftDelimiter(LeftDelimiter),
+    RightDelimiter(RightDelimiter),
+    Separator(Separator),
 }
 
 pub enum Convexity {
@@ -33,6 +40,9 @@ impl Token {
                 Opr::Binary(_) => Convexity::Concave,
                 Opr::Suffix(_) => Convexity::Convex,
             },
+            Token::LeftDelimiter(_) => Convexity::Concave,
+            Token::RightDelimiter(_) => Convexity::Convex,
+            Token::Separator(_) => Convexity::Concave,
         }
     }
 }
@@ -44,6 +54,9 @@ impl std::fmt::Debug for Token {
             Token::Keyword(kw) => write!(f, "`{}`", kw.data()),
             Token::Ident(ident) => write!(f, "`{}`", ident.data()),
             Token::Opr(opr) => write!(f, "`{}`", opr.data()),
+            Token::LeftDelimiter(delimiter) => write!(f, "`{}`", delimiter.data()),
+            Token::RightDelimiter(delimiter) => write!(f, "`{}`", delimiter.data()),
+            Token::Separator(separator) => write!(f, "`{}`", separator.data()),
         }
     }
 }
