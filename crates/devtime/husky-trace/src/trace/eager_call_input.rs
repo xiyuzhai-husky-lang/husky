@@ -99,4 +99,18 @@ impl EagerCallInputTraceData {
     pub fn ki_repr(&self, _db: &::salsa::Db) -> KiRepr {
         todo!()
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        match self.input_sketch {
+            EagerCallInputSketch::Simple {
+                argument_sem_expr_idx,
+                argument_hir_eager_expr_idx,
+            } => {
+                let parent = self.biological_parent;
+                todo!()
+            }
+            EagerCallInputSketch::Variadic => todo!(),
+            EagerCallInputSketch::Keyed => todo!(),
+        }
+    }
 }

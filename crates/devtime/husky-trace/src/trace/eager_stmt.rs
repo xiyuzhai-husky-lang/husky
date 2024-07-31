@@ -460,6 +460,10 @@ impl EagerStmtTraceData {
             }
         }
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }
 
 struct EagerStmtAssocTraceRegistry<'a> {

@@ -70,4 +70,8 @@ impl EagerCallTraceData {
             db,
         )
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }

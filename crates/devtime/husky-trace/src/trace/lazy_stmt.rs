@@ -196,6 +196,10 @@ impl LazyStmtTraceData {
         // todo: handle loops
         self.biological_parent.ki_repr_expansion(db)
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }
 
 struct LazyStmtAssocTraceRegistry<'a> {

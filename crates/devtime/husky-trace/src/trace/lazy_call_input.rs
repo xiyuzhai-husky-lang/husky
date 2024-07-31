@@ -66,4 +66,8 @@ impl LazyCallInputTraceData {
     pub(super) fn ki_repr(&self, _db: &::salsa::Db) -> KiRepr {
         todo!()
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }

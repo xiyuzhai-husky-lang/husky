@@ -30,6 +30,7 @@ use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
 };
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{
     major_item::{form::MajorFormPath, MajorItemPath},
@@ -122,6 +123,10 @@ pub enum TraceData {
 }
 
 impl Trace {
+    pub(crate) fn new(path: TracePath, data: TraceData, db: &::salsa::Db) -> Self {
+        Self::new_inner(db, path.into(), data.into())
+    }
+
     fn from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
         match item_path {
             ItemPath::Submodule(_, submodule_path) => {
@@ -153,7 +158,9 @@ impl Trace {
             MajorFormKind::StaticMut => todo!(),
         }
     }
+}
 
+impl Trace {
     #[cfg(test)]
     fn assoc_traces(self, db: &::salsa::Db) -> Vec<Trace> {
         self.view_data(db)
@@ -161,10 +168,6 @@ impl Trace {
             .into_iter()
             .map(Into::into)
             .collect()
-    }
-
-    pub(crate) fn new(path: TracePath, data: TraceData, db: &::salsa::Db) -> Self {
-        Self::new_inner(db, path.into(), data.into())
     }
 
     pub fn view_data(self, db: &::salsa::Db) -> TraceViewData {
@@ -193,6 +196,10 @@ impl Trace {
 
     pub fn ki_repr_expansion(self, db: &::salsa::Db) -> KiReprExpansion {
         trace_ki_repr_expansion(db, self)
+    }
+
+    pub fn var_deps(self, db: &::salsa::Db) -> &[ItemPathIdInterface] {
+        trace_var_deps(db, self)
     }
 }
 
@@ -230,6 +237,24 @@ impl TraceData {
             TraceData::EagerCallInput(_) => None,
             TraceData::EagerCall(_) => None,
             TraceData::EagerStmt(_) => None,
+        }
+    }
+
+    pub fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        match self {
+            TraceData::Submodule(slf) => self.var_deps(db),
+            TraceData::Val(slf) => self.var_deps(db),
+            TraceData::StaticVar(slf) => self.var_deps(db),
+            TraceData::LazyCallInput(slf) => self.var_deps(db),
+            TraceData::LazyCall(slf) => self.var_deps(db),
+            TraceData::LazyExpr(slf) => self.var_deps(db),
+            TraceData::LazyPattern(slf) => self.var_deps(db),
+            TraceData::LazyStmt(slf) => self.var_deps(db),
+            TraceData::EagerCallInput(slf) => self.var_deps(db),
+            TraceData::EagerCall(slf) => self.var_deps(db),
+            TraceData::EagerExpr(slf) => self.var_deps(db),
+            TraceData::EagerPattern(slf) => self.var_deps(db),
+            TraceData::EagerStmt(slf) => self.var_deps(db),
         }
     }
 }
@@ -309,10 +334,10 @@ impl TraceData {
         }
     }
 
-    fn ki_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> KiReprExpansion {
+    fn ki_repr_expansion(&self, trace: Trace, db: &::salsa::Db) -> KiReprExpansion {
         match self {
             TraceData::Submodule(_) => unreachable!("no subtraces, thus no expansion"),
-            TraceData::Val(slf) => slf.ki_repr_expansion(trace_id, db),
+            TraceData::Val(slf) => slf.ki_repr_expansion(trace, db),
             TraceData::StaticVar(slf) => unreachable!("no subtraces, thus no expansion"),
             TraceData::LazyCallInput(_) => todo!(),
             TraceData::LazyCall(_) => todo!(),
@@ -347,7 +372,7 @@ fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
 }
 
 /// the order is to put parent first
-#[salsa::tracked(jar = TraceJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn trace_bundles(db: &::salsa::Db, target_path: CratePath) -> Vec<TraceBundle<Trace>> {
     use husky_manifest::manifest::HasManifest;
     target_path
@@ -461,4 +486,9 @@ fn trace_ki_repr_works() {
             TestDomainsConfig::DEVTIME,
         ),
     )
+}
+
+#[salsa::tracked(return_ref)]
+fn trace_var_deps(db: &::salsa::Db, trace: Trace) -> Vec<ItemPathIdInterface> {
+    trace.data(db).var_deps(db)
 }

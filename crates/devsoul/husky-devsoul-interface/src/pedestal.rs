@@ -25,7 +25,7 @@ pub trait IsPedestal:
 
     /// a closed point in algebraic geometry is a minimal prime point locally
     #[deprecated]
-    fn is_closed(&self) -> bool;
+    fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool;
 }
 
 pub trait IsPedestalFull: IsPedestal + Serialize + for<'a> Deserialize<'a> {}
