@@ -306,6 +306,9 @@ impl SemStmtIdx {
                         .final_boundary
                         .bound_expr
                         .map(|bound_expr| bound_expr.simulate(visitor));
+                    particulars
+                        .for_between_loop_var_expr_idx()
+                        .simulate(visitor);
                     visitor.visit_for_loop_stmt_inner(self, for_loop_varible_idx, |visitor| {
                         visitor.visit_loop(self, |visitor| stmts.simulate(visitor))
                     })

@@ -137,7 +137,7 @@ where
             SemExprData::FrameVarDecl {
                 for_loop_varible_idx,
                 ..
-            } => todo!(),
+            } => Default::default(),
             SemExprData::SelfType(_) => Default::default(),
             SemExprData::SelfValue(_) => self.self_value_static_mut_deps.clone(),
             SemExprData::Binary {

@@ -23,6 +23,7 @@ Some(
         "i",
         "k",
         "i + k",
+        "j",
         "top_k_row_span_sum",
         "self",
         "self.mask",

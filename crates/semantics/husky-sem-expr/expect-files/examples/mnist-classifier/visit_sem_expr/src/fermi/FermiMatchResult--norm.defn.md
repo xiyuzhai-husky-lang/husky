@@ -6,6 +6,7 @@ Some(
         "self",
         "self.others",
         "self.others.ilen()",
+        "i",
         "norm",
         "norm",
         "self",
