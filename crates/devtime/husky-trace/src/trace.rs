@@ -34,7 +34,7 @@ use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{
     major_item::{form::MajorFormPath, MajorItemPath},
-    ItemPath,
+    ItemPath, ItemPathId,
 };
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
@@ -51,6 +51,7 @@ use husky_trace_protocol::{
 use husky_vfs::path::crate_path::CrateKind;
 use husky_vfs::path::crate_path::CratePath;
 use static_var::{StaticVarTraceData, StaticVarTracePathData};
+use var_deps::TraceVarDepsExpansion;
 use vec_like::VecPairMap;
 
 #[salsa::interned(db = TraceDb, jar = TraceJar, constructor = new_inner)]
@@ -201,6 +202,10 @@ impl Trace {
     pub fn var_deps(self, db: &::salsa::Db) -> &[ItemPathIdInterface] {
         trace_var_deps(db, self)
     }
+
+    pub(super) fn var_deps_expansion(self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        trace_var_deps_expansion(db, self)
+    }
 }
 
 impl TraceData {
@@ -240,21 +245,39 @@ impl TraceData {
         }
     }
 
-    pub fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
         match self {
-            TraceData::Submodule(slf) => self.var_deps(db),
-            TraceData::Val(slf) => self.var_deps(db),
-            TraceData::StaticVar(slf) => self.var_deps(db),
-            TraceData::LazyCallInput(slf) => self.var_deps(db),
-            TraceData::LazyCall(slf) => self.var_deps(db),
-            TraceData::LazyExpr(slf) => self.var_deps(db),
-            TraceData::LazyPattern(slf) => self.var_deps(db),
-            TraceData::LazyStmt(slf) => self.var_deps(db),
-            TraceData::EagerCallInput(slf) => self.var_deps(db),
-            TraceData::EagerCall(slf) => self.var_deps(db),
-            TraceData::EagerExpr(slf) => self.var_deps(db),
-            TraceData::EagerPattern(slf) => self.var_deps(db),
-            TraceData::EagerStmt(slf) => self.var_deps(db),
+            TraceData::Submodule(slf) => slf.var_deps(trace, db),
+            TraceData::Val(slf) => slf.var_deps(trace, db),
+            TraceData::StaticVar(slf) => slf.var_deps(trace, db),
+            TraceData::LazyCallInput(slf) => slf.var_deps(trace, db),
+            TraceData::LazyCall(slf) => slf.var_deps(trace, db),
+            TraceData::LazyExpr(slf) => slf.var_deps(trace, db),
+            TraceData::LazyPattern(slf) => slf.var_deps(trace, db),
+            TraceData::LazyStmt(slf) => slf.var_deps(trace, db),
+            TraceData::EagerCallInput(slf) => slf.var_deps(trace, db),
+            TraceData::EagerCall(slf) => slf.var_deps(trace, db),
+            TraceData::EagerExpr(slf) => slf.var_deps(trace, db),
+            TraceData::EagerPattern(slf) => slf.var_deps(trace, db),
+            TraceData::EagerStmt(slf) => slf.var_deps(trace, db),
+        }
+    }
+
+    fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        match self {
+            TraceData::Submodule(slf) => slf.var_deps_expansion(db),
+            TraceData::Val(slf) => slf.var_deps_expansion(db),
+            TraceData::StaticVar(slf) => slf.var_deps_expansion(db),
+            TraceData::LazyCallInput(slf) => slf.var_deps_expansion(db),
+            TraceData::LazyCall(slf) => slf.var_deps_expansion(db),
+            TraceData::LazyExpr(slf) => slf.var_deps_expansion(db),
+            TraceData::LazyPattern(slf) => slf.var_deps_expansion(db),
+            TraceData::LazyStmt(slf) => slf.var_deps_expansion(db),
+            TraceData::EagerCallInput(slf) => slf.var_deps_expansion(db),
+            TraceData::EagerCall(slf) => slf.var_deps_expansion(db),
+            TraceData::EagerExpr(slf) => slf.var_deps_expansion(db),
+            TraceData::EagerPattern(slf) => slf.var_deps_expansion(db),
+            TraceData::EagerStmt(slf) => slf.var_deps_expansion(db),
         }
     }
 }
@@ -490,5 +513,33 @@ fn trace_ki_repr_works() {
 
 #[salsa::tracked(return_ref)]
 fn trace_var_deps(db: &::salsa::Db, trace: Trace) -> Vec<ItemPathIdInterface> {
-    trace.data(db).var_deps(db)
+    trace.data(db).var_deps(trace, db)
+}
+
+#[salsa::tracked]
+fn trace_var_deps_expansion(db: &::salsa::Db, trace: Trace) -> TraceVarDepsExpansion {
+    trace.data(db).var_deps_expansion(db)
+}
+
+#[test]
+fn trace_var_deps_works() {
+    DB::ast_rich_test_debug_with_db(
+        |db, crate_path| {
+            find_traces(crate_path, 5, db, |trace| {
+                trace
+                    .var_deps(db)
+                    .iter()
+                    .map(|&id_interface| {
+                        let path_id: ItemPathId = id_interface.into();
+                        path_id.item_path(db)
+                    })
+                    .collect::<Vec<_>>()
+            })
+        },
+        &AstTestConfig::new(
+            "trace_var_deps",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::DEVTIME,
+        ),
+    )
 }

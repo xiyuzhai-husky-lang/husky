@@ -37,9 +37,15 @@ impl From<ItemPathIdInterface> for ItemPathId {
     }
 }
 
-impl Into<ItemPathIdInterface> for ItemPathId {
-    fn into(self) -> ItemPathIdInterface {
-        ItemPathIdInterface::new(self.0.as_u32())
+impl From<ItemPathId> for ItemPathIdInterface {
+    fn from(val: ItemPathId) -> Self {
+        ItemPathIdInterface::new(val.0.as_u32())
+    }
+}
+
+impl From<ItemPath> for ItemPathIdInterface {
+    fn from(val: ItemPath) -> Self {
+        (*val).into()
     }
 }
 

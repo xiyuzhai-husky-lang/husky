@@ -284,6 +284,10 @@ impl<V> SemStmtMap<V> {
     {
         self.0.get_idx_by_value(&v).map(SemStmtIdx)
     }
+
+    pub fn map<R>(&self, f: impl Fn(&V) -> R) -> SemStmtMap<R> {
+        SemStmtMap(self.0.map(f))
+    }
 }
 
 impl<V> std::ops::Index<SemStmtIdx> for SemStmtMap<V> {

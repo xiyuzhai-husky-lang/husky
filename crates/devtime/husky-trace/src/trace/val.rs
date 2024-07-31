@@ -2,6 +2,9 @@ use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_hir_defn::defn::HasHirDefn;
 use husky_sem_expr::{helpers::analysis::sem_expr_region_requires_lazy, SemExprData, SemExprDb};
+use husky_sem_var_deps::{
+    item_sem_var_deps, region::item_defn_sem_var_deps_region, var_deps::SemVarDep,
+};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 
 #[salsa::derive_debug_with_db]
@@ -96,5 +99,21 @@ impl ValTraceData {
             .expect("should be some")
             .expansion(db)
             .expect("should be some")
+    }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        item_sem_var_deps(self.val_path, db)
+            .iter()
+            .map(|&dep| match dep {
+                SemVarDep::Item(item_path) => item_path.into(),
+            })
+            .collect()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        TraceVarDepsExpansion::new(
+            item_defn_sem_var_deps_region(db, *self.val_path).unwrap(),
+            db,
+        )
     }
 }

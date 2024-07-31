@@ -5,6 +5,7 @@ mod registry;
 mod tests;
 mod token;
 pub mod trace;
+pub mod var_deps;
 
 use self::jar::TraceJar as Jar;
 use self::jar::*;
