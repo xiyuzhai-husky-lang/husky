@@ -13,3 +13,4 @@ use self::jar::*;
 use self::tests::*;
 use self::token::*;
 use self::trace::*;
+use self::var_deps::*;

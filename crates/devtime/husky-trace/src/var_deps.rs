@@ -18,7 +18,7 @@ pub struct TraceVarDepsExpansion {
     pub variable_var_deps_table: VariableMap<TraceVarDeps>,
 }
 
-type TraceVarDeps = Vec<ItemPathIdInterface>;
+pub type TraceVarDeps = Vec<ItemPathIdInterface>;
 
 impl TraceVarDepsExpansion {
     pub(crate) fn new(region: ItemDefnSemVarDepsRegion, db: &::salsa::Db) -> Self {
