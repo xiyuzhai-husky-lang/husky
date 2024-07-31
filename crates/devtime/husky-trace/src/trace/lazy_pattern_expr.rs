@@ -122,4 +122,8 @@ impl LazyPatternTraceData {
     pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
         self.biological_parent.ki_repr_expansion(db)
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }

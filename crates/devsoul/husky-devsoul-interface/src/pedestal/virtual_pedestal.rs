@@ -22,7 +22,7 @@ impl IsPedestal for VirtualPedestal {
         todo!()
     }
 
-    fn is_closed(&self) -> bool {
+    fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool {
         todo!()
     }
 }

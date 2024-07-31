@@ -213,6 +213,10 @@ impl EagerExprTraceData {
             _ => vec![],
         }
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }
 
 fn fn_call_eager_expr_trace_input_traces(

@@ -29,4 +29,8 @@ impl EagerLoopGroupTraceData {
     pub fn subtraces(self, _db: &::salsa::Db) -> &[Trace] {
         todo!()
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }

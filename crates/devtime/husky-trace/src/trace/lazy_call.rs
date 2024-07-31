@@ -72,4 +72,8 @@ impl LazyCallTraceData {
     pub fn ki_repr(&self, db: &::salsa::Db) -> KiRepr {
         self.biological_parent.ki_repr(db).expect("should be some")
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }

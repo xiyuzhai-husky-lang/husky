@@ -46,6 +46,10 @@ impl StaticVarTraceData {
     pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         vec![]
     }
+
+    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        todo!()
+    }
 }
 
 impl Trace {

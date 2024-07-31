@@ -48,7 +48,7 @@ impl IsPedestal for StandardPedestal {
         // }
     }
 
-    fn is_closed(&self) -> bool {
+    fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool {
         todo!()
         // match self {
         //     StandardPedestal::Specific(_) => true,

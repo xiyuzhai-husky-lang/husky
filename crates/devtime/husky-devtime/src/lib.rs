@@ -86,7 +86,8 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     ) -> husky_trace_protocol::stalk::TraceStalk {
         use husky_devsoul_interface::pedestal::IsPedestal;
         let db = self.runtime.db();
-        if !pedestal.is_closed() {
+        let var_deps = trace.var_deps(db);
+        if !pedestal.is_closed(var_deps) {
             return TraceStalk::None;
         }
         if let Some(ki_repr) = trace.ki_repr(db) {
