@@ -24,7 +24,6 @@ pub trait IsPedestal:
     fn init_ui_buffer(&self) -> Self::UiBuffer;
 
     /// a closed point in algebraic geometry is a minimal prime point locally
-    #[deprecated]
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool;
 }
 
