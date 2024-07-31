@@ -214,7 +214,7 @@ impl EagerExprTraceData {
         }
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.biological_parent
             .var_deps_expansion(db)
             .expr_value_var_deps_table(db)[self.sem_expr_idx]

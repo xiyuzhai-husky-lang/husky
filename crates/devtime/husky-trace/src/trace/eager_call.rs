@@ -71,8 +71,8 @@ impl EagerCallTraceData {
         )
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
-        todo!()
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        self.biological_parent.var_deps(db).to_vec()
     }
 
     pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {

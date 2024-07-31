@@ -237,12 +237,14 @@ impl LazyExprTraceData {
         self.biological_parent.ki_repr_expansion(db)
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
-        todo!()
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        self.var_deps_expansion(db)
+            .expr_value_var_deps(self.sem_expr_idx, db)
+            .clone()
     }
 
     pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
-        todo!()
+        self.biological_parent.var_deps_expansion(db)
     }
 }
 

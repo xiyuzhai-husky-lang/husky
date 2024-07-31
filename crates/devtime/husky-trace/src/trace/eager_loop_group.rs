@@ -30,7 +30,7 @@ impl EagerLoopGroupTraceData {
         todo!()
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         todo!()
     }
 

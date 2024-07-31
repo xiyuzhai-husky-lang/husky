@@ -101,7 +101,7 @@ impl ValTraceData {
             .expect("should be some")
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         item_sem_var_deps(self.val_path, db)
             .iter()
             .map(|&dep| match dep {

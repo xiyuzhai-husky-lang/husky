@@ -100,14 +100,17 @@ impl EagerCallInputTraceData {
         todo!()
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         match self.input_sketch {
             EagerCallInputSketch::Simple {
                 argument_sem_expr_idx,
                 argument_hir_eager_expr_idx,
             } => {
                 let parent = self.biological_parent;
-                todo!()
+                parent
+                    .var_deps_expansion(db)
+                    .expr_value_var_deps(argument_sem_expr_idx, db)
+                    .clone()
             }
             EagerCallInputSketch::Variadic => todo!(),
             EagerCallInputSketch::Keyed => todo!(),

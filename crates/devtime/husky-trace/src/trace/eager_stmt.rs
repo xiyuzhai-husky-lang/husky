@@ -461,7 +461,7 @@ impl EagerStmtTraceData {
         }
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.biological_parent
             .var_deps_expansion(db)
             .stmt_value_var_deps(self.sem_stmt_idx, db)
