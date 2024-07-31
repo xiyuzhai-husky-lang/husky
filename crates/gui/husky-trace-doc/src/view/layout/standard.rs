@@ -1,4 +1,4 @@
-use husky_trace_protocol::pedestal::PedestalUi;
+use husky_trace_protocol::caryatid::CaryatidUi;
 
 use super::*;
 
@@ -7,13 +7,13 @@ where
     TraceProtocol: IsTraceProtocol,
 
     TraceProtocol::Figure: FigureUi<egui::Ui>,
-    TraceProtocol::Pedestal: PedestalUi<Ui>,
+    TraceProtocol::Caryatid: CaryatidUi<Ui>,
     Settings: HasTraceDocSettings,
 {
     pub(crate) fn render_standard_layout(mut self, ui: &mut egui::Ui) {
         TopBottomPanel::bottom(ui.next_auto_id())
             .frame(Frame::none().inner_margin(5.0))
-            .show_inside(ui, |ui| self.render_pedestal(ui));
+            .show_inside(ui, |ui| self.render_caryatid(ui));
         self.render_central_region(ui);
     }
 

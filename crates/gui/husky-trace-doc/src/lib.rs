@@ -6,5 +6,5 @@ pub mod settings;
 mod view;
 
 use self::settings::*;
-use husky_trace_protocol::view::action::TraceViewAction;
+use husky_trace_protocol::{caryatid::IsCaryatid, view::action::TraceViewAction};
 use serde::{Deserialize, Serialize};

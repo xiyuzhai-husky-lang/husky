@@ -10,7 +10,7 @@ use husky_devsoul_interface::{
     IsDevRuntime, IsDevRuntimeDyn,
 };
 use husky_mono_linktime::MonoLinktime;
-use husky_standard_trace_protocol::StandardTraceProtocol;
+use husky_standard_trace_protocol::{caryatid::StandardCaryatid, StandardTraceProtocol};
 use husky_trace_protocol::{
     figure::IsFigure, id::TraceId, protocol::IsTraceProtocol, server::ValVisualCache,
 };
@@ -43,7 +43,7 @@ where
     fn calc_figure(
         followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
-        pedestal: Self::Pedestal,
+        caryatid: StandardCaryatid,
         runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,

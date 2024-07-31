@@ -25,14 +25,14 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
     CacheFigure {
         followed_trace_id: Option<TraceId>,
         accompanying_trace_ids_except_followed: AccompanyingTraceIdsExceptFollowed,
-        pedestal: TraceProtocol::Pedestal,
+        pedestal: TraceProtocol::Caryatid,
         figure: TraceProtocol::Figure,
     },
     ToggleAccompany {
         trace_id: TraceId,
     },
-    SetPedestal {
-        pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
+    SetCaryatid {
+        caryatid: TraceProtocol::Caryatid,
     },
 }
 
@@ -115,8 +115,8 @@ where
             &TraceSynchrotronAction::ToggleAccompany { trace_id } => {
                 synchrotron.accompanying_trace_ids.toggle(trace_id)
             }
-            &TraceSynchrotronAction::SetPedestal { ref pedestal } => {
-                synchrotron.pedestal = pedestal.clone()
+            &TraceSynchrotronAction::SetCaryatid { ref caryatid } => {
+                synchrotron.caryatid = caryatid.clone()
             }
         }
     }

@@ -4,7 +4,7 @@ pub mod figure;
 pub mod id;
 #[cfg(feature = "message")]
 mod message;
-pub mod pedestal;
+pub mod caryatid;
 pub mod protocol;
 #[cfg(feature = "server")]
 pub mod server;

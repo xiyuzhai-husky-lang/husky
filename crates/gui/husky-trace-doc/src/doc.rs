@@ -7,9 +7,9 @@ use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use std::{path::PathBuf, sync::Arc};
 
 use husky_trace_protocol::{
+    caryatid::CaryatidUi,
     client::TraceClient,
     figure::{FigureUi, FigureUiCache},
-    pedestal::PedestalUi,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
     view::action::TraceViewActionBuffer,
 };
@@ -27,7 +27,7 @@ where
     action_buffer: TraceViewActionBuffer<TraceProtocol>,
     figure_ui_cache: FigureUiCache<egui::Ui>,
     // set after client is initialized
-    pedestal_ui_buffer: Option<<TraceProtocol::Pedestal as IsPedestal>::UiBuffer>,
+    pedestal_ui_buffer: Option<<TraceProtocol::Caryatid as IsCaryatid>::UiBuffer>,
 }
 
 #[cfg(feature = "egui")]
@@ -36,7 +36,7 @@ impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, 
 where
     TraceProtocol: IsTraceProtocolFull,
     TraceProtocol::Figure: FigureUi<egui::Ui>,
-    TraceProtocol::Pedestal: PedestalUi<Ui>,
+    TraceProtocol::Caryatid: CaryatidUi<Ui>,
     Settings: HasTraceDocSettings,
 {
     fn render_dyn(
@@ -67,7 +67,7 @@ impl<TraceProtocol> TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
     TraceProtocol::Figure: FigureUi<egui::Ui>,
-    TraceProtocol::Pedestal: PedestalUi<Ui>,
+    TraceProtocol::Caryatid: CaryatidUi<Ui>,
 {
     fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where
