@@ -49,11 +49,10 @@ impl IsPedestal for StandardPedestal {
     }
 
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool {
-        todo!()
-        // match self {
-        //     StandardPedestal::Specific(_) => true,
-        //     StandardPedestal::Generic => false,
-        // }
+        var_deps
+            .iter()
+            .copied()
+            .all(|dep| self.static_var_ids.has(dep))
     }
 }
 
