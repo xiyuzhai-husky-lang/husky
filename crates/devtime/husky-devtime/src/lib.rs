@@ -106,7 +106,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         &self,
         followed_trace: Option<Self::Trace>,
         accompanying_trace_ids_expect_followed: &AccompanyingTraceIdsExceptFollowed,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
@@ -131,7 +131,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         Devsoul::calc_figure(
             followed,
             accompanyings_except_followed,
-            pedestal,
+            caryatid,
             &*self.runtime,
             visual_synchrotron,
             val_visual_cache,

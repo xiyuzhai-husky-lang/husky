@@ -12,27 +12,11 @@ impl FromIterator<(ItemPathIdInterface, ())> for VirtualPedestal {
 impl IsPedestal for VirtualPedestal {
     type StaticVarId = ();
 
-    type UiBuffer = VirtualPedestalUiBuffer;
-
     fn exclude<V: IsStaticVar<()>>(self) -> Self {
         Self
     }
 
-    fn init_ui_buffer(&self) -> Self::UiBuffer {
-        todo!()
-    }
-
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool {
         true
-    }
-}
-
-pub struct VirtualPedestalUiBuffer;
-
-impl IsPedestalUiBuffer for VirtualPedestalUiBuffer {
-    type Pedestal = VirtualPedestal;
-
-    fn update(&mut self, pedestal: &Self::Pedestal) {
-        todo!()
     }
 }

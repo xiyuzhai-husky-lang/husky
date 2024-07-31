@@ -23,8 +23,8 @@ pub enum TraceViewAction<TraceProtocol: IsTraceProtocol> {
     ToggleAccompany {
         trace_id: TraceId,
     },
-    SetPedestal {
-        pedestal: TraceProtocol::Pedestal,
+    SetCaryatid {
+        caryatid: TraceProtocol::Caryatid,
     },
 }
 

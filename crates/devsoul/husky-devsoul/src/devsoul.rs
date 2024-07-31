@@ -28,7 +28,7 @@ pub trait IsDevsoul: 'static {
     fn calc_figure(
         followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings_except_followed: &[(TraceId, KiReprInterface)],
-        pedestal: Self::Pedestal,
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,

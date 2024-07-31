@@ -22,12 +22,12 @@ enum-class.workspace = true
 notify-change = { path = "../../abstractions/notify-change" }
 ui.workspace = true
 vec-like.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # protocols
 husky-token-protocol = { workspace = true, features = ["serde"] }
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
 # utils
 husky-io-utils.workspace = true
 husky-print-utils.workspace = true

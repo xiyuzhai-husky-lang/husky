@@ -23,10 +23,10 @@ husky-trace-doc = { workspace = true, features = [
 # protocols
 husky-token-protocol.workspace = true
 husky-trace-protocol.workspace = true
-husky-standard-trace-protocol.workspace = true
+husky-standard-trace-protocol = { workspace = true, features = ["egui"] }
 husky-graphics2d-visual-protocol.workspace = true
 # devsoul
-husky-standard-devsoul-interface = { workspace = true, features = ["egui"] }
+husky-standard-devsoul-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 husky-unicode-symbols.workspace = true

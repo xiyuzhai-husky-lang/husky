@@ -6360,7 +6360,6 @@ dependencies = [
 name = "husky-standard-devsoul-interface"
 version = "0.1.0"
 dependencies = [
- "egui",
  "enum-class",
  "husky-devsoul-interface",
  "husky-linket-impl",
@@ -6386,6 +6385,8 @@ dependencies = [
 name = "husky-standard-trace-protocol"
 version = "0.1.0"
 dependencies = [
+ "egui",
+ "husky-devsoul-interface",
  "husky-standard-devsoul-interface",
  "husky-trace-protocol",
  "serde",

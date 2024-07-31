@@ -1,4 +1,5 @@
 use crate::*;
+use caryatid::IsCaryatidFull;
 use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_devsoul_interface::pedestal::IsPedestalFull;
 use serde_with::Same;
@@ -8,6 +9,7 @@ pub trait IsTraceProtocol:
     Default + std::fmt::Debug + Clone + PartialEq + Eq + Send + 'static
 {
     type Pedestal: IsPedestalFull;
+    type Caryatid: IsCaryatidFull<Pedestal = Self::Pedestal>;
     type Figure: IsFigure<Self::Pedestal>;
 }
 

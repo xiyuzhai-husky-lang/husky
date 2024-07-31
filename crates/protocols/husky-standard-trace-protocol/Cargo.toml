@@ -12,10 +12,16 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+egui = { workspace = true, optional = true }
 serde.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # protocols
 husky-trace-protocol.workspace = true
 husky-standard-devsoul-interface.workspace = true
 
 [lints]
 workspace = true
+
+[features]
+egui = ["dep:egui"]
