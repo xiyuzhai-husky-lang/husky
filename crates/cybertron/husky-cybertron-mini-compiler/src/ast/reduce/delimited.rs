@@ -243,6 +243,75 @@ fn reduce_pre_asts_by_delimited_works() {
             })
         ],
     );
+    t(
+        seq![
+            Some(PreAst::LeftDelimiter(LPAR)),
+            Some(PreAst::Ast(AstData::Literal(Literal::Int(1)))),
+            Some(PreAst::Separator(Separator::Comma)),
+            Some(PreAst::Ast(AstData::Literal(Literal::Int(1)))),
+            Some(PreAst::Separator(Separator::Comma)),
+            Some(PreAst::RightDelimiter(RPAR))
+        ],
+        seq![
+            None,
+            Some(Ast {
+                parent: None,
+                data: AstData::Literal(Literal::Int(1)),
+            }),
+            None,
+            Some(Ast {
+                parent: None,
+                data: AstData::Literal(Literal::Int(1)),
+            }),
+            None,
+            None
+        ],
+        seq![
+            None,
+            None,
+            None,
+            None,
+            None,
+            Some(PreAst::Ast(AstData::Delimited {
+                left_delimiter_idx: idx!(0),
+                left_delimiter: LPAR,
+                right_delimiter: RPAR
+            }))
+        ],
+        seq![
+            None,
+            Some(Ast {
+                parent: Some(idx!(2)),
+                data: AstData::Literal(Literal::Int(1)),
+            }),
+            Some(Ast {
+                parent: Some(idx!(5)),
+                data: AstData::SeparatedItem {
+                    content: Some(idx!(1)),
+                    separator: Separator::Comma
+                }
+            }),
+            Some(Ast {
+                parent: Some(idx!(4)),
+                data: AstData::Literal(Literal::Int(1)),
+            }),
+            Some(Ast {
+                parent: Some(idx!(5)),
+                data: AstData::SeparatedItem {
+                    content: Some(idx!(3)),
+                    separator: Separator::Comma
+                }
+            }),
+            Some(Ast {
+                parent: None,
+                data: AstData::Delimited {
+                    left_delimiter_idx: idx!(0),
+                    left_delimiter: LPAR,
+                    right_delimiter: RPAR
+                }
+            })
+        ],
+    );
 }
 
 fn new_ast_by_delimited(
