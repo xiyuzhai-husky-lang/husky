@@ -197,7 +197,18 @@ impl LazyStmtTraceData {
         self.biological_parent.ki_repr_expansion(db)
     }
 
-    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+        use husky_print_utils::p;
+        p!(self.view_lines(trace, db));
+        self.ki_repr(trace, db)
+            .unwrap()
+            .var_deps(db)
+            .iter()
+            .map(|&path| path.into())
+            .collect()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }

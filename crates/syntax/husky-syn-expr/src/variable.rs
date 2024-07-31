@@ -548,6 +548,13 @@ impl<V> VariableMap<V> {
     {
         self.current_variable_map.get_idx_by_value(v)
     }
+
+    pub fn map<R>(&self, f: impl Fn(&V) -> R) -> VariableMap<R> {
+        VariableMap {
+            inherited_variable_map: self.inherited_variable_map.map(&f),
+            current_variable_map: self.current_variable_map.map(f),
+        }
+    }
 }
 
 impl<V> VariableMap<V> {

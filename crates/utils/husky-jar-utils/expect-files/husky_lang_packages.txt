@@ -2923,6 +2923,7 @@
             "husky-ast",
             "husky-check-utils",
             "husky-coword",
+            "husky-devsoul-interface",
             "husky-entity-kind",
             "husky-entity-path",
             "husky-entity-tree",

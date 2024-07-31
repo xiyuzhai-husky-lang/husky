@@ -100,7 +100,7 @@ impl EagerCallInputTraceData {
         todo!()
     }
 
-    pub(super) fn var_deps(&self, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
         match self.input_sketch {
             EagerCallInputSketch::Simple {
                 argument_sem_expr_idx,
@@ -112,5 +112,9 @@ impl EagerCallInputTraceData {
             EagerCallInputSketch::Variadic => todo!(),
             EagerCallInputSketch::Keyed => todo!(),
         }
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        todo!()
     }
 }
