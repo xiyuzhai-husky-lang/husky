@@ -46,9 +46,9 @@ pub enum AstData {
         opr: SuffixOpr,
     },
     Delimited {
-        left_delimiter: Idx,
-        data: DelimitedData,
-        right_delimiter: Idx,
+        left_delimiter_idx: Idx,
+        left_delimiter: LeftDelimiter,
+        right_delimiter: RightDelimiter,
     },
     SeparatedItem {
         content: Option<Idx>,
@@ -69,13 +69,6 @@ pub enum AstData {
         pattern: Idx,
         initial_value: Idx,
     },
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum DelimitedData {
-    Empty,
-    OnlyOne,
-    List,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
