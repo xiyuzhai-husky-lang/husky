@@ -22,6 +22,7 @@ Some(
         "self",
         "self.strokes",
         "self.strokes.ilen()",
+        "i",
         "self",
         "self.strokes",
         "i",

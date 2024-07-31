@@ -22,6 +22,7 @@ Some(
         "self",
         "self.strokes",
         "self.strokes.end()",
+        "i",
         "self",
         "self.strokes",
         "i",
