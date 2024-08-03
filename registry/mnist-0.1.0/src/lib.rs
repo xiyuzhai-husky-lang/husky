@@ -171,4 +171,8 @@ impl TASK {
     pub fn set_id(id: __StaticVarId) {
         todo!()
     }
+
+    pub fn ids() -> impl Iterator<Item = __StaticVarId> {
+        [].into_iter()
+    }
 }

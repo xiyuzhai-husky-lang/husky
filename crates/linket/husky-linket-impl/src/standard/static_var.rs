@@ -10,6 +10,7 @@ macro_rules! static_var_linket_impl {
             set_up_for_testing: <$static_var>::set_up_for_testing,
             get_id: <$static_var>::get_id,
             set_id: <$static_var>::set_id,
+            ids: || Box::new(<$static_var>::ids()),
         }
     };
 }
@@ -36,6 +37,10 @@ fn static_var_linket_impl_works() {
         pub fn set_id(id: StandardStaticVarId) {
             todo!()
         }
+
+        pub fn ids() -> impl Iterator<Item = StandardStaticVarId> {
+            (0..10u32).map(Into::into)
+        }
     }
 
     /// We use the same name
@@ -51,6 +56,7 @@ fn static_var_linket_impl_works() {
         set_up_for_testing,
         get_id,
         set_id,
+        ids,
     } = static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
     else {
         unreachable!()
