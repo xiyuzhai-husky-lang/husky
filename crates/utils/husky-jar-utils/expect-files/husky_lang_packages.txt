@@ -2623,7 +2623,6 @@
         name: "husky-standard-devsoul-interface",
         relative_path: "crates/devsoul/husky-standard-devsoul-interface",
         dependencies: [
-            "egui",
             "enum-class",
             "husky-devsoul-interface",
             "husky-linket-impl",
@@ -2897,6 +2896,8 @@
         name: "husky-standard-trace-protocol",
         relative_path: "crates/protocols/husky-standard-trace-protocol",
         dependencies: [
+            "egui",
+            "husky-devsoul-interface",
             "husky-standard-devsoul-interface",
             "husky-trace-protocol",
             "serde",
