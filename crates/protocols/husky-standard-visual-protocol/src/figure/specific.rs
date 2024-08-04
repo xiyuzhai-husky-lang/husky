@@ -4,13 +4,13 @@ use husky_control_flow_utils::pass;
 use husky_visual_protocol::visual::primitive::PrimitiveVisual;
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub struct SpecificGraphics2dFigure {
+pub struct SpecificStandardFigure {
     images: Vec<ImageVisual>,
     shapes: Vec<ShapeVisual>,
 }
 
 /// # constructor
-impl SpecificGraphics2dFigure {
+impl SpecificStandardFigure {
     pub(super) fn new(
         followed_visual: Option<(TraceId, KiReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
@@ -37,21 +37,21 @@ impl SpecificGraphics2dFigure {
         accompanying_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
-        let mut builder = SpecificGraphics2dFigureBuilder::new(visual_synchrotron);
+        let mut builder = SpecificStandardFigureBuilder::new(visual_synchrotron);
         builder.collect_all(followed_visual.into_iter().chain(accompanying_visuals));
         builder.finish()
     }
 }
 
 /// # builder
-struct SpecificGraphics2dFigureBuilder<'a> {
+struct SpecificStandardFigureBuilder<'a> {
     images: Vec<ImageVisual>,
     shapes: Vec<ShapeVisual>,
     primitives: Vec<(TraceId, PrimitiveVisual)>,
     visual_synchrotron: &'a VisualSynchrotron,
 }
 
-impl<'a> SpecificGraphics2dFigureBuilder<'a> {
+impl<'a> SpecificStandardFigureBuilder<'a> {
     fn new(visual_synchrotron: &'a VisualSynchrotron) -> Self {
         Self {
             images: vec![],
@@ -84,8 +84,8 @@ impl<'a> SpecificGraphics2dFigureBuilder<'a> {
         }
     }
 
-    fn finish(self) -> SpecificGraphics2dFigure {
-        SpecificGraphics2dFigure {
+    fn finish(self) -> SpecificStandardFigure {
+        SpecificStandardFigure {
             images: self.images,
             shapes: self.shapes,
         }
@@ -93,7 +93,7 @@ impl<'a> SpecificGraphics2dFigureBuilder<'a> {
 }
 
 /// # ui
-impl SpecificGraphics2dFigure {
+impl SpecificStandardFigure {
     pub(super) fn specific_figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,

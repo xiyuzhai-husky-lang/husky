@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub struct GenericGraphics2dFigure<Pedestal: IsPedestal> {
-    specifics: Vec<(Pedestal, SpecificGraphics2dFigure)>,
+pub struct GenericStandardFigure<Pedestal: IsPedestal> {
+    specifics: Vec<(Pedestal, SpecificStandardFigure)>,
 }
 
 /// # constructor
-impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
+impl<Pedestal: IsPedestalFull> GenericStandardFigure<Pedestal> {
     pub(crate) fn new(
         followed_visual: Option<(TraceId, KiReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
@@ -14,10 +14,10 @@ impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
         mut f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
-        GenericGraphics2dFigure {
+        GenericStandardFigure {
             specifics: pedestals
                 .map(|pedestal| {
-                    let specific_graphics2d_figure = SpecificGraphics2dFigure::new(
+                    let specific_standard_figure = SpecificStandardFigure::new(
                         followed_visual
                             .map(|(trace_id, ki_repr_interface)| (trace_id, ki_repr_interface)),
                         accompanyings,
@@ -26,7 +26,7 @@ impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
                         },
                         visual_synchrotron,
                     );
-                    (pedestal, specific_graphics2d_figure)
+                    (pedestal, specific_standard_figure)
                 })
                 .collect(),
         }
@@ -34,7 +34,7 @@ impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
 }
 
 /// # ui
-impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
+impl<Pedestal: IsPedestalFull> GenericStandardFigure<Pedestal> {
     pub(super) fn generic_figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
@@ -44,7 +44,7 @@ impl<Pedestal: IsPedestalFull> GenericGraphics2dFigure<Pedestal> {
         let num_columns = 7;
         let l = ui.available_height().min(ui.available_width()) / (num_columns as f32);
         let l = l.floor();
-        egui::Grid::new("generic_graphics2d_figure")
+        egui::Grid::new("generic_standard_figure")
             .num_columns(num_columns)
             .show(ui, |ui| {
                 let num_rows = self.specifics.len() / num_columns

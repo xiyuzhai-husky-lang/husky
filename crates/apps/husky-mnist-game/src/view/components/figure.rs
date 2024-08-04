@@ -1,11 +1,11 @@
 use crate::{channel::MnistChannel, op::history::OpTime, trace::Trace, MnistDb};
 
-use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
 use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+use husky_standard_visual_protocol::figure::StandardFigure;
 use husky_trace_protocol::figure::IsFigure;
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
-pub type Figure = Graphics2dFigure<StandardPedestal>;
+pub type Figure = StandardFigure<StandardPedestal>;
 
 impl MnistChannel {
     pub(in super::super) fn figure<'a>(

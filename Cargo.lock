@@ -4384,18 +4384,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-daniel-jackson-visual-protocol"
-version = "0.1.0"
-dependencies = [
- "husky-devsoul",
- "husky-devsoul-interface",
- "husky-trace-protocol",
- "husky-visual-protocol",
- "serde",
- "ui",
-]
-
-[[package]]
 name = "husky-debug-utils"
 version = "0.1.0"
 dependencies = [
@@ -5027,22 +5015,6 @@ version = "0.1.0"
 dependencies = [
  "git2",
  "husky-path-utils",
-]
-
-[[package]]
-name = "husky-graphics2d-visual-protocol"
-version = "0.1.0"
-dependencies = [
- "egui",
- "enum-class",
- "husky-control-flow-utils",
- "husky-devsoul",
- "husky-devsoul-interface",
- "husky-print-utils",
- "husky-trace-protocol",
- "husky-visual-protocol",
- "serde",
- "ui",
 ]
 
 [[package]]
@@ -5734,8 +5706,8 @@ dependencies = [
  "husky-ad-hoc-protocol",
  "husky-dev-comptime",
  "husky-devtime",
- "husky-graphics2d-visual-protocol",
  "husky-standard-devsoul",
+ "husky-standard-visual-protocol",
 ]
 
 [[package]]
@@ -5747,9 +5719,9 @@ dependencies = [
  "enum-index",
  "expect-test",
  "husky-devsoul-interface",
- "husky-graphics2d-visual-protocol",
  "husky-print-utils",
  "husky-standard-devsoul-interface",
+ "husky-standard-visual-protocol",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "image",
@@ -5811,11 +5783,11 @@ dependencies = [
  "egui_dock",
  "enum-index",
  "husky-code-editor",
- "husky-graphics2d-visual-protocol",
  "husky-gui",
  "husky-print-utils",
  "husky-standard-devsoul-interface",
  "husky-standard-trace-protocol",
+ "husky-standard-visual-protocol",
  "husky-token-protocol",
  "husky-trace-doc",
  "husky-trace-protocol",
@@ -6425,6 +6397,22 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.66",
+]
+
+[[package]]
+name = "husky-standard-visual-protocol"
+version = "0.1.0"
+dependencies = [
+ "egui",
+ "enum-class",
+ "husky-control-flow-utils",
+ "husky-devsoul",
+ "husky-devsoul-interface",
+ "husky-print-utils",
+ "husky-trace-protocol",
+ "husky-visual-protocol",
+ "serde",
+ "ui",
 ]
 
 [[package]]

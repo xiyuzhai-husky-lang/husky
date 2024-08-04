@@ -5,10 +5,10 @@ pub(crate) use self::tab::*;
 
 use self::arena::*;
 use super::*;
-use husky_graphics2d_visual_protocol::figure::Graphics2dFigure;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use husky_standard_devsoul_interface::pedestal::StandardPedestal;
 use husky_standard_trace_protocol::StandardTraceProtocol;
+use husky_standard_visual_protocol::figure::StandardFigure;
 use husky_trace_doc::doc::TraceDoc;
 use ui::component::UiComponent;
 
@@ -46,7 +46,7 @@ impl NotebookApp {
         self.add_doc(Doc {
             title: "mnist-classifier trace doc".to_string(),
             component: UiComponent::new(TraceDoc::<
-                StandardTraceProtocol<Graphics2dFigure<StandardPedestal>>,
+                StandardTraceProtocol<StandardFigure<StandardPedestal>>,
                 _,
             >::new(
                 self.tokio_runtime.clone(),

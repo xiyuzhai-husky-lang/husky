@@ -284,7 +284,7 @@ husky-linket-impl = { path = "crates/linket/husky-linket-impl" }
 husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 # protocols
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
-husky-graphics2d-visual-protocol = { path = "crates/protocols/husky-graphics2d-visual-protocol" }
+husky-standard-visual-protocol = { path = "crates/protocols/husky-standard-visual-protocol" }
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
