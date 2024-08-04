@@ -26,8 +26,13 @@ pub trait IsDevsoul: 'static {
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure(
-        followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
-        accompanyings_except_followed: &[(TraceId, KiReprInterface)],
+        followed: Option<(
+            TraceId,
+            KiReprInterface,
+            KiDomainReprInterface,
+            &[ItemPathIdInterface],
+        )>,
+        accompanyings_except_followed: &[(TraceId, KiReprInterface, &[ItemPathIdInterface])],
         pedestal: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,

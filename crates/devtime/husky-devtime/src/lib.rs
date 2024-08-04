@@ -123,6 +123,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                     followed_trace.into(),
                     ki_repr.into(),
                     ki_repr.ki_domain_repr(db).into(),
+                    followed_trace.var_deps(db),
                 )
             }),
             None => None,
@@ -131,7 +132,8 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
             .iter()
             .filter_map(|&accompanying_trace_id| {
                 let trace: Trace = accompanying_trace_id.into();
-                Some((trace.into(), trace.ki_repr(db)?.into()))
+                let ki_repr = trace.ki_repr(db)?;
+                Some((trace.into(), ki_repr.into(), trace.var_deps(db)))
             })
             .collect::<Vec<_>>();
         Devsoul::calc_figure(

@@ -28,11 +28,28 @@ impl IsCaryatid for StandardCaryatid {
             .collect()
     }
 
+    fn covers(&self, var_deps: &[ItemPathIdInterface]) -> bool {
+        var_deps.iter().copied().all(|dep| self.anchors.has(dep))
+    }
+
     type UiBuffer = StandardCaryatidUiBuffer;
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {
         todo!()
     }
+}
+
+impl StandardCaryatid {
+    /// empty returns true, intentionally
+    pub fn is_specific(&self) -> bool {
+        self.anchors.iter().copied().all(|(_, id)| id.is_some())
+    }
+}
+
+#[test]
+fn standard_caryatid_is_specific_works() {
+    let mut caryatid = StandardCaryatid::default();
+    assert!(caryatid.is_specific());
 }
 
 pub struct StandardCaryatidUiBuffer {}

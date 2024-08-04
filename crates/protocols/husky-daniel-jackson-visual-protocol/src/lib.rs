@@ -5,7 +5,11 @@
 //! So this visualization serves mainly for linguistics.
 pub mod action;
 
-use husky_devsoul_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
+use husky_devsoul_interface::{
+    item_path::ItemPathIdInterface,
+    ki_repr::{KiDomainReprInterface, KiReprInterface},
+    pedestal::IsPedestalFull,
+};
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use serde::{Deserialize, Serialize};
