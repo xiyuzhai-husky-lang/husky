@@ -1,6 +1,6 @@
 mod generic;
 mod specific;
-use self::{generic::GenericGraphics2dFigure, specific::SpecificGraphics2dFigure};
+use self::{generic::GenericStandardFigure, specific::SpecificStandardFigure};
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_devsoul_interface::{
     item_path::ItemPathIdInterface,
@@ -24,20 +24,20 @@ use serde::{Deserialize, Serialize};
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub enum Graphics2dFigure<Pedestal: IsPedestal> {
-    Specific(SpecificGraphics2dFigure),
-    Generic(GenericGraphics2dFigure<Pedestal>),
+pub enum StandardFigure<Pedestal: IsPedestal> {
+    Specific(SpecificStandardFigure),
+    Generic(GenericStandardFigure<Pedestal>),
 }
 
 /// # impl IsFigure
-impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for Graphics2dFigure<Pedestal> {
+impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for StandardFigure<Pedestal> {
     fn new_specific(
         followed_visual: Option<(TraceId, KiReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
         f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
-        SpecificGraphics2dFigure::new(followed_visual, accompanyings, f, visual_synchrotron).into()
+        SpecificStandardFigure::new(followed_visual, accompanyings, f, visual_synchrotron).into()
     }
 
     fn new_generic(
@@ -47,7 +47,7 @@ impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for Graphics2dFigure<Pedestal>
         f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
-        GenericGraphics2dFigure::new(
+        GenericStandardFigure::new(
             followed_visual,
             accompanyings,
             pedestals,
@@ -58,7 +58,7 @@ impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for Graphics2dFigure<Pedestal>
     }
 }
 
-impl<Pedestal: IsPedestalFull> FigureUi<Ui> for Graphics2dFigure<Pedestal> {
+impl<Pedestal: IsPedestalFull> FigureUi<Ui> for StandardFigure<Pedestal> {
     fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
@@ -66,10 +66,10 @@ impl<Pedestal: IsPedestalFull> FigureUi<Ui> for Graphics2dFigure<Pedestal> {
         ui: &mut Ui,
     ) {
         match self {
-            Graphics2dFigure::Specific(figure) => {
+            StandardFigure::Specific(figure) => {
                 figure.specific_figure_ui(visual_synchrotron, cache, ui)
             }
-            Graphics2dFigure::Generic(figure) => {
+            StandardFigure::Generic(figure) => {
                 figure.generic_figure_ui(visual_synchrotron, cache, ui)
             }
         }

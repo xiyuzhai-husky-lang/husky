@@ -9,7 +9,7 @@ husky-dev-comptime.workspace = true
 # devtime
 husky-devtime = { path = "../../devtime/husky-devtime" }
 # protocols
-husky-graphics2d-visual-protocol = { path = "../../protocols/husky-graphics2d-visual-protocol" }
+husky-standard-visual-protocol = { path = "../../protocols/husky-standard-visual-protocol" }
 husky-ad-hoc-protocol = { path = "../../protocols/husky-ad-hoc-protocol" }
 # devsoul
 husky-standard-devsoul = { path = "../../devsoul/husky-standard-devsoul" }
