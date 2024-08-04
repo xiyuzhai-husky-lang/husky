@@ -7,6 +7,7 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_devsoul_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
@@ -14,6 +15,7 @@ use husky_value_protocol::presentation::{
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 use rustc_hash::FxHashMap;
+use smallvec::*;
 use std::net::ToSocketAddrs;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
@@ -81,7 +83,10 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         }
         let trace_bundles = self.tracetime.get_trace_bundles();
         self.trace_synchrotron = Some(TraceSynchrotron::new(trace_bundles, |trace| {
-            self.tracetime.get_trace_view_data(trace).clone()
+            (
+                self.tracetime.trace_var_deps(trace).to_smallvec(),
+                self.tracetime.trace_view_data(trace).clone(),
+            )
         }));
         self.cache_periphery()
     }
@@ -164,7 +169,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 if self.trace_synchrotron()[trace_id].subtrace_ids().is_some() {
                     return;
                 }
-                let subtraces = self.tracetime.get_subtraces(trace_id.into()).to_vec();
+                let subtraces = self.tracetime.subtraces(trace_id.into()).to_vec();
                 let subtrace_ids = subtraces
                     .into_iter()
                     .map(|subtrace| {
@@ -205,9 +210,10 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 
     fn cache_trace_if_new(&mut self, trace_id: TraceId) {
         if !self.trace_synchrotron().is_trace_cached(trace_id) {
-            let view_data = self.tracetime.get_trace_view_data(trace_id.into());
+            let var_deps = self.tracetime.trace_var_deps(trace_id.into());
+            let view_data = self.tracetime.trace_view_data(trace_id.into());
             self.trace_synchrotron_mut()
-                .take_action(TraceSynchrotronNewTrace::new(trace_id, view_data))
+                .take_action(TraceSynchrotronNewTrace::new(trace_id, var_deps, view_data))
         }
     }
 
@@ -218,10 +224,12 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 
     fn cache_stalks(&mut self) {
         use crate::caryatid::IsCaryatid;
-        let trace_synchrotron = &self.trace_synchrotron();
-        let trace_listing = trace_synchrotron.trace_listing();
-        let pedestal = trace_synchrotron.caryatid().pedestal(todo!());
+        let trace_listing = self.trace_synchrotron().trace_listing();
         for trace_id in trace_listing {
+            let pedestal = self
+                .trace_synchrotron()
+                .caryatid()
+                .pedestal(&self.trace_synchrotron()[trace_id].var_deps());
             self.cache_stalk(trace_id, pedestal)
         }
     }
@@ -292,9 +300,11 @@ pub trait IsTracetime: Send + 'static + Sized {
 
     fn get_trace_bundles(&self) -> &[TraceBundle<Self::Trace>];
 
-    fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
+    fn subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
 
-    fn get_trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
+    fn trace_var_deps(&self, trace: Self::Trace) -> SmallVec<[ItemPathIdInterface; 2]>;
+
+    fn trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
 
     fn get_trace_stalk(
         &self,

@@ -4689,6 +4689,7 @@ dependencies = [
  "serde",
  "serde-impl",
  "serde_json",
+ "smallvec",
  "vec-like",
 ]
 

@@ -1,10 +1,13 @@
 use super::*;
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use serde_with::serde_as;
+use smallvec::SmallVec;
 use vec_like::SmallVecSet;
 
 #[serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
+    var_deps: SmallVec<[ItemPathIdInterface; 2]>,
     view_data: TraceViewData,
     /// None means not calculated
     subtrace_ids: Option<Vec<TraceId>>,
@@ -15,14 +18,19 @@ pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
 }
 
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
-    pub fn new(view_data: TraceViewData) -> Self {
+    pub fn new(var_deps: SmallVec<[ItemPathIdInterface; 2]>, view_data: TraceViewData) -> Self {
         Self {
+            var_deps,
             view_data,
             subtrace_ids: None,
             assoc_trace_ids_shown: Default::default(),
             expanded: false,
             stalks: Default::default(),
         }
+    }
+
+    pub fn var_deps(&self) -> &[ItemPathIdInterface] {
+        &self.var_deps
     }
 
     pub fn view_data(&self) -> &TraceViewData {

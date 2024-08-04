@@ -2,11 +2,11 @@
 mod state;
 
 pub use husky_trace_protocol::server::IsTracetime;
-use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::devsoul::IsDevsoul;
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
@@ -18,6 +18,8 @@ use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
 use husky_vfs::error::VfsResult;
+use husky_visual_protocol::synchrotron::VisualSynchrotron;
+use smallvec::{SmallVec, ToSmallVec};
 use std::{path::Path, pin::Pin};
 
 pub struct Devtime<Devsoul: IsDevsoul> {
@@ -69,11 +71,15 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         }
     }
 
-    fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace] {
+    fn subtraces(&self, trace: Self::Trace) -> &[Self::Trace] {
         trace.subtraces(self.db())
     }
 
-    fn get_trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
+    fn trace_var_deps(&self, trace: Self::Trace) -> SmallVec<[ItemPathIdInterface; 2]> {
+        trace.var_deps(self.db()).to_smallvec()
+    }
+
+    fn trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
         trace.view_data(self.db())
     }
 
