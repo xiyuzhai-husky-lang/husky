@@ -3,7 +3,8 @@ mod specific;
 use self::{generic::GenericGraphics2dFigure, specific::SpecificGraphics2dFigure};
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_devsoul_interface::{
-    ki_repr::KiReprInterface,
+    item_path::ItemPathIdInterface,
+    ki_repr::{KiDomainReprInterface, KiReprInterface},
     pedestal::{IsPedestal, IsPedestalFull},
 };
 use husky_trace_protocol::{
