@@ -14,6 +14,8 @@ keywords.workspace = true
 [dependencies]
 egui = { workspace = true, optional = true }
 serde.workspace = true
+# abstractions
+vec-like.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 # protocols

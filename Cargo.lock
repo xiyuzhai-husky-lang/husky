@@ -6391,6 +6391,7 @@ dependencies = [
  "husky-standard-devsoul-interface",
  "husky-trace-protocol",
  "serde",
+ "vec-like",
 ]
 
 [[package]]
