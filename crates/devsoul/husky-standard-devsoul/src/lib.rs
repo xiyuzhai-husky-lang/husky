@@ -62,18 +62,17 @@ where
             ),
             None => (None, None),
         };
-        // checking that caryatid includes the var deps of the followed and accompanyings
+        // checking that caryatid should at least cover the var deps of the followed
         if let Some((_, followed_var_deps)) = followed_domain_and_var_deps {
             assert!(caryatid.covers(followed_var_deps))
-        }
-        for (_, _, accompanying_var_deps) in accompanyings {
-            assert!(caryatid.covers(accompanying_var_deps))
         }
         // throw away unnessary things
         let accompanyings = &accompanyings
             .iter()
             .copied()
-            .map(|(trace_id, ki_repr, _)| (trace_id, ki_repr))
+            .filter_map(|(trace_id, ki_repr, var_deps)| {
+                caryatid.covers(var_deps).then_some((trace_id, ki_repr))
+            })
             .collect::<Vec<_>>();
         if caryatid.is_specific() {
             <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_specific(
