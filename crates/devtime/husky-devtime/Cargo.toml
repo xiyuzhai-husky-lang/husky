@@ -7,6 +7,7 @@ edition = "2021"
 salsa.workspace = true
 serde.workspace = true
 serde_json.workspace = true
+smallvec.workspace = true
 # abstractions
 vec-like.workspace = true
 serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
