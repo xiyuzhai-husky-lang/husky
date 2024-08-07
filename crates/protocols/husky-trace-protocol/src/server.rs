@@ -1,3 +1,6 @@
+#[cfg(feature = "test_utils")]
+pub mod test_utils;
+
 use self::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{
     message::{TraceRequest, TraceResponse},
@@ -69,18 +72,18 @@ where
 
 impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     fn new(tracetime: Tracetime) -> Self {
-        Self {
+        let mut slf = Self {
             trace_synchrotron: Default::default(),
             tracetime,
             value_presenter_cache: Default::default(),
             visual_cache: Default::default(),
-        }
+        };
+        slf.init();
+        slf
     }
 
     fn init(&mut self) {
-        if self.trace_synchrotron.is_some() {
-            return;
-        }
+        assert!(self.trace_synchrotron.is_none());
         let trace_bundles = self.tracetime.trace_bundles();
         self.trace_synchrotron = Some(TraceSynchrotron::new(trace_bundles, |trace| {
             (
@@ -126,7 +129,6 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                         std::any::type_name::<Tracetime::TraceProtocol>()
                     )));
                 }
-                self.init();
                 let Some(trace_synchrotron) = self.trace_synchrotron.clone() else {
                     unreachable!()
                 };

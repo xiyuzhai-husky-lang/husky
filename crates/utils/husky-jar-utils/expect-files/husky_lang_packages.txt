@@ -2661,6 +2661,7 @@
             "husky-websocket-utils",
             "notify-change",
             "rustc-hash",
+            "sealed",
             "serde",
             "serde-impl",
             "serde_json",
@@ -3152,6 +3153,7 @@
             "husky-path-utils",
             "husky-standard-devsoul",
             "husky-standard-visual-protocol",
+            "husky-trace-protocol",
         ],
     },
     PackageSummary {
