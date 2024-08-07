@@ -1,5 +1,7 @@
 #![feature(try_trait_v2)]
 mod state;
+#[cfg(test)]
+mod tests;
 
 pub use husky_trace_protocol::server::IsTracetime;
 
@@ -45,18 +47,6 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     }
 }
 
-// impl<Devsoul: IsDevsoul> Default for Devtime<Devsoul>
-// where
-//     Devsoul: Default,
-//     Devsoul::Linktime: Default,
-// {
-//     fn default() -> Self {
-//         Self {
-//             runtime: Default::default(),
-//         }
-//     }
-// }
-
 impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     type Trace = Trace;
 
@@ -64,7 +54,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 
-    fn get_trace_bundles(&self) -> &[TraceBundle<Self::Trace>] {
+    fn trace_bundles(&self) -> &[TraceBundle<Self::Trace>] {
         match self.target() {
             DevComptimeTarget::None => &[],
             DevComptimeTarget::SingleCrate(crate_path) => self.db().trace_bundles(crate_path),
@@ -83,7 +73,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         trace.view_data(self.db())
     }
 
-    fn get_trace_stalk(
+    fn trace_stalk(
         &self,
         trace: Self::Trace,
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
@@ -108,7 +98,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         }
     }
 
-    fn get_figure(
+    fn figure(
         &self,
         followed_trace: Option<Self::Trace>,
         accompanying_trace_ids_expect_followed: &AccompanyingTraceIdsExceptFollowed,

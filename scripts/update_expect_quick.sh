@@ -5,7 +5,7 @@
 DURATION=0.5
 MONITOR=HDMI-2
 # TARGET=husky-cybertron-mini-compiler
-TARGET=husky-trace
+TARGET=husky-devtime
 
 # Define a cleanup function
 cleanup() {
