@@ -81,7 +81,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         if self.trace_synchrotron.is_some() {
             return;
         }
-        let trace_bundles = self.tracetime.get_trace_bundles();
+        let trace_bundles = self.tracetime.trace_bundles();
         self.trace_synchrotron = Some(TraceSynchrotron::new(trace_bundles, |trace| {
             (
                 self.tracetime.trace_var_deps(trace).to_smallvec(),
@@ -241,7 +241,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     ) {
         if !self.trace_synchrotron()[trace_id].has_stalk(&pedestal) {
             let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
-            let stalk = self.tracetime.get_trace_stalk(
+            let stalk = self.tracetime.trace_stalk(
                 trace_id.into(),
                 &pedestal,
                 &mut self.value_presenter_cache,
@@ -268,7 +268,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             accompanying_trace_ids_except_followed,
         );
         if !has_figure {
-            let figure = self.tracetime.get_figure(
+            let figure = self.tracetime.figure(
                 followed_trace_id.map(Into::into),
                 &accompanying_trace_ids_except_followed,
                 caryatid.clone(),
@@ -298,7 +298,7 @@ pub trait IsTracetime: Send + 'static + Sized {
         TraceServer::new(self).easy_serve(addr)
     }
 
-    fn get_trace_bundles(&self) -> &[TraceBundle<Self::Trace>];
+    fn trace_bundles(&self) -> &[TraceBundle<Self::Trace>];
 
     fn subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
 
@@ -306,7 +306,7 @@ pub trait IsTracetime: Send + 'static + Sized {
 
     fn trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
 
-    fn get_trace_stalk(
+    fn trace_stalk(
         &self,
         trace: Self::Trace,
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
@@ -314,7 +314,7 @@ pub trait IsTracetime: Send + 'static + Sized {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> TraceStalk;
 
-    fn get_figure(
+    fn figure(
         &self,
         followed_trace: Option<Self::Trace>,
         accompanying_trace_ids: &AccompanyingTraceIdsExceptFollowed,

@@ -3149,6 +3149,9 @@
             "serde_json",
             "smallvec",
             "vec-like",
+            "husky-path-utils",
+            "husky-standard-devsoul",
+            "husky-standard-visual-protocol",
         ],
     },
     PackageSummary {
