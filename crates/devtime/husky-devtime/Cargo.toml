@@ -52,6 +52,7 @@ husky-vm.workspace = true
 
 [dev-dependencies]
 # protocols
+husky-trace-protocol = { workspace = true, features = ["test_utils"] }
 husky-standard-visual-protocol.workspace = true
 # devsoul
 husky-standard-devsoul.workspace = true

@@ -6972,6 +6972,7 @@ dependencies = [
  "husky-websocket-utils",
  "notify-change",
  "rustc-hash",
+ "sealed",
  "serde",
  "serde-impl",
  "serde_json",

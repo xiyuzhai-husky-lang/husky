@@ -8,6 +8,7 @@ axum = { workspace = true, optional = true }
 futures = { workspace = true, optional = true }
 futures-util = { workspace = true, optional = true }
 rustc-hash.workspace = true
+sealed = { workspace = true, optional = true }
 serde.workspace = true
 serde_json.workspace = true
 serde_with.workspace = true
@@ -36,6 +37,7 @@ husky-websocket-utils = { path = "../../utils/husky-websocket-utils", features =
 ] }
 
 [dev-dependencies]
+# protocol
 husky-trace-protocol = { path = ".", features = ["trivial"] }
 
 [features]
@@ -63,3 +65,4 @@ server = [
     "dep:tokio-tungstenite",
     "husky-websocket-utils/easy_server"
 ]
+test_utils = ["dep:sealed"]

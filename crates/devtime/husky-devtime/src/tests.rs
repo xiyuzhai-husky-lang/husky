@@ -3,6 +3,8 @@ use husky_path_utils::HuskyLangDevPaths;
 use husky_standard_devsoul::StandardDevsoul;
 use husky_standard_devsoul::StandardPedestal;
 use husky_standard_visual_protocol::figure::StandardFigure;
+use husky_trace_protocol::server::test_utils::TestTraceServer;
+use husky_trace_protocol::server::TraceServer;
 
 // it looks ugly, lol
 type StandardDevtime = Devtime<StandardDevsoul<StandardFigure<StandardPedestal>>>;
@@ -15,5 +17,5 @@ fn devtime_works() {
         None,
     )
     .unwrap();
-    let trace_bundles = devtime.trace_bundles();
+    devtime.test_trace_server();
 }
