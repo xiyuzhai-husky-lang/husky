@@ -236,6 +236,16 @@ impl LazyExprTraceData {
     pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
         self.biological_parent.ki_repr_expansion(db)
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        self.var_deps_expansion(db)
+            .expr_value_var_deps(self.sem_expr_idx, db)
+            .clone()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        self.biological_parent.var_deps_expansion(db)
+    }
 }
 
 fn fn_call_lazy_expr_trace_input_traces(

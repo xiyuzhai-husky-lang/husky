@@ -1,6 +1,5 @@
-use egui::{Frame, Separator};
-
 use super::*;
+use egui::{Frame, Separator};
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where
@@ -84,9 +83,9 @@ where
     where
         TraceProtocol: IsTraceProtocol,
     {
-        let pedestal = self.trace_synchrotron.pedestal();
+        let caryatid = self.trace_synchrotron.caryatid();
         let entry = &self.trace_synchrotron[trace_id];
-        self.render_trace_view(pedestal, trace_id, entry, ui);
+        self.render_trace_view(&caryatid.pedestal(entry.var_deps()), trace_id, entry, ui);
         if entry.expanded()
             && let Some(subtrace_ids) = entry.subtrace_ids()
         {

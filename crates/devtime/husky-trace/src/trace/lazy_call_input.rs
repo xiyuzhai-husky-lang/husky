@@ -66,4 +66,12 @@ impl LazyCallInputTraceData {
     pub(super) fn ki_repr(&self, _db: &::salsa::Db) -> KiRepr {
         todo!()
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        todo!()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        todo!()
+    }
 }

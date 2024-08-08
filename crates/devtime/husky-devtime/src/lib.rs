@@ -1,16 +1,18 @@
 #![feature(try_trait_v2)]
 mod state;
+#[cfg(test)]
+mod tests;
 
 pub use husky_trace_protocol::server::IsTracetime;
-use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::devsoul::IsDevsoul;
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
-    server::ValVisualCache,
+    server::KiVisualCache,
     stalk::TraceStalk,
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
 };
@@ -18,6 +20,8 @@ use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
 use husky_vfs::error::VfsResult;
+use husky_visual_protocol::synchrotron::VisualSynchrotron;
+use smallvec::{SmallVec, ToSmallVec};
 use std::{path::Path, pin::Pin};
 
 pub struct Devtime<Devsoul: IsDevsoul> {
@@ -43,18 +47,6 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     }
 }
 
-// impl<Devsoul: IsDevsoul> Default for Devtime<Devsoul>
-// where
-//     Devsoul: Default,
-//     Devsoul::Linktime: Default,
-// {
-//     fn default() -> Self {
-//         Self {
-//             runtime: Default::default(),
-//         }
-//     }
-// }
-
 impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     type Trace = Trace;
 
@@ -62,22 +54,26 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
 
     type SerdeImpl = serde_impl::json::SerdeJson;
 
-    fn get_trace_bundles(&self) -> &[TraceBundle<Self::Trace>] {
+    fn trace_bundles(&self) -> &[TraceBundle<Self::Trace>] {
         match self.target() {
             DevComptimeTarget::None => &[],
             DevComptimeTarget::SingleCrate(crate_path) => self.db().trace_bundles(crate_path),
         }
     }
 
-    fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace] {
+    fn subtraces(&self, trace: Self::Trace) -> &[Self::Trace] {
         trace.subtraces(self.db())
     }
 
-    fn get_trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
+    fn trace_var_deps(&self, trace: Self::Trace) -> SmallVec<[ItemPathIdInterface; 2]> {
+        trace.var_deps(self.db()).to_smallvec()
+    }
+
+    fn trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
         trace.view_data(self.db())
     }
 
-    fn get_trace_stalk(
+    fn trace_stalk(
         &self,
         trace: Self::Trace,
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
@@ -86,7 +82,8 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     ) -> husky_trace_protocol::stalk::TraceStalk {
         use husky_devsoul_interface::pedestal::IsPedestal;
         let db = self.runtime.db();
-        if !pedestal.is_closed() {
+        let var_deps = trace.var_deps(db);
+        if !pedestal.is_closed(var_deps) {
             return TraceStalk::None;
         }
         if let Some(ki_repr) = trace.ki_repr(db) {
@@ -101,13 +98,13 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         }
     }
 
-    fn get_figure(
+    fn figure(
         &self,
         followed_trace: Option<Self::Trace>,
         accompanying_trace_ids_expect_followed: &AccompanyingTraceIdsExceptFollowed,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         visual_synchrotron: &mut VisualSynchrotron,
-        val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        ki_visual_cache: &mut KiVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
         let followed = match followed_trace {
@@ -116,6 +113,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                     followed_trace.into(),
                     ki_repr.into(),
                     ki_repr.ki_domain_repr(db).into(),
+                    followed_trace.var_deps(db),
                 )
             }),
             None => None,
@@ -124,16 +122,17 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
             .iter()
             .filter_map(|&accompanying_trace_id| {
                 let trace: Trace = accompanying_trace_id.into();
-                Some((trace.into(), trace.ki_repr(db)?.into()))
+                let ki_repr = trace.ki_repr(db)?;
+                Some((trace.into(), ki_repr.into(), trace.var_deps(db)))
             })
             .collect::<Vec<_>>();
         Devsoul::calc_figure(
             followed,
             accompanyings_except_followed,
-            pedestal,
+            caryatid,
             &*self.runtime,
             visual_synchrotron,
-            val_visual_cache,
+            ki_visual_cache,
         )
     }
 }

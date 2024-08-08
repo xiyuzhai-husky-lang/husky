@@ -6,6 +6,7 @@ impl<TraceProtocol: IsTraceProtocolFull, Notifier> TraceClient<TraceProtocol, No
 where
     Notifier: NotifyChange,
 {
+    #[deprecated]
     pub fn new_mock(tokio_runtime: Arc<tokio::runtime::Runtime>, notifier: Notifier) -> Self {
         Self::new(tokio_runtime, MOCK_SERVER, notifier)
     }

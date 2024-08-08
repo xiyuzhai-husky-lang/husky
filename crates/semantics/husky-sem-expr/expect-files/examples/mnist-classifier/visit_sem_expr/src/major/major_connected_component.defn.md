@@ -7,6 +7,7 @@ Some(
         "let mut max_row_span_sum = 0.0",
         "connected_components",
         "connected_components.ilen()",
+        "i",
         "connected_components",
         "i",
         "connected_components[i]",

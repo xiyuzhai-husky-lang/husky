@@ -460,6 +460,17 @@ impl EagerStmtTraceData {
             }
         }
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        self.biological_parent
+            .var_deps_expansion(db)
+            .stmt_value_var_deps(self.sem_stmt_idx, db)
+            .clone()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        self.biological_parent.var_deps_expansion(db)
+    }
 }
 
 struct EagerStmtAssocTraceRegistry<'a> {

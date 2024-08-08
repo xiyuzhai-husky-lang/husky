@@ -86,6 +86,7 @@ where
         set_up_for_testing: fn(usize),
         get_id: fn() -> Pedestal::StaticVarId,
         set_id: fn(Pedestal::StaticVarId),
+        ids: fn() -> Box<dyn Iterator<Item = Pedestal::StaticVarId>>,
     },
     // todo: memo
 }

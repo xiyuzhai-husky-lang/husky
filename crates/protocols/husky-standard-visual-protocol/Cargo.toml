@@ -1,16 +1,21 @@
 [package]
-name = "husky-daniel-jackson-visual-protocol"
+name = "husky-standard-visual-protocol"
 version.workspace = true
 edition = "2021"
 
 [dependencies]
+egui.workspace = true
 serde.workspace = true
 # abstractions
+enum-class.workspace = true
 ui.workspace = true
 # kernel
 husky-devsoul.workspace = true
 # protocols
-husky-visual-protocol.workspace = true
+husky-visual-protocol = { workspace = true, features = ["egui"] }
 husky-trace-protocol.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
+# utils
+husky-control-flow-utils.workspace = true
+husky-print-utils.workspace = true

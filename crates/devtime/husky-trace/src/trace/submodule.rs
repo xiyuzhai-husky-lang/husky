@@ -61,6 +61,14 @@ impl SubmoduleTraceData {
             .filter_map(|&item_path| Trace::from_item_path(item_path, db))
             .collect()
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        vec![]
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        todo!()
+    }
 }
 
 #[salsa::tracked(jar = TraceJar)]

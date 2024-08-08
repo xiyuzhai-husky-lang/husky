@@ -1,5 +1,7 @@
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_value_protocol::presentation::synchrotron::action::ValuePresentationSynchrotronActionsDiff;
 use husky_visual_protocol::synchrotron::action::VisualSynchrotronActionsDiff;
+use smallvec::SmallVec;
 
 use super::*;
 
@@ -25,14 +27,14 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
     CacheFigure {
         followed_trace_id: Option<TraceId>,
         accompanying_trace_ids_except_followed: AccompanyingTraceIdsExceptFollowed,
-        pedestal: TraceProtocol::Pedestal,
+        pedestal: TraceProtocol::Caryatid,
         figure: TraceProtocol::Figure,
     },
     ToggleAccompany {
         trace_id: TraceId,
     },
-    SetPedestal {
-        pedestal: <TraceProtocol as IsTraceProtocol>::Pedestal,
+    SetCaryatid {
+        caryatid: TraceProtocol::Caryatid,
     },
 }
 
@@ -115,8 +117,8 @@ where
             &TraceSynchrotronAction::ToggleAccompany { trace_id } => {
                 synchrotron.accompanying_trace_ids.toggle(trace_id)
             }
-            &TraceSynchrotronAction::SetPedestal { ref pedestal } => {
-                synchrotron.pedestal = pedestal.clone()
+            &TraceSynchrotronAction::SetCaryatid { ref caryatid } => {
+                synchrotron.caryatid = caryatid.clone()
             }
         }
     }
@@ -152,13 +154,19 @@ where
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotronNewTrace {
     trace_id: TraceId,
+    var_deps: SmallVec<[ItemPathIdInterface; 2]>,
     view_data: TraceViewData,
 }
 
 impl TraceSynchrotronNewTrace {
-    pub fn new(trace_id: TraceId, view_data: TraceViewData) -> Self {
+    pub fn new(
+        trace_id: TraceId,
+        var_deps: SmallVec<[ItemPathIdInterface; 2]>,
+        view_data: TraceViewData,
+    ) -> Self {
         Self {
             trace_id,
+            var_deps,
             view_data,
         }
     }
@@ -175,7 +183,7 @@ where
             .entries
             .insert(
                 self.trace_id,
-                TraceSynchrotronEntry::new(self.view_data.clone()),
+                TraceSynchrotronEntry::new(self.var_deps.clone(), self.view_data.clone()),
             )
             .is_none())
     }

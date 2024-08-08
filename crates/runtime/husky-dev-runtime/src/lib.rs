@@ -3,6 +3,8 @@
 #![feature(try_trait_v2)]
 mod config;
 mod eval;
+#[cfg(test)]
+mod tests;
 
 pub use self::config::*;
 
@@ -61,6 +63,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 
     fn init(self: &Self) {
         self.comptime.init(unsafe { arb_ref(self) });
+    }
+}
+
+impl<Devsoul: IsDevsoul> std::ops::Drop for DevRuntime<Devsoul> {
+    fn drop(&mut self) {
+        self.comptime.release()
     }
 }
 

@@ -30,7 +30,7 @@ where
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     figure_ui_cache: &'a mut FigureUiCache<Ui>,
-    pedestal_ui_buffer: &'a mut <TraceProtocol::Pedestal as IsPedestal>::UiBuffer,
+    caryatid_ui_buffer: &'a mut <TraceProtocol::Caryatid as IsCaryatid>::UiBuffer,
     glyph_width: f32,
 }
 
@@ -45,7 +45,7 @@ where
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         settings: &'a mut Settings,
         figure_ui_cache: &'a mut FigureUiCache<Ui>,
-        pedestal_ui_buffer: &'a mut <TraceProtocol::Pedestal as IsPedestal>::UiBuffer,
+        caryatid_ui_buffer: &'a mut <TraceProtocol::Caryatid as IsCaryatid>::UiBuffer,
         ui: &mut egui::Ui,
     ) -> Self {
         let glyph_width =
@@ -57,7 +57,7 @@ where
             action_buffer,
             settings,
             glyph_width,
-            pedestal_ui_buffer,
+            caryatid_ui_buffer: caryatid_ui_buffer,
             figure_ui_cache,
         }
     }

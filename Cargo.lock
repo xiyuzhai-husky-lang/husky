@@ -4384,18 +4384,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-daniel-jackson-visual-protocol"
-version = "0.1.0"
-dependencies = [
- "husky-devsoul",
- "husky-devsoul-interface",
- "husky-trace-protocol",
- "husky-visual-protocol",
- "serde",
- "ui",
-]
-
-[[package]]
 name = "husky-debug-utils"
 version = "0.1.0"
 dependencies = [
@@ -4589,10 +4577,12 @@ dependencies = [
  "husky-print-utils",
  "husky-standard-devsoul",
  "husky-standard-devsoul-interface",
+ "husky-standard-visual-protocol",
  "husky-sync-utils",
  "husky-term-prelude",
  "husky-text-protocol",
  "husky-token",
+ "husky-trace-protocol",
  "husky-value-interface",
  "husky-vfs",
  "husky-visual-protocol",
@@ -4672,7 +4662,10 @@ dependencies = [
  "husky-eth-term",
  "husky-ki-repr",
  "husky-opr",
+ "husky-path-utils",
  "husky-print-utils",
+ "husky-standard-devsoul",
+ "husky-standard-visual-protocol",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4689,6 +4682,10 @@ dependencies = [
  "serde",
  "serde-impl",
  "serde_json",
+ "smallvec",
+ "tracing",
+ "tracing-subscriber",
+ "tracing-test",
  "vec-like",
 ]
 
@@ -5026,22 +5023,6 @@ version = "0.1.0"
 dependencies = [
  "git2",
  "husky-path-utils",
-]
-
-[[package]]
-name = "husky-graphics2d-visual-protocol"
-version = "0.1.0"
-dependencies = [
- "egui",
- "enum-class",
- "husky-control-flow-utils",
- "husky-devsoul",
- "husky-devsoul-interface",
- "husky-print-utils",
- "husky-trace-protocol",
- "husky-visual-protocol",
- "serde",
- "ui",
 ]
 
 [[package]]
@@ -5733,8 +5714,10 @@ dependencies = [
  "husky-ad-hoc-protocol",
  "husky-dev-comptime",
  "husky-devtime",
- "husky-graphics2d-visual-protocol",
  "husky-standard-devsoul",
+ "husky-standard-visual-protocol",
+ "tracing",
+ "tracing-subscriber",
 ]
 
 [[package]]
@@ -5746,9 +5729,9 @@ dependencies = [
  "enum-index",
  "expect-test",
  "husky-devsoul-interface",
- "husky-graphics2d-visual-protocol",
  "husky-print-utils",
  "husky-standard-devsoul-interface",
+ "husky-standard-visual-protocol",
  "husky-trace-protocol",
  "husky-visual-protocol",
  "image",
@@ -5810,11 +5793,11 @@ dependencies = [
  "egui_dock",
  "enum-index",
  "husky-code-editor",
- "husky-graphics2d-visual-protocol",
  "husky-gui",
  "husky-print-utils",
  "husky-standard-devsoul-interface",
  "husky-standard-trace-protocol",
+ "husky-standard-visual-protocol",
  "husky-token-protocol",
  "husky-trace-doc",
  "husky-trace-protocol",
@@ -6360,10 +6343,10 @@ dependencies = [
 name = "husky-standard-devsoul-interface"
 version = "0.1.0"
 dependencies = [
- "egui",
  "enum-class",
  "husky-devsoul-interface",
  "husky-linket-impl",
+ "husky-print-utils",
  "husky-standard-devsoul-interface-macros",
  "husky-standard-value",
  "husky-trace-protocol",
@@ -6386,9 +6369,12 @@ dependencies = [
 name = "husky-standard-trace-protocol"
 version = "0.1.0"
 dependencies = [
+ "egui",
+ "husky-devsoul-interface",
  "husky-standard-devsoul-interface",
  "husky-trace-protocol",
  "serde",
+ "vec-like",
 ]
 
 [[package]]
@@ -6422,6 +6408,22 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.66",
+]
+
+[[package]]
+name = "husky-standard-visual-protocol"
+version = "0.1.0"
+dependencies = [
+ "egui",
+ "enum-class",
+ "husky-control-flow-utils",
+ "husky-devsoul",
+ "husky-devsoul-interface",
+ "husky-print-utils",
+ "husky-trace-protocol",
+ "husky-visual-protocol",
+ "serde",
+ "ui",
 ]
 
 [[package]]
@@ -6889,6 +6891,7 @@ dependencies = [
  "husky-dec-signature",
  "husky-dec-term",
  "husky-dec-ty",
+ "husky-devsoul-interface",
  "husky-entity-kind",
  "husky-entity-path",
  "husky-entity-tree",
@@ -6977,6 +6980,7 @@ dependencies = [
  "husky-websocket-utils",
  "notify-change",
  "rustc-hash",
+ "sealed",
  "serde",
  "serde-impl",
  "serde_json",
@@ -6986,9 +6990,14 @@ dependencies = [
  "thiserror",
  "tokio",
  "tokio-tungstenite",
+ "tracing",
  "ui",
  "vec-like",
 ]
+
+[[package]]
+name = "husky-tracing-utils"
+version = "0.1.0"
 
 [[package]]
 name = "husky-trai-analysis"
@@ -7220,7 +7229,6 @@ dependencies = [
  "tokio-tungstenite",
  "tower-http",
  "tracing",
- "tracing-subscriber",
 ]
 
 [[package]]
@@ -11070,6 +11078,27 @@ dependencies = [
  "tracing",
  "tracing-core",
  "tracing-log",
+]
+
+[[package]]
+name = "tracing-test"
+version = "0.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "557b891436fe0d5e0e363427fc7f217abf9ccd510d5136549847bdcbcd011d68"
+dependencies = [
+ "tracing-core",
+ "tracing-subscriber",
+ "tracing-test-macro",
+]
+
+[[package]]
+name = "tracing-test-macro"
+version = "0.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "04659ddb06c87d233c566112c1c9c5b9e98256d9af50ec3bc9c8327f873a7568"
+dependencies = [
+ "quote",
+ "syn 2.0.66",
 ]
 
 [[package]]

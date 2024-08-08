@@ -62,3 +62,6 @@ husky-ast = { workspace = true, features = ["test_utils"] }
 # ad hoc
 # linktime
 husky-mono-linktime.workspace = true
+# protocols
+husky-trace-protocol = { workspace = true, features = ["test_utils"] }
+husky-standard-visual-protocol.workspace = true

@@ -122,4 +122,13 @@ impl LazyPatternTraceData {
     pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
         self.biological_parent.ki_repr_expansion(db)
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        // ad hoc
+        Default::default()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        todo!()
+    }
 }

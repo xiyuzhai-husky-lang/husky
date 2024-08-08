@@ -1,3 +1,7 @@
+pub mod caryatid;
+
+use self::caryatid::*;
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_standard_devsoul_interface::pedestal::StandardPedestal;
 use husky_trace_protocol::{figure::IsFigure, protocol::IsTraceProtocol};
 use serde::{Deserialize, Serialize};
@@ -17,6 +21,8 @@ where
     Figure: IsFigure<StandardPedestal>,
 {
     type Pedestal = StandardPedestal;
+
+    type Caryatid = StandardCaryatid;
 
     type Figure = Figure;
 }

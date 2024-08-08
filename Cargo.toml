@@ -176,8 +176,9 @@ toml = "0.8.8"
 toml_edit = "0.22.6"
 tower = { version = "0.4", features = ["util"] }
 tower-http = { version = "0.5.1", features = ["fs", "trace"] }
-tracing = "0.1"
+tracing = "0.1.40"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing-test = "0.2.5"
 unindent = "0.2.3"
 winapi = "0.3.9"
 xxhash-rust = { version = "0.8.5" }
@@ -284,7 +285,7 @@ husky-linket-impl = { path = "crates/linket/husky-linket-impl" }
 husky-mono-linktime = { path = "crates/linktime/husky-mono-linktime" }
 # protocols
 husky-entity-protocol = { path = "crates/protocols/husky-entity-protocol" }
-husky-graphics2d-visual-protocol = { path = "crates/protocols/husky-graphics2d-visual-protocol" }
+husky-standard-visual-protocol = { path = "crates/protocols/husky-standard-visual-protocol" }
 husky-text-protocol = { path = "crates/protocols/husky-text-protocol" }
 husky-token-protocol = { path = "crates/protocols/husky-token-protocol" }
 husky-trace-protocol = { path = "crates/protocols/husky-trace-protocol" }
