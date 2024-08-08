@@ -51,7 +51,7 @@ husky-vm.workspace = true
 [dev-dependencies]
 tracing.workspace = true
 tracing-subscriber.workspace = true
-tracing-test = { workspace = true, features = ["no-env-filter"] }
+tracing-test = { workspace = true }
 # protocols
 husky-trace-protocol = { workspace = true, features = ["test_utils"] }
 husky-standard-visual-protocol.workspace = true
