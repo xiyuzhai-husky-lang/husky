@@ -18,6 +18,9 @@ pub type DevEvalContext = husky_devsoul_interface::DevEvalContext<
     husky_linket_impl::standard::StandardLinketImpl<StandardPedestal>,
 >;
 
+/// this is still subject to parallel testing bug, two different tests might want to use the same context.
+///
+/// it depends on rust's implementation though.
 static mut DEV_EVAL_CONTEXT: std::option::Option<DevEvalContext> = None;
 
 pub fn dev_eval_context() -> DevEvalContext {
