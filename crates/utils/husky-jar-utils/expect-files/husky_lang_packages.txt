@@ -2101,6 +2101,8 @@
             "husky-devtime",
             "husky-standard-devsoul",
             "husky-standard-visual-protocol",
+            "tracing",
+            "tracing-subscriber",
         ],
     },
     PackageSummary {

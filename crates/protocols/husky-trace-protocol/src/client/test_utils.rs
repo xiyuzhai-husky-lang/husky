@@ -17,7 +17,7 @@ where
 {
     fn test_trace_client(self) {
         let tokio_runtime = Arc::new(tokio::runtime::Runtime::new().unwrap());
-        let server_thread = std::thread::spawn(|| self.serve_traces("localhost:51718"));
+        let server_thread = std::thread::spawn(|| self.serve_traces("localhost:58888"));
         let sleep = |t| std::thread::sleep(std::time::Duration::from_millis(t));
         // wait until the server is there for sure
         let x = 1;
@@ -25,7 +25,7 @@ where
         tracing::info!(?x);
         sleep(10);
         let mut client =
-            TraceClient::<T::TraceProtocol, ()>::new(tokio_runtime, "ws://localhost:51718/ws", ());
+            TraceClient::<T::TraceProtocol, ()>::new(tokio_runtime, "ws://localhost:58888/ws", ());
         let x = 1;
         tracing::debug!(?x);
         tracing::info!(?x);
