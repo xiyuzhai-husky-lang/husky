@@ -4,6 +4,7 @@ pub mod mock;
 #[cfg(feature = "test_utils")]
 pub mod test_utils;
 
+use crate::caryatid::IsCaryatid;
 use crate::{
     message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
     view::action::TraceViewAction, *,
@@ -51,24 +52,23 @@ where
 
     pub fn update(
         &mut self,
-        pedestal_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
+        caryatid_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
     ) {
         let Some(response) = self.connection.try_recv() else {
             return;
         };
-        self.process_response(response, pedestal_ui_buffer);
+        self.process_response(response, caryatid_ui_buffer);
     }
 
     fn process_response(
         &mut self,
         response: TraceResponse<TraceProtocol>,
-        pedestal_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
+        caryatid_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
     ) {
         match response {
             TraceResponse::Init { trace_synchrotron } => {
                 debug_assert!(self.trace_synchrotron.is_none());
-                *pedestal_ui_buffer = todo!();
-                // Some(trace_synchrotron.caryatid().init_ui_buffer());
+                *caryatid_ui_buffer = Some(trace_synchrotron.caryatid().init_ui_buffer());
                 self.trace_synchrotron = Some(trace_synchrotron)
             }
             TraceResponse::TakeTraceSynchrotronActionsDiff {
@@ -78,7 +78,7 @@ where
                     unreachable!()
                 };
                 trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff);
-                // pedestal_ui_buffer
+                // caryatid_ui_buffer
                 //     .as_mut()
                 //     .unwrap()
                 //     .update(trace_synchrotron.pedestal());

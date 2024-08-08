@@ -27,7 +27,7 @@ where
     action_buffer: TraceViewActionBuffer<TraceProtocol>,
     figure_ui_cache: FigureUiCache<egui::Ui>,
     // set after client is initialized
-    pedestal_ui_buffer: Option<<TraceProtocol::Caryatid as IsCaryatid>::UiBuffer>,
+    caryatid_ui_buffer: Option<<TraceProtocol::Caryatid as IsCaryatid>::UiBuffer>,
 }
 
 #[cfg(feature = "egui")]
@@ -45,7 +45,7 @@ where
         settings: &mut Settings,
         _action_buffer: &mut UiActionBuffer,
     ) {
-        self.trace_client.update(&mut self.pedestal_ui_buffer);
+        self.trace_client.update(&mut self.caryatid_ui_buffer);
         self.render(ui, settings);
         let actions = self.action_buffer.take_actions();
         if actions.len() > 1 {
@@ -84,7 +84,7 @@ where
                 &mut self.action_buffer,
                 settings,
                 &mut self.figure_ui_cache,
-                self.pedestal_ui_buffer.as_mut().unwrap(),
+                self.caryatid_ui_buffer.as_mut().unwrap(),
                 ui,
             )
             .render_standard_layout(ui);
@@ -105,7 +105,7 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
             action_buffer: Default::default(),
             figure_ui_cache: Default::default(),
-            pedestal_ui_buffer: Default::default(),
+            caryatid_ui_buffer: Default::default(),
         }
     }
 }

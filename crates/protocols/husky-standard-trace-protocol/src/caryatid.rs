@@ -35,7 +35,7 @@ impl IsCaryatid for StandardCaryatid {
     type UiBuffer = StandardCaryatidUiBuffer;
 
     fn init_ui_buffer(&self) -> Self::UiBuffer {
-        todo!()
+        StandardCaryatidUiBuffer {}
     }
 }
 
