@@ -4,6 +4,8 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
+tracing.workspace = true
+tracing-subscriber.workspace = true
 # comptime
 husky-dev-comptime.workspace = true
 # devtime
