@@ -12,7 +12,7 @@ use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
-    server::ValVisualCache,
+    server::KiVisualCache,
     stalk::TraceStalk,
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
 };
@@ -104,7 +104,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         accompanying_trace_ids_expect_followed: &AccompanyingTraceIdsExceptFollowed,
         caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         visual_synchrotron: &mut VisualSynchrotron,
-        val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        ki_visual_cache: &mut KiVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
         let followed = match followed_trace {
@@ -132,7 +132,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
             caryatid,
             &*self.runtime,
             visual_synchrotron,
-            val_visual_cache,
+            ki_visual_cache,
         )
     }
 }

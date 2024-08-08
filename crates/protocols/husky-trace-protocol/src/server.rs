@@ -24,7 +24,7 @@ use std::net::ToSocketAddrs;
 pub struct TraceServer<Tracetime: IsTracetime> {
     trace_synchrotron: Option<TraceSynchrotron<Tracetime::TraceProtocol>>,
     value_presenter_cache: ValuePresenterCache,
-    visual_cache: ValVisualCache<<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal>,
+    visual_cache: KiVisualCache<<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal>,
     tracetime: Tracetime,
 }
 
@@ -33,11 +33,11 @@ pub struct TraceServer<Tracetime: IsTracetime> {
 /// useful for calculating figure,
 ///
 /// but the client doesn't need to know about this
-pub struct ValVisualCache<Pedestal: IsPedestalFull> {
+pub struct KiVisualCache<Pedestal: IsPedestalFull> {
     visuals: FxHashMap<(KiReprInterface, Pedestal), Visual>,
 }
 
-impl<Pedestal: IsPedestalFull> ValVisualCache<Pedestal> {
+impl<Pedestal: IsPedestalFull> KiVisualCache<Pedestal> {
     pub fn get_visual(
         &mut self,
         ki_repr: KiReprInterface,
@@ -48,7 +48,7 @@ impl<Pedestal: IsPedestalFull> ValVisualCache<Pedestal> {
     }
 }
 
-impl<Pedestal: IsPedestalFull> Default for ValVisualCache<Pedestal> {
+impl<Pedestal: IsPedestalFull> Default for KiVisualCache<Pedestal> {
     fn default() -> Self {
         Self {
             visuals: Default::default(),
@@ -322,6 +322,6 @@ pub trait IsTracetime: Send + 'static + Sized {
         accompanying_trace_ids: &AccompanyingTraceIdsExceptFollowed,
         caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         visual_synchrotron: &mut VisualSynchrotron,
-        val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        ki_visual_cache: &mut KiVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }

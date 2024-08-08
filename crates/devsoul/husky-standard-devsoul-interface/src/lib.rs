@@ -29,6 +29,12 @@ pub(crate) fn set_dev_eval_context(ctx: DevEvalContext) {
         DEV_EVAL_CONTEXT = Some(ctx);
     }
 }
+pub(crate) fn unset_dev_eval_context() {
+    unsafe {
+        assert!(DEV_EVAL_CONTEXT.is_some());
+        DEV_EVAL_CONTEXT = None;
+    }
+}
 
 pub fn eval_ki_repr_interface<T>(
     ki_repr: KiReprInterface,

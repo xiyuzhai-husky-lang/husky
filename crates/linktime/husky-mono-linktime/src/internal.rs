@@ -41,6 +41,10 @@ where
     pub(crate) fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
         self.current_library.init(runtime);
     }
+
+    pub(crate) fn release(&mut self) {
+        self.current_library.release();
+    }
 }
 
 impl<LinketImpl: IsLinketImpl> MonoLinktimeInternal<LinketImpl>

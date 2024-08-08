@@ -14,7 +14,7 @@ use husky_mono_linktime::MonoLinktime;
 use husky_standard_trace_protocol::{caryatid::StandardCaryatid, StandardTraceProtocol};
 use husky_trace_protocol::{
     caryatid::IsCaryatid, figure::IsFigure, id::TraceId, protocol::IsTraceProtocol,
-    server::ValVisualCache,
+    server::KiVisualCache,
 };
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
@@ -53,7 +53,7 @@ where
         caryatid: StandardCaryatid,
         runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
-        val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
+        ki_visual_cache: &mut KiVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let (followed, followed_domain_and_var_deps) = match followed {
             Some((trace_id, ki_repr, ki_domain_repr_interface, var_deps)) => (
@@ -83,7 +83,7 @@ where
                             ki_repr,
                             runtime,
                             visual_synchrotron,
-                            val_visual_cache,
+                            ki_visual_cache,
                         )
                     },
                     visual_synchrotron,
@@ -115,7 +115,7 @@ where
             //                     ki_repr,
             //                     runtime,
             //                     visual_synchrotron,
-            //                     val_visual_cache,
+            //                     ki_visual_cache,
             //                 )
             //             },
             //             visual_synchrotron,

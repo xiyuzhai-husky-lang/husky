@@ -46,4 +46,9 @@ where
         let mut internal = self.internal.write().unwrap();
         internal.init(runtime)
     }
+
+    fn release(&self) {
+        let mut internal = self.internal.write().unwrap();
+        internal.release()
+    }
 }

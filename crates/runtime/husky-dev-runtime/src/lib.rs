@@ -64,6 +64,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     }
 }
 
+impl<Devsoul: IsDevsoul> std::ops::Drop for DevRuntime<Devsoul> {
+    fn drop(&mut self) {
+        self.comptime.release()
+    }
+}
+
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn db(&self) -> &::salsa::Db {
         self.comptime.db()
