@@ -1,95 +1,117 @@
-don't `println!()` in released code for vscode extension;
-this will cause wierd behaviors
+# Development Pitfalls
 
-user may use `lib.rs` instead of `lib.hsy`, there should be errors shown on `Corgi.toml` for that
+This document summarizes common pitfalls encountered during development.
 
-## no libtorch found
+## VSCode Behaviors
 
-It might be fish environment variable set flags (use -gx)
+- **Avoid using `println!()` in release code** for VSCode extensions, as this can lead to unexpected behaviors.
+- If the user mistakenly uses `lib.rs` instead of `lib.hsy`, ensure that errors are reported in `Corgi.toml`.
 
-## error: undefined symbol: c10::detail::torchCheckFail
+## Missing `libtorch`
 
-If this error occurs when building tch-rs, this might be you are using the libtorch.so from the python package which doesn't include all dependencies.
+- This issue might be related to environment variables set in the fish shell. Consider using the `-gx` flag.
 
-## Vscode environment variables not updated for rust-analyzer actions
+## Error: Undefined Symbol `c10::detail::torchCheckFail`
 
-Restart vscode
+- This error may occur if you are using `libtorch.so` from the Python package, which does not include all necessary dependencies.
 
-## LD_LIBRARY_PATH missing paths outside target
+## VSCode Environment Variables Not Updated for Rust Analyzer Actions
 
-<https://doc.rust-lang.org/cargo/reference/environment-variables.html#dynamic-library-paths>
+- **Solution:** Restart VSCode to refresh environment variables.
 
-## Unresolved import everywhere
+## `LD_LIBRARY_PATH` Missing Paths Outside Target
 
-Mismatched edition key in Cargo.toml
+- Refer to the [Rust Cargo Documentation](https://doc.rust-lang.org/cargo/reference/environment-variables.html#dynamic-library-paths) for dynamic library paths.
 
-## Vscode Extension not working, without error message
+## Unresolved Import Errors
 
-making sure there is no type error in typescript code.
+- This might be due to a mismatched edition key in `Cargo.toml`.
 
-Last resort is to compare with rust-analyzer.
+## VSCode Extension Not Working Without Error Messages
 
-Looking out for infinite loops.
+- Ensure there are no type errors in TypeScript code.
+- Compare with `rust-analyzer` as a last resort.
+- Watch for infinite loops.
 
-## Couldn't find Vscode Publisher
+## Couldn’t Find VSCode Publisher
 
-https://marketplace.visualstudio.com/manage/publishers/husky-lang
+- Refer to [VSCode Marketplace](https://marketplace.visualstudio.com/manage/publishers/husky-lang).
 
-## lsp-type version
+## `lsp-type` Version Issues
 
-94.1 sucks, so many bugs it caused, use 94.0
+- **Note:** Version 94.1 is problematic due to numerous bugs; use 94.0 instead.
 
-## debug_with_db not working
+## `debug_with_db` Not Working
 
-check that the db trait extends the other db trait
+- Ensure that the `db` trait extends the other `db` trait.
 
-## introduce a dependency and things break down
+## Introducing a Dependency Breaks Things
 
-may be the feature flags the dependency introduces into other dependencies. Say smallvec/union for instance.
+- The issue might be due to feature flags introduced by the dependency, affecting other dependencies (e.g., `smallvec/union`).
 
-## nudge the version of the dependency to be consolidated
+## Consolidating Dependency Versions
 
-cargo update -p bson:0.11.1 --precise 0.10.0
+- Use the command:
 
-## macro trailing commas
+  ```bash
+  cargo update -p bson:0.11.1 --precise 0.10.0
+  ```
 
-```
-($Name:ident { $($Variant:ident),* $(,)? }) => {
-//                                 ^^^^^
-```
+## Macro Trailing Commas
 
-https://stackoverflow.com/questions/43143327/how-to-allow-optional-trailing-commas-in-macros
+- Example of handling optional trailing commas in macros:
 
-# lldb not showing full path
+  ```rust
+  ($Name:ident { $($Variant:ident),* $(,)? }) => {
+  //                                 ^^^^^
+  ```
 
-type command:
+- [Read more on Stack Overflow](https://stackoverflow.com/questions/43143327/how-to-allow-optional-trailing-commas-in-macros).
 
-```
-settings set frame-format frame #${frame.index}: ${frame.pc}{ ${module.file.basename}{\`${function.name}}}{ at ${line.file.fullpath}:${line.number}}\n
-```
+## LLDB Not Showing Full Path
 
-## lean server gives fwIn.txt fwOut.txt wdErr.txt wdIn.txt wdOut.txt
+- Set the frame format with the following command:
 
-search for Server Logging: Enabled in its setting
+  ```lldb
+  settings set frame-format frame #${frame.index}: ${frame.pc}{ ${module.file.basename}{\`${function.name}}}{ at ${line.file.fullpath}:${line.number}}\n
+  ```
 
-## #[cfg(test)] is not runned during testing in `linkages_emancipated_by_javelin`
+## Lean Server Outputting `fwIn.txt`, `fwOut.txt`, `wdErr.txt`, `wdIn.txt`, `wdOut.txt`
 
-I'm still working on this
+- Search for "Server Logging: Enabled" in its settings.
 
-## vscode regex
+## `#[cfg(test)]` Not Running During Testing in `linkages_emancipated_by_javelin`
 
-take a good read https://learn.microsoft.com/en-us/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2022
+- This issue is still under investigation.
 
-it's very useful
+## VSCode Regex
 
-captured groups!!
+- It’s highly recommended to read [Using Regular Expressions in Visual Studio](https://learn.microsoft.com/en-us/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2022).
+- Captured groups are particularly useful.
 
-## The path attribute
+## The `path` Attribute
 
-https://doc.rust-lang.org/reference/items/modules.html
+- Refer to the [Rust Documentation](https://doc.rust-lang.org/reference/items/modules.html) for details on the `path` attribute.
 
-## ld.lld: error: unable to find library -lstdc++
+## `ld.lld: error: unable to find library -lstdc++`
 
+- Try installing the appropriate version of `libstdc++`:
+
+```bash
 sudo apt install libstdc++-14-dev
+```
 
-or some other version
+or another relevant version.
+
+## Tracing
+
+- **Crate Name:** Ensure the crate name is in snake case.
+
+```rust
+tracing_subscriber::registry()
+    .with(tracing_subscriber::EnvFilter::new(
+        "husky_websocket_utils=info",
+    ))
+    .with(tracing_subscriber::fmt::layer())
+    .init();
+```
