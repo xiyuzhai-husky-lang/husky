@@ -67,9 +67,7 @@ where
                 .make_span_with(DefaultMakeSpan::default().include_headers(true)),
         );
     let addr = addr.into();
-    #[cfg(feature = "tracing")]
     tracing::debug!("listening on {}", addr);
-    println!("listening on {}", addr);
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listener, router).await.unwrap();
 }

@@ -5,6 +5,7 @@ use notify_change::NotifyChange;
 use std::sync::Arc;
 use thiserror::Error;
 use tokio_tungstenite::tungstenite::{self, Message};
+use tracing::*;
 
 const ORDERING: core::sync::atomic::Ordering = core::sync::atomic::Ordering::SeqCst;
 
@@ -218,16 +219,11 @@ where
             },
             CreationStatus::Ok { .. } | CreationStatus::Err(_) => return StatusChanged::False,
         };
-        #[cfg(feature = "tracing")]
-        {
-            use tracing::*;
-
-            event!(
-                Level::TRACE,
-                "await_result.is_ok() = {}",
-                await_result.is_ok()
-            );
-        }
+        event!(
+            Level::TRACE,
+            "await_result.is_ok() = {}",
+            await_result.is_ok()
+        );
         match await_result {
             Ok((stream, _response, request_rx, response_tx, notifier)) => self.launch(
                 stream,
