@@ -67,6 +67,10 @@ impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {
     pub fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
         self.linket_impls.set_dev_eval_context(runtime);
     }
+
+    pub fn release(&mut self) {
+        self.linket_impls.unset_dev_eval_context();
+    }
 }
 
 #[test]

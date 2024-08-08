@@ -12,7 +12,7 @@ use husky_ki::{Ki, KiDomain};
 use husky_trace_protocol::{
     id::TraceId,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
-    server::ValVisualCache,
+    server::KiVisualCache,
 };
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
@@ -26,12 +26,17 @@ pub trait IsDevsoul: 'static {
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure(
-        followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
-        accompanyings_except_followed: &[(TraceId, KiReprInterface)],
-        pedestal: Self::Pedestal,
+        followed: Option<(
+            TraceId,
+            KiReprInterface,
+            KiDomainReprInterface,
+            &[ItemPathIdInterface],
+        )>,
+        accompanyings_except_followed: &[(TraceId, KiReprInterface, &[ItemPathIdInterface])],
+        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
-        val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
+        ki_visual_cache: &mut KiVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 
     /// final
@@ -39,10 +44,10 @@ pub trait IsDevsoul: 'static {
         ki_repr: KiReprInterface,
         runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
-        val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
+        ki_visual_cache: &mut KiVisualCache<Self::Pedestal>,
     ) -> Visual {
         let pedestal = todo!();
-        val_visual_cache.get_visual(ki_repr, pedestal, || {
+        ki_visual_cache.get_visual(ki_repr, pedestal, || {
             use husky_value_interface::IsValue;
             match runtime.eval_ki_repr_interface_dyn(ki_repr) {
                 KiControlFlow::Continue(value) => value.visualize(visual_synchrotron),

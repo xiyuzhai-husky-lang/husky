@@ -4,24 +4,26 @@ pub mod bundle;
 mod entry;
 
 pub use self::action::TraceSynchrotronAction;
-use self::action::TraceSynchrotronActionsDiff;
 pub use self::entry::TraceSynchrotronEntry;
 
+use self::action::TraceSynchrotronActionsDiff;
 use self::bundle::TraceIdBundle;
 use crate::synchrotron::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{view::TraceViewData, *};
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_value_protocol::presentation::synchrotron::{
     ValuePresentationSynchrotron, ValuePresentationSynchrotronStatus,
 };
 use husky_visual_protocol::synchrotron::{action::VisualSynchrotronStatus, VisualSynchrotron};
 use rustc_hash::FxHashMap;
+use smallvec::SmallVec;
 use std::path::{Path, PathBuf};
 
 /// contains information about traces that are synced across server and client
 #[serde_with::serde_as]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
-    pedestal: TraceProtocol::Pedestal,
+    caryatid: TraceProtocol::Caryatid,
     accompanying_trace_ids: AccompanyingTraceIds,
     trace_id_bundles: Vec<TraceIdBundle>,
     followed_trace_id: Option<TraceId>,
@@ -32,7 +34,7 @@ pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     figures: FxHashMap<
         (
             Option<TraceId>,
-            TraceProtocol::Pedestal,
+            TraceProtocol::Caryatid,
             AccompanyingTraceIdsExceptFollowed,
         ),
         TraceProtocol::Figure,
@@ -53,7 +55,10 @@ pub struct TraceSynchrotronStatus {
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     pub(crate) fn new<Trace: IsTrace>(
         trace_bundles: &[TraceBundle<Trace>],
-        trace_view_data: impl Fn(Trace) -> TraceViewData,
+        trace_var_deps_and_view_data: impl Fn(
+            Trace,
+        )
+            -> (SmallVec<[ItemPathIdInterface; 2]>, TraceViewData),
     ) -> Self {
         let mut entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>> =
             Default::default();
@@ -63,10 +68,11 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             for &root_trace in trace_bundle.root_traces() {
                 let root_trace_id = root_trace.into();
                 root_trace_ids.push(root_trace_id);
+                let (var_deps, view_data) = trace_var_deps_and_view_data(root_trace);
                 assert!(entries
                     .insert(
                         root_trace_id,
-                        TraceSynchrotronEntry::new(trace_view_data(root_trace))
+                        TraceSynchrotronEntry::new(var_deps, view_data)
                     )
                     .is_none())
             }
@@ -76,7 +82,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             ))
         }
         Self {
-            pedestal: Default::default(),
+            caryatid: Default::default(),
             trace_id_bundles,
             entries,
             actions: vec![],
@@ -102,7 +108,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         {
             if !self.figures.contains_key(&(
                 self.followed_trace_id,
-                self.pedestal.clone(),
+                self.caryatid.clone(),
                 self.accompanying_trace_ids_except_followed(),
             )) {
                 husky_io_utils::diff_write(
@@ -115,7 +121,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
         &self.figures[&(
             self.followed_trace_id,
-            self.pedestal.clone(),
+            self.caryatid.clone(),
             self.accompanying_trace_ids_except_followed(),
         )]
     }
@@ -181,8 +187,8 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         }
     }
 
-    pub fn pedestal(&self) -> &TraceProtocol::Pedestal {
-        &self.pedestal
+    pub fn caryatid(&self) -> &TraceProtocol::Caryatid {
+        &self.caryatid
     }
 
     pub(crate) fn value_presentation_synchrotron_mut(
@@ -209,10 +215,10 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     pub fn has_figure(
         &self,
         followed_trace_id: Option<TraceId>,
-        pedestal: TraceProtocol::Pedestal,
+        caryatid: TraceProtocol::Caryatid,
         accompanying_trace_ids: AccompanyingTraceIdsExceptFollowed,
     ) -> (bool, AccompanyingTraceIdsExceptFollowed) {
-        let key = (followed_trace_id, pedestal, accompanying_trace_ids);
+        let key = (followed_trace_id, caryatid, accompanying_trace_ids);
         (self.figures.contains_key(&key), key.2)
     }
 
@@ -220,7 +226,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         &mut self,
         followed_trace_id: Option<TraceId>,
         accompanying_trace_ids_except_followed: AccompanyingTraceIdsExceptFollowed,
-        pedestal: TraceProtocol::Pedestal,
+        caryatid: TraceProtocol::Caryatid,
         figure: TraceProtocol::Figure,
     ) {
         assert!(self
@@ -228,7 +234,7 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             .insert(
                 (
                     followed_trace_id,
-                    pedestal,
+                    caryatid,
                     accompanying_trace_ids_except_followed
                 ),
                 figure

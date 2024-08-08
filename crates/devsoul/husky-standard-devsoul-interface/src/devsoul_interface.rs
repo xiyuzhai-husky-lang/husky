@@ -1,4 +1,7 @@
-use crate::{dev_eval_context, pedestal::StandardPedestal, set_dev_eval_context, DevEvalContext};
+use crate::{
+    dev_eval_context, pedestal::StandardPedestal, set_dev_eval_context, unset_dev_eval_context,
+    DevEvalContext,
+};
 use husky_devsoul_interface::ki_repr::KiDomainReprInterface;
 use husky_devsoul_interface::ki_repr::KiReprInterface;
 use husky_devsoul_interface::{
@@ -21,6 +24,10 @@ impl IsDevsoulInterface for StandardDevsoulInterface {
 
     fn set_dev_eval_context(ctx: DevEvalContext) {
         set_dev_eval_context(ctx)
+    }
+
+    fn unset_dev_eval_context() {
+        unset_dev_eval_context()
     }
 
     fn dev_eval_context() -> DevEvalContext {

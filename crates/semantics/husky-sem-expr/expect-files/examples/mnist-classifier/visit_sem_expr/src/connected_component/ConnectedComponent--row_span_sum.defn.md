@@ -5,6 +5,7 @@ Some(
         "let mut row_span_sum = 0",
         "0",
         "29",
+        "i",
         "row_span_sum",
         "self",
         "self.mask",

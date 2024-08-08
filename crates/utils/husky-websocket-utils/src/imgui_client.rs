@@ -5,6 +5,7 @@ use notify_change::NotifyChange;
 use std::sync::Arc;
 use thiserror::Error;
 use tokio_tungstenite::tungstenite::{self, Message};
+use tracing::*;
 
 const ORDERING: core::sync::atomic::Ordering = core::sync::atomic::Ordering::SeqCst;
 
@@ -91,7 +92,7 @@ where
         tokio_runtime.spawn({
             let await_status = await_status.clone();
             async move {
-                println!("server_address = {server_address}");
+                tracing::info!("server_address = {server_address}");
                 match tokio_tungstenite::connect_async(server_address).await {
                     Ok((stream, response)) => {
                         *await_status.lock().unwrap() = CreationAwaitStatus::Ok {
@@ -119,6 +120,17 @@ where
             )),
             launch_join_handle: None,
         }
+    }
+}
+
+impl<Request, Response, Notifier> ImmediateWebsocketClientConnection<Request, Response, Notifier>
+where
+    Request: Send + 'static,
+    Response: Send + 'static,
+    Notifier: NotifyChange + 'static,
+{
+    pub fn creation_status(&self) -> &CreationStatus<Request, Response, Notifier> {
+        &self.creation_status
     }
 
     pub fn error(&self) -> Option<&WebsocketClientConnectionError> {
@@ -168,7 +180,12 @@ where
     }
 
     pub fn try_recv(&mut self) -> Option<Response> {
-        self.refresh();
+        loop {
+            match self.refresh() {
+                StatusChanged::True => continue,
+                StatusChanged::False => break,
+            }
+        }
         match self.communication_status.load(ORDERING) {
             CommunicationStatus::Creation
             | CommunicationStatus::AwaitingRequest
@@ -202,6 +219,11 @@ where
             },
             CreationStatus::Ok { .. } | CreationStatus::Err(_) => return StatusChanged::False,
         };
+        event!(
+            Level::TRACE,
+            "await_result.is_ok() = {}",
+            await_result.is_ok()
+        );
         match await_result {
             Ok((stream, _response, request_rx, response_tx, notifier)) => self.launch(
                 stream,

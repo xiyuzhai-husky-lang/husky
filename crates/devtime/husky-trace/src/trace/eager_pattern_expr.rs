@@ -90,4 +90,13 @@ impl EagerPatternTraceData {
     pub fn subtraces(&self) -> Vec<Trace> {
         vec![]
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        // ad hoc
+        Default::default()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        todo!()
+    }
 }

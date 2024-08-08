@@ -5,6 +5,7 @@ Some(
         "let mut sum = 0.0",
         "connected_components",
         "connected_components.ilen()",
+        "i",
         "sum",
         "connected_components",
         "i",

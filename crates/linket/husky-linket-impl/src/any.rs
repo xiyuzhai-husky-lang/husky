@@ -18,6 +18,7 @@ impl AnyLinketImpls {
         Self {
             linket_impls: Box::new(LinketImpls {
                 set_dev_eval_context: DevsoulInterface::set_dev_eval_context,
+                unset_dev_eval_context: DevsoulInterface::unset_dev_eval_context,
                 init_item_path_id_interface_caches: |_| todo!(),
                 linket_impls,
             }),

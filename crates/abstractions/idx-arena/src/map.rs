@@ -147,6 +147,20 @@ impl<T, V> ArenaMap<T, V> {
             entry => *entry = Some(v),
         }
     }
+
+    pub fn map<R>(&self, f: impl Fn(&V) -> R) -> ArenaMap<T, R> {
+        ArenaMap {
+            data: self
+                .data
+                .iter()
+                .map(|v| match v.as_ref() {
+                    Some(v) => Some(f(v)),
+                    None => None,
+                })
+                .collect(),
+            phantom: PhantomData,
+        }
+    }
 }
 
 impl<T, V> std::ops::Index<ArenaIdx<T>> for ArenaMap<T, V> {

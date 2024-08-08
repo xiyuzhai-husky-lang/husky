@@ -29,4 +29,12 @@ impl EagerLoopGroupTraceData {
     pub fn subtraces(self, _db: &::salsa::Db) -> &[Trace] {
         todo!()
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        todo!()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        todo!()
+    }
 }

@@ -7,6 +7,7 @@ Some(
         "self",
         "self.points",
         "self.points.ilen()",
+        "i",
         "self",
         "self.points",
         "i",

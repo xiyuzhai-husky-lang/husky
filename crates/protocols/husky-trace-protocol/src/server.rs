@@ -1,3 +1,6 @@
+#[cfg(feature = "test_utils")]
+pub mod test_utils;
+
 use self::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{
     message::{TraceRequest, TraceResponse},
@@ -7,6 +10,7 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
+use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_devsoul_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
@@ -14,12 +18,13 @@ use husky_value_protocol::presentation::{
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 use rustc_hash::FxHashMap;
+use smallvec::*;
 use std::net::ToSocketAddrs;
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     trace_synchrotron: Option<TraceSynchrotron<Tracetime::TraceProtocol>>,
     value_presenter_cache: ValuePresenterCache,
-    visual_cache: ValVisualCache<<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal>,
+    visual_cache: KiVisualCache<<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal>,
     tracetime: Tracetime,
 }
 
@@ -28,11 +33,11 @@ pub struct TraceServer<Tracetime: IsTracetime> {
 /// useful for calculating figure,
 ///
 /// but the client doesn't need to know about this
-pub struct ValVisualCache<Pedestal: IsPedestalFull> {
+pub struct KiVisualCache<Pedestal: IsPedestalFull> {
     visuals: FxHashMap<(KiReprInterface, Pedestal), Visual>,
 }
 
-impl<Pedestal: IsPedestalFull> ValVisualCache<Pedestal> {
+impl<Pedestal: IsPedestalFull> KiVisualCache<Pedestal> {
     pub fn get_visual(
         &mut self,
         ki_repr: KiReprInterface,
@@ -43,7 +48,7 @@ impl<Pedestal: IsPedestalFull> ValVisualCache<Pedestal> {
     }
 }
 
-impl<Pedestal: IsPedestalFull> Default for ValVisualCache<Pedestal> {
+impl<Pedestal: IsPedestalFull> Default for KiVisualCache<Pedestal> {
     fn default() -> Self {
         Self {
             visuals: Default::default(),
@@ -67,21 +72,24 @@ where
 
 impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     fn new(tracetime: Tracetime) -> Self {
-        Self {
+        let mut slf = Self {
             trace_synchrotron: Default::default(),
             tracetime,
             value_presenter_cache: Default::default(),
             visual_cache: Default::default(),
-        }
+        };
+        slf.init();
+        slf
     }
 
     fn init(&mut self) {
-        if self.trace_synchrotron.is_some() {
-            return;
-        }
-        let trace_bundles = self.tracetime.get_trace_bundles();
+        assert!(self.trace_synchrotron.is_none());
+        let trace_bundles = self.tracetime.trace_bundles();
         self.trace_synchrotron = Some(TraceSynchrotron::new(trace_bundles, |trace| {
-            self.tracetime.get_trace_view_data(trace).clone()
+            (
+                self.tracetime.trace_var_deps(trace).to_smallvec(),
+                self.tracetime.trace_view_data(trace).clone(),
+            )
         }));
         self.cache_periphery()
     }
@@ -121,7 +129,6 @@ but client's trace protocol is of type `{trace_protocol_type_name}`."#,
                         std::any::type_name::<Tracetime::TraceProtocol>()
                     )));
                 }
-                self.init();
                 let Some(trace_synchrotron) = self.trace_synchrotron.clone() else {
                     unreachable!()
                 };
@@ -164,7 +171,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 if self.trace_synchrotron()[trace_id].subtrace_ids().is_some() {
                     return;
                 }
-                let subtraces = self.tracetime.get_subtraces(trace_id.into()).to_vec();
+                let subtraces = self.tracetime.subtraces(trace_id.into()).to_vec();
                 let subtrace_ids = subtraces
                     .into_iter()
                     .map(|subtrace| {
@@ -196,18 +203,19 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             TraceViewAction::ToggleAccompany { trace_id } => self
                 .trace_synchrotron_mut()
                 .take_action(TraceSynchrotronAction::ToggleAccompany { trace_id }),
-            TraceViewAction::SetPedestal { pedestal } => self
+            TraceViewAction::SetCaryatid { caryatid: pedestal } => self
                 .trace_synchrotron_mut()
-                .take_action(TraceSynchrotronAction::SetPedestal { pedestal }),
+                .take_action(TraceSynchrotronAction::SetCaryatid { caryatid: pedestal }),
         }
         self.cache_periphery()
     }
 
     fn cache_trace_if_new(&mut self, trace_id: TraceId) {
         if !self.trace_synchrotron().is_trace_cached(trace_id) {
-            let view_data = self.tracetime.get_trace_view_data(trace_id.into());
+            let var_deps = self.tracetime.trace_var_deps(trace_id.into());
+            let view_data = self.tracetime.trace_view_data(trace_id.into());
             self.trace_synchrotron_mut()
-                .take_action(TraceSynchrotronNewTrace::new(trace_id, view_data))
+                .take_action(TraceSynchrotronNewTrace::new(trace_id, var_deps, view_data))
         }
     }
 
@@ -217,24 +225,27 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     }
 
     fn cache_stalks(&mut self) {
-        let trace_synchrotron = &self.trace_synchrotron();
-        let trace_listing = trace_synchrotron.trace_listing();
-        let pedestal = trace_synchrotron.pedestal().clone();
+        use crate::caryatid::IsCaryatid;
+        let trace_listing = self.trace_synchrotron().trace_listing();
         for trace_id in trace_listing {
-            self.cache_stalk(trace_id, &pedestal)
+            let pedestal = self
+                .trace_synchrotron()
+                .caryatid()
+                .pedestal(&self.trace_synchrotron()[trace_id].var_deps());
+            self.cache_stalk(trace_id, pedestal)
         }
     }
 
     fn cache_stalk(
         &mut self,
         trace_id: TraceId,
-        pedestal: &<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal,
+        pedestal: <Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal,
     ) {
-        if !self.trace_synchrotron()[trace_id].has_stalk(pedestal) {
+        if !self.trace_synchrotron()[trace_id].has_stalk(&pedestal) {
             let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
-            let stalk = self.tracetime.get_trace_stalk(
+            let stalk = self.tracetime.trace_stalk(
                 trace_id.into(),
-                pedestal,
+                &pedestal,
                 &mut self.value_presenter_cache,
                 trace_synchrotron.value_presentation_synchrotron_mut(),
             );
@@ -248,26 +259,26 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 
     fn cache_figure(&mut self) {
         let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
-        let pedestal = trace_synchrotron.pedestal().clone();
+        let caryatid = trace_synchrotron.caryatid().clone();
         let accompanying_trace_ids_except_followed = trace_synchrotron
             .accompanying_trace_ids_except_followed()
             .clone();
         let followed_trace_id = trace_synchrotron.followed_trace_id();
         let (has_figure, accompanying_trace_ids_except_followed) = trace_synchrotron.has_figure(
             followed_trace_id,
-            pedestal.clone(),
+            caryatid.clone(),
             accompanying_trace_ids_except_followed,
         );
         if !has_figure {
-            let figure = self.tracetime.get_figure(
+            let figure = self.tracetime.figure(
                 followed_trace_id.map(Into::into),
                 &accompanying_trace_ids_except_followed,
-                pedestal.clone(),
+                caryatid.clone(),
                 trace_synchrotron.visual_synchrotron_mut(),
                 &mut self.visual_cache,
             );
             trace_synchrotron.take_action(TraceSynchrotronAction::CacheFigure {
-                pedestal: pedestal.clone(),
+                pedestal: caryatid.clone(),
                 followed_trace_id,
                 accompanying_trace_ids_except_followed,
                 figure,
@@ -289,13 +300,15 @@ pub trait IsTracetime: Send + 'static + Sized {
         TraceServer::new(self).easy_serve(addr)
     }
 
-    fn get_trace_bundles(&self) -> &[TraceBundle<Self::Trace>];
+    fn trace_bundles(&self) -> &[TraceBundle<Self::Trace>];
 
-    fn get_subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
+    fn subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
 
-    fn get_trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
+    fn trace_var_deps(&self, trace: Self::Trace) -> SmallVec<[ItemPathIdInterface; 2]>;
 
-    fn get_trace_stalk(
+    fn trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
+
+    fn trace_stalk(
         &self,
         trace: Self::Trace,
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
@@ -303,12 +316,12 @@ pub trait IsTracetime: Send + 'static + Sized {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> TraceStalk;
 
-    fn get_figure(
+    fn figure(
         &self,
         followed_trace: Option<Self::Trace>,
         accompanying_trace_ids: &AccompanyingTraceIdsExceptFollowed,
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
         visual_synchrotron: &mut VisualSynchrotron,
-        val_visual_cache: &mut ValVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        ki_visual_cache: &mut KiVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }

@@ -7,6 +7,7 @@ edition = "2021"
 salsa.workspace = true
 serde.workspace = true
 serde_json.workspace = true
+smallvec.workspace = true
 # abstractions
 vec-like.workspace = true
 serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
@@ -25,9 +26,7 @@ husky-entity-kind.workspace = true
 # lex
 husky-text-protocol.workspace = true
 # protocols
-husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
-    "server"
-] }
+husky-trace-protocol = { workspace = true, features = ["server"] }
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # runtime
@@ -48,3 +47,15 @@ husky-sync-utils.workspace = true
 husky-wild-utils.workspace = true
 # vm
 husky-vm.workspace = true
+
+[dev-dependencies]
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tracing-test = { workspace = true }
+# protocols
+husky-trace-protocol = { workspace = true, features = ["test_utils"] }
+husky-standard-visual-protocol.workspace = true
+# devsoul
+husky-standard-devsoul.workspace = true
+# utils
+husky-path-utils.workspace = true

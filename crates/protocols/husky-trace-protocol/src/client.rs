@@ -1,7 +1,10 @@
 pub mod error;
 #[cfg(feature = "mock")]
 pub mod mock;
+#[cfg(feature = "test_utils")]
+pub mod test_utils;
 
+use crate::caryatid::IsCaryatid;
 use crate::{
     message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
     view::action::TraceViewAction, *,
@@ -13,7 +16,7 @@ use husky_websocket_utils::imgui_client::{
 use notify_change::NotifyChange;
 use std::sync::Arc;
 
-use self::{accompany::AccompanyingTraceIdsExceptFollowed, pedestal::TracePedestalUiBuffer};
+use self::{accompany::AccompanyingTraceIdsExceptFollowed, caryatid::TraceCaryatidUiBuffer};
 
 pub struct TraceClient<TraceProtocol: IsTraceProtocol, Notifier>
 where
@@ -49,23 +52,23 @@ where
 
     pub fn update(
         &mut self,
-        pedestal_ui_buffer: &mut Option<TracePedestalUiBuffer<TraceProtocol>>,
+        caryatid_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
     ) {
         let Some(response) = self.connection.try_recv() else {
             return;
         };
-        self.process_response(response, pedestal_ui_buffer);
+        self.process_response(response, caryatid_ui_buffer);
     }
 
     fn process_response(
         &mut self,
         response: TraceResponse<TraceProtocol>,
-        pedestal_ui_buffer: &mut Option<TracePedestalUiBuffer<TraceProtocol>>,
+        caryatid_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
     ) {
         match response {
             TraceResponse::Init { trace_synchrotron } => {
                 debug_assert!(self.trace_synchrotron.is_none());
-                *pedestal_ui_buffer = Some(trace_synchrotron.pedestal().init_ui_buffer());
+                *caryatid_ui_buffer = Some(trace_synchrotron.caryatid().init_ui_buffer());
                 self.trace_synchrotron = Some(trace_synchrotron)
             }
             TraceResponse::TakeTraceSynchrotronActionsDiff {
@@ -75,11 +78,11 @@ where
                     unreachable!()
                 };
                 trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff);
-                use husky_devsoul_interface::pedestal::IsPedestalUiBuffer;
-                pedestal_ui_buffer
-                    .as_mut()
-                    .unwrap()
-                    .update(trace_synchrotron.pedestal());
+                // caryatid_ui_buffer
+                //     .as_mut()
+                //     .unwrap()
+                //     .update(trace_synchrotron.pedestal());
+                todo!()
             }
             TraceResponse::Err(e) => panic!("{e}"),
         }
@@ -171,10 +174,10 @@ where
                 let accompanying_trace_ids = trace_synchrotron
                     .accompanying_trace_ids_except_followed()
                     .clone();
-                let pedestal = trace_synchrotron.pedestal();
+                let caryatid = trace_synchrotron.caryatid();
                 let (has_figure, _) = trace_synchrotron.has_figure(
                     Some(trace_id),
-                    pedestal.clone(),
+                    caryatid.clone(),
                     accompanying_trace_ids,
                 );
                 if !has_figure {
@@ -186,13 +189,13 @@ where
                 {
                     // see if toggling accompany will affect figure
                     let trace_synchrotron = self.trace_synchrotron();
-                    let pedestal = trace_synchrotron.pedestal();
+                    let caryatid = trace_synchrotron.caryatid();
                     let mut accompanying_trace_ids =
                         trace_synchrotron.accompanying_trace_ids().clone();
                     accompanying_trace_ids.toggle(trace_id);
                     let (has_figure, _) = trace_synchrotron.has_figure(
                         trace_synchrotron.followed_trace_id(),
-                        pedestal.clone(),
+                        caryatid.clone(),
                         AccompanyingTraceIdsExceptFollowed::new(
                             trace_synchrotron.followed_trace_id(),
                             accompanying_trace_ids,
@@ -204,13 +207,14 @@ where
                 }
                 Some(TraceSynchrotronAction::ToggleAccompany { trace_id })
             }
-            TraceViewAction::SetPedestal { ref pedestal } => {
+            TraceViewAction::SetCaryatid { ref caryatid } => {
                 let trace_synchrotron = self.trace_synchrotron();
                 {
+                    use crate::caryatid::IsCaryatid;
                     // see if setting pedestal will affect stalk
                     for trace_id in trace_synchrotron.trace_listing() {
                         let entry = &trace_synchrotron[trace_id];
-                        if !entry.has_stalk(pedestal) {
+                        if !entry.has_stalk(&caryatid.pedestal(todo!())) {
                             return None;
                         }
                     }
@@ -222,15 +226,15 @@ where
                         trace_synchrotron.accompanying_trace_ids_except_followed();
                     let (has_figure, _) = trace_synchrotron.has_figure(
                         trace_synchrotron.followed_trace_id(),
-                        pedestal.clone(),
+                        caryatid.clone(),
                         accompanying_trace_ids_expect_followed,
                     );
                     if !has_figure {
                         return None;
                     }
                 }
-                Some(TraceSynchrotronAction::SetPedestal {
-                    pedestal: pedestal.clone(),
+                Some(TraceSynchrotronAction::SetCaryatid {
+                    caryatid: caryatid.clone(),
                 })
             }
         }

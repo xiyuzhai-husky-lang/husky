@@ -76,6 +76,9 @@ fn linket_impls_works() {
         fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
+        fn unset_dev_eval_context() {
+            todo!()
+        }
     }
 
     linket_impls! {}
@@ -124,6 +127,9 @@ fn fn_linket_impl_works() {
         }
 
         fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+            todo!()
+        }
+        fn unset_dev_eval_context() {
             todo!()
         }
     }
@@ -276,6 +282,9 @@ fn unveil_fn_linket_impl_works() {
         fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
+        fn unset_dev_eval_context() {
+            todo!()
+        }
     }
 
     unveil_fn_linket_impl!(|_: i32, ()| -> std::ops::ControlFlow<i32, i32> {
@@ -359,6 +368,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
 
 pub struct LinketImpls<LinketImpl: IsLinketImpl> {
     set_dev_eval_context: fn(DevEvalContext<LinketImpl>),
+    unset_dev_eval_context: fn(),
     init_item_path_id_interface_caches: fn(&[ItemPathIdInterface]),
     linket_impls: Vec<LinketImpl>,
 }
@@ -371,5 +381,9 @@ impl<LinketImpl: IsLinketImpl> LinketImpls<LinketImpl> {
     /// the `&mut self` reflects some change on the otherside
     pub fn set_dev_eval_context(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
         (self.set_dev_eval_context)(DevEvalContext::new(runtime))
+    }
+
+    pub fn unset_dev_eval_context(&mut self) {
+        (self.unset_dev_eval_context)()
     }
 }

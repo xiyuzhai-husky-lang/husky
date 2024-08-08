@@ -8,6 +8,7 @@ Some(
         "let mut matches: []?~ConcaveComponent = []",
         "templates",
         "templates.ilen()",
+        "i",
         "templates",
         "i",
         "templates[i]",

@@ -361,6 +361,7 @@ dependencies = [
  "enum-class",
  "husky-devsoul-interface",
  "husky-linket-impl",
+ "husky-print-utils",
  "husky-standard-devsoul-interface-macros",
  "husky-standard-value",
  "serde",

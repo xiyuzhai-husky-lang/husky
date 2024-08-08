@@ -213,6 +213,17 @@ impl EagerExprTraceData {
             _ => vec![],
         }
     }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        self.biological_parent
+            .var_deps_expansion(db)
+            .expr_value_var_deps_table(db)[self.sem_expr_idx]
+            .clone()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        self.biological_parent.var_deps_expansion(db)
+    }
 }
 
 fn fn_call_eager_expr_trace_input_traces(

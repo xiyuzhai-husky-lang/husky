@@ -59,14 +59,6 @@ where
     <S::SerdeImpl as IsSerdeImpl>::Error: Send,
 {
     use tower_http::trace::{DefaultMakeSpan, TraceLayer};
-    use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
-    tracing_subscriber::registry()
-        .with(
-            tracing_subscriber::EnvFilter::try_from_default_env()
-                .unwrap_or_else(|_| "example_websockets=debug,tower_http=debug".into()),
-        )
-        .with(tracing_subscriber::fmt::layer())
-        .init();
     let router = Router::new()
         .route("/ws", get(websocket_handler))
         .with_state(slf)
@@ -75,8 +67,7 @@ where
                 .make_span_with(DefaultMakeSpan::default().include_headers(true)),
         );
     let addr = addr.into();
-    tracing::debug!("listening on {}", addr);
-    println!("listening on {}", addr);
+    tracing::info!("listening on {}", addr);
     let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listener, router).await.unwrap();
 }

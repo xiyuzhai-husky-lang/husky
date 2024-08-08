@@ -186,15 +186,30 @@ impl LazyStmtTraceData {
 
     pub(super) fn ki_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let ki_repr_expansion = trace_ki_repr_expansion(db, trace);
-        ki_repr_expansion
+        match ki_repr_expansion
             .hir_lazy_stmt_ki_repr_map(db)
             .get(self.hir_lazy_stmt_idx?)
             .copied()
+        {
+            Some(ki_repr) => Some(ki_repr),
+            // ad hoc, consider variable
+            None => None,
+        }
     }
 
     pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
         // todo: handle loops
         self.biological_parent.ki_repr_expansion(db)
+    }
+
+    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+        self.var_deps_expansion(db)
+            .stmt_value_var_deps(self.sem_stmt_idx, db)
+            .clone()
+    }
+
+    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+        self.biological_parent.var_deps_expansion(db)
     }
 }
 

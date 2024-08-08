@@ -5,6 +5,7 @@ Some(
         "let mut max_row: i32 = 0",
         "0",
         "29",
+        "i",
         "max_row",
         "max_row",
         "self",

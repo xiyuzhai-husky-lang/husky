@@ -9,6 +9,7 @@ Some(
         "0",
         "raw_contours",
         "raw_contours.ilen()",
+        "i",
         "raw_contours",
         "i",
         "raw_contours[i]",
