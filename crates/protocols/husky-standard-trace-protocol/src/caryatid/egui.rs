@@ -12,6 +12,6 @@ impl CaryatidUi<::egui::Ui> for StandardCaryatid {
     ) where
         TraceProtocol: IsTraceProtocol<Caryatid = Self>,
     {
-        todo!()
+        ui.label("todo: caryatid ui");
     }
 }

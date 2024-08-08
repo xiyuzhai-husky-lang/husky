@@ -247,7 +247,6 @@ where
         communication_status: Arc<AtomicCommunicationStatus>,
         notifier: Notifier,
     ) {
-        println!("launch called");
         debug_assert!(self.launch_join_handle.is_none());
         self.launch_join_handle = Some(self.tokio_runtime.spawn(async move {
             communication_status.store(CommunicationStatus::AwaitingRequest, ORDERING);
