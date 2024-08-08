@@ -6,6 +6,7 @@ use husky_trace_protocol::{
     client::test_utils::TestTraceClient,
     server::{test_utils::TestTraceServer, TraceServer},
 };
+use tracing_test::traced_test;
 
 // it looks ugly, lol
 type StandardDevtime = Devtime<StandardDevsoul<StandardFigure<StandardPedestal>>>;
@@ -21,6 +22,7 @@ fn devtime_trace_server_works() {
     devtime.test_trace_server();
 }
 
+#[traced_test]
 #[test]
 fn devtime_trace_client_works() {
     let dev_paths = HuskyLangDevPaths::new();

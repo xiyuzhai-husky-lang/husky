@@ -26,9 +26,7 @@ husky-entity-kind.workspace = true
 # lex
 husky-text-protocol.workspace = true
 # protocols
-husky-trace-protocol = { path = "../../protocols/husky-trace-protocol", features = [
-    "server"
-] }
+husky-trace-protocol = { workspace = true, features = ["server"] }
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # runtime
@@ -51,6 +49,9 @@ husky-wild-utils.workspace = true
 husky-vm.workspace = true
 
 [dev-dependencies]
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tracing-test = { workspace = true, features = ["no-env-filter"] }
 # protocols
 husky-trace-protocol = { workspace = true, features = ["test_utils"] }
 husky-standard-visual-protocol.workspace = true

@@ -16,6 +16,7 @@ smallvec.workspace = true
 thiserror = { workspace = true, optional = true }
 tokio = { workspace = true, optional = true }
 tokio-tungstenite = { workspace = true, optional = true }
+tracing = { workspace = true, optional = true }
 # abstractions
 shifted-unsigned-int = { workspace = true, features = ["serde"] }
 serde-impl = { path = "../../abstractions/serde-impl" }
@@ -65,4 +66,5 @@ server = [
     "dep:tokio-tungstenite",
     "husky-websocket-utils/easy_server"
 ]
-test_utils = ["mock", "client", "server", "dep:sealed"]
+tracing = ["dep:tracing", "husky-websocket-utils/tracing"]
+test_utils = ["mock", "client", "server", "dep:sealed", "tracing"]
