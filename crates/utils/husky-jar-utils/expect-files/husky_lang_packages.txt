@@ -2672,6 +2672,7 @@
             "thiserror",
             "tokio",
             "tokio-tungstenite",
+            "tracing",
             "ui",
             "vec-like",
         ],
@@ -2693,7 +2694,6 @@
             "tokio-tungstenite",
             "tower-http",
             "tracing",
-            "tracing-subscriber",
         ],
     },
     PackageSummary {
@@ -3155,6 +3155,9 @@
             "husky-standard-devsoul",
             "husky-standard-visual-protocol",
             "husky-trace-protocol",
+            "tracing",
+            "tracing-subscriber",
+            "tracing-test",
         ],
     },
     PackageSummary {
@@ -3862,6 +3865,11 @@
         dependencies: [
             "syn",
         ],
+    },
+    PackageSummary {
+        name: "husky-tracing-utils",
+        relative_path: "crates/utils/husky-tracing-utils",
+        dependencies: [],
     },
     PackageSummary {
         name: "husky-virtual-value-macros",
