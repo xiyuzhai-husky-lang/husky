@@ -1,11 +1,12 @@
 use super::*;
 
-pub const MOCK_SERVER: &str = "ws://localhost:51718/ws";
+const MOCK_SERVER: &str = "ws://localhost:51718/ws";
 
 impl<TraceProtocol: IsTraceProtocolFull, Notifier> TraceClient<TraceProtocol, Notifier>
 where
     Notifier: NotifyChange,
 {
+    #[deprecated]
     pub fn new_mock(tokio_runtime: Arc<tokio::runtime::Runtime>, notifier: Notifier) -> Self {
         Self::new(tokio_runtime, MOCK_SERVER, notifier)
     }
