@@ -3201,6 +3201,8 @@
             "smallvec",
             "husky-ast",
             "husky-mono-linktime",
+            "husky-standard-visual-protocol",
+            "husky-trace-protocol",
         ],
     },
     PackageSummary {

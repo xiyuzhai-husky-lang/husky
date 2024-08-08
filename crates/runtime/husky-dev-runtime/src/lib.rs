@@ -3,6 +3,8 @@
 #![feature(try_trait_v2)]
 mod config;
 mod eval;
+#[cfg(test)]
+mod tests;
 
 pub use self::config::*;
 
