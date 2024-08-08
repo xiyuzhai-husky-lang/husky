@@ -12,7 +12,7 @@ thiserror.workspace = true
 futures-util.workspace = true
 serde.workspace = true
 serde_json = { workspace = true, optional = true }
-tracing = { workspace = true, optional = true }
+tracing.workspace = true
 tower-http.workspace = true
 # abstractions
 serde-impl = { path = "../../abstractions/serde-impl" }
@@ -24,4 +24,3 @@ husky-print-utils.workspace = true
 serde_json = ["dep:serde_json"]
 imgui_client = []
 easy_server = ["dep:axum"]
-tracing = ["dep:tracing"]
