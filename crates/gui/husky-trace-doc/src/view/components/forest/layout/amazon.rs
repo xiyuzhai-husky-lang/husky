@@ -85,7 +85,7 @@ where
     {
         let caryatid = self.trace_synchrotron.caryatid();
         let entry = &self.trace_synchrotron[trace_id];
-        self.render_trace_view(&caryatid.pedestal(todo!()), trace_id, entry, ui);
+        self.render_trace_view(&caryatid.pedestal(entry.var_deps()), trace_id, entry, ui);
         if entry.expanded()
             && let Some(subtrace_ids) = entry.subtrace_ids()
         {
