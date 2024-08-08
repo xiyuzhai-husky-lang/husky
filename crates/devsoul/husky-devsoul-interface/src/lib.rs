@@ -91,6 +91,17 @@ pub struct DevEvalContext<LinketImpl: IsLinketImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>,
 }
 
+impl<LinketImpl: IsLinketImpl> std::fmt::Debug for DevEvalContext<LinketImpl> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("DevEvalContext")
+            .field(
+                "runtime",
+                &(self.runtime as *const dyn IsDevRuntimeDyn<LinketImpl>),
+            )
+            .finish()
+    }
+}
+
 unsafe impl<LinketImpl> Sync for DevEvalContext<LinketImpl> where LinketImpl: IsLinketImpl {}
 
 impl<LinketImpl: IsLinketImpl> Clone for DevEvalContext<LinketImpl> {

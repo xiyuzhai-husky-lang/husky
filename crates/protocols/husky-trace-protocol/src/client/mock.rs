@@ -1,6 +1,6 @@
 use super::*;
 
-const MOCK_SERVER: &str = "ws://localhost:51718/ws";
+pub const MOCK_SERVER: &str = "ws://localhost:51718/ws";
 
 impl<TraceProtocol: IsTraceProtocolFull, Notifier> TraceClient<TraceProtocol, Notifier>
 where

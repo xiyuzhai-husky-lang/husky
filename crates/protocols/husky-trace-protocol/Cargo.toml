@@ -65,4 +65,4 @@ server = [
     "dep:tokio-tungstenite",
     "husky-websocket-utils/easy_server"
 ]
-test_utils = ["dep:sealed"]
+test_utils = ["mock", "client", "server", "dep:sealed"]

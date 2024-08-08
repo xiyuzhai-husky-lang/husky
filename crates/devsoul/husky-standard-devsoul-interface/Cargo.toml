@@ -16,6 +16,8 @@ husky-devsoul-interface.workspace = true
 husky-standard-devsoul-interface-macros.workspace = true
 # protocols
 husky-trace-protocol = { workspace = true, optional = true }
+# utils
+husky-print-utils.workspace = true
 # vm
 husky-standard-value.workspace = true
 

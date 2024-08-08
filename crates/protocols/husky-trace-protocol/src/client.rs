@@ -1,6 +1,8 @@
 pub mod error;
 #[cfg(feature = "mock")]
 pub mod mock;
+#[cfg(feature = "test_utils")]
+pub mod test_utils;
 
 use crate::{
     message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
