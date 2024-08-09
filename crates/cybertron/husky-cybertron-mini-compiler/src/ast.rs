@@ -1,5 +1,6 @@
 mod alloc;
 mod reduce;
+pub mod show;
 
 use std::fmt::Pointer;
 

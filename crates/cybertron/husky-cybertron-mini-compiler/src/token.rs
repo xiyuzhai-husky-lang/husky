@@ -30,6 +30,18 @@ pub enum Convexity {
 }
 
 impl Token {
+    pub fn repr(self) -> String {
+        match self {
+            Token::Literal(lit) => format!("{}", lit),
+            Token::Keyword(kw) => format!("{}", kw.repr()),
+            Token::Ident(ident) => format!("{}", ident.repr()),
+            Token::Opr(opr) => format!("{}", opr.repr()),
+            Token::LeftDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::RightDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::Separator(separator) => format!("{}", separator.repr()),
+        }
+    }
+
     pub fn right_convexity(self) -> Convexity {
         match self {
             Token::Literal(_) => Convexity::Convex,
@@ -51,12 +63,12 @@ impl std::fmt::Debug for Token {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Token::Literal(lit) => write!(f, "`{}`", lit),
-            Token::Keyword(kw) => write!(f, "`{}`", kw.data()),
-            Token::Ident(ident) => write!(f, "`{}`", ident.data()),
-            Token::Opr(opr) => write!(f, "`{}`", opr.data()),
-            Token::LeftDelimiter(delimiter) => write!(f, "`{}`", delimiter.data()),
-            Token::RightDelimiter(delimiter) => write!(f, "`{}`", delimiter.data()),
-            Token::Separator(separator) => write!(f, "`{}`", separator.data()),
+            Token::Keyword(kw) => write!(f, "`{}`", kw.repr()),
+            Token::Ident(ident) => write!(f, "`{}`", ident.repr()),
+            Token::Opr(opr) => write!(f, "`{}`", opr.repr()),
+            Token::LeftDelimiter(delimiter) => write!(f, "`{}`", delimiter.repr()),
+            Token::RightDelimiter(delimiter) => write!(f, "`{}`", delimiter.repr()),
+            Token::Separator(separator) => write!(f, "`{}`", separator.repr()),
         }
     }
 }
