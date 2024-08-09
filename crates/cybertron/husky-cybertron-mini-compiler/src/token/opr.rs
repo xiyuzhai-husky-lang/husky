@@ -43,6 +43,14 @@ impl Opr {
             Opr::Suffix(slf) => slf.repr(),
         }
     }
+
+    pub fn repr_short(self) -> &'static str {
+        match self {
+            Opr::Prefix(slf) => slf.repr_short(),
+            Opr::Binary(slf) => slf.repr_short(),
+            Opr::Suffix(slf) => slf.repr(),
+        }
+    }
 }
 
 /// # binary

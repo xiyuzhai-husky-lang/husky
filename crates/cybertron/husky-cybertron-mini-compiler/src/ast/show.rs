@@ -1,14 +1,17 @@
 use super::*;
 use crate::token::delimiter::*;
 
-pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<(String, String)> {
+pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<AstOut> {
     let tokens = tokens.data();
     let asts = asts.data();
     let len = tokens.len();
     debug_assert_eq!(len, asts.len());
-    let mut outs: Vec<(String, String)> = (0..len)
+    let mut outs: Vec<AstOut> = (0..len)
         .into_iter()
-        .map(|i| (tokens[i].repr(), "".into()))
+        .map(|i| AstOut {
+            token: tokens[i],
+            ast: "".into(),
+        })
         .collect();
     for i in 0..len {
         calc_ast_repr(tokens, asts, idx!(i), &mut outs)
@@ -16,15 +19,25 @@ pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<(String, Str
     outs
 }
 
-fn calc_ast_repr(
-    tokens: &[Token],
-    asts: &[Option<Ast>],
-    index: Idx,
-    outs: &mut Vec<(String, String)>,
-) {
+pub struct AstOut {
+    token: Token,
+    ast: String,
+}
+
+impl std::fmt::Debug for AstOut {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!(
+            "`{}`: \"{}\"",
+            self.token.repr_short(),
+            self.ast
+        ))
+    }
+}
+
+fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], index: Idx, outs: &mut Vec<AstOut>) {
     let i = index.index();
     let Some(ast) = asts[i] else { return };
-    if outs[i].1.len() > 0 {
+    if outs[i].ast.len() > 0 {
         return;
     }
     let repr = match ast.data {
@@ -32,21 +45,21 @@ fn calc_ast_repr(
         AstData::Ident(ident) => ident.repr().to_string(),
         AstData::Prefix { opr, opd } => {
             calc_ast_repr(tokens, asts, opd, outs);
-            format!("{}{}", opr.repr_short(), outs[opd.index()].1)
+            format!("{}{}", opr.repr_short(), outs[opd.index()].ast)
         }
         AstData::Binary { lopd, opr, ropd } => {
             calc_ast_repr(tokens, asts, lopd, outs);
             calc_ast_repr(tokens, asts, ropd, outs);
             format!(
                 "{} {} {}",
-                outs[lopd.index()].1,
+                outs[lopd.index()].ast,
                 opr.repr_short(),
-                outs[ropd.index()].1
+                outs[ropd.index()].ast
             )
         }
         AstData::Suffix { opd, opr } => {
             calc_ast_repr(tokens, asts, opd, outs);
-            format!("{}{}", outs[opd.index()].1, opr.repr())
+            format!("{}{}", outs[opd.index()].ast, opr.repr())
         }
         AstData::Delimited {
             left_delimiter_idx,
@@ -64,7 +77,7 @@ fn calc_ast_repr(
             {
                 if ast.parent == Some(index) {
                     calc_ast_repr(tokens, asts, idx!(j), outs);
-                    result += &outs[j].1;
+                    result += &outs[j].ast;
                 }
             }
             result += right_delimiter.repr();
@@ -74,7 +87,7 @@ fn calc_ast_repr(
             let mut result = String::new();
             if let Some(content) = content {
                 calc_ast_repr(tokens, asts, content, outs);
-                result += &outs[content.index()].1;
+                result += &outs[content.index()].ast;
             }
             result += separator.repr();
             result
@@ -82,7 +95,11 @@ fn calc_ast_repr(
         AstData::CallOrIndex { caller, arguments } => {
             calc_ast_repr(tokens, asts, caller, outs);
             calc_ast_repr(tokens, asts, arguments, outs);
-            format!("{}{}", outs[caller.index()].1, outs[arguments.index()].1)
+            format!(
+                "{}{}",
+                outs[caller.index()].ast,
+                outs[arguments.index()].ast
+            )
         }
         AstData::Defn {
             keyword,
@@ -95,7 +112,7 @@ fn calc_ast_repr(
                     "{} {} {}",
                     keyword.repr(),
                     name.repr(),
-                    outs[content.index()].1
+                    outs[content.index()].ast
                 )
             }
             DefnData::Func { head, body } => {
@@ -105,8 +122,8 @@ fn calc_ast_repr(
                     "{} {} {} {}",
                     keyword.repr(),
                     name.repr(),
-                    outs[head.index()].1,
-                    outs[body.index()].1
+                    outs[head.index()].ast,
+                    outs[body.index()].ast
                 )
             }
         },
@@ -118,22 +135,19 @@ fn calc_ast_repr(
             calc_ast_repr(tokens, asts, initial_value, outs);
             format!(
                 "let {} = {}",
-                outs[pattern.index()].1,
-                outs[initial_value.index()].1
+                outs[pattern.index()].ast,
+                outs[initial_value.index()].ast
             )
         }
     };
-    outs[i].1 = repr
+    outs[i].ast = repr
 }
 
 #[test]
 fn show_asts_works() {
     expect![[r#"
         [
-            (
-                "hello",
-                "hello",
-            ),
+            `hello`: "hello",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -145,14 +159,8 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            (
-                "+(plus)",
-                "+hello",
-            ),
-            (
-                "hello",
-                "hello",
-            ),
+            `+`: "+hello",
+            `hello`: "hello",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -173,18 +181,9 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            (
-                "1",
-                "1",
-            ),
-            (
-                "+(add)",
-                "1 + 1",
-            ),
-            (
-                "1",
-                "1",
-            ),
+            `1`: "1",
+            `+`: "1 + 1",
+            `1`: "1",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -214,26 +213,11 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            (
-                "(",
-                "",
-            ),
-            (
-                "1",
-                "1",
-            ),
-            (
-                ",",
-                "1,",
-            ),
-            (
-                "1",
-                "1",
-            ),
-            (
-                ")",
-                "(1,1)",
-            ),
+            `(`: "",
+            `1`: "1",
+            `,`: "1,",
+            `1`: "1",
+            `)`: "(1,1)",
         ]
     "#]]
     .assert_debug_eq(&show_asts(

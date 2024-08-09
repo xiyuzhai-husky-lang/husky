@@ -28,7 +28,7 @@ impl From<PreAst> for Option<DelimitedFragment> {
     }
 }
 
-fn reduce_pre_asts_by_delimited(
+pub(super) fn reduce_by_delimited(
     pre_asts: Seq<Option<PreAst>>,
     allocated_asts: Seq<Option<Ast>>,
 ) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
@@ -107,7 +107,7 @@ fn reduce_pre_asts_by_delimited(
 }
 
 #[test]
-fn reduce_pre_asts_by_delimited_works() {
+fn reduce_by_delimited_works() {
     #[track_caller]
     fn t(
         pre_asts: Seq<Option<PreAst>>,
@@ -115,7 +115,7 @@ fn reduce_pre_asts_by_delimited_works() {
         pre_asts1_expected: Seq<Option<PreAst>>,
         allocated_asts1_expected: Seq<Option<Ast>>,
     ) {
-        let (pre_asts1, allocated_asts1) = reduce_pre_asts_by_delimited(pre_asts, allocated_asts);
+        let (pre_asts1, allocated_asts1) = reduce_by_delimited(pre_asts, allocated_asts);
         assert_eq!(pre_asts1, pre_asts1_expected);
         assert_eq!(allocated_asts1, allocated_asts1_expected);
     }
