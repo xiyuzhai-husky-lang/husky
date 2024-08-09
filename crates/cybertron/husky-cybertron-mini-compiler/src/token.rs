@@ -42,6 +42,18 @@ impl Token {
         }
     }
 
+    pub fn repr_short(self) -> String {
+        match self {
+            Token::Literal(lit) => format!("{}", lit),
+            Token::Keyword(kw) => format!("{}", kw.repr()),
+            Token::Ident(ident) => format!("{}", ident.repr()),
+            Token::Opr(opr) => format!("{}", opr.repr_short()),
+            Token::LeftDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::RightDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::Separator(separator) => format!("{}", separator.repr()),
+        }
+    }
+
     pub fn right_convexity(self) -> Convexity {
         match self {
             Token::Literal(_) => Convexity::Convex,

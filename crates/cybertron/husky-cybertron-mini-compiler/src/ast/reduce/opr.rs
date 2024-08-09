@@ -2,7 +2,7 @@ use token::opr::{PrefixOpr, SuffixOpr};
 
 use super::*;
 
-pub(super) fn reduce_asts_by_opr(
+pub(super) fn reduce_by_opr(
     pre_asts: Seq<Option<PreAst>>,
     allocated_asts: Seq<Option<Ast>>,
 ) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
@@ -14,6 +14,17 @@ pub(super) fn reduce_asts_by_opr(
     let allocated_asts =
         allocate_asts_and_update_parents(allocated_asts, new_opr_asts, new_parents);
     (pre_asts, allocated_asts)
+}
+
+fn add_pre_asts(
+    pre_asts: Seq<Option<PreAst>>,
+    new_asts: Seq<Option<AstData>>,
+) -> Seq<Option<PreAst>> {
+    add_pre_ast.apply(pre_asts, new_asts)
+}
+
+fn add_pre_ast(pre_ast: Option<PreAst>, new_ast: Option<AstData>) -> Option<PreAst> {
+    pre_ast.or(new_ast.map(PreAst::Ast))
 }
 
 #[test]
@@ -34,7 +45,7 @@ fn reduce_asts_by_binary_opr_works1() {
             data: AstData::Literal(Literal::Int(1))
         }),
     ];
-    let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
+    let (pre_asts1, allocated_asts1) = reduce_by_opr(pre_asts, allocated_asts);
     assert_eq!(
         pre_asts1,
         seq![
@@ -83,7 +94,7 @@ fn reduce_asts_by_prefix_opr_works1() {
             data: AstData::Literal(Literal::Int(1))
         }),
     ];
-    let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
+    let (pre_asts1, allocated_asts1) = reduce_by_opr(pre_asts, allocated_asts);
     assert_eq!(
         pre_asts1,
         seq![
@@ -125,7 +136,7 @@ fn reduce_asts_by_suffix_opr_works1() {
         }),
         None,
     ];
-    let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
+    let (pre_asts1, allocated_asts1) = reduce_by_opr(pre_asts, allocated_asts);
     assert_eq!(
         pre_asts1,
         seq![
@@ -157,19 +168,19 @@ fn reduce_asts_by_suffix_opr_works1() {
 #[test]
 fn reduce_asts_by_opr_works_as_expected() {
     fn t(input: &str, expect: Expect) {
-        let toks = tokenize(input);
-        let pre_asts = calc_pre_ast_initial_seq(toks);
+        let tokens = tokenize(input);
+        let pre_asts = calc_pre_ast_initial_seq(tokens);
         let mut seqs: IndexMap<String, AnySeq> = Default::default();
-        let allocated_asts: Seq<Option<Ast>> = toks.map(|tok| tok.into());
+        let allocated_asts: Seq<Option<Ast>> = tokens.map(|token| token.into());
         seqs.insert("pre_asts".into(), pre_asts.into());
         seqs.insert("allocated_asts".into(), allocated_asts.into());
-        let (pre_asts1, allocated_asts1) = reduce_asts_by_opr(pre_asts, allocated_asts);
+        let (pre_asts1, allocated_asts1) = reduce_by_opr(pre_asts, allocated_asts);
         seqs.insert("pre_asts1".into(), pre_asts1.into());
         seqs.insert("allocated_asts1".into(), allocated_asts1.into());
-        let (pre_asts2, allocated_asts2) = reduce_asts_by_opr(pre_asts1, allocated_asts1);
+        let (pre_asts2, allocated_asts2) = reduce_by_opr(pre_asts1, allocated_asts1);
         seqs.insert("pre_asts2".into(), pre_asts2.into());
         seqs.insert("allocated_asts2".into(), allocated_asts2.into());
-        let (pre_asts3, allocated_asts3) = reduce_asts_by_opr(pre_asts2, allocated_asts2);
+        let (pre_asts3, allocated_asts3) = reduce_by_opr(pre_asts2, allocated_asts2);
         seqs.insert("pre_asts3".into(), pre_asts3.into());
         seqs.insert("allocated_asts3".into(), allocated_asts3.into());
         expect.assert_debug_eq(&seqs)
