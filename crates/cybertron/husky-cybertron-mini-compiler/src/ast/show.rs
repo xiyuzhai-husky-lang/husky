@@ -86,13 +86,39 @@ fn calc_ast_repr(
             name,
             data,
         } => match data {
-            DefnData::Type { content } => todo!(),
-            DefnData::Func { head, body } => todo!(),
+            DefnData::Type { content } => {
+                calc_ast_repr(tokens, asts, content, outs);
+                format!(
+                    "{} {} {}",
+                    keyword.repr(),
+                    name.repr(),
+                    outs[content.index()].1
+                )
+            }
+            DefnData::Func { head, body } => {
+                calc_ast_repr(tokens, asts, head, outs);
+                calc_ast_repr(tokens, asts, body, outs);
+                format!(
+                    "{} {} {} {}",
+                    keyword.repr(),
+                    name.repr(),
+                    outs[head.index()].1,
+                    outs[body.index()].1
+                )
+            }
         },
         AstData::LetInit {
             pattern,
             initial_value,
-        } => todo!(),
+        } => {
+            calc_ast_repr(tokens, asts, pattern, outs);
+            calc_ast_repr(tokens, asts, initial_value, outs);
+            format!(
+                "let {} = {}",
+                outs[pattern.index()].1,
+                outs[initial_value.index()].1
+            )
+        }
     };
     outs[i].1 = repr
 }
