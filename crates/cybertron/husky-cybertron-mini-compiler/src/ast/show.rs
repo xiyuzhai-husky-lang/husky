@@ -1,4 +1,5 @@
 use super::*;
+use crate::token::delimiter::*;
 
 pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<(String, String)> {
     let tokens = tokens.data();
@@ -61,8 +62,10 @@ fn calc_ast_repr(
                 .filter_map(|(i, ast)| Some((i, ast?)))
                 .enumerate()
             {
-                calc_ast_repr(tokens, asts, idx!(j), outs);
-                result += &outs[j].1;
+                if ast.parent == Some(index) {
+                    calc_ast_repr(tokens, asts, idx!(j), outs);
+                    result += &outs[j].1;
+                }
             }
             result += right_delimiter.repr();
             result
@@ -206,6 +209,65 @@ fn show_asts_works() {
             Some(Ast {
                 parent: Some(idx!(1)),
                 data: AstData::Literal(Literal::Int(1))
+            })
+        ],
+    ));
+    expect![[r#"
+        [
+            (
+                "(",
+                "",
+            ),
+            (
+                "1",
+                "1",
+            ),
+            (
+                ",",
+                "1,",
+            ),
+            (
+                "1",
+                "1",
+            ),
+            (
+                ")",
+                "(1,1)",
+            ),
+        ]
+    "#]]
+    .assert_debug_eq(&show_asts(
+        seq![
+            Token::LeftDelimiter(LPAR),
+            Token::Literal(Literal::Int(1)),
+            Token::Separator(Separator::Comma),
+            Token::Literal(Literal::Int(1)),
+            Token::RightDelimiter(RPAR),
+        ],
+        seq![
+            None,
+            Some(Ast {
+                parent: Some(idx!(2)),
+                data: AstData::Literal(Literal::Int(1))
+            }),
+            Some(Ast {
+                parent: Some(idx!(4)),
+                data: AstData::SeparatedItem {
+                    content: Some(idx!(1)),
+                    separator: Separator::Comma
+                }
+            }),
+            Some(Ast {
+                parent: Some(idx!(4)),
+                data: AstData::Literal(Literal::Int(1))
+            }),
+            Some(Ast {
+                parent: None,
+                data: AstData::Delimited {
+                    left_delimiter_idx: idx!(0),
+                    left_delimiter: LPAR,
+                    right_delimiter: RPAR,
+                }
             })
         ],
     ));
