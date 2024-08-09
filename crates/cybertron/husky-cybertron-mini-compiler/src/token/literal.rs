@@ -20,3 +20,11 @@ impl std::fmt::Debug for Literal {
         }
     }
 }
+
+impl Literal {
+    pub fn repr(self) -> String {
+        match self {
+            Literal::Int(i) => i.to_string(),
+        }
+    }
+}

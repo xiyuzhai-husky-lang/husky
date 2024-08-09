@@ -5,7 +5,7 @@ pub enum Keyword {
 
 impl std::fmt::Debug for Keyword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data()))
+        f.write_fmt(format_args!("`{}`", self.repr()))
     }
 }
 
@@ -19,7 +19,7 @@ impl Keyword {
 }
 
 impl Keyword {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         match self {
             Keyword::Let => "let",
         }

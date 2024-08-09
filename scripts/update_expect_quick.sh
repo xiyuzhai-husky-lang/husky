@@ -1,11 +1,11 @@
-
 #!/bin/bash
+set -e
+
+. .local/env.sh
 
 # Duration over which to change the brightness, in seconds
 DURATION=0.5
 MONITOR=HDMI-2
-# TARGET=husky-cybertron-mini-compiler
-TARGET=husky-devtime
 
 # Define a cleanup function
 cleanup() {
@@ -30,6 +30,6 @@ UPDATE_EXPECT=1 cargo test -p husky-jar-utils
 cargo check --tests
 
 # Run tests, handling failure and success with respective scripts
-UPDATE_EXPECT=1 cargo test -p $TARGET -- --nocapture \
+UPDATE_EXPECT=1 cargo test -p $MAKE_QUICK_TARGET -- --nocapture \
   && scripts/play_update_expect_success_music.sh \
   || scripts/play_update_expect_failure_music.sh

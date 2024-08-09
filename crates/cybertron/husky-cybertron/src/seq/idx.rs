@@ -15,6 +15,12 @@ impl Idx {
     }
 }
 
+impl Idx {
+    pub fn index(self) -> usize {
+        self.0.index()
+    }
+}
+
 #[macro_export]
 macro_rules! idx {
     ($i: expr) => {

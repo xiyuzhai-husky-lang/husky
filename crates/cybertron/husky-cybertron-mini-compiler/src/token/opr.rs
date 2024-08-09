@@ -7,7 +7,7 @@ pub enum Opr {
 
 impl std::fmt::Debug for Opr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data()))
+        f.write_fmt(format_args!("`{}`", self.repr()))
     }
 }
 
@@ -36,11 +36,11 @@ impl Opr {
 }
 
 impl Opr {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         match self {
-            Opr::Prefix(slf) => slf.data(),
-            Opr::Binary(slf) => slf.data(),
-            Opr::Suffix(slf) => slf.data(),
+            Opr::Prefix(slf) => slf.repr(),
+            Opr::Binary(slf) => slf.repr(),
+            Opr::Suffix(slf) => slf.repr(),
         }
     }
 }
@@ -58,7 +58,7 @@ pub enum BinaryOpr {
 
 impl std::fmt::Debug for BinaryOpr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data()))
+        f.write_fmt(format_args!("`{}`", self.repr()))
     }
 }
 
@@ -73,10 +73,20 @@ impl BinaryOpr {
 }
 
 impl BinaryOpr {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         match self {
             BinaryOpr::Add => "+(add)",
             BinaryOpr::Sub => "-(sub)",
+            BinaryOpr::Mul => "*",
+            BinaryOpr::Div => "/",
+            BinaryOpr::Assign => "=",
+        }
+    }
+
+    pub fn repr_short(self) -> &'static str {
+        match self {
+            BinaryOpr::Add => "+",
+            BinaryOpr::Sub => "-",
             BinaryOpr::Mul => "*",
             BinaryOpr::Div => "/",
             BinaryOpr::Assign => "=",
@@ -95,16 +105,24 @@ pub enum PrefixOpr {
 
 impl std::fmt::Debug for PrefixOpr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data()))
+        f.write_fmt(format_args!("`{}`", self.repr()))
     }
 }
 
 impl PrefixOpr {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         match self {
             PrefixOpr::Not => "!",
             PrefixOpr::Plus => "+(plus)",
             PrefixOpr::Minus => "-(minus)",
+        }
+    }
+
+    pub fn repr_short(self) -> &'static str {
+        match self {
+            PrefixOpr::Not => "!",
+            PrefixOpr::Plus => "+",
+            PrefixOpr::Minus => "-",
         }
     }
 
@@ -129,12 +147,12 @@ impl SuffixOpr {
 
 impl std::fmt::Debug for SuffixOpr {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data()))
+        f.write_fmt(format_args!("`{}`", self.repr()))
     }
 }
 
 impl SuffixOpr {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         match self {
             SuffixOpr::Incr => "++",
             SuffixOpr::Decr => "--",
