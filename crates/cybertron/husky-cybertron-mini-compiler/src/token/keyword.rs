@@ -1,6 +1,11 @@
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Keyword {
     Let,
+    If,
+    Else,
+    Struct,
+    Enum,
+    Fn,
 }
 
 impl std::fmt::Debug for Keyword {
@@ -22,6 +27,11 @@ impl Keyword {
     pub fn repr(self) -> &'static str {
         match self {
             Keyword::Let => "let",
+            Keyword::If => "if",
+            Keyword::Else => "else",
+            Keyword::Struct => "struct",
+            Keyword::Enum => "enum",
+            Keyword::Fn => "fn",
         }
     }
 }

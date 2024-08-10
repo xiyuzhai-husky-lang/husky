@@ -1,6 +1,8 @@
 //! call is a generalized version of normal function call
 //!
 //! it includes all kinds of delimiters
+use token::delimiter::Delimiter;
+
 use super::*;
 
 pub(super) fn reduce_by_call(
@@ -26,20 +28,6 @@ fn new_call_ast(
     let (caller, PreAst::Ast(_)) = pre_ast_nearest_left.first()? else {
         return None;
     };
-    if let Some((_, snd)) = pre_ast_nearest_left.second() {
-        match snd {
-            PreAst::Keyword(_) => (),
-            PreAst::Opr(opr) => match opr {
-                Opr::Prefix(_) => (),
-                Opr::Binary(_) => (),
-                Opr::Suffix(_) => return None,
-            },
-            PreAst::LeftDelimiter(_) => (),
-            PreAst::RightDelimiter(_) => return None,
-            PreAst::Ast(_) => return None,
-            PreAst::Separator(_) => (),
-        }
-    }
     let (
         delimited_arguments,
         PreAst::Ast(AstData::Delimited {
@@ -51,6 +39,30 @@ fn new_call_ast(
     else {
         return None;
     };
+    if let Some((_, snd)) = pre_ast_nearest_left.second() {
+        match snd {
+            PreAst::Keyword(kw) => match kw {
+                Keyword::Let => (),
+                Keyword::If => match left_delimiter.delimiter() {
+                    Delimiter::Parenthesis | Delimiter::Box => (),
+                    Delimiter::Curly => return None,
+                },
+                Keyword::Else => return None,
+                Keyword::Struct => return None,
+                Keyword::Enum => return None,
+                Keyword::Fn => return None,
+            },
+            PreAst::Opr(opr) => match opr {
+                Opr::Prefix(_) => (),
+                Opr::Binary(_) => (),
+                Opr::Suffix(_) => return None,
+            },
+            PreAst::LeftDelimiter(_) => (),
+            PreAst::RightDelimiter(_) => return None,
+            PreAst::Ast(_) => return None,
+            PreAst::Separator(_) => (),
+        }
+    }
     if left_delimiter_idx != idx {
         return None;
     }
