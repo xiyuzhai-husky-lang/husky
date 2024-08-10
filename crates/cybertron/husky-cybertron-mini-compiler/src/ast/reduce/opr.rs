@@ -468,9 +468,9 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => (), // actually this will be a syntax error
                     },
-                    PreAst::Ast(_) => (),
+                    PreAst::Ast(_) => return None,
                     PreAst::LeftDelimiter(_) => (),
-                    PreAst::RightDelimiter(_) => (),
+                    PreAst::RightDelimiter(_) => return None,
                     PreAst::Separator(_) => (),
                 }
             };
@@ -522,8 +522,8 @@ pub(crate) fn new_opr_ast(
                         Opr::Suffix(_) => (),
                     },
                     PreAst::LeftDelimiter(_) => (),
-                    PreAst::RightDelimiter(_) => (),
-                    PreAst::Ast(_) => (),
+                    PreAst::RightDelimiter(_) => return None,
+                    PreAst::Ast(_) => return None,
                     PreAst::Separator(_) => (),
                 }
             };
