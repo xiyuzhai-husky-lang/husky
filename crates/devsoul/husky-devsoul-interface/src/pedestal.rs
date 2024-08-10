@@ -16,7 +16,7 @@ pub trait IsPedestal:
     + 'static
     + FromIterator<(ItemPathIdInterface, Self::StaticVarId)>
 {
-    type StaticVarId: Clone + Copy;
+    type StaticVarId: std::fmt::Debug + Copy + Eq;
 
     fn exclude<V: IsStaticVar<Self::StaticVarId>>(self) -> Self;
 

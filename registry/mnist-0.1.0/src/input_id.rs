@@ -42,8 +42,8 @@ pub(crate) fn with_input_id<R>(input_id: MnistInputId, f: impl Fn() -> R) -> R {
     r
 }
 
-pub(crate) fn set_input_id(input_id: MnistInputId) {
-    __INPUT_ID.set(Some(input_id));
+pub(crate) fn replace_input_id(input_id: MnistInputId) -> Option<MnistInputId> {
+    __INPUT_ID.replace(Some(input_id))
 }
 
 pub(crate) fn input_ids() -> impl Iterator<Item = MnistInputId> {

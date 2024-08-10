@@ -130,8 +130,8 @@ impl __IsStaticVar<__StaticVarId> for INPUT {
         input_id().index().into()
     }
 
-    fn set_id(id: __StaticVarId) {
-        set_input_id(id.into())
+    unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
+        replace_input_id(id.into()).map(Into::into)
     }
 
     fn ids() -> impl Iterator<Item = __StaticVarId> {
@@ -146,7 +146,7 @@ impl INPUT {
 
     pub fn set_up_for_testing(index: usize) {
         // todo: check range!
-        set_input_id(MnistInputId::from_index(index))
+        replace_input_id(MnistInputId::from_index(index));
     }
 }
 
@@ -168,7 +168,7 @@ impl TASK {
         todo!()
     }
 
-    pub fn set_id(id: __StaticVarId) {
+    pub unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
         todo!()
     }
 

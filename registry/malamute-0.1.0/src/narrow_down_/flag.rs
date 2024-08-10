@@ -29,10 +29,12 @@ where
         let mut ids = Task::INPUT::ids();
         for i in 0..5 {
             let Some(id) = ids.next() else { break };
-            Task::INPUT::set_id(id);
-            if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
-                stalks.push(stalk)
-            }
+            Task::INPUT::with_id(id, || {
+                if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
+                    stalks.push(stalk)
+                }
+                Ok(())
+            })?
         }
         Ok(Self { stalks, label0 })
     }

@@ -9,7 +9,7 @@ macro_rules! static_var_linket_impl {
             },
             set_up_for_testing: <$static_var>::set_up_for_testing,
             get_id: <$static_var>::get_id,
-            set_id: <$static_var>::set_id,
+            replace_id: <$static_var>::replace_id,
             ids: || Box::new(<$static_var>::ids()),
         }
     };
@@ -34,7 +34,7 @@ fn static_var_linket_impl_works() {
             // StandardStaticVarId::
         }
 
-        pub fn set_id(id: StandardStaticVarId) {
+        pub fn replace_id(id: StandardStaticVarId) -> Option<StandardStaticVarId> {
             todo!()
         }
 
@@ -55,7 +55,7 @@ fn static_var_linket_impl_works() {
         init_item_path_id_interface,
         set_up_for_testing,
         get_id,
-        set_id,
+        replace_id: set_id,
         ids,
     } = static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
     else {

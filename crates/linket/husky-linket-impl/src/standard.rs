@@ -85,7 +85,7 @@ where
         init_item_path_id_interface: fn(ItemPathIdInterface),
         set_up_for_testing: fn(usize),
         get_id: fn() -> Pedestal::StaticVarId,
-        set_id: fn(Pedestal::StaticVarId),
+        replace_id: unsafe fn(Pedestal::StaticVarId) -> Option<Pedestal::StaticVarId>,
         ids: fn() -> Box<dyn Iterator<Item = Pedestal::StaticVarId>>,
     },
     // todo: memo
