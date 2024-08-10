@@ -18,6 +18,10 @@ pub const LBOX: LeftDelimiter = LeftDelimiter(Delimiter::Box);
 pub const LCURL: LeftDelimiter = LeftDelimiter(Delimiter::Curly);
 
 impl LeftDelimiter {
+    pub fn delimiter(self) -> Delimiter {
+        self.0
+    }
+
     pub fn repr(self) -> &'static str {
         match self.0 {
             Delimiter::Parenthesis => "(",
