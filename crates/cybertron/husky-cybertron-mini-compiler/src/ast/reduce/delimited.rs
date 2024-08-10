@@ -23,7 +23,7 @@ impl From<PreAst> for Option<DelimitedFragment> {
                 AstData::SeparatedItem { content, separator } => None,
                 ast => Some(DelimitedFragment::Ast(ast)),
             },
-            PreAst::Separator(_) => unreachable!(),
+            PreAst::Separator(_) => Some(DelimitedFragment::Obstruction),
         }
     }
 }
@@ -32,6 +32,7 @@ pub(super) fn reduce_by_delimited(
     pre_asts: Seq<Option<PreAst>>,
     allocated_asts: Seq<Option<Ast>>,
 ) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
+    use husky_print_utils::p;
     let (pre_asts, allocated_asts) = reduce_pre_asts_by_delimited_item(pre_asts, allocated_asts);
     let fragments =
         pre_asts.map(|pre_ast| -> Option<DelimitedFragment> { pre_ast.map(Into::into).flatten() });

@@ -32,7 +32,7 @@ pub struct RightDelimiter(Delimiter);
 
 pub const RPAR: RightDelimiter = RightDelimiter(Delimiter::Parenthesis);
 pub const RBOX: RightDelimiter = RightDelimiter(Delimiter::Box);
-pub const RCURR: RightDelimiter = RightDelimiter(Delimiter::Curly);
+pub const RCURL: RightDelimiter = RightDelimiter(Delimiter::Curly);
 
 impl RightDelimiter {
     pub fn repr(self) -> &'static str {

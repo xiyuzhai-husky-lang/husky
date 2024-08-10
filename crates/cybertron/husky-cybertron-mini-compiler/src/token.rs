@@ -5,7 +5,7 @@ pub mod literal;
 pub mod opr;
 pub mod separator;
 
-use self::{ident::Ident, keyword::Keyword, literal::Literal, opr::Opr};
+use self::{delimiter::*, ident::Ident, keyword::Keyword, literal::Literal, opr::Opr};
 use crate::token::separator::Separator;
 use crate::*;
 use delimiter::{Delimiter, LeftDelimiter, RightDelimiter};
@@ -143,6 +143,14 @@ impl<'a> Tokenizer<'a> {
             '*' => Some(Opr::MUL.into()),
             '/' => Some(Opr::DIV.into()),
             '=' => Some(Opr::ASSIGN.into()),
+            '(' => Some(LPAR.into()),
+            ')' => Some(RPAR.into()),
+            '[' => Some(LBOX.into()),
+            ']' => Some(RBOX.into()),
+            '{' => Some(LCURL.into()),
+            '}' => Some(RCURL.into()),
+            ',' => Some(Separator::Comma.into()),
+            ';' => Some(Separator::Semicolon.into()),
             c if c.is_alphabetic() || c == '_' => Some(self.next_keyword_or_ident(c)),
             c if c.is_numeric() => Some(self.next_numeric_literal(c)),
             c => todo!(),
