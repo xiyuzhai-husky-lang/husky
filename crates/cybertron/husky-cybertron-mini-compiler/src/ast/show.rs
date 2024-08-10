@@ -34,8 +34,8 @@ impl std::fmt::Debug for AstOut {
     }
 }
 
-fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], index: Idx, outs: &mut Vec<AstOut>) {
-    let i = index.index();
+fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Vec<AstOut>) {
+    let i = idx.index();
     let Some(ast) = asts[i] else { return };
     if outs[i].ast.len() > 0 {
         return;
@@ -75,7 +75,7 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], index: Idx, outs: &mut 
                 .filter_map(|(i, ast)| Some((i, ast?)))
                 .enumerate()
             {
-                if ast.parent == Some(index) {
+                if ast.parent == Some(idx) {
                     calc_ast_repr(tokens, asts, idx!(j), outs);
                     result += &outs[j].ast;
                 }
@@ -92,7 +92,10 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], index: Idx, outs: &mut 
             result += separator.repr();
             result
         }
-        AstData::CallOrIndex { caller, arguments } => {
+        AstData::Call {
+            caller,
+            delimited_arguments: arguments,
+        } => {
             calc_ast_repr(tokens, asts, caller, outs);
             calc_ast_repr(tokens, asts, arguments, outs);
             format!(

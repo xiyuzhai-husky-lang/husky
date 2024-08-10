@@ -83,6 +83,9 @@ pub(super) fn reduce_by_delimited(
     let allocated_asts =
         (|allocated_ast: Option<Ast>, new_ast: Option<AstData>, new_parent| match allocated_ast {
             Some(allocated_ast) => {
+                if new_ast.is_some() {
+                    p!(allocated_ast, new_ast);
+                }
                 debug_assert!(new_ast.is_none());
                 match new_parent {
                     Some(new_parent) => {

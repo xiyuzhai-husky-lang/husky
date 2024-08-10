@@ -56,9 +56,9 @@ pub enum AstData {
         separator: Separator,
     },
     /// things like `f(...)` or `a[...]`
-    CallOrIndex {
+    Call {
         caller: Idx,
-        arguments: Idx,
+        delimited_arguments: Idx,
     },
     Defn {
         keyword: Keyword,

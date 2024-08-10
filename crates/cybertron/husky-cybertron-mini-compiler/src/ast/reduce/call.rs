@@ -1,0 +1,97 @@
+//! call is a generalized version of normal function call
+//!
+//! it includes all kinds of delimiters
+use super::*;
+
+pub(super) fn reduce_by_call(
+    pre_asts: Seq<Option<PreAst>>,
+    allocated_asts: Seq<Option<Ast>>,
+) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
+    let pre_asts_nearest_left2 = pre_asts.nearest_left2();
+    let pre_asts_nearest_right = pre_asts.nearest_right();
+    let new_call_asts =
+        new_call_ast.apply_enumerated(pre_asts_nearest_left2, pre_asts_nearest_right);
+    let (pre_asts, new_parents) = reduce_pre_asts_by_call(pre_asts, new_call_asts);
+    let allocated_asts =
+        allocate_asts_and_update_parents(allocated_asts, new_call_asts, new_parents);
+    let pre_asts = add_pre_asts(pre_asts, new_call_asts);
+    (pre_asts, allocated_asts)
+}
+
+fn new_call_ast(
+    idx: Idx,
+    pre_ast_nearest_left: Option2<(Idx, PreAst)>,
+    pre_ast_nearest_right: Option<(Idx, PreAst)>,
+) -> Option<AstData> {
+    let (caller, PreAst::Ast(_)) = pre_ast_nearest_left.first()? else {
+        return None;
+    };
+    if let Some((_, snd)) = pre_ast_nearest_left.second() {
+        match snd {
+            PreAst::Keyword(_) => (),
+            PreAst::Opr(opr) => match opr {
+                Opr::Prefix(_) => (),
+                Opr::Binary(_) => (),
+                Opr::Suffix(_) => return None,
+            },
+            PreAst::LeftDelimiter(_) => (),
+            PreAst::RightDelimiter(_) => return None,
+            PreAst::Ast(_) => return None,
+            PreAst::Separator(_) => (),
+        }
+    }
+    let (
+        delimited_arguments,
+        PreAst::Ast(AstData::Delimited {
+            left_delimiter_idx,
+            left_delimiter,
+            right_delimiter,
+        }),
+    ) = pre_ast_nearest_right?
+    else {
+        return None;
+    };
+    if left_delimiter_idx != idx {
+        return None;
+    }
+    Some(AstData::Call {
+        caller,
+        delimited_arguments,
+    })
+}
+
+fn reduce_pre_asts_by_call(
+    pre_asts: Seq<Option<PreAst>>,
+    new_asts: Seq<Option<AstData>>,
+) -> (Seq<Option<PreAst>>, Seq<Option<Idx>>) {
+    let new_asts_nearest_left = new_asts.nearest_left();
+    let new_asts_nearest_right = new_asts.nearest_right();
+    reduce_pre_ast_by_call
+        .apply_enumerated(new_asts_nearest_left, new_asts_nearest_right, pre_asts)
+        .decouple()
+}
+
+fn reduce_pre_ast_by_call(
+    idx: Idx,
+    new_ast_nearest_left: Option<(Idx, AstData)>,
+    new_ast_nearest_right: Option<(Idx, AstData)>,
+    pre_ast: Option<PreAst>,
+) -> (Option<PreAst>, Option<Idx>) {
+    if let Some((
+        idx1,
+        AstData::Call {
+            delimited_arguments,
+            ..
+        },
+    )) = new_ast_nearest_left
+        && delimited_arguments == idx
+    {
+        (None, Some(idx1))
+    } else if let Some((idx1, AstData::Call { caller, .. })) = new_ast_nearest_right
+        && caller == idx
+    {
+        (None, Some(idx1))
+    } else {
+        (pre_ast, None)
+    }
+}
