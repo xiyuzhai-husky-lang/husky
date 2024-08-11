@@ -2616,6 +2616,8 @@
         name: "husky-core",
         relative_path: "library/core",
         dependencies: [
+            "husky-devsoul-interface",
+            "husky-standard-devsoul-interface",
             "husky-standard-value",
             "husky-visual-protocol",
             "ordered-float",

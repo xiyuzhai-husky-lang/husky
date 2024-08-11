@@ -10,7 +10,7 @@ MONITOR=HDMI-2
 # Define a cleanup function
 cleanup() {
   # Reset screen brightness
-  scripts/adjust_screen_brightness.sh 1.0 $MONITOR $DURATION
+  scripts/adjust_screen_brightness.sh 1.0 $MONITOR $DURATION &
 }
 
 # Trap the EXIT signal to call the cleanup function
@@ -18,7 +18,7 @@ cleanup() {
 trap cleanup EXIT
 
 # Set the screen brightness to very low
-scripts/adjust_screen_brightness.sh 0.0 $MONITOR $DURATION
+scripts/adjust_screen_brightness.sh 0.0 $MONITOR $DURATION &
 
 # Format the Rust project
 cargo fmt
@@ -30,6 +30,6 @@ UPDATE_EXPECT=1 cargo test -p husky-jar-utils
 cargo check --tests
 
 # Run tests, handling failure and success with respective scripts
-UPDATE_EXPECT=1 cargo test -p $MAKE_QUICK_TARGET -- --nocapture \
+UPDATE_EXPECT=1 cargo test -p -j 1 $MAKE_QUICK_TARGET -- --nocapture \
   && scripts/play_update_expect_success_music.sh \
   || scripts/play_update_expect_failure_music.sh

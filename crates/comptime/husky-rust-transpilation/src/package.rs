@@ -39,7 +39,10 @@ impl RustTranspilationPackage {
     pub(crate) fn name(self, db: &::salsa::Db) -> String {
         match self.data {
             RustTranspilationPackageData::Source { package_path } => {
-                package_path.name(db).data(db).to_string()
+                match package_path.name(db).data(db) {
+                    "core" => "husky-core".to_string(),
+                    name => name.to_string(),
+                }
             }
             RustTranspilationPackageData::Linkets => {
                 format!("{}-linkets", self.target_path.name(db).data(db))

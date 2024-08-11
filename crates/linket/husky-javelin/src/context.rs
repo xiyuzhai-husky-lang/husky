@@ -81,6 +81,12 @@ impl JavTypeContext {
     }
 }
 
+impl JavTypeContext {
+    pub fn is_empty(&self) -> bool {
+        self.comptime_var_overrides.is_empty()
+    }
+}
+
 impl JavComptimeVarOverride {
     fn from_hir(
         hir_ovrd: HirComptimeVarOverride,

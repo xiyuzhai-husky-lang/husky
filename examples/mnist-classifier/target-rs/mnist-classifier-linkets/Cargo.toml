@@ -6,9 +6,6 @@ version = "0.1.0"
 [dependencies.ad-hoc-devsoul-dependency]
 workspace = true
 
-[dependencies.core]
-workspace = true
-
 [dependencies.husky-core]
 workspace = true
 

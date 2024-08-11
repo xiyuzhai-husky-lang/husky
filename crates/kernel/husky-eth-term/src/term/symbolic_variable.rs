@@ -14,7 +14,7 @@ pub struct EthSymbolicVariable {
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
     /// todo: improve this by adding TypeFamily
-    pub index: EthTermSymbolIndex,
+    pub index: EthTermSymbolicVariableIndex,
 }
 
 #[test]
@@ -37,7 +37,7 @@ impl EthSymbolicVariable {
             db,
             dec_symbolic_variable.toolchain(db),
             ty,
-            EthTermSymbolIndex::from_dec(dec_symbolic_variable.index(db)),
+            EthTermSymbolicVariableIndex::from_dec(dec_symbolic_variable.index(db)),
         ))
     }
 }

@@ -13,6 +13,7 @@ pub(crate) struct RustManifest(Manifest);
 
 impl Eq for RustManifest {}
 
+// todo: clean this up
 #[salsa::tracked(return_ref)]
 pub(crate) fn linktime_target_rust_workspace_manifest(
     db: &::salsa::Db,
@@ -41,20 +42,7 @@ pub(crate) fn linktime_target_rust_workspace_manifest(
     let task_dependency_diffpath =
         diff_paths(&task_dependency_abs_path, &rust_workspace_abs_dir).unwrap();
     let dependencies = [
-        (
-            "husky-core".to_string(),
-            Dependency::Detailed(DependencyDetail {
-                path: Some(
-                    library_diffpath
-                        .join("core")
-                        .as_os_str()
-                        .to_str()
-                        .unwrap()
-                        .to_string(),
-                ),
-                ..Default::default()
-            }),
-        ),
+        // ad hoc
         (
             rust_transpilation_setup_data
                 .task_dependency_name
@@ -122,13 +110,13 @@ pub(crate) fn source_package_manifest(
             .to_string(),
     ]
     .into_iter()
-    .chain(
-        package_path
-            .dependencies(db)
-            .unwrap()
-            .iter()
-            .map(|dep| dep.package_path().name_string(db)),
-    )
+    .chain(package_path.dependencies(db).unwrap().iter().map(|dep| {
+        match dep.package_path().name(db).data(db) {
+            "core" => "husky-core",
+            name => name,
+        }
+        .to_string()
+    }))
     .map(|name| (name, INHERITED))
     .collect();
     toml::to_string(&Manifest {
@@ -174,20 +162,23 @@ pub(crate) fn linkets_package_manifest(
     transpilation_setup: TranspilationSetup,
 ) -> String {
     let rust_transpilation_setup_data = transpilation_setup.rust_data(db).unwrap();
-    let dependencies = [
-        "husky-core".to_string(),
-        rust_transpilation_setup_data
-            .task_dependency_name
-            .data(db)
-            .to_string(),
-    ]
+    let dependencies = [rust_transpilation_setup_data
+        .task_dependency_name
+        .data(db)
+        .to_string()]
     .into_iter()
     .chain(
         target_path
             .full_dependencies(db)
             .unwrap()
             .iter()
-            .map(|dep| dep.name_string(db)),
+            .map(|dep| {
+                match dep.name(db).data(db) {
+                    "core" => "husky-core",
+                    name => name,
+                }
+                .to_string()
+            }),
     )
     .map(|name| (name, INHERITED))
     .collect();
