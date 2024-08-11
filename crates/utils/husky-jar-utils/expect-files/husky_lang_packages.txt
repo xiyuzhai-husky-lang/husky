@@ -2561,6 +2561,7 @@
             "husky-value-interface",
             "husky-value-protocol",
             "husky-visual-protocol",
+            "serde",
             "thiserror",
         ],
     },

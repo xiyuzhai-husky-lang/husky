@@ -9,7 +9,6 @@ use crate::{
     message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
     view::action::TraceViewAction, *,
 };
-use husky_devsoul_interface::pedestal::IsPedestal;
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };

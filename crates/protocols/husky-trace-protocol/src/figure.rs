@@ -1,9 +1,6 @@
 use crate::TraceId;
-use husky_devsoul_interface::{
-    item_path::ItemPathIdInterface,
-    ki_repr::{KiDomainReprInterface, KiReprInterface},
-    pedestal::IsPedestalFull,
-};
+use husky_ki_repr_interface::KiReprInterface;
+use husky_linket_impl::pedestal::IsPedestalFull;
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, Visual},

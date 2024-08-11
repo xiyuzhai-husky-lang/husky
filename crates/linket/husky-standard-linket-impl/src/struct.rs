@@ -1,7 +1,7 @@
 #[cfg(test)]
 use super::*;
 #[cfg(test)]
-use husky_linket_impl::standard::ugly::serde;
+use ::serde;
 
 /// # destructor
 
@@ -53,8 +53,8 @@ macro_rules! struct_field_linket_impl {
 
 #[test]
 fn struct_field_linket_impl_works() {
+    use crate::pedestal::StandardPedestal;
     use husky_core::*;
-    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
     use husky_standard_value::ugly::*;
 
     #[husky_standard_value::value_conversion]
@@ -67,7 +67,7 @@ fn struct_field_linket_impl_works() {
         b: B,
     }
 
-    let _: StandardLinketImpl<StandardPedestal> = struct_field_linket_impl!(A, copyable x);
-    let _: StandardLinketImpl<StandardPedestal> = struct_field_linket_impl!(A, vec y);
-    let _: StandardLinketImpl<StandardPedestal> = struct_field_linket_impl!(A, other b);
+    let _: StandardLinketImpl = struct_field_linket_impl!(A, copyable x);
+    let _: StandardLinketImpl = struct_field_linket_impl!(A, vec y);
+    let _: StandardLinketImpl = struct_field_linket_impl!(A, other b);
 }

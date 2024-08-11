@@ -1,7 +1,10 @@
+pub mod ugly;
+
+use serde::Serialize;
 use shifted_unsigned_int::ShiftedU32;
 use smallvec::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize)]
 pub struct KiReprInterface(ShiftedU32);
 
 impl KiReprInterface {

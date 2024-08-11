@@ -8,7 +8,6 @@ use crate::{
 };
 use either::*;
 use husky_coword::Ident;
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
 use husky_entity_path::{
     menu::item_path_menu,
@@ -25,6 +24,7 @@ use husky_hir_decl::{
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_javelin::{
     instantiation::JavInstantiation,
     javelin::{package_javelins, Javelin, JavelinData},

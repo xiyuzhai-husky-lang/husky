@@ -1,6 +1,6 @@
 [package]
 name = "husky-analyzer"
-version = "0.0.0"
+version.workspace = true
 edition = "2021"
 
 [[bin]]

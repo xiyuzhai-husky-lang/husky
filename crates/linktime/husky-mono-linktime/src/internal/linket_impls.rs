@@ -2,7 +2,6 @@ use std::iter::zip;
 
 use super::*;
 use husky_linket::linket::{package_linkets, target_linkets};
-use husky_linket_impl::LinketImpls;
 use husky_manifest::HasManifest;
 
 pub(crate) type LinketImplMap<LinketImpl> =

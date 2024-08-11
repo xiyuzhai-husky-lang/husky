@@ -1,6 +1,6 @@
 use crate::*;
 use husky_path_utils::HuskyLangDevPaths;
-use husky_standard_devsoul::{StandardDevsoul, StandardPedestal};
+use husky_standard_devsoul::StandardDevsoul;
 use husky_standard_visual_protocol::figure::StandardFigure;
 use husky_trace_protocol::{
     client::test_utils::TestTraceClient,
@@ -9,7 +9,7 @@ use husky_trace_protocol::{
 use tracing_test::traced_test;
 
 // it looks ugly, lol
-type StandardDevtime = Devtime<StandardDevsoul<StandardFigure<StandardPedestal>>>;
+type StandardDevtime = Devtime<StandardDevsoul>;
 
 #[test]
 fn devtime_trace_server_works() {

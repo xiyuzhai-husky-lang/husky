@@ -1,6 +1,6 @@
 [package]
 name = "husky-vmir"
-version = "0.0.0"
+version.workspace = true
 description = "TBD"
 license = "MIT OR Apache-2.0"
 edition = "2021"
@@ -34,6 +34,11 @@ husky-place.workspace = true
 husky-standard-value = { workspace = true, features = ["constant"] }
 # linket
 husky-linket.workspace = true
+husky-linket-impl.workspace = true
+husky-virtual-linket-impl.workspace = true
+# linktime
+husky-linktime.workspace = true
+husky-virtual-linktime.workspace = true
 # syntax
 husky-entity-kind.workspace = true
 husky-ast.workspace = true

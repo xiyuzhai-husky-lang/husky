@@ -13,9 +13,10 @@ use crate::{
     },
     *,
 };
-use husky_devsoul_interface::vm_control_flow::{LinketImplVmControlFlow, VmControlFlow};
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
+use husky_linket_impl::LinketImplVmControlFlow;
+use husky_value_interface::vm_control_flow::VmControlFlow;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]

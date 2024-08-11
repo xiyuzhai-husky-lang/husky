@@ -1,28 +1,25 @@
 pub mod caryatid;
 
 use self::caryatid::*;
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
-use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+use husky_standard_linket_impl::{pedestal::StandardPedestal, static_var::StandardStaticVarId};
+use husky_standard_visual_protocol::figure::StandardFigure;
 use husky_trace_protocol::{figure::IsFigure, protocol::IsTraceProtocol};
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
 #[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Clone)]
-pub struct StandardTraceProtocol<Figure: IsFigure<StandardPedestal>>(PhantomData<Figure>);
+pub struct StandardTraceProtocol;
 
-impl<Figure: IsFigure<StandardPedestal>> Default for StandardTraceProtocol<Figure> {
+impl Default for StandardTraceProtocol {
     fn default() -> Self {
-        Self(Default::default())
+        Self
     }
 }
 
-impl<Figure> IsTraceProtocol for StandardTraceProtocol<Figure>
-where
-    Figure: IsFigure<StandardPedestal>,
-{
+impl IsTraceProtocol for StandardTraceProtocol {
     type Pedestal = StandardPedestal;
 
     type Caryatid = StandardCaryatid;
 
-    type Figure = Figure;
+    type Figure = StandardFigure;
 }

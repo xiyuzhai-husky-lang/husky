@@ -1,4 +1,3 @@
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_value_protocol::presentation::synchrotron::action::ValuePresentationSynchrotronActionsDiff;
 use husky_visual_protocol::synchrotron::action::VisualSynchrotronActionsDiff;
 use smallvec::SmallVec;

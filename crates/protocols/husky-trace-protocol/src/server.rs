@@ -10,8 +10,9 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
-use husky_devsoul_interface::{ki_repr::KiReprInterface, pedestal::IsPedestalFull};
+use husky_item_path_interface::ItemPathIdInterface;
+use husky_ki_repr_interface::KiReprInterface;
+use husky_linket_impl::pedestal::IsPedestalFull;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };

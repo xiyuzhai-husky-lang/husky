@@ -7,8 +7,11 @@ edition = "2021"
 [dependencies]
 # vm
 husky-standard-value.workspace = true
-# linket
-husky-linket-impl = { workspace = true, features = ["standard"] }
 # devsoul
 husky-devsoul-interface.workspace = true
 husky-standard-devsoul-interface.workspace = true
+# linket
+husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true

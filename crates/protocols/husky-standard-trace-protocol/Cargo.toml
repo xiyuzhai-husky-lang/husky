@@ -16,11 +16,15 @@ egui = { workspace = true, optional = true }
 serde.workspace = true
 # abstractions
 vec-like.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
+# kernel
+husky-item-path-interface.workspace = true
+# linket
+husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
 # protocols
 husky-trace-protocol.workspace = true
 husky-standard-devsoul-interface.workspace = true
+husky-standard-visual-protocol.workspace = true
 
 [lints]
 workspace = true

@@ -1,7 +1,5 @@
 //! ad hoc
-
-use husky_devsoul_interface::ugly::__ItemPathIdInterface;
-use husky_standard_devsoul_interface::ugly::__StaticVarId;
+use husky_standard_devsoul_interface::ugly::*;
 
 #[allow(non_upper_case_globals)]
 pub static mut __TASK__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = None;

@@ -9,9 +9,9 @@ tracing-subscriber.workspace = true
 # comptime
 husky-dev-comptime.workspace = true
 # devtime
-husky-devtime = { path = "../../devtime/husky-devtime" }
+husky-devtime.workspace = true
 # protocols
-husky-standard-visual-protocol = { path = "../../protocols/husky-standard-visual-protocol" }
-husky-ad-hoc-protocol = { path = "../../protocols/husky-ad-hoc-protocol" }
+husky-standard-visual-protocol.workspace = true
+husky-ad-hoc-protocol.workspace = true
 # devsoul
-husky-standard-devsoul = { path = "../../devsoul/husky-standard-devsoul" }
+husky-standard-devsoul.workspace = true

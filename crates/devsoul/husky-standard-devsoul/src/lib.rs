@@ -1,16 +1,12 @@
 mod runtime_storage;
 
-pub use husky_standard_devsoul_interface::pedestal::StandardPedestal;
-
 use self::runtime_storage::*;
 use husky_devsoul::devsoul::{DevEvalContextLocalKey, IsDevsoul};
-use husky_devsoul_interface::{
-    item_path::ItemPathIdInterface,
-    ki_control_flow::KiControlFlow,
-    ki_repr::{KiDomainReprInterface, KiReprInterface},
-    IsDevRuntime, IsDevRuntimeDyn,
-};
+use husky_item_path_interface::ItemPathIdInterface;
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
+use husky_linket_impl::eval_context::IsDevRuntimeDyn;
 use husky_mono_linktime::MonoLinktime;
+use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_standard_trace_protocol::{caryatid::StandardCaryatid, StandardTraceProtocol};
 use husky_trace_protocol::{
     caryatid::IsCaryatid, figure::IsFigure, id::TraceId, protocol::IsTraceProtocol,
@@ -20,16 +16,11 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;
 
-pub struct StandardDevsoul<Figure>(PhantomData<Figure>)
-where
-    Figure: IsFigure<StandardPedestal>;
+pub struct StandardDevsoul;
 
-type LinketImpl = husky_linket_impl::standard::StandardLinketImpl<StandardPedestal>;
+type LinketImpl = husky_standard_linket_impl::StandardLinketImpl;
 
-impl<Figure> IsDevsoul for StandardDevsoul<Figure>
-where
-    Figure: IsFigure<StandardPedestal>,
-{
+impl IsDevsoul for StandardDevsoul {
     type Pedestal = StandardPedestal;
 
     type LinketImpl = LinketImpl;
@@ -40,7 +31,7 @@ where
 
     type RuntimeSpecificConfig = ();
 
-    type TraceProtocol = StandardTraceProtocol<Figure>;
+    type TraceProtocol = StandardTraceProtocol;
 
     fn calc_figure(
         followed: Option<(
