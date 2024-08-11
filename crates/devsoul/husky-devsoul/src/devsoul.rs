@@ -1,21 +1,21 @@
 use crate::*;
-use husky_devsoul_interface::{
-    item_path::ItemPathIdInterface,
-    ki_control_flow::KiControlFlow,
-    ki_repr::{KiDomainReprInterface, KiReprInterface},
-    pedestal::{IsPedestal, IsPedestalFull},
-    DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
-};
-use husky_devsoul_interface::{IsLinketImpl, LinketImplKiControlFlow};
 use husky_entity_path::path::ItemPath;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki::{Ki, KiDomain};
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
+use husky_linket_impl::{
+    eval_context::{DevEvalContext, IsDevRuntimeDyn},
+    linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedException},
+    pedestal::IsPedestalFull,
+};
+use husky_linktime::IsLinktime;
 use husky_trace_protocol::{
     id::TraceId,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
     server::KiVisualCache,
 };
+use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
-
 use std::{cell::Cell, convert::Infallible, thread::LocalKey};
 
 pub trait IsDevsoul: 'static {
@@ -89,9 +89,9 @@ pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
         &self,
         ki_domain: KiDomain,
         pedestal: LinketImpl::Pedestal,
-        f: impl FnOnce() -> KiControlFlow<(), Infallible, LinketImpl::Exception>,
+        f: impl FnOnce() -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>>,
         db: &::salsa::Db,
-    ) -> KiControlFlow<(), Infallible, LinketImpl::Exception>;
+    ) -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>>;
 }
 
 pub type DevEvalContextLocalKey<LinketImpl> =

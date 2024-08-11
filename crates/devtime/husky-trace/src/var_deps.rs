@@ -1,4 +1,4 @@
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
 use husky_sem_var_deps::{
     region::ItemDefnSemVarDepsRegion,

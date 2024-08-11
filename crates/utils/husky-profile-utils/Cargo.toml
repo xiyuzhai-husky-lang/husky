@@ -1,6 +1,6 @@
 [package]
 name = "husky-profile-utils"
-version = "0.0.0"
+version.workspace = true
 description = "TBD"
 license = "MIT OR Apache-2.0"
 edition = "2021"

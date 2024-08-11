@@ -1,12 +1,11 @@
 mod generic;
 mod specific;
+
 use self::{generic::GenericStandardFigure, specific::SpecificStandardFigure};
 use egui::{pos2, Color32, Rect, Ui, Vec2};
-use husky_devsoul_interface::{
-    item_path::ItemPathIdInterface,
-    ki_repr::{KiDomainReprInterface, KiReprInterface},
-    pedestal::{IsPedestal, IsPedestalFull},
-};
+use husky_ki_repr_interface::KiReprInterface;
+use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull};
+use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_trace_protocol::{
     figure::{FigureUi, FigureUiCache, IsFigure},
     id::TraceId,
@@ -24,13 +23,13 @@ use serde::{Deserialize, Serialize};
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub enum StandardFigure<Pedestal: IsPedestal> {
+pub enum StandardFigure {
     Specific(SpecificStandardFigure),
-    Generic(GenericStandardFigure<Pedestal>),
+    Generic(GenericStandardFigure),
 }
 
 /// # impl IsFigure
-impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for StandardFigure<Pedestal> {
+impl IsFigure<StandardPedestal> for StandardFigure {
     fn new_specific(
         followed_visual: Option<(TraceId, KiReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
@@ -43,8 +42,8 @@ impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for StandardFigure<Pedestal> {
     fn new_generic(
         followed_visual: Option<(TraceId, KiReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
-        pedestals: impl Iterator<Item = Pedestal>,
-        f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        pedestals: impl Iterator<Item = StandardPedestal>,
+        f: impl FnMut(KiReprInterface, StandardPedestal, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         GenericStandardFigure::new(
@@ -58,7 +57,7 @@ impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for StandardFigure<Pedestal> {
     }
 }
 
-impl<Pedestal: IsPedestalFull> FigureUi<Ui> for StandardFigure<Pedestal> {
+impl FigureUi<Ui> for StandardFigure {
     fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,

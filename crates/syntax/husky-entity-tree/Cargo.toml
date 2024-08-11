@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "husky-entity-tree"
-version = "0.0.0"
+version.workspace = true
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
 description = "TODO"
@@ -43,8 +43,6 @@ husky-item-decl-ast.workspace = true
 husky-item-defn-ast.workspace = true
 # infer
 husky-manifest.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
 # utils
 husky-path-utils.workspace = true
 husky-print-utils.workspace = true

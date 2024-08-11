@@ -3,10 +3,10 @@ mod tests;
 
 #[cfg(test)]
 use self::tests::*;
-use husky_devsoul::linktime::IsLinktime;
-use husky_devsoul_interface::{vm_control_flow::LinketImplVmControlFlow, IsLinketImpl};
 use husky_linket::linket::Linket;
 use husky_linket::template_argument::qual::LinQual;
+use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlow};
+use husky_linktime::IsLinktime;
 use husky_place::place::idx::PlaceIdx;
 use husky_place::PlaceRegistry;
 use husky_vmir::storage::IsVmirStorage;
@@ -156,7 +156,7 @@ fn run_test_linket_works() {
 
 #[cfg(test)]
 fn run_test_linket(test_linket: TestLinket, db: &::salsa::Db) {
-    use husky_devsoul::linktime::VirtualLinktime;
+    use husky_virtual_linktime::VirtualLinktime;
     use husky_vmir::storage::VirtualVmirStorage;
 
     let linktime = VirtualLinktime;

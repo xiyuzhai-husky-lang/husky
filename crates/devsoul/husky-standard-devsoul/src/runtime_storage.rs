@@ -1,11 +1,14 @@
 use crate::*;
 use dashmap::DashMap;
 use husky_devsoul::devsoul::IsRuntimeStorage;
-use husky_devsoul_interface::{item_path::ItemPathIdInterface, IsLinketImpl};
 use husky_entity_path::path::ItemPath;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki::{version_stamp::KiVersionStamp, Ki, KiDomain};
-use husky_linket_impl::standard::StandardLinketImplKiControlFlow;
-use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
+use husky_linket_impl::linket_impl::{IsLinketImpl, LinketImplTrackedException};
+use husky_standard_linket_impl::{
+    static_var::StandardStaticVarId, StandardLinketImplKiControlFlow,
+};
+use husky_value_interface::ki_control_flow::KiControlFlow;
 use std::{
     convert::Infallible,
     sync::{Arc, Mutex},
@@ -112,7 +115,7 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
         f: impl FnOnce() -> StandardLinketImplKiControlFlow,
         db: &::salsa::Db,
     ) -> StandardLinketImplKiControlFlow {
-        use husky_devsoul_interface::pedestal::IsPedestal;
+        use husky_linket_impl::pedestal::IsPedestal;
 
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key.clone()).or_default().clone();
@@ -166,10 +169,10 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
         &self,
         ki_domain: KiDomain,
         pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
-        f: impl FnOnce() -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception>,
+        f: impl FnOnce() -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>>,
         db: &salsa::Db,
-    ) -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception> {
-        use husky_devsoul_interface::pedestal::IsPedestal;
+    ) -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>> {
+        use husky_linket_impl::pedestal::IsPedestal;
 
         let key = StandardDevRuntimeKiDomainStorageKey {
             ki_domain,

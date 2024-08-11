@@ -1,7 +1,12 @@
+#![feature(trait_upcasting)]
 pub mod r#enum;
+pub mod exception;
 pub mod memo;
+pub mod pedestal;
 pub mod static_var;
 pub mod r#struct;
+#[cfg(test)]
+mod tests;
 pub mod ugly;
 pub mod val;
 
@@ -9,29 +14,38 @@ pub use husky_standard_value::{
     frozen::ValueStands, value_conversion, FromValue, IntoValue, Value,
 };
 
+use self::pedestal::StandardPedestal;
+use self::static_var::StandardStaticVarId;
 use self::StandardLinketImpl as LinketImpl;
 #[cfg(test)]
 use self::StandardLinketImpl as __LinketImpl;
-use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_devsoul_interface::{
-    ki_repr::KiDomainReprInterface,
+use husky_devsoul_interface::devsoul::IsDevsoulInterface;
+use husky_item_path_interface::ItemPathIdInterface;
+use husky_ki_repr_interface::KiReprInterface;
+use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface};
+use husky_linket_impl::{
+    eval_context::DevEvalContext,
+    exception::TrackedException,
+    impl_is_fn_linket_impl_source, impl_is_unveil_fn_linket_impl_source,
+    linket_impl::{IsLinketImpl, LinketImplKiControlFlow, VmArgumentValue},
     pedestal::{IsPedestal, IsPedestalFull},
-    VmArgumentValue,
+    ugly::__IsPedestal,
+    LinketImplVmControlFlow, *,
 };
+use husky_standard_value::exception::Exception;
+use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
+use serde::{Deserialize, Serialize};
 
-// ad hoc
-pub type Error = ();
+pub type StandardTrackedException = TrackedException<Exception, StandardPedestal>;
+pub type StandardTrackedExcepted<T> = Result<T, TrackedException<Exception, StandardPedestal>>;
 
 pub type StandardLinketImplKiControlFlow<C = Value, B = Value> =
-    husky_devsoul_interface::ki_control_flow::KiControlFlow<C, B, Error>;
+    KiControlFlow<C, B, StandardTrackedException>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub enum StandardLinketImpl<Pedestal>
-where
-    Pedestal: IsPedestalFull,
-{
+pub enum StandardLinketImpl {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
         fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinketImplKiControlFlow,
@@ -47,7 +61,7 @@ where
         gn_ki_wrapper: fn(
             KiReprInterface,
             KiDomainReprInterface,
-            Pedestal,
+            StandardPedestal,
             &[KiArgumentReprInterface],
         ) -> StandardLinketImplKiControlFlow,
     },
@@ -84,29 +98,26 @@ where
     StaticVar {
         init_item_path_id_interface: fn(ItemPathIdInterface),
         set_up_for_testing: fn(usize),
-        get_id: fn() -> Pedestal::StaticVarId,
-        replace_id: unsafe fn(Pedestal::StaticVarId) -> Option<Pedestal::StaticVarId>,
-        ids: fn() -> Box<dyn Iterator<Item = Pedestal::StaticVarId>>,
+        get_id: fn() -> StandardStaticVarId,
+        replace_id: unsafe fn(StandardStaticVarId) -> Option<StandardStaticVarId>,
+        ids: fn() -> Box<dyn Iterator<Item = StandardStaticVarId>>,
     },
     // todo: memo
 }
 
-impl<Pedestal> Copy for StandardLinketImpl<Pedestal> where Pedestal: IsPedestalFull {}
+impl Copy for StandardLinketImpl {}
 
-impl<Pedestal> IsLinketImpl for StandardLinketImpl<Pedestal>
-where
-    Pedestal: IsPedestalFull,
-{
-    type Pedestal = Pedestal;
+impl IsLinketImpl for StandardLinketImpl {
+    type Pedestal = StandardPedestal;
     type Value = Value;
-    type Exception = Error;
+    type Exception = Exception;
 
     fn eval_ki(
         self,
         ki_repr_interface: KiReprInterface,
         ki_domain_repr_interface: KiDomainReprInterface,
         ki_argument_reprs: &[KiArgumentReprInterface],
-        ctx: DevEvalContext<StandardLinketImpl<Pedestal>>,
+        ctx: DevEvalContext<StandardLinketImpl>,
     ) -> StandardLinketImplKiControlFlow {
         match self {
             StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ki_argument_reprs),
@@ -163,7 +174,7 @@ where
         self,
         arguments: Vec<VmArgumentValue<Self>>,
         db: &dyn std::any::Any,
-    ) -> husky_devsoul_interface::vm_control_flow::LinketImplVmControlFlow<Self> {
+    ) -> LinketImplVmControlFlow<Self> {
         todo!()
     }
 

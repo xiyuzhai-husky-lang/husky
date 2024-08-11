@@ -1,4 +1,63 @@
-use super::*;
+use crate::*;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
+pub struct StandardStaticVarId {
+    data: [u64; 4],
+}
+
+impl StandardStaticVarId {
+    pub fn new(data: [u64; 4]) -> Self {
+        Self { data }
+    }
+}
+
+impl From<u32> for StandardStaticVarId {
+    fn from(data: u32) -> Self {
+        Self {
+            data: [data as u64, 0, 0, 0],
+        }
+    }
+}
+
+impl Into<u32> for StandardStaticVarId {
+    fn into(self) -> u32 {
+        self.data[0] as u32
+    }
+}
+
+impl From<u64> for StandardStaticVarId {
+    fn from(data: u64) -> Self {
+        Self {
+            data: [data, 0, 0, 0],
+        }
+    }
+}
+
+impl Into<u64> for StandardStaticVarId {
+    fn into(self) -> u64 {
+        self.data[0]
+    }
+}
+
+impl From<usize> for StandardStaticVarId {
+    fn from(data: usize) -> Self {
+        Self {
+            data: [data as u64, 0, 0, 0],
+        }
+    }
+}
+
+impl Into<usize> for StandardStaticVarId {
+    fn into(self) -> usize {
+        self.data[0] as usize
+    }
+}
+
+impl From<[u64; 4]> for StandardStaticVarId {
+    fn from(data: [u64; 4]) -> Self {
+        Self { data }
+    }
+}
 
 #[macro_export]
 macro_rules! static_var_linket_impl {
@@ -17,8 +76,7 @@ macro_rules! static_var_linket_impl {
 
 #[test]
 fn static_var_linket_impl_works() {
-    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
-    use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
+    use crate::{pedestal::StandardPedestal, static_var::StandardStaticVarId};
     use StandardLinketImpl as __LinketImpl;
 
     #[allow(non_camel_case_types)]
@@ -51,7 +109,7 @@ fn static_var_linket_impl_works() {
     #[allow(non_upper_case_globals)]
     pub static mut STATIC_VAR_A__ITEM_PATH_ID_INTERFACE: Option<ItemPathIdInterface> = None;
 
-    let LinketImpl::<StandardPedestal>::StaticVar {
+    let LinketImpl::StaticVar {
         init_item_path_id_interface,
         set_up_for_testing,
         get_id,

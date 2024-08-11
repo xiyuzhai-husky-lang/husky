@@ -15,13 +15,17 @@ smallvec.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true
 enum-index.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
+# linket
+husky-standard-linket-impl.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol.workspace = true
 husky-standard-visual-protocol.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
-husky-standard-devsoul-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 # registry

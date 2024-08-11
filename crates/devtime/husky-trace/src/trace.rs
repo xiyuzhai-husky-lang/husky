@@ -30,7 +30,6 @@ use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
 };
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{
     major_item::{form::MajorFormPath, MajorItemPath},
@@ -38,6 +37,7 @@ use husky_entity_path::path::{
 };
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr::expansion::KiReprExpansion;
 use husky_ki_repr::repr::KiRepr;
 use husky_sem_expr::SemExprIdx;

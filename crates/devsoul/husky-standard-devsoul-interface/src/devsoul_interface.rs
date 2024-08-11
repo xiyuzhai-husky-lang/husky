@@ -1,13 +1,10 @@
-use crate::{
-    dev_eval_context, pedestal::StandardPedestal, set_dev_eval_context, unset_dev_eval_context,
-    DevEvalContext,
+use crate::{dev_eval_context, DevEvalContext, *};
+use husky_devsoul_interface::devsoul::IsDevsoulInterface;
+use husky_item_path_interface::ItemPathIdInterface;
+use husky_standard_linket_impl::{
+    pedestal::StandardPedestal, ugly::__Pedestal, StandardLinketImpl,
+    StandardLinketImplKiControlFlow, StandardTrackedExcepted, StandardTrackedException,
 };
-use husky_devsoul_interface::ki_repr::KiDomainReprInterface;
-use husky_devsoul_interface::ki_repr::KiReprInterface;
-use husky_devsoul_interface::{
-    devsoul::IsDevsoulInterface, item_path::ItemPathIdInterface, KiControlFlow,
-};
-use husky_linket_impl::standard::{StandardLinketImpl, StandardLinketImplKiControlFlow};
 use husky_standard_value::FromValue;
 use std::cell::OnceCell;
 
@@ -20,7 +17,7 @@ pub struct StandardDevsoulInterface {}
 /// Then it will become immutable effectively;
 
 impl IsDevsoulInterface for StandardDevsoulInterface {
-    type LinketImpl = StandardLinketImpl<StandardPedestal>;
+    type LinketImpl = StandardLinketImpl;
 
     fn set_dev_eval_context(ctx: DevEvalContext) {
         set_dev_eval_context(ctx)
@@ -39,36 +36,38 @@ pub fn eval_eager_val_with<T>(
     item_path_id_interface: ItemPathIdInterface,
     pedestal: StandardPedestal,
     f: fn() -> StandardLinketImplKiControlFlow,
-) -> T
+) -> StandardTrackedExcepted<T>
 where
     T: FromValue,
 {
-    T::from_value_static(dev_eval_context().eval_eager_val_with(
-        item_path_id_interface,
-        pedestal,
-        f,
-    ))
+    dev_eval_context()
+        .eval_eager_val_with(item_path_id_interface, pedestal, f)
+        .map(T::from_value_static)
 }
 
 pub fn eval_lazy_val<T>(
     item_path_id_interface: ItemPathIdInterface,
     pedestal: StandardPedestal,
-) -> T
+) -> StandardTrackedExcepted<T>
 where
     T: FromValue,
 {
-    T::from_value_static(dev_eval_context().eval_lazy_val(item_path_id_interface, pedestal))
+    dev_eval_context()
+        .eval_lazy_val(item_path_id_interface, pedestal)
+        .map(T::from_value_static)
 }
 
 pub fn eval_generic_gn_with<T>(
     ki_repr_interface: KiReprInterface,
     pedestal: StandardPedestal,
     f: impl FnOnce() -> StandardLinketImplKiControlFlow,
-) -> T
+) -> StandardTrackedExcepted<T>
 where
     T: FromValue,
 {
-    T::from_value_static(dev_eval_context().eval_generic_gn_with(ki_repr_interface, pedestal, f))
+    dev_eval_context()
+        .eval_generic_gn_with(ki_repr_interface, pedestal, f)
+        .map(T::from_value_static)
 }
 
 /// currently, it's intentional that `__Self` must be sized
@@ -77,9 +76,11 @@ pub fn eval_memo_field_with<__Self, T>(
     item_path_id_interface: ItemPathIdInterface,
     __self: &'static __Self,
     f: fn(&'static __Self) -> StandardLinketImplKiControlFlow,
-) -> T
+) -> StandardTrackedExcepted<T>
 where
     T: FromValue,
 {
-    T::from_value_static(dev_eval_context().eval_memo_field_with(item_path_id_interface, __self, f))
+    dev_eval_context()
+        .eval_memo_field_with(item_path_id_interface, __self, f)
+        .map(T::from_value_static)
 }

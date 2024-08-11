@@ -1,3 +1,4 @@
+use crate::exception::IsException;
 use crate::*;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresentation, ValuePresenterCache,
@@ -13,6 +14,15 @@ pub enum KiControlFlow<C, B, E> {
     Return(B),
     Undefined,
     Throw(E),
+}
+
+impl<C, B, E> From<Result<C, E>> for KiControlFlow<C, B, E> {
+    fn from(result: Result<C, E>) -> Self {
+        match result {
+            Ok(c) => KiControlFlow::Continue(c),
+            Err(e) => KiControlFlow::Throw(e),
+        }
+    }
 }
 
 pub type ValuePresentationKiControlFlow =
@@ -90,7 +100,7 @@ impl<C1, C2: FromIterator<C1>, B, E> std::iter::FromIterator<KiControlFlow<C1, B
 
 impl<Value, E> KiControlFlow<Value, Value, E>
 where
-    E: 'static,
+    E: Clone + 'static,
 {
     pub unsafe fn share_unchecked(&self) -> Self
     where
@@ -110,14 +120,18 @@ where
             KiControlFlow::LoopExit(_) => todo!(),
             KiControlFlow::Return(_) => todo!(),
             KiControlFlow::Undefined => todo!(),
-            KiControlFlow::Throw(_) => todo!(),
+            KiControlFlow::Throw(e) => KiControlFlow::Throw(e.clone()),
         }
     }
 
-    pub(crate) fn unwrap(self) -> Value {
-        match self.branch() {
-            std::ops::ControlFlow::Continue(value) => value,
-            std::ops::ControlFlow::Break(_) => panic!(),
+    pub fn unwrap(self) -> Result<Value, E> {
+        match self {
+            KiControlFlow::Continue(v) => Ok(v),
+            KiControlFlow::Throw(e) => Err(e),
+            KiControlFlow::LoopContinue
+            | KiControlFlow::LoopExit(_)
+            | KiControlFlow::Return(_)
+            | KiControlFlow::Undefined => unreachable!(),
         }
     }
 

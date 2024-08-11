@@ -1,4 +1,5 @@
-use crate::*;
+pub mod ugly;
+
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 

@@ -17,7 +17,7 @@ use self::utils::item_debug_fmt_with_db;
 use self::{attr::*, trai::TraitPath};
 use crate::*;
 use enum_class::Room32;
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_vfs::{
     chunk::Chunk,
     path::{crate_path::CratePath, module_path::ModulePath},

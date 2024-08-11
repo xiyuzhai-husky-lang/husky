@@ -8,7 +8,7 @@ pub use husky_trace_protocol::server::IsTracetime;
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::devsoul::IsDevsoul;
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     protocol::{IsTraceProtocol, TraceBundle},
@@ -80,7 +80,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> husky_trace_protocol::stalk::TraceStalk {
-        use husky_devsoul_interface::pedestal::IsPedestal;
+        use husky_linket_impl::pedestal::IsPedestal;
         let db = self.runtime.db();
         let var_deps = trace.var_deps(db);
         if !pedestal.is_closed(var_deps) {

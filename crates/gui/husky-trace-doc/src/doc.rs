@@ -1,7 +1,6 @@
 use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
-use husky_devsoul_interface::pedestal::IsPedestal;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 
 use std::{path::PathBuf, sync::Arc};

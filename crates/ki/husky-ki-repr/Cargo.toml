@@ -1,6 +1,6 @@
 [package]
 name = "husky-ki-repr"
-version = "0.0.0"
+version.workspace = true
 description = "TBD"
 license = "MIT OR Apache-2.0"
 edition = "2021"
@@ -32,6 +32,8 @@ husky-coword.workspace = true
 husky-place.workspace = true
 husky-term-prelude.workspace = true
 husky-devsoul.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
 # lex
 husky-regional-token.workspace = true
 # linket

@@ -17,14 +17,13 @@ husky-hir-prelude = { workspace = true, optional = true }
 # protocols
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 husky-wild-utils.workspace = true
 husky-print-utils.workspace = true
 # value
 husky-value-interface.workspace = true
+husky-value-macros.workspace = true
 husky-literal-value.workspace = true
 # vm
 husky-standard-value-macros.workspace = true

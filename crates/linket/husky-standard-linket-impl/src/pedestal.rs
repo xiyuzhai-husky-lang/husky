@@ -1,6 +1,7 @@
 use super::*;
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
-use husky_devsoul_interface::{pedestal::IsPedestal, static_var::IsStaticVar};
+use husky_item_path_interface::ItemPathIdInterface;
+use husky_linket_impl::pedestal::IsPedestal;
+use husky_linket_impl::static_var::IsStaticVar;
 use static_var::StandardStaticVarId;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 

@@ -2,8 +2,7 @@ pub mod db;
 
 use self::db::DevComptimeDb;
 
-use husky_devsoul::{devsoul::IsDevsoul, linktime::IsLinktime};
-use husky_devsoul_interface::IsDevRuntimeDyn;
+use husky_devsoul::devsoul::IsDevsoul;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath};
 use husky_ki::Ki;
@@ -12,6 +11,8 @@ use husky_ki_repr::{
     var_deps::KiVarDeps,
 };
 use husky_linket::linket::Linket;
+use husky_linket_impl::eval_context::IsDevRuntimeDyn;
+use husky_linktime::IsLinktime;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_toolchain_config::toolchain_config;
 use husky_vfs::{

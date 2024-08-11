@@ -4,7 +4,6 @@ mod linket_impls;
 use self::linket_impls::generate_linket_impl_map;
 use self::{libraries::MonoLinketsLibrary, linket_impls::LinketImplMap};
 use crate::*;
-use husky_devsoul_interface::IsDevRuntimeDyn;
 use husky_linket::{linket::LinketData, version_stamp::LinketVersionStamp};
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use version_stamp::HasVersionStamp;

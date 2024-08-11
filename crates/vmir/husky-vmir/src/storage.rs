@@ -1,12 +1,10 @@
 use crate::region::{
     linket_virtual_vmir_region, linket_vmir_region, VirtualVmirRegion, VmirRegion,
 };
-use husky_devsoul::linktime::IsLinktime;
-use husky_devsoul_interface::IsLinketImpl;
-use husky_linket::{
-    linket::{virtual_linket_impl::VirtualLinketImpl, Linket},
-    version_stamp::LinketVersionStamp,
-};
+use husky_linket::{linket::Linket, version_stamp::LinketVersionStamp};
+use husky_linket_impl::linket_impl::IsLinketImpl;
+use husky_linktime::IsLinktime;
+use husky_virtual_linket_impl::VirtualLinketImpl;
 use std::{
     collections::HashMap,
     sync::{Arc, Mutex},

@@ -6,7 +6,6 @@ use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
 use husky_devsoul_interface::ugly::*;
-use husky_linket_impl::standard::ugly::*;
 use husky_standard_devsoul_interface::{label::IsLabel, ugly::*};
 
 #[husky_standard_value::value_conversion]

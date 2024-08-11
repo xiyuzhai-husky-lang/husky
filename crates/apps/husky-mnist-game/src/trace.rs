@@ -6,7 +6,7 @@ pub mod skeleton;
 
 use crate::{op::history::OpTime, MnistDb, *};
 use enum_index::{bitset::EnumBitSet, IsEnumIndex};
-use husky_devsoul_interface::ki_repr::KiReprInterface;
+use husky_ki_repr_interface::KiReprInterface;
 use husky_trace_protocol::id::TraceId;
 use husky_visual_protocol::visual::Visual;
 use mnist::input_id::MnistInputId;

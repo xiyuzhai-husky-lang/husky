@@ -1,5 +1,5 @@
 use super::*;
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
+use husky_item_path_interface::ItemPathIdInterface;
 use serde_with::serde_as;
 use smallvec::SmallVec;
 use vec_like::SmallVecSet;

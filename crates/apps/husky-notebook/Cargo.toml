@@ -12,6 +12,10 @@ tracing-subscriber = "0.3.16"
 # abstractions
 ui.workspace = true
 enum-index.workspace = true
+# devsoul
+husky-standard-devsoul-interface.workspace = true
+# linket
+husky-standard-linket-impl.workspace = true
 # gui
 husky-gui.workspace = true
 husky-code-editor.workspace = true
@@ -25,8 +29,6 @@ husky-token-protocol.workspace = true
 husky-trace-protocol.workspace = true
 husky-standard-trace-protocol = { workspace = true, features = ["egui"] }
 husky-standard-visual-protocol.workspace = true
-# devsoul
-husky-standard-devsoul-interface.workspace = true
 # utils
 husky-print-utils.workspace = true
 husky-unicode-symbols.workspace = true
