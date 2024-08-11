@@ -10,10 +10,13 @@ use either::*;
 use husky_coword::Ident;
 use husky_devsoul_interface::item_path::ItemPathIdInterface;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::path::{
-    assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
-    major_item::{form::MajorFormPath, trai::PreludeTraitPath, ty::TypePath},
-    ty_variant::TypeVariantPath,
+use husky_entity_path::{
+    menu::item_path_menu,
+    path::{
+        assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
+        major_item::{form::MajorFormPath, trai::PreludeTraitPath, ty::TypePath},
+        ty_variant::TypeVariantPath,
+    },
 };
 use husky_hir_decl::{
     decl::{HasHirDecl, TypeHirDecl},
@@ -26,6 +29,7 @@ use husky_javelin::{
     instantiation::JavInstantiation,
     javelin::{package_javelins, Javelin, JavelinData},
     path::JavPath,
+    template_argument::ty::JavType,
 };
 use husky_vfs::path::{linktime_target_path::LinktimeTargetPath, package_path::PackagePath};
 use smallvec::{smallvec, SmallVec};
@@ -136,7 +140,7 @@ impl Linket {
                 LinketData::MajorVal {
                     path,
                     // ad hoc
-                    instantiation: LinInstantiation::new_empty(false),
+                    instantiation: LinInstantiation::new_empty(path, false),
                 },
             )),
         }
@@ -147,7 +151,7 @@ impl Linket {
             db,
             LinketData::MajorStaticVar {
                 path,
-                instantiation: LinInstantiation::new_empty(false),
+                instantiation: LinInstantiation::new_empty(path, false),
             },
         )
     }
@@ -392,7 +396,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                             db,
                             LinketData::MajorVal {
                                 path,
-                                instantiation: LinInstantiation::new_empty(false),
+                                instantiation: LinInstantiation::new_empty(path, false),
                             }
                         )]
                     }
@@ -403,7 +407,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                             db,
                             LinketData::MajorStaticVar {
                                 path,
-                                instantiation: LinInstantiation::new_empty(false),
+                                instantiation: LinInstantiation::new_empty(path, false),
                             }
                         )]
                     }
@@ -413,7 +417,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                             db,
                             LinketData::MajorStaticVar {
                                 path,
-                                instantiation: LinInstantiation::new_empty(false),
+                                instantiation: LinInstantiation::new_empty(path, false),
                             }
                         )]
                     }
@@ -550,7 +554,10 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                 element_ty: LinType::from_jav(
                     element_ty,
                     // ad hoc
-                    &LinInstantiation::new_empty(false),
+                    &LinInstantiation::new_empty(
+                        item_path_menu(db, element_ty.toolchain(db)).vec_ty_path(),
+                        false
+                    ),
                     db
                 )
             },
@@ -561,7 +568,13 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
                 ty: LinType::from_jav(
                     ty,
                     // ad hoc
-                    &LinInstantiation::new_empty(false),
+                    &LinInstantiation::new_empty(
+                        match ty {
+                            JavType::PathLeading(ty) => ty.ty_path(db),
+                            JavType::Ritchie(_) => todo!(),
+                        },
+                        false
+                    ),
                     db
                 )
             },

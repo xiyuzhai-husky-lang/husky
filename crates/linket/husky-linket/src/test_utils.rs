@@ -50,7 +50,7 @@ impl IsVfsTestUnit for TestLinket {
                         db,
                         LinketData::MajorFunctionRitchie {
                             path,
-                            instantiation: LinInstantiation::new_empty(false),
+                            instantiation: LinInstantiation::new_empty(path, false),
                         },
                     ),
                 }

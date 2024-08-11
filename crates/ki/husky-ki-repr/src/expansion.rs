@@ -44,8 +44,8 @@ impl KiRepr {
 #[salsa::tracked]
 fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansion> {
     match ki_repr.opn(db) {
-        KiOpn::Val(form_path) => {
-            let MajorFormHirDefn::Val(hir_defn) = form_path.hir_defn(db)? else {
+        KiOpn::Val(path) => {
+            let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db)? else {
                 unreachable!()
             };
             debug_assert!(ki_repr.arguments(db).is_empty());
@@ -59,7 +59,7 @@ fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansio
                 body,
                 hir_lazy_expr_region,
                 &[],
-                LinInstantiation::new_empty(false),
+                LinInstantiation::new_empty(path, false),
                 db,
             ))
         }

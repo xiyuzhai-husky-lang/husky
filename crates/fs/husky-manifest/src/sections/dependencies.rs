@@ -1,4 +1,5 @@
 use super::*;
+use husky_vfs::jar::VfsDb;
 use vec_like::VecSet;
 
 #[salsa::tracked]
@@ -65,6 +66,8 @@ pub(crate) fn full_dependent_package_paths_aux(
     package_path: PackagePath,
 ) -> ManifestResult<VecSet<PackagePath>> {
     let mut package_paths: VecSet<PackagePath> = VecSet::new_one_elem_set(package_path);
+    package_paths.insert(db.vfs_path_menu(package_path.toolchain(db)).core_package());
+    // todo: insert std??
     let mut first_unsearched = 0usize;
     while first_unsearched < package_paths.len() {
         let first_unsearched = std::mem::replace(&mut first_unsearched, package_paths.len());
