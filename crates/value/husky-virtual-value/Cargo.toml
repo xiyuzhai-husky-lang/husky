@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+thiserror.workspace = true
 # protocols
 husky-value-protocol.workspace = true
 husky-visual-protocol.workspace = true

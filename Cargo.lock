@@ -6400,6 +6400,7 @@ dependencies = [
  "serde-impl",
  "serde_json",
  "smallvec",
+ "thiserror",
 ]
 
 [[package]]
@@ -7075,6 +7076,7 @@ dependencies = [
  "husky-value-interface",
  "husky-value-protocol",
  "husky-visual-protocol",
+ "thiserror",
 ]
 
 [[package]]

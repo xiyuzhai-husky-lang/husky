@@ -66,6 +66,8 @@ pub trait IsValue:
     + From<std::convert::Infallible>
     + 'static
 {
+    type Exception: std::fmt::Debug + std::fmt::Display;
+
     fn new_uninit() -> Self;
     // the followings are methods that should be implemented.
     // they are commented out because they would probably be done in a way outside of rust trait system
@@ -93,7 +95,7 @@ pub trait IsValue:
     /// should unreachable if not an option
     fn is_some(self) -> bool;
     fn index(self, index: usize) -> Self;
-    fn unwrap(self) -> Self;
+    fn unwrap(self) -> Result<Self, Self::Exception>;
     fn present(
         &self,
         value_presenter_cache: &mut ValuePresenterCache,
