@@ -71,7 +71,7 @@ impl TypeAssocRitchieFlySignature {
             assoc_ritchie_template_arguments,
         )
         .try_for_each(|(src, &dst)| {
-            instantiation_builder.try_add_rule(src.symbol().into(), dst.into())
+            instantiation_builder.try_add_rule(src.variable().into(), dst.into())
         })?;
         let instantiation = instantiation_builder.finish(db);
         JustOk(TypeAssocRitchieFlySignature {

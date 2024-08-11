@@ -18,7 +18,7 @@ use vec_like::{SmallVecMap, SmallVecPairMap};
 pub struct HirInstantiation {
     path: ItemPath,
     context: HirTypeContext,
-    symbol_map: SmallVecPairMap<HirTemplateVariable, HirTermSymbolicVariableResolution, 4>,
+    variable_map: SmallVecPairMap<HirTemplateVariable, HirTermSymbolicVariableResolution, 4>,
     separator: Option<u8>,
 }
 
@@ -26,7 +26,7 @@ impl std::ops::Deref for HirInstantiation {
     type Target = [(HirTemplateVariable, HirTermSymbolicVariableResolution)];
 
     fn deref(&self) -> &Self::Target {
-        &self.symbol_map
+        &self.variable_map
     }
 }
 
@@ -61,10 +61,10 @@ impl HirInstantiation {
         db: &::salsa::Db,
         terms: &FlyTerms,
     ) -> Self {
-        let (symbol_map0, symbol_map1) = &instantiation.symbol_map_splitted();
-        let t = |&(symbol, resolution)| match HirTemplateVariable::from_eth(symbol, db) {
-            Some(symbol) => Some((
-                symbol,
+        let (variable_map0, variable_map1) = &instantiation.variable_map_splitted();
+        let t = |&(variable, resolution)| match HirTemplateVariable::from_eth(variable, db) {
+            Some(variable) => Some((
+                variable,
                 match resolution {
                     FlyTermSymbolResolution::Explicit(term) => {
                         HirTermSymbolicVariableResolution::Explicit(
@@ -83,29 +83,31 @@ impl HirInstantiation {
             )),
             None => None,
         };
-        let mut symbol_map: SmallVecMap<
+        let mut variable_map: SmallVecMap<
             (HirTemplateVariable, HirTermSymbolicVariableResolution),
             4,
-        > = symbol_map0.iter().filter_map(t).collect();
+        > = variable_map0.iter().filter_map(t).collect();
         let mut separator: Option<u8> = None;
-        match symbol_map1 {
-            Some(symbol_map1) => {
-                separator = Some(symbol_map.len().try_into().unwrap());
-                symbol_map.extend(symbol_map1.iter().filter_map(t)).unwrap()
+        match variable_map1 {
+            Some(variable_map1) => {
+                separator = Some(variable_map.len().try_into().unwrap());
+                variable_map
+                    .extend(variable_map1.iter().filter_map(t))
+                    .unwrap()
             }
             None => (),
         }
         Self {
             path: instantiation.path(),
-            symbol_map,
+            variable_map,
             separator,
             context: HirTypeContext::from_fly(instantiation, db),
         }
     }
 
     pub fn from_eth(eth_instantiation: &EthInstantiation, db: &::salsa::Db) -> Self {
-        let (symbol_map0, symbol_map1) = &eth_instantiation.symbol_map_splitted();
-        let t = |&(symbol, term)| match HirTemplateVariable::from_eth(symbol, db) {
+        let (variable_map0, variable_map1) = &eth_instantiation.variable_map_splitted();
+        let t = |&(variable, term)| match HirTemplateVariable::from_eth(variable, db) {
             Some(symbol) => Some((
                 symbol,
                 HirTermSymbolicVariableResolution::Explicit(
@@ -114,21 +116,23 @@ impl HirInstantiation {
             )),
             None => None,
         };
-        let mut symbol_map: SmallVecMap<
+        let mut variable_map: SmallVecMap<
             (HirTemplateVariable, HirTermSymbolicVariableResolution),
             4,
-        > = symbol_map0.iter().filter_map(t).collect();
+        > = variable_map0.iter().filter_map(t).collect();
         let mut separator: Option<u8> = None;
-        match symbol_map1 {
+        match variable_map1 {
             Some(symbol_map1) => {
-                separator = Some(symbol_map.len().try_into().unwrap());
-                symbol_map.extend(symbol_map1.iter().filter_map(t)).unwrap()
+                separator = Some(variable_map.len().try_into().unwrap());
+                variable_map
+                    .extend(symbol_map1.iter().filter_map(t))
+                    .unwrap()
             }
             None => (),
         }
         Self {
             path: eth_instantiation.path(),
-            symbol_map,
+            variable_map,
             separator,
             context: HirTypeContext::from_eth(eth_instantiation, db),
         }
@@ -144,12 +148,12 @@ impl HirInstantiation {
         &self.context
     }
 
-    pub fn symbol_map(&self) -> &[(HirTemplateVariable, HirTermSymbolicVariableResolution)] {
-        self.symbol_map.as_ref()
+    pub fn variable_map(&self) -> &[(HirTemplateVariable, HirTermSymbolicVariableResolution)] {
+        self.variable_map.as_ref()
     }
 
     pub fn contracted_quaries(&self) -> SmallVec<[HirContractedQuary; 2]> {
-        self.symbol_map
+        self.variable_map
             .iter()
             .filter_map(|&(_, res)| match res {
                 HirTermSymbolicVariableResolution::Explicit(_) => None,
@@ -164,7 +168,7 @@ impl HirInstantiation {
     }
 
     pub fn is_univalent_for_javelin(&self) -> bool {
-        self.symbol_map
+        self.variable_map
             .iter()
             .all(|(_, res)| res.is_univalent_for_javelin())
     }

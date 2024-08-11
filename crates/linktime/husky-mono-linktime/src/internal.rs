@@ -5,7 +5,7 @@ use self::linket_impls::generate_linket_impl_map;
 use self::{libraries::MonoLinketsLibrary, linket_impls::LinketImplMap};
 use crate::*;
 use husky_devsoul_interface::IsDevRuntimeDyn;
-use husky_linket::version_stamp::LinketVersionStamp;
+use husky_linket::{linket::LinketData, version_stamp::LinketVersionStamp};
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use version_stamp::HasVersionStamp;
 
@@ -55,7 +55,18 @@ where
         let Some(&(version_stamp, linket_impl)) = self.linket_impl_map.get(&linket) else {
             use husky_print_utils::p;
             use salsa::DebugWithDb;
-            let _linkets: Vec<Linket> = self.linket_impl_map.clone().into_keys().collect();
+            let linkets: Vec<Linket> = self.linket_impl_map.clone().into_keys().collect();
+            let linkets_filtered: Vec<Linket> = linkets
+                .iter()
+                .copied()
+                .filter(|linket| match linket.data(db) {
+                    LinketData::UnveilAssocRitchie {
+                        path,
+                        instantiation,
+                    } => true,
+                    _ => false,
+                })
+                .collect();
             // let old_linket: Linket = unsafe { std::mem::transmute(194u32) };
             // let LinketData::UnveilAssocFunctionRitchie {
             //     path: old_path,
@@ -71,7 +82,12 @@ where
             // else {
             //     unreachable!()
             // };
-            p!(linket.debug(db), linket);
+            p!(
+                linkets_filtered[0].data(db) == linket.data(db),
+                linkets_filtered[0].data(db).debug(db),
+                linket.data(db).debug(db),
+                linket
+            );
             unreachable!()
         };
         (version_stamp == linket.version_stamp(db)).then_some(linket_impl)

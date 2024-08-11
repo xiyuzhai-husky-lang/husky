@@ -120,12 +120,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConcaveComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConcaveComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),
@@ -152,12 +167,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 12,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConcaveComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -168,12 +193,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 13,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConcaveComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -184,12 +219,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 14,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConcaveComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -200,12 +245,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 15,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConcaveComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -216,12 +271,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 16,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConcaveComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`BoundingBox`),
+                            expr_ty: EthTerm(`Leash BoundingBox`),
+                        },
                     ),
                 ),
             ),
@@ -232,12 +297,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 17,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConcaveComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`RelativeBoundingBox`),
+                            expr_ty: EthTerm(`Leash RelativeBoundingBox`),
+                        },
                     ),
                 ),
             ),
@@ -248,12 +323,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 27,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConcaveComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConcaveComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`LineSegment`),
+                        },
                     ),
                 ),
             ),
@@ -264,12 +354,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 28,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConcaveComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConcaveComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Point2d`),
+                        },
                     ),
                 ),
             ),
@@ -280,12 +385,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 29,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConcaveComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConcaveComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Point2d`),
+                        },
                     ),
                 ),
             ),
@@ -296,12 +416,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 30,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConcaveComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConcaveComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Vector2d`),
+                        },
                     ),
                 ),
             ),
@@ -312,12 +447,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 31,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConcaveComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConcaveComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Vector2d`),
+                        },
                     ),
                 ),
             ),
@@ -328,12 +478,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 32,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConcaveComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConcaveComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Vector2d`),
+                        },
                     ),
                 ),
             ),

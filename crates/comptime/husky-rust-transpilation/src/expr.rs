@@ -208,7 +208,7 @@ fn transpile_hir_eager_expr_to_rust(
                 builder.punctuation(RustPunctuation::CommaSpaced);
                 let runtime_constants: SmallVec<[HirTermSymbolicVariableResolution; 2]> =
                     instantiation
-                        .symbol_map()
+                        .variable_map()
                         .iter()
                         .filter_map(|&(symbol, resolution)| match symbol {
                             HirTemplateVariable::Compterm(symbol) => (symbol.index(db).class()

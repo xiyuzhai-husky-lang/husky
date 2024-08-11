@@ -9,12 +9,13 @@ use self::assoc_val::*;
 use self::method_ritchie::*;
 use self::{
     assoc_ritchie::*,
-    signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd,
+    signature::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthSignatureBuilderItd,
 };
 use super::*;
 use husky_dec_signature::signature::assoc_item::trai_for_ty_item::TraitForTypeItemDecTemplate;
 use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEthTemplate {
@@ -49,7 +50,7 @@ impl TraitForTypeItemEthTemplate {
     pub(crate) fn inherit_instantiation_builder(
         self,
         db: &::salsa::Db,
-        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
+        impl_block_signature_builder: TraitForTypeImplBlockEthSignatureBuilderItd,
     ) -> TraitForTypeItemEthSignatureBuilder {
         match self {
             TraitForTypeItemEthTemplate::AssocType(item_template) => item_template
@@ -58,7 +59,9 @@ impl TraitForTypeItemEthTemplate {
             TraitForTypeItemEthTemplate::MethodRitchie(item_template) => item_template
                 .inherit_instantiation_builder(impl_block_signature_builder, db)
                 .into(),
-            TraitForTypeItemEthTemplate::AssocRitchie(_) => todo!(),
+            TraitForTypeItemEthTemplate::AssocRitchie(item_template) => item_template
+                .inherit_instantiation_builder(impl_block_signature_builder, db)
+                .into(),
             TraitForTypeItemEthTemplate::AssocVal(_) => todo!(),
         }
     }
@@ -68,6 +71,7 @@ impl TraitForTypeItemEthTemplate {
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEthSignatureBuilder {
     AssocType(TraitForTypeAssocTypeEthSignatureBuilder),
+    AssocRitchie(TraitForTypeAssocRitchieEthSignatureBuilder),
     Method(TraitForTypeMethodRitchieEthSignatureBuilder),
 }
 

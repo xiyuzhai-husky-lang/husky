@@ -14,14 +14,14 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`'a`),
+                                        variable: EthSymbolicVariable(`'a`, `mono`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -46,14 +46,14 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`'a`),
+                                        variable: EthSymbolicVariable(`'a`, `mono`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: Some(
                                             Invariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -78,7 +78,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -101,12 +101,12 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`'α`),
+                                        variable: EthSymbolicVariable(`'α`, `mono`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -128,7 +128,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`E`),
+                                    variable: EthSymbolicVariable(`E`, `mono`),
                                     traits: [],
                                 },
                             ],

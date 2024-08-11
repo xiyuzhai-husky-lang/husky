@@ -113,12 +113,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 9,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`FermiMatchResult`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -129,12 +139,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 10,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`FermiMatchResult`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -145,12 +165,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 11,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`FermiMatchResult`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),

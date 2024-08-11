@@ -29,19 +29,19 @@ impl JavInstantiation {
             path: hir_instantiation.path(),
             context: JavTypeContext::from_hir(hir_instantiation.context(), jav_instantiation, db),
             variable_resolutions: hir_instantiation
-                .symbol_map()
+                .variable_map()
                 .iter()
-                .filter_map(|&(symbol, resolution)| {
-                    match symbol {
-                        HirTemplateVariable::Compterm(symbol)
-                            if symbol.index(db).class() == HirTemplateVariableClass::Poly =>
+                .filter_map(|&(variable, resolution)| {
+                    match variable {
+                        HirTemplateVariable::Compterm(variable)
+                            if variable.index(db).class() == HirTemplateVariableClass::Poly =>
                         {
                             return None
                         }
                         _ => (),
                     }
                     Some((
-                        symbol,
+                        variable,
                         JavTermSymbolResolution::from_hir(resolution, jav_instantiation, db),
                     ))
                 })

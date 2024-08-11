@@ -11,12 +11,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`B`),
+                                    variable: EthSymbolicVariable(`B`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],

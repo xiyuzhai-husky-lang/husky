@@ -12,7 +12,7 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`Label`),
+                                        variable: EthSymbolicVariable(`Label`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -35,12 +35,12 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`Label`),
+                                        variable: EthSymbolicVariable(`Label`, `phan`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`label`),
+                                        variable: EthSymbolicVariable(`label`, `phan`),
                                         traits: [],
                                     },
                                 ],
@@ -63,12 +63,12 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`Label`),
+                                        variable: EthSymbolicVariable(`Label`, `phan`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`label`),
+                                        variable: EthSymbolicVariable(`label`, `phan`),
                                         traits: [],
                                     },
                                 ],
@@ -93,12 +93,12 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`Label`),
+                                        variable: EthSymbolicVariable(`Label`, `mono`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`label`),
+                                        variable: EthSymbolicVariable(`label`, `poly`),
                                         traits: [],
                                     },
                                 ],
@@ -160,12 +160,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Label`),
+                                    variable: EthSymbolicVariable(`Label`, `phan`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`label`),
+                                    variable: EthSymbolicVariable(`label`, `phan`),
                                     traits: [],
                                 },
                             ],
@@ -190,12 +190,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocRitchie(
-                        TraitForTypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 1,
+                    TraitForTypeItemEthTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<malamute::OneVsAll as core::default::Default(0)>::default`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`OneVsAll Label label`),
+                        },
                     ),
                 ),
             ),
@@ -212,12 +222,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Label`),
+                                    variable: EthSymbolicVariable(`Label`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`label`),
+                                    variable: EthSymbolicVariable(`label`, `poly`),
                                     traits: [],
                                 },
                             ],
@@ -242,12 +252,17 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocType(
-                        TraitForTypeAssocTypeEthTemplate(
-                            Id {
-                                value: 1,
+                    TraitForTypeItemEthTemplate::AssocType(
+                        TraitForTypeAssocTypeEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<malamute::Class as core::ops::Unveil(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            assoc_ty: EthTerm(`unit`),
+                        },
                     ),
                 ),
             ),
@@ -258,12 +273,29 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocRitchie(
-                        TraitForTypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TraitForTypeItemEthTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`OneVsAll Label label`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`ControlFlow Class Label unit`),
+                        },
                     ),
                 ),
             ),
@@ -280,12 +312,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Label`),
+                                    variable: EthSymbolicVariable(`Label`, `phan`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`label`),
+                                    variable: EthSymbolicVariable(`label`, `phan`),
                                     traits: [],
                                 },
                             ],
@@ -310,12 +342,17 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocType(
-                        TraitForTypeAssocTypeEthTemplate(
-                            Id {
-                                value: 2,
+                    TraitForTypeItemEthTemplate::AssocType(
+                        TraitForTypeAssocTypeEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<malamute::OneVsAll as core::ops::Unveil(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            assoc_ty: EthTerm(`unit`),
+                        },
                     ),
                 ),
             ),
@@ -326,12 +363,29 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocRitchie(
-                        TraitForTypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 3,
+                    TraitForTypeItemEthTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`OneVsAllResult Label label`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`ControlFlow OneVsAll Label label unit`),
+                        },
                     ),
                 ),
             ),
