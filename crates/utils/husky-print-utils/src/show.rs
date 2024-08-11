@@ -6,7 +6,7 @@ macro_rules! show {
     husky_print_utils::RESET,
     $a)};
    ($a:expr ,$($as:expr),*) => {
-    format!("{}, {}", (husky_print_utils::show!($a)), (husky_print_utils::show!($($as),*)))
+    format!("{},\n{}", (husky_print_utils::show!($a)), (husky_print_utils::show!($($as),*)))
   };
 }
 

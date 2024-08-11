@@ -342,6 +342,7 @@ impl ToHirEager for SemExprIdx {
             SemExprData::Unveil {
                 return_ty,
                 ref unveil_output_ty_signature,
+                ref unveil_assoc_fn_signature,
                 unveil_assoc_fn_path,
                 opd,
                 ..
@@ -350,7 +351,7 @@ impl ToHirEager for SemExprIdx {
                 HirEagerExprData::Unveil {
                     unveil_assoc_fn_path,
                     instantiation: HirInstantiation::from_eth(
-                        unveil_output_ty_signature.instantiation(),
+                        unveil_assoc_fn_signature.instantiation(),
                         db,
                     ),
                     opd: opd.to_hir_eager(builder),

@@ -56,8 +56,8 @@ impl HirTemplateVariableAttrs {
 }
 
 impl HirTemplateVariable {
-    pub fn from_eth(symbol: EthSymbolicVariable, db: &::salsa::Db) -> Option<Self> {
-        hir_template_variable_from_eth(db, symbol)
+    pub fn from_eth(variable: EthSymbolicVariable, db: &::salsa::Db) -> Option<Self> {
+        hir_template_variable_from_eth(db, variable)
     }
 }
 

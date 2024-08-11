@@ -10,7 +10,11 @@ use husky_eth_signature::{
     error::{EthSignatureError, EthSignatureMaybeResult, EthSignatureResult},
     helpers::trai_for_ty::*,
     signature::{
-        impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd,
+        assoc_item::trai_for_ty_item::{
+            assoc_ritchie::TraitForTypeAssocRitchieEthSignature,
+            TraitForTypeItemEthSignatureBuilder,
+        },
+        impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthSignatureBuilderItd,
         package::PackageEthSignatureData,
     },
 };
@@ -36,9 +40,11 @@ impl<'a> SemExprBuilder<'a> {
                 unveil_output_ty,
                 ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
+                ref unveil_assoc_fn_signature,
                 ..
             } => {
                 let unveil_output_ty_signature = unveil_output_ty_signature.clone();
+                let unveil_assoc_fn_signature = unveil_assoc_fn_signature.clone();
                 let opd_sem_expr_idx = self.build_expr(
                     opd_syn_expr_idx,
                     ExpectCoercion::new(Contract::Move, opd_ty.into()),
@@ -49,6 +55,7 @@ impl<'a> SemExprBuilder<'a> {
                         opr_regional_token_idx,
                         unveil_output_ty_signature,
                         unveil_assoc_fn_path,
+                        unveil_assoc_fn_signature,
                         return_ty: self.return_ty().unwrap(),
                     }),
                     Ok(unveil_output_ty.into()),
@@ -81,7 +88,26 @@ impl<'a> SemExprBuilder<'a> {
                 match reduced_opd_ty.base_resolved(self) {
                     FlyTermBase::Eth(opd_ty) => match template.instantiate_trai(&[opd_ty], db) {
                         JustOk(template) => {
-                            let assoc_output_template = match template.assoc_output_template(db) {
+                            let assoc_output_signature_builder =
+                                match template.assoc_output_signature_builder(db) {
+                                    Ok(assoc_output_template) => assoc_output_template,
+                                    Err(e) => {
+                                        return (
+                                            Err(DerivedSemExprDataError::UnveilOutputTemplate {
+                                                opd_sem_expr_idx,
+                                                e,
+                                            }
+                                            .into()),
+                                            Err(e.into()),
+                                        )
+                                    }
+                                };
+                            let TraitForTypeItemEthSignatureBuilder::AssocRitchie(
+                                assoc_fn_signature_builder,
+                            ) = (match template.assoc_item_signature_builder(
+                                db,
+                                coword_menu(db).snake_case_unveil_ident(),
+                            ) {
                                 Ok(assoc_output_template) => assoc_output_template,
                                 Err(e) => {
                                     return (
@@ -93,9 +119,17 @@ impl<'a> SemExprBuilder<'a> {
                                         Err(e.into()),
                                     )
                                 }
+                            })
+                            else {
+                                unreachable!()
                             };
                             let Some(unveil_output_ty_signature) =
-                                assoc_output_template.try_into_signature(db)
+                                assoc_output_signature_builder.try_into_signature(db)
+                            else {
+                                todo!()
+                            };
+                            let Some(unveil_assoc_fn_signature) =
+                                assoc_fn_signature_builder.try_into_signature(db)
                             else {
                                 todo!()
                             };
@@ -110,6 +144,7 @@ impl<'a> SemExprBuilder<'a> {
                                     ),
                                     unveil_output_ty_signature,
                                     return_ty: self.return_ty().unwrap(),
+                                    unveil_assoc_fn_signature,
                                 }),
                                 Ok(ty_term),
                             )
@@ -152,9 +187,10 @@ pub(crate) enum Unveiler {
         unveil_output_ty_final_destination: FinalDestination,
         unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature,
         unveil_assoc_fn_path: TraitForTypeItemPath,
+        unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature,
     },
     UniquePartiallyInstanted {
-        template: EthTraitForTypeImplBlockSignatureBuilderItd,
+        template: TraitForTypeImplBlockEthSignatureBuilderItd,
     },
     Nothing,
     ErrUnableToInferReturnTypeForUnveiling,
@@ -188,17 +224,28 @@ impl Unveiler {
         return_ty: EthTerm,
         context_itd: EthTermContextItd,
     ) -> EthSignatureMaybeResult<Self> {
-        let templates = unveil_impl_block_signature_templates(return_ty, context_itd, db)?;
-        match templates.len() {
+        let builders = unveil_impl_block_signature_builders(return_ty, context_itd, db)?;
+        match builders.len() {
             0 => todo!(),
             1 => {
-                let template = templates[0];
-                if let Some(impl_block_signature) = template.try_into_signature(db) {
-                    let unveil_output_ty_signature = template
-                        .assoc_output_template(db)?
+                let builder = builders[0];
+                if let Some(impl_block_signature) = builder.try_into_signature(db) {
+                    let unveil_output_ty_signature = builder
+                        .assoc_output_signature_builder(db)?
                         .try_into_signature(db)
                         .expect("no generic parameters for Unveil::Output");
                     let unveil_output_ty = unveil_output_ty_signature.ty_term();
+                    let TraitForTypeItemEthSignatureBuilder::AssocRitchie(unveil_assoc_fn_builder) =
+                        builder.assoc_item_signature_builder(
+                            db,
+                            coword_menu(db).snake_case_unveil_ident(),
+                        )?
+                    else {
+                        unreachable!("it's guaranteed by the core crate that `unveil` must be an assoc fn of the trait `Unveil`")
+                    };
+                    let unveil_assoc_fn_signature = unveil_assoc_fn_builder
+                        .try_into_signature(db)
+                        .expect("no generic parameters for Unveil::Output");
                     JustOk(Unveiler::UniqueFullyInstantiated {
                         opd_ty: impl_block_signature
                             .trai()
@@ -208,9 +255,10 @@ impl Unveiler {
                         unveil_output_ty_final_destination: unveil_output_ty.final_destination(db),
                         unveil_assoc_fn_path: unveil_assoc_fn_path(&unveil_output_ty_signature, db),
                         unveil_output_ty_signature,
+                        unveil_assoc_fn_signature,
                     })
                 } else {
-                    JustOk(Unveiler::UniquePartiallyInstanted { template })
+                    JustOk(Unveiler::UniquePartiallyInstanted { template: builder })
                 }
             }
             _ => todo!(),
@@ -232,11 +280,11 @@ fn unveil_assoc_fn_path(
         .1
 }
 
-fn unveil_impl_block_signature_templates<'db>(
+fn unveil_impl_block_signature_builders<'db>(
     term: EthTerm,
     context_itd: EthTermContextItd,
     db: &'db ::salsa::Db,
-) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
+) -> EthSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEthSignatureBuilderItd; 2]>> {
     match term {
         EthTerm::SymbolicVariable(_) => Nothing, // ad hoc
         EthTerm::LambdaVariable(_) => Nothing,   // ad hoc
@@ -255,7 +303,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates<'db>(
     ty_path: TypePath,
     context_itd: EthTermContextItd,
     db: &'db ::salsa::Db,
-) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
+) -> EthSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEthSignatureBuilderItd; 2]>> {
     unveil_impl_block_signature_templates_aux(
         db,
         ty_path,
@@ -269,7 +317,7 @@ fn ty_ontology_application_unveil_impl_block_signature_templates<'db>(
     db: &'db ::salsa::Db,
     ty_target: EthApplication,
     context_itd: EthTermContextItd,
-) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
+) -> EthSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEthSignatureBuilderItd; 2]>> {
     let application_expansion = ty_target.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
         todo!()
@@ -289,7 +337,7 @@ fn unveil_impl_block_signature_templates_aux<'db>(
     arguments: &[EthTerm],
     ty_target: EthTerm,
     context_itd: EthTermContextItd,
-) -> EthSignatureMaybeResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilderItd; 2]>> {
+) -> EthSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEthSignatureBuilderItd; 2]>> {
     let item_path_menu = item_path_menu(db, ty_path.toolchain(db));
     let templates = ty_side_trai_for_ty_impl_block_signature_templates(
         db,

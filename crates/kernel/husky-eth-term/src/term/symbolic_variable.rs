@@ -5,6 +5,7 @@ pub use self::index::*;
 
 use super::*;
 use crate::fmt::symbol_name;
+use template_var_class::TemplateVariableClass;
 use thiserror::Error;
 
 #[salsa::interned(constructor = pub new_inner, override_debug)]
@@ -42,6 +43,43 @@ impl EthSymbolicVariable {
     }
 }
 
+impl EthSymbolicVariable {
+    pub fn class(self, db: &::salsa::Db) -> Option<TemplateVariableClass> {
+        match self.index(db).inner() {
+            EthTermSymbolIndexImpl::ExplicitLifetime { attrs, .. } => Some(attrs.class),
+            EthTermSymbolIndexImpl::ExplicitPlace {
+                attrs,
+                variance,
+                disambiguator,
+            } => Some(attrs.class),
+            EthTermSymbolIndexImpl::Type {
+                attrs,
+                variance,
+                disambiguator,
+            } => Some(attrs.class),
+            EthTermSymbolIndexImpl::Prop { disambiguator } => None,
+            EthTermSymbolIndexImpl::ConstPathLeading {
+                attrs,
+                disambiguator,
+                ty_path,
+            } => Some(attrs.class),
+            EthTermSymbolIndexImpl::ConstOther {
+                attrs,
+                disambiguator,
+            } => Some(attrs.class),
+            EthTermSymbolIndexImpl::EphemPathLeading {
+                disambiguator,
+                ty_path,
+            } => None,
+            EthTermSymbolIndexImpl::EphemOther { disambiguator } => None,
+            EthTermSymbolIndexImpl::SelfType => None,
+            EthTermSymbolIndexImpl::SelfValue => None,
+            EthTermSymbolIndexImpl::SelfLifetime => None,
+            EthTermSymbolIndexImpl::SelfPlace => None,
+        }
+    }
+}
+
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TermSymbolTypeErrorKind {
     #[error("signature term error")]
@@ -57,7 +95,18 @@ impl salsa::DebugWithDb for EthSymbolicVariable {
         f: &mut std::fmt::Formatter<'_>,
         db: &salsa::Db,
     ) -> std::fmt::Result {
-        f.write_fmt(format_args!("EthSymbolicVariable(`{}`)", self.display(db)))
+        f.write_fmt(format_args!(
+            "EthSymbolicVariable(`{}`, `{}`)",
+            self.display(db),
+            match self.class(db) {
+                Some(class) => match class {
+                    TemplateVariableClass::Mono => "mono",
+                    TemplateVariableClass::Poly => "poly",
+                    TemplateVariableClass::Phan => "phan",
+                },
+                None => "nil",
+            }
+        ))
     }
 }
 

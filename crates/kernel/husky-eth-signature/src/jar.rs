@@ -31,11 +31,12 @@ pub struct EthSignatureJar(
     // - trait for type items
     crate::signature::assoc_item::trai_for_ty_item::trai_for_ty_item_eth_template,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieEthTemplate,
+    crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieEthSignatureBuilder,
+    crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::trai_for_ty_assoc_ritchie_eth_signature_builder_try_into_signature,
     crate::signature::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValEthTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthSignatureBuilder,
-    // trai_for_ty_item_eth_template,
-    crate::signature::assoc_item::trai_for_ty_item::assoc_ty::trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature,
+    crate::signature::assoc_item::trai_for_ty_item::assoc_ty::trai_for_ty_assoc_ty_eth_signature_builder_try_into_signature,
     crate::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEthTemplate,
     crate::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieEthSignatureBuilder,
     crate::signature::assoc_item::trai_for_ty_item::method_ritchie::trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature,
@@ -72,10 +73,10 @@ pub struct EthSignatureJar(
     crate::signature::impl_block::ty_impl_block::ty_impl_block_eth_template,
     // - trait for type
     crate::signature::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthTemplate,
-    crate::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd,
+    crate::signature::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthSignatureBuilderItd,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_eth_template,
     crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder,
-    crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_with_ty_instantiated_item_eth_template,
+    crate::signature::impl_block::trai_for_ty_impl_block::trai_for_ty_impl_block_item_eth_signature_builder_with_ty_instantiated,
     // attr
     crate::signature::attr::attr_eth_template,
     crate::signature::attr::backprop::BackpropAttrEthTemplate,

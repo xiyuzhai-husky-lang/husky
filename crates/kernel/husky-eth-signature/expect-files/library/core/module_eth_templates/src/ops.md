@@ -11,12 +11,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -37,12 +37,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -63,12 +63,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -89,12 +89,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -115,12 +115,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -141,12 +141,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -167,12 +167,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -193,12 +193,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -219,12 +219,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -245,12 +245,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -271,7 +271,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -292,12 +292,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -318,12 +318,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -344,7 +344,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -365,7 +365,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -386,12 +386,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Rhs`),
+                                    variable: EthSymbolicVariable(`Rhs`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -412,12 +412,12 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`T`),
+                                    variable: EthSymbolicVariable(`T`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -439,12 +439,12 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`B`),
+                                        variable: EthSymbolicVariable(`B`, `mono`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`C`),
+                                        variable: EthSymbolicVariable(`C`, `mono`),
                                         traits: [],
                                     },
                                 ],

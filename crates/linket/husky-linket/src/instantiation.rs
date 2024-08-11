@@ -57,7 +57,7 @@ impl LinInstantiation {
         db: &::salsa::Db,
     ) -> LinInstantiation {
         let variable_resolutions =
-            SmallVecMap::from_iter(hir_instantiation.symbol_map().iter().filter_map(
+            SmallVecMap::from_iter(hir_instantiation.variable_map().iter().filter_map(
                 |&(symbol, resolution)| {
                     match symbol {
                         HirTemplateVariable::Compterm(symbol)

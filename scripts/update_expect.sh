@@ -26,6 +26,8 @@ UPDATE_EXPECT=1 cargo test -p husky-jar-utils
 # Check the Rust project, including tests
 cargo check --tests
 
+cargo build --tests
+
 # Run tests, handling failure and success with respective scripts
 UPDATE_EXPECT=1 cargo test --features "allow-print" -j 1 -- --nocapture \
   && cargo test \

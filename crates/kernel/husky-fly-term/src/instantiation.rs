@@ -89,7 +89,7 @@ impl FlyInstantiation {
                 .iter()
                 .chain(template_parameters2.unwrap_or_default().iter())
                 .map(|param| {
-                    let symbol = param.symbol();
+                    let symbol = param.variable();
                     (
                         symbol,
                         FlyTermSymbolResolution::Explicit(
@@ -134,7 +134,7 @@ impl FlyInstantiation {
                     .iter()
                     .zip(determined_trai_arguments.into_iter().chain([self_ty]))
                     .map(|(param, determined_trai_argument)| {
-                        let symbol = param.symbol();
+                        let symbol = param.variable();
                         (
                             symbol,
                             FlyTermSymbolResolution::Explicit(determined_trai_argument),
@@ -144,7 +144,7 @@ impl FlyInstantiation {
             .expect("it should be guaranteed that the keys are unique");
         variable_map
             .extend(template_parameters2.iter().map(|param| {
-                let symbol = param.symbol();
+                let symbol = param.variable();
                 (
                     symbol,
                     FlyTermSymbolResolution::Explicit(
@@ -177,7 +177,7 @@ impl FlyInstantiation {
             context_itd: instantiation.context_itd(),
             env,
             variable_map: instantiation
-                .symbol_map()
+                .variable_map()
                 .iter()
                 .map(|&(symbol, term)| (symbol, FlyTermSymbolResolution::Explicit(term.into())))
                 .collect(),
@@ -199,7 +199,7 @@ impl FlyInstantiation {
         self.context_itd.task_ty(db)
     }
 
-    pub fn symbol_map(&self) -> &[(EthSymbolicVariable, FlyTermSymbolResolution)] {
+    pub fn variable_map(&self) -> &[(EthSymbolicVariable, FlyTermSymbolResolution)] {
         self.variable_map.as_ref()
     }
 
@@ -207,7 +207,7 @@ impl FlyInstantiation {
         self.separator
     }
 
-    pub fn symbol_map_splitted(
+    pub fn variable_map_splitted(
         &self,
     ) -> (
         &[(EthSymbolicVariable, FlyTermSymbolResolution)],
@@ -277,7 +277,7 @@ pub struct FlyTermInstantiationBuilder {
     path: ItemPath,
     context_itd: EthTermContextItd,
     env: FlyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<FlyTermSymbolResolution>, 4>,
+    variable_map: SmallVecPairMap<EthSymbolicVariable, Option<FlyTermSymbolResolution>, 4>,
     separator: Option<u8>,
 }
 
@@ -285,7 +285,7 @@ impl std::ops::Index<EthSymbolicVariable> for FlyTermInstantiationBuilder {
     type Output = Option<FlyTermSymbolResolution>;
 
     fn index(&self, index: EthSymbolicVariable) -> &Self::Output {
-        &self.symbol_map[index].1
+        &self.variable_map[index].1
     }
 }
 
@@ -302,11 +302,11 @@ impl FlyTermInstantiationBuilder {
             path: path.into().into(),
             context_itd,
             env,
-            symbol_map: impl_block_template_parameters
+            variable_map: impl_block_template_parameters
                 .iter()
                 .chain(assoc_item_template_parameters)
                 .map(|param| {
-                    let symbol = param.symbol();
+                    let symbol = param.variable();
                     (
                         symbol,
                         match symbol.index(db).inner() {
@@ -345,7 +345,7 @@ impl FlyTermInstantiationBuilder {
         match src {
             EthTerm::Literal(_) => todo!(),
             EthTerm::SymbolicVariable(symbol) => {
-                let (_, ref mut dst0) = self.symbol_map[symbol];
+                let (_, ref mut dst0) = self.variable_map[symbol];
                 match *dst0 {
                     Some(dst0) => match dst0 {
                         FlyTermSymbolResolution::Explicit(dst0) => {
@@ -382,7 +382,7 @@ impl FlyTermInstantiationBuilder {
             env: self.env,
             context_itd: self.context_itd,
             variable_map: self
-                .symbol_map
+                .variable_map
                 .into_iter()
                 .map(|(symbol, resolution)| (symbol, resolution.unwrap()))
                 .collect(),

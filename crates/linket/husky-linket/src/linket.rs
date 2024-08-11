@@ -311,6 +311,7 @@ impl Linket {
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
+        debug_assert_eq!(hir_instantiation.path(), path.into());
         Self::new(
             db,
             LinketData::UnveilAssocRitchie {
