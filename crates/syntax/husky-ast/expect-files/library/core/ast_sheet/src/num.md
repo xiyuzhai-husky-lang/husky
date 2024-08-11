@@ -631,46 +631,7 @@ AstSheet {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                393,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `abs`,
-                    token_idx: TokenIdx(
-                        395,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        396,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 54,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                407,
+                                396,
                             ),
                         },
                     },
@@ -686,13 +647,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `add`,
                     token_idx: TokenIdx(
-                        409,
+                        398,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        410,
+                        399,
                     ),
                     drained: false,
                 },
@@ -703,52 +664,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 59,
+                    raw: 57,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                445,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `abs`,
-                    token_idx: TokenIdx(
-                        447,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        448,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 61,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                459,
+                                437,
                             ),
                         },
                     },
@@ -764,13 +686,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `add`,
                     token_idx: TokenIdx(
-                        461,
+                        439,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        462,
+                        440,
                     ),
                     drained: false,
                 },
@@ -781,52 +703,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 66,
+                    raw: 62,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                497,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `abs`,
-                    token_idx: TokenIdx(
-                        499,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        500,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 68,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                511,
+                                478,
                             ),
                         },
                     },
@@ -842,13 +725,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `add`,
                     token_idx: TokenIdx(
-                        513,
+                        480,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        514,
+                        481,
                     ),
                     drained: false,
                 },
@@ -859,52 +742,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 73,
+                    raw: 67,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                549,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `abs`,
-                    token_idx: TokenIdx(
-                        551,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        552,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 75,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                563,
+                                519,
                             ),
                         },
                     },
@@ -920,13 +764,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `add`,
                     token_idx: TokenIdx(
-                        565,
+                        521,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        566,
+                        522,
                     ),
                     drained: false,
                 },
@@ -937,7 +781,46 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 80,
+                    raw: 72,
+                },
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                560,
+                            ),
+                        },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `add`,
+                    token_idx: TokenIdx(
+                        562,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        563,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::AssocItem {
+                    body: None,
+                },
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 77,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -950,14 +833,14 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
                 },
                 ident_token: IdentToken {
-                    ident: `abs`,
+                    ident: `add`,
                     token_idx: TokenIdx(
                         603,
                     ),
@@ -973,55 +856,23 @@ AstSheet {
                     body: None,
                 },
             },
-            AstData::Identifiable {
+            AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 82,
                 },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                615,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `add`,
-                    token_idx: TokenIdx(
-                        617,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        618,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
+                ident: `backprop`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 87,
+                    raw: 83,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                653,
+                                646,
                             ),
                         },
                     },
@@ -1037,52 +888,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `abs`,
                     token_idx: TokenIdx(
-                        655,
+                        648,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        656,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 89,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                667,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `add`,
-                    token_idx: TokenIdx(
-                        669,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        670,
+                        649,
                     ),
                     drained: false,
                 },
@@ -1093,66 +905,20 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 94,
+                    raw: 84,
                 },
                 ident: `backprop`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 95,
+                    raw: 85,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                712,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `abs`,
-                    token_idx: TokenIdx(
-                        714,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        715,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Attr {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 96,
-                },
-                ident: `backprop`,
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 97,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                727,
+                                661,
                             ),
                         },
                     },
@@ -1168,13 +934,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `sqrt`,
                     token_idx: TokenIdx(
-                        729,
+                        663,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        730,
+                        664,
                     ),
                     drained: false,
                 },
@@ -1185,20 +951,20 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 98,
+                    raw: 86,
                 },
                 ident: `backprop`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 99,
+                    raw: 87,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                746,
+                                680,
                             ),
                         },
                     },
@@ -1214,13 +980,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `max`,
                     token_idx: TokenIdx(
-                        748,
+                        682,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        749,
+                        683,
                     ),
                     drained: false,
                 },
@@ -1231,20 +997,20 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 100,
+                    raw: 88,
                 },
                 ident: `backprop`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 101,
+                    raw: 89,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                768,
+                                702,
                             ),
                         },
                     },
@@ -1260,13 +1026,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `min`,
                     token_idx: TokenIdx(
-                        770,
+                        704,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        771,
+                        705,
                     ),
                     drained: false,
                 },
@@ -1277,13 +1043,13 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 102,
+                    raw: 90,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                779,
+                                713,
                             ),
                         },
                     },
@@ -1299,13 +1065,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `sgnx`,
                     token_idx: TokenIdx(
-                        781,
+                        715,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        782,
+                        716,
                     ),
                     drained: false,
                 },
@@ -1316,20 +1082,20 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 103,
+                    raw: 91,
                 },
                 ident: `backprop`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 104,
+                    raw: 92,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                794,
+                                728,
                             ),
                         },
                     },
@@ -1345,13 +1111,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `cos`,
                     token_idx: TokenIdx(
-                        796,
+                        730,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        797,
+                        731,
                     ),
                     drained: false,
                 },
@@ -1362,14 +1128,134 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 105,
+                    raw: 93,
                 },
                 ident: `backprop`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 106,
+                    raw: 94,
+                },
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                750,
+                            ),
+                        },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `sin`,
+                    token_idx: TokenIdx(
+                        752,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        753,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::AssocItem {
+                    body: None,
+                },
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 95,
+                },
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                758,
+                            ),
+                        },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TypeItem(
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `acos`,
+                    token_idx: TokenIdx(
+                        760,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        761,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::AssocItem {
+                    body: None,
+                },
+            },
+            AstData::Attr {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 97,
+                },
+                ident: `backprop`,
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 98,
+                },
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Protected,
+                    visibility: Scope::PubUnder(
+                        ModulePath(`core::num`),
+                    ),
+                },
+                item_kind: EntityKind::AssocItem {
+                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
+                        TraitItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                },
+                ident_token: IdentToken {
+                    ident: `add`,
+                    token_idx: TokenIdx(
+                        780,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        781,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::AssocItem {
+                    body: None,
+                },
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 103,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -1389,7 +1275,7 @@ AstSheet {
                     ),
                 },
                 ident_token: IdentToken {
-                    ident: `sin`,
+                    ident: `abs`,
                     token_idx: TokenIdx(
                         818,
                     ),
@@ -1408,7 +1294,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 107,
+                    raw: 104,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -1444,136 +1330,16 @@ AstSheet {
                     body: None,
                 },
             },
-            AstData::Attr {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 109,
-                },
-                ident: `backprop`,
-            },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 110,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Protected,
-                    visibility: Scope::PubUnder(
-                        ModulePath(`core::num`),
-                    ),
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TraitForTypeItem(
-                        TraitItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `add`,
-                    token_idx: TokenIdx(
-                        846,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        847,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 115,
+                    raw: 106,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                882,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `abs`,
-                    token_idx: TokenIdx(
-                        884,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        885,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 116,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                890,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::AssocItem {
-                    assoc_item_kind: AssocItemKind::TypeItem(
-                        TypeItemKind::MethodRitchie(
-                            RitchieItemKind::Fn,
-                        ),
-                    ),
-                },
-                ident_token: IdentToken {
-                    ident: `acos`,
-                    token_idx: TokenIdx(
-                        892,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        893,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::AssocItem {
-                    body: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 118,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                904,
+                                838,
                             ),
                         },
                     },
@@ -1589,13 +1355,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `add`,
                     token_idx: TokenIdx(
-                        906,
+                        840,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        907,
+                        841,
                     ),
                     drained: false,
                 },
@@ -2179,25 +1945,10 @@ AstSheet {
                     raw: 51,
                 },
                 items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                16..17,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 53,
-                },
-                items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                17..18,
+                                16..17,
                             ),
                         },
                     ),
@@ -2206,26 +1957,26 @@ AstSheet {
             AstData::Sorc {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 55,
+                    raw: 53,
                 },
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 56,
+                    raw: 54,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 57,
+                    raw: 55,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                438,
+                                427,
                             ),
                         },
                     },
@@ -2240,13 +1991,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `u16`,
                     token_idx: TokenIdx(
-                        440,
+                        429,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        441,
+                        430,
                     ),
                     drained: false,
                 },
@@ -2258,28 +2009,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 58,
-                },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                18..19,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 60,
+                    raw: 56,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                19..20,
+                                17..18,
                             ),
                         },
                     ),
@@ -2288,26 +2024,26 @@ AstSheet {
             AstData::Sorc {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 62,
+                    raw: 58,
                 },
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 63,
+                    raw: 59,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 64,
+                    raw: 60,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                490,
+                                468,
                             ),
                         },
                     },
@@ -2322,13 +2058,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `u32`,
                     token_idx: TokenIdx(
-                        492,
+                        470,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        493,
+                        471,
                     ),
                     drained: false,
                 },
@@ -2340,28 +2076,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 65,
-                },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                20..21,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 67,
+                    raw: 61,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                21..22,
+                                18..19,
                             ),
                         },
                     ),
@@ -2370,26 +2091,26 @@ AstSheet {
             AstData::Sorc {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 69,
+                    raw: 63,
                 },
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 70,
+                    raw: 64,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 71,
+                    raw: 65,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                542,
+                                509,
                             ),
                         },
                     },
@@ -2404,13 +2125,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `u64`,
                     token_idx: TokenIdx(
-                        544,
+                        511,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        545,
+                        512,
                     ),
                     drained: false,
                 },
@@ -2422,28 +2143,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 72,
-                },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                22..23,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 74,
+                    raw: 66,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                23..24,
+                                19..20,
                             ),
                         },
                     ),
@@ -2452,26 +2158,26 @@ AstSheet {
             AstData::Sorc {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 76,
+                    raw: 68,
                 },
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 77,
+                    raw: 69,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 78,
+                    raw: 70,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                594,
+                                550,
                             ),
                         },
                     },
@@ -2486,13 +2192,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `u128`,
                     token_idx: TokenIdx(
-                        596,
+                        552,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        597,
+                        553,
                     ),
                     drained: false,
                 },
@@ -2504,28 +2210,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 79,
-                },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                24..25,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 81,
+                    raw: 71,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                25..26,
+                                20..21,
                             ),
                         },
                     ),
@@ -2534,26 +2225,26 @@ AstSheet {
             AstData::Sorc {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 83,
+                    raw: 73,
                 },
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 84,
+                    raw: 74,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 85,
+                    raw: 75,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                646,
+                                591,
                             ),
                         },
                     },
@@ -2568,13 +2259,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `usize`,
                     token_idx: TokenIdx(
-                        648,
+                        593,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        649,
+                        594,
                     ),
                     drained: false,
                 },
@@ -2586,28 +2277,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 86,
-                },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                26..27,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 88,
+                    raw: 76,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                27..28,
+                                21..22,
                             ),
                         },
                     ),
@@ -2616,26 +2292,26 @@ AstSheet {
             AstData::Sorc {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 90,
+                    raw: 78,
                 },
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 91,
+                    raw: 79,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 92,
+                    raw: 80,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                698,
+                                632,
                             ),
                         },
                     },
@@ -2650,13 +2326,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `f32`,
                     token_idx: TokenIdx(
-                        700,
+                        634,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        701,
+                        635,
                     ),
                     drained: false,
                 },
@@ -2668,13 +2344,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 93,
+                    raw: 81,
                 },
                 items: Some(
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                28..42,
+                                22..36,
                             ),
                         },
                     ),
@@ -2683,13 +2359,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 108,
+                    raw: 96,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                42..44,
+                                36..38,
                             ),
                         },
                     ),
@@ -2698,26 +2374,26 @@ AstSheet {
             AstData::Sorc {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 111,
+                    raw: 99,
                 },
             },
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 112,
+                    raw: 100,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 113,
+                    raw: 101,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
                         pub_token: PubToken {
                             token_idx: TokenIdx(
-                                875,
+                                809,
                             ),
                         },
                     },
@@ -2732,13 +2408,13 @@ AstSheet {
                 ident_token: IdentToken {
                     ident: `f64`,
                     token_idx: TokenIdx(
-                        877,
+                        811,
                     ),
                 },
                 is_generic: false,
                 saved_stream_state: TokenStreamState {
                     next_token_idx: TokenIdx(
-                        878,
+                        812,
                     ),
                     drained: false,
                 },
@@ -2750,13 +2426,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 114,
+                    raw: 102,
                 },
                 items: Some(
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                44..46,
+                                38..40,
                             ),
                         },
                     ),
@@ -2765,13 +2441,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: 117,
+                    raw: 105,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                46..47,
+                                40..41,
                             ),
                         },
                     ),
@@ -2780,7 +2456,7 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        47..119,
+        41..107,
     ),
     nested_top_level_asts: [],
     siblings: [
@@ -2908,88 +2584,52 @@ AstSheet {
             22..22,
         ),
         ArenaIdxRange(
-            22..23,
+            22..22,
         ),
         ArenaIdxRange(
-            23..23,
+            22..22,
         ),
         ArenaIdxRange(
-            23..24,
+            22..22,
         ),
         ArenaIdxRange(
-            24..24,
+            22..22,
         ),
         ArenaIdxRange(
-            24..25,
+            22..22,
         ),
         ArenaIdxRange(
-            25..25,
+            22..22,
         ),
         ArenaIdxRange(
-            25..26,
+            22..22,
         ),
         ArenaIdxRange(
-            26..26,
+            22..36,
         ),
         ArenaIdxRange(
-            26..27,
+            36..36,
         ),
         ArenaIdxRange(
-            27..27,
+            36..38,
         ),
         ArenaIdxRange(
-            27..28,
+            38..38,
         ),
         ArenaIdxRange(
-            28..28,
+            38..38,
         ),
         ArenaIdxRange(
-            28..28,
+            38..40,
         ),
         ArenaIdxRange(
-            28..28,
+            40..40,
         ),
         ArenaIdxRange(
-            28..28,
+            40..41,
         ),
         ArenaIdxRange(
-            28..28,
-        ),
-        ArenaIdxRange(
-            28..28,
-        ),
-        ArenaIdxRange(
-            28..28,
-        ),
-        ArenaIdxRange(
-            28..28,
-        ),
-        ArenaIdxRange(
-            28..42,
-        ),
-        ArenaIdxRange(
-            42..42,
-        ),
-        ArenaIdxRange(
-            42..44,
-        ),
-        ArenaIdxRange(
-            44..44,
-        ),
-        ArenaIdxRange(
-            44..44,
-        ),
-        ArenaIdxRange(
-            44..46,
-        ),
-        ArenaIdxRange(
-            46..46,
-        ),
-        ArenaIdxRange(
-            46..47,
-        ),
-        ArenaIdxRange(
-            47..119,
+            41..107,
         ),
     ],
 }

@@ -19,14 +19,6 @@ pub struct JavInstantiation {
     pub separator: Option<u8>,
 }
 
-impl std::ops::Deref for JavInstantiation {
-    type Target = [(HirTemplateVariable, JavTermSymbolResolution)];
-
-    fn deref(&self) -> &Self::Target {
-        &self.variable_resolutions
-    }
-}
-
 impl JavInstantiation {
     pub(crate) fn from_hir(
         hir_instantiation: &HirInstantiation,
@@ -79,6 +71,10 @@ impl JavInstantiation {
 impl JavInstantiation {
     pub fn path(&self) -> ItemPath {
         self.path
+    }
+
+    pub fn is_empty(&self) -> bool {
+        self.context.is_empty() && self.variable_resolutions.is_empty()
     }
 
     pub fn is_univalent(&self) -> bool {

@@ -25,7 +25,7 @@ pub struct FlyInstantiation {
     path: ItemPath,
     context_itd: EthTermContextItd,
     env: FlyInstantiationEnvironment,
-    symbol_map: SmallVecPairMap<EthSymbolicVariable, FlyTermSymbolResolution, 4>,
+    variable_map: SmallVecPairMap<EthSymbolicVariable, FlyTermSymbolResolution, 4>,
     separator: Option<u8>,
 }
 
@@ -45,7 +45,7 @@ impl std::ops::Index<EthSymbolicVariable> for FlyInstantiation {
     type Output = FlyTermSymbolResolution;
 
     fn index(&self, index: EthSymbolicVariable) -> &Self::Output {
-        &self.symbol_map[index].1
+        &self.variable_map[index].1
     }
 }
 
@@ -85,7 +85,7 @@ impl FlyInstantiation {
             path: path.into(),
             context_itd,
             env,
-            symbol_map: template_parameters1
+            variable_map: template_parameters1
                 .iter()
                 .chain(template_parameters2.unwrap_or_default().iter())
                 .map(|param| {
@@ -121,14 +121,14 @@ impl FlyInstantiation {
         db: &'db ::salsa::Db,
     ) -> Self {
         let separator = Some(template_parameters1.len().try_into().unwrap());
-        let mut symbol_map: SmallVecMap<(EthSymbolicVariable, FlyTermSymbolResolution), 4> =
+        let mut variable_map: SmallVecMap<(EthSymbolicVariable, FlyTermSymbolResolution), 4> =
             Default::default();
         // template_parameters1 contains one more parameter, self type
         debug_assert_eq!(
             template_parameters1.len(),
             determined_trai_arguments.len() + 1
         );
-        symbol_map
+        variable_map
             .extend(
                 template_parameters1
                     .iter()
@@ -142,7 +142,7 @@ impl FlyInstantiation {
                     }),
             )
             .expect("it should be guaranteed that the keys are unique");
-        symbol_map
+        variable_map
             .extend(template_parameters2.iter().map(|param| {
                 let symbol = param.symbol();
                 (
@@ -163,7 +163,7 @@ impl FlyInstantiation {
             path: path.into().into(),
             context_itd,
             env,
-            symbol_map,
+            variable_map,
             separator,
         }
     }
@@ -176,7 +176,7 @@ impl FlyInstantiation {
             path: instantiation.path(),
             context_itd: instantiation.context_itd(),
             env,
-            symbol_map: instantiation
+            variable_map: instantiation
                 .symbol_map()
                 .iter()
                 .map(|&(symbol, term)| (symbol, FlyTermSymbolResolution::Explicit(term.into())))
@@ -200,7 +200,7 @@ impl FlyInstantiation {
     }
 
     pub fn symbol_map(&self) -> &[(EthSymbolicVariable, FlyTermSymbolResolution)] {
-        self.symbol_map.as_ref()
+        self.variable_map.as_ref()
     }
 
     pub fn separator(&self) -> Option<u8> {
@@ -213,18 +213,21 @@ impl FlyInstantiation {
         &[(EthSymbolicVariable, FlyTermSymbolResolution)],
         Option<&[(EthSymbolicVariable, FlyTermSymbolResolution)]>,
     ) {
-        let symbol_map: &[_] = self.symbol_map.as_ref();
+        let variable_map: &[_] = self.variable_map.as_ref();
         match self.separator {
             Some(separator) => {
                 let separator = separator as usize;
-                (&symbol_map[0..separator], Some(&symbol_map[separator..]))
+                (
+                    &variable_map[0..separator],
+                    Some(&variable_map[separator..]),
+                )
             }
-            None => (symbol_map, None),
+            None => (variable_map, None),
         }
     }
 
     pub fn is_empty(&self) -> bool {
-        self.symbol_map.is_empty()
+        self.variable_map.is_empty()
     }
 }
 
@@ -378,7 +381,7 @@ impl FlyTermInstantiationBuilder {
             path: self.path,
             env: self.env,
             context_itd: self.context_itd,
-            symbol_map: self
+            variable_map: self
                 .symbol_map
                 .into_iter()
                 .map(|(symbol, resolution)| (symbol, resolution.unwrap()))
@@ -408,7 +411,7 @@ impl FlyInstantiate for EthTerm {
                 _ => (),
             }
         }
-        if instantiation.symbol_map.len() == 0 {
+        if instantiation.variable_map.len() == 0 {
             return self.into();
         }
         match self {

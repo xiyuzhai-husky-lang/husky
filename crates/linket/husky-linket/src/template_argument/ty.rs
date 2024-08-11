@@ -39,22 +39,17 @@ impl LinInstantiate for HirType {
                     .map(|&arg| LinTemplateArgument::from_hir(arg, instantiation, db))
                     .collect(),
             )),
-            HirType::Variable(slf) => {
-                use ::husky_print_utils::p;
-                use ::salsa::DebugWithDb;
-                p!(instantiation.debug(db), slf.debug(db));
-                match instantiation.resolve(slf.into()) {
-                    LinTermVariableResolution::Explicit(arg) => match arg {
-                        LinTemplateArgument::Vacant => todo!(),
-                        LinTemplateArgument::Type(linket_ty) => linket_ty,
-                        LinTemplateArgument::Constant(_) => todo!(),
-                        LinTemplateArgument::Lifetime => todo!(),
-                        LinTemplateArgument::Qual(_) => todo!(),
-                    },
-                    LinTermVariableResolution::SelfLifetime => todo!(),
-                    LinTermVariableResolution::SelfQual(_) => todo!(),
-                }
-            }
+            HirType::Variable(slf) => match instantiation.resolve(slf.into()) {
+                LinTermVariableResolution::Explicit(arg) => match arg {
+                    LinTemplateArgument::Vacant => todo!(),
+                    LinTemplateArgument::Type(linket_ty) => linket_ty,
+                    LinTemplateArgument::Constant(_) => todo!(),
+                    LinTemplateArgument::Lifetime => todo!(),
+                    LinTemplateArgument::Qual(_) => todo!(),
+                },
+                LinTermVariableResolution::SelfLifetime => todo!(),
+                LinTermVariableResolution::SelfQual(_) => todo!(),
+            },
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(_) => todo!(),

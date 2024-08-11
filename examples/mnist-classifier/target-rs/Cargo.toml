@@ -5,9 +5,6 @@ resolver = "2"
 [workspace.dependencies.ad-hoc-devsoul-dependency]
 path = "../../../registry/ad-hoc-devsoul-dependency"
 
-[workspace.dependencies.core]
-path = "../../../library/core"
-
 [workspace.dependencies.husky-core]
 path = "../../../library/core"
 

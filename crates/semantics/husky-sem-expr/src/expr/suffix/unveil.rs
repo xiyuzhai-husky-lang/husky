@@ -57,11 +57,7 @@ impl<'a> SemExprBuilder<'a> {
             Unveiler::UniquePartiallyInstanted { template } => {
                 let (opd_sem_expr_idx, opd_ty) =
                     self.build_expr_with_ty(opd_syn_expr_idx, ExpectAnyOriginal);
-                let Some(opd_ty) = opd_ty else {
-                    // p!(self.syn_expr_region_data.path().debug(db));
-                    // p!(self.syn_expr_region_data[opd_syn_expr_idx].debug(db));
-                    todo!()
-                };
+                let Some(opd_ty) = opd_ty else { todo!() };
                 let reduced_opd_ty: FlyTerm = match opd_ty.base_ty_data(self) {
                     FlyBaseTypeData::TypeOntology {
                         ty_path,

@@ -250,6 +250,8 @@ dependencies = [
 name = "husky-core"
 version = "0.1.0"
 dependencies = [
+ "husky-devsoul-interface",
+ "husky-standard-devsoul-interface",
  "husky-standard-value",
  "husky-visual-protocol",
  "ordered-float",
