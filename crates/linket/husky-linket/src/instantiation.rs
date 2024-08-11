@@ -1,3 +1,4 @@
+use husky_entity_path::path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
     HirTemplateVariable, HirTemplateVariableClass,
@@ -18,32 +19,34 @@ use crate::{
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct LinInstantiation {
+    path: ItemPath,
     context: LinTypeContext,
-    symbol_resolutions: SmallVecPairMap<HirTemplateVariable, LinTermSymbolResolution, 4>,
+    variable_resolutions: SmallVecPairMap<HirTemplateVariable, LinTermVariableResolution, 4>,
     separator: Option<u8>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum LinTermSymbolResolution {
+pub enum LinTermVariableResolution {
     Explicit(LinTemplateArgument),
     SelfLifetime,
     SelfQual(LinQual),
 }
 
 impl LinInstantiation {
-    pub fn new_empty(is_associated: bool) -> Self {
+    pub fn new_empty(path: impl Into<ItemPath>, is_associated: bool) -> Self {
         LinInstantiation {
+            path: path.into(),
             // todo: is this correct?
             context: LinTypeContext::new_empty(),
-            symbol_resolutions: Default::default(),
+            variable_resolutions: Default::default(),
             separator: is_associated.then_some(0),
         }
     }
 
     /// this is quite casual. We don't have any complications like nondeterminism for comptime vars,
     /// as compared with symbol resolutions, by design.
-    pub(crate) fn new_empty_for_comptime_var_overrides() -> Self {
-        Self::new_empty(false)
+    pub(crate) fn new_empty_for_comptime_var_overrides(path: ItemPath) -> Self {
+        Self::new_empty(path, false)
     }
 
     #[track_caller]
@@ -52,7 +55,7 @@ impl LinInstantiation {
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> LinInstantiation {
-        let symbol_resolutions =
+        let variable_resolutions =
             SmallVecMap::from_iter(hir_instantiation.symbol_map().iter().filter_map(
                 |&(symbol, resolution)| {
                     match symbol {
@@ -65,44 +68,48 @@ impl LinInstantiation {
                     }
                     Some((
                         symbol,
-                        LinTermSymbolResolution::from_hir(resolution, lin_instantiation, db),
+                        LinTermVariableResolution::from_hir(resolution, lin_instantiation, db),
                     ))
                 },
             ));
         let separator = hir_instantiation.separator();
         LinInstantiation {
+            path: hir_instantiation.path(),
             context: LinTypeContext::from_hir(hir_instantiation.context(), lin_instantiation, db),
-            symbol_resolutions,
+            variable_resolutions,
             separator,
         }
     }
 }
 
 impl LinInstantiation {
+    pub fn path(&self) -> ItemPath {
+        self.path
+    }
+
     pub fn is_empty(&self) -> bool {
-        self.context.comptime_var_overrides().is_empty() && self.symbol_resolutions.is_empty()
+        self.context.comptime_var_overrides().is_empty() && self.variable_resolutions.is_empty()
     }
 
     #[track_caller]
-    pub(crate) fn resolve(&self, symbol: HirTemplateVariable) -> LinTermSymbolResolution {
-        self.symbol_resolutions[symbol].1
+    pub(crate) fn resolve(&self, variable: HirTemplateVariable) -> LinTermVariableResolution {
+        self.variable_resolutions[variable].1
     }
 
-    pub fn places(&self) -> SmallVec<[(HirTemplateVariable, LinTermSymbolResolution); 2]> {
-        self.symbol_resolutions
+    pub fn places(&self) -> SmallVec<[(HirTemplateVariable, LinTermVariableResolution); 2]> {
+        self.variable_resolutions
             .iter()
-            .filter_map(|&(symbol, resolution)| match resolution {
-                LinTermSymbolResolution::Explicit(LinTemplateArgument::Qual(_))
-                | LinTermSymbolResolution::SelfQual(_) => Some((symbol, resolution)),
-                LinTermSymbolResolution::Explicit(_) | LinTermSymbolResolution::SelfLifetime => {
-                    None
-                }
+            .filter_map(|&(variable, resolution)| match resolution {
+                LinTermVariableResolution::Explicit(LinTemplateArgument::Qual(_))
+                | LinTermVariableResolution::SelfQual(_) => Some((variable, resolution)),
+                LinTermVariableResolution::Explicit(_)
+                | LinTermVariableResolution::SelfLifetime => None,
             })
             .collect()
     }
 
-    pub fn symbol_resolutions(&self) -> &[(HirTemplateVariable, LinTermSymbolResolution)] {
-        self.symbol_resolutions.as_ref()
+    pub fn variable_resolutions(&self) -> &[(HirTemplateVariable, LinTermVariableResolution)] {
+        self.variable_resolutions.as_ref()
     }
 
     pub fn separator(&self) -> Option<u8> {
@@ -121,16 +128,23 @@ impl LinInstantiation {
         db: &::salsa::Db,
     ) -> SmallVec<[Self; 4]> {
         let mut lin_instantiations = smallvec![];
-        Self::from_jav_aux(
-            jav_instantiation,
-            LinInstantiation {
-                context: LinTypeContext::from_jav(jav_instantiation.context(), db),
-                symbol_resolutions: Default::default(),
-                separator: jav_instantiation.separator,
-            },
-            &mut lin_instantiations,
-            db,
-        );
+        let prefix_lin_instantiation = LinInstantiation {
+            path: jav_instantiation.path(),
+            context: LinTypeContext::new_empty(),
+            variable_resolutions: Default::default(),
+            separator: jav_instantiation.separator,
+        };
+        let prefix = LinInstantiation {
+            path: jav_instantiation.path(),
+            context: LinTypeContext::from_jav(
+                jav_instantiation.context(),
+                &prefix_lin_instantiation,
+                db,
+            ),
+            variable_resolutions: Default::default(),
+            separator: jav_instantiation.separator,
+        };
+        Self::from_jav_aux(jav_instantiation, prefix, &mut lin_instantiations, db);
         lin_instantiations
     }
 
@@ -140,18 +154,19 @@ impl LinInstantiation {
         lin_instantiations: &mut SmallVec<[Self; 4]>,
         db: &::salsa::Db,
     ) {
-        if prefix.symbol_resolutions.len() == jav_instantiation.symbol_resolutions.len() {
+        if prefix.variable_resolutions.len() == jav_instantiation.variable_resolutions.len() {
             lin_instantiations.push(prefix);
             return;
         }
         let (symbol, javelin_resolution) =
-            jav_instantiation.symbol_resolutions.data()[prefix.symbol_resolutions.len()];
-        let linket_resolutions = LinTermSymbolResolution::from_jav(javelin_resolution, &prefix, db);
+            jav_instantiation.variable_resolutions.data()[prefix.variable_resolutions.len()];
+        let linket_resolutions =
+            LinTermVariableResolution::from_jav(javelin_resolution, &prefix, db);
         for linket_resolution in linket_resolutions {
             let mut prefix = prefix.clone();
             unsafe {
                 prefix
-                    .symbol_resolutions
+                    .variable_resolutions
                     .insert_new_unchecked((symbol, linket_resolution))
             };
             Self::from_jav_aux(jav_instantiation, prefix, lin_instantiations, db)
@@ -159,7 +174,7 @@ impl LinInstantiation {
     }
 }
 
-impl LinTermSymbolResolution {
+impl LinTermVariableResolution {
     fn from_jav(
         javelin_resolution: JavTermSymbolResolution,
         lin_instantiation: &LinInstantiation,
@@ -169,7 +184,7 @@ impl LinTermSymbolResolution {
             JavTermSymbolResolution::Explicit(arg) => match arg {
                 JavTemplateArgument::Vacant => todo!(),
                 JavTemplateArgument::Type(javelin_ty) => {
-                    smallvec![LinTermSymbolResolution::Explicit(
+                    smallvec![LinTermVariableResolution::Explicit(
                         LinTemplateArgument::Type(LinType::from_jav(
                             javelin_ty,
                             lin_instantiation,
@@ -178,7 +193,7 @@ impl LinTermSymbolResolution {
                     )]
                 }
                 JavTemplateArgument::Constant(constant) => {
-                    smallvec![LinTermSymbolResolution::Explicit(
+                    smallvec![LinTermVariableResolution::Explicit(
                         LinTemplateArgument::Constant(LinConstant(constant))
                     )]
                 }
@@ -186,12 +201,12 @@ impl LinTermSymbolResolution {
                 JavTemplateArgument::Place => todo!(),
             },
             JavTermSymbolResolution::SelfLifetime => {
-                smallvec![LinTermSymbolResolution::SelfLifetime]
+                smallvec![LinTermVariableResolution::SelfLifetime]
             }
             JavTermSymbolResolution::SelfPlace => {
                 smallvec![
-                    LinTermSymbolResolution::SelfQual(LinQual::Ref),
-                    LinTermSymbolResolution::SelfQual(LinQual::RefMut),
+                    LinTermVariableResolution::SelfQual(LinQual::Ref),
+                    LinTermVariableResolution::SelfQual(LinQual::RefMut),
                 ]
             }
         }
@@ -201,16 +216,20 @@ impl LinTermSymbolResolution {
         resolution: HirTermSymbolicVariableResolution,
         instantiation: &LinInstantiation,
         db: &salsa::Db,
-    ) -> LinTermSymbolResolution {
+    ) -> LinTermVariableResolution {
         match resolution {
-            HirTermSymbolicVariableResolution::Explicit(arg) => LinTermSymbolResolution::Explicit(
-                LinTemplateArgument::from_hir(arg, instantiation, db),
-            ),
+            HirTermSymbolicVariableResolution::Explicit(arg) => {
+                LinTermVariableResolution::Explicit(LinTemplateArgument::from_hir(
+                    arg,
+                    instantiation,
+                    db,
+                ))
+            }
             HirTermSymbolicVariableResolution::SelfLifetime => {
-                LinTermSymbolResolution::SelfLifetime
+                LinTermVariableResolution::SelfLifetime
             }
             HirTermSymbolicVariableResolution::SelfContractedQuary(contracted_quary) => {
-                LinTermSymbolResolution::SelfQual(LinQual::from_hir(contracted_quary))
+                LinTermVariableResolution::SelfQual(LinQual::from_hir(contracted_quary))
             }
         }
     }

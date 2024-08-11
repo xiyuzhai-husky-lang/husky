@@ -12,9 +12,10 @@ use vec_like::SmallVecPairMap;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct JavInstantiation {
+    path: ItemPath,
     context: JavTypeContext,
     // todo: getters
-    pub symbol_resolutions: SmallVecPairMap<HirTemplateVariable, JavTermSymbolResolution, 4>,
+    pub variable_resolutions: SmallVecPairMap<HirTemplateVariable, JavTermSymbolResolution, 4>,
     pub separator: Option<u8>,
 }
 
@@ -22,7 +23,7 @@ impl std::ops::Deref for JavInstantiation {
     type Target = [(HirTemplateVariable, JavTermSymbolResolution)];
 
     fn deref(&self) -> &Self::Target {
-        &self.symbol_resolutions
+        &self.variable_resolutions
     }
 }
 
@@ -33,8 +34,9 @@ impl JavInstantiation {
         db: &::salsa::Db,
     ) -> JavInstantiation {
         JavInstantiation {
+            path: hir_instantiation.path(),
             context: JavTypeContext::from_hir(hir_instantiation.context(), jav_instantiation, db),
-            symbol_resolutions: hir_instantiation
+            variable_resolutions: hir_instantiation
                 .symbol_map()
                 .iter()
                 .filter_map(|&(symbol, resolution)| {
@@ -56,11 +58,12 @@ impl JavInstantiation {
         }
     }
 
-    pub(crate) fn new_amazon(item_path: ItemPath, db: &::salsa::Db) -> Self {
+    pub(crate) fn new_amazon(path: ItemPath, db: &::salsa::Db) -> Self {
         Self {
-            context: JavTypeContext::new_amazon(item_path, db),
-            symbol_resolutions: Default::default(),
-            separator: match item_path {
+            path,
+            context: JavTypeContext::new_amazon(path, db),
+            variable_resolutions: Default::default(),
+            separator: match path {
                 ItemPath::Submodule(_, _) => todo!(),
                 ItemPath::MajorItem(_) => None,
                 ItemPath::AssocItem(_) => Some(0),
@@ -71,20 +74,26 @@ impl JavInstantiation {
             },
         }
     }
+}
+
+impl JavInstantiation {
+    pub fn path(&self) -> ItemPath {
+        self.path
+    }
 
     pub fn is_univalent(&self) -> bool {
-        self.symbol_resolutions
+        self.variable_resolutions
             .iter()
             .all(|(_, res)| res.is_univalent())
     }
 
     pub fn resolve(&self, symbol: impl Into<HirTemplateVariable>) -> JavTermSymbolResolution {
-        self.symbol_resolutions[symbol.into()].1
+        self.variable_resolutions[symbol.into()].1
     }
 
     #[track_caller]
     pub fn resolve_ty(&self, symbol: impl Into<HirTemplateVariable>) -> JavType {
-        match self.symbol_resolutions[symbol.into()].1 {
+        match self.variable_resolutions[symbol.into()].1 {
             JavTermSymbolResolution::Explicit(JavTemplateArgument::Type(ty)) => ty,
             _ => unreachable!("expect type"),
         }

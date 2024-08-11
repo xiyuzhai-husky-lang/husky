@@ -16,7 +16,7 @@ use husky_hir_ty::{ritchie::HirContract, trai::HirTrait, HirType};
 use husky_javelin::template_argument::constant::JavelinConstant;
 use husky_linket::{
     context::LinComptimeVarOverride,
-    instantiation::{LinInstantiate, LinInstantiation, LinTermSymbolResolution},
+    instantiation::{LinInstantiate, LinInstantiation, LinTermVariableResolution},
     linket::{ty::LinLeashClass, LinField},
     template_argument::{
         constant::LinConstant,
@@ -209,12 +209,12 @@ impl TranspileToRustWith<()> for Linket {
                     builder.delimited_comma_list(
                         RustDelimiter::Angle,
                         instantiation
-                            .symbol_resolutions()
+                            .variable_resolutions()
                             .iter()
                             .map(|(_, res)| match res {
-                                LinTermSymbolResolution::Explicit(arg) => arg,
-                                LinTermSymbolResolution::SelfLifetime
-                                | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
+                                LinTermVariableResolution::Explicit(arg) => arg,
+                                LinTermVariableResolution::SelfLifetime
+                                | LinTermVariableResolution::SelfQual(_) => unreachable!(),
                             }),
                     );
                 }
@@ -349,13 +349,16 @@ fn turbo_fish_instantiation<E>(
                     .iter()
                     .map(|&(_, ovrd)| ovrd),
             );
-            builder.heterogeneous_comma_list_items(instantiation.symbol_resolutions().iter().map(
-                |&(_, res)| match res {
-                    LinTermSymbolResolution::Explicit(arg) => arg,
-                    LinTermSymbolResolution::SelfLifetime => todo!(),
-                    LinTermSymbolResolution::SelfQual(_) => todo!(),
-                },
-            ));
+            builder.heterogeneous_comma_list_items(
+                instantiation
+                    .variable_resolutions()
+                    .iter()
+                    .map(|&(_, res)| match res {
+                        LinTermVariableResolution::Explicit(arg) => arg,
+                        LinTermVariableResolution::SelfLifetime => todo!(),
+                        LinTermVariableResolution::SelfQual(_) => todo!(),
+                    }),
+            );
         })
     }
 }
@@ -423,10 +426,10 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
             1 => {
                 let (_symbol, place) = places[0];
                 match place {
-                    LinTermSymbolResolution::Explicit(LinTemplateArgument::Qual(_)) => {
+                    LinTermVariableResolution::Explicit(LinTemplateArgument::Qual(_)) => {
                         todo!()
                     }
-                    LinTermSymbolResolution::SelfQual(place) => match place {
+                    LinTermVariableResolution::SelfQual(place) => match place {
                         qual::LinQual::Ref => ident.transpile_to_rust(builder),
                         qual::LinQual::RefMut => builder.method_ritchie_ident_mut(ident),
                         qual::LinQual::Transient => todo!(),

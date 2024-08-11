@@ -223,7 +223,7 @@ impl<'a> LinketVersionStampBuilder<'a> {
         for &(_, ovrd) in instantiation.context().comptime_var_overrides() {
             self.add_comptime_var_override(ovrd);
         }
-        for &(_, res) in instantiation.symbol_resolutions() {
+        for &(_, res) in instantiation.variable_resolutions() {
             self.add_symbol_resolution(res);
         }
     }
@@ -234,11 +234,11 @@ impl<'a> LinketVersionStampBuilder<'a> {
         }
     }
 
-    fn add_symbol_resolution(&mut self, res: LinTermSymbolResolution) {
+    fn add_symbol_resolution(&mut self, res: LinTermVariableResolution) {
         match res {
-            LinTermSymbolResolution::Explicit(arg) => self.add_template_argument(arg),
-            LinTermSymbolResolution::SelfLifetime => (),
-            LinTermSymbolResolution::SelfQual(_) => (),
+            LinTermVariableResolution::Explicit(arg) => self.add_template_argument(arg),
+            LinTermVariableResolution::SelfLifetime => (),
+            LinTermVariableResolution::SelfQual(_) => (),
         }
     }
 
