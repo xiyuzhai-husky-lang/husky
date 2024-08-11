@@ -31,6 +31,7 @@
 
 #[cfg(feature = "constant")]
 mod constant;
+pub mod exception;
 pub mod frozen;
 #[cfg(feature = "helpers")]
 mod helpers;
@@ -49,6 +50,7 @@ pub use self::value::*;
 pub use self::weak_static::*;
 pub use husky_standard_value_macros::*;
 
+use self::exception::{ExceptedValue, Exception};
 use serde_impl::IsSerdeImpl;
 use std::{
     panic::{RefUnwindSafe, UnwindSafe},

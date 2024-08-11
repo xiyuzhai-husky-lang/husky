@@ -230,6 +230,8 @@ impl Value {
 }
 
 impl IsValue for Value {
+    type Exception = Exception;
+
     fn new_uninit() -> Self {
         Value::Uninit
     }
@@ -494,7 +496,7 @@ impl IsValue for Value {
         todo!()
     }
 
-    fn unwrap(self) -> Self {
+    fn unwrap(self) -> ExceptedValue {
         match self {
             Value::Uninit => todo!(),
             Value::Invalid => todo!(),

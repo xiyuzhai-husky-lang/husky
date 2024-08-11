@@ -285,7 +285,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     unreachable!()
                 };
                 let self_argument = self.eval_ki_repr(self_argument)?;
-                KiControlFlow::Continue(self_argument.unwrap())
+                KiControlFlow::Continue(self_argument.unwrap().unwrap())
             }
             KiOpn::Index => {
                 // ad hoc

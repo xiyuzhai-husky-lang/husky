@@ -33,14 +33,14 @@ pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
         )
     }
 
-    fn unwrap_ref<'a>(&'a self) -> Value {
+    fn unwrap_ref<'a>(&'a self) -> ExceptedValue {
         panic!(
             "type `{}` doesn't support unwrap",
             std::any::type_name::<Self>()
         )
     }
 
-    fn unwrap_leash(&'static self) -> Value {
+    fn unwrap_leash(&'static self) -> ExceptedValue {
         panic!(
             "type `{}` doesn't support unwrap",
             std::any::type_name::<Self>()
@@ -92,9 +92,9 @@ pub trait StaticDyn:
 
     fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
 
-    fn unwrap_ref_dyn<'a>(&'a self) -> Value;
+    fn unwrap_ref_dyn<'a>(&'a self) -> ExceptedValue;
 
-    fn unwrap_leash_dyn(&'static self) -> Value;
+    fn unwrap_leash_dyn(&'static self) -> ExceptedValue;
 
     fn try_copy_dyn(&self) -> Option<Value>;
 
@@ -127,11 +127,11 @@ where
         self.index_ref(index)
     }
 
-    fn unwrap_ref_dyn<'a>(&'a self) -> Value {
+    fn unwrap_ref_dyn<'a>(&'a self) -> ExceptedValue {
         T::unwrap_ref(self)
     }
 
-    fn unwrap_leash_dyn(&'static self) -> Value {
+    fn unwrap_leash_dyn(&'static self) -> ExceptedValue {
         T::unwrap_leash(self)
     }
 
@@ -236,20 +236,20 @@ where
         self.is_none()
     }
 
-    fn unwrap_ref<'a>(&'a self) -> Value {
-        let slf = self.as_ref().unwrap();
-        match slf.try_copy() {
+    fn unwrap_ref<'a>(&'a self) -> ExceptedValue {
+        let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
+        Ok(match slf.try_copy() {
             Some(_) => todo!(),
             None => todo!(),
-        }
+        })
     }
 
-    fn unwrap_leash(&'static self) -> Value {
-        let slf = self.as_ref().unwrap();
-        match slf.try_copy() {
+    fn unwrap_leash(&'static self) -> ExceptedValue {
+        let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
+        Ok(match slf.try_copy() {
             Some(slf) => slf,
             None => Value::from_leash(slf),
-        }
+        })
     }
 
     unsafe fn freeze(&self) -> Self::Frozen {

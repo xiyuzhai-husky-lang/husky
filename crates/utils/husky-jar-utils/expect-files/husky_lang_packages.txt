@@ -2561,6 +2561,7 @@
             "husky-value-interface",
             "husky-value-protocol",
             "husky-visual-protocol",
+            "thiserror",
         ],
     },
     PackageSummary {
@@ -2600,6 +2601,7 @@
             "serde-impl",
             "serde_json",
             "smallvec",
+            "thiserror",
         ],
     },
     PackageSummary {

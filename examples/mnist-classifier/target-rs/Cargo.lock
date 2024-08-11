@@ -417,6 +417,7 @@ dependencies = [
  "serde-impl",
  "serde_json",
  "smallvec",
+ "thiserror",
 ]
 
 [[package]]

@@ -11,6 +11,8 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
 use std::{cmp::Ordering, sync::Arc};
 
+use crate::exception::{ExceptedValue, Exception};
+
 #[derive(Debug)]
 pub enum Value {
     Uninit,
@@ -54,6 +56,8 @@ impl From<std::convert::Infallible> for Value {
 }
 
 impl IsValue for Value {
+    type Exception = Exception;
+
     fn new_uninit() -> Self {
         Value::Uninit
     }
@@ -106,7 +110,7 @@ impl IsValue for Value {
         Value::StringLiteral(str_value)
     }
 
-    fn unwrap(self) -> Self {
+    fn unwrap(self) -> ExceptedValue {
         match self {
             Value::Uninit => todo!(),
             Value::Invalid => todo!(),
