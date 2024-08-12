@@ -4,7 +4,10 @@ use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresentation, ValuePresenterCache,
 };
 use serde::{Deserialize, Serialize};
-use std::ops::{FromResidual, Try};
+use std::{
+    ops::{FromResidual, Try},
+    panic::panic_any,
+};
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub enum KiControlFlow<C, B, E> {
@@ -100,7 +103,7 @@ impl<C1, C2: FromIterator<C1>, B, E> std::iter::FromIterator<KiControlFlow<C1, B
 
 impl<Value, E> KiControlFlow<Value, Value, E>
 where
-    E: Clone + 'static,
+    E: Clone + Send + Sync + 'static,
 {
     pub unsafe fn share_unchecked(&self) -> Self
     where
@@ -124,10 +127,10 @@ where
         }
     }
 
-    pub fn unwrap(self) -> Result<Value, E> {
+    pub fn unwrap(self) -> Value {
         match self {
-            KiControlFlow::Continue(v) => Ok(v),
-            KiControlFlow::Throw(e) => Err(e),
+            KiControlFlow::Continue(v) => v,
+            KiControlFlow::Throw(e) => panic_any(e),
             KiControlFlow::LoopContinue
             | KiControlFlow::LoopExit(_)
             | KiControlFlow::Return(_)

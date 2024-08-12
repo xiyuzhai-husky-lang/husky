@@ -97,6 +97,7 @@ dependencies = [
 name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
+ "husky-any-linket-impls",
  "husky-devsoul-interface",
  "husky-ki-repr-interface",
  "husky-linket-impl",

@@ -2,22 +2,22 @@
 [
     HirDefnDeps(
         Id {
-            value: 179,
+            value: 167,
         },
     ),
     HirDefnDeps(
         Id {
-            value: 180,
+            value: 168,
         },
     ),
     HirDefnDeps(
         Id {
-            value: 181,
+            value: 169,
         },
     ),
     HirDefnDeps(
         Id {
-            value: 182,
+            value: 170,
         },
     ),
 ]

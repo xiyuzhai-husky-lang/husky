@@ -9,10 +9,11 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`quick_sort::quick_sort_works_for_integers`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -27,10 +28,11 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`quick_sort::quick_sort_works_for_strs`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },

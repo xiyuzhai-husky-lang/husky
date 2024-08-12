@@ -35,7 +35,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -80,7 +80,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -131,7 +131,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -715,7 +715,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -760,7 +760,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -811,7 +811,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -858,7 +858,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -1526,7 +1526,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -1848,7 +1848,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -1944,7 +1944,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -1996,7 +1996,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -2092,7 +2092,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -2144,7 +2144,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -2240,7 +2240,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -2620,9 +2620,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2635,7 +2635,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2696,7 +2696,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -2792,7 +2792,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -2844,7 +2844,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -2940,7 +2940,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -3154,19 +3154,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -3182,6 +3182,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `phan`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthTerm(`Six`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`OneVsAll MnistLabel Six`),
                                 },
                             ),
@@ -3224,7 +3253,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -3592,7 +3621,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -3915,7 +3944,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -4040,7 +4069,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -4167,7 +4196,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -4263,7 +4292,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -4661,7 +4690,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -4798,9 +4827,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -4813,7 +4842,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -5066,19 +5095,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -5094,6 +5123,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `phan`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthTerm(`Six`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`OneVsAll MnistLabel Six`),
                                 },
                             ),
@@ -5134,9 +5192,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -5149,7 +5207,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -5210,7 +5268,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -5306,7 +5364,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -5489,7 +5547,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5613,7 +5671,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5699,9 +5757,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -5714,7 +5772,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -5820,7 +5878,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -5914,7 +5972,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -6067,7 +6125,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -6359,19 +6417,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -6387,6 +6445,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `phan`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthTerm(`Six`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`OneVsAll MnistLabel Six`),
                                 },
                             ),
@@ -6648,9 +6735,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -6663,7 +6750,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -6722,9 +6809,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -6737,7 +6824,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -6800,9 +6887,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -6815,7 +6902,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -6876,7 +6963,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -6972,7 +7059,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -7167,19 +7254,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -7195,6 +7282,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `phan`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthTerm(`Six`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`OneVsAll MnistLabel Six`),
                                 },
                             ),
@@ -7237,7 +7353,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -7333,7 +7449,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -7471,7 +7587,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -7567,7 +7683,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -8022,7 +8138,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -8129,7 +8245,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -8870,7 +8986,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -8977,7 +9093,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -9249,9 +9365,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -9264,7 +9380,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -10397,7 +10513,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 71,
+                                            value: 73,
                                         },
                                     ),
                                 ),
@@ -10419,7 +10535,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 71,
+                                            value: 73,
                                         },
                                     ),
                                 ),
@@ -10437,7 +10553,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 53,
+                                            value: 55,
                                         },
                                     ),
                                 ),
@@ -10477,7 +10593,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 56,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -10497,7 +10613,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 71,
+                                            value: 73,
                                         },
                                     ),
                                 ),
@@ -10585,7 +10701,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 73,
+                                            value: 75,
                                         },
                                     ),
                                 ),
@@ -10607,7 +10723,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 71,
+                                            value: 73,
                                         },
                                     ),
                                 ),
@@ -10647,7 +10763,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 56,
+                                            value: 58,
                                         },
                                     ),
                                 ),
@@ -10671,7 +10787,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 71,
+                                                    value: 73,
                                                 },
                                             ),
                                         ),
@@ -10692,7 +10808,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 53,
+                                                    value: 55,
                                                 },
                                             ),
                                         ),
@@ -10736,7 +10852,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 71,
+                                                    value: 73,
                                                 },
                                             ),
                                         ),
@@ -10832,7 +10948,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 73,
+                                                    value: 75,
                                                 },
                                             ),
                                         ),
@@ -17630,7 +17746,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -18743,7 +18859,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -19463,7 +19579,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -19706,7 +19822,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -19813,7 +19929,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -20138,7 +20254,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -20294,7 +20410,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -20418,7 +20534,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -20827,7 +20943,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),

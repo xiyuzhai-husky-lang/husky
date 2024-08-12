@@ -9,10 +9,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },
@@ -34,10 +35,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },
@@ -59,10 +61,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::seven::is_seven`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },

@@ -7,10 +7,11 @@
                     TypePath(`syntax_errors::ast::A`, `Struct`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_errors::ast::A`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },

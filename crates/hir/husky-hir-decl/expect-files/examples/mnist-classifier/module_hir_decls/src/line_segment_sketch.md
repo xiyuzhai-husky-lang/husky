@@ -210,7 +210,7 @@
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
                                                     HirTemplateVariable::Type(
                                                         HirTypeTemplateVariable::Type {
@@ -346,11 +346,11 @@
                                             },
                                         },
                                         instantiation: HirInstantiation {
-                                            path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                            path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
                                                     HirTemplateVariable::Type(
                                                         HirTypeTemplateVariable::SelfType,
@@ -513,7 +513,7 @@
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
                                                     HirTemplateVariable::Type(
                                                         HirTypeTemplateVariable::Type {
@@ -649,11 +649,11 @@
                                             },
                                         },
                                         instantiation: HirInstantiation {
-                                            path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                            path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                             context: HirTypeContext {
                                                 comptime_var_overrides: [],
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
                                                     HirTemplateVariable::Type(
                                                         HirTypeTemplateVariable::SelfType,

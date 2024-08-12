@@ -7,6 +7,7 @@ use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
 use husky_ki_repr_interface::KiArgumentReprInterface;
+use husky_linket_impl::exception::{ExceptionSource, TrackedException};
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_term_prelude::literal::Literal;
 use husky_value_interface::{ki_control_flow::KiControlFlow, IsValue};
@@ -85,9 +86,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.comptime.db();
         if self.config.needs_caching(ki_repr.caching_class(db)) {
-            let ki = ki_repr.ki(db);
-            let var_deps = ki_repr.var_deps(db);
-            self.get_or_try_init_ki_value(ki, var_deps, || self.eval_ki_repr_aux(ki_repr))
+            self.get_or_try_init_ki_value(ki_repr, || self.eval_ki_repr_aux(ki_repr))
         } else {
             self.eval_ki_repr_aux(ki_repr)
         }
@@ -283,7 +282,16 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     unreachable!()
                 };
                 let self_argument = self.eval_ki_repr(self_argument)?;
-                self_argument.unwrap().map_err(|_| todo!()).into()
+                self_argument
+                    .unwrap()
+                    .map_err(|exception| {
+                        TrackedException::new(
+                            exception,
+                            ExceptionSource::Ki(ki_repr.into()),
+                            self.pedestal(ki_repr),
+                        )
+                    })
+                    .into()
             }
             KiOpn::Index => {
                 // ad hoc

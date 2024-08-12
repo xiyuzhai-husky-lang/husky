@@ -46,7 +46,7 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
         item_path_id_interface: ItemPathIdInterface,
         pedestal: LinketImpl::Pedestal,
         f: fn() -> LinketImplKiControlFlow<LinketImpl>,
-    ) -> Result<LinketImpl::Value, LinketImplTrackedException<LinketImpl>> {
+    ) -> LinketImpl::Value {
         self.runtime
             .eval_eager_val_with_dyn(item_path_id_interface, pedestal, f)
             .unwrap()
@@ -56,7 +56,7 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
         self,
         item_path_id_interface: ItemPathIdInterface,
         pedestal: LinketImpl::Pedestal,
-    ) -> Result<LinketImpl::Value, LinketImplTrackedException<LinketImpl>> {
+    ) -> LinketImpl::Value {
         self.runtime
             .eval_lazy_val_dyn(item_path_id_interface, pedestal)
             .unwrap()
@@ -67,10 +67,9 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
         ki_repr_interface: KiReprInterface,
         pedestal: LinketImpl::Pedestal,
         f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
-    ) -> LinketImplTrackedExceptedValue<LinketImpl> {
+    ) -> LinketImplKiControlFlow<LinketImpl> {
         self.runtime
             .eval_generic_gn_with_dyn(ki_repr_interface, pedestal, Box::new(f))
-            .unwrap()
     }
 
     pub fn eval_ki_repr_interface(
@@ -93,7 +92,7 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
         item_path_id_interface: ItemPathIdInterface,
         __self: &'static __Self,
         f: fn(&'static __Self) -> LinketImplKiControlFlow<LinketImpl>,
-    ) -> LinketImplTrackedExceptedValue<LinketImpl> {
+    ) -> LinketImpl::Value {
         let slf: &'static std::ffi::c_void = unsafe { std::mem::transmute(__self) };
         let f: fn(&'static std::ffi::c_void) -> LinketImplKiControlFlow<LinketImpl> =
             unsafe { std::mem::transmute(f) };

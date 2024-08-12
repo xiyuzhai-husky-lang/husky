@@ -9,10 +9,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },
@@ -34,10 +35,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::eight::is_eight`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },

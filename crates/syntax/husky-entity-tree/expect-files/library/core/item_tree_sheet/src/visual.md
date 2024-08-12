@@ -2834,7 +2834,7 @@ EntityTreeSheet {
                             20,
                         ),
                     },
-                    trai_expr: 58,
+                    trai_expr: 52,
                     for_token: TokenIdx(
                         22,
                     ),

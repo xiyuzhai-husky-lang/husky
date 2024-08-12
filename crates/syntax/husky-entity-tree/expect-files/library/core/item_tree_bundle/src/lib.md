@@ -26638,7 +26638,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 51,
+                                ast_idx: 45,
                                 ident_token: IdentToken {
                                     ident: `i8`,
                                     token_idx: TokenIdx(
@@ -26692,7 +26692,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 56,
+                                ast_idx: 50,
                                 ident_token: IdentToken {
                                     ident: `i16`,
                                     token_idx: TokenIdx(
@@ -26746,7 +26746,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 61,
+                                ast_idx: 55,
                                 ident_token: IdentToken {
                                     ident: `i32`,
                                     token_idx: TokenIdx(
@@ -26800,7 +26800,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 66,
+                                ast_idx: 60,
                                 ident_token: IdentToken {
                                     ident: `i64`,
                                     token_idx: TokenIdx(
@@ -26854,7 +26854,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 71,
+                                ast_idx: 65,
                                 ident_token: IdentToken {
                                     ident: `i128`,
                                     token_idx: TokenIdx(
@@ -26908,7 +26908,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 76,
+                                ast_idx: 70,
                                 ident_token: IdentToken {
                                     ident: `isize`,
                                     token_idx: TokenIdx(
@@ -26962,7 +26962,7 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 81,
+                                ast_idx: 75,
                                 ident_token: IdentToken {
                                     ident: `u8`,
                                     token_idx: TokenIdx(
@@ -27016,11 +27016,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 86,
+                                ast_idx: 79,
                                 ident_token: IdentToken {
                                     ident: `u16`,
                                     token_idx: TokenIdx(
-                                        440,
+                                        429,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -27070,11 +27070,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 91,
+                                ast_idx: 83,
                                 ident_token: IdentToken {
                                     ident: `u32`,
                                     token_idx: TokenIdx(
-                                        492,
+                                        470,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -27124,11 +27124,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 96,
+                                ast_idx: 87,
                                 ident_token: IdentToken {
                                     ident: `u64`,
                                     token_idx: TokenIdx(
-                                        544,
+                                        511,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -27178,11 +27178,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 101,
+                                ast_idx: 91,
                                 ident_token: IdentToken {
                                     ident: `u128`,
                                     token_idx: TokenIdx(
-                                        596,
+                                        552,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -27232,11 +27232,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 106,
+                                ast_idx: 95,
                                 ident_token: IdentToken {
                                     ident: `usize`,
                                     token_idx: TokenIdx(
-                                        648,
+                                        593,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -27286,11 +27286,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 111,
+                                ast_idx: 99,
                                 ident_token: IdentToken {
                                     ident: `f32`,
                                     token_idx: TokenIdx(
-                                        700,
+                                        634,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -27340,11 +27340,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 116,
+                                ast_idx: 104,
                                 ident_token: IdentToken {
                                     ident: `f64`,
                                     token_idx: TokenIdx(
-                                        877,
+                                        811,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -27520,7 +27520,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27541,7 +27541,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27562,7 +27562,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27583,7 +27583,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27604,7 +27604,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27625,7 +27625,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27646,7 +27646,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27667,7 +27667,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27688,7 +27688,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27709,7 +27709,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27730,7 +27730,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27751,7 +27751,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27772,7 +27772,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27793,7 +27793,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27814,7 +27814,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27835,7 +27835,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27856,7 +27856,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27877,7 +27877,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27898,7 +27898,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27919,7 +27919,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27940,7 +27940,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27961,7 +27961,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -27986,7 +27986,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 48,
+                                ast_idx: 42,
                                 use_expr_idx: 2,
                             },
                         ),
@@ -28037,7 +28037,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28088,7 +28088,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28139,7 +28139,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28190,7 +28190,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28241,7 +28241,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28292,7 +28292,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28343,7 +28343,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28394,7 +28394,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28445,7 +28445,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28496,7 +28496,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28547,7 +28547,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28598,7 +28598,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28649,7 +28649,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28700,7 +28700,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28751,7 +28751,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28802,7 +28802,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28853,7 +28853,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28904,7 +28904,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -28955,7 +28955,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29006,7 +29006,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29057,7 +29057,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29108,7 +29108,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29159,7 +29159,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29210,7 +29210,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29261,7 +29261,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29312,7 +29312,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29363,7 +29363,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29414,7 +29414,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29465,7 +29465,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29516,7 +29516,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29567,7 +29567,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29618,7 +29618,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29669,7 +29669,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29720,7 +29720,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29773,7 +29773,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29826,7 +29826,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29877,7 +29877,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29928,7 +29928,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -29979,7 +29979,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -30030,7 +30030,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -30081,7 +30081,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -30132,7 +30132,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -30183,7 +30183,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     ModulePath(`core::num`),
                                 ),
-                                ast_idx: 47,
+                                ast_idx: 41,
                                 use_expr_idx: 0,
                             },
                         ),
@@ -30218,7 +30218,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 52,
+                            ast_idx: 46,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     35,
@@ -30260,7 +30260,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 53,
+                            ast_idx: 47,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     57,
@@ -30312,7 +30312,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 57,
+                            ast_idx: 51,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     98,
@@ -30354,7 +30354,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 58,
+                            ast_idx: 52,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     120,
@@ -30406,7 +30406,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 62,
+                            ast_idx: 56,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     161,
@@ -30448,7 +30448,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 63,
+                            ast_idx: 57,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     194,
@@ -30500,7 +30500,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 67,
+                            ast_idx: 61,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     234,
@@ -30542,7 +30542,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 68,
+                            ast_idx: 62,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     245,
@@ -30594,7 +30594,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 72,
+                            ast_idx: 66,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     286,
@@ -30636,7 +30636,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 73,
+                            ast_idx: 67,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     297,
@@ -30688,7 +30688,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 77,
+                            ast_idx: 71,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     338,
@@ -30730,7 +30730,7 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 78,
+                            ast_idx: 72,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     349,
@@ -30752,48 +30752,6 @@ EntityTreeCrateBundle {
                                     },
                                 ),
                             ),
-                        },
-                    ),
-                ),
-                (
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(`core::num::u8(0)`),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                    ImplBlockSynNode::TypeImplBlock(
-                        TypeImplBlockSynNode {
-                            syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(`core::num::u8(0)`),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            ast_idx: 82,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    390,
-                                ),
-                            },
-                            ty_expr: 22,
-                            items: TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    16..17,
-                                ),
-                            },
                         },
                     ),
                 ),
@@ -30824,70 +30782,28 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 83,
+                            ast_idx: 76,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    401,
+                                    390,
                                 ),
                             },
-                            trai_expr: 23,
+                            trai_expr: 22,
                             for_token: TokenIdx(
-                                404,
+                                393,
                             ),
                             ty_sketch_expr: Path(
-                                24,
+                                23,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            17..18,
+                                            16..17,
                                         ),
                                     },
                                 ),
                             ),
-                        },
-                    ),
-                ),
-                (
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(`core::num::u16(0)`),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                    ImplBlockSynNode::TypeImplBlock(
-                        TypeImplBlockSynNode {
-                            syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(`core::num::u16(0)`),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            ast_idx: 87,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    442,
-                                ),
-                            },
-                            ty_expr: 25,
-                            items: TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    18..19,
-                                ),
-                            },
                         },
                     ),
                 ),
@@ -30918,70 +30834,28 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 88,
+                            ast_idx: 80,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    453,
+                                    431,
                                 ),
                             },
-                            trai_expr: 26,
+                            trai_expr: 24,
                             for_token: TokenIdx(
-                                456,
+                                434,
                             ),
                             ty_sketch_expr: Path(
-                                27,
+                                25,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            19..20,
+                                            17..18,
                                         ),
                                     },
                                 ),
                             ),
-                        },
-                    ),
-                ),
-                (
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(`core::num::u32(0)`),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                    ImplBlockSynNode::TypeImplBlock(
-                        TypeImplBlockSynNode {
-                            syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(`core::num::u32(0)`),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            ast_idx: 92,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    494,
-                                ),
-                            },
-                            ty_expr: 28,
-                            items: TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    20..21,
-                                ),
-                            },
                         },
                     ),
                 ),
@@ -31012,70 +30886,28 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 93,
+                            ast_idx: 84,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    505,
+                                    472,
                                 ),
                             },
-                            trai_expr: 29,
+                            trai_expr: 26,
                             for_token: TokenIdx(
-                                508,
+                                475,
                             ),
                             ty_sketch_expr: Path(
-                                30,
+                                27,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            21..22,
+                                            18..19,
                                         ),
                                     },
                                 ),
                             ),
-                        },
-                    ),
-                ),
-                (
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(`core::num::u64(0)`),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                    ImplBlockSynNode::TypeImplBlock(
-                        TypeImplBlockSynNode {
-                            syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(`core::num::u64(0)`),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            ast_idx: 97,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    546,
-                                ),
-                            },
-                            ty_expr: 31,
-                            items: TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    22..23,
-                                ),
-                            },
                         },
                     ),
                 ),
@@ -31106,70 +30938,28 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 98,
+                            ast_idx: 88,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    557,
+                                    513,
                                 ),
                             },
-                            trai_expr: 32,
+                            trai_expr: 28,
                             for_token: TokenIdx(
-                                560,
+                                516,
                             ),
                             ty_sketch_expr: Path(
-                                33,
+                                29,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            23..24,
+                                            19..20,
                                         ),
                                     },
                                 ),
                             ),
-                        },
-                    ),
-                ),
-                (
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(`core::num::u128(0)`),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                    ImplBlockSynNode::TypeImplBlock(
-                        TypeImplBlockSynNode {
-                            syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(`core::num::u128(0)`),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            ast_idx: 102,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    598,
-                                ),
-                            },
-                            ty_expr: 34,
-                            items: TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    24..25,
-                                ),
-                            },
                         },
                     ),
                 ),
@@ -31200,70 +30990,28 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 103,
+                            ast_idx: 92,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    609,
+                                    554,
                                 ),
                             },
-                            trai_expr: 35,
+                            trai_expr: 30,
                             for_token: TokenIdx(
-                                612,
+                                557,
                             ),
                             ty_sketch_expr: Path(
-                                36,
+                                31,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            25..26,
+                                            20..21,
                                         ),
                                     },
                                 ),
                             ),
-                        },
-                    ),
-                ),
-                (
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(`core::num::usize(0)`),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                    ImplBlockSynNode::TypeImplBlock(
-                        TypeImplBlockSynNode {
-                            syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(`core::num::usize(0)`),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            ast_idx: 107,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    650,
-                                ),
-                            },
-                            ty_expr: 37,
-                            items: TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    26..27,
-                                ),
-                            },
                         },
                     ),
                 ),
@@ -31294,24 +31042,24 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 108,
+                            ast_idx: 96,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    661,
+                                    595,
                                 ),
                             },
-                            trai_expr: 38,
+                            trai_expr: 32,
                             for_token: TokenIdx(
-                                664,
+                                598,
                             ),
                             ty_sketch_expr: Path(
-                                39,
+                                33,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            27..28,
+                                            21..22,
                                         ),
                                     },
                                 ),
@@ -31346,16 +31094,16 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 112,
+                            ast_idx: 100,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    702,
+                                    636,
                                 ),
                             },
-                            ty_expr: 40,
+                            ty_expr: 34,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    28..42,
+                                    22..36,
                                 ),
                             },
                         },
@@ -31388,24 +31136,24 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 113,
+                            ast_idx: 101,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    832,
+                                    766,
                                 ),
                             },
-                            trai_expr: 41,
+                            trai_expr: 35,
                             for_token: TokenIdx(
-                                835,
+                                769,
                             ),
                             ty_sketch_expr: Path(
-                                42,
+                                36,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            42..44,
+                                            36..38,
                                         ),
                                     },
                                 ),
@@ -31440,16 +31188,16 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 117,
+                            ast_idx: 105,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    879,
+                                    813,
                                 ),
                             },
-                            ty_expr: 43,
+                            ty_expr: 37,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    44..46,
+                                    38..40,
                                 ),
                             },
                         },
@@ -31482,24 +31230,24 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 118,
+                            ast_idx: 106,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    898,
+                                    832,
                                 ),
                             },
-                            trai_expr: 44,
+                            trai_expr: 38,
                             for_token: TokenIdx(
-                                901,
+                                835,
                             ),
                             ty_sketch_expr: Path(
-                                45,
+                                39,
                             ),
                             items: Some(
                                 TraitForType(
                                     TraitForTypeItems {
                                         ast_idx_range: ArenaIdxRange(
-                                            46..47,
+                                            40..41,
                                         ),
                                     },
                                 ),
@@ -31511,7 +31259,7 @@ EntityTreeCrateBundle {
             once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 1,
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
@@ -31538,7 +31286,7 @@ EntityTreeCrateBundle {
                         },
                     },
                     OnceUseRule {
-                        ast_idx: 48,
+                        ast_idx: 42,
                         use_expr_idx: 4,
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
@@ -31565,7 +31313,7 @@ EntityTreeCrateBundle {
                         },
                     },
                     OnceUseRule {
-                        ast_idx: 48,
+                        ast_idx: 42,
                         use_expr_idx: 3,
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
@@ -31602,7 +31350,7 @@ EntityTreeCrateBundle {
                         },
                     },
                     OnceUseRule {
-                        ast_idx: 48,
+                        ast_idx: 42,
                         use_expr_idx: 2,
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
@@ -31642,7 +31390,7 @@ EntityTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: ModulePath(`core`),
                         is_same_crate: true,
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
@@ -43102,7 +42850,7 @@ EntityTreeCrateBundle {
                                     29,
                                 ),
                             },
-                            ty_expr: 46,
+                            ty_expr: 40,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     0..5,
@@ -45967,12 +45715,12 @@ EntityTreeCrateBundle {
                                     28,
                                 ),
                             },
-                            trai_expr: 49,
+                            trai_expr: 43,
                             for_token: TokenIdx(
                                 46,
                             ),
                             ty_sketch_expr: Path(
-                                50,
+                                44,
                             ),
                             items: Some(
                                 TraitForType(
@@ -49017,7 +48765,7 @@ EntityTreeCrateBundle {
                                     22,
                                 ),
                             },
-                            ty_expr: 51,
+                            ty_expr: 45,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     0..8,
@@ -51905,7 +51653,7 @@ EntityTreeCrateBundle {
                                     13,
                                 ),
                             },
-                            ty_expr: 52,
+                            ty_expr: 46,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     0..2,
@@ -51947,12 +51695,12 @@ EntityTreeCrateBundle {
                                     60,
                                 ),
                             },
-                            trai_expr: 55,
+                            trai_expr: 49,
                             for_token: TokenIdx(
                                 69,
                             ),
                             ty_sketch_expr: Path(
-                                56,
+                                50,
                             ),
                             items: Some(
                                 TraitForType(
@@ -51999,7 +51747,7 @@ EntityTreeCrateBundle {
                                     77,
                                 ),
                             },
-                            ty_expr: 57,
+                            ty_expr: 51,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
                                     3..8,
@@ -57738,7 +57486,7 @@ EntityTreeCrateBundle {
                                     20,
                                 ),
                             },
-                            trai_expr: 58,
+                            trai_expr: 52,
                             for_token: TokenIdx(
                                 22,
                             ),
@@ -58157,28 +57905,13 @@ EntityTreeCrateBundle {
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
-                        ident: `u8`,
+                        ident: `Add`,
                         token_idx: TokenIdx(
                             391,
                         ),
                     },
                 ),
                 major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::u8`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            402,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
                     MajorItemPath::Trait(
                         TraitPath(`core::ops::Add`),
                     ),
@@ -58189,7 +57922,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `u8`,
                         token_idx: TokenIdx(
-                            405,
+                            394,
                         ),
                     },
                 ),
@@ -58202,24 +57935,9 @@ EntityTreeCrateBundle {
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
-                        ident: `u16`,
-                        token_idx: TokenIdx(
-                            443,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::u16`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
                         ident: `Add`,
                         token_idx: TokenIdx(
-                            454,
+                            432,
                         ),
                     },
                 ),
@@ -58234,7 +57952,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `u16`,
                         token_idx: TokenIdx(
-                            457,
+                            435,
                         ),
                     },
                 ),
@@ -58247,24 +57965,9 @@ EntityTreeCrateBundle {
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
-                        ident: `u32`,
-                        token_idx: TokenIdx(
-                            495,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::u32`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
                         ident: `Add`,
                         token_idx: TokenIdx(
-                            506,
+                            473,
                         ),
                     },
                 ),
@@ -58279,13 +57982,28 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `u32`,
                         token_idx: TokenIdx(
-                            509,
+                            476,
                         ),
                     },
                 ),
                 major_path: MajorEntityPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`core::num::u32`, `Extern`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            514,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
                     ),
                 ),
             },
@@ -58294,7 +58012,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `u64`,
                         token_idx: TokenIdx(
-                            547,
+                            517,
                         ),
                     },
                 ),
@@ -58308,12 +58026,42 @@ EntityTreeCrateBundle {
                 name_token: PathNameToken::Ident(
                     IdentToken {
                         ident: `Add`,
+                        token_idx: TokenIdx(
+                            555,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `u128`,
                         token_idx: TokenIdx(
                             558,
                         ),
                     },
                 ),
                 major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::u128`, `Extern`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            596,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
                     MajorItemPath::Trait(
                         TraitPath(`core::ops::Add`),
                     ),
@@ -58322,99 +58070,9 @@ EntityTreeCrateBundle {
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
-                        ident: `u64`,
-                        token_idx: TokenIdx(
-                            561,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::u64`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `u128`,
+                        ident: `usize`,
                         token_idx: TokenIdx(
                             599,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::u128`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            610,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Add`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `u128`,
-                        token_idx: TokenIdx(
-                            613,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::u128`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `usize`,
-                        token_idx: TokenIdx(
-                            651,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::usize`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            662,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Add`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `usize`,
-                        token_idx: TokenIdx(
-                            665,
                         ),
                     },
                 ),
@@ -58429,13 +58087,58 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `f32`,
                         token_idx: TokenIdx(
-                            703,
+                            637,
                         ),
                     },
                 ),
                 major_path: MajorEntityPath::MajorItem(
                     MajorItemPath::Type(
                         TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `Add`,
+                        token_idx: TokenIdx(
+                            767,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `f32`,
+                        token_idx: TokenIdx(
+                            770,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            },
+            MajorItemPathExpr::Root {
+                name_token: PathNameToken::Ident(
+                    IdentToken {
+                        ident: `f64`,
+                        token_idx: TokenIdx(
+                            814,
+                        ),
+                    },
+                ),
+                major_path: MajorEntityPath::MajorItem(
+                    MajorItemPath::Type(
+                        TypePath(`core::num::f64`, `Extern`),
                     ),
                 ),
             },
@@ -58457,54 +58160,9 @@ EntityTreeCrateBundle {
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
                     IdentToken {
-                        ident: `f32`,
+                        ident: `f64`,
                         token_idx: TokenIdx(
                             836,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::f32`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `f64`,
-                        token_idx: TokenIdx(
-                            880,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Type(
-                        TypePath(`core::num::f64`, `Extern`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `Add`,
-                        token_idx: TokenIdx(
-                            899,
-                        ),
-                    },
-                ),
-                major_path: MajorEntityPath::MajorItem(
-                    MajorItemPath::Trait(
-                        TraitPath(`core::ops::Add`),
-                    ),
-                ),
-            },
-            MajorItemPathExpr::Root {
-                name_token: PathNameToken::Ident(
-                    IdentToken {
-                        ident: `f64`,
-                        token_idx: TokenIdx(
-                            902,
                         ),
                     },
                 ),
@@ -58558,7 +58216,7 @@ EntityTreeCrateBundle {
                         41,
                     ),
                 ),
-                subexpr: 47,
+                subexpr: 41,
             },
             MajorItemPathExpr::Subitem {
                 name_token: PathNameToken::CrateRoot(
@@ -58573,7 +58231,7 @@ EntityTreeCrateBundle {
                         39,
                     ),
                 ),
-                subexpr: 48,
+                subexpr: 42,
             },
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(
@@ -58649,7 +58307,7 @@ EntityTreeCrateBundle {
                         67,
                     ),
                 ),
-                subexpr: 53,
+                subexpr: 47,
             },
             MajorItemPathExpr::Subitem {
                 name_token: PathNameToken::CrateRoot(
@@ -58664,7 +58322,7 @@ EntityTreeCrateBundle {
                         65,
                     ),
                 ),
-                subexpr: 54,
+                subexpr: 48,
             },
             MajorItemPathExpr::Root {
                 name_token: PathNameToken::Ident(

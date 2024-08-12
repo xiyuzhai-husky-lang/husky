@@ -3,7 +3,7 @@ pub mod label;
 pub mod ugly;
 
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
-use husky_standard_linket_impl::{StandardLinketImpl, StandardLinketImplKiControlFlow};
+use husky_standard_linket_impl::{StandardKiControlFlow, StandardLinketImpl};
 use husky_standard_value::{ugly::__ValueStands, FromValue};
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
@@ -55,17 +55,17 @@ pub(crate) fn unset_dev_eval_context() {
 pub fn eval_ki_repr_interface<T>(
     ki_repr: KiReprInterface,
     value_stands: Option<&mut __ValueStands>,
-) -> StandardLinketImplKiControlFlow<T>
+) -> StandardKiControlFlow<T>
 where
     T: FromValue + 'static,
 {
     let value = dev_eval_context().eval_ki_repr_interface(ki_repr)?;
-    StandardLinketImplKiControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
+    StandardKiControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
 }
 
 pub fn eval_ki_domain_repr_interface(
     ki_domain_repr_interface: KiDomainReprInterface,
-) -> StandardLinketImplKiControlFlow<(), Infallible> {
+) -> StandardKiControlFlow<(), Infallible> {
     dev_eval_context().eval_ki_domain_repr_interface(ki_domain_repr_interface)
 }
 

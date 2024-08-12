@@ -317,9 +317,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -461,7 +461,7 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                                     context_itd: EthTermContextItd {
                                                         task_ty: Some(
                                                             EthTerm(`MnistTask`),
@@ -472,9 +472,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`Self`),
+                                                            EthSymbolicVariable(`Self`, `nil`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -683,9 +683,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -827,7 +827,7 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                                     context_itd: EthTermContextItd {
                                                         task_ty: Some(
                                                             EthTerm(`MnistTask`),
@@ -838,9 +838,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`Self`),
+                                                            EthSymbolicVariable(`Self`, `nil`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,

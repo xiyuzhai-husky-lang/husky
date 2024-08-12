@@ -213,7 +213,7 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath(`#derive _ as core::visual::Visualize(0)`),
+                                                    path: ItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`),
                                                     context_itd: EthTermContextItd {
                                                         task_ty: Some(
                                                             EthTerm(`MnistTask`),
@@ -224,9 +224,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`Self`),
+                                                            EthSymbolicVariable(`Self`, `nil`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,

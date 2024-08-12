@@ -47,6 +47,9 @@ pub type LinketImplTrackedException<LinketImpl> = TrackedException<
 pub type LinketImplTrackedExceptedValue<LinketImpl> =
     Result<<LinketImpl as IsLinketImpl>::Value, LinketImplTrackedException<LinketImpl>>;
 
+pub type LinketImplTrackedExcepted<LinketImpl, T> =
+    Result<T, LinketImplTrackedException<LinketImpl>>;
+
 pub enum VmArgumentValue<LinketImpl: IsLinketImpl> {
     Simple(LinketImpl::Value),
     Variadic(Vec<LinketImpl::Value>),

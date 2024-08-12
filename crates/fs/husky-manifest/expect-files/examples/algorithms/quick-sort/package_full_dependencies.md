@@ -12,6 +12,15 @@ Ok(
                 path: "../../../examples/algorithms/quick-sort",
             },
         },
+        PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `core`,
+            data: PackagePathSource::Library,
+        },
     ],
 )
 ```
