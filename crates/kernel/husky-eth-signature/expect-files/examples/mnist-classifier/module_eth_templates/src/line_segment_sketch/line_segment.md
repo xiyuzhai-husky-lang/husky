@@ -72,12 +72,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 33,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`LineSegment`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`LineSegment`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Vector2d`),
+                        },
                     ),
                 ),
             ),
@@ -88,12 +103,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 34,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`LineSegment`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`LineSegment`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`Point2d`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),

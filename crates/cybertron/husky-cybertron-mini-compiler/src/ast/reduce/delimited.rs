@@ -23,15 +23,16 @@ impl From<PreAst> for Option<DelimitedFragment> {
                 AstData::SeparatedItem { content, separator } => None,
                 ast => Some(DelimitedFragment::Ast(ast)),
             },
-            PreAst::Separator(_) => unreachable!(),
+            PreAst::Separator(_) => Some(DelimitedFragment::Obstruction),
         }
     }
 }
 
-fn reduce_pre_asts_by_delimited(
+pub(super) fn reduce_by_delimited(
     pre_asts: Seq<Option<PreAst>>,
     allocated_asts: Seq<Option<Ast>>,
 ) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
+    use husky_print_utils::p;
     let (pre_asts, allocated_asts) = reduce_pre_asts_by_delimited_item(pre_asts, allocated_asts);
     let fragments =
         pre_asts.map(|pre_ast| -> Option<DelimitedFragment> { pre_ast.map(Into::into).flatten() });
@@ -82,6 +83,9 @@ fn reduce_pre_asts_by_delimited(
     let allocated_asts =
         (|allocated_ast: Option<Ast>, new_ast: Option<AstData>, new_parent| match allocated_ast {
             Some(allocated_ast) => {
+                if new_ast.is_some() {
+                    p!(allocated_ast, new_ast);
+                }
                 debug_assert!(new_ast.is_none());
                 match new_parent {
                     Some(new_parent) => {
@@ -107,7 +111,7 @@ fn reduce_pre_asts_by_delimited(
 }
 
 #[test]
-fn reduce_pre_asts_by_delimited_works() {
+fn reduce_by_delimited_works() {
     #[track_caller]
     fn t(
         pre_asts: Seq<Option<PreAst>>,
@@ -115,7 +119,7 @@ fn reduce_pre_asts_by_delimited_works() {
         pre_asts1_expected: Seq<Option<PreAst>>,
         allocated_asts1_expected: Seq<Option<Ast>>,
     ) {
-        let (pre_asts1, allocated_asts1) = reduce_pre_asts_by_delimited(pre_asts, allocated_asts);
+        let (pre_asts1, allocated_asts1) = reduce_by_delimited(pre_asts, allocated_asts);
         assert_eq!(pre_asts1, pre_asts1_expected);
         assert_eq!(allocated_asts1, allocated_asts1_expected);
     }

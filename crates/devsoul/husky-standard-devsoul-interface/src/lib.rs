@@ -1,22 +1,15 @@
 pub mod devsoul_interface;
 pub mod label;
-pub mod pedestal;
-pub mod static_var;
 pub mod ugly;
 
-use self::pedestal::StandardPedestal;
-use husky_devsoul_interface::ki_repr::{
-    KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface,
-};
-use husky_linket_impl::standard::StandardLinketImplKiControlFlow;
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
+use husky_standard_linket_impl::{StandardKiControlFlow, StandardLinketImpl};
 use husky_standard_value::{ugly::__ValueStands, FromValue};
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
 
-pub type DevEvalContext = husky_devsoul_interface::DevEvalContext<
-    husky_linket_impl::standard::StandardLinketImpl<StandardPedestal>,
->;
+pub type DevEvalContext = husky_linket_impl::eval_context::DevEvalContext<StandardLinketImpl>;
 
 /// this is still subject to parallel testing bug, two different tests might want to use the same context.
 ///
@@ -62,17 +55,17 @@ pub(crate) fn unset_dev_eval_context() {
 pub fn eval_ki_repr_interface<T>(
     ki_repr: KiReprInterface,
     value_stands: Option<&mut __ValueStands>,
-) -> StandardLinketImplKiControlFlow<T>
+) -> StandardKiControlFlow<T>
 where
     T: FromValue + 'static,
 {
     let value = dev_eval_context().eval_ki_repr_interface(ki_repr)?;
-    StandardLinketImplKiControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
+    StandardKiControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
 }
 
 pub fn eval_ki_domain_repr_interface(
     ki_domain_repr_interface: KiDomainReprInterface,
-) -> StandardLinketImplKiControlFlow<(), Infallible> {
+) -> StandardKiControlFlow<(), Infallible> {
     dev_eval_context().eval_ki_domain_repr_interface(ki_domain_repr_interface)
 }
 

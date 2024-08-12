@@ -9,10 +9,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::main`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::main`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },

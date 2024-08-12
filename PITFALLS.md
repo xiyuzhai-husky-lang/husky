@@ -115,3 +115,21 @@ tracing_subscriber::registry()
     .with(tracing_subscriber::fmt::layer())
     .init();
 ```
+
+## Rust Panic
+
+panic using any type:
+
+```rust
+std::panic::panic_any(t)
+```
+
+## Rust Macro
+
+### How to use variadic macros to call nested constructors?
+
+<https://stackoverflow.com/questions/24512356/how-to-use-variadic-macros-to-call-nested-constructors>
+
+### catch unwind anything
+
+<https://doc.rust-lang.org/std/panic/struct.AssertUnwindSafe.html>

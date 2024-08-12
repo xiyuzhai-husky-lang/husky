@@ -3,9 +3,8 @@ use crate::{
     region::VmirRegion,
     stmt::{VmirStmtArena, VmirStmtIdx, VmirStmtIdxRange},
 };
-use husky_devsoul_interface::vm_control_flow::LinketImplVmControlFlow;
-use husky_devsoul_interface::IsLinketImpl;
 use husky_linket::template_argument::qual::LinQual;
+use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlow};
 use husky_place::place::idx::PlaceIdx;
 
 pub trait EvalVmir<'comptime, LinketImpl: IsLinketImpl> {

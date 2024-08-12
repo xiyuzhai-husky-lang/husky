@@ -6,10 +6,11 @@
                 Fn,
             )`),
             instantiation: LinInstantiation {
+                path: ItemPath(`quick_sort::quick_sort_works_for_integers`),
                 context: LinTypeContext {
                     comptime_var_overrides: [],
                 },
-                symbol_resolutions: [],
+                variable_resolutions: [],
                 separator: None,
             },
         },
@@ -20,10 +21,11 @@
                 Fn,
             )`),
             instantiation: LinInstantiation {
+                path: ItemPath(`quick_sort::quick_sort_works_for_strs`),
                 context: LinTypeContext {
                     comptime_var_overrides: [],
                 },
-                symbol_resolutions: [],
+                variable_resolutions: [],
                 separator: None,
             },
         },

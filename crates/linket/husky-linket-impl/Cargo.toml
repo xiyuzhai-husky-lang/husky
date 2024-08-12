@@ -4,25 +4,23 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
-colored.workspace = true
-rustc_version.workspace = true
+serde.workspace = true
 smallvec.workspace = true
+vec-like.workspace = true
+# kernel
+husky-item-path-interface.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
 # protocols
 husky-value-protocol.workspace = true
-# vm
-husky-standard-value.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
+# value
+husky-value-interface.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [dev-dependencies]
-husky-standard-devsoul-interface.workspace = true
-husky-linket-impl = { path = ".", features = ["standard"] }
 # library
 husky-core.workspace = true
 
 [features]
-default = ["standard"]
-standard = []

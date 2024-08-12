@@ -45,7 +45,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -87,7 +87,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -162,7 +162,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -202,7 +202,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -280,7 +280,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -364,7 +364,7 @@
                                 ty_path: TypePath(`core::mem::Ref`, `Extern`),
                                 template_arguments: [
                                     HirTemplateArgument::Constant(
-                                        StaticLifetime,
+                                        HirConstant::StaticLifetime,
                                     ),
                                     HirTemplateArgument::Type(
                                         HirType::PathLeading(

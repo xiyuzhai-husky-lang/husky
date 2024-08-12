@@ -3,7 +3,7 @@ use crate::{term::symbolic_variable::EthSymbolicVariable, *};
 use context::EthTermContextItd;
 use fmt::with_item_eth_term_fmt_context;
 use husky_entity_path::{
-    path::{ItemPath, ItemPathId},
+    path::{assoc_item::AssocItemPath, ItemPath, ItemPathId},
     region::RegionPath,
 };
 use husky_syn_decl::decl::HasSynDecl;
@@ -17,7 +17,7 @@ use vec_like::{SmallVecPairMap, VecMap};
 pub struct EthInstantiation {
     path: ItemPath,
     context_itd: EthTermContextItd,
-    symbol_map: SmallVecPairMap<EthSymbolicVariable, EthTerm, 4>,
+    variable_map: SmallVecPairMap<EthSymbolicVariable, EthTerm, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
@@ -43,36 +43,39 @@ impl EthInstantiation {
         self.context_itd.task_ty(db)
     }
 
-    pub fn symbol_map(&self) -> &[(EthSymbolicVariable, EthTerm)] {
-        self.symbol_map.as_ref()
+    pub fn variable_map(&self) -> &[(EthSymbolicVariable, EthTerm)] {
+        self.variable_map.as_ref()
     }
 
     pub fn separator(&self) -> Option<u8> {
         self.separator
     }
 
-    /// assume that symbol is in symbol_map
+    /// assume that symbol is in variable_map
     /// panic otherwise
     pub fn symbol_instantiation(&self, symbol: EthSymbolicVariable) -> EthTerm {
         *self
-            .symbol_map
+            .variable_map
             .get_value(symbol)
-            .expect("symbol should be in symbol_map")
+            .expect("symbol should be in variable_map")
     }
 
-    pub fn symbol_map_splitted(
+    pub fn variable_map_splitted(
         &self,
     ) -> (
         &[(EthSymbolicVariable, EthTerm)],
         Option<&[(EthSymbolicVariable, EthTerm)]>,
     ) {
-        let symbol_map: &[_] = self.symbol_map.as_ref();
+        let variable_map: &[_] = self.variable_map.as_ref();
         match self.separator {
             Some(separator) => {
                 let separator = separator as usize;
-                (&symbol_map[0..separator], Some(&symbol_map[separator..]))
+                (
+                    &variable_map[0..separator],
+                    Some(&variable_map[separator..]),
+                )
             }
-            None => (symbol_map, None),
+            None => (variable_map, None),
         }
     }
 
@@ -148,7 +151,7 @@ pub trait EthTermInstantiateRef {
 pub struct EthInstantiationBuilder {
     path: ItemPath,
     context_itd: EthTermContextItd,
-    symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4>,
+    variable_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4>,
     /// indicates the separation for associated item template instantiation
     separator: Option<u8>,
 }
@@ -163,13 +166,13 @@ impl EthInstantiationBuilder {
         is_associated: bool,
         ctx: impl IsEthTermContextRef,
     ) -> Self {
-        let symbol_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4> =
+        let variable_map: SmallVecPairMap<EthSymbolicVariable, Option<EthTerm>, 4> =
             symbols.map(|symbol| (symbol, None)).collect();
         Self {
             path,
             context_itd: ctx.context_itd(),
-            separator: is_associated.then_some(symbol_map.len().try_into().unwrap()),
-            symbol_map,
+            separator: is_associated.then_some(variable_map.len().try_into().unwrap()),
+            variable_map,
         }
     }
 
@@ -271,7 +274,7 @@ impl EthInstantiationBuilder {
         symbol: EthSymbolicVariable,
         dst: EthTerm,
     ) -> EthTermMaybeResult<()> {
-        if let Some((_, opt_dst0)) = self.symbol_map.get_entry_mut(symbol) {
+        if let Some((_, opt_dst0)) = self.variable_map.get_entry_mut(symbol) {
             match opt_dst0 {
                 Some(dst0) => {
                     if dst != *dst0 {
@@ -291,32 +294,33 @@ impl EthInstantiationBuilder {
     }
 
     pub fn try_into_instantiation(&self) -> Option<EthInstantiation> {
-        let mut symbol_map = SmallVecPairMap::<EthSymbolicVariable, EthTerm, 4>::default();
-        for (symbol, mapped) in self.symbol_map.iter() {
+        let mut variable_map = SmallVecPairMap::<EthSymbolicVariable, EthTerm, 4>::default();
+        for (variable, mapped) in self.variable_map.iter() {
             let mapped = (*mapped)?;
-            unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }
+            unsafe { variable_map.insert_new_unchecked((*variable, mapped)) }
         }
         Some(EthInstantiation {
             path: self.path,
             context_itd: self.context_itd,
-            symbol_map,
+            variable_map,
             separator: self.separator,
         })
     }
 
-    pub fn merge_with_item_template_parameters(
+    pub fn assoc_item_builder(
         &self,
+        path: impl Into<AssocItemPath>,
         template_parameters: &EthTemplateParameters,
     ) -> Self {
-        let mut symbol_map = self.symbol_map.clone();
-        let len = symbol_map.len().try_into().unwrap();
+        let mut variable_map = self.variable_map.clone();
+        let len = variable_map.len().try_into().unwrap();
         for param in template_parameters.iter() {
-            unsafe { symbol_map.insert_new_unchecked((param.symbol(), None)) }
+            unsafe { variable_map.insert_new_unchecked((param.variable(), None)) }
         }
         Self {
-            path: self.path,
+            path: path.into().into(),
             context_itd: self.context_itd,
-            symbol_map,
+            variable_map,
             separator: Some(len),
         }
     }

@@ -5,7 +5,7 @@ pub enum Separator {
 }
 
 impl Separator {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         match self {
             Separator::Comma => ",",
             Separator::Semicolon => ";",
@@ -15,6 +15,6 @@ impl Separator {
 
 impl std::fmt::Debug for Separator {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data()))
+        f.write_fmt(format_args!("`{}`", self.repr()))
     }
 }

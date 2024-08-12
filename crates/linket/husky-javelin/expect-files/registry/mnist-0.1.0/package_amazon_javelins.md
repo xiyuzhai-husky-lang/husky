@@ -7,10 +7,181 @@
                     TypePath(`mnist::MnistLabel`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Zero`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::One`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Two`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Three`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Four`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Five`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Six`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Seven`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Eight`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`mnist::MnistLabel`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::MnistLabel::Nine`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -23,10 +194,11 @@
                     MajorFormPath(`mnist::INPUT`, `StaticVar`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::INPUT`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -44,10 +216,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),
@@ -65,10 +238,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),
@@ -88,10 +262,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),
@@ -109,10 +284,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),
@@ -132,10 +308,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::task::MnistTask(0)::new`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),
@@ -150,10 +327,11 @@
                     MajorFormPath(`mnist::TASK`, `StaticVar`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`mnist::TASK`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },

@@ -31,9 +31,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -46,7 +46,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,

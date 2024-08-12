@@ -163,7 +163,7 @@ fn ty_method_ritchie_fly_signature<'db, Term: Copy + Into<FlyTerm>>(
     .try_for_each(|(src, dst)| instantiation_builder.try_add_rule(src, dst.into()))?;
     let mut method_template_argument_iter = method_template_arguments.iter();
     for template_parameter in template.template_parameters(db).iter() {
-        match template_parameter.symbol().index(db).inner() {
+        match template_parameter.variable().index(db).inner() {
             EthTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,

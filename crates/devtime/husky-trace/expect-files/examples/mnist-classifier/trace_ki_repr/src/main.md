@@ -80,10 +80,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::zero::open_one_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -241,10 +242,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -1146,10 +1148,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -1227,10 +1230,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -1333,13 +1337,14 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`core::vec::Vec(0)::ilen`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -1347,14 +1352,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -1604,10 +1608,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -1720,10 +1725,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -1802,10 +1808,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -1886,10 +1893,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -2052,6 +2060,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -2078,10 +2087,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -2089,14 +2098,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -2233,10 +2241,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -2352,10 +2361,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -2459,10 +2469,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -2578,10 +2589,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -2685,10 +2697,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -2804,10 +2817,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -2997,6 +3011,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -3023,10 +3038,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -3034,14 +3049,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -3273,10 +3287,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -3392,10 +3407,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -3652,10 +3668,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -3739,10 +3756,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -4299,10 +4317,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -4386,10 +4405,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -5007,10 +5027,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -5094,10 +5115,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -5943,10 +5965,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -6055,10 +6078,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -6356,10 +6380,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -6468,10 +6493,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -6705,10 +6731,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -6792,10 +6819,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -6904,10 +6932,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -6981,10 +7010,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -7068,10 +7098,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -7180,10 +7211,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -8003,10 +8035,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -8111,10 +8144,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -8230,10 +8264,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -8378,10 +8413,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::one::one_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -8431,7 +8467,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 186,
+                            value: 192,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -8487,7 +8523,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 186,
+                            value: 192,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -8539,10 +8575,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -8599,7 +8636,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 186,
+                            value: 192,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -8695,7 +8732,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -8743,7 +8780,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -8769,6 +8806,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -8795,10 +8833,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -8806,14 +8844,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -8912,10 +8949,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -8964,7 +9002,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -8993,10 +9031,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -9067,10 +9106,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -9119,7 +9159,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -9199,7 +9239,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -9225,6 +9265,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -9251,10 +9292,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -9262,14 +9303,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -9372,7 +9412,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -9432,7 +9472,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -9459,10 +9499,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -9543,7 +9584,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -9575,10 +9616,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -9657,10 +9699,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -9709,7 +9752,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -9741,10 +9784,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -9843,7 +9887,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10033,7 +10077,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10108,7 +10152,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10213,7 +10257,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10261,7 +10305,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10293,10 +10337,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -10377,7 +10422,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10412,10 +10457,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -10487,7 +10533,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10597,7 +10643,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10787,7 +10833,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10890,7 +10936,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -10993,7 +11039,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11052,7 +11098,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11111,7 +11157,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11186,7 +11232,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11306,7 +11352,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11365,7 +11411,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11468,7 +11514,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11527,7 +11573,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11602,7 +11648,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11738,7 +11784,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11843,7 +11889,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -11946,7 +11992,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12005,7 +12051,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12064,7 +12110,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12123,7 +12169,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12182,7 +12228,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12241,7 +12287,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12344,7 +12390,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12403,7 +12449,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12462,7 +12508,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12521,7 +12567,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12580,7 +12626,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12683,7 +12729,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12786,7 +12832,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -12856,10 +12902,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -12909,7 +12956,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 213,
+                            value: 219,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -12965,7 +13012,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 213,
+                            value: 219,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -13017,10 +13064,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -13077,7 +13125,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 213,
+                            value: 219,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -13129,10 +13177,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match_refined1`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -13182,7 +13231,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 215,
+                            value: 221,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -13238,7 +13287,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 215,
+                            value: 221,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -13290,10 +13339,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -13350,7 +13400,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 215,
+                            value: 221,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -13446,7 +13496,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13506,7 +13556,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13592,10 +13642,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -13644,7 +13695,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13747,7 +13798,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13838,7 +13889,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -13920,7 +13971,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14014,7 +14065,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14100,7 +14151,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14195,7 +14246,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14255,7 +14306,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14285,10 +14336,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -14360,10 +14412,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -14412,7 +14465,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14447,10 +14500,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -14525,7 +14579,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14585,7 +14639,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14681,10 +14735,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -14733,7 +14788,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14768,10 +14823,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -14842,10 +14898,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -14894,7 +14951,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -14929,10 +14986,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -15023,7 +15081,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15153,7 +15211,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15212,7 +15270,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15271,7 +15329,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15330,7 +15388,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15389,7 +15447,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15448,7 +15506,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15507,7 +15565,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15626,7 +15684,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15746,7 +15804,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15805,7 +15863,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15880,7 +15938,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -15985,7 +16043,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16070,7 +16128,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16105,10 +16163,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -16181,7 +16240,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16290,7 +16349,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16387,7 +16446,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16475,7 +16534,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16575,7 +16634,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16623,7 +16682,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16655,6 +16714,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -16681,10 +16741,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -16692,14 +16752,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -16793,10 +16852,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -16845,7 +16905,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -16880,10 +16940,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -16955,7 +17016,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17041,7 +17102,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17073,6 +17134,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -17099,10 +17161,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -17110,14 +17172,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -17231,7 +17292,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17336,7 +17397,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17427,10 +17488,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -17479,7 +17541,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17514,10 +17576,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -17589,7 +17652,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17683,7 +17746,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17775,7 +17838,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17810,10 +17873,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -17886,7 +17950,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -17995,7 +18059,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18092,7 +18156,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18180,7 +18244,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18277,7 +18341,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18367,7 +18431,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18402,10 +18466,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -18477,7 +18542,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18514,10 +18579,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -18592,7 +18658,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18702,7 +18768,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18807,7 +18873,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18899,7 +18965,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -18934,10 +19000,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -19010,7 +19077,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19119,7 +19186,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19216,7 +19283,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19304,7 +19371,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19404,7 +19471,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19496,7 +19563,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19598,7 +19665,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19692,7 +19759,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -19762,10 +19829,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -19815,7 +19883,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 241,
+                            value: 247,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -19871,7 +19939,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 241,
+                            value: 247,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -19923,10 +19991,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -19983,7 +20052,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 241,
+                            value: 247,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20035,10 +20104,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::is_three`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -20088,7 +20158,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20135,10 +20205,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -20195,7 +20266,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20256,7 +20327,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20310,7 +20381,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20357,10 +20428,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -20417,7 +20489,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20478,7 +20550,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20532,7 +20604,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20589,7 +20661,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -20631,10 +20703,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -20691,7 +20764,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20752,7 +20825,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20813,7 +20886,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20874,7 +20947,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20928,7 +21001,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -20985,7 +21058,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -21027,10 +21100,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -21087,7 +21161,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21148,7 +21222,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21209,7 +21283,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21270,7 +21344,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21324,7 +21398,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21381,7 +21455,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -21423,10 +21497,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -21483,7 +21558,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21544,7 +21619,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21605,7 +21680,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21666,7 +21741,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21720,7 +21795,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21776,7 +21851,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21830,7 +21905,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21886,7 +21961,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -21947,7 +22022,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22008,7 +22083,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22069,7 +22144,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22123,7 +22198,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22179,7 +22254,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22233,7 +22308,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22290,7 +22365,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -22341,7 +22416,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22402,7 +22477,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22463,7 +22538,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22524,7 +22599,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22585,7 +22660,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22639,7 +22714,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22695,7 +22770,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22756,7 +22831,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22817,7 +22892,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22878,7 +22953,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22932,7 +23007,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -22989,7 +23064,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -23040,7 +23115,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23101,7 +23176,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23162,7 +23237,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23216,7 +23291,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23273,7 +23348,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -23324,7 +23399,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23385,7 +23460,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23446,7 +23521,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23500,7 +23575,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23557,7 +23632,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -23608,7 +23683,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23669,7 +23744,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23730,7 +23805,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23784,7 +23859,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23840,7 +23915,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23901,7 +23976,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -23955,7 +24030,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24002,10 +24077,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -24062,7 +24138,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24123,7 +24199,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24177,7 +24253,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24233,7 +24309,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24294,7 +24370,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24355,7 +24431,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24416,7 +24492,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24470,7 +24546,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24540,10 +24616,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::four::left_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -24593,7 +24670,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 259,
+                            value: 265,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24649,7 +24726,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 259,
+                            value: 265,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24701,10 +24778,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -24761,7 +24839,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 259,
+                            value: 265,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24813,10 +24891,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -24866,7 +24945,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 263,
+                            value: 269,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24922,7 +25001,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 263,
+                            value: 269,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -24974,10 +25053,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -25034,7 +25114,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 263,
+                            value: 269,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25086,10 +25166,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::four::components_max_heights`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -25139,7 +25220,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 265,
+                            value: 271,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25195,7 +25276,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 265,
+                            value: 271,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25247,10 +25328,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -25307,7 +25389,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 265,
+                            value: 271,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25359,10 +25441,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::four::is_four`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -25412,7 +25495,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25459,10 +25542,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::four::left_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -25519,7 +25603,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25580,7 +25664,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25641,7 +25725,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25702,7 +25786,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25756,7 +25840,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25803,10 +25887,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::four::left_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -25863,7 +25948,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25924,7 +26009,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -25985,7 +26070,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26046,7 +26131,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26100,7 +26185,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26157,7 +26242,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                 },
@@ -26199,10 +26284,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -26259,7 +26345,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26313,7 +26399,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26369,7 +26455,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26430,7 +26516,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26491,7 +26577,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26552,7 +26638,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26613,7 +26699,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26667,7 +26753,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26724,7 +26810,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                 },
@@ -26766,10 +26852,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::four::components_max_downwards`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -26826,7 +26913,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26887,7 +26974,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -26948,7 +27035,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27009,7 +27096,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27063,7 +27150,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27119,7 +27206,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27173,7 +27260,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27230,7 +27317,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                 },
@@ -27281,7 +27368,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27342,7 +27429,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27403,7 +27490,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27464,7 +27551,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27518,7 +27605,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27575,7 +27662,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                 },
@@ -27617,10 +27704,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -27677,7 +27765,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27729,10 +27817,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -27789,7 +27878,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27843,7 +27932,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27899,7 +27988,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -27960,7 +28049,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28030,7 +28119,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28079,7 +28168,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28128,7 +28217,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28177,7 +28266,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28226,7 +28315,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28275,7 +28364,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28324,7 +28413,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28373,7 +28462,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28422,7 +28511,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28471,7 +28560,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28520,7 +28609,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28569,7 +28658,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28618,7 +28707,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28667,7 +28756,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28716,7 +28805,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28772,7 +28861,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28833,7 +28922,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28894,7 +28983,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -28955,7 +29044,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29016,7 +29105,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29070,7 +29159,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 267,
+                            value: 273,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29140,10 +29229,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::five::is_five`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -29193,7 +29283,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 276,
+                            value: 282,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29263,10 +29353,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -29316,7 +29407,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 278,
+                            value: 284,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29372,7 +29463,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 278,
+                            value: 284,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29424,10 +29515,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -29484,7 +29576,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 278,
+                            value: 284,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29536,10 +29628,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -29589,7 +29682,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 282,
+                            value: 288,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29645,7 +29738,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 282,
+                            value: 288,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29697,10 +29790,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -29757,7 +29851,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 282,
+                            value: 288,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29809,10 +29903,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::is_seven`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -29862,7 +29957,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -29909,10 +30004,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -29969,7 +30065,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30030,7 +30126,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30084,7 +30180,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30141,7 +30237,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                 },
@@ -30183,10 +30279,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -30243,7 +30340,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30313,7 +30410,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30362,7 +30459,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30411,7 +30508,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30476,7 +30573,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30525,7 +30622,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30581,7 +30678,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30642,7 +30739,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30712,7 +30809,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30761,7 +30858,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30810,7 +30907,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30859,7 +30956,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30915,7 +31012,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -30976,7 +31073,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31030,7 +31127,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31077,10 +31174,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -31137,7 +31235,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31198,7 +31296,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31259,7 +31357,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31320,7 +31418,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31374,7 +31472,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31431,7 +31529,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                 },
@@ -31473,10 +31571,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -31533,7 +31632,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31587,7 +31686,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31643,7 +31742,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31697,7 +31796,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31767,10 +31866,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::eight::upper_mouth_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -31820,7 +31920,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 290,
+                            value: 296,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31876,7 +31976,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 290,
+                            value: 296,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -31928,10 +32028,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -31988,7 +32089,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 290,
+                            value: 296,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32040,10 +32141,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::eight::is_eight`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -32093,7 +32195,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32150,7 +32252,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                 },
@@ -32192,10 +32294,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -32252,7 +32355,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32304,10 +32407,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -32364,7 +32468,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32434,7 +32538,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32499,7 +32603,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32548,7 +32652,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32595,10 +32699,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -32655,7 +32760,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32716,7 +32821,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32777,7 +32882,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32838,7 +32943,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32899,7 +33004,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -32953,7 +33058,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33023,10 +33128,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::nine::nine_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -33076,7 +33182,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 296,
+                            value: 302,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33132,7 +33238,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 296,
+                            value: 302,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33184,10 +33290,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -33244,7 +33351,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 296,
+                            value: 302,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33296,10 +33403,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -33349,7 +33457,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 298,
+                            value: 304,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33405,7 +33513,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 298,
+                            value: 304,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33457,10 +33565,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -33517,7 +33626,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 298,
+                            value: 304,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33569,10 +33678,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::nine::is_nine`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -33622,7 +33732,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33679,7 +33789,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -33721,10 +33831,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -33781,7 +33892,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33835,7 +33946,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33891,7 +34002,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -33952,7 +34063,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34013,7 +34124,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34074,7 +34185,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34135,7 +34246,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34189,7 +34300,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34246,7 +34357,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -34288,10 +34399,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::nine::nine_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -34348,7 +34460,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34409,7 +34521,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34470,7 +34582,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34531,7 +34643,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34585,7 +34697,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34641,7 +34753,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34695,7 +34807,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34752,7 +34864,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -34803,7 +34915,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34864,7 +34976,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34925,7 +35037,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -34986,7 +35098,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35040,7 +35152,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35097,7 +35209,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -35139,10 +35251,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -35199,7 +35312,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35251,10 +35364,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -35311,7 +35425,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35365,7 +35479,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35421,7 +35535,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35482,7 +35596,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35552,7 +35666,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35601,7 +35715,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35650,7 +35764,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35699,7 +35813,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35748,7 +35862,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35797,7 +35911,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35846,7 +35960,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35895,7 +36009,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35944,7 +36058,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -35993,7 +36107,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36042,7 +36156,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36091,7 +36205,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36140,7 +36254,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36189,7 +36303,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36238,7 +36352,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36294,7 +36408,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36355,7 +36469,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36416,7 +36530,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36477,7 +36591,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36538,7 +36652,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36592,7 +36706,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36662,10 +36776,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -36715,7 +36830,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 306,
+                            value: 312,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36771,7 +36886,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 306,
+                            value: 312,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36823,10 +36938,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -36883,7 +36999,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 306,
+                            value: 312,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -36935,10 +37051,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::is_two`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -36988,7 +37105,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37045,7 +37162,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -37087,10 +37204,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -37147,7 +37265,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37201,7 +37319,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37258,7 +37376,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -37300,10 +37418,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -37360,7 +37479,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37414,7 +37533,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37470,7 +37589,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37531,7 +37650,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37592,7 +37711,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37653,7 +37772,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37714,7 +37833,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37768,7 +37887,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37825,7 +37944,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -37867,10 +37986,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -37927,7 +38047,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -37988,7 +38108,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38049,7 +38169,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38110,7 +38230,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38164,7 +38284,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38221,7 +38341,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -38263,10 +38383,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -38323,7 +38444,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38384,7 +38505,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38445,7 +38566,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38506,7 +38627,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38560,7 +38681,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38617,7 +38738,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -38659,10 +38780,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -38719,7 +38841,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38780,7 +38902,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38841,7 +38963,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38902,7 +39024,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -38956,7 +39078,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39012,7 +39134,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39073,7 +39195,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39127,7 +39249,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39184,7 +39306,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -39226,10 +39348,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -39286,7 +39409,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39338,10 +39461,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -39398,7 +39522,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39452,7 +39576,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39508,7 +39632,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39569,7 +39693,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39639,7 +39763,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39688,7 +39812,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39737,7 +39861,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39786,7 +39910,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39835,7 +39959,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39884,7 +40008,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39933,7 +40057,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -39982,7 +40106,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40031,7 +40155,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40080,7 +40204,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40129,7 +40253,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40178,7 +40302,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40227,7 +40351,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40276,7 +40400,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40325,7 +40449,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40381,7 +40505,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40442,7 +40566,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40512,7 +40636,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40561,7 +40685,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40610,7 +40734,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40659,7 +40783,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40708,7 +40832,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40757,7 +40881,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40813,7 +40937,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40874,7 +40998,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40928,7 +41052,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -40998,10 +41122,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::connected_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -41051,7 +41176,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41107,7 +41232,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41160,12 +41285,12 @@
                     },
                     caller_sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     callee_syn_expr_region: SynExprRegion(
                         Id {
-                            value: 246,
+                            value: 252,
                         },
                     ),
                 },
@@ -41244,7 +41369,7 @@
                     static_var_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
-                                value: 290,
+                                value: 284,
                             },
                         ),
                     ),
@@ -41259,10 +41384,11 @@
                         data: LinketData::MajorStaticVar {
                             path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist::INPUT`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -41319,7 +41445,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41372,12 +41498,12 @@
                     },
                     caller_sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     callee_syn_expr_region: SynExprRegion(
                         Id {
-                            value: 246,
+                            value: 252,
                         },
                     ),
                 },
@@ -41471,10 +41597,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -41524,7 +41651,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41581,7 +41708,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                 },
@@ -41632,7 +41759,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41686,7 +41813,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41743,7 +41870,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                 },
@@ -41794,7 +41921,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41866,7 +41993,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41915,7 +42042,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -41972,7 +42099,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                 },
@@ -42014,10 +42141,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::connected_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -42074,7 +42202,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42135,7 +42263,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42196,7 +42324,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42257,7 +42385,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42327,7 +42455,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42376,7 +42504,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42425,7 +42553,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42481,7 +42609,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42542,7 +42670,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42601,7 +42729,7 @@
                     hir_eager_expr_idx: None,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42653,10 +42781,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::connected_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -42706,7 +42835,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42762,7 +42891,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42795,7 +42924,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 397,
+                                            value: 391,
                                         },
                                     ),
                                 ),
@@ -42821,7 +42950,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 397,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -42868,7 +42997,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -42915,10 +43044,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::connected_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -42968,7 +43098,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43024,7 +43154,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43085,7 +43215,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43146,7 +43276,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43198,10 +43328,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -43251,7 +43382,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43308,7 +43439,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                 },
@@ -43359,7 +43490,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43431,7 +43562,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43480,7 +43611,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43536,7 +43667,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43588,10 +43719,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::connected_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -43648,7 +43780,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43709,7 +43841,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43770,7 +43902,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43831,7 +43963,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43890,7 +44022,7 @@
                     hir_eager_expr_idx: None,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -43942,10 +44074,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::connected_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -43995,7 +44128,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 157,
+                            value: 163,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44051,7 +44184,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44084,7 +44217,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 397,
+                                            value: 391,
                                         },
                                     ),
                                 ),
@@ -44110,7 +44243,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 397,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -44157,7 +44290,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44213,7 +44346,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44265,10 +44398,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -44318,7 +44452,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44367,7 +44501,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44434,7 +44568,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44483,7 +44617,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44539,7 +44673,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 211,
+                            value: 217,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44591,10 +44725,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_raw_contours`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -44644,7 +44779,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 324,
+                            value: 330,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44691,10 +44826,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -44744,7 +44880,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44793,7 +44929,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44860,7 +44996,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44909,7 +45045,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -44965,7 +45101,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 324,
+                            value: 330,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45017,10 +45153,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_raw_contour`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -45070,7 +45207,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 326,
+                            value: 332,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45117,10 +45254,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -45170,7 +45308,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45219,7 +45357,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45286,7 +45424,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45335,7 +45473,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 152,
+                            value: 158,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45391,7 +45529,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 326,
+                            value: 332,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45452,7 +45590,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 326,
+                            value: 332,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45513,7 +45651,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 326,
+                            value: 332,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45574,7 +45712,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 326,
+                            value: 332,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45626,10 +45764,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -45679,7 +45818,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 165,
+                            value: 171,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45726,10 +45865,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_raw_contour`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -45779,7 +45919,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 326,
+                            value: 332,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45835,7 +45975,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 165,
+                            value: 171,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -45887,10 +46027,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -45987,10 +46128,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -46040,7 +46182,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 165,
+                            value: 171,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -46148,10 +46290,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::main`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::main`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -46201,7 +46344,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -46292,7 +46435,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -46340,7 +46483,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -46366,6 +46509,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -46392,10 +46536,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -46403,14 +46547,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -46509,10 +46652,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -46561,7 +46705,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -46590,10 +46734,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -46664,10 +46809,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -46716,7 +46862,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -46796,7 +46942,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -46822,6 +46968,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -46848,10 +46995,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -46859,14 +47006,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -46969,7 +47115,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47029,7 +47175,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47056,10 +47202,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -47140,7 +47287,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47172,10 +47319,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -47254,10 +47402,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -47306,7 +47455,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47338,10 +47487,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -47440,7 +47590,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47630,7 +47780,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47705,7 +47855,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47810,7 +47960,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47858,7 +48008,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -47890,10 +48040,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -47974,7 +48125,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48009,10 +48160,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -48084,7 +48236,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48194,7 +48346,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48384,7 +48536,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48487,7 +48639,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48590,7 +48742,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48649,7 +48801,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48708,7 +48860,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48783,7 +48935,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48903,7 +49055,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -48962,7 +49114,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49065,7 +49217,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49124,7 +49276,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49199,7 +49351,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49335,7 +49487,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49440,7 +49592,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49543,7 +49695,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49602,7 +49754,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49661,7 +49813,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49720,7 +49872,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49779,7 +49931,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49838,7 +49990,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -49941,7 +50093,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50000,7 +50152,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50059,7 +50211,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50118,7 +50270,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50177,7 +50329,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50280,7 +50432,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50383,7 +50535,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 188,
+                            value: 194,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50432,7 +50584,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -50523,7 +50675,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50583,7 +50735,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50669,10 +50821,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -50721,7 +50874,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50824,7 +50977,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50915,7 +51068,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -50997,7 +51150,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51091,7 +51244,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51177,7 +51330,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51272,7 +51425,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51332,7 +51485,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51362,10 +51515,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -51437,10 +51591,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -51489,7 +51644,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51524,10 +51679,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -51602,7 +51758,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51662,7 +51818,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51758,10 +51914,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -51810,7 +51967,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -51845,10 +52002,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -51919,10 +52077,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -51971,7 +52130,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52006,10 +52165,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -52100,7 +52260,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52230,7 +52390,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52289,7 +52449,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52348,7 +52508,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52407,7 +52567,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52466,7 +52626,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52525,7 +52685,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52584,7 +52744,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52703,7 +52863,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52823,7 +52983,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52882,7 +53042,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -52957,7 +53117,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53062,7 +53222,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53147,7 +53307,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53182,10 +53342,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -53258,7 +53419,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53367,7 +53528,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53464,7 +53625,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53552,7 +53713,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53652,7 +53813,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53700,7 +53861,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53732,6 +53893,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -53758,10 +53920,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -53769,14 +53931,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -53870,10 +54031,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -53922,7 +54084,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -53957,10 +54119,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -54032,7 +54195,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54118,7 +54281,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54150,6 +54313,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -54176,10 +54340,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -54187,14 +54351,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -54308,7 +54471,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54413,7 +54576,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54504,10 +54667,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::six::six_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -54556,7 +54720,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54591,10 +54755,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -54666,7 +54831,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54760,7 +54925,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54852,7 +55017,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -54887,10 +55052,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -54963,7 +55129,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55072,7 +55238,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55169,7 +55335,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55257,7 +55423,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55354,7 +55520,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55444,7 +55610,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55479,10 +55645,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -55554,7 +55721,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55591,10 +55758,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -55669,7 +55837,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55779,7 +55947,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55884,7 +56052,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -55976,7 +56144,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56011,10 +56179,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -56087,7 +56256,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56196,7 +56365,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56293,7 +56462,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56381,7 +56550,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56481,7 +56650,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56573,7 +56742,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56675,7 +56844,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56769,7 +56938,7 @@
                     lazy_stmt_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 217,
+                            value: 223,
                         },
                     ),
                     hir_lazy_expr_region: HirLazyExprRegion(
@@ -56818,7 +56987,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -57658,10 +57827,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -57739,10 +57909,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -57845,13 +58016,14 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`core::vec::Vec(0)::ilen`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -57859,14 +58031,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 1,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -58116,10 +58287,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -58232,10 +58404,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -58314,10 +58487,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -58398,10 +58572,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -58564,6 +58739,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -58590,10 +58766,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -58601,14 +58777,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -58745,10 +58920,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -58864,10 +59040,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -58971,10 +59148,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -59090,10 +59268,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -59197,10 +59376,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -59316,10 +59496,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -59509,6 +59690,7 @@
                                 Gn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`malamute::narrow_down`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [
                                         (
@@ -59535,10 +59717,10 @@
                                         ),
                                     ],
                                 },
-                                symbol_resolutions: [
+                                variable_resolutions: [
                                     (
-                                        Type(
-                                            Type {
+                                        HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
                                                     class: Mono,
                                                 },
@@ -59546,14 +59728,13 @@
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        Explicit(
-                                            Type(
-                                                PathLeading(
-                                                    LinTypePathLeading(
-                                                        Id {
-                                                            value: 11,
-                                                        },
-                                                    ),
+                                        LinTermVariableResolution::Explicit(
+                                            LinTemplateArgument::Type(
+                                                LinType::PathLeading(
+                                                    LinTypePathLeading {
+                                                        ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        template_arguments: [],
+                                                    },
                                                 ),
                                             ),
                                         ),
@@ -59785,10 +59966,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -59904,10 +60086,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -60164,10 +60347,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -60251,10 +60435,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -60811,10 +60996,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -60898,10 +61084,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -61519,10 +61706,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -61606,10 +61794,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -62455,10 +62644,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -62567,10 +62757,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -62868,10 +63059,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -62980,10 +63172,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -63217,10 +63410,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -63304,10 +63498,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -63416,10 +63611,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -63493,10 +63689,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -63580,10 +63777,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -63692,10 +63890,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -64515,10 +64714,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -64623,10 +64823,11 @@
                                 Fn,
                             )`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -64742,10 +64943,11 @@
                                 ),
                             ),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: Some(
                                     0,
                                 ),
@@ -64869,7 +65071,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -64916,10 +65118,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::is_seven`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -64969,7 +65172,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65016,10 +65219,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -65076,7 +65280,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65137,7 +65341,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65191,7 +65395,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65248,7 +65452,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                 },
@@ -65290,10 +65494,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::simple_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -65350,7 +65555,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65420,7 +65625,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65469,7 +65674,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65518,7 +65723,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65583,7 +65788,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65632,7 +65837,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65688,7 +65893,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65749,7 +65954,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65819,7 +66024,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65868,7 +66073,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65917,7 +66122,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -65966,7 +66171,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66022,7 +66227,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66083,7 +66288,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66137,7 +66342,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66184,10 +66389,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -66244,7 +66450,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66305,7 +66511,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66366,7 +66572,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66427,7 +66633,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66481,7 +66687,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66538,7 +66744,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                 },
@@ -66580,10 +66786,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::seven::special_seven_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -66640,7 +66847,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66694,7 +66901,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66750,7 +66957,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66804,7 +67011,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 288,
+                            value: 294,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66853,7 +67060,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -66900,10 +67107,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::eight::is_eight`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -66953,7 +67161,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67010,7 +67218,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                 },
@@ -67052,10 +67260,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -67112,7 +67321,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67164,10 +67373,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -67224,7 +67434,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67294,7 +67504,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67359,7 +67569,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67408,7 +67618,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67455,10 +67665,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -67515,7 +67726,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67576,7 +67787,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67637,7 +67848,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67698,7 +67909,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67759,7 +67970,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67813,7 +68024,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 292,
+                            value: 298,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67862,7 +68073,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -67909,10 +68120,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::is_three`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -67962,7 +68174,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68009,10 +68221,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -68069,7 +68282,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68130,7 +68343,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68184,7 +68397,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68231,10 +68444,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -68291,7 +68505,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68352,7 +68566,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68406,7 +68620,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68463,7 +68677,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -68505,10 +68719,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -68565,7 +68780,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68626,7 +68841,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68687,7 +68902,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68748,7 +68963,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68802,7 +69017,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -68859,7 +69074,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -68901,10 +69116,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -68961,7 +69177,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69022,7 +69238,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69083,7 +69299,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69144,7 +69360,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69198,7 +69414,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69255,7 +69471,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -69297,10 +69513,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -69357,7 +69574,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69418,7 +69635,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69479,7 +69696,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69540,7 +69757,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69594,7 +69811,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69650,7 +69867,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69704,7 +69921,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69760,7 +69977,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69821,7 +70038,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69882,7 +70099,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69943,7 +70160,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -69997,7 +70214,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70053,7 +70270,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70107,7 +70324,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70164,7 +70381,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -70215,7 +70432,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70276,7 +70493,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70337,7 +70554,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70398,7 +70615,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70459,7 +70676,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70513,7 +70730,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70569,7 +70786,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70630,7 +70847,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70691,7 +70908,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70752,7 +70969,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70806,7 +71023,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70863,7 +71080,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -70914,7 +71131,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -70975,7 +71192,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71036,7 +71253,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71090,7 +71307,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71147,7 +71364,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -71198,7 +71415,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71259,7 +71476,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71320,7 +71537,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71374,7 +71591,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71431,7 +71648,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                 },
@@ -71482,7 +71699,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71543,7 +71760,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71604,7 +71821,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71658,7 +71875,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71714,7 +71931,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71775,7 +71992,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71829,7 +72046,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71876,10 +72093,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -71936,7 +72154,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -71997,7 +72215,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72051,7 +72269,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72107,7 +72325,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72168,7 +72386,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72229,7 +72447,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72290,7 +72508,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72344,7 +72562,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 243,
+                            value: 249,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72393,7 +72611,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72440,10 +72658,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::nine::is_nine`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -72493,7 +72712,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72550,7 +72769,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -72592,10 +72811,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -72652,7 +72872,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72706,7 +72926,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72762,7 +72982,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72823,7 +73043,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72884,7 +73104,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -72945,7 +73165,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73006,7 +73226,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73060,7 +73280,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73117,7 +73337,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -73159,10 +73379,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::nine::nine_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -73219,7 +73440,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73280,7 +73501,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73341,7 +73562,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73402,7 +73623,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73456,7 +73677,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73512,7 +73733,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73566,7 +73787,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73623,7 +73844,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -73674,7 +73895,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73735,7 +73956,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73796,7 +74017,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73857,7 +74078,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73911,7 +74132,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -73968,7 +74189,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                 },
@@ -74010,10 +74231,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -74070,7 +74292,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74122,10 +74344,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -74182,7 +74405,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74236,7 +74459,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74292,7 +74515,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74353,7 +74576,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74423,7 +74646,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74472,7 +74695,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74521,7 +74744,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74570,7 +74793,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74619,7 +74842,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74668,7 +74891,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74717,7 +74940,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74766,7 +74989,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74815,7 +75038,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74864,7 +75087,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74913,7 +75136,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -74962,7 +75185,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75011,7 +75234,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75060,7 +75283,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75109,7 +75332,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75165,7 +75388,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75226,7 +75449,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75287,7 +75510,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75348,7 +75571,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75409,7 +75632,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75463,7 +75686,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 300,
+                            value: 306,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75512,7 +75735,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75559,10 +75782,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::five::is_five`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -75612,7 +75836,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 276,
+                            value: 282,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75661,7 +75885,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75708,10 +75932,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::is_two`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -75761,7 +75986,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75818,7 +76043,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -75860,10 +76085,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -75920,7 +76146,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -75974,7 +76200,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76031,7 +76257,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -76073,10 +76299,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -76133,7 +76360,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76187,7 +76414,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76243,7 +76470,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76304,7 +76531,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76365,7 +76592,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76426,7 +76653,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76487,7 +76714,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76541,7 +76768,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76598,7 +76825,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -76640,10 +76867,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -76700,7 +76928,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76761,7 +76989,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76822,7 +77050,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76883,7 +77111,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76937,7 +77165,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -76994,7 +77222,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -77036,10 +77264,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -77096,7 +77325,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77157,7 +77386,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77218,7 +77447,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77279,7 +77508,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77333,7 +77562,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77390,7 +77619,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -77432,10 +77661,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::digits::two::two_match`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -77492,7 +77722,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77553,7 +77783,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77614,7 +77844,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77675,7 +77905,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77729,7 +77959,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77785,7 +78015,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77846,7 +78076,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77900,7 +78130,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -77957,7 +78187,7 @@
                     ],
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                 },
@@ -77999,10 +78229,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -78059,7 +78290,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78111,10 +78342,11 @@
                         data: LinketData::MajorVal {
                             path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },
@@ -78171,7 +78403,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78225,7 +78457,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78281,7 +78513,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78342,7 +78574,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78412,7 +78644,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78461,7 +78693,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78510,7 +78742,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78559,7 +78791,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78608,7 +78840,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78657,7 +78889,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78706,7 +78938,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78755,7 +78987,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78804,7 +79036,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78853,7 +79085,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78902,7 +79134,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -78951,7 +79183,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79000,7 +79232,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79049,7 +79281,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79098,7 +79330,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79154,7 +79386,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79215,7 +79447,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79285,7 +79517,7 @@
                     },
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79334,7 +79566,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79383,7 +79615,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79432,7 +79664,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79481,7 +79713,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79530,7 +79762,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79586,7 +79818,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79647,7 +79879,7 @@
                     ),
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79701,7 +79933,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 314,
+                            value: 320,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(
@@ -79750,7 +79982,7 @@
                     eager_stmt_data_sketch: BasicStmt,
                     sem_expr_region: SemExprRegion(
                         Id {
-                            value: 322,
+                            value: 328,
                         },
                     ),
                     hir_eager_expr_region: HirEagerExprRegion(

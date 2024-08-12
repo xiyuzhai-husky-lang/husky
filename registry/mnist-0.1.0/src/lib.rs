@@ -6,7 +6,6 @@ use self::input_id::*;
 use dataset::MNIST_DATASET;
 use husky_core::*;
 use husky_devsoul_interface::ugly::*;
-use husky_linket_impl::standard::ugly::*;
 use husky_standard_devsoul_interface::{label::IsLabel, ugly::*};
 
 #[husky_standard_value::value_conversion]
@@ -130,8 +129,8 @@ impl __IsStaticVar<__StaticVarId> for INPUT {
         input_id().index().into()
     }
 
-    fn set_id(id: __StaticVarId) {
-        set_input_id(id.into())
+    unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
+        replace_input_id(id.into()).map(Into::into)
     }
 
     fn ids() -> impl Iterator<Item = __StaticVarId> {
@@ -146,7 +145,7 @@ impl INPUT {
 
     pub fn set_up_for_testing(index: usize) {
         // todo: check range!
-        set_input_id(MnistInputId::from_index(index))
+        replace_input_id(MnistInputId::from_index(index));
     }
 }
 
@@ -168,7 +167,7 @@ impl TASK {
         todo!()
     }
 
-    pub fn set_id(id: __StaticVarId) {
+    pub unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
         todo!()
     }
 

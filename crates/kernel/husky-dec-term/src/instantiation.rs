@@ -37,7 +37,7 @@ impl DeclarativeInstantiation {
         *self
             .hvar_map
             .get_value(hvar)
-            .expect("symbol should be in symbol_map")
+            .expect("symbol should be in variable_map")
     }
 }
 

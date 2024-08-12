@@ -9,10 +9,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::two::two_match`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },
@@ -34,10 +35,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::two::is_two`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },

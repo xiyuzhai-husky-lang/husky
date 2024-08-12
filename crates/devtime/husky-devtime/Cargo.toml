@@ -1,6 +1,6 @@
 [package]
 name = "husky-devtime"
-version = "0.0.0"
+version.workspace = true
 edition = "2021"
 
 [dependencies]
@@ -23,8 +23,12 @@ husky-eth-signature.workspace = true
 husky-coword.workspace = true
 husky-opr.workspace = true
 husky-entity-kind.workspace = true
+husky-item-path-interface.workspace = true
 # lex
 husky-text-protocol.workspace = true
+# linket
+husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
 # protocols
 husky-trace-protocol = { workspace = true, features = ["server"] }
 husky-value-protocol.workspace = true
@@ -51,7 +55,7 @@ husky-vm.workspace = true
 [dev-dependencies]
 tracing.workspace = true
 tracing-subscriber.workspace = true
-tracing-test = { workspace = true }
+tracing-test.workspace = true
 # protocols
 husky-trace-protocol = { workspace = true, features = ["test_utils"] }
 husky-standard-visual-protocol.workspace = true

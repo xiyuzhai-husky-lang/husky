@@ -11,7 +11,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -32,7 +32,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -53,7 +53,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -74,7 +74,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],

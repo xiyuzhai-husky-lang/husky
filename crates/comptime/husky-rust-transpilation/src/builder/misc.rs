@@ -280,12 +280,7 @@ pub static mut {}: Option<__ItemPathIdInterface> = None;
         let Some(cache_path) = item_path_id_interface_cache_path(item_path, self.db()) else {
             unreachable!()
         };
-        write!(
-            &mut self.result,
-            "{}::{}",
-            item_path.module_path(db).display(db),
-            cache_path
-        )
-        .unwrap()
+        item_path.module_path(db).transpile_to_rust(self);
+        write!(&mut self.result, "::{}", cache_path).unwrap()
     }
 }

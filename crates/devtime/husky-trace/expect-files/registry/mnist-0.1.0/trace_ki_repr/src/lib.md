@@ -34,10 +34,11 @@
                         data: LinketData::MajorStaticVar {
                             path: MajorFormPath(`mnist::INPUT`, `StaticVar`),
                             instantiation: LinInstantiation {
+                                path: ItemPath(`mnist::INPUT`),
                                 context: LinTypeContext {
                                     comptime_var_overrides: [],
                                 },
-                                symbol_resolutions: [],
+                                variable_resolutions: [],
                                 separator: None,
                             },
                         },

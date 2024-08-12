@@ -2,7 +2,6 @@ mod flag;
 
 use self::flag::*;
 use crate::*;
-use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
 use ml_task::IsMlTask;
 use smallvec::SmallVec;
 
@@ -29,7 +28,7 @@ where
             __eval_generic_gn_with(ki_repr_interface, generic_pedestal, || {
                 Self::train(ki_domain_repr_interface, ki_argument_repr_interfaces)
                     .map(__IntoValue::into_value)
-            });
+            })?;
         __KiControlFlow::Continue(
             Self::eval(ki_argument_repr_interfaces, internal.deleash()).into_value(),
         )
@@ -174,12 +173,12 @@ where
                 continue;
             };
             let v: f32 = match __eval_ki_repr_interface(feature, None) {
-                KiControlFlow::Continue(v) => v,
-                KiControlFlow::LoopContinue => todo!(),
-                KiControlFlow::LoopExit(_) => todo!(),
-                KiControlFlow::Return(_) => todo!(),
-                KiControlFlow::Undefined => todo!(),
-                KiControlFlow::Throw(_) => todo!(),
+                __KiControlFlow::Continue(v) => v,
+                __KiControlFlow::LoopContinue => todo!(),
+                __KiControlFlow::LoopExit(_) => todo!(),
+                __KiControlFlow::Return(_) => todo!(),
+                __KiControlFlow::Undefined => todo!(),
+                __KiControlFlow::Throw(_) => todo!(),
             };
             let v = NotNan::new(v).unwrap();
             let apply_result = flag_range.apply(v);

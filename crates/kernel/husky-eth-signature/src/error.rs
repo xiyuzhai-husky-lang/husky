@@ -1,5 +1,5 @@
 use crate::{
-    signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd, *,
+    signature::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthSignatureBuilderItd, *,
 };
 use husky_dec_signature::error::DecSignatureError;
 use thiserror::Error;
@@ -13,7 +13,7 @@ pub enum EthSignatureError {
     DerivedFromDecSignature(DecSignatureError),
     #[error("NoSuchItem")]
     NoSuchItemInTraitForTypeImplBlockEthSignatureBuilder {
-        signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
+        signature_builder: TraitForTypeImplBlockEthSignatureBuilderItd,
         ident: Ident,
     },
     #[error("EntityTreeError")]

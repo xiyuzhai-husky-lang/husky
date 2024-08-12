@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 136,
+                        value: 124,
                     },
                 ),
             ),
@@ -28,7 +28,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 245,
+                        value: 233,
                     },
                 ),
             ),
@@ -50,7 +50,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 137,
+                        value: 125,
                     },
                 ),
             ),
@@ -71,7 +71,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 138,
+                        value: 126,
                     },
                 ),
             ),

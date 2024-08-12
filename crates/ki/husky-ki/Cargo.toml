@@ -11,6 +11,8 @@ salsa.workspace = true
 husky-coword.workspace = true
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
 # hir
 husky-hir-opr.workspace = true
 # linket

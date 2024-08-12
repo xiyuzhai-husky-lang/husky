@@ -109,12 +109,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 1,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`BinaryImage28`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`BinaryImage28`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),
@@ -141,12 +156,24 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    AssocRitchie(
-                        TypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 1,
+                    TypeItemEthTemplate::AssocRitchie(
+                        TypeAssocRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist::BinaryImage28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`BinaryImage28`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`BinaryImage28`),
+                            ty: EthTerm(`fn(() -> BinaryImage28`),
+                        },
                     ),
                 ),
             ),
@@ -186,12 +213,17 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocType(
-                        TraitForTypeAssocTypeEthTemplate(
-                            Id {
-                                value: 1,
+                    TraitForTypeItemEthTemplate::AssocType(
+                        TraitForTypeAssocTypeEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            assoc_ty: EthTerm(`r32`),
+                        },
                     ),
                 ),
             ),
@@ -231,12 +263,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`BinaryGrid28`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`BinaryGrid28`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),
@@ -263,12 +310,24 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    AssocRitchie(
-                        TypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TypeItemEthTemplate::AssocRitchie(
+                        TypeAssocRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist::BinaryGrid28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`BinaryGrid28`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`BinaryGrid28`),
+                            ty: EthTerm(`fn(() -> BinaryGrid28`),
+                        },
                     ),
                 ),
             ),
@@ -308,12 +367,17 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocType(
-                        TraitForTypeAssocTypeEthTemplate(
-                            Id {
-                                value: 2,
+                    TraitForTypeItemEthTemplate::AssocType(
+                        TraitForTypeAssocTypeEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            assoc_ty: EthTerm(`r32`),
+                        },
                     ),
                 ),
             ),

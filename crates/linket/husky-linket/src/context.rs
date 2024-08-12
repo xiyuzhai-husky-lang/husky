@@ -38,10 +38,14 @@ impl LinTypeContext {
         }
     }
 
-    pub(crate) fn from_jav(jav_context: &JavTypeContext, db: &::salsa::Db) -> Self {
+    pub(crate) fn from_jav(
+        jav_context: &JavTypeContext,
+        lin_instantiation: &LinInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
         let comptime_var_overrides = jav_context
             .comptime_var_overrides()
-            .map_collect(|&ovrd| LinComptimeVarOverride::from_jav(ovrd, db));
+            .map_collect(|&ovrd| LinComptimeVarOverride::from_jav(ovrd, lin_instantiation, db));
         Self {
             comptime_var_overrides,
         }
@@ -67,14 +71,14 @@ impl LinComptimeVarOverride {
         }
     }
 
-    fn from_jav(jav_ovrd: JavComptimeVarOverride, db: &::salsa::Db) -> Self {
+    fn from_jav(
+        jav_ovrd: JavComptimeVarOverride,
+        lin_instantiation: &LinInstantiation,
+        db: &::salsa::Db,
+    ) -> Self {
         match jav_ovrd {
             JavComptimeVarOverride::Type(jav_ty) => {
-                LinComptimeVarOverride::Type(LinType::from_jav(
-                    jav_ty,
-                    &LinInstantiation::new_empty_for_comptime_var_overrides(),
-                    db,
-                ))
+                LinComptimeVarOverride::Type(LinType::from_jav(jav_ty, lin_instantiation, db))
             }
         }
     }

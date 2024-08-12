@@ -1,24 +1,22 @@
 use crate::*;
 use husky_devsoul::{
     devsoul::IsDevsoul,
-    helpers::{DevsoulException, DevsoulValue},
+    helpers::{DevsoulTrackedException, DevsoulValue},
 };
-use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
-use husky_devsoul_interface::{ki_control_flow::KiControlFlow, IsLinketImpl};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
-use husky_linket_impl::standard::StandardLinketImpl;
+use husky_ki_repr_interface::KiArgumentReprInterface;
+use husky_linket_impl::exception::{ExceptionSource, TrackedException};
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
-use husky_standard_devsoul::StandardDevsoul;
 use husky_term_prelude::literal::Literal;
-use husky_value_interface::IsValue;
+use husky_value_interface::{ki_control_flow::KiControlFlow, IsValue};
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn eval_ki_domain_repr(
         &self,
         ki_domain_repr: KiDomainRepr,
-    ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
+    ) -> KiControlFlow<(), Infallible, DevsoulTrackedException<Devsoul>> {
         let db = self.db();
         let ki_domain = ki_domain_repr.ki_domain(db);
         let Some(var_deps) = ki_domain_repr.var_deps(db) else {
@@ -45,7 +43,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn eval_ki_domain_repr_aux(
         &self,
         ki_domain_repr: KiDomainRepr,
-    ) -> KiControlFlow<(), Infallible, DevsoulException<Devsoul>> {
+    ) -> KiControlFlow<(), Infallible, DevsoulTrackedException<Devsoul>> {
         match ki_domain_repr {
             KiDomainRepr::Omni => KiControlFlow::Continue(()),
             KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {
@@ -88,9 +86,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.comptime.db();
         if self.config.needs_caching(ki_repr.caching_class(db)) {
-            let ki = ki_repr.ki(db);
-            let var_deps = ki_repr.var_deps(db);
-            self.get_or_try_init_ki_value(ki, var_deps, || self.eval_ki_repr_aux(ki_repr))
+            self.get_or_try_init_ki_value(ki_repr, || self.eval_ki_repr_aux(ki_repr))
         } else {
             self.eval_ki_repr_aux(ki_repr)
         }
@@ -100,6 +96,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let db = self.db();
         let ctx = self.dev_eval_context();
         let ki_domain_repr = ki_repr.ki_domain_repr(db);
+        let () = self.eval_ki_domain_repr(ki_domain_repr)?;
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
             KiOpn::Return => todo!(),
             KiOpn::Require => {
@@ -285,11 +282,16 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     unreachable!()
                 };
                 let self_argument = self.eval_ki_repr(self_argument)?;
-                use ::husky_print_utils::p;
-                use ::salsa::DebugWithDb;
-                // ad hoc, todo: consider null case
-                p!(ki_repr.source(db).debug_info(db));
-                KiControlFlow::Continue(self_argument.unwrap())
+                self_argument
+                    .unwrap()
+                    .map_err(|exception| {
+                        TrackedException::new(
+                            exception,
+                            ExceptionSource::Ki(ki_repr.into()),
+                            self.pedestal(ki_repr),
+                        )
+                    })
+                    .into()
             }
             KiOpn::Index => {
                 // ad hoc
@@ -324,7 +326,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     fn eval_stmts(
         &self,
         stmt_ki_reprs: &[KiRepr],
-    ) -> KiControlFlow<DevsoulValue<Devsoul>, DevsoulValue<Devsoul>, DevsoulException<Devsoul>>
+    ) -> KiControlFlow<DevsoulValue<Devsoul>, DevsoulValue<Devsoul>, DevsoulTrackedException<Devsoul>>
     {
         for &stmt_ki_repr in &stmt_ki_reprs[..stmt_ki_reprs.len() - 1] {
             let _: () = self.eval_ki_repr(stmt_ki_repr)?.into();
@@ -335,7 +337,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     fn eval_ki_argument(
         &self,
         ki_argument_repr: &KiArgumentRepr,
-    ) -> KiControlFlow<DevsoulValue<Devsoul>, DevsoulValue<Devsoul>, DevsoulException<Devsoul>>
+    ) -> KiControlFlow<DevsoulValue<Devsoul>, DevsoulValue<Devsoul>, DevsoulTrackedException<Devsoul>>
     {
         match *ki_argument_repr {
             KiArgumentRepr::Simple(ki_repr) => self.eval_ki_repr(ki_repr),
@@ -356,9 +358,11 @@ fn ki_repr_eval_works() {
     use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_path_utils::dev_paths::*;
+    use husky_standard_devsoul::StandardDevsoul;
+    use husky_standard_linket_impl::StandardLinketImpl;
 
     let dev_paths = HuskyLangDevPaths::new();
-    let runtime: Pin<Box<DevRuntime<StandardDevsoul<()>>>> =
+    let runtime: Pin<Box<DevRuntime<StandardDevsoul>>> =
         DevRuntime::new(dev_paths.dev_root().join("examples/mnist-classifier"), None).unwrap();
     let db = runtime.db();
     let DevComptimeTarget::SingleCrate(crate_path) = runtime.comptime_target() else {

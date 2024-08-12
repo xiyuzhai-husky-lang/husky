@@ -1,10 +1,17 @@
-use std::sync::Arc;
+#![feature(try_trait_v2)]
+#![feature(try_trait_v2_residual)]
+pub mod exception;
+pub mod ki_control_flow;
+pub mod vm_control_flow;
 
+use exception::IsException;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
     ValuePresenterCache,
 };
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
+use std::convert::Infallible;
+use std::sync::Arc;
 pub trait IsValue:
     std::fmt::Debug
     + Sized
@@ -66,6 +73,8 @@ pub trait IsValue:
     + From<std::convert::Infallible>
     + 'static
 {
+    type Exception: IsException;
+
     fn new_uninit() -> Self;
     // the followings are methods that should be implemented.
     // they are commented out because they would probably be done in a way outside of rust trait system
@@ -93,7 +102,7 @@ pub trait IsValue:
     /// should unreachable if not an option
     fn is_some(self) -> bool;
     fn index(self, index: usize) -> Self;
-    fn unwrap(self) -> Self;
+    fn unwrap(self) -> Result<Self, Self::Exception>;
     fn present(
         &self,
         value_presenter_cache: &mut ValuePresenterCache,

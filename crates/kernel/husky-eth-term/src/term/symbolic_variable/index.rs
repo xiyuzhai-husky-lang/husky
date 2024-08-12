@@ -31,11 +31,11 @@ pub enum EthTemplateSymbolAttr {
 /// wrapper so such the construction is private
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct EthTermSymbolIndex(EthTermSymbolIndexImpl);
+pub struct EthTermSymbolicVariableIndex(EthTermSymbolIndexImpl);
 
-impl EthTermSymbolIndex {
+impl EthTermSymbolicVariableIndex {
     pub(super) fn from_dec(index: DecSymbolicVariableIndex) -> Self {
-        EthTermSymbolIndex(match index.inner() {
+        EthTermSymbolicVariableIndex(match index.inner() {
             DecTermSymbolIndexImpl::ExplicitLifetime {
                 attrs,
                 variance,
@@ -106,7 +106,7 @@ impl EthTermSymbolIndex {
     }
 }
 
-impl Into<DecSymbolicVariableIndex> for EthTermSymbolIndex {
+impl Into<DecSymbolicVariableIndex> for EthTermSymbolicVariableIndex {
     #[inline(always)]
     fn into(self) -> DecSymbolicVariableIndex {
         unsafe {

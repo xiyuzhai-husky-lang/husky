@@ -1504,7 +1504,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),

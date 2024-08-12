@@ -10,7 +10,7 @@ use self::action::TraceSynchrotronActionsDiff;
 use self::bundle::TraceIdBundle;
 use crate::synchrotron::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{view::TraceViewData, *};
-use husky_devsoul_interface::item_path::ItemPathIdInterface;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_value_protocol::presentation::synchrotron::{
     ValuePresentationSynchrotron, ValuePresentationSynchrotronStatus,
 };

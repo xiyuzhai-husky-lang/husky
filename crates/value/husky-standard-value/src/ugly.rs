@@ -1,4 +1,7 @@
 pub use crate::{
+    exception::{
+        Excepted as __Excepted, ExceptedValue as __ExceptedValue, Exception as __Exception,
+    },
     frozen::Frozen as __Frozen,
     frozen::ValueStands as __ValueStands,
     r#static::{Static as __Static, StaticDyn as __StaticDyn},

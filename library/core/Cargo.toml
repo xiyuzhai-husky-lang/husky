@@ -5,5 +5,12 @@ edition = "2021"
 
 [dependencies]
 ordered-float = { version = "4.2.0", features = ["serde"] }
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true
+# protocols
 husky-visual-protocol.workspace = true
+# value
 husky-standard-value.workspace = true
+# linket
+husky-standard-linket-impl.workspace = true

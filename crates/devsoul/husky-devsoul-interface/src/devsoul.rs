@@ -1,4 +1,4 @@
-use crate::{DevEvalContext, IsLinketImpl};
+use husky_linket_impl::{eval_context::DevEvalContext, linket_impl::IsLinketImpl};
 
 pub trait IsDevsoulInterface {
     type LinketImpl: IsLinketImpl;

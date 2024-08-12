@@ -95,7 +95,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -138,7 +138,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -255,7 +255,7 @@
                                     ),
                                 ],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -300,14 +300,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 278,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Zero`),
                                             ),
                                         ),
                                     ),

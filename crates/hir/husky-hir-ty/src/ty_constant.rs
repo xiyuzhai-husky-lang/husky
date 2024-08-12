@@ -2,6 +2,7 @@ use crate::*;
 use husky_entity_path::path::ty_variant::TypeVariantPath;
 use husky_term_prelude::literal::Literal;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirConstant {
     Unit(()),

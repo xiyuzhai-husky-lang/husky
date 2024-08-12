@@ -166,7 +166,7 @@
                                     ),
                                 ],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -211,14 +211,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 284,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Six`),
                                             ),
                                         ),
                                     ),

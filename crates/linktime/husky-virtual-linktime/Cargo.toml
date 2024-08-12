@@ -1,0 +1,26 @@
+[package]
+name = "husky-virtual-linktime"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+salsa.workspace = true
+# fs
+husky-vfs.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
+husky-virtual-linket-impl.workspace = true
+# linktime
+husky-linktime.workspace = true
+
+[lints]
+workspace = true

@@ -11,7 +11,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -49,7 +49,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`Self`),
+                                    variable: EthSymbolicVariable(`Self`, `nil`),
                                     traits: [],
                                 },
                             ],
@@ -72,12 +72,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 16,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<#derive _ as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`Self`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`Self`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),

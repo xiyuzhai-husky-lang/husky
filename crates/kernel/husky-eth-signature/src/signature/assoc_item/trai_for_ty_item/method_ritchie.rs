@@ -1,4 +1,4 @@
-use self::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilderItd;
+use self::signature::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockEthSignatureBuilderItd;
 use super::*;
 use husky_dec_signature::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieDecTemplate;
 use husky_eth_term::term::ritchie::{EthRitchieSimpleParameter, EtherealRitchieParameter};
@@ -42,12 +42,12 @@ impl TraitForTypeMethodRitchieEthTemplate {
 
     pub(super) fn inherit_instantiation_builder(
         self,
-        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilderItd,
+        impl_block_signature_builder: TraitForTypeImplBlockEthSignatureBuilderItd,
         db: &::salsa::Db,
     ) -> TraitForTypeMethodRitchieEthSignatureBuilder {
         let instantiation_builder = impl_block_signature_builder
             .instantiation_builder(db)
-            .merge_with_item_template_parameters(self.template_parameters(db));
+            .assoc_item_builder(self.path(db), self.template_parameters(db));
         TraitForTypeMethodRitchieEthSignatureBuilder::new(
             db,
             self,

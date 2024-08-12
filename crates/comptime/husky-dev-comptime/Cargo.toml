@@ -47,6 +47,9 @@ husky-toml-token.workspace = true
 # linket
 husky-javelin.workspace = true
 husky-linket.workspace = true
+husky-linket-impl.workspace = true
+# lintime
+husky-linktime.workspace = true
 # protocols
 husky-text-protocol.workspace = true
 # semantics

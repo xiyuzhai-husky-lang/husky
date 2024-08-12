@@ -259,12 +259,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 1,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i8(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i8`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i8`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i8`),
+                        },
                     ),
                 ),
             ),
@@ -275,12 +290,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i8(0)::max`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i8`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i8`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i8`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i8`),
+                        },
                     ),
                 ),
             ),
@@ -320,12 +357,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::i8 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i8`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i8`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i8`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i8`),
+                        },
                     ),
                 ),
             ),
@@ -352,12 +411,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 3,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i16(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i16`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i16`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i16`),
+                        },
                     ),
                 ),
             ),
@@ -368,12 +442,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 4,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i16(0)::max`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i16`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i16`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i16`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i16`),
+                        },
                     ),
                 ),
             ),
@@ -389,7 +485,7 @@
                         template_parameters: EthTemplateParameters {
                             data: [],
                         },
-                        trai: EthTerm(`Add i32`),
+                        trai: EthTerm(`Add i16`),
                         self_ty_refined: PathLeading(
                             ItemPath(
                                 TypeOntology(
@@ -413,12 +509,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 3,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::i16 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i16`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i16`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i16`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i16`),
+                        },
                     ),
                 ),
             ),
@@ -445,12 +563,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 5,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i32(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -461,12 +594,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 6,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i32(0)::max`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -477,12 +632,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 7,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i32(0)::min`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -522,12 +699,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 4,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::i32 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -554,12 +753,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 8,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i64(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i64`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i64`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i64`),
+                        },
                     ),
                 ),
             ),
@@ -599,12 +813,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 5,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::i64 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i64`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i64`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i64`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i64`),
+                        },
                     ),
                 ),
             ),
@@ -631,12 +867,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 9,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::i128(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i128`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i128`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i128`),
+                        },
                     ),
                 ),
             ),
@@ -676,12 +927,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 6,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::i128 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`i128`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`i128`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i128`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`i128`),
+                        },
                     ),
                 ),
             ),
@@ -708,12 +981,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 10,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::isize(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`isize`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`isize`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`isize`),
+                        },
                     ),
                 ),
             ),
@@ -753,44 +1041,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 7,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::isize as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`isize`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u8(0)`),
-        Ok(
-            ItemEthTemplate::ImplBlock(
-                ImplBlockEthTemplate::TypeImpl(
-                    TypeImplBlockEthTemplate {
-                        path: TypeImplBlockPath(`core::num::u8(0)`),
-                        template_parameters: EthTemplateParameters {
-                            data: [],
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`isize`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`isize`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`isize`),
                         },
-                        self_ty: EthTerm(`u8`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u8(0)::abs`),
-        Ok(
-            ItemEthTemplate::AssocItem(
-                AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 11,
-                            },
-                        ),
                     ),
                 ),
             ),
@@ -830,44 +1108,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 8,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::u8 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`u8`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u16(0)`),
-        Ok(
-            ItemEthTemplate::ImplBlock(
-                ImplBlockEthTemplate::TypeImpl(
-                    TypeImplBlockEthTemplate {
-                        path: TypeImplBlockPath(`core::num::u16(0)`),
-                        template_parameters: EthTemplateParameters {
-                            data: [],
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`u8`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`u8`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`u8`),
                         },
-                        self_ty: EthTerm(`u16`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u16(0)::abs`),
-        Ok(
-            ItemEthTemplate::AssocItem(
-                AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 12,
-                            },
-                        ),
                     ),
                 ),
             ),
@@ -907,44 +1175,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 9,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::u16 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`u16`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u32(0)`),
-        Ok(
-            ItemEthTemplate::ImplBlock(
-                ImplBlockEthTemplate::TypeImpl(
-                    TypeImplBlockEthTemplate {
-                        path: TypeImplBlockPath(`core::num::u32(0)`),
-                        template_parameters: EthTemplateParameters {
-                            data: [],
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`u16`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`u16`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`u16`),
                         },
-                        self_ty: EthTerm(`u32`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u32(0)::abs`),
-        Ok(
-            ItemEthTemplate::AssocItem(
-                AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 13,
-                            },
-                        ),
                     ),
                 ),
             ),
@@ -984,44 +1242,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 10,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::u32 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`u32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u64(0)`),
-        Ok(
-            ItemEthTemplate::ImplBlock(
-                ImplBlockEthTemplate::TypeImpl(
-                    TypeImplBlockEthTemplate {
-                        path: TypeImplBlockPath(`core::num::u64(0)`),
-                        template_parameters: EthTemplateParameters {
-                            data: [],
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`u32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`u32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`u32`),
                         },
-                        self_ty: EthTerm(`u64`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u64(0)::abs`),
-        Ok(
-            ItemEthTemplate::AssocItem(
-                AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 14,
-                            },
-                        ),
                     ),
                 ),
             ),
@@ -1061,44 +1309,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 11,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::u64 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`u64`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u128(0)`),
-        Ok(
-            ItemEthTemplate::ImplBlock(
-                ImplBlockEthTemplate::TypeImpl(
-                    TypeImplBlockEthTemplate {
-                        path: TypeImplBlockPath(`core::num::u128(0)`),
-                        template_parameters: EthTemplateParameters {
-                            data: [],
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`u64`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`u64`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`u64`),
                         },
-                        self_ty: EthTerm(`u128`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u128(0)::abs`),
-        Ok(
-            ItemEthTemplate::AssocItem(
-                AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 15,
-                            },
-                        ),
                     ),
                 ),
             ),
@@ -1138,44 +1376,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 12,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::u128 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`u128`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::usize(0)`),
-        Ok(
-            ItemEthTemplate::ImplBlock(
-                ImplBlockEthTemplate::TypeImpl(
-                    TypeImplBlockEthTemplate {
-                        path: TypeImplBlockPath(`core::num::usize(0)`),
-                        template_parameters: EthTemplateParameters {
-                            data: [],
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`u128`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`u128`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`u128`),
                         },
-                        self_ty: EthTerm(`usize`),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::usize(0)::abs`),
-        Ok(
-            ItemEthTemplate::AssocItem(
-                AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 16,
-                            },
-                        ),
                     ),
                 ),
             ),
@@ -1215,12 +1443,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 13,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::usize as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`usize`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`usize`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`usize`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`usize`),
+                        },
                     ),
                 ),
             ),
@@ -1247,12 +1497,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 17,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1263,12 +1528,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 18,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::sqrt`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1279,12 +1559,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 19,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::max`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1295,12 +1597,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 20,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::min`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1311,12 +1635,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 21,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::sgnx`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -1327,12 +1666,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 22,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::cos`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1343,12 +1697,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 23,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::sin`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1359,12 +1728,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 24,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f32(0)::acos`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1404,12 +1788,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 14,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::f32 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f32`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f32`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -1436,12 +1842,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 25,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f64(0)::abs`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f64`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f64`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`f64`),
+                        },
                     ),
                 ),
             ),
@@ -1452,12 +1873,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 26,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::num::f64(0)::acos`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f64`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f64`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`f64`),
+                        },
                     ),
                 ),
             ),
@@ -1497,12 +1933,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 15,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::num::f64 as core::ops::Add(0)>::add`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`f64`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`f64`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`f64`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`f64`),
+                        },
                     ),
                 ),
             ),

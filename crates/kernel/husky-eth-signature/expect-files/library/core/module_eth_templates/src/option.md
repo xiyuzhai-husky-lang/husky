@@ -12,7 +12,7 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`T`),
+                                        variable: EthSymbolicVariable(`T`, `mono`),
                                         traits: [],
                                     },
                                 ],

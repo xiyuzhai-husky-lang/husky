@@ -138,7 +138,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -6375,7 +6375,7 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                                     context_itd: EthTermContextItd {
                                                         task_ty: Some(
                                                             EthTerm(`MnistTask`),
@@ -6388,9 +6388,9 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`Self`),
+                                                            EthSymbolicVariable(`Self`, `nil`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -7007,7 +7007,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -7069,7 +7069,7 @@
                                                 path: TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 344,
+                                                            value: 338,
                                                         },
                                                     ),
                                                 ),
@@ -7082,7 +7082,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 288,
+                                                                            value: 282,
                                                                         },
                                                                     ),
                                                                 ),
@@ -7108,7 +7108,7 @@
                                                             TypeItemPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 344,
+                                                                        value: 338,
                                                                     },
                                                                 ),
                                                             ),
@@ -7120,7 +7120,7 @@
                                                         },
                                                     ),
                                                     env: AssocRitchie,
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -7133,7 +7133,7 @@
                                                                 TypePath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 288,
+                                                                            value: 282,
                                                                         },
                                                                     ),
                                                                 ),
@@ -7403,7 +7403,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -8561,7 +8561,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -10235,7 +10235,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -12081,7 +12081,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -12314,9 +12314,9 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -12327,7 +12327,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -13645,7 +13645,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 39,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -13663,7 +13663,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 288,
+                                                    value: 282,
                                                 },
                                             ),
                                         ),
@@ -13729,7 +13729,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 288,
+                                                    value: 282,
                                                 },
                                             ),
                                         ),
@@ -13883,7 +13883,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 39,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -13903,7 +13903,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 288,
+                                                            value: 282,
                                                         },
                                                     ),
                                                 ),
@@ -13975,7 +13975,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 288,
+                                                            value: 282,
                                                         },
                                                     ),
                                                 ),
@@ -19342,7 +19342,7 @@
                                                     ),
                                                 },
                                                 instantiation: FlyInstantiation {
-                                                    path: ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
+                                                    path: ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
                                                     context_itd: EthTermContextItd {
                                                         task_ty: Some(
                                                             EthTerm(`MnistTask`),
@@ -19355,7 +19355,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -19707,7 +19707,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -20297,7 +20297,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -20404,9 +20404,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -20717,7 +20717,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -20835,9 +20835,9 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -20848,7 +20848,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -21027,7 +21027,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -21145,9 +21145,9 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -21158,7 +21158,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -21318,9 +21318,9 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -21331,7 +21331,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -21510,7 +21510,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -21628,9 +21628,9 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -21641,7 +21641,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -21801,9 +21801,9 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -21814,7 +21814,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -21901,7 +21901,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -22315,7 +22315,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 55,
+                                            value: 57,
                                         },
                                     ),
                                 ),
@@ -22331,7 +22331,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 57,
+                                            value: 59,
                                         },
                                     ),
                                 ),
@@ -22351,7 +22351,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 55,
+                                                    value: 57,
                                                 },
                                             ),
                                         ),
@@ -22369,7 +22369,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 57,
+                                                    value: 59,
                                                 },
                                             ),
                                         ),
@@ -23631,7 +23631,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -23828,9 +23828,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -24248,9 +24248,9 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -25052,7 +25052,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 52,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -25110,7 +25110,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 52,
+                                                    value: 54,
                                                 },
                                             ),
                                         ),
@@ -26790,7 +26790,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -26920,7 +26920,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -28819,7 +28819,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -31942,7 +31942,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -32694,7 +32694,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -32796,7 +32796,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -36875,7 +36875,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -37540,7 +37540,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -39259,7 +39259,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -42383,7 +42383,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),

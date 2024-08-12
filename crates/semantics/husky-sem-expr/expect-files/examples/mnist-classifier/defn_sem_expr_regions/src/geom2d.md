@@ -33,7 +33,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -1522,7 +1522,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -2385,7 +2385,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -4567,7 +4567,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5423,7 +5423,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5560,7 +5560,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5968,7 +5968,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -6831,7 +6831,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -9013,7 +9013,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -12488,7 +12488,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -12726,7 +12726,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -13422,7 +13422,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -13662,7 +13662,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -15687,7 +15687,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -15824,7 +15824,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -16349,7 +16349,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -16643,7 +16643,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -16989,7 +16989,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -17427,7 +17427,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -18090,7 +18090,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -18361,7 +18361,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -22646,7 +22646,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -25887,7 +25887,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -26270,7 +26270,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -26696,7 +26696,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -27555,7 +27555,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -27938,7 +27938,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -28364,7 +28364,7 @@
                                                             ),
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),

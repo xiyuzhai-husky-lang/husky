@@ -8,7 +8,7 @@ pub struct Ident(ShiftedU32);
 
 impl std::fmt::Debug for Ident {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "`{}`", self.data())
+        write!(f, "`{}`", self.repr())
     }
 }
 
@@ -39,7 +39,7 @@ impl Ident {
 }
 
 impl Ident {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         let guard = IDENT_STORAGE.read().unwrap();
         unsafe { arb_ref(&guard.data[self.0.index()]) }
     }
@@ -48,11 +48,11 @@ impl Ident {
 #[test]
 fn ident_works() {
     let a = Ident::new("hello");
-    assert_eq!(a.data(), "hello");
+    assert_eq!(a.repr(), "hello");
     let b = Ident::new("2");
-    assert_eq!(b.data(), "2");
+    assert_eq!(b.repr(), "2");
     assert_ne!(a, b);
     let c = Ident::new("hello");
-    assert_eq!(c.data(), "hello");
+    assert_eq!(c.repr(), "hello");
     assert_eq!(a, c);
 }

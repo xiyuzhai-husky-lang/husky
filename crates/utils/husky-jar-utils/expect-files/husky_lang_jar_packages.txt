@@ -779,6 +779,12 @@
         ],
     },
     JarPackageSummary {
+        name: "husky-hir-prelude",
+        dependencies: [
+            "husky-term-prelude",
+        ],
+    },
+    JarPackageSummary {
         name: "husky-ki",
         dependencies: [
             "husky-coword",
@@ -910,12 +916,6 @@
             "husky-sem-var-deps",
             "husky-term-prelude",
             "husky-vfs",
-        ],
-    },
-    JarPackageSummary {
-        name: "husky-hir-prelude",
-        dependencies: [
-            "husky-term-prelude",
         ],
     },
     JarPackageSummary {

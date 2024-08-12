@@ -38,12 +38,24 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    AssocRitchie(
-                        TypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 3,
+                    TypeItemEthTemplate::AssocRitchie(
+                        TypeAssocRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist::task::MnistTask(0)::new`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`MnistTask`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`MnistTask`),
+                            ty: EthTerm(`fn(() -> MnistTask`),
+                        },
                     ),
                 ),
             ),

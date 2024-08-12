@@ -487,12 +487,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 6,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`RawContour`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`RawContour`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),
@@ -519,12 +534,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 20,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`RawContour`),
                             },
-                        ),
+                            return_ty: EthTerm(`LineSegmentSketch`),
+                            expr_ty: EthTerm(`Leash LineSegmentSketch`),
+                        },
                     ),
                 ),
             ),
@@ -535,12 +560,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 21,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`RawContour`),
                             },
-                        ),
+                            return_ty: EthTerm(`BoundingBox`),
+                            expr_ty: EthTerm(`Leash BoundingBox`),
+                        },
                     ),
                 ),
             ),
@@ -551,12 +586,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 22,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`RawContour`),
                             },
-                        ),
+                            return_ty: EthTerm(`RelativeBoundingBox`),
+                            expr_ty: EthTerm(`Leash RelativeBoundingBox`),
+                        },
                     ),
                 ),
             ),
@@ -567,12 +612,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 23,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`RawContour`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -583,12 +638,40 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 36,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`RawContour`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`RawContour`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`Vector2d`),
+                        },
                     ),
                 ),
             ),

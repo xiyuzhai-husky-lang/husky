@@ -175,20 +175,6 @@
         ),
         end_line: 76,
         end_character: Some(
-            23,
-        ),
-        kind: Some(
-            Region,
-        ),
-        collapsed_text: None,
-    },
-    FoldingRange {
-        start_line: 78,
-        start_character: Some(
-            0,
-        ),
-        end_line: 79,
-        end_character: Some(
             32,
         ),
         kind: Some(
@@ -197,25 +183,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 85,
+        start_line: 82,
         start_character: Some(
             0,
         ),
-        end_line: 86,
-        end_character: Some(
-            24,
-        ),
-        kind: Some(
-            Region,
-        ),
-        collapsed_text: None,
-    },
-    FoldingRange {
-        start_line: 88,
-        start_character: Some(
-            0,
-        ),
-        end_line: 89,
+        end_line: 83,
         end_character: Some(
             34,
         ),
@@ -225,25 +197,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 95,
+        start_line: 89,
         start_character: Some(
             0,
         ),
-        end_line: 96,
-        end_character: Some(
-            24,
-        ),
-        kind: Some(
-            Region,
-        ),
-        collapsed_text: None,
-    },
-    FoldingRange {
-        start_line: 98,
-        start_character: Some(
-            0,
-        ),
-        end_line: 99,
+        end_line: 90,
         end_character: Some(
             34,
         ),
@@ -253,25 +211,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 105,
+        start_line: 96,
         start_character: Some(
             0,
         ),
-        end_line: 106,
-        end_character: Some(
-            24,
-        ),
-        kind: Some(
-            Region,
-        ),
-        collapsed_text: None,
-    },
-    FoldingRange {
-        start_line: 108,
-        start_character: Some(
-            0,
-        ),
-        end_line: 109,
+        end_line: 97,
         end_character: Some(
             34,
         ),
@@ -281,25 +225,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 115,
+        start_line: 103,
         start_character: Some(
             0,
         ),
-        end_line: 116,
-        end_character: Some(
-            25,
-        ),
-        kind: Some(
-            Region,
-        ),
-        collapsed_text: None,
-    },
-    FoldingRange {
-        start_line: 118,
-        start_character: Some(
-            0,
-        ),
-        end_line: 119,
+        end_line: 104,
         end_character: Some(
             36,
         ),
@@ -309,25 +239,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 125,
+        start_line: 110,
         start_character: Some(
             0,
         ),
-        end_line: 126,
-        end_character: Some(
-            26,
-        ),
-        kind: Some(
-            Region,
-        ),
-        collapsed_text: None,
-    },
-    FoldingRange {
-        start_line: 128,
-        start_character: Some(
-            0,
-        ),
-        end_line: 129,
+        end_line: 111,
         end_character: Some(
             38,
         ),
@@ -337,11 +253,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 135,
+        start_line: 117,
         start_character: Some(
             0,
         ),
-        end_line: 156,
+        end_line: 138,
         end_character: Some(
             25,
         ),
@@ -351,11 +267,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 158,
+        start_line: 140,
         start_character: Some(
             0,
         ),
-        end_line: 160,
+        end_line: 142,
         end_character: Some(
             30,
         ),
@@ -365,11 +281,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 166,
+        start_line: 148,
         start_character: Some(
             0,
         ),
-        end_line: 169,
+        end_line: 151,
         end_character: Some(
             25,
         ),
@@ -379,11 +295,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 171,
+        start_line: 153,
         start_character: Some(
             0,
         ),
-        end_line: 172,
+        end_line: 154,
         end_character: Some(
             34,
         ),

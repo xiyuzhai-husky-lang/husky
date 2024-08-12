@@ -49,7 +49,7 @@ impl AmazonJavelin {
             }
         }
         let stats = item_hir_template_parameter_stats(db, *path)?;
-        if stats.tys + stats.constants > 0 {
+        if stats.self_ty + stats.tys + stats.constants > 0 {
             return None;
         }
         Some(AmazonJavelin(Javelin::new(

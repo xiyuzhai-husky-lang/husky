@@ -17,14 +17,17 @@ husky-rust-transpilation.workspace = true
 # fs
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
+husky-vfs.workspace = true
 # kernel
+husky-item-path-interface.workspace = true
 husky-standard-value.workspace = true
 husky-devsoul.workspace = true
-husky-vfs.workspace = true
 # linket
 husky-linket.workspace = true
 husky-linket-impl.workspace = true
-# semantics
+husky-any-linket-impls.workspace = true
+# linktime
+husky-linktime.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 # utils
@@ -37,3 +40,5 @@ husky-standard-devsoul-interface.workspace = true
 # comptime
 husky-dev-comptime.workspace = true
 husky-vfs = { workspace = true, features = ["test_utils"] }
+# linket
+husky-standard-linket-impl.workspace = true

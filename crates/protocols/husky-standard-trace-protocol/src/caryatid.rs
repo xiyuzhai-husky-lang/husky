@@ -2,7 +2,7 @@
 mod egui;
 
 use super::*;
-use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_trace_protocol::caryatid::{IsCaryatid, IsCaryatidUiBuffer};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 

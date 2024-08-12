@@ -14,7 +14,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -39,7 +39,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -61,7 +61,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`E`),
+                                    variable: EthSymbolicVariable(`E`, `mono`),
                                     traits: [],
                                 },
                             ],
@@ -77,12 +77,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 32,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::slice::Slice(0)::len`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`Slice E`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`Slice E`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`usize`),
+                        },
                     ),
                 ),
             ),
@@ -93,12 +108,46 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 33,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::slice::Slice(0)::swap`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`Slice E`),
+                            template_parameters: EthTemplateParameters {
+                                data: [
+                                    EthTemplateParameter {
+                                        annotated_variance: None,
+                                        variable: EthSymbolicVariable(`'self_lifetime`, `nil`),
+                                        traits: [],
+                                    },
+                                ],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::BorrowMut,
+                                ty: EthTerm(`Slice E`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`usize`),
+                                        },
+                                    ),
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`usize`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`unit`),
+                        },
                     ),
                 ),
             ),
@@ -115,7 +164,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`E`),
+                                    variable: EthSymbolicVariable(`E`, `mono`),
                                     traits: [],
                                 },
                             ],
@@ -125,7 +174,7 @@
                             Application(
                                 EthApplication(
                                     Id {
-                                        value: 25,
+                                        value: 26,
                                     },
                                 ),
                             ),
@@ -140,12 +189,17 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocType(
-                        TraitForTypeAssocTypeEthTemplate(
-                            Id {
-                                value: 2,
+                    TraitForTypeItemEthTemplate::AssocType(
+                        TraitForTypeAssocTypeEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`,
+                                TraitItemKind::AssocType,
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            assoc_ty: EthTerm(`E`),
+                        },
                     ),
                 ),
             ),
@@ -162,7 +216,7 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`E`),
+                                    variable: EthSymbolicVariable(`E`, `mono`),
                                     traits: [],
                                 },
                             ],
@@ -178,12 +232,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 34,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`CyclicSlice E`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`CyclicSlice E`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -194,12 +263,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 35,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::start`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`CyclicSlice E`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`CyclicSlice E`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -210,12 +294,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 36,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::end`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`CyclicSlice E`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`CyclicSlice E`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`i32`),
+                        },
                     ),
                 ),
             ),
@@ -226,12 +325,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 37,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`CyclicSlice E`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`CyclicSlice E`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Option Leash E`),
+                        },
                     ),
                 ),
             ),
@@ -242,12 +356,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 38,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::last`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`CyclicSlice E`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`CyclicSlice E`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Option Leash E`),
+                        },
                     ),
                 ),
             ),

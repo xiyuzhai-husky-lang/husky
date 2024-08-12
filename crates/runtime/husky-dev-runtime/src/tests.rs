@@ -1,9 +1,9 @@
 use crate::*;
 use husky_path_utils::HuskyLangDevPaths;
-use husky_standard_devsoul::{StandardDevsoul, StandardPedestal};
+use husky_standard_devsoul::StandardDevsoul;
 use husky_standard_visual_protocol::figure::StandardFigure;
 
-type StandardDevRuntime = DevRuntime<StandardDevsoul<StandardFigure<StandardPedestal>>>;
+type StandardDevRuntime = DevRuntime<StandardDevsoul>;
 
 #[test]
 fn dev_runtime_works() {

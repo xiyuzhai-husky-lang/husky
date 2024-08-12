@@ -147,9 +147,9 @@
                                                             lifetime: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -216,9 +216,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`T`),
+                                                    EthSymbolicVariable(`T`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -1799,9 +1799,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`T`),
+                                                    EthSymbolicVariable(`T`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2140,9 +2140,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`T`),
+                                                    EthSymbolicVariable(`T`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2559,9 +2559,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`T`),
+                                                    EthSymbolicVariable(`T`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -7302,9 +7302,9 @@
                                                             lifetime: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -7315,7 +7315,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],
@@ -7806,9 +7806,9 @@
                                                             lifetime: None,
                                                         },
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
-                                                            EthSymbolicVariable(`E`),
+                                                            EthSymbolicVariable(`E`, `mono`),
                                                             FlyTermSymbolResolution::Explicit(
                                                                 FlyTerm {
                                                                     quary: None,
@@ -7819,7 +7819,7 @@
                                                             ),
                                                         ),
                                                         (
-                                                            EthSymbolicVariable(`'self_lifetime`),
+                                                            EthSymbolicVariable(`'self_lifetime`, `nil`),
                                                             FlyTermSymbolResolution::SelfLifetime,
                                                         ),
                                                     ],

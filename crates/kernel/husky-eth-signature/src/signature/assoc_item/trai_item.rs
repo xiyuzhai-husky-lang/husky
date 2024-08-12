@@ -17,6 +17,7 @@ use super::*;
 use husky_dec_signature::signature::assoc_item::trai_item::TraitItemDecTemplate;
 use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TraitItemEthTemplate {

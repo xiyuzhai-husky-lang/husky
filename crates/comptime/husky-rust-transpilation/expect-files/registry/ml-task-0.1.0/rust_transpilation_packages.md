@@ -46,6 +46,34 @@
                 },
             ),
         },
+        data: RustTranspilationPackageData::Source {
+            package_path: PackagePath {
+                toolchain: Toolchain {
+                    data: ToolchainData::Local {
+                        library_path: "../../../library",
+                    },
+                },
+                name: `core`,
+                data: PackagePathSource::Library,
+            },
+        },
+    },
+    RustTranspilationPackage {
+        target_path: LinktimeTargetPath {
+            data: LinktimeTargetPathData::Package(
+                PackagePath {
+                    toolchain: Toolchain {
+                        data: ToolchainData::Local {
+                            library_path: "../../../library",
+                        },
+                    },
+                    name: `ml-task`,
+                    data: PackagePathSource::Local {
+                        path: "../../../registry/ml-task-0.1.0",
+                    },
+                },
+            ),
+        },
         data: RustTranspilationPackageData::Linkets,
     },
 ]

@@ -95,7 +95,7 @@
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {

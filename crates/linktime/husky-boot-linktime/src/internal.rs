@@ -3,6 +3,7 @@ mod mapgen;
 
 use crate::*;
 use husky_linket::version_stamp::LinketVersionStamp;
+use husky_linket_impl::linket_impl::IsLinketImpl;
 use husky_vfs::path::crate_path::CratePath;
 use version_stamp::HasVersionStamp;
 

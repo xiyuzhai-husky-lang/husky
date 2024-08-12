@@ -9,10 +9,11 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`semantics_basics::some_neural_network`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },

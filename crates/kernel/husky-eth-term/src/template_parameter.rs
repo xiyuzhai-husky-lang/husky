@@ -46,7 +46,7 @@ impl EthTemplateParameters {
     ) -> EthInstantiationBuilder {
         EthInstantiationBuilder::new(
             path,
-            self.iter().map(|param| param.symbol()),
+            self.iter().map(|param| param.variable()),
             is_associated,
             ctx,
         )
@@ -65,7 +65,7 @@ impl std::ops::Deref for EthTemplateParameters {
 #[salsa::derive_debug_with_db]
 pub struct EthTemplateParameter {
     annotated_variance: Option<Variance>,
-    symbol: EthSymbolicVariable,
+    variable: EthSymbolicVariable,
     traits: Vec<EthTerm>,
 }
 
@@ -76,7 +76,7 @@ impl EthTemplateParameter {
     ) -> EthTermResult<Self> {
         Ok(Self {
             annotated_variance: declarative_generic_paramter.annotated_variance(),
-            symbol: EthSymbolicVariable::from_dec(db, declarative_generic_paramter.symbol())?,
+            variable: EthSymbolicVariable::from_dec(db, declarative_generic_paramter.symbol())?,
             traits: declarative_generic_paramter
                 .traits()
                 .iter()
@@ -85,8 +85,8 @@ impl EthTemplateParameter {
         })
     }
 
-    pub fn symbol(&self) -> EthSymbolicVariable {
-        self.symbol
+    pub fn variable(&self) -> EthSymbolicVariable {
+        self.variable
     }
 
     pub fn traits(&self) -> &[EthTerm] {
