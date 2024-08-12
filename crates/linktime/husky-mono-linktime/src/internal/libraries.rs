@@ -1,14 +1,12 @@
 use super::*;
+use husky_any_linket_impls::{LinketImplsGetter, LINKET_IMPLS_GETTER_IDENT};
 use husky_cargo_utils::compile::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket::linket::{target_linket_item_path_id_interfaces, target_linkets};
-use husky_linket_impl::{
-    AnyLinketImpls, LinketImpls, LinketImplsGetter, LINKET_IMPLS_GETTER_IDENT,
-};
+use husky_linket_impl::linket_impls::LinketImpls;
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
-
-use husky_devsoul_interface::{item_path::ItemPathIdInterface, DevEvalContext};
 use husky_vfs::path::package_path::PackagePath;
 use libloading::Library;
 use std::path::PathBuf;
@@ -76,12 +74,11 @@ impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {
 #[test]
 fn new_mono_linkets_libary_works() {
     use husky_dev_comptime::db::DevComptimeDb;
-    use husky_linket_impl::standard::StandardLinketImpl;
-    use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+    use husky_standard_linket_impl::StandardLinketImpl;
 
     DevComptimeDb::vfs_plain_test(
         |db, package_path: PackagePath| {
-            MonoLinketsLibrary::<StandardLinketImpl<StandardPedestal>>::new(
+            MonoLinketsLibrary::<StandardLinketImpl>::new(
                 LinktimeTargetPath::new_package(package_path, db),
                 db,
             )

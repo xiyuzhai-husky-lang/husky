@@ -8,16 +8,16 @@ pub mod lifetime;
 pub mod menu;
 pub mod place_contract_site;
 pub mod quary;
-pub mod svar;
 pub mod template_argument;
+pub mod template_variable;
 #[cfg(test)]
 mod tests;
 pub mod trai;
 pub mod ty;
 pub mod ty_constant;
 
-pub use self::svar::*;
 pub use self::template_argument::*;
+pub use self::template_variable::*;
 pub use self::ty::*;
 pub use self::ty_constant::*;
 

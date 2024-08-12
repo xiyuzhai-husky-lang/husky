@@ -18,6 +18,15 @@ Ok(
                     library_path: "../../../library",
                 },
             },
+            name: `core`,
+            data: PackagePathSource::Library,
+        },
+        PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
             name: `ml-task`,
             data: PackagePathSource::Registry {
                 registry_path: RegistryPath(

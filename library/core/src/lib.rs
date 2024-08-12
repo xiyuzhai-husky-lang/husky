@@ -2,6 +2,7 @@ pub mod mem;
 pub mod num;
 pub mod ops;
 pub mod slice;
+pub mod task;
 pub mod vec;
 pub mod visual;
 

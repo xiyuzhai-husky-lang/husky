@@ -13,11 +13,15 @@ ui = { workspace = true, features = ["egui"] }
 husky-vfs.workspace = true
 # kernel
 husky-entity-path.workspace = true
+husky-item-path-interface.workspace = true
 # ki
 husky-ki.workspace = true
+husky-ki-repr-interface.workspace = true
 # linket
 husky-linket.workspace = true
 husky-linket-impl.workspace = true
+# linktime
+husky-linktime.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol = { workspace = true, features = ["server"] }

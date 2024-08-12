@@ -2765,7 +2765,7 @@ EntityTreeSheet {
                             22,
                         ),
                     },
-                    ty_expr: 51,
+                    ty_expr: 45,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             0..8,

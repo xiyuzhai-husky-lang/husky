@@ -1,0 +1,39 @@
+[package]
+name = "husky-standard-linket-impl"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+serde.workspace = true
+# abstractions
+vec-like.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+# kernel
+husky-item-path-interface.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
+# linket
+husky-linket-impl.workspace = true
+# protocols
+husky-value-protocol.workspace = true
+# value
+husky-value-interface.workspace = true
+husky-standard-value.workspace = true
+# utils
+husky-decl-macro-utils.workspace = true
+
+[dev-dependencies]
+# library
+husky-core.workspace = true
+
+[lints]
+workspace = true

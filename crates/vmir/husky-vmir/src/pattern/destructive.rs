@@ -27,7 +27,7 @@ pub enum VmirDestructivePattern<LinketImpl: IsLinketImpl> {
 
 #[test]
 fn vmir_destructive_pattern_size_works() {
-    use husky_linket::linket::virtual_linket_impl::VirtualLinketImpl;
+    use husky_virtual_linket_impl::VirtualLinketImpl;
 
     assert_eq!(
         std::mem::size_of::<VmirDestructivePattern<VirtualLinketImpl>>(),

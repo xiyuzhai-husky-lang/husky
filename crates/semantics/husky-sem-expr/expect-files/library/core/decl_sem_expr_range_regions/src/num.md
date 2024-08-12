@@ -1893,6 +1893,30 @@
                         ),
                     ),
                 },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
@@ -1905,6 +1929,42 @@
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
                             3,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
                         ),
                     ),
                 },
@@ -1929,8 +1989,33 @@
                         ),
                     ),
                 },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
             ],
-            pattern_expr_ranges: [],
+            pattern_expr_ranges: [
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                },
+            ],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -1941,6 +2026,18 @@
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
                             8,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
                         ),
                     ),
                 },
@@ -2134,6 +2231,30 @@
                         ),
                     ),
                 },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                },
             ],
             pattern_expr_ranges: [],
             expr_ranges: [
@@ -2146,6 +2267,42 @@
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
                             3,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            3,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            2,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            4,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
                         ),
                     ),
                 },
@@ -2170,8 +2327,33 @@
                         ),
                     ),
                 },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
+                        ),
+                    ),
+                },
             ],
-            pattern_expr_ranges: [],
+            pattern_expr_ranges: [
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            5,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            6,
+                        ),
+                    ),
+                },
+            ],
             expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -2182,6 +2364,18 @@
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
                             8,
+                        ),
+                    ),
+                },
+                RegionalTokenIdxRange {
+                    start: RegionalTokenIdxRangeStart(
+                        RegionalTokenIdx(
+                            10,
+                        ),
+                    ),
+                    end: RegionalTokenIdxRangeEnd(
+                        RegionalTokenIdx(
+                            11,
                         ),
                     ),
                 },
@@ -2375,78 +2569,6 @@
                         ),
                     ),
                 },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
                         RegionalTokenIdx(
@@ -2592,560 +2714,6 @@
                     end: RegionalTokenIdxRangeEnd(
                         RegionalTokenIdx(
                             11,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            5,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            6,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            5,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            6,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            10,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            11,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            5,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            6,
-                        ),
-                    ),
-                },
-            ],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            10,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            11,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            5,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            6,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            4,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            5,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            6,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            10,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            11,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            5,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            6,
-                        ),
-                    ),
-                },
-            ],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            10,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            11,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            2,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            3,
-                        ),
-                    ),
-                },
-            ],
-            stmt_ranges: SemStmtMap(
-                [],
-            ),
-        },
-    },
-    SemExprRangeRegion {
-        data: SemExprRangeRegionData {
-            principal_entity_path_expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
-                        ),
-                    ),
-                },
-            ],
-            pattern_expr_ranges: [],
-            expr_ranges: [
-                RegionalTokenIdxRange {
-                    start: RegionalTokenIdxRangeStart(
-                        RegionalTokenIdx(
-                            7,
-                        ),
-                    ),
-                    end: RegionalTokenIdxRangeEnd(
-                        RegionalTokenIdx(
-                            8,
                         ),
                     ),
                 },

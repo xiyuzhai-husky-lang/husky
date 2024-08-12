@@ -1,5 +1,4 @@
 use super::*;
-use ad_hoc_devsoul_dependency::ki_control_flow::KiControlFlow;
 use ad_hoc_devsoul_dependency::IsLabel;
 use ml_task::IsMlTask;
 use smallvec::*;
@@ -24,15 +23,17 @@ where
         ki_domain_repr: __KiDomainReprInterface,
         arguments: &[__KiReprInterface],
         label0: Label,
-    ) -> Result<Self, ()> {
+    ) -> Result<Self, __TrackedException> {
         let mut stalks: Vec<Stalk> = vec![];
         let mut ids = Task::INPUT::ids();
         for i in 0..5 {
             let Some(id) = ids.next() else { break };
-            Task::INPUT::set_id(id);
-            if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
-                stalks.push(stalk)
-            }
+            Task::INPUT::with_id(id, || {
+                if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
+                    stalks.push(stalk)
+                }
+                Ok(())
+            })?
         }
         Ok(Self { stalks, label0 })
     }
@@ -41,24 +42,24 @@ where
         ki_domain_repr: __KiDomainReprInterface,
         arguments: &[__KiReprInterface],
         label0: Label,
-    ) -> Result<Option<Stalk>, ()> {
+    ) -> Result<Option<Stalk>, __TrackedException> {
         match __eval_ki_domain_repr_interface(ki_domain_repr) {
-            KiControlFlow::Continue(_) => (),
-            KiControlFlow::LoopContinue => todo!(),
-            KiControlFlow::LoopExit(_) => todo!(),
-            KiControlFlow::Return(_) => todo!(),
-            KiControlFlow::Undefined => return Ok(None),
-            KiControlFlow::Throw(_) => todo!(),
+            __KiControlFlow::Continue(_) => (),
+            __KiControlFlow::LoopContinue => todo!(),
+            __KiControlFlow::LoopExit(_) => todo!(),
+            __KiControlFlow::Return(_) => todo!(),
+            __KiControlFlow::Undefined => return Ok(None),
+            __KiControlFlow::Throw(e) => return Err(e),
         };
         let mut features: SmallVec<[NotNan<f32>; 4]> = smallvec![];
         for &argument in arguments {
             let feature = match __eval_ki_repr_interface(argument, None) {
-                KiControlFlow::Continue(feature) => feature,
-                KiControlFlow::LoopContinue => todo!(),
-                KiControlFlow::LoopExit(_) => todo!(),
-                KiControlFlow::Return(_) => todo!(),
-                KiControlFlow::Undefined => todo!(),
-                KiControlFlow::Throw(_) => todo!(),
+                __KiControlFlow::Continue(feature) => feature,
+                __KiControlFlow::LoopContinue => todo!(),
+                __KiControlFlow::LoopExit(_) => todo!(),
+                __KiControlFlow::Return(_) => todo!(),
+                __KiControlFlow::Undefined => todo!(),
+                __KiControlFlow::Throw(e) => return Err(e),
             };
             let feature = match NotNan::new(feature) {
                 Ok(feature) => feature,

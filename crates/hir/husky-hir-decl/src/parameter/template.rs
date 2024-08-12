@@ -7,6 +7,7 @@ use husky_hir_ty::trai::HirTrait;
 use husky_syn_expr::syndicates::{
     trais::TraitsSyndicate, TemplateParameterSyndicateVariant, TemplateSynParameterData,
 };
+use path::impl_block::{ImplBlockPath, TypeSketch};
 use smallvec::SmallVec;
 
 #[salsa::derive_debug_with_db]
@@ -150,6 +151,7 @@ impl std::ops::Deref for HirTemplateParameters {
 
 #[derive(Default, Debug, Clone, Copy, PartialEq, Eq)]
 pub struct HirTemplateParameterStats {
+    pub self_ty: u8,
     pub tys: u8,
     pub constants: u8,
     pub lifetimes: u8,
@@ -158,6 +160,7 @@ pub struct HirTemplateParameterStats {
 
 impl std::ops::AddAssign<Self> for HirTemplateParameterStats {
     fn add_assign(&mut self, rhs: Self) {
+        self.self_ty += rhs.self_ty;
         self.tys += rhs.tys;
         self.constants += rhs.constants;
         self.lifetimes += rhs.lifetimes;
@@ -173,6 +176,7 @@ pub fn item_hir_template_parameter_stats(
 ) -> Option<HirTemplateParameterStats> {
     let path = item_path_id.item_path(db);
     let mut stats = HirTemplateParameterStats {
+        self_ty: 0,
         tys: 0,
         constants: 0,
         lifetimes: 0,
@@ -189,6 +193,8 @@ pub fn item_hir_template_parameter_stats(
             }
         }
     }
+    use ::husky_print_utils::p;
+    use ::salsa::DebugWithDb;
     match path {
         ItemPath::AssocItem(assoc_item_path) => match assoc_item_path {
             AssocItemPath::TypeItem(ty_item_path) => {
@@ -196,6 +202,7 @@ pub fn item_hir_template_parameter_stats(
                     item_hir_template_parameter_stats(db, *ty_item_path.impl_block(db)).unwrap()
             }
             AssocItemPath::TraitItem(trai_item_path) => {
+                stats.self_ty += 1;
                 stats +=
                     item_hir_template_parameter_stats(db, *trai_item_path.trai_path(db)).unwrap()
             }
@@ -209,7 +216,17 @@ pub fn item_hir_template_parameter_stats(
             stats +=
                 item_hir_template_parameter_stats(db, *ty_variant_path.parent_ty_path(db)).unwrap()
         }
+        ItemPath::ImplBlock(impl_block_path) => match impl_block_path {
+            ImplBlockPath::TypeImplBlock(_) => (),
+            ImplBlockPath::TraitForTypeImplBlock(trai_for_ty_impl_block_path) => {
+                match trai_for_ty_impl_block_path.ty_sketch(db) {
+                    TypeSketch::DeriveAny => stats.self_ty += 1,
+                    TypeSketch::Path(_) => (),
+                }
+            }
+        },
         _ => (),
     }
+    debug_assert!(stats.self_ty <= 1);
     Some(stats)
 }

@@ -44,19 +44,16 @@ pub(crate) fn symbol_name(symbol: EthSymbolicVariable, db: &::salsa::Db) -> Symb
     ctx.symbol_names(db)[symbol].1
 }
 
-pub fn with_item_eth_term_fmt_context(
+pub fn with_item_eth_term_fmt_context<R>(
     item_path: ItemPath,
-    f: impl FnOnce() -> std::fmt::Result,
+    f: impl FnOnce() -> R,
     db: &::salsa::Db,
-) -> std::fmt::Result {
+) -> R {
     let ctx = item_fmt_context(db, *item_path);
     with_eth_term_fmt_context(ctx, f)
 }
 
-fn with_eth_term_fmt_context(
-    ctx: EthTermFmtContext,
-    f: impl FnOnce() -> std::fmt::Result,
-) -> std::fmt::Result {
+fn with_eth_term_fmt_context<R>(ctx: EthTermFmtContext, f: impl FnOnce() -> R) -> R {
     let old_ctx = ETH_TERM_FMT_CONTEXT_CELL.get();
     ETH_TERM_FMT_CONTEXT_CELL.set(Some(ctx));
     let result = f();

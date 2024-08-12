@@ -5,7 +5,7 @@ pub mod literal;
 pub mod opr;
 pub mod separator;
 
-use self::{ident::Ident, keyword::Keyword, literal::Literal, opr::Opr};
+use self::{delimiter::*, ident::Ident, keyword::Keyword, literal::Literal, opr::Opr};
 use crate::token::separator::Separator;
 use crate::*;
 use delimiter::{Delimiter, LeftDelimiter, RightDelimiter};
@@ -30,6 +30,30 @@ pub enum Convexity {
 }
 
 impl Token {
+    pub fn repr(self) -> String {
+        match self {
+            Token::Literal(lit) => format!("{}", lit),
+            Token::Keyword(kw) => format!("{}", kw.repr()),
+            Token::Ident(ident) => format!("{}", ident.repr()),
+            Token::Opr(opr) => format!("{}", opr.repr()),
+            Token::LeftDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::RightDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::Separator(separator) => format!("{}", separator.repr()),
+        }
+    }
+
+    pub fn repr_short(self) -> String {
+        match self {
+            Token::Literal(lit) => format!("{}", lit),
+            Token::Keyword(kw) => format!("{}", kw.repr()),
+            Token::Ident(ident) => format!("{}", ident.repr()),
+            Token::Opr(opr) => format!("{}", opr.repr_short()),
+            Token::LeftDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::RightDelimiter(delimiter) => format!("{}", delimiter.repr()),
+            Token::Separator(separator) => format!("{}", separator.repr()),
+        }
+    }
+
     pub fn right_convexity(self) -> Convexity {
         match self {
             Token::Literal(_) => Convexity::Convex,
@@ -51,12 +75,12 @@ impl std::fmt::Debug for Token {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Token::Literal(lit) => write!(f, "`{}`", lit),
-            Token::Keyword(kw) => write!(f, "`{}`", kw.data()),
-            Token::Ident(ident) => write!(f, "`{}`", ident.data()),
-            Token::Opr(opr) => write!(f, "`{}`", opr.data()),
-            Token::LeftDelimiter(delimiter) => write!(f, "`{}`", delimiter.data()),
-            Token::RightDelimiter(delimiter) => write!(f, "`{}`", delimiter.data()),
-            Token::Separator(separator) => write!(f, "`{}`", separator.data()),
+            Token::Keyword(kw) => write!(f, "`{}`", kw.repr()),
+            Token::Ident(ident) => write!(f, "`{}`", ident.repr()),
+            Token::Opr(opr) => write!(f, "`{}`", opr.repr()),
+            Token::LeftDelimiter(delimiter) => write!(f, "`{}`", delimiter.repr()),
+            Token::RightDelimiter(delimiter) => write!(f, "`{}`", delimiter.repr()),
+            Token::Separator(separator) => write!(f, "`{}`", separator.repr()),
         }
     }
 }
@@ -119,6 +143,14 @@ impl<'a> Tokenizer<'a> {
             '*' => Some(Opr::MUL.into()),
             '/' => Some(Opr::DIV.into()),
             '=' => Some(Opr::ASSIGN.into()),
+            '(' => Some(LPAR.into()),
+            ')' => Some(RPAR.into()),
+            '[' => Some(LBOX.into()),
+            ']' => Some(RBOX.into()),
+            '{' => Some(LCURL.into()),
+            '}' => Some(RCURL.into()),
+            ',' => Some(Separator::Comma.into()),
+            ';' => Some(Separator::Semicolon.into()),
             c if c.is_alphabetic() || c == '_' => Some(self.next_keyword_or_ident(c)),
             c if c.is_numeric() => Some(self.next_numeric_literal(c)),
             c => todo!(),

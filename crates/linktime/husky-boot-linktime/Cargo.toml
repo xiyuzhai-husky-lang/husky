@@ -9,6 +9,8 @@ smallvec.workspace = true
 # abstraction
 salsa.workspace = true
 version-stamp.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # kernel
 husky-devsoul.workspace = true
 husky-standard-value.workspace = true
@@ -16,5 +18,5 @@ husky-vfs.workspace = true
 # linket
 husky-linket.workspace = true
 husky-linket-impl.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
+# linktime
+husky-linktime.workspace = true

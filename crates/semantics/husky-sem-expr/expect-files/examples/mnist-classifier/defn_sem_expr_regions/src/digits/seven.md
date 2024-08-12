@@ -35,7 +35,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -80,7 +80,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -131,7 +131,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -822,7 +822,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -1899,7 +1899,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -1944,7 +1944,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -1995,7 +1995,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -2042,7 +2042,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -2782,7 +2782,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -3160,7 +3160,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -3267,7 +3267,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -3514,7 +3514,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -4549,7 +4549,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -4927,7 +4927,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -5034,7 +5034,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5281,7 +5281,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5434,7 +5434,7 @@
                                                     env: MethodFn {
                                                         self_place: Transient,
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -6837,7 +6837,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -6933,7 +6933,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -7071,7 +7071,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -7167,7 +7167,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -7350,7 +7350,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -7627,7 +7627,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -7723,7 +7723,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -7775,7 +7775,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -7871,7 +7871,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -8099,7 +8099,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -8422,7 +8422,7 @@
                                                             place: None,
                                                         },
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -8787,9 +8787,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -8802,7 +8802,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -8994,7 +8994,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -9090,7 +9090,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -9142,7 +9142,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -9238,7 +9238,7 @@
                                                     ),
                                                 },
                                                 env: MemoizedField,
-                                                symbol_map: [],
+                                                variable_map: [],
                                                 separator: Some(
                                                     0,
                                                 ),
@@ -9464,9 +9464,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -9479,7 +9479,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -9540,7 +9540,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -9817,7 +9817,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -9977,9 +9977,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -9992,7 +9992,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -10733,7 +10733,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 71,
+                                            value: 73,
                                         },
                                     ),
                                 ),
@@ -10839,7 +10839,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 71,
+                                            value: 73,
                                         },
                                     ),
                                 ),
@@ -10859,7 +10859,7 @@
                                 Application(
                                     EthApplication(
                                         Id {
-                                            value: 73,
+                                            value: 75,
                                         },
                                     ),
                                 ),
@@ -11003,7 +11003,7 @@
                                         Application(
                                             EthApplication(
                                                 Id {
-                                                    value: 73,
+                                                    value: 75,
                                                 },
                                             ),
                                         ),

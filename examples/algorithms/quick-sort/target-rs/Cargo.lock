@@ -6,9 +6,12 @@ version = 3
 name = "ad-hoc-devsoul-dependency"
 version = "0.1.0"
 dependencies = [
+ "husky-any-linket-impls",
  "husky-devsoul-interface",
+ "husky-ki-repr-interface",
  "husky-linket-impl",
  "husky-standard-devsoul-interface",
+ "husky-standard-linket-impl",
  "husky-standard-value",
 ]
 
@@ -229,8 +232,21 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea"
 
 [[package]]
+name = "husky-any-linket-impls"
+version = "0.1.0"
+dependencies = [
+ "colored",
+ "husky-devsoul-interface",
+ "husky-item-path-interface",
+ "husky-linket-impl",
+ "husky-standard-devsoul-interface",
+ "husky-standard-linket-impl",
+ "rustc_version",
+]
+
+[[package]]
 name = "husky-check-utils"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "husky-print-utils",
 ]
@@ -239,6 +255,9 @@ dependencies = [
 name = "husky-core"
 version = "0.1.0"
 dependencies = [
+ "husky-devsoul-interface",
+ "husky-standard-devsoul-interface",
+ "husky-standard-linket-impl",
  "husky-standard-value",
  "husky-visual-protocol",
  "ordered-float",
@@ -268,6 +287,7 @@ version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
  "husky-devsoul-interface-macros",
+ "husky-linket-impl",
  "husky-value-interface",
  "husky-value-protocol",
  "husky-visual-protocol",
@@ -289,17 +309,35 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-item-path-interface"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "shifted-unsigned-int",
+]
+
+[[package]]
+name = "husky-ki-repr-interface"
+version = "0.1.0"
+dependencies = [
+ "serde",
+ "shifted-unsigned-int",
+ "smallvec",
+]
+
+[[package]]
 name = "husky-linket-impl"
 version = "0.1.0"
 dependencies = [
- "colored",
  "husky-decl-macro-utils",
- "husky-devsoul-interface",
- "husky-standard-value",
+ "husky-item-path-interface",
+ "husky-ki-repr-interface",
+ "husky-value-interface",
  "husky-value-protocol",
  "husky-wild-utils",
- "rustc_version",
+ "serde",
  "smallvec",
+ "vec-like",
 ]
 
 [[package]]
@@ -322,7 +360,7 @@ dependencies = [
 
 [[package]]
 name = "husky-path-utils"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "husky-check-utils",
  "husky-coword",
@@ -336,7 +374,7 @@ dependencies = [
 
 [[package]]
 name = "husky-print-utils"
-version = "0.0.0"
+version = "0.1.0"
 
 [[package]]
 name = "husky-proc-macro-utils"
@@ -360,9 +398,12 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-devsoul-interface",
+ "husky-item-path-interface",
+ "husky-ki-repr-interface",
  "husky-linket-impl",
  "husky-print-utils",
  "husky-standard-devsoul-interface-macros",
+ "husky-standard-linket-impl",
  "husky-standard-value",
  "serde",
  "shifted-unsigned-int",
@@ -380,15 +421,31 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-standard-value"
+name = "husky-standard-linket-impl"
 version = "0.1.0"
 dependencies = [
  "husky-decl-macro-utils",
  "husky-devsoul-interface",
+ "husky-item-path-interface",
+ "husky-ki-repr-interface",
+ "husky-linket-impl",
+ "husky-standard-value",
+ "husky-value-interface",
+ "husky-value-protocol",
+ "serde",
+ "vec-like",
+]
+
+[[package]]
+name = "husky-standard-value"
+version = "0.1.0"
+dependencies = [
+ "husky-decl-macro-utils",
  "husky-literal-value",
  "husky-print-utils",
  "husky-standard-value-macros",
  "husky-value-interface",
+ "husky-value-macros",
  "husky-value-protocol",
  "husky-visual-protocol",
  "husky-wild-utils",
@@ -397,6 +454,7 @@ dependencies = [
  "serde-impl",
  "serde_json",
  "smallvec",
+ "thiserror",
 ]
 
 [[package]]
@@ -419,6 +477,17 @@ version = "0.1.0"
 dependencies = [
  "husky-value-protocol",
  "husky-visual-protocol",
+ "serde",
+]
+
+[[package]]
+name = "husky-value-macros"
+version = "0.1.0"
+dependencies = [
+ "husky-proc-macro-utils",
+ "proc-macro2",
+ "quote",
+ "syn",
 ]
 
 [[package]]
@@ -443,7 +512,7 @@ dependencies = [
 
 [[package]]
 name = "husky-wild-utils"
-version = "0.0.0"
+version = "0.1.0"
 
 [[package]]
 name = "indexmap"

@@ -55,7 +55,7 @@ update-expect-local:
 
 update-expect-local-job-1:
 	cargo fmt
-	cargo check --tests -j 1
+	cargo check --tests
 	UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture\
 		|| scripts/play_update_expect_failure_music.sh
 	scripts/play_update_expect_success_music.sh
@@ -149,6 +149,4 @@ chicago-typewriter:
 	cargo run -p husky-chicago-typewriter
 
 quick:
-	# UPDATE_EXPECT=1 cargo test -p husky-rust-transpilation -j 1
-	# UPDATE_EXPECT=1 cargo test -p husky-mono-linktime
 	scripts/update_expect_quick.sh

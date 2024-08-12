@@ -22,8 +22,8 @@ impl i16:
 
     pub fn max(other: i16) -> i16;
 
-impl Add i32 for i16:
-    pub fn add(other: i32) -> i16;
+impl Add i16 for i16:
+    pub fn add(other: i16) -> i16;
 
 #[rust(i32)]
 #derive(Debug, PartialEq, Eq, Clone, Copy)
@@ -73,18 +73,12 @@ impl Add isize for isize:
 #derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern u8;
 
-impl u8:
-    pub fn abs() -> u8;
-
 impl Add u8 for u8:
     pub fn add(other: u8) -> u8;
 
 #[rust(u16)]
 #derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern u16;
-
-impl u16:
-    pub fn abs() -> u16;
 
 impl Add u16 for u16:
     pub fn add(other: u16) -> u16;
@@ -93,18 +87,12 @@ impl Add u16 for u16:
 #derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern u32;
 
-impl u32:
-    pub fn abs() -> u32;
-
 impl Add u32 for u32:
     pub fn add(other: u32) -> u32;
 
 #[rust(u64)]
 #derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern u64;
-
-impl u64:
-    pub fn abs() -> u64;
 
 impl Add u64 for u64:
     pub fn add(other: u64) -> u64;
@@ -113,18 +101,12 @@ impl Add u64 for u64:
 #derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern u128;
 
-impl u128:
-    pub fn abs() -> u128;
-
 impl Add u128 for u128:
     pub fn add(other: u128) -> u128;
 
 #[rust(usize)]
 #derive(Debug, PartialEq, Eq, Clone, Copy)
 pub extern usize;
-
-impl usize:
-    pub fn abs() -> usize;
 
 impl Add usize for usize:
     pub fn add(other: usize) -> usize;

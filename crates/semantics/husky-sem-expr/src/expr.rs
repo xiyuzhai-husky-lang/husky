@@ -40,7 +40,10 @@ use husky_entity_path::path::{
     },
     PrincipalEntityPath,
 };
-use husky_eth_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEthSignature;
+use husky_eth_signature::signature::assoc_item::trai_for_ty_item::{
+    assoc_ritchie::TraitForTypeAssocRitchieEthSignature,
+    assoc_ty::TraitForTypeAssocTypeEthSignature,
+};
 use husky_eth_term::term::{
     application::EthApplication, symbolic_variable::EthSymbolicVariable,
     trai_for_ty_item::EthTypeAsTraitItem, EthTerm,
@@ -180,6 +183,7 @@ pub enum SemExprData {
         opr_regional_token_idx: RegionalTokenIdx,
         unveil_output_ty_signature: TraitForTypeAssocTypeEthSignature,
         unveil_assoc_fn_path: TraitForTypeItemPath,
+        unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature,
         return_ty: EthTerm,
     },
     Unwrap {

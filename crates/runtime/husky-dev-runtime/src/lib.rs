@@ -11,23 +11,25 @@ pub use self::config::*;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_devsoul::{
     devsoul::IsDevsoul,
-    helpers::{DevsoulException, DevsoulStaticVarId, DevsoulValue},
+    helpers::{DevsoulStaticVarId, DevsoulTrackedException, DevsoulValue},
 };
 use husky_devsoul::{
     devsoul::IsRuntimeStorage,
     helpers::{DevsoulKiControlFlow, DevsoulValueResult},
 };
-use husky_devsoul_interface::pedestal::IsPedestal;
-use husky_devsoul_interface::{
-    item_path::ItemPathIdInterface,
-    ki_repr::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface},
-    DevEvalContext, IsDevRuntime, IsLinketImpl, LinketImplKiControlFlow,
-};
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{major_item::MajorItemPath, ItemPath, ItemPathId};
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
 use husky_linket::linket::Linket;
+use husky_linket_impl::{
+    eval_context::{DevEvalContext, IsDevRuntime},
+    linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue},
+    pedestal::IsPedestal,
+};
+use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use husky_wild_utils::arb_ref;
 use std::{
@@ -91,19 +93,21 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 
     fn get_or_try_init_ki_value(
         &self,
-        ki: husky_ki::Ki,
-        var_deps: &husky_ki_repr::var_deps::KiVarDeps,
+        ki_repr: KiRepr,
         f: impl FnOnce() -> LinketImplKiControlFlow<Devsoul::LinketImpl>,
     ) -> LinketImplKiControlFlow<Devsoul::LinketImpl> {
-        self.storage.get_or_try_init_ki_value(
-            ki,
-            var_deps
-                .iter()
-                .map(|&path| ((*path).into(), self.get_static_var_id(path)))
-                .collect(),
-            f,
-            self.db(),
-        )
+        let db = self.db();
+        let ki = ki_repr.ki(db);
+        self.storage
+            .get_or_try_init_ki_value(ki, self.pedestal(ki_repr), f, self.db())
+    }
+
+    fn pedestal(&self, ki_repr: KiRepr) -> <Devsoul::LinketImpl as IsLinketImpl>::Pedestal {
+        ki_repr
+            .var_deps(self.db())
+            .iter()
+            .map(|&path| ((*path).into(), self.get_static_var_id(path)))
+            .collect()
     }
 
     fn get_static_var_id(&self, path: ItemPath) -> DevsoulStaticVarId<Devsoul> {
@@ -187,11 +191,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
     fn eval_ki_domain_repr_interface(
         &self,
         ki_domain_repr: KiDomainReprInterface,
-    ) -> husky_devsoul_interface::ki_control_flow::KiControlFlow<
-        (),
-        Infallible,
-        DevsoulException<Devsoul>,
-    > {
+    ) -> KiControlFlow<(), Infallible, DevsoulTrackedException<Devsoul>> {
         self.eval_ki_domain_repr(ki_domain_repr.into())
     }
 
@@ -204,7 +204,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
         let ki_repr: KiRepr = unsafe { std::mem::transmute(ki_repr) };
         let ki_domain_repr: KiDomainReprInterface =
             unsafe { std::mem::transmute(ki_repr.ki_domain_repr(db)) };
-        self.get_or_try_init_ki_value(ki_repr.ki(db), ki_repr.var_deps(db), || f(ki_domain_repr))
+        self.get_or_try_init_ki_value(ki_repr, || f(ki_domain_repr))
     }
 
     fn eval_memo_field_with(
@@ -291,6 +291,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
         let db = self.db();
         let ki_repr: KiRepr = ki_repr_interface.into();
         let ki = ki_repr.ki(db);
-        self.storage.get_or_try_init_ki_value(ki, pedestal, f, db)
+        self.storage
+            .get_or_try_init_generic_gn_value(ki, pedestal, f, db)
     }
 }

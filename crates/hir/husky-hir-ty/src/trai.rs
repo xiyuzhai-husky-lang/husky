@@ -55,7 +55,7 @@ fn hir_trai_from_eth_term_application(db: &::salsa::Db, trai_term: EthApplicatio
                 template_parameters.iter(),
                 application_expansion.arguments(db).iter().copied(),
             )
-            .filter_map(|(param, arg)| match param.symbol().index(db).inner() {
+            .filter_map(|(param, arg)| match param.variable().index(db).inner() {
                 EthTermSymbolIndexImpl::ExplicitLifetime {
                     attrs: _,
                     variance: _,

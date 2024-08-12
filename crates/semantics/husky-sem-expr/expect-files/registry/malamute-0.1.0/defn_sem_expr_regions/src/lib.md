@@ -29,9 +29,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -44,7 +44,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -558,9 +558,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`B`),
+                                                    EthSymbolicVariable(`B`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -573,7 +573,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`C`),
+                                                    EthSymbolicVariable(`C`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -630,9 +630,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -872,9 +872,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`B`),
+                                                    EthSymbolicVariable(`B`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -887,7 +887,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`C`),
+                                                    EthSymbolicVariable(`C`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2371,9 +2371,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`B`),
+                                                    EthSymbolicVariable(`B`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2386,7 +2386,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`C`),
+                                                    EthSymbolicVariable(`C`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2443,9 +2443,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2458,7 +2458,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2587,9 +2587,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`B`),
+                                                    EthSymbolicVariable(`B`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2602,7 +2602,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`C`),
+                                                    EthSymbolicVariable(`C`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2659,9 +2659,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2674,7 +2674,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `phan`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2803,9 +2803,9 @@
                                                 task_ty: None,
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`B`),
+                                                    EthSymbolicVariable(`B`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,
@@ -2818,7 +2818,7 @@
                                                     ),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`C`),
+                                                    EthSymbolicVariable(`C`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,

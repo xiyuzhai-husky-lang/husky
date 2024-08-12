@@ -390,12 +390,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 4,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist_classifier::line_segment_sketch::LineSegmentStroke as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`LineSegmentStroke`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`LineSegmentStroke`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),
@@ -422,12 +437,43 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    AssocRitchie(
-                        TypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TypeItemEthTemplate::AssocRitchie(
+                        TypeAssocRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`LineSegmentStroke`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`Leash RawContour`),
+                                        },
+                                    ),
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`LineSegmentStroke`),
+                            ty: EthTerm(`fn(( Leash RawContour,  i32,  i32) -> LineSegmentStroke`),
+                        },
                     ),
                 ),
             ),
@@ -438,12 +484,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 35,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`LineSegmentStroke`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`LineSegmentStroke`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Vector2d`),
+                        },
                     ),
                 ),
             ),
@@ -483,12 +544,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 5,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist_classifier::line_segment_sketch::LineSegmentSketch as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`LineSegmentSketch`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`LineSegmentSketch`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),
@@ -515,12 +591,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 18,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`LineSegmentSketch`),
                             },
-                        ),
+                            return_ty: EthTerm(`Vec ConcaveComponent`),
+                            expr_ty: EthTerm(`Leash Vec ConcaveComponent`),
+                        },
                     ),
                 ),
             ),
@@ -531,12 +617,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 19,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`LineSegmentSketch`),
                             },
-                        ),
+                            return_ty: EthTerm(`BoundingBox`),
+                            expr_ty: EthTerm(`Leash BoundingBox`),
+                        },
                     ),
                 ),
             ),
@@ -547,12 +643,37 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    AssocRitchie(
-                        TypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 3,
+                    TypeItemEthTemplate::AssocRitchie(
+                        TypeAssocRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`LineSegmentSketch`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`Leash RawContour`),
+                                        },
+                                    ),
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`f32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`LineSegmentSketch`),
+                            ty: EthTerm(`fn(( Leash RawContour,  f32) -> LineSegmentSketch`),
+                        },
                     ),
                 ),
             ),

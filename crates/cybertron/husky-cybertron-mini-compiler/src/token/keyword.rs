@@ -1,11 +1,16 @@
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Keyword {
     Let,
+    If,
+    Else,
+    Struct,
+    Enum,
+    Fn,
 }
 
 impl std::fmt::Debug for Keyword {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!("`{}`", self.data()))
+        f.write_fmt(format_args!("`{}`", self.repr()))
     }
 }
 
@@ -19,9 +24,14 @@ impl Keyword {
 }
 
 impl Keyword {
-    pub fn data(self) -> &'static str {
+    pub fn repr(self) -> &'static str {
         match self {
             Keyword::Let => "let",
+            Keyword::If => "if",
+            Keyword::Else => "else",
+            Keyword::Struct => "struct",
+            Keyword::Enum => "enum",
+            Keyword::Fn => "fn",
         }
     }
 }

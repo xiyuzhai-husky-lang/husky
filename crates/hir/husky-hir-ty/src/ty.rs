@@ -196,7 +196,7 @@ pub(crate) fn hir_ty_from_eth_term_application(
                 application_expansion.arguments(db).iter().copied(),
             )
             .filter_map(|(param, arg)| {
-                match param.symbol().index(db).inner() {
+                match param.variable().index(db).inner() {
                     EthTermSymbolIndexImpl::ExplicitLifetime { attrs, .. }
                     | EthTermSymbolIndexImpl::ExplicitPlace { attrs, .. }
                     | EthTermSymbolIndexImpl::Type { attrs, .. }

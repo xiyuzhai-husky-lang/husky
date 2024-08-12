@@ -1,11 +1,12 @@
 use crate::{channel::MnistChannel, op::history::OpTime, trace::Trace, MnistDb};
 
-use husky_standard_devsoul_interface::pedestal::StandardPedestal;
+use husky_ki_repr_interface::KiReprInterface;
+use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_standard_visual_protocol::figure::StandardFigure;
-use husky_trace_protocol::figure::IsFigure;
+use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 
-pub type Figure = StandardFigure<StandardPedestal>;
+pub type Figure = StandardFigure;
 
 impl MnistChannel {
     pub(in super::super) fn figure<'a>(
@@ -33,10 +34,7 @@ impl MnistChannel {
 
     pub(in super::super) fn accompanyings_except_followed(
         &self,
-    ) -> Vec<(
-        husky_trace_protocol::id::TraceId,
-        husky_devsoul_interface::ki_repr::KiReprInterface,
-    )> {
+    ) -> Vec<(TraceId, KiReprInterface)> {
         self.trace_selection()
             .set()
             .iter()

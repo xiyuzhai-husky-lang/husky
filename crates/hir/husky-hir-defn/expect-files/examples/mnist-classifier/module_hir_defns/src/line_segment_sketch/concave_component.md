@@ -549,11 +549,11 @@
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
-                                                    path: ItemPath(`#derive _ as core::visual::Visualize(0)`),
+                                                    path: ItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::SelfType,
@@ -943,7 +943,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -1260,7 +1260,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -1379,7 +1379,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -1437,7 +1437,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -1930,7 +1930,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -2198,7 +2198,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -2308,7 +2308,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -2366,7 +2366,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -2608,7 +2608,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -2873,7 +2873,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -3359,7 +3359,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -4507,7 +4507,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -4624,7 +4624,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -4866,7 +4866,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -5131,7 +5131,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -5466,7 +5466,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -5707,7 +5707,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -6521,7 +6521,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -7315,7 +7315,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -7580,7 +7580,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -8178,7 +8178,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -8505,7 +8505,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -8832,7 +8832,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -9159,7 +9159,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -9365,7 +9365,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: None,
                                                 },
                                                 arguments: [
@@ -9558,7 +9558,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: None,
                                                 },
                                                 arguments: [
@@ -9643,7 +9643,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: None,
                                                 },
                                                 arguments: [
@@ -10303,7 +10303,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -10446,7 +10446,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -10521,7 +10521,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -10961,7 +10961,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -11167,11 +11167,11 @@
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
-                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::SelfType,
@@ -11433,7 +11433,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -11639,11 +11639,11 @@
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
-                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::SelfType,
@@ -11702,7 +11702,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: None,
                                                 },
                                                 arguments: [
@@ -12160,7 +12160,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -12366,11 +12366,11 @@
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
-                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::SelfType,
@@ -12810,7 +12810,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -13016,11 +13016,11 @@
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
-                                                    path: ItemPath(`#derive _ as core::clone::Clone(0)`),
+                                                    path: ItemPath(`<#derive _ as core::clone::Clone(0)>::clone`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::SelfType,
@@ -13331,7 +13331,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -13389,7 +13389,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -13812,7 +13812,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -13952,7 +13952,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),
@@ -14375,7 +14375,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
@@ -14515,7 +14515,7 @@
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),

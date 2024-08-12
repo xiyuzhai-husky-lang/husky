@@ -19,10 +19,81 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        path: ItemPath(`core::ops::ControlFlow::Continue`),
                         context: JavTypeContext {
                             comptime_var_overrides: [],
                         },
-                        symbol_resolutions: [
+                        variable_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
+                                                ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 1,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
+                                                ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: None,
+                    },
+                },
+            },
+        ): PackagePath {
+            toolchain: Toolchain {
+                data: ToolchainData::Local {
+                    library_path: "../../../library",
+                },
+            },
+            name: `malamute`,
+            data: PackagePathSource::Local {
+                path: "../../../registry/malamute-0.1.0",
+            },
+        },
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::Type(
+                        TypePath(`core::ops::ControlFlow`, `Enum`),
+                    ),
+                    instantiation: JavInstantiation {
+                        path: ItemPath(`core::ops::ControlFlow::Break`),
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
+                        variable_resolutions: [
                             (
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
@@ -90,10 +161,71 @@ ValkyrieJavelinPantheon {
                         TypePath(`core::ops::ControlFlow`, `Enum`),
                     ),
                     instantiation: JavInstantiation {
+                        path: ItemPath(`core::ops::ControlFlow::Break`),
                         context: JavTypeContext {
                             comptime_var_overrides: [],
                         },
-                        symbol_resolutions: [
+                        variable_resolutions: [
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 0,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
+                                                ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            (
+                                HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
+                                            class: Mono,
+                                        },
+                                        variance: None,
+                                        disambiguator: 1,
+                                    },
+                                ),
+                                JavTermSymbolResolution::Explicit(
+                                    JavTemplateArgument::Type(
+                                        JavType::PathLeading(
+                                            JavTypePathLeading {
+                                                ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ],
+                        separator: None,
+                    },
+                },
+            },
+        ),
+        ValkyrieJavelin(
+            Javelin {
+                data: JavelinData::PathLeading {
+                    path: JavPath::Type(
+                        TypePath(`core::ops::ControlFlow`, `Enum`),
+                    ),
+                    instantiation: JavInstantiation {
+                        path: ItemPath(`core::ops::ControlFlow::Continue`),
+                        context: JavTypeContext {
+                            comptime_var_overrides: [],
+                        },
+                        variable_resolutions: [
                             (
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {

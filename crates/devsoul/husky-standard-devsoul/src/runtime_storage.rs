@@ -1,11 +1,15 @@
 use crate::*;
 use dashmap::DashMap;
 use husky_devsoul::devsoul::IsRuntimeStorage;
-use husky_devsoul_interface::{item_path::ItemPathIdInterface, IsLinketImpl};
 use husky_entity_path::path::ItemPath;
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki::{version_stamp::KiVersionStamp, Ki, KiDomain};
-use husky_linket_impl::standard::StandardLinketImplKiControlFlow;
-use husky_standard_devsoul_interface::static_var::StandardStaticVarId;
+use husky_linket_impl::linket_impl::{
+    IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue,
+    LinketImplTrackedException,
+};
+use husky_standard_linket_impl::{static_var::StandardStaticVarId, StandardKiControlFlow};
+use husky_value_interface::ki_control_flow::KiControlFlow;
 use std::{
     convert::Infallible,
     sync::{Arc, Mutex},
@@ -15,26 +19,23 @@ use std::{
 pub struct StandardDevRuntimeStorage {
     val_values: DashMap<
         StandardDevRuntimeValStorageKey,
-        Arc<Mutex<Option<(ValVersionStamp, StandardLinketImplKiControlFlow)>>>,
+        Arc<Mutex<Option<(ValVersionStamp, StandardKiControlFlow)>>>,
     >,
     ki_domain_values: DashMap<
         StandardDevRuntimeKiDomainStorageKey,
-        Arc<
-            Mutex<
-                Option<(
-                    KiVersionStamp,
-                    StandardLinketImplKiControlFlow<(), Infallible>,
-                )>,
-            >,
-        >,
+        Arc<Mutex<Option<(KiVersionStamp, StandardKiControlFlow<(), Infallible>)>>>,
     >,
     ki_values: DashMap<
         StandardDevRuntimeKiStorageKey,
-        Arc<Mutex<Option<(KiVersionStamp, StandardLinketImplKiControlFlow)>>>,
+        Arc<Mutex<Option<(KiVersionStamp, StandardKiControlFlow)>>>,
+    >,
+    generic_gn_values: DashMap<
+        StandardDevRuntimeGenericGnStorageKey,
+        Arc<Mutex<Option<(KiVersionStamp, StandardKiControlFlow)>>>,
     >,
     memo_field_values: DashMap<
         StandardDevRuntimeMemoizedFieldStorageKey,
-        Arc<Mutex<Option<StandardLinketImplKiControlFlow>>>,
+        Arc<Mutex<Option<StandardKiControlFlow>>>,
     >,
 }
 
@@ -59,6 +60,12 @@ pub struct StandardDevRuntimeKiStorageKey {
     pedestal: StandardPedestal,
 }
 
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Hash)]
+pub struct StandardDevRuntimeGenericGnStorageKey {
+    ki: Ki,
+    pedestal: StandardPedestal,
+}
+
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy, Hash)]
 pub struct StandardDevRuntimeMemoizedFieldStorageKey {
     item_path_id_interface: ItemPathIdInterface,
@@ -77,9 +84,9 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
         &self,
         val_item_path_id_interface: ItemPathIdInterface,
         pedestal: StandardPedestal,
-        f: impl FnOnce() -> StandardLinketImplKiControlFlow,
+        f: impl FnOnce() -> StandardKiControlFlow,
         db: &salsa::Db,
-    ) -> StandardLinketImplKiControlFlow {
+    ) -> StandardKiControlFlow {
         let key = StandardDevRuntimeValStorageKey {
             val_item_path_id_interface,
             pedestal,
@@ -109,10 +116,10 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
         &self,
         ki: Ki,
         pedestal: StandardPedestal,
-        f: impl FnOnce() -> StandardLinketImplKiControlFlow,
+        f: impl FnOnce() -> StandardKiControlFlow,
         db: &::salsa::Db,
-    ) -> StandardLinketImplKiControlFlow {
-        use husky_devsoul_interface::pedestal::IsPedestal;
+    ) -> StandardKiControlFlow {
+        use husky_linket_impl::pedestal::IsPedestal;
 
         let key = StandardDevRuntimeKiStorageKey { ki, pedestal };
         let mu = self.ki_values.entry(key.clone()).or_default().clone();
@@ -139,8 +146,8 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
         &self,
         item_path_id_interface: ItemPathIdInterface,
         slf: &'static std::ffi::c_void,
-        f: impl FnOnce(&'static std::ffi::c_void) -> StandardLinketImplKiControlFlow,
-    ) -> StandardLinketImplKiControlFlow {
+        f: impl FnOnce(&'static std::ffi::c_void) -> StandardKiControlFlow,
+    ) -> StandardKiControlFlow {
         // todo: maybe add version stamp?
         let key = StandardDevRuntimeMemoizedFieldStorageKey {
             item_path_id_interface,
@@ -166,10 +173,10 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
         &self,
         ki_domain: KiDomain,
         pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
-        f: impl FnOnce() -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception>,
+        f: impl FnOnce() -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>>,
         db: &salsa::Db,
-    ) -> KiControlFlow<(), Infallible, <LinketImpl as IsLinketImpl>::Exception> {
-        use husky_devsoul_interface::pedestal::IsPedestal;
+    ) -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>> {
+        use husky_linket_impl::pedestal::IsPedestal;
 
         let key = StandardDevRuntimeKiDomainStorageKey {
             ki_domain,
@@ -187,17 +194,49 @@ impl IsRuntimeStorage<LinketImpl> for StandardDevRuntimeStorage {
                 Some((old_version_stamp, ref ki_control_flow))
                     if old_version_stamp == new_version_stamp =>
                 {
-                    // ad hoc, think about sharing here
                     return ki_control_flow.clone();
                 }
                 _ => *opt_stored_ki_control_flow_store_guard = Some((new_version_stamp, f())),
             };
-            // ad hoc, think about sharing here
             opt_stored_ki_control_flow_store_guard
                 .as_ref()
                 .expect("should be some")
                 .1
                 .clone()
+        }
+    }
+
+    fn get_or_try_init_generic_gn_value(
+        &self,
+        ki: Ki,
+        pedestal: <LinketImpl as IsLinketImpl>::Pedestal,
+        f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
+        db: &salsa::Db,
+    ) -> LinketImplKiControlFlow<LinketImpl> {
+        use husky_linket_impl::pedestal::IsPedestal;
+
+        let key = StandardDevRuntimeGenericGnStorageKey { ki, pedestal };
+        let mu = self
+            .generic_gn_values
+            .entry(key.clone())
+            .or_default()
+            .clone();
+        let mut opt_stored_ki_control_flow_store_guard = mu.lock().expect("todo");
+        let new_version_stamp = key.ki.version_stamp(db);
+        unsafe {
+            match *opt_stored_ki_control_flow_store_guard {
+                Some((old_version_stamp, ref ki_control_flow))
+                    if old_version_stamp == new_version_stamp =>
+                {
+                    return ki_control_flow.share_unchecked();
+                }
+                _ => *opt_stored_ki_control_flow_store_guard = Some((new_version_stamp, f())),
+            };
+            opt_stored_ki_control_flow_store_guard
+                .as_ref()
+                .expect("should be some")
+                .1
+                .share_unchecked()
         }
     }
 }

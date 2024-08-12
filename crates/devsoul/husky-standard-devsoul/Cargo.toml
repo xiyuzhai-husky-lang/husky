@@ -11,23 +11,28 @@ serde.workspace = true
 salsa.workspace = true
 # comptime
 husky-rust-transpilation.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-devsoul.workspace = true
+husky-standard-devsoul-interface.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
 husky-standard-value.workspace = true
 husky-entity-path.workspace = true
+husky-item-path-interface.workspace = true
+# ki
+husky-ki.workspace = true
+husky-ki-repr-interface.workspace = true
 # linket
 husky-linket.workspace = true
 husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
 # linktime
 husky-mono-linktime.workspace = true
 # protocols
 husky-trace-protocol.workspace = true
 husky-standard-trace-protocol.workspace = true
 husky-visual-protocol.workspace = true
-# devsoul
-husky-devsoul-interface.workspace = true
-husky-devsoul.workspace = true
-husky-standard-devsoul-interface.workspace = true
-# ki
-husky-ki.workspace = true
+# value
+husky-value-interface.workspace = true

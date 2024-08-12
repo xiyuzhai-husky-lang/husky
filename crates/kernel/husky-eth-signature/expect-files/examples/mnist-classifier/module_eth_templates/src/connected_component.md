@@ -298,12 +298,27 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    MethodRitchie(
-                        TraitForTypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 1,
+                    TraitForTypeItemEthTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConnectedComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConnectedComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EthTerm(`Visual`),
+                        },
                     ),
                 ),
             ),
@@ -330,12 +345,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 1,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`Vec RawContour`),
+                            expr_ty: EthTerm(`Leash Vec RawContour`),
+                        },
                     ),
                 ),
             ),
@@ -346,12 +371,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 2,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`EffHoles`),
+                            expr_ty: EthTerm(`Leash EffHoles`),
+                        },
                     ),
                 ),
             ),
@@ -362,12 +397,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 3,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -378,12 +423,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 4,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -394,12 +449,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 5,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -410,12 +475,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 6,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`ConnectedComponentDistribution`),
+                            expr_ty: EthTerm(`Leash ConnectedComponentDistribution`),
+                        },
                     ),
                 ),
             ),
@@ -426,12 +501,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 7,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -442,12 +527,22 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MemoizedField(
-                        TypeMemoizedFieldEthTemplate(
-                            Id {
-                                value: 8,
+                    TypeItemEthTemplate::MemoizedField(
+                        TypeMemoizedFieldEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                                TypeItemKind::MemoizedField,
+                            ),
+                            impl_block: TypeImplBlockEthTemplate {
+                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+                                template_parameters: EthTemplateParameters {
+                                    data: [],
+                                },
+                                self_ty: EthTerm(`ConnectedComponent`),
                             },
-                        ),
+                            return_ty: EthTerm(`f32`),
+                            expr_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -458,12 +553,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 1,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConnectedComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConnectedComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),
@@ -474,12 +591,34 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::Type(
-                    MethodRitchie(
-                        TypeMethodRitchieEthTemplate(
-                            Id {
-                                value: 2,
+                    TypeItemEthTemplate::MethodRitchie(
+                        TypeMethodRitchieEthTemplate {
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            self_ty: EthTerm(`ConnectedComponent`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            self_value_parameter: EthRitchieSimpleParameter {
+                                contract: Contract::Pure,
+                                ty: EthTerm(`ConnectedComponent`),
+                            },
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`i32`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`f32`),
+                        },
                     ),
                 ),
             ),

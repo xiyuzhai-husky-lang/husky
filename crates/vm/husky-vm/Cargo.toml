@@ -14,13 +14,16 @@ keywords.workspace = true
 [dependencies]
 # abstractions
 salsa.workspace = true
-# linket
-husky-linket.workspace = true
-# kernel
-husky-place.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 husky-devsoul.workspace = true
+# kernel
+husky-place.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
+# linktime
+husky-linktime.workspace = true
 # semantics
 husky-sem-expr.workspace = true
 # value
@@ -74,6 +77,8 @@ husky-corgi-config-ast.workspace = true
 husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
+# linktime
+husky-virtual-linktime.workspace = true
 
 [features]
 

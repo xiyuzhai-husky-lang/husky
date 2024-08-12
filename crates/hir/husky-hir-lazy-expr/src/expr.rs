@@ -226,13 +226,14 @@ impl ToHirLazy for SemExprIdx {
             },
             SemExprData::Unveil {
                 ref unveil_output_ty_signature,
+                ref unveil_assoc_fn_signature,
                 unveil_assoc_fn_path,
                 opd,
                 ..
             } => HirLazyExprData::Unveil {
                 unveil_assoc_fn_path,
                 instantiation: HirInstantiation::from_eth(
-                    unveil_output_ty_signature.instantiation(),
+                    unveil_assoc_fn_signature.instantiation(),
                     builder.db(),
                 ),
                 opd_hir_expr_idx: opd.to_hir_lazy(builder),

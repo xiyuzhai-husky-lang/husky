@@ -12,12 +12,12 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`T`),
+                                        variable: EthSymbolicVariable(`T`, `mono`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],
@@ -39,22 +39,22 @@
                             data: [
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`T1`),
+                                    variable: EthSymbolicVariable(`T1`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`T2`),
+                                    variable: EthSymbolicVariable(`T2`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`E1`),
+                                    variable: EthSymbolicVariable(`E1`, `mono`),
                                     traits: [],
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    symbol: EthSymbolicVariable(`E2`),
+                                    variable: EthSymbolicVariable(`E2`, `mono`),
                                     traits: [],
                                 },
                             ],
@@ -64,7 +64,7 @@
                             Application(
                                 EthApplication(
                                     Id {
-                                        value: 23,
+                                        value: 24,
                                     },
                                 ),
                             ),
@@ -79,12 +79,17 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocType(
-                        TraitForTypeAssocTypeEthTemplate(
-                            Id {
-                                value: 1,
+                    TraitForTypeItemEthTemplate::AssocType(
+                        TraitForTypeAssocTypeEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::result::Result as core::ops::Unveil(0)>::Continue`,
+                                TraitItemKind::AssocType,
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            assoc_ty: EthTerm(`E2`),
+                        },
                     ),
                 ),
             ),
@@ -95,12 +100,29 @@
         Ok(
             ItemEthTemplate::AssocItem(
                 AssocItemEthTemplate::TraitForType(
-                    AssocRitchie(
-                        TraitForTypeAssocRitchieEthTemplate(
-                            Id {
-                                value: 1,
+                    TraitForTypeItemEthTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieEthTemplate {
+                            path: TraitForTypeItemPath(
+                                `<core::result::Result as core::ops::Unveil(0)>::unveil`,
+                                TraitItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
                             },
-                        ),
+                            parenate_parameters: EtherealParenateParameters {
+                                data: [
+                                    EtherealRitchieParameter::Simple(
+                                        EthRitchieSimpleParameter {
+                                            contract: Contract::Pure,
+                                            ty: EthTerm(`Result T2 E2`),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EthTerm(`Result T1 E1`),
+                        },
                     ),
                 ),
             ),

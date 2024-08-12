@@ -4,6 +4,7 @@ use husky_hir_ty::{
     ritchie::{HirContract, HirRitchieParameter},
     HirType,
 };
+use husky_vfs::toolchain::Toolchain;
 use smallvec::SmallVec;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -12,6 +13,16 @@ use smallvec::SmallVec;
 pub enum JavType {
     PathLeading(JavTypePathLeading),
     Ritchie(JavRitchieType),
+}
+
+impl JavType {
+    pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
+        match self {
+            JavType::PathLeading(slf) => slf.ty_path(db).toolchain(db),
+            // ad hoc
+            JavType::Ritchie(slf) => slf.return_ty(db).toolchain(db),
+        }
+    }
 }
 
 #[salsa::interned(db = JavelinDb, constructor = new)]

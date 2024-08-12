@@ -40,15 +40,15 @@ impl LinInstantiate for HirType {
                     .collect(),
             )),
             HirType::Variable(slf) => match instantiation.resolve(slf.into()) {
-                LinTermSymbolResolution::Explicit(arg) => match arg {
+                LinTermVariableResolution::Explicit(arg) => match arg {
                     LinTemplateArgument::Vacant => todo!(),
                     LinTemplateArgument::Type(linket_ty) => linket_ty,
                     LinTemplateArgument::Constant(_) => todo!(),
                     LinTemplateArgument::Lifetime => todo!(),
                     LinTemplateArgument::Qual(_) => todo!(),
                 },
-                LinTermSymbolResolution::SelfLifetime => todo!(),
-                LinTermSymbolResolution::SelfQual(_) => todo!(),
+                LinTermVariableResolution::SelfLifetime => todo!(),
+                LinTermVariableResolution::SelfQual(_) => todo!(),
             },
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
@@ -77,12 +77,12 @@ impl LinTypePathLeading {
             db,
             ty_path,
             instantiation
-                .symbol_resolutions()
+                .variable_resolutions()
                 .iter()
                 .map(|(_, res)| match *res {
-                    LinTermSymbolResolution::Explicit(arg) => arg,
-                    LinTermSymbolResolution::SelfLifetime
-                    | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
+                    LinTermVariableResolution::Explicit(arg) => arg,
+                    LinTermVariableResolution::SelfLifetime
+                    | LinTermVariableResolution::SelfQual(_) => unreachable!(),
                 })
                 .collect(),
         )
@@ -180,15 +180,15 @@ impl LinType {
             )
             .into(),
             HirType::Variable(symbol) => match instantiation.resolve(symbol.into()) {
-                LinTermSymbolResolution::Explicit(arg) => match arg {
+                LinTermVariableResolution::Explicit(arg) => match arg {
                     LinTemplateArgument::Vacant => todo!(),
                     LinTemplateArgument::Type(linket_ty) => linket_ty,
                     LinTemplateArgument::Constant(_) => todo!(),
                     LinTemplateArgument::Lifetime => todo!(),
                     LinTemplateArgument::Qual(_) => todo!(),
                 },
-                LinTermSymbolResolution::SelfLifetime => todo!(),
-                LinTermSymbolResolution::SelfQual(_) => todo!(),
+                LinTermVariableResolution::SelfLifetime => todo!(),
+                LinTermVariableResolution::SelfQual(_) => todo!(),
             },
             HirType::TypeAssocType(_) => unreachable!(),
             HirType::TraitAssocType(_) => unreachable!(),

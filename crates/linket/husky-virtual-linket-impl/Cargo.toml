@@ -1,0 +1,31 @@
+[package]
+name = "husky-virtual-linket-impl"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+# abstractions
+salsa.workspace = true
+# kernel
+husky-item-path-interface.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
+# linket
+husky-linket.workspace = true
+husky-linket-impl.workspace = true
+# value
+husky-value-protocol.workspace = true
+husky-value-interface.workspace = true
+husky-virtual-value.workspace = true
+
+# linket
+[lints]
+workspace = true

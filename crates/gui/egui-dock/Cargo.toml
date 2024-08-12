@@ -17,7 +17,7 @@ default = []
 serde = ["dep:serde", "egui/serde"]
 
 [dependencies]
-egui = { workspace = true }
+egui.workspace = true
 serde = { workspace = true, optional = true, features = ["derive"] }
 duplicate = "1.0"
 paste = "1.0"

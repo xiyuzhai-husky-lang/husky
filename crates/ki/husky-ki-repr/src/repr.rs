@@ -5,10 +5,10 @@ pub(crate) use self::domain_repr_guard::KiDomainReprGuard;
 
 use self::source::*;
 use crate::*;
-use husky_devsoul_interface::ki_repr::{KiDomainReprInterface, KiReprInterface};
 use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
 use husky_linket::linket::Linket;
 use smallvec::{smallvec, SmallVec};
 
@@ -59,7 +59,7 @@ pub enum KiArgumentRepr {
 
 #[test]
 fn ki_argument_repr_size_works() {
-    use husky_devsoul_interface::ki_repr::KiArgumentReprInterface;
+    use husky_ki_repr_interface::KiArgumentReprInterface;
 
     assert_eq!(
         std::mem::size_of::<KiArgumentRepr>(),

@@ -1418,50 +1418,6 @@
     ),
     (
         ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u8(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssocItem(
-                            AssocItemSynNodePathData::TypeItem(
-                                TypeItemSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(
-                                            `core::num::u8(0)::abs`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
                     ItemSynNodePathId {
@@ -1490,50 +1446,6 @@
                                         maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<core::num::u8 as core::ops::Add(0)>::add`,
                                             TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u16(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssocItem(
-                            AssocItemSynNodePathData::TypeItem(
-                                TypeItemSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(
-                                            `core::num::u16(0)::abs`,
-                                            TypeItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
                                             ),
                                         ),
@@ -1594,50 +1506,6 @@
     ),
     (
         ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u32(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssocItem(
-                            AssocItemSynNodePathData::TypeItem(
-                                TypeItemSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(
-                                            `core::num::u32(0)::abs`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
                     ItemSynNodePathId {
@@ -1666,50 +1534,6 @@
                                         maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<core::num::u32 as core::ops::Add(0)>::add`,
                                             TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u64(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssocItem(
-                            AssocItemSynNodePathData::TypeItem(
-                                TypeItemSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(
-                                            `core::num::u64(0)::abs`,
-                                            TypeItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
                                             ),
                                         ),
@@ -1770,50 +1594,6 @@
     ),
     (
         ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u128(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssocItem(
-                            AssocItemSynNodePathData::TypeItem(
-                                TypeItemSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(
-                                            `core::num::u128(0)::abs`,
-                                            TypeItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
             ImplBlockSynNodePath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockSynNodePath(
                     ItemSynNodePathId {
@@ -1842,50 +1622,6 @@
                                         maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<core::num::u128 as core::ops::Add(0)>::add`,
                                             TraitItemKind::MethodRitchie(
-                                                RitchieItemKind::Fn,
-                                            ),
-                                        ),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::ImplBlock(
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::usize(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssocItem(
-                            AssocItemSynNodePathData::TypeItem(
-                                TypeItemSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(
-                                            `core::num::usize(0)::abs`,
-                                            TypeItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
                                             ),
                                         ),

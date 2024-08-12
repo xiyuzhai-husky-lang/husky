@@ -399,6 +399,7 @@ where
                 opd,
                 opr_regional_token_idx,
                 ref unveil_output_ty_signature,
+                ref unveil_assoc_fn_signature,
                 unveil_assoc_fn_path,
                 return_ty,
             } => {

@@ -12,14 +12,14 @@
                                 data: [
                                     EthTemplateParameter {
                                         annotated_variance: None,
-                                        symbol: EthSymbolicVariable(`L`),
+                                        variable: EthSymbolicVariable(`L`, `mono`),
                                         traits: [],
                                     },
                                     EthTemplateParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        symbol: EthSymbolicVariable(`E`),
+                                        variable: EthSymbolicVariable(`E`, `mono`),
                                         traits: [],
                                     },
                                 ],

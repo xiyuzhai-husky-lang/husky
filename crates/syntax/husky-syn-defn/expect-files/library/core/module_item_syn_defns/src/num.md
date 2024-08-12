@@ -225,27 +225,11 @@
         None,
     ),
     (
-        ItemPath(`core::num::u8(0)`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::u8(0)::abs`),
-        None,
-    ),
-    (
         ItemPath(`core::num::u8 as core::ops::Add(0)`),
         None,
     ),
     (
         ItemPath(`<core::num::u8 as core::ops::Add(0)>::add`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::u16(0)`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::u16(0)::abs`),
         None,
     ),
     (
@@ -257,27 +241,11 @@
         None,
     ),
     (
-        ItemPath(`core::num::u32(0)`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::u32(0)::abs`),
-        None,
-    ),
-    (
         ItemPath(`core::num::u32 as core::ops::Add(0)`),
         None,
     ),
     (
         ItemPath(`<core::num::u32 as core::ops::Add(0)>::add`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::u64(0)`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::u64(0)::abs`),
         None,
     ),
     (
@@ -289,27 +257,11 @@
         None,
     ),
     (
-        ItemPath(`core::num::u128(0)`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::u128(0)::abs`),
-        None,
-    ),
-    (
         ItemPath(`core::num::u128 as core::ops::Add(0)`),
         None,
     ),
     (
         ItemPath(`<core::num::u128 as core::ops::Add(0)>::add`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::usize(0)`),
-        None,
-    ),
-    (
-        ItemPath(`core::num::usize(0)::abs`),
         None,
     ),
     (

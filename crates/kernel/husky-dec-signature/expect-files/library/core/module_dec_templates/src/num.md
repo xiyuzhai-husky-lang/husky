@@ -597,7 +597,7 @@
                                 ),
                                 argument: DecTerm::EntityPath(
                                     DecItemPath::Type(
-                                        TypePath(`core::num::i32`, `Extern`),
+                                        TypePath(`core::num::i16`, `Extern`),
                                     ),
                                 ),
                             },
@@ -644,7 +644,7 @@
                                             contract: Contract::Pure,
                                             ty: DecTerm::EntityPath(
                                                 DecItemPath::Type(
-                                                    TypePath(`core::num::i32`, `Extern`),
+                                                    TypePath(`core::num::i16`, `Extern`),
                                                 ),
                                             ),
                                         },
@@ -1411,78 +1411,6 @@
         ),
     ),
     (
-        ItemPath(`core::num::u8(0)`),
-        Ok(
-            ItemDecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: DecTerm::EntityPath(
-                            DecItemPath::Type(
-                                TypePath(`core::num::u8`, `Extern`),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u8(0)::abs`),
-        Ok(
-            ItemDecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(
-                                `core::num::u8(0)::abs`,
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            self_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u8`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
         ItemPath(`core::num::u8 as core::ops::Add(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
@@ -1557,78 +1485,6 @@
                             return_ty: DecTerm::EntityPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::u8`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u16(0)`),
-        Ok(
-            ItemDecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: DecTerm::EntityPath(
-                            DecItemPath::Type(
-                                TypePath(`core::num::u16`, `Extern`),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u16(0)::abs`),
-        Ok(
-            ItemDecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(
-                                `core::num::u16(0)::abs`,
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            self_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u16`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         },
@@ -1721,78 +1577,6 @@
         ),
     ),
     (
-        ItemPath(`core::num::u32(0)`),
-        Ok(
-            ItemDecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: DecTerm::EntityPath(
-                            DecItemPath::Type(
-                                TypePath(`core::num::u32`, `Extern`),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u32(0)::abs`),
-        Ok(
-            ItemDecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(
-                                `core::num::u32(0)::abs`,
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            self_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u32`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
         ItemPath(`core::num::u32 as core::ops::Add(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
@@ -1867,78 +1651,6 @@
                             return_ty: DecTerm::EntityPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::u32`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u64(0)`),
-        Ok(
-            ItemDecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: DecTerm::EntityPath(
-                            DecItemPath::Type(
-                                TypePath(`core::num::u64`, `Extern`),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u64(0)::abs`),
-        Ok(
-            ItemDecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(
-                                `core::num::u64(0)::abs`,
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            self_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u64`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         },
@@ -2031,78 +1743,6 @@
         ),
     ),
     (
-        ItemPath(`core::num::u128(0)`),
-        Ok(
-            ItemDecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: DecTerm::EntityPath(
-                            DecItemPath::Type(
-                                TypePath(`core::num::u128`, `Extern`),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::u128(0)::abs`),
-        Ok(
-            ItemDecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(
-                                `core::num::u128(0)::abs`,
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            self_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::u128`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
         ItemPath(`core::num::u128 as core::ops::Add(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(
@@ -2177,78 +1817,6 @@
                             return_ty: DecTerm::EntityPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::u128`, `Extern`),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::usize(0)`),
-        Ok(
-            ItemDecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: DecTerm::EntityPath(
-                            DecItemPath::Type(
-                                TypePath(`core::num::usize`, `Extern`),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath(`core::num::usize(0)::abs`),
-        Ok(
-            ItemDecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(
-                                `core::num::usize(0)::abs`,
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            self_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
-                                    DecItemPath::Type(
-                                        TypePath(`core::num::usize`, `Extern`),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: DecTerm::EntityPath(
-                                DecItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
                                 ),
                             ),
                         },

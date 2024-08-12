@@ -1,17 +1,17 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub struct GenericStandardFigure<Pedestal: IsPedestal> {
-    specifics: Vec<(Pedestal, SpecificStandardFigure)>,
+pub struct GenericStandardFigure {
+    specifics: Vec<(StandardPedestal, SpecificStandardFigure)>,
 }
 
 /// # constructor
-impl<Pedestal: IsPedestalFull> GenericStandardFigure<Pedestal> {
+impl GenericStandardFigure {
     pub(crate) fn new(
         followed_visual: Option<(TraceId, KiReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
-        pedestals: impl Iterator<Item = Pedestal>,
-        mut f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
+        pedestals: impl Iterator<Item = StandardPedestal>,
+        mut f: impl FnMut(KiReprInterface, StandardPedestal, &mut VisualSynchrotron) -> Visual,
         visual_synchrotron: &mut VisualSynchrotron,
     ) -> Self {
         GenericStandardFigure {
@@ -34,7 +34,7 @@ impl<Pedestal: IsPedestalFull> GenericStandardFigure<Pedestal> {
 }
 
 /// # ui
-impl<Pedestal: IsPedestalFull> GenericStandardFigure<Pedestal> {
+impl GenericStandardFigure {
     pub(super) fn generic_figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,

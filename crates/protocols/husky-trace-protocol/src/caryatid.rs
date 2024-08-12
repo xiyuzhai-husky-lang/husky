@@ -1,9 +1,6 @@
 use crate::*;
-use husky_devsoul_interface::{
-    item_path::ItemPathIdInterface,
-    pedestal::{IsPedestal, IsPedestalFull},
-};
-
+use husky_item_path_interface::ItemPathIdInterface;
+use husky_linket_impl::pedestal::IsPedestalFull;
 use ui::ui::IsUi;
 
 use self::view::action::TraceViewActionBuffer;

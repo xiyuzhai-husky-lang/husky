@@ -7,9 +7,6 @@ Ok(
                     "std",
                 ),
                 TomlExpr::String(
-                    "0.0.0",
-                ),
-                TomlExpr::String(
                     "MIT OR Apache-2.0",
                 ),
                 TomlExpr::String(
@@ -65,11 +62,11 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    2,
+                                    3,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 4,
+                                        value: 7,
                                     },
                                 ),
                                 value: Some(
@@ -78,11 +75,11 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    3,
+                                    4,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 5,
+                                        value: 8,
                                     },
                                 ),
                                 value: Some(
@@ -91,11 +88,11 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    4,
+                                    5,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 6,
+                                        value: 9,
                                     },
                                 ),
                                 value: Some(
@@ -104,11 +101,11 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    5,
+                                    6,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 7,
+                                        value: 10,
                                     },
                                 ),
                                 value: Some(
@@ -117,11 +114,11 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    6,
+                                    7,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 8,
+                                        value: 12,
                                     },
                                 ),
                                 value: Some(
@@ -130,28 +127,15 @@ Ok(
                             },
                             TomlSectionEntry {
                                 line_group_idx: TomlLineGroupIdx(
-                                    7,
-                                ),
-                                key: Coword(
-                                    Id {
-                                        value: 10,
-                                    },
-                                ),
-                                value: Some(
-                                    6,
-                                ),
-                            },
-                            TomlSectionEntry {
-                                line_group_idx: TomlLineGroupIdx(
                                     10,
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 11,
+                                        value: 13,
                                     },
                                 ),
                                 value: Some(
-                                    7,
+                                    6,
                                 ),
                             },
                         ],
@@ -161,7 +145,7 @@ Ok(
                             [
                                 Coword(
                                     Id {
-                                        value: 12,
+                                        value: 14,
                                     },
                                 ),
                             ],
@@ -174,11 +158,11 @@ Ok(
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 13,
+                                        value: 15,
                                     },
                                 ),
                                 value: Some(
-                                    8,
+                                    7,
                                 ),
                             },
                             TomlSectionEntry {
@@ -187,11 +171,11 @@ Ok(
                                 ),
                                 key: Coword(
                                     Id {
-                                        value: 14,
+                                        value: 16,
                                     },
                                 ),
                                 value: Some(
-                                    9,
+                                    8,
                                 ),
                             },
                         ],
@@ -217,9 +201,10 @@ Ok(
                     0,
                 ),
             ),
+            TomlLineGroup::Err,
             TomlLineGroup::KeyValue(
                 Coword(
-                    "version",
+                    "license",
                 ),
                 Some(
                     1,
@@ -227,7 +212,7 @@ Ok(
             ),
             TomlLineGroup::KeyValue(
                 Coword(
-                    "license",
+                    "repository",
                 ),
                 Some(
                     2,
@@ -235,7 +220,7 @@ Ok(
             ),
             TomlLineGroup::KeyValue(
                 Coword(
-                    "repository",
+                    "description",
                 ),
                 Some(
                     3,
@@ -243,7 +228,7 @@ Ok(
             ),
             TomlLineGroup::KeyValue(
                 Coword(
-                    "description",
+                    "autotests",
                 ),
                 Some(
                     4,
@@ -251,18 +236,10 @@ Ok(
             ),
             TomlLineGroup::KeyValue(
                 Coword(
-                    "autotests",
-                ),
-                Some(
-                    5,
-                ),
-            ),
-            TomlLineGroup::KeyValue(
-                Coword(
                     "autobenches",
                 ),
                 Some(
-                    6,
+                    5,
                 ),
             ),
             TomlLineGroup::Comment,
@@ -272,7 +249,7 @@ Ok(
                     "edition",
                 ),
                 Some(
-                    7,
+                    6,
                 ),
             ),
             TomlLineGroup::SectionTitle {
@@ -288,7 +265,7 @@ Ok(
                     "test",
                 ),
                 Some(
-                    8,
+                    7,
                 ),
             ),
             TomlLineGroup::KeyValue(
@@ -296,7 +273,7 @@ Ok(
                     "bench",
                 ),
                 Some(
-                    9,
+                    8,
                 ),
             ),
         ],
@@ -311,7 +288,7 @@ Ok(
                 ),
                 Coword(
                     Id {
-                        value: 12,
+                        value: 14,
                     },
                 ): Section(
                     1,

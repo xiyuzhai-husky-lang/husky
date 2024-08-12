@@ -17,8 +17,8 @@ use self::builder::VmirBuilder;
 use self::jar::VmirJar as Jar;
 #[cfg(test)]
 use self::tests::*;
-use husky_devsoul::linktime::IsLinktime;
-use husky_devsoul_interface::IsLinketImpl;
+use husky_linket_impl::linket_impl::IsLinketImpl;
+use husky_linktime::IsLinktime;
 use husky_value_interface::IsValue;
 
 pub(crate) trait ToVmir<LinketImpl: IsLinketImpl>: Copy {

@@ -2828,7 +2828,7 @@ EntityTreeSheet {
                             13,
                         ),
                     },
-                    ty_expr: 52,
+                    ty_expr: 46,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             0..2,
@@ -2870,12 +2870,12 @@ EntityTreeSheet {
                             60,
                         ),
                     },
-                    trai_expr: 55,
+                    trai_expr: 49,
                     for_token: TokenIdx(
                         69,
                     ),
                     ty_sketch_expr: Path(
-                        56,
+                        50,
                     ),
                     items: Some(
                         TraitForType(
@@ -2922,7 +2922,7 @@ EntityTreeSheet {
                             77,
                         ),
                     },
-                    ty_expr: 57,
+                    ty_expr: 51,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
                             3..8,

@@ -1,0 +1,27 @@
+[package]
+name = "husky-any-linket-impls"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+colored.workspace = true
+rustc_version.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
+husky-standard-devsoul-interface.workspace = true
+# kernel
+husky-item-path-interface.workspace = true
+# linket
+husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
+
+[lints]
+workspace = true

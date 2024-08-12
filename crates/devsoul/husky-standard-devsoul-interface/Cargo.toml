@@ -9,11 +9,16 @@ shifted-unsigned-int = { workspace = true, features = ["serde"] }
 enum-class.workspace = true
 serde.workspace = true
 vec-like.workspace = true
-# linket
-husky-linket-impl.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 husky-standard-devsoul-interface-macros.workspace = true
+# kernel
+husky-item-path-interface.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
+# linket
+husky-linket-impl.workspace = true
+husky-standard-linket-impl.workspace = true
 # protocols
 husky-trace-protocol = { workspace = true, optional = true }
 # utils
