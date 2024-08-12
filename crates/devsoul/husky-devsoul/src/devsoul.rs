@@ -5,7 +5,10 @@ use husky_ki::{Ki, KiDomain};
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
 use husky_linket_impl::{
     eval_context::{DevEvalContext, IsDevRuntimeDyn},
-    linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedException},
+    linket_impl::{
+        IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue,
+        LinketImplTrackedException,
+    },
     pedestal::IsPedestalFull,
 };
 use husky_linktime::IsLinktime;
@@ -78,6 +81,14 @@ pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
     fn get_or_try_init_ki_value(
+        &self,
+        ki: Ki,
+        pedestal: LinketImpl::Pedestal,
+        f: impl FnOnce() -> LinketImplKiControlFlow<LinketImpl>,
+        db: &::salsa::Db,
+    ) -> LinketImplKiControlFlow<LinketImpl>;
+
+    fn get_or_try_init_generic_gn_value(
         &self,
         ki: Ki,
         pedestal: LinketImpl::Pedestal,

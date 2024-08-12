@@ -9,10 +9,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },
@@ -34,10 +35,11 @@
                     data: LinketData::MajorVal {
                         path: MajorFormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                         instantiation: LinInstantiation {
+                            path: ItemPath(`mnist_classifier::digits::three::is_three`),
                             context: LinTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_resolutions: [],
+                            variable_resolutions: [],
                             separator: None,
                         },
                     },

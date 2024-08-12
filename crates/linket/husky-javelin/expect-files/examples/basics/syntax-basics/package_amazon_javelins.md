@@ -7,10 +7,96 @@
                     TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -25,10 +111,11 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::expr::nested`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -43,10 +130,11 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::expr::closure_inline`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -61,10 +149,11 @@
                     )`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_basics::expr::closure_nested`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },

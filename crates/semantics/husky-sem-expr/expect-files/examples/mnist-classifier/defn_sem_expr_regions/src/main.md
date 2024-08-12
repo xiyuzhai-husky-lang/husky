@@ -33,7 +33,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -78,19 +78,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`One`),
                                                 ),
                                             ],
@@ -106,6 +106,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`One`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -148,7 +177,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -193,19 +222,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -221,6 +250,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Six`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -263,7 +321,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -308,19 +366,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Zero`),
                                                 ),
                                             ],
@@ -336,6 +394,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Zero`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -378,7 +465,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -423,19 +510,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Seven`),
                                                 ),
                                             ],
@@ -451,6 +538,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Seven`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -493,7 +609,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -538,19 +654,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Eight`),
                                                 ),
                                             ],
@@ -566,6 +682,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Eight`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -608,7 +753,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -653,19 +798,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Three`),
                                                 ),
                                             ],
@@ -681,6 +826,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Three`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -723,7 +897,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -768,19 +942,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Nine`),
                                                 ),
                                             ],
@@ -796,6 +970,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Nine`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -838,7 +1041,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -883,19 +1086,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Five`),
                                                 ),
                                             ],
@@ -911,6 +1114,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Five`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -953,7 +1185,7 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [],
+                                            variable_map: [],
                                             separator: None,
                                         },
                                     ),
@@ -998,19 +1230,19 @@
                                             TraitItemKind::AssocType,
                                         ),
                                         instantiation: EthInstantiation {
-                                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
                                             context_itd: EthTermContextItd {
                                                 task_ty: Some(
                                                     EthTerm(`MnistTask`),
                                                 ),
                                             },
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`),
+                                                    EthSymbolicVariable(`label`, `poly`),
                                                     EthTerm(`Two`),
                                                 ),
                                             ],
@@ -1026,6 +1258,35 @@
                                             RitchieItemKind::Fn,
                                         ),
                                     ),
+                                    unveil_assoc_fn_signature: TraitForTypeAssocRitchieEthSignature {
+                                        path: TraitForTypeItemPath(
+                                            `<malamute::Class as core::ops::Unveil(0)>::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
+                                        instantiation: EthInstantiation {
+                                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+                                            context_itd: EthTermContextItd {
+                                                task_ty: Some(
+                                                    EthTerm(`MnistTask`),
+                                                ),
+                                            },
+                                            variable_map: [
+                                                (
+                                                    EthSymbolicVariable(`Label`, `mono`),
+                                                    EthTerm(`MnistLabel`),
+                                                ),
+                                                (
+                                                    EthSymbolicVariable(`label`, `poly`),
+                                                    EthTerm(`Two`),
+                                                ),
+                                            ],
+                                            separator: Some(
+                                                2,
+                                            ),
+                                        },
+                                    },
                                     return_ty: EthTerm(`Class MnistLabel`),
                                 },
                             ),
@@ -1066,9 +1327,9 @@
                                                 ),
                                             },
                                             env: TypeOntologyConstructor,
-                                            symbol_map: [
+                                            variable_map: [
                                                 (
-                                                    EthSymbolicVariable(`Label`),
+                                                    EthSymbolicVariable(`Label`, `mono`),
                                                     FlyTermSymbolResolution::Explicit(
                                                         FlyTerm {
                                                             quary: None,

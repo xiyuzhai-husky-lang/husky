@@ -223,7 +223,7 @@
                                                 path: TypeItemPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 183,
+                                                            value: 177,
                                                         },
                                                     ),
                                                 ),
@@ -262,7 +262,7 @@
                                                             TypeItemPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 183,
+                                                                        value: 177,
                                                                     },
                                                                 ),
                                                             ),
@@ -274,7 +274,7 @@
                                                         },
                                                     ),
                                                     env: AssocRitchie,
-                                                    symbol_map: [],
+                                                    variable_map: [],
                                                     separator: Some(
                                                         0,
                                                     ),

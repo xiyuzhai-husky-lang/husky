@@ -7,10 +7,45 @@
                     TypePath(`malamute::OneVsAll`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`malamute::OneVsAll`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`malamute::OneVsAll`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`malamute::OneVsAll::Yes`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`malamute::OneVsAll`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`malamute::OneVsAll::No`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -23,10 +58,62 @@
                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`malamute::OneVsAllResult`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`malamute::OneVsAllResult::Unconfident`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
                     separator: None,
                 },
             },
@@ -44,10 +131,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),
@@ -65,10 +153,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),
@@ -88,10 +177,11 @@
                     ),
                 ),
                 instantiation: JavInstantiation {
+                    path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: Some(
                         0,
                     ),

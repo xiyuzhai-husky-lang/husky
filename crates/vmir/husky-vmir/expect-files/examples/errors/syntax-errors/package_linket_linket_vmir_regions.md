@@ -5,10 +5,11 @@
             data: LinketData::StructConstructor {
                 path: TypePath(`syntax_errors::ast::A`, `Struct`),
                 instantiation: LinInstantiation {
+                    path: ItemPath(`syntax_errors::ast::A`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
                     },
-                    symbol_resolutions: [],
+                    variable_resolutions: [],
                     separator: None,
                 },
             },

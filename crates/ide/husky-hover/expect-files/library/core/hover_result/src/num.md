@@ -32,7 +32,7 @@
     ),
     (
         TokenIdx(
-            46,
+            43,
         ),
         Some(
             HoverResult {
@@ -40,18 +40,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 10,
-                                character: 4,
+                                line: 8,
+                                character: 17,
                             },
                             end: Position {
-                                line: 10,
-                                character: 7,
+                                line: 8,
+                                character: 19,
                             },
                         },
                     ),
@@ -62,7 +62,7 @@
     ),
     (
         TokenIdx(
-            91,
+            85,
         ),
         Some(
             HoverResult {
@@ -77,11 +77,11 @@
                         Range {
                             start: Position {
                                 line: 16,
-                                character: 35,
+                                character: 13,
                             },
                             end: Position {
                                 line: 16,
-                                character: 36,
+                                character: 14,
                             },
                         },
                     ),
@@ -92,7 +92,37 @@
     ),
     (
         TokenIdx(
-            136,
+            127,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "This is a form keyword\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 25,
+                                character: 8,
+                            },
+                            end: Position {
+                                line: 25,
+                                character: 10,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            169,
         ),
         Some(
             HoverResult {
@@ -106,12 +136,12 @@
                     range: Some(
                         Range {
                             start: Position {
-                                line: 25,
-                                character: 33,
+                                line: 32,
+                                character: 17,
                             },
                             end: Position {
-                                line: 25,
-                                character: 34,
+                                line: 32,
+                                character: 19,
                             },
                         },
                     ),
@@ -122,7 +152,7 @@
     ),
     (
         TokenIdx(
-            181,
+            211,
         ),
         Some(
             HoverResult {
@@ -130,18 +160,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\nentity `core::num::i32`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                            value: "\n\n\nregional_token_indices = [];\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 34,
-                                character: 30,
+                                line: 41,
+                                character: 1,
                             },
                             end: Position {
-                                line: 34,
-                                character: 33,
+                                line: 41,
+                                character: 2,
                             },
                         },
                     ),
@@ -152,7 +182,187 @@
     ),
     (
         TokenIdx(
-            226,
+            253,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 49,
+                                character: 11,
+                            },
+                            end: Position {
+                                line: 49,
+                                character: 14,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            295,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\nentity `core::num::i128`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 56,
+                                character: 20,
+                            },
+                            end: Position {
+                                line: 56,
+                                character: 24,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            337,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 63,
+                                character: 16,
+                            },
+                            end: Position {
+                                line: 63,
+                                character: 17,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            379,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 72,
+                                character: 24,
+                            },
+                            end: Position {
+                                line: 72,
+                                character: 25,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            421,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\nentity `core::cmp::Eq`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        8,\n    ),\n    RegionalTokenIdx(\n        8,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 79,
+                                character: 26,
+                            },
+                            end: Position {
+                                line: 79,
+                                character: 28,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            463,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 86,
+                                character: 28,
+                            },
+                            end: Position {
+                                line: 86,
+                                character: 29,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            505,
         ),
         Some(
             HoverResult {
@@ -166,11 +376,11 @@
                     range: Some(
                         Range {
                             start: Position {
-                                line: 42,
+                                line: 93,
                                 character: 30,
                             },
                             end: Position {
-                                line: 42,
+                                line: 93,
                                 character: 35,
                             },
                         },
@@ -182,7 +392,7 @@
     ),
     (
         TokenIdx(
-            271,
+            547,
         ),
         Some(
             HoverResult {
@@ -196,12 +406,12 @@
                     range: Some(
                         Range {
                             start: Position {
-                                line: 52,
-                                character: 7,
+                                line: 100,
+                                character: 35,
                             },
                             end: Position {
-                                line: 52,
-                                character: 8,
+                                line: 100,
+                                character: 36,
                             },
                         },
                     ),
@@ -212,7 +422,7 @@
     ),
     (
         TokenIdx(
-            316,
+            589,
         ),
         Some(
             HoverResult {
@@ -220,198 +430,18 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
+                            value: "\n\nentity `core::marker::Copy`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        12,\n    ),\n    RegionalTokenIdx(\n        12,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 61,
-                                character: 2,
+                                line: 107,
+                                character: 37,
                             },
                             end: Position {
-                                line: 61,
-                                character: 6,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            361,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\nentity `core::num::isize`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 69,
-                                character: 22,
-                            },
-                            end: Position {
-                                line: 69,
-                                character: 27,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            406,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 78,
-                                character: 18,
-                            },
-                            end: Position {
-                                line: 78,
-                                character: 19,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            451,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\nentity `core::num::u16`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        7,\n    ),\n    RegionalTokenIdx(\n        7,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 86,
-                                character: 20,
-                            },
-                            end: Position {
-                                line: 86,
-                                character: 23,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            496,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 95,
-                                character: 8,
-                            },
-                            end: Position {
-                                line: 95,
-                                character: 9,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            541,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 102,
+                                line: 107,
                                 character: 41,
-                            },
-                            end: Position {
-                                line: 102,
-                                character: 42,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            586,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\nentity `core::cmp::PartialEq`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        6,\n    ),\n    RegionalTokenIdx(\n        6,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 112,
-                                character: 15,
-                            },
-                            end: Position {
-                                line: 112,
-                                character: 24,
                             },
                         },
                     ),
@@ -436,12 +466,12 @@
                     range: Some(
                         Range {
                             start: Position {
-                                line: 121,
-                                character: 12,
+                                line: 114,
+                                character: 41,
                             },
                             end: Position {
-                                line: 121,
-                                character: 13,
+                                line: 114,
+                                character: 42,
                             },
                         },
                     ),
@@ -452,37 +482,7 @@
     ),
     (
         TokenIdx(
-            676,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\nentity `core::num::usize`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        10,\n    ),\n    RegionalTokenIdx(\n        10,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Type @ None`",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 129,
-                                character: 32,
-                            },
-                            end: Position {
-                                line: 129,
-                                character: 37,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            721,
+            673,
         ),
         Some(
             HoverResult {
@@ -496,12 +496,12 @@
                     range: Some(
                         Range {
                             start: Position {
-                                line: 139,
-                                character: 5,
+                                line: 124,
+                                character: 19,
                             },
                             end: Position {
-                                line: 139,
-                                character: 13,
+                                line: 124,
+                                character: 20,
                             },
                         },
                     ),
@@ -512,7 +512,7 @@
     ),
     (
         TokenIdx(
-            766,
+            715,
         ),
         Some(
             HoverResult {
@@ -520,108 +520,108 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 130,
+                                character: 11,
+                            },
+                            end: Position {
+                                line: 130,
+                                character: 15,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            757,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 136,
+                                character: 23,
+                            },
+                            end: Position {
+                                line: 136,
+                                character: 24,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            799,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\nentity `core::fmt::Debug`\n\nregional_token_indices = [\n    RegionalTokenIdx(\n        4,\n    ),\n    RegionalTokenIdx(\n        4,\n    ),\n];\n\n\ncoercion = None\n\ntype = `Trait @ None`",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
                                 line: 145,
-                                character: 35,
+                                character: 8,
                             },
                             end: Position {
                                 line: 145,
-                                character: 39,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            811,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 153,
-                                character: 28,
-                            },
-                            end: Position {
-                                line: 153,
-                                character: 31,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            856,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "\n\n\nregional_token_indices = [];\n",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 162,
-                                character: 1,
-                            },
-                            end: Position {
-                                line: 162,
-                                character: 2,
-                            },
-                        },
-                    ),
-                },
-                actions: [],
-            },
-        ),
-    ),
-    (
-        TokenIdx(
-            901,
-        ),
-        Some(
-            HoverResult {
-                hover: Hover {
-                    contents: Markup(
-                        MarkupContent {
-                            kind: Markdown,
-                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
-                        },
-                    ),
-                    range: Some(
-                        Range {
-                            start: Position {
-                                line: 171,
                                 character: 13,
                             },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            841,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 154,
+                                character: 14,
+                            },
                             end: Position {
-                                line: 171,
-                                character: 16,
+                                line: 154,
+                                character: 15,
                             },
                         },
                     ),

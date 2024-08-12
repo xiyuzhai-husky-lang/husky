@@ -3,7 +3,6 @@ Some(
     Ok(
         [
             ItemPath(`core::ops::Add`),
-            ItemPath(`core::num::i32`),
             ItemPath(`core::num::i16`),
         ],
     ),

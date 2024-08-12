@@ -36,25 +36,28 @@ use husky_linket_impl::{
 use husky_standard_value::exception::Exception;
 use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
+use linket_impl::{LinketImplTrackedExcepted, LinketImplTrackedExceptedValue};
 use serde::{Deserialize, Serialize};
 
 pub type StandardTrackedException = TrackedException<Exception, StandardPedestal>;
 pub type StandardTrackedExcepted<T> = Result<T, TrackedException<Exception, StandardPedestal>>;
+pub type StandardTrackedExceptedValue =
+    Result<Value, TrackedException<Exception, StandardPedestal>>;
 
-pub type StandardLinketImplKiControlFlow<C = Value, B = Value> =
+pub type StandardKiControlFlow<C = Value, B = Value> =
     KiControlFlow<C, B, StandardTrackedException>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinketImpl {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinketImplKiControlFlow,
+        fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
         // todo: fn_vm_wrapper
         fn_pointer: fn(),
     },
     RitchieUnveilFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinketImplKiControlFlow,
+        fn_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
         fn_pointer: fn(),
     },
     RitchieGn {
@@ -63,7 +66,7 @@ pub enum StandardLinketImpl {
             KiDomainReprInterface,
             StandardPedestal,
             &[KiArgumentReprInterface],
-        ) -> StandardLinketImplKiControlFlow,
+        ) -> StandardKiControlFlow,
     },
     // todo: this should be merged into RichieFn?
     EnumVariantConstructor {
@@ -89,11 +92,11 @@ pub enum StandardLinketImpl {
     },
     Val {
         init_item_path_id_interface: fn(ItemPathIdInterface),
-        ki_wrapper: fn() -> StandardLinketImplKiControlFlow,
+        ki_wrapper: fn() -> StandardKiControlFlow,
     },
     Memo {
         init_item_path_id_interface: fn(ItemPathIdInterface),
-        ki_wrapper: fn(Value) -> StandardLinketImplKiControlFlow,
+        ki_wrapper: fn(Value) -> StandardKiControlFlow,
     },
     StaticVar {
         init_item_path_id_interface: fn(ItemPathIdInterface),
@@ -118,7 +121,7 @@ impl IsLinketImpl for StandardLinketImpl {
         ki_domain_repr_interface: KiDomainReprInterface,
         ki_argument_reprs: &[KiArgumentReprInterface],
         ctx: DevEvalContext<StandardLinketImpl>,
-    ) -> StandardLinketImplKiControlFlow {
+    ) -> StandardKiControlFlow {
         match self {
             StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ki_argument_reprs),
             StandardLinketImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ki_argument_reprs),
@@ -149,7 +152,7 @@ impl IsLinketImpl for StandardLinketImpl {
                     unreachable!()
                 };
                 let owner = ctx.eval_ki_repr_interface(owner)?;
-                StandardLinketImplKiControlFlow::Continue(struct_field_wrapper(owner))
+                StandardKiControlFlow::Continue(struct_field_wrapper(owner))
             }
             StandardLinketImpl::StaticVar { .. } => todo!(),
             StandardLinketImpl::Val { ki_wrapper, .. } => {
@@ -220,16 +223,16 @@ impl IsLinketImpl for StandardLinketImpl {
     }
 }
 
-pub struct FnLinketImplSource<Pedestal, DevsoulInterface, T>(
+pub struct FnLinketImplSource<Pedestal, DevsoulInterface, F>(
     pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
-    pub T,
+    pub F,
 );
 
 for_all_ritchie_tys! {impl_is_fn_linket_impl_source}
 
-pub struct UnveilFnLinketImplSource<Pedestal, DevsoulInterface, T>(
+pub struct UnveilFnLinketImplSource<Pedestal, DevsoulInterface, F>(
     pub std::marker::PhantomData<(Pedestal, DevsoulInterface)>,
-    pub T,
+    pub F,
 );
 
 for_all_ritchie_tys! {impl_is_unveil_fn_linket_impl_source}

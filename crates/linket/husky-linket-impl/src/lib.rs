@@ -73,14 +73,14 @@ macro_rules! impl_is_fn_linket_impl_source {
                 LinketImpl = LinketImpl
             >,
             F: Fn($($input,)*) -> $output,
-            $($input: Send + FromValue, )*
+            $($input: Send + FromValue,)*
             $output: Send,
         {
             type FnOutput = $output;
 
             fn into_fn_linket_impl(
                 self,
-                fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardLinketImplKiControlFlow,
+                fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
                 fn_pointer: fn($($input,)*) -> $output
             ) -> LinketImpl {
                 LinketImpl::RitchieFn {
@@ -94,13 +94,14 @@ macro_rules! impl_is_fn_linket_impl_source {
             fn fn_wrapper_aux(
                 self,
                 arguments: &[KiArgumentReprInterface],
-            ) -> StandardLinketImplKiControlFlow<Self::FnOutput> {
+            ) -> StandardKiControlFlow<Self::FnOutput> {
                 let ctx = DevsoulInterface::dev_eval_context();
                 #[allow(unused_variables)]
                 let mut arguments = arguments.iter();
                 #[allow(unused_variables)]
                 let value_stands = &mut ValueStands::default();
-                KiControlFlow::Continue(self.1(
+                ki_catch_unwind!(
+                    self.1,
                     $({
                         let argument = arguments.next().unwrap();
                         match *argument {
@@ -121,8 +122,8 @@ macro_rules! impl_is_fn_linket_impl_source {
                             },
                             KiArgumentReprInterface::Branch { .. } => unreachable!(),
                             KiArgumentReprInterface::RuntimeConstants(ref argument) => todo!(),
-                        }},)*
-                ))
+                        }}),*
+                )
             }
         }
     };
@@ -206,7 +207,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 self,
                 fn_wrapper: fn(
                     &[KiArgumentReprInterface],
-                ) -> StandardLinketImplKiControlFlow,
+                ) -> StandardKiControlFlow,
                 fn_pointer: fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             ) -> LinketImpl {
                 LinketImpl::RitchieUnveilFn {
@@ -220,7 +221,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
             fn unveil_fn_wrapper_aux(
                 self,
                 arguments: &[KiArgumentReprInterface],
-            ) -> StandardLinketImplKiControlFlow<Self::FnOutput> {
+            ) -> StandardKiControlFlow<Self::FnOutput> {
                 let ctx = DevsoulInterface::dev_eval_context();
                 debug_assert_eq!(arguments.len(), 2);
                 let KiArgumentReprInterface::Simple(target) = arguments[0] else {
@@ -233,7 +234,12 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 };
                 let value_stands = &mut ValueStands::default();
                 let mut runtime_constants = runtime_constants.iter();
-                match self.1(
+                ki_catch_unwind2!(
+                    self.1,
+                    |cf| match cf {
+                        std::ops::ControlFlow::Continue(c) => KiControlFlow::Continue(c),
+                        std::ops::ControlFlow::Break(b) => KiControlFlow::Return(b.into_value()),
+                    },
                     <Target as FromValue>::from_value_temp(
                         ctx.eval_ki_repr_interface(target)?,
                         value_stands
@@ -244,10 +250,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                         ),
                         value_stands
                     ),)*)
-                ) {
-                    std::ops::ControlFlow::Continue(c) => KiControlFlow::Continue(c),
-                    std::ops::ControlFlow::Break(b) => KiControlFlow::Return(b.into_value()),
-                }
+                )
             }
         }
     };

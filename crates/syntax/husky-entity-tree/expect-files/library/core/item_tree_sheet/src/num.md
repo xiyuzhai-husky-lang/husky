@@ -23,7 +23,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 51,
+                        ast_idx: 45,
                         ident_token: IdentToken {
                             ident: `i8`,
                             token_idx: TokenIdx(
@@ -77,7 +77,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 56,
+                        ast_idx: 50,
                         ident_token: IdentToken {
                             ident: `i16`,
                             token_idx: TokenIdx(
@@ -131,7 +131,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 61,
+                        ast_idx: 55,
                         ident_token: IdentToken {
                             ident: `i32`,
                             token_idx: TokenIdx(
@@ -185,7 +185,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 66,
+                        ast_idx: 60,
                         ident_token: IdentToken {
                             ident: `i64`,
                             token_idx: TokenIdx(
@@ -239,7 +239,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 71,
+                        ast_idx: 65,
                         ident_token: IdentToken {
                             ident: `i128`,
                             token_idx: TokenIdx(
@@ -293,7 +293,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 76,
+                        ast_idx: 70,
                         ident_token: IdentToken {
                             ident: `isize`,
                             token_idx: TokenIdx(
@@ -347,7 +347,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 81,
+                        ast_idx: 75,
                         ident_token: IdentToken {
                             ident: `u8`,
                             token_idx: TokenIdx(
@@ -401,11 +401,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 86,
+                        ast_idx: 79,
                         ident_token: IdentToken {
                             ident: `u16`,
                             token_idx: TokenIdx(
-                                440,
+                                429,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -455,11 +455,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 91,
+                        ast_idx: 83,
                         ident_token: IdentToken {
                             ident: `u32`,
                             token_idx: TokenIdx(
-                                492,
+                                470,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -509,11 +509,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 96,
+                        ast_idx: 87,
                         ident_token: IdentToken {
                             ident: `u64`,
                             token_idx: TokenIdx(
-                                544,
+                                511,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -563,11 +563,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 101,
+                        ast_idx: 91,
                         ident_token: IdentToken {
                             ident: `u128`,
                             token_idx: TokenIdx(
-                                596,
+                                552,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -617,11 +617,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 106,
+                        ast_idx: 95,
                         ident_token: IdentToken {
                             ident: `usize`,
                             token_idx: TokenIdx(
-                                648,
+                                593,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -671,11 +671,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 111,
+                        ast_idx: 99,
                         ident_token: IdentToken {
                             ident: `f32`,
                             token_idx: TokenIdx(
-                                700,
+                                634,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -725,11 +725,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 116,
+                        ast_idx: 104,
                         ident_token: IdentToken {
                             ident: `f64`,
                             token_idx: TokenIdx(
-                                877,
+                                811,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -905,7 +905,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -926,7 +926,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -947,7 +947,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -968,7 +968,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -989,7 +989,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1010,7 +1010,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1031,7 +1031,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1052,7 +1052,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1073,7 +1073,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1094,7 +1094,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1115,7 +1115,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1136,7 +1136,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1157,7 +1157,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1178,7 +1178,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1199,7 +1199,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1220,7 +1220,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1241,7 +1241,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1262,7 +1262,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1283,7 +1283,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1304,7 +1304,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1325,7 +1325,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1346,7 +1346,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1371,7 +1371,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 48,
+                        ast_idx: 42,
                         use_expr_idx: 2,
                     },
                 ),
@@ -1422,7 +1422,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1473,7 +1473,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1524,7 +1524,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1575,7 +1575,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1626,7 +1626,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1677,7 +1677,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1728,7 +1728,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1779,7 +1779,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1830,7 +1830,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1881,7 +1881,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1932,7 +1932,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1983,7 +1983,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2034,7 +2034,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2085,7 +2085,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2136,7 +2136,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2187,7 +2187,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2238,7 +2238,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2289,7 +2289,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2340,7 +2340,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2391,7 +2391,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2442,7 +2442,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2493,7 +2493,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2544,7 +2544,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2595,7 +2595,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2646,7 +2646,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2697,7 +2697,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2748,7 +2748,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2799,7 +2799,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2850,7 +2850,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2901,7 +2901,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2952,7 +2952,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3003,7 +3003,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3054,7 +3054,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3105,7 +3105,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3158,7 +3158,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3211,7 +3211,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3262,7 +3262,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3313,7 +3313,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3364,7 +3364,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3415,7 +3415,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3466,7 +3466,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3517,7 +3517,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3568,7 +3568,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             ModulePath(`core::num`),
                         ),
-                        ast_idx: 47,
+                        ast_idx: 41,
                         use_expr_idx: 0,
                     },
                 ),
@@ -3603,7 +3603,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 52,
+                    ast_idx: 46,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             35,
@@ -3645,7 +3645,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 53,
+                    ast_idx: 47,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             57,
@@ -3697,7 +3697,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 57,
+                    ast_idx: 51,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             98,
@@ -3739,7 +3739,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 58,
+                    ast_idx: 52,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             120,
@@ -3791,7 +3791,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 62,
+                    ast_idx: 56,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             161,
@@ -3833,7 +3833,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 63,
+                    ast_idx: 57,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             194,
@@ -3885,7 +3885,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 67,
+                    ast_idx: 61,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             234,
@@ -3927,7 +3927,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 68,
+                    ast_idx: 62,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             245,
@@ -3979,7 +3979,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 72,
+                    ast_idx: 66,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             286,
@@ -4021,7 +4021,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 73,
+                    ast_idx: 67,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             297,
@@ -4073,7 +4073,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 77,
+                    ast_idx: 71,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             338,
@@ -4115,7 +4115,7 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 78,
+                    ast_idx: 72,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             349,
@@ -4137,48 +4137,6 @@ EntityTreeSheet {
                             },
                         ),
                     ),
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u8(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(`core::num::u8(0)`),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 82,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            390,
-                        ),
-                    },
-                    ty_expr: 22,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            16..17,
-                        ),
-                    },
                 },
             ),
         ),
@@ -4209,70 +4167,28 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 83,
+                    ast_idx: 76,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            401,
+                            390,
                         ),
                     },
-                    trai_expr: 23,
+                    trai_expr: 22,
                     for_token: TokenIdx(
-                        404,
+                        393,
                     ),
                     ty_sketch_expr: Path(
-                        24,
+                        23,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    17..18,
+                                    16..17,
                                 ),
                             },
                         ),
                     ),
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u16(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(`core::num::u16(0)`),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 87,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            442,
-                        ),
-                    },
-                    ty_expr: 25,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            18..19,
-                        ),
-                    },
                 },
             ),
         ),
@@ -4303,70 +4219,28 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 88,
+                    ast_idx: 80,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            453,
+                            431,
                         ),
                     },
-                    trai_expr: 26,
+                    trai_expr: 24,
                     for_token: TokenIdx(
-                        456,
+                        434,
                     ),
                     ty_sketch_expr: Path(
-                        27,
+                        25,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    19..20,
+                                    17..18,
                                 ),
                             },
                         ),
                     ),
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u32(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(`core::num::u32(0)`),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 92,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            494,
-                        ),
-                    },
-                    ty_expr: 28,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            20..21,
-                        ),
-                    },
                 },
             ),
         ),
@@ -4397,70 +4271,28 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 93,
+                    ast_idx: 84,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            505,
+                            472,
                         ),
                     },
-                    trai_expr: 29,
+                    trai_expr: 26,
                     for_token: TokenIdx(
-                        508,
+                        475,
                     ),
                     ty_sketch_expr: Path(
-                        30,
+                        27,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    21..22,
+                                    18..19,
                                 ),
                             },
                         ),
                     ),
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u64(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(`core::num::u64(0)`),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 97,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            546,
-                        ),
-                    },
-                    ty_expr: 31,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            22..23,
-                        ),
-                    },
                 },
             ),
         ),
@@ -4491,70 +4323,28 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 98,
+                    ast_idx: 88,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            557,
+                            513,
                         ),
                     },
-                    trai_expr: 32,
+                    trai_expr: 28,
                     for_token: TokenIdx(
-                        560,
+                        516,
                     ),
                     ty_sketch_expr: Path(
-                        33,
+                        29,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    23..24,
+                                    19..20,
                                 ),
                             },
                         ),
                     ),
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::u128(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(`core::num::u128(0)`),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 102,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            598,
-                        ),
-                    },
-                    ty_expr: 34,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            24..25,
-                        ),
-                    },
                 },
             ),
         ),
@@ -4585,70 +4375,28 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 103,
+                    ast_idx: 92,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            609,
+                            554,
                         ),
                     },
-                    trai_expr: 35,
+                    trai_expr: 30,
                     for_token: TokenIdx(
-                        612,
+                        557,
                     ),
                     ty_sketch_expr: Path(
-                        36,
+                        31,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    25..26,
+                                    20..21,
                                 ),
                             },
                         ),
                     ),
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(`core::num::usize(0)`),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(`core::num::usize(0)`),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 107,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            650,
-                        ),
-                    },
-                    ty_expr: 37,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            26..27,
-                        ),
-                    },
                 },
             ),
         ),
@@ -4679,24 +4427,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 108,
+                    ast_idx: 96,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            661,
+                            595,
                         ),
                     },
-                    trai_expr: 38,
+                    trai_expr: 32,
                     for_token: TokenIdx(
-                        664,
+                        598,
                     ),
                     ty_sketch_expr: Path(
-                        39,
+                        33,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    27..28,
+                                    21..22,
                                 ),
                             },
                         ),
@@ -4731,16 +4479,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 112,
+                    ast_idx: 100,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            702,
+                            636,
                         ),
                     },
-                    ty_expr: 40,
+                    ty_expr: 34,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            28..42,
+                            22..36,
                         ),
                     },
                 },
@@ -4773,24 +4521,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 113,
+                    ast_idx: 101,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            832,
+                            766,
                         ),
                     },
-                    trai_expr: 41,
+                    trai_expr: 35,
                     for_token: TokenIdx(
-                        835,
+                        769,
                     ),
                     ty_sketch_expr: Path(
-                        42,
+                        36,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    42..44,
+                                    36..38,
                                 ),
                             },
                         ),
@@ -4825,16 +4573,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 117,
+                    ast_idx: 105,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            879,
+                            813,
                         ),
                     },
-                    ty_expr: 43,
+                    ty_expr: 37,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            44..46,
+                            38..40,
                         ),
                     },
                 },
@@ -4867,24 +4615,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 118,
+                    ast_idx: 106,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            898,
+                            832,
                         ),
                     },
-                    trai_expr: 44,
+                    trai_expr: 38,
                     for_token: TokenIdx(
-                        901,
+                        835,
                     ),
                     ty_sketch_expr: Path(
-                        45,
+                        39,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    46..47,
+                                    40..41,
                                 ),
                             },
                         ),
@@ -4896,7 +4644,7 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 47,
+                ast_idx: 41,
                 use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     ModulePath(`core::num`),
@@ -4923,7 +4671,7 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 48,
+                ast_idx: 42,
                 use_expr_idx: 4,
                 visibility: Scope::PubUnder(
                     ModulePath(`core::num`),
@@ -4950,7 +4698,7 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 48,
+                ast_idx: 42,
                 use_expr_idx: 3,
                 visibility: Scope::PubUnder(
                     ModulePath(`core::num`),
@@ -4987,7 +4735,7 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 48,
+                ast_idx: 42,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     ModulePath(`core::num`),
@@ -5027,7 +4775,7 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: ModulePath(`core`),
                 is_same_crate: true,
-                ast_idx: 47,
+                ast_idx: 41,
                 use_expr_idx: 0,
                 visibility: Scope::PubUnder(
                     ModulePath(`core::num`),

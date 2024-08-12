@@ -76,10 +76,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -103,10 +104,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -155,13 +157,14 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`core::vec::Vec(0)::ilen`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [
+                                        variable_resolutions: [
                                             (
-                                                Type(
-                                                    Type {
+                                                HirTemplateVariable::Type(
+                                                    HirTypeTemplateVariable::Type {
                                                         attrs: HirTemplateVariableAttrs {
                                                             class: Mono,
                                                         },
@@ -169,14 +172,13 @@
                                                         disambiguator: 0,
                                                     },
                                                 ),
-                                                Explicit(
-                                                    Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 16,
-                                                                },
-                                                            ),
+                                                LinTermVariableResolution::Explicit(
+                                                    LinTemplateArgument::Type(
+                                                        LinType::PathLeading(
+                                                            LinTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                template_arguments: [],
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -293,10 +295,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::digits::zero::open_one_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -326,10 +329,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -382,10 +386,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -512,10 +517,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::digits::zero::open_one_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -666,10 +672,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::connected_components`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::connected_components`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -701,13 +708,14 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`core::vec::Vec(0)::ilen`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [
+                                        variable_resolutions: [
                                             (
-                                                Type(
-                                                    Type {
+                                                HirTemplateVariable::Type(
+                                                    HirTypeTemplateVariable::Type {
                                                         attrs: HirTemplateVariableAttrs {
                                                             class: Mono,
                                                         },
@@ -715,14 +723,13 @@
                                                         disambiguator: 0,
                                                     },
                                                 ),
-                                                Explicit(
-                                                    Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 22,
-                                                                },
-                                                            ),
+                                                LinTermVariableResolution::Explicit(
+                                                    LinTemplateArgument::Type(
+                                                        LinType::PathLeading(
+                                                            LinTypePathLeading {
+                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                template_arguments: [],
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -851,10 +858,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::digits::zero::open_one_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -1054,10 +1062,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -1115,10 +1124,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -1176,10 +1186,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -1339,10 +1350,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::major_concave_components`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -1437,10 +1449,11 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -1498,10 +1511,11 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -1563,10 +1577,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -1616,10 +1631,11 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -1681,10 +1697,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -1734,10 +1751,11 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -1799,10 +1817,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -1884,6 +1903,7 @@
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`malamute::narrow_down`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [
                                                 (
@@ -1910,10 +1930,10 @@
                                                 ),
                                             ],
                                         },
-                                        symbol_resolutions: [
+                                        variable_resolutions: [
                                             (
-                                                Type(
-                                                    Type {
+                                                HirTemplateVariable::Type(
+                                                    HirTypeTemplateVariable::Type {
                                                         attrs: HirTemplateVariableAttrs {
                                                             class: Mono,
                                                         },
@@ -1921,14 +1941,13 @@
                                                         disambiguator: 0,
                                                     },
                                                 ),
-                                                Explicit(
-                                                    Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
+                                                LinTermVariableResolution::Explicit(
+                                                    LinTemplateArgument::Type(
+                                                        LinType::PathLeading(
+                                                            LinTypePathLeading {
+                                                                ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                template_arguments: [],
+                                                            },
                                                         ),
                                                     ),
                                                 ),
@@ -2014,10 +2033,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -2070,10 +2090,11 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -2135,10 +2156,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -2264,10 +2286,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -2297,10 +2320,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -2474,10 +2498,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -2507,10 +2532,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -2684,10 +2710,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::major_connected_component`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -2717,10 +2744,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -2985,10 +3013,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3043,10 +3072,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3182,10 +3212,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3240,10 +3271,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3335,10 +3367,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -3368,10 +3401,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3426,10 +3460,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymax`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3474,10 +3509,11 @@
                                 data: LinketData::MajorVal {
                                     path: MajorFormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::major::major_line_segment_sketch`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -3507,10 +3543,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3565,10 +3602,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::ymin`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -3943,10 +3981,11 @@
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::fermi_match`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: None,
                                     },
                                 },
@@ -4008,10 +4047,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),
@@ -4596,10 +4636,11 @@
                                         ),
                                     ),
                                     instantiation: LinInstantiation {
+                                        path: ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
                                         context: LinTypeContext {
                                             comptime_var_overrides: [],
                                         },
-                                        symbol_resolutions: [],
+                                        variable_resolutions: [],
                                         separator: Some(
                                             0,
                                         ),

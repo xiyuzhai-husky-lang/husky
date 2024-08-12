@@ -464,11 +464,11 @@
                                                     },
                                                 },
                                                 instantiation: HirInstantiation {
-                                                    path: ItemPath(`#derive _ as core::visual::Visualize(0)`),
+                                                    path: ItemPath(`<#derive _ as core::visual::Visualize(0)>::visualize`),
                                                     context: HirTypeContext {
                                                         comptime_var_overrides: [],
                                                     },
-                                                    symbol_map: [
+                                                    variable_map: [
                                                         (
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::SelfType,

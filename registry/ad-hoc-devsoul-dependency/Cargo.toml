@@ -13,5 +13,6 @@ husky-standard-devsoul-interface.workspace = true
 # linket
 husky-linket-impl.workspace = true
 husky-standard-linket-impl.workspace = true
+husky-any-linket-impls.workspace = true
 # ki
 husky-ki-repr-interface.workspace = true

@@ -44,11 +44,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -93,14 +93,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 279,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::One`),
                                             ),
                                         ),
                                     ),
@@ -121,11 +115,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -170,14 +164,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 284,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Six`),
                                             ),
                                         ),
                                     ),
@@ -198,11 +186,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -247,14 +235,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 278,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Zero`),
                                             ),
                                         ),
                                     ),
@@ -275,11 +257,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -324,14 +306,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 285,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Seven`),
                                             ),
                                         ),
                                     ),
@@ -352,11 +328,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -401,14 +377,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 286,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Eight`),
                                             ),
                                         ),
                                     ),
@@ -429,11 +399,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -478,14 +448,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 281,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Three`),
                                             ),
                                         ),
                                     ),
@@ -506,11 +470,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -555,14 +519,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 287,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Nine`),
                                             ),
                                         ),
                                     ),
@@ -583,11 +541,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -632,14 +590,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 283,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Five`),
                                             ),
                                         ),
                                     ),
@@ -660,11 +612,11 @@
                             ),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+                            path: ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
-                            symbol_map: [
+                            variable_map: [
                                 (
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
@@ -709,14 +661,8 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            TypeVariant(
-                                                TypeVariantPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 280,
-                                                        },
-                                                    ),
-                                                ),
+                                            HirConstant::TypeVariant(
+                                                TypeVariantPath(`mnist::MnistLabel::Two`),
                                             ),
                                         ),
                                     ),
