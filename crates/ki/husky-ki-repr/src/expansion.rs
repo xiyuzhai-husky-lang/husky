@@ -5,7 +5,7 @@ use crate::{
 use husky_entity_kind::{ritchie::RitchieItemKind, MajorFormKind};
 #[cfg(test)]
 use husky_entity_path::path::major_item::form::MajorFormPath;
-use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
+use husky_entity_path::path::{major_item::MajorItemPath, ItemPath, PrincipalEntityPath};
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
@@ -25,6 +25,8 @@ use smallvec::{smallvec, SmallVec};
 
 #[salsa::tracked]
 pub struct KiReprExpansion {
+    /// todo: needs to generalize to deal with closure expansion
+    pub path: ItemPath,
     #[return_ref]
     pub hir_lazy_variable_ki_repr_map: HirLazyVariableMap<KiRepr>,
     #[return_ref]
@@ -55,6 +57,7 @@ fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansio
                 return None;
             };
             Some(build_ki_repr_expansion(
+                path.into(),
                 ki_repr,
                 body,
                 hir_lazy_expr_region,
@@ -69,6 +72,7 @@ fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansio
 }
 
 fn build_ki_repr_expansion(
+    path: ItemPath,
     parent_ki_repr: KiRepr,
     body: HirLazyExprIdx,
     hir_lazy_expr_region: HirLazyExprRegion,
@@ -77,6 +81,7 @@ fn build_ki_repr_expansion(
     db: &::salsa::Db,
 ) -> KiReprExpansion {
     let mut builder = KiReprExpansionBuilder::new(
+        path,
         parent_ki_repr,
         body,
         hir_lazy_expr_region,
@@ -90,6 +95,7 @@ fn build_ki_repr_expansion(
 
 // todo: lin_instantiation
 struct KiReprExpansionBuilder<'a> {
+    path: ItemPath,
     parent_ki_repr: KiRepr,
     ki_domain_repr: KiDomainRepr,
     body: HirLazyExprIdx,
@@ -106,6 +112,7 @@ struct KiReprExpansionBuilder<'a> {
 
 impl<'a> KiReprExpansionBuilder<'a> {
     fn new(
+        path: ItemPath,
         parent_ki_repr: KiRepr,
         body: HirLazyExprIdx,
         hir_lazy_expr_region: HirLazyExprRegion,
@@ -126,6 +133,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
             variable_ki_repr_map.insert_new(hir_lazy_variable_idx, argument_ki_repr)
         }
         Self {
+            path,
             parent_ki_repr,
             ki_domain_repr: parent_ki_repr.ki_domain_repr(db),
             body,
@@ -709,6 +717,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
     fn finish(self) -> KiReprExpansion {
         KiReprExpansion::new(
             self.db,
+            self.path,
             self.hir_lazy_variable_ki_repr_map,
             self.hir_lazy_expr_ki_repr_map,
             self.hir_lazy_stmt_ki_repr_map,

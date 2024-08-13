@@ -119,10 +119,10 @@ where
     {
         match self {
             KiControlFlow::Continue(value) => KiControlFlow::Continue(value.share()),
-            KiControlFlow::LoopContinue => todo!(),
-            KiControlFlow::LoopExit(_) => todo!(),
-            KiControlFlow::Return(_) => todo!(),
-            KiControlFlow::Undefined => todo!(),
+            KiControlFlow::LoopContinue => KiControlFlow::LoopContinue,
+            KiControlFlow::LoopExit(value) => KiControlFlow::LoopExit(value.share()),
+            KiControlFlow::Return(value) => KiControlFlow::Return(value.share()),
+            KiControlFlow::Undefined => KiControlFlow::Undefined,
             KiControlFlow::Throw(e) => KiControlFlow::Throw(e.clone()),
         }
     }

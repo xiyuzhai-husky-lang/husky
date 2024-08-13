@@ -1,4 +1,5 @@
 pub mod control_flow;
+pub mod debug;
 
 use crate::{source_map::HirLazyExprSourceMap, *};
 use husky_entity_path::path::ItemPath;

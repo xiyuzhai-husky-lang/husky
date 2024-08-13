@@ -1,3 +1,5 @@
+mod utils;
+
 use crate::*;
 use husky_devsoul::{
     devsoul::IsDevsoul,
@@ -76,8 +78,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
                 KiControlFlow::LoopContinue => todo!(),
                 KiControlFlow::LoopExit(_) => todo!(),
-                KiControlFlow::Return(_) | KiControlFlow::Undefined => KiControlFlow::Undefined,
-                KiControlFlow::Throw(_) => todo!(),
+                KiControlFlow::Return(_) | KiControlFlow::Undefined | KiControlFlow::Throw(_) => {
+                    KiControlFlow::Undefined
+                }
             },
             KiDomainRepr::ExprNotReturned(_) => todo!(),
         }
@@ -158,6 +161,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 KiControlFlow::Continue(value)
             }
             KiOpn::Val(_path) => {
+                use husky_print_utils::p;
+                p!(self.eval_all_in_expansion(ki_repr));
+                todo!("for debugging");
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }

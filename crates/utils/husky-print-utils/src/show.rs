@@ -1,10 +1,23 @@
 use std::fmt::*;
 #[macro_export]
 macro_rules! show {
-    ($a:expr)=>{format!("{}{}{} = {:#?}",
-    husky_print_utils::PINK,stringify!($a),
-    husky_print_utils::RESET,
-    $a)};
+    ($a: expr) => {{
+        if let Ok(_) = std::env::var("PRINT_COLORED") {
+            format!(
+                "{}{}{} = {:#?}",
+                husky_print_utils::PINK,
+                stringify!($a),
+                husky_print_utils::RESET,
+                $a,
+            )
+        } else {
+            format!(
+                "{} = {:#?}",
+                stringify!($a),
+                $a,
+            )
+        }
+    }};
    ($a:expr ,$($as:expr),*) => {
     format!("{},\n{}", (husky_print_utils::show!($a)), (husky_print_utils::show!($($as),*)))
   };

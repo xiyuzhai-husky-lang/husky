@@ -23,6 +23,10 @@ husky-coword.workspace = true
 husky-eth-term.workspace = true
 husky-expr.workspace = true
 husky-fly-term.workspace = true
+# lex
+husky-token.workspace = true
+husky-regional-token.workspace = true
+husky-text.workspace = true
 # semantics
 husky-sem-expr.workspace = true
 husky-sem-opr = { path = "../../semantics/husky-sem-opr" }
@@ -30,6 +34,7 @@ husky-sem-place-contract.workspace = true
 # syntax
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
+husky-entity-tree.workspace = true
 # utils
 husky-print-utils.workspace = true
 
