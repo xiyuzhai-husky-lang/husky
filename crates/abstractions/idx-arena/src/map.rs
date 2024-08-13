@@ -112,7 +112,7 @@ impl<T, V> ArenaMap<T, V> {
             .map(ArenaIdx::new)
     }
 
-    pub fn key_value_iter(&self) -> impl Iterator<Item = (ArenaIdx<T>, &V)> {
+    pub fn iter(&self) -> impl Iterator<Item = (ArenaIdx<T>, &V)> {
         self.data.iter().enumerate().filter_map(|(i, v)| match v {
             Some(ref v) => Some((ArenaIdx::new(i), v)),
             None => None,

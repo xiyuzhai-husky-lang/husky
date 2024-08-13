@@ -935,6 +935,7 @@
         dependencies: [
             "husky-coword",
             "husky-entity-path",
+            "husky-entity-tree",
             "husky-eth-term",
             "husky-fly-term",
             "husky-hir-ty",
@@ -943,6 +944,8 @@
             "husky-syn-defn",
             "husky-syn-expr",
             "husky-term-prelude",
+            "husky-text",
+            "husky-token",
         ],
     },
     JarPackageSummary {
