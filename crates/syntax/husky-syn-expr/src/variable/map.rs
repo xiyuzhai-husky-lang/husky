@@ -21,7 +21,7 @@ impl<V> SymbolMap<V> {
                         .inherited_variable_map
                         .clone_for_extended(inherited_variable_arena);
                     let base = parent.inherited_variable_map.len();
-                    for (parent_idx, v) in parent.current_variable_map.key_value_iter() {
+                    for (parent_idx, v) in parent.current_variable_map.iter() {
                         unsafe {
                             let idx = ArenaIdx::new_ext(base + parent_idx.index());
                             inherited_variable_map.insert_new(idx, v.clone())
@@ -54,11 +54,11 @@ impl<V> SymbolMap<V> {
     pub fn inherited_variable_key_values(
         &self,
     ) -> impl Iterator<Item = (InheritedVariableIdx, &V)> {
-        self.inherited_variable_map.key_value_iter()
+        self.inherited_variable_map.iter()
     }
 
     pub fn current_variable_key_values(&self) -> impl Iterator<Item = (CurrentVariableIdx, &V)> {
-        self.current_variable_map.key_value_iter()
+        self.current_variable_map.iter()
     }
 }
 

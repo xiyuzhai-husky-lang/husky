@@ -75,8 +75,8 @@ impl<T> __FromValue for CyclicSliceLeashed<T>
 where
     T: __Static,
 {
-    fn from_value_aux(_value: __Value, _: Option<&mut __ValueStands>) -> Self {
-        todo!()
+    fn from_value_aux(value: __Value, _: Option<&mut __ValueStands>) -> Self {
+        value.into_owned()
     }
 }
 impl<T> __IntoValue for CyclicSliceLeashed<T>
@@ -84,7 +84,7 @@ where
     T: __Static,
 {
     fn into_value(self) -> __Value {
-        todo!()
+        __Value::from_owned(self)
     }
 }
 

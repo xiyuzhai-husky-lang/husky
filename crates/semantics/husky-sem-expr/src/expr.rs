@@ -542,7 +542,7 @@ impl<V> SemExprMap<V> {
     }
 
     pub fn iter(&self) -> impl Iterator<Item = (SemExprIdx, &V)> {
-        self.0.key_value_iter().map(|(idx, v)| (SemExprIdx(idx), v))
+        self.0.iter().map(|(idx, v)| (SemExprIdx(idx), v))
     }
 
     pub fn map<R>(&self, f: impl Fn(&V) -> R) -> SemExprMap<R> {
