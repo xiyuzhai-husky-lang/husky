@@ -161,9 +161,6 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 KiControlFlow::Continue(value)
             }
             KiOpn::Val(_path) => {
-                use husky_print_utils::p;
-                p!(self.eval_all_in_expansion(ki_repr));
-                todo!("for debugging");
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }
