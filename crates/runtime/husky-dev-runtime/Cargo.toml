@@ -17,6 +17,7 @@ husky-dev-comptime.workspace = true
 husky-vfs.workspace = true
 # hir
 husky-hir-opr.workspace = true
+husky-hir-lazy-expr.workspace = true
 # kernel
 husky-coword.workspace = true
 husky-entity-kind.workspace = true

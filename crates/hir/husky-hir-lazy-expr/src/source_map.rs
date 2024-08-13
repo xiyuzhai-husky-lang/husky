@@ -60,6 +60,7 @@ impl HirLazyExprSourceMapData {
             .copied()
     }
 
+    /// question: should it return None?
     pub fn hir_lazy_to_sem_expr_idx(
         &self,
         hir_lazy_expr_idx: HirLazyExprIdx,
@@ -68,6 +69,7 @@ impl HirLazyExprSourceMapData {
             .get_expr_by_value_copied(hir_lazy_expr_idx)
     }
 
+    /// question: should it return None?
     pub fn hir_lazy_to_sem_stmt_idx(
         &self,
         hir_lazy_stmt_idx: HirLazyStmtIdx,

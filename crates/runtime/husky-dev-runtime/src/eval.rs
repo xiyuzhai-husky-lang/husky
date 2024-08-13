@@ -1,3 +1,5 @@
+mod utils;
+
 use crate::*;
 use husky_devsoul::{
     devsoul::IsDevsoul,
@@ -76,8 +78,9 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
                 KiControlFlow::LoopContinue => todo!(),
                 KiControlFlow::LoopExit(_) => todo!(),
-                KiControlFlow::Return(_) | KiControlFlow::Undefined => KiControlFlow::Undefined,
-                KiControlFlow::Throw(_) => todo!(),
+                KiControlFlow::Return(_) | KiControlFlow::Undefined | KiControlFlow::Throw(_) => {
+                    KiControlFlow::Undefined
+                }
             },
             KiDomainRepr::ExprNotReturned(_) => todo!(),
         }

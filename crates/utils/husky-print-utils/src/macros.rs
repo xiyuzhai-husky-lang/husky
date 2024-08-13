@@ -14,18 +14,26 @@ macro_rules! test_print {
 #[macro_export]
 macro_rules! p {
     ($($v:expr),* $(,)?) => {{
-        // #[cfg(not(debug_assertions))]
-        // panic!("shouldn't print in release!");
-        eprintln!(
-                r#"{}
-            --- {}{}:{}{}{}"#,
-            ::husky_print_utils::show!($($v),*),
-            ::husky_print_utils::GREEN,
-            file!(),
-            ::husky_print_utils::YELLOW,
-            line!(),
-            ::husky_print_utils::RESET,
-        )
+        if let Ok(_) = std::env::var("PRINT_COLORED") {
+            eprintln!(
+                    r#"{}
+                --- {}{}:{}{}{}"#,
+                $crate::show!($($v),*),
+                $crate::GREEN,
+                file!(),
+                $crate::YELLOW,
+                line!(),
+                $crate::RESET,
+            )
+        } else {
+            eprintln!(
+                    r#"{}
+                --- {}:{}"#,
+                $crate::show!($($v),*),
+                file!(),
+                line!(),
+            )
+        }
     }};
 }
 
