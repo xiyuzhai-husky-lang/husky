@@ -8,6 +8,7 @@
         MajorFormPath(`mnist_classifier::digits::one::is_one`, `Val`),
         Some(
             KiReprExpansion {
+                path: ItemPath(`mnist_classifier::digits::one::is_one`),
                 hir_lazy_variable_ki_repr_map: ArenaMap {
                     data: [
                         Some(
