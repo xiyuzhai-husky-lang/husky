@@ -12,6 +12,7 @@
         MajorFormPath(`mnist_classifier::digits::six::is_six`, `Val`),
         Some(
             KiReprExpansion {
+                path: ItemPath(`mnist_classifier::digits::six::is_six`),
                 hir_lazy_variable_ki_repr_map: ArenaMap {
                     data: [
                         Some(
