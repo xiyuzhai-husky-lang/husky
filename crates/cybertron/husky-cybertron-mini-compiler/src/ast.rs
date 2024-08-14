@@ -60,15 +60,25 @@ pub enum AstData {
         caller: Idx,
         delimited_arguments: Idx,
     },
+    /// # stmts
+    LetInit {
+        expr: Idx,
+        pattern: Idx,
+        initial_value: Option<Idx>,
+    },
+    If {
+        condition: Idx,
+        body: Idx,
+    },
+    Else {
+        if_stmt: Idx,
+        body: Idx,
+    },
+    /// # defn
     Defn {
         keyword: Keyword,
         name: Ident,
         data: DefnData,
-    },
-    /// # stmts
-    LetInit {
-        pattern: Idx,
-        initial_value: Idx,
     },
 }
 

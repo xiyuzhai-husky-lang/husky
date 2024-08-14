@@ -29,6 +29,14 @@ impl LeftDelimiter {
             Delimiter::Curly => "{",
         }
     }
+
+    pub fn repr2(self) -> &'static str {
+        match self.0 {
+            Delimiter::Parenthesis => "(",
+            Delimiter::Box => "[",
+            Delimiter::Curly => "{ ",
+        }
+    }
 }
 
 #[derive(Clone, Copy, PartialEq, Eq)]
@@ -44,6 +52,14 @@ impl RightDelimiter {
             Delimiter::Parenthesis => ")",
             Delimiter::Box => "]",
             Delimiter::Curly => "}",
+        }
+    }
+
+    pub fn repr2(self) -> &'static str {
+        match self.0 {
+            Delimiter::Parenthesis => ")",
+            Delimiter::Box => "]",
+            Delimiter::Curly => " }",
         }
     }
 }

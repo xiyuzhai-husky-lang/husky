@@ -142,7 +142,13 @@ impl<'a> Tokenizer<'a> {
             },
             '*' => Some(Opr::MUL.into()),
             '/' => Some(Opr::DIV.into()),
-            '=' => Some(Opr::ASSIGN.into()),
+            '=' => match self.chars.peek() {
+                Some('=') => {
+                    self.chars.next();
+                    Some(Opr::EQ.into())
+                }
+                _ => Some(Opr::ASSIGN.into()),
+            },
             '(' => Some(LPAR.into()),
             ')' => Some(RPAR.into()),
             '[' => Some(LBOX.into()),
