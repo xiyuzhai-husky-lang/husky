@@ -144,8 +144,8 @@ impl From<Token> for PreAst {
     }
 }
 
-pub fn calc_pre_ast_initial_seq(toks: Seq<Token>) -> Seq<Option<PreAst>> {
-    toks.map(|tok| Some(tok.into()))
+pub fn calc_pre_ast_initial_seq(tokens: Seq<Token>) -> Seq<Option<PreAst>> {
+    tokens.map(|token| Some(token.into()))
 }
 
 #[test]
@@ -172,4 +172,11 @@ fn calc_pre_ast_initial_seq_works() {
             ]
         "#]],
     );
+}
+
+pub fn calc_asts_from_input(input: &str, n: usize) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
+    let tokens = tokenize(input);
+    let pre_asts = calc_pre_ast_initial_seq(tokens);
+    let allocated_asts: Seq<Option<Ast>> = tokens.map(|token| token.into());
+    reduce_n_times(pre_asts, allocated_asts, n)
 }
