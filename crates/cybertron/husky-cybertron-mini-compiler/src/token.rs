@@ -149,6 +149,13 @@ impl<'a> Tokenizer<'a> {
                 }
                 _ => Some(Opr::ASSIGN.into()),
             },
+            ':' => match self.chars.peek() {
+                Some(':') => {
+                    self.chars.next();
+                    Some(Opr::SCOPE_RESOLUTION.into())
+                }
+                _ => Some(Opr::TYPE_IS.into()),
+            },
             '(' => Some(LPAR.into()),
             ')' => Some(RPAR.into()),
             '[' => Some(LBOX.into()),

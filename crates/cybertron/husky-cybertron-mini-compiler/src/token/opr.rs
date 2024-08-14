@@ -18,6 +18,8 @@ pub enum Precedence {
     MulOrDiv,
     Prefix,
     Suffix,
+    TypeIs,
+    ScopeResolution,
 }
 
 impl Opr {
@@ -32,6 +34,8 @@ impl Opr {
     pub const DIV: Self = Opr::Binary(BinaryOpr::Div);
     pub const ASSIGN: Self = Opr::Binary(BinaryOpr::Assign);
     pub const EQ: Self = Opr::Binary(BinaryOpr::Eq);
+    pub const TYPE_IS: Self = Opr::Binary(BinaryOpr::TypeIs);
+    pub const SCOPE_RESOLUTION: Self = Opr::Binary(BinaryOpr::ScopeResolution);
     /// # suffix
     pub const INCR: Self = Opr::Suffix(SuffixOpr::Incr);
     pub const DECR: Self = Opr::Suffix(SuffixOpr::Decr);
@@ -66,6 +70,8 @@ pub enum BinaryOpr {
     Assign,
     Eq,
     Ne,
+    ScopeResolution,
+    TypeIs,
 }
 
 impl std::fmt::Debug for BinaryOpr {
@@ -81,6 +87,8 @@ impl BinaryOpr {
             BinaryOpr::Add | BinaryOpr::Sub => Precedence::AddOrSub,
             BinaryOpr::Mul | BinaryOpr::Div => Precedence::MulOrDiv,
             BinaryOpr::Assign => todo!(),
+            BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
+            BinaryOpr::TypeIs => Precedence::TypeIs,
         }
     }
 }
@@ -95,6 +103,8 @@ impl BinaryOpr {
             BinaryOpr::Assign => "=",
             BinaryOpr::Eq => "==",
             BinaryOpr::Ne => "!=",
+            BinaryOpr::ScopeResolution => "::",
+            BinaryOpr::TypeIs => ":",
         }
     }
 
@@ -107,6 +117,8 @@ impl BinaryOpr {
             BinaryOpr::Assign => "=",
             BinaryOpr::Eq => "==",
             BinaryOpr::Ne => "!=",
+            BinaryOpr::ScopeResolution => "::",
+            BinaryOpr::TypeIs => ":",
         }
     }
 }

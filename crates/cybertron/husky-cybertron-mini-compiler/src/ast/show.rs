@@ -1,7 +1,11 @@
 use super::*;
 use crate::token::delimiter::*;
 
-pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<AstOut> {
+pub fn show_asts(
+    tokens: Seq<Token>,
+    pre_asts: Seq<Option<PreAst>>,
+    asts: Seq<Option<Ast>>,
+) -> Vec<AstOut> {
     let tokens = tokens.data();
     let asts = asts.data();
     let len = tokens.len();
@@ -10,6 +14,7 @@ pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<AstOut> {
         .into_iter()
         .map(|i| AstOut {
             token: tokens[i],
+            pre_ast_is_some: pre_asts.data()[i].is_some(),
             ast: "".into(),
         })
         .collect();
@@ -21,16 +26,44 @@ pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<AstOut> {
 
 pub struct AstOut {
     token: Token,
+    pre_ast_is_some: bool,
     ast: String,
 }
 
 impl std::fmt::Debug for AstOut {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_fmt(format_args!(
-            "`{}`: \"{}\"",
-            self.token.repr_short(),
-            self.ast
-        ))
+        match self.pre_ast_is_some {
+            true => {
+                if self.ast.is_empty() {
+                    f.write_fmt(format_args!(
+                        "`{}`: `{}` ✓",
+                        self.token.repr_short(),
+                        self.token.repr_short()
+                    ))
+                } else {
+                    f.write_fmt(format_args!(
+                        "`{}`: \"{}\" ✓",
+                        self.token.repr_short(),
+                        self.ast
+                    ))
+                }
+            }
+            false => {
+                if self.ast.is_empty() {
+                    f.write_fmt(format_args!(
+                        "`{}`: `{}`",
+                        self.token.repr_short(),
+                        self.token.repr_short()
+                    ))
+                } else {
+                    f.write_fmt(format_args!(
+                        "`{}`: \"{}\"",
+                        self.token.repr_short(),
+                        self.ast
+                    ))
+                }
+            }
+        }
     }
 }
 
@@ -89,7 +122,7 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
                 calc_ast_repr(tokens, asts, content, outs);
                 result += &outs[content.index()].ast;
             }
-            result += separator.repr();
+            result += separator.repr2();
             result
         }
         AstData::Call {
@@ -165,6 +198,7 @@ fn show_asts_works() {
     "#]]
     .assert_debug_eq(&show_asts(
         seq![Token::Ident(Ident::new("hello"))],
+        seq![None],
         seq![Some(Ast {
             parent: None,
             data: AstData::Ident(Ident::new("hello"))
@@ -178,6 +212,7 @@ fn show_asts_works() {
     "#]]
     .assert_debug_eq(&show_asts(
         seq![Token::Opr(Opr::PLUS), Token::Ident(Ident::new("hello"))],
+        seq![None, None],
         seq![
             Some(Ast {
                 parent: None,
@@ -205,6 +240,7 @@ fn show_asts_works() {
             Token::Opr(Opr::ADD),
             Token::Literal(Literal::Int(1))
         ],
+        seq![None, None, None],
         seq![
             Some(Ast {
                 parent: Some(idx!(1)),
@@ -226,11 +262,11 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            `(`: "",
+            `(`: `(`,
             `1`: "1",
-            `,`: "1,",
+            `,`: "1, ",
             `1`: "1",
-            `)`: "(1,1)",
+            `)`: "(1, 1)",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -241,6 +277,7 @@ fn show_asts_works() {
             Token::Literal(Literal::Int(1)),
             Token::RightDelimiter(RPAR),
         ],
+        seq![None, None, None, None, None],
         seq![
             None,
             Some(Ast {
