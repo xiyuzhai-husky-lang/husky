@@ -1,7 +1,10 @@
 //! call is a generalized version of normal function call
 //!
 //! it includes all kinds of delimiters
-use token::{delimiter::Delimiter, keyword::StmtKeyword};
+use token::{
+    delimiter::{Delimiter, LCURL, LPAR, RPAR},
+    keyword::StmtKeyword,
+};
 
 use super::*;
 
@@ -28,7 +31,7 @@ fn new_call_ast(
     pre_ast_nearest_left2: Option2<(Idx, PreAst)>,
     pre_ast_nearest_right: Option<(Idx, PreAst)>,
 ) -> Option<AstData> {
-    let (caller, PreAst::Ast(_)) = pre_ast_nearest_left2.first()? else {
+    let (caller, PreAst::Ast(caller_ast)) = pre_ast_nearest_left2.first()? else {
         return None;
     };
     let (
@@ -45,7 +48,13 @@ fn new_call_ast(
     if let Some((_, snd)) = pre_ast_nearest_left2.second() {
         match snd {
             PreAst::Keyword(kw) => match kw {
-                Keyword::Defn(_) => return None,
+                Keyword::Defn(kw) => match kw {
+                    DefnKeyword::Struct | DefnKeyword::Enum => return None,
+                    DefnKeyword::Fn => match left_delimiter.delimiter() {
+                        Delimiter::Parenthesis | Delimiter::Box => return None,
+                        Delimiter::Curly => (),
+                    },
+                },
                 Keyword::Stmt(kw) => match kw {
                     StmtKeyword::Let => (),
                     StmtKeyword::If => match left_delimiter.delimiter() {
@@ -64,7 +73,26 @@ fn new_call_ast(
             },
             PreAst::LeftDelimiter(_) => (),
             PreAst::RightDelimiter(_) => return None,
-            PreAst::Ast(_) => return None,
+            PreAst::Ast(snd_ast) => {
+                if let AstData::Ident(_) = snd_ast
+                    && left_delimiter == LCURL
+                {
+                    match caller_ast {
+                        AstData::Binary {
+                            opr: BinaryOpr::LightArrow,
+                            ..
+                        }
+                        | AstData::Delimited {
+                            left_delimiter: LPAR,
+                            right_delimiter: RPAR,
+                            ..
+                        } => (),
+                        _ => return None,
+                    }
+                } else {
+                    return None;
+                }
+            }
             PreAst::Separator(_) => (),
         }
     }
@@ -74,6 +102,8 @@ fn new_call_ast(
     Some(AstData::Call {
         caller,
         delimited_arguments,
+        left_delimiter,
+        right_delimiter,
     })
 }
 
@@ -158,8 +188,8 @@ fn reduce_n_times_for_call_works1() {
         expect![[r#"
             [
                 `A`: "A",
-                `{`: "A{  }" ✓,
-                `}`: "{  }",
+                `{`: "A {}" ✓,
+                `}`: "{}",
             ]
         "#]],
     );

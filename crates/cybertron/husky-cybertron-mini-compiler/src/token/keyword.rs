@@ -25,6 +25,18 @@ impl std::fmt::Debug for Keyword {
     }
 }
 
+impl std::fmt::Debug for DefnKeyword {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.repr()))
+    }
+}
+
+impl std::fmt::Debug for StmtKeyword {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("`{}`", self.repr()))
+    }
+}
+
 impl Keyword {
     pub(super) fn new(s: &str) -> Option<Self> {
         match s {

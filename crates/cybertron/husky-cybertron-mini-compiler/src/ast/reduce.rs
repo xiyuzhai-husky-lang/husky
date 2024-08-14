@@ -25,7 +25,7 @@ pub fn reduce(
     let (pre_asts, allocated_asts) = reduce_by_delimited(pre_asts, allocated_asts);
     let (pre_asts, allocated_asts) = reduce_by_call(pre_asts, allocated_asts);
     let (pre_asts, allocated_asts) = reduce_by_stmt(pre_asts, allocated_asts);
-    // let (pre_asts, allocated_asts) = reduce_by_defn(pre_asts, allocated_asts);
+    let (pre_asts, allocated_asts) = reduce_by_defn(pre_asts, allocated_asts);
     (pre_asts, allocated_asts)
 }
 

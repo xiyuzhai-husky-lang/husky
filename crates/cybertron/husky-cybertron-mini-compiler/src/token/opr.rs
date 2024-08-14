@@ -36,6 +36,7 @@ impl Opr {
     pub const EQ: Self = Opr::Binary(BinaryOpr::Eq);
     pub const TYPE_IS: Self = Opr::Binary(BinaryOpr::TypeIs);
     pub const SCOPE_RESOLUTION: Self = Opr::Binary(BinaryOpr::ScopeResolution);
+    pub const LIGHT_ARROW: Self = Opr::Binary(BinaryOpr::LightArrow);
     /// # suffix
     pub const INCR: Self = Opr::Suffix(SuffixOpr::Incr);
     pub const DECR: Self = Opr::Suffix(SuffixOpr::Decr);
@@ -72,6 +73,7 @@ pub enum BinaryOpr {
     Ne,
     ScopeResolution,
     TypeIs,
+    LightArrow,
 }
 
 impl std::fmt::Debug for BinaryOpr {
@@ -89,6 +91,7 @@ impl BinaryOpr {
             BinaryOpr::Assign => todo!(),
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             BinaryOpr::TypeIs => Precedence::TypeIs,
+            BinaryOpr::LightArrow => todo!(),
         }
     }
 }
@@ -105,6 +108,7 @@ impl BinaryOpr {
             BinaryOpr::Ne => "!=",
             BinaryOpr::ScopeResolution => "::",
             BinaryOpr::TypeIs => ":",
+            BinaryOpr::LightArrow => "->",
         }
     }
 
@@ -119,6 +123,7 @@ impl BinaryOpr {
             BinaryOpr::Ne => "!=",
             BinaryOpr::ScopeResolution => "::",
             BinaryOpr::TypeIs => ":",
+            BinaryOpr::LightArrow => "->",
         }
     }
 }

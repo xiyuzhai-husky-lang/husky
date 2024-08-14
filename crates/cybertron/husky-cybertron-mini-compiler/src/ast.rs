@@ -15,7 +15,8 @@ use husky_cybertron::{
     seq::{idx::Idx, Seq},
 };
 use token::{
-    delimiter::{LeftDelimiter, RightDelimiter},
+    delimiter::{Delimiter, LeftDelimiter, RightDelimiter},
+    keyword::DefnKeyword,
     opr::{BinaryOpr, PrefixOpr, SuffixOpr},
     separator::Separator,
     tokenize,
@@ -58,6 +59,8 @@ pub enum AstData {
     /// things like `f(...)` or `a[...]`
     Call {
         caller: Idx,
+        left_delimiter: LeftDelimiter,
+        right_delimiter: RightDelimiter,
         delimited_arguments: Idx,
     },
     /// # stmts
@@ -76,16 +79,11 @@ pub enum AstData {
     },
     /// # defn
     Defn {
-        keyword: Keyword,
-        name: Ident,
-        data: DefnData,
+        keyword: DefnKeyword,
+        ident_idx: Idx,
+        ident: Ident,
+        content: Idx,
     },
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum DefnData {
-    Type { content: Idx },
-    Func { head: Idx, body: Idx },
 }
 
 impl Into<Option<Ast>> for Token {

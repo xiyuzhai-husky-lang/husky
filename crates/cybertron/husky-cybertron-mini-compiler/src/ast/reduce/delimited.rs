@@ -734,7 +734,7 @@ fn reduce_n_times_for_delimited_works2() {
         expect![[r#"
             [
                 `{`: `{`,
-                `}`: "{  }" ✓,
+                `}`: "{}" ✓,
             ]
         "#]],
     );
@@ -837,7 +837,7 @@ fn reduce_n_times_for_delimited_works3() {
         expect![[r#"
             [
                 `{`: `{`,
-                `}`: "{  }" ✓,
+                `}`: "{}" ✓,
             ]
         "#]],
     );

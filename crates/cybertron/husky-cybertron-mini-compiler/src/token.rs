@@ -135,6 +135,10 @@ impl<'a> Tokenizer<'a> {
                     self.chars.next();
                     Some(Opr::DECR.into())
                 }
+                Some('>') => {
+                    self.chars.next();
+                    Some(Opr::LIGHT_ARROW.into())
+                }
                 _ => match self.last_token_right_convexity {
                     Convexity::Convex => Some(Opr::SUB.into()),
                     Convexity::Concave => Some(Opr::MINUS.into()),
