@@ -13,6 +13,7 @@ impl std::fmt::Debug for Opr {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Precedence {
+    EqNe,
     AddOrSub,
     MulOrDiv,
     Prefix,
@@ -30,6 +31,7 @@ impl Opr {
     pub const MUL: Self = Opr::Binary(BinaryOpr::Mul);
     pub const DIV: Self = Opr::Binary(BinaryOpr::Div);
     pub const ASSIGN: Self = Opr::Binary(BinaryOpr::Assign);
+    pub const EQ: Self = Opr::Binary(BinaryOpr::Eq);
     /// # suffix
     pub const INCR: Self = Opr::Suffix(SuffixOpr::Incr);
     pub const DECR: Self = Opr::Suffix(SuffixOpr::Decr);
@@ -62,6 +64,8 @@ pub enum BinaryOpr {
     Mul,
     Div,
     Assign,
+    Eq,
+    Ne,
 }
 
 impl std::fmt::Debug for BinaryOpr {
@@ -73,6 +77,7 @@ impl std::fmt::Debug for BinaryOpr {
 impl BinaryOpr {
     pub fn precedence(self) -> Precedence {
         match self {
+            BinaryOpr::Eq | BinaryOpr::Ne => Precedence::EqNe,
             BinaryOpr::Add | BinaryOpr::Sub => Precedence::AddOrSub,
             BinaryOpr::Mul | BinaryOpr::Div => Precedence::MulOrDiv,
             BinaryOpr::Assign => todo!(),
@@ -88,6 +93,8 @@ impl BinaryOpr {
             BinaryOpr::Mul => "*",
             BinaryOpr::Div => "/",
             BinaryOpr::Assign => "=",
+            BinaryOpr::Eq => "==",
+            BinaryOpr::Ne => "!=",
         }
     }
 
@@ -98,6 +105,8 @@ impl BinaryOpr {
             BinaryOpr::Mul => "*",
             BinaryOpr::Div => "/",
             BinaryOpr::Assign => "=",
+            BinaryOpr::Eq => "==",
+            BinaryOpr::Ne => "!=",
         }
     }
 }

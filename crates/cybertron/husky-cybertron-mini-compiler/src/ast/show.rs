@@ -67,7 +67,7 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
             right_delimiter,
         } => {
             let mut result = String::new();
-            result += left_delimiter.repr();
+            result += left_delimiter.repr2();
             for (jj, (j, ast)) in asts
                 .iter()
                 .copied()
@@ -80,7 +80,7 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
                     result += &outs[j].ast;
                 }
             }
-            result += right_delimiter.repr();
+            result += right_delimiter.repr2();
             result
         }
         AstData::SeparatedItem { content, separator } => {
@@ -130,16 +130,26 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
                 )
             }
         },
-        AstData::LetInit {
-            pattern,
-            initial_value,
-        } => {
-            calc_ast_repr(tokens, asts, pattern, outs);
-            calc_ast_repr(tokens, asts, initial_value, outs);
+        AstData::LetInit { expr, .. } => {
+            calc_ast_repr(tokens, asts, expr, outs);
+            format!("let {}", outs[expr.index()].ast,)
+        }
+        AstData::If { condition, body } => {
+            calc_ast_repr(tokens, asts, condition, outs);
+            calc_ast_repr(tokens, asts, body, outs);
             format!(
-                "let {} = {}",
-                outs[pattern.index()].ast,
-                outs[initial_value.index()].ast
+                "if {} {}",
+                outs[condition.index()].ast,
+                outs[body.index()].ast
+            )
+        }
+        AstData::Else { if_stmt, body } => {
+            calc_ast_repr(tokens, asts, if_stmt, outs);
+            calc_ast_repr(tokens, asts, body, outs);
+            format!(
+                "{} else {}",
+                outs[if_stmt.index()].ast,
+                outs[body.index()].ast
             )
         }
     };

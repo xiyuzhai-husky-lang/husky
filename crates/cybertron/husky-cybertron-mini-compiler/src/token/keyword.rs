@@ -1,11 +1,22 @@
+#[enum_class::from_variants]
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Keyword {
-    Let,
-    If,
-    Else,
+    Defn(DefnKeyword),
+    Stmt(StmtKeyword),
+}
+
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum DefnKeyword {
     Struct,
     Enum,
     Fn,
+}
+
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub enum StmtKeyword {
+    Let,
+    If,
+    Else,
 }
 
 impl std::fmt::Debug for Keyword {
@@ -17,8 +28,33 @@ impl std::fmt::Debug for Keyword {
 impl Keyword {
     pub(super) fn new(s: &str) -> Option<Self> {
         match s {
-            "let" => Some(Keyword::Let),
+            "struct" => Some(Keyword::Defn(DefnKeyword::Struct)),
+            "enum" => Some(Keyword::Defn(DefnKeyword::Enum)),
+            "fn" => Some(Keyword::Defn(DefnKeyword::Fn)),
+            "let" => Some(Keyword::Stmt(StmtKeyword::Let)),
+            "if" => Some(Keyword::Stmt(StmtKeyword::If)),
+            "else" => Some(Keyword::Stmt(StmtKeyword::Else)),
             _ => None,
+        }
+    }
+}
+
+impl DefnKeyword {
+    pub fn repr(self) -> &'static str {
+        match self {
+            DefnKeyword::Struct => "struct",
+            DefnKeyword::Enum => "enum",
+            DefnKeyword::Fn => "fn",
+        }
+    }
+}
+
+impl StmtKeyword {
+    pub fn repr(self) -> &'static str {
+        match self {
+            StmtKeyword::Let => "let",
+            StmtKeyword::If => "if",
+            StmtKeyword::Else => "else",
         }
     }
 }
@@ -26,12 +62,17 @@ impl Keyword {
 impl Keyword {
     pub fn repr(self) -> &'static str {
         match self {
-            Keyword::Let => "let",
-            Keyword::If => "if",
-            Keyword::Else => "else",
-            Keyword::Struct => "struct",
-            Keyword::Enum => "enum",
-            Keyword::Fn => "fn",
+            Keyword::Defn(defn_keyword) => defn_keyword.repr(),
+            Keyword::Stmt(stmt_keyword) => stmt_keyword.repr(),
         }
     }
+}
+
+impl Keyword {
+    pub const LET: Keyword = Keyword::Stmt(StmtKeyword::Let);
+    pub const IF: Keyword = Keyword::Stmt(StmtKeyword::If);
+    pub const ELSE: Keyword = Keyword::Stmt(StmtKeyword::Else);
+    pub const STRUCT: Keyword = Keyword::Defn(DefnKeyword::Struct);
+    pub const ENUM: Keyword = Keyword::Defn(DefnKeyword::Enum);
+    pub const FN: Keyword = Keyword::Defn(DefnKeyword::Fn);
 }
