@@ -468,7 +468,11 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => (), // actually this will be a syntax error
                     },
-                    PreAst::Ast(_) => return None,
+                    PreAst::Ast(_) => {
+                        if opr != BinaryOpr::LightArrow {
+                            return None;
+                        }
+                    }
                     PreAst::LeftDelimiter(_) => (),
                     PreAst::RightDelimiter(_) => return None,
                     PreAst::Separator(_) => (),

@@ -100,20 +100,31 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
             right_delimiter,
         } => {
             let mut result = String::new();
-            result += left_delimiter.repr2();
-            for (jj, (j, ast)) in asts
+            let number_of_items = asts
                 .iter()
                 .copied()
                 .enumerate()
-                .filter_map(|(i, ast)| Some((i, ast?)))
-                .enumerate()
-            {
-                if ast.parent == Some(idx) {
-                    calc_ast_repr(tokens, asts, idx!(j), outs);
-                    result += &outs[j].ast;
+                .filter_map(|(i, ast)| (ast?.parent == Some(idx)).then_some((i, ast?)))
+                .count();
+            if number_of_items > 0 {
+                result += left_delimiter.repr2();
+                for (jj, (j, ast)) in asts
+                    .iter()
+                    .copied()
+                    .enumerate()
+                    .filter_map(|(i, ast)| Some((i, ast?)))
+                    .enumerate()
+                {
+                    if ast.parent == Some(idx) {
+                        calc_ast_repr(tokens, asts, idx!(j), outs);
+                        result += &outs[j].ast;
+                    }
                 }
+                result += right_delimiter.repr2();
+            } else {
+                result += left_delimiter.repr();
+                result += right_delimiter.repr();
             }
-            result += right_delimiter.repr2();
             result
         }
         AstData::SeparatedItem { content, separator } => {
@@ -127,42 +138,40 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
         }
         AstData::Call {
             caller,
-            delimited_arguments: arguments,
+            left_delimiter,
+            delimited_arguments,
+            ..
         } => {
             calc_ast_repr(tokens, asts, caller, outs);
-            calc_ast_repr(tokens, asts, arguments, outs);
+            calc_ast_repr(tokens, asts, delimited_arguments, outs);
             format!(
-                "{}{}",
+                "{}{}{}",
                 outs[caller.index()].ast,
-                outs[arguments.index()].ast
+                match left_delimiter.delimiter() {
+                    Delimiter::Parenthesis | Delimiter::Box => "",
+                    Delimiter::Curly => " ",
+                },
+                outs[delimited_arguments.index()].ast
             )
         }
         AstData::Defn {
             keyword,
-            name,
-            data,
-        } => match data {
-            DefnData::Type { content } => {
-                calc_ast_repr(tokens, asts, content, outs);
-                format!(
-                    "{} {} {}",
-                    keyword.repr(),
-                    name.repr(),
-                    outs[content.index()].ast
-                )
-            }
-            DefnData::Func { head, body } => {
-                calc_ast_repr(tokens, asts, head, outs);
-                calc_ast_repr(tokens, asts, body, outs);
-                format!(
-                    "{} {} {} {}",
-                    keyword.repr(),
-                    name.repr(),
-                    outs[head.index()].ast,
-                    outs[body.index()].ast
-                )
-            }
-        },
+            ident_idx,
+            ident,
+            content,
+        } => {
+            calc_ast_repr(tokens, asts, content, outs);
+            format!(
+                "{} {}{}{}",
+                keyword.repr(),
+                ident.repr(),
+                match keyword {
+                    DefnKeyword::Struct | DefnKeyword::Enum => " ",
+                    DefnKeyword::Fn => "",
+                },
+                outs[content.index()].ast
+            )
+        }
         AstData::LetInit { expr, .. } => {
             calc_ast_repr(tokens, asts, expr, outs);
             format!("let {}", outs[expr.index()].ast,)
