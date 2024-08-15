@@ -1,7 +1,10 @@
 //! call is a generalized version of normal function call
 //!
 //! it includes all kinds of delimiters
-use token::delimiter::Delimiter;
+use token::{
+    delimiter::{Delimiter, LCURL, LPAR, RPAR},
+    keyword::StmtKeyword,
+};
 
 use super::*;
 
@@ -16,16 +19,19 @@ pub(super) fn reduce_by_call(
     let (pre_asts, new_parents) = reduce_pre_asts_by_call(pre_asts, new_call_asts);
     let allocated_asts =
         allocate_asts_and_update_parents(allocated_asts, new_call_asts, new_parents);
-    let pre_asts = add_pre_asts(pre_asts, new_call_asts);
+    let pre_asts = update_pre_asts_by_new_asts(pre_asts, new_call_asts);
     (pre_asts, allocated_asts)
 }
 
+/// a call expr like `f(1)` or `a[2]` is placed over the token `(` or `[`, the left delimiter
+///
+/// idx is the index of `(`
 fn new_call_ast(
     idx: Idx,
-    pre_ast_nearest_left: Option2<(Idx, PreAst)>,
+    pre_ast_nearest_left2: Option2<(Idx, PreAst)>,
     pre_ast_nearest_right: Option<(Idx, PreAst)>,
 ) -> Option<AstData> {
-    let (caller, PreAst::Ast(_)) = pre_ast_nearest_left.first()? else {
+    let (caller, PreAst::Ast(caller_ast)) = pre_ast_nearest_left2.first()? else {
         return None;
     };
     let (
@@ -39,27 +45,54 @@ fn new_call_ast(
     else {
         return None;
     };
-    if let Some((_, snd)) = pre_ast_nearest_left.second() {
+    if let Some((_, snd)) = pre_ast_nearest_left2.second() {
         match snd {
             PreAst::Keyword(kw) => match kw {
-                Keyword::Let => (),
-                Keyword::If => match left_delimiter.delimiter() {
+                Keyword::Defn(kw) => match kw {
+                    DefnKeyword::Struct | DefnKeyword::Enum => return None,
+                    DefnKeyword::Fn => match left_delimiter.delimiter() {
+                        Delimiter::Parenthesis | Delimiter::Box => return None,
+                        Delimiter::Curly => (),
+                    },
+                },
+                Keyword::Stmt(kw) => match kw {
+                    StmtKeyword::Let => (),
+                    StmtKeyword::If => match left_delimiter.delimiter() {
+                        Delimiter::Parenthesis | Delimiter::Box => (),
+                        Delimiter::Curly => return None,
+                    },
+                    StmtKeyword::Else => return None,
+                },
+            },
+            PreAst::Opr(opr) => match opr {
+                Opr::Prefix(_) | Opr::Binary(_) => match left_delimiter.delimiter() {
                     Delimiter::Parenthesis | Delimiter::Box => (),
                     Delimiter::Curly => return None,
                 },
-                Keyword::Else => return None,
-                Keyword::Struct => return None,
-                Keyword::Enum => return None,
-                Keyword::Fn => return None,
-            },
-            PreAst::Opr(opr) => match opr {
-                Opr::Prefix(_) => (),
-                Opr::Binary(_) => (),
                 Opr::Suffix(_) => return None,
             },
             PreAst::LeftDelimiter(_) => (),
             PreAst::RightDelimiter(_) => return None,
-            PreAst::Ast(_) => return None,
+            PreAst::Ast(snd_ast) => {
+                if let AstData::Ident(_) = snd_ast
+                    && left_delimiter == LCURL
+                {
+                    match caller_ast {
+                        AstData::Binary {
+                            opr: BinaryOpr::LightArrow,
+                            ..
+                        }
+                        | AstData::Delimited {
+                            left_delimiter: LPAR,
+                            right_delimiter: RPAR,
+                            ..
+                        } => (),
+                        _ => return None,
+                    }
+                } else {
+                    return None;
+                }
+            }
             PreAst::Separator(_) => (),
         }
     }
@@ -69,6 +102,8 @@ fn new_call_ast(
     Some(AstData::Call {
         caller,
         delimited_arguments,
+        left_delimiter,
+        right_delimiter,
     })
 }
 
@@ -106,4 +141,56 @@ fn reduce_pre_ast_by_call(
     } else {
         (pre_ast, None)
     }
+}
+
+#[test]
+fn reduce_n_times_for_call_works1() {
+    t(
+        "f()",
+        2,
+        expect![[r#"
+            [
+                `f`: "f",
+                `(`: "f()" ✓,
+                `)`: "()",
+            ]
+        "#]],
+    );
+    t(
+        "f()()",
+        2,
+        expect![[r#"
+            [
+                `f`: "f",
+                `(`: "f()",
+                `)`: "()",
+                `(`: "f()()" ✓,
+                `)`: "()",
+            ]
+        "#]],
+    );
+    t(
+        "f()+1",
+        2,
+        expect![[r#"
+            [
+                `f`: "f",
+                `(`: "f()",
+                `)`: "()",
+                `+`: "f() + 1" ✓,
+                `1`: "1",
+            ]
+        "#]],
+    );
+    t(
+        "A {}",
+        2,
+        expect![[r#"
+            [
+                `A`: "A",
+                `{`: "A {}" ✓,
+                `}`: "{}",
+            ]
+        "#]],
+    );
 }

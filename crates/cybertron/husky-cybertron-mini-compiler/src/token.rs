@@ -135,6 +135,10 @@ impl<'a> Tokenizer<'a> {
                     self.chars.next();
                     Some(Opr::DECR.into())
                 }
+                Some('>') => {
+                    self.chars.next();
+                    Some(Opr::LIGHT_ARROW.into())
+                }
                 _ => match self.last_token_right_convexity {
                     Convexity::Convex => Some(Opr::SUB.into()),
                     Convexity::Concave => Some(Opr::MINUS.into()),
@@ -142,7 +146,20 @@ impl<'a> Tokenizer<'a> {
             },
             '*' => Some(Opr::MUL.into()),
             '/' => Some(Opr::DIV.into()),
-            '=' => Some(Opr::ASSIGN.into()),
+            '=' => match self.chars.peek() {
+                Some('=') => {
+                    self.chars.next();
+                    Some(Opr::EQ.into())
+                }
+                _ => Some(Opr::ASSIGN.into()),
+            },
+            ':' => match self.chars.peek() {
+                Some(':') => {
+                    self.chars.next();
+                    Some(Opr::SCOPE_RESOLUTION.into())
+                }
+                _ => Some(Opr::TYPE_IS.into()),
+            },
             '(' => Some(LPAR.into()),
             ')' => Some(RPAR.into()),
             '[' => Some(LBOX.into()),

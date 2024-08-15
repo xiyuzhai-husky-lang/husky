@@ -1,6 +1,7 @@
 #![feature(let_chains)]
 
 pub mod ast;
+pub mod symbol;
 pub mod token;
 
 #[cfg(test)]

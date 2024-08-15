@@ -10,7 +10,7 @@ pub(super) fn reduce_by_opr(
     let pre_asts_nearest_right2 = pre_asts.nearest_right2();
     let new_opr_asts = new_opr_ast.apply(pre_asts_nearest_left2, pre_asts, pre_asts_nearest_right2);
     let (pre_asts_reduced, new_parents) = reduce_pre_asts_by_opr(pre_asts, new_opr_asts);
-    let pre_asts = add_pre_asts(pre_asts_reduced, new_opr_asts);
+    let pre_asts = update_pre_asts_by_new_asts(pre_asts_reduced, new_opr_asts);
     let allocated_asts =
         allocate_asts_and_update_parents(allocated_asts, new_opr_asts, new_parents);
     (pre_asts, allocated_asts)
@@ -453,7 +453,7 @@ pub(crate) fn new_opr_ast(
             };
             if let Some((_, ast)) = nearest_left2.second() {
                 match ast {
-                    PreAst::Keyword(_) => (),
+                    PreAst::Keyword(kw) => (),
                     PreAst::Opr(left_opr) => match left_opr {
                         Opr::Prefix(left_opr) => {
                             if left_opr.precedence() >= opr.precedence() {
@@ -468,7 +468,11 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => (), // actually this will be a syntax error
                     },
-                    PreAst::Ast(_) => return None,
+                    PreAst::Ast(_) => {
+                        if opr != BinaryOpr::LightArrow {
+                            return None;
+                        }
+                    }
                     PreAst::LeftDelimiter(_) => (),
                     PreAst::RightDelimiter(_) => return None,
                     PreAst::Separator(_) => (),
@@ -476,7 +480,10 @@ pub(crate) fn new_opr_ast(
             };
             if let Some((_, ast)) = nearest_right2.second() {
                 match ast {
-                    PreAst::Keyword(_) => (),
+                    PreAst::Keyword(kw) => match kw {
+                        Keyword::ELSE => return None,
+                        _ => (),
+                    },
                     PreAst::Opr(right_opr) => match right_opr {
                         Opr::Prefix(_) => (), // actually this will be a syntax error
                         Opr::Binary(right_opr) => {
@@ -615,5 +622,55 @@ fn reduce_pre_ast_by_opr_right_works() {
             None,
         ),
         (None, Some(idx!(1)))
+    );
+}
+
+#[test]
+fn reduce_n_times_for_opr_works1() {
+    t(
+        "1",
+        0,
+        expect![[r#"
+            [
+                `1`: "1" ✓,
+            ]
+        "#]],
+    );
+    t(
+        "1+1",
+        1,
+        expect![[r#"
+            [
+                `1`: "1",
+                `+`: "1 + 1" ✓,
+                `1`: "1",
+            ]
+        "#]],
+    );
+    t(
+        "1+2*3",
+        1,
+        expect![[r#"
+            [
+                `1`: "1" ✓,
+                `+`: `+` ✓,
+                `2`: "2",
+                `*`: "2 * 3" ✓,
+                `3`: "3",
+            ]
+        "#]],
+    );
+    t(
+        "1+2*3",
+        2,
+        expect![[r#"
+            [
+                `1`: "1",
+                `+`: "1 + 2 * 3" ✓,
+                `2`: "2",
+                `*`: "2 * 3",
+                `3`: "3",
+            ]
+        "#]],
     );
 }

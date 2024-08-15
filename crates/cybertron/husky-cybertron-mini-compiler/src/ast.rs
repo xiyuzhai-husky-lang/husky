@@ -15,7 +15,8 @@ use husky_cybertron::{
     seq::{idx::Idx, Seq},
 };
 use token::{
-    delimiter::{LeftDelimiter, RightDelimiter},
+    delimiter::{Delimiter, LeftDelimiter, RightDelimiter},
+    keyword::DefnKeyword,
     opr::{BinaryOpr, PrefixOpr, SuffixOpr},
     separator::Separator,
     tokenize,
@@ -58,24 +59,31 @@ pub enum AstData {
     /// things like `f(...)` or `a[...]`
     Call {
         caller: Idx,
+        left_delimiter: LeftDelimiter,
+        right_delimiter: RightDelimiter,
         delimited_arguments: Idx,
-    },
-    Defn {
-        keyword: Keyword,
-        name: Ident,
-        data: DefnData,
     },
     /// # stmts
     LetInit {
+        expr: Idx,
         pattern: Idx,
-        initial_value: Idx,
+        initial_value: Option<Idx>,
     },
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum DefnData {
-    Type { content: Idx },
-    Func { head: Idx, body: Idx },
+    If {
+        condition: Idx,
+        body: Idx,
+    },
+    Else {
+        if_stmt: Idx,
+        body: Idx,
+    },
+    /// # defn
+    Defn {
+        keyword: DefnKeyword,
+        ident_idx: Idx,
+        ident: Ident,
+        content: Idx,
+    },
 }
 
 impl Into<Option<Ast>> for Token {
@@ -136,8 +144,8 @@ impl From<Token> for PreAst {
     }
 }
 
-pub fn calc_pre_ast_initial_seq(toks: Seq<Token>) -> Seq<Option<PreAst>> {
-    toks.map(|tok| Some(tok.into()))
+pub fn calc_pre_ast_initial_seq(tokens: Seq<Token>) -> Seq<Option<PreAst>> {
+    tokens.map(|token| Some(token.into()))
 }
 
 #[test]
@@ -164,4 +172,11 @@ fn calc_pre_ast_initial_seq_works() {
             ]
         "#]],
     );
+}
+
+pub fn calc_asts_from_input(input: &str, n: usize) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
+    let tokens = tokenize(input);
+    let pre_asts = calc_pre_ast_initial_seq(tokens);
+    let allocated_asts: Seq<Option<Ast>> = tokens.map(|token| token.into());
+    reduce_n_times(pre_asts, allocated_asts, n)
 }

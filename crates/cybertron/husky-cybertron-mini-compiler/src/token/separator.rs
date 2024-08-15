@@ -11,6 +11,12 @@ impl Separator {
             Separator::Semicolon => ";",
         }
     }
+    pub fn repr2(self) -> &'static str {
+        match self {
+            Separator::Comma => ", ",
+            Separator::Semicolon => "; ",
+        }
+    }
 }
 
 impl std::fmt::Debug for Separator {
