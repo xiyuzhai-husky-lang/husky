@@ -2,14 +2,18 @@
 [
     (
         MajorFormPath(`core::task::Task`, `TypeVar`),
-        Err(
-            DecSignatureError::CyclicProj,
+        Ok(
+            [
+                MajorFormPath(`core::task::Task`, `TypeVar`),
+            ],
         ),
     ),
     (
         MajorFormPath(`core::task::TASK`, `StaticVar`),
-        Err(
-            DecSignatureError::CyclicProj,
+        Ok(
+            [
+                MajorFormPath(`core::task::TASK`, `StaticVar`),
+            ],
         ),
     ),
 ]

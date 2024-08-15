@@ -14,7 +14,7 @@ pub fn dec_var_full_projs(
 ) -> DecSignatureResult<SmallVecSet<MajorFormPath, 2>> {
     assert!(var_path.is_var(db));
     let var_full_projs = dec_var_full_projs_unchecked(db, var_path).as_ref()?;
-    for var_full_proj in var_full_projs {
+    for &var_full_proj in &var_full_projs[1..] {
         if dec_var_full_projs_unchecked(db, var_full_proj)
             .as_ref()?
             .contains(&var_path)
