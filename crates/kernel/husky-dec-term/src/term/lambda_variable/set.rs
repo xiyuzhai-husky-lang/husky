@@ -54,7 +54,7 @@ impl DecTerm {
                 Some(DecTermHvars::new(db, VecSet::new_one_elem_set(hvar)))
             }
             DecTerm::SymbolicVariable(_symbol) => None,
-            DecTerm::EntityPath(path) => match path {
+            DecTerm::ItemPath(path) => match path {
                 DecItemPath::Form(_) => todo!(),
                 DecItemPath::Trait(_) | DecItemPath::Type(_) => None,
                 DecItemPath::TypeVariant(_) => todo!(),

@@ -51,12 +51,12 @@
                         MajorValDecTemplate {
                             return_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`malamute::Class`, `Enum`),
                                         ),
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                         ),

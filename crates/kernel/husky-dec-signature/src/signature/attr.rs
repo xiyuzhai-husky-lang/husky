@@ -45,7 +45,7 @@ fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult
         }
         AttrSynDecl::Dep(decl) => DepAttrDecTemplate::from_decl(path, decl, db).map(Into::into),
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
-        AttrSynDecl::Proj(decl) => ProjAttrDecTemplate::from_decl(decl, db).map(Into::into),
+        AttrSynDecl::Proj(decl) => ProjAttrDecTemplate::from_decl(path, decl, db).map(Into::into),
         AttrSynDecl::Singleton(decl) => {
             SingletonAttrDecTemplate::from_decl(decl, db).map(Into::into)
         }

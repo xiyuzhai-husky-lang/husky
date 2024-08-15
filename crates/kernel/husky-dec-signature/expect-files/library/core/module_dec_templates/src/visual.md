@@ -59,7 +59,7 @@
                                 },
                             ],
                         },
-                        trai: DecTerm::EntityPath(
+                        trai: DecTerm::ItemPath(
                             DecItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
                             ),
@@ -148,7 +148,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::visual::Visual`, `Extern`),
                                 ),

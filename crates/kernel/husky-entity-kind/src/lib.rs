@@ -50,6 +50,19 @@ impl MajorFormKind {
             _ => unreachable!(),
         }
     }
+
+    pub fn is_var(self) -> bool {
+        match self {
+            MajorFormKind::Ritchie(_) => false,
+            MajorFormKind::TypeAlias => false,
+            MajorFormKind::TypeVar => true,
+            MajorFormKind::Val => false,
+            MajorFormKind::StaticMut => false,
+            MajorFormKind::StaticVar => true,
+            MajorFormKind::Compterm => todo!(),
+            MajorFormKind::Conceptual => todo!(),
+        }
+    }
 }
 
 #[salsa::derive_debug_with_db]

@@ -10,14 +10,14 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -32,7 +32,7 @@
                                                     },
                                                 },
                                             ),
-                                            argument: DecTerm::EntityPath(
+                                            argument: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 ),
@@ -42,7 +42,7 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -60,7 +60,7 @@
                                                     items: [],
                                                 },
                                             ),
-                                            argument: DecTerm::EntityPath(
+                                            argument: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 ),
@@ -89,7 +89,7 @@
                                                             },
                                                         },
                                                     ),
-                                                    argument: DecTerm::EntityPath(
+                                                    argument: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
@@ -113,7 +113,7 @@
                                                             items: [],
                                                         },
                                                     ),
-                                                    argument: DecTerm::EntityPath(
+                                                    argument: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
@@ -123,7 +123,7 @@
                                         },
                                     ),
                                 ],
-                                return_ty: DecTerm::EntityPath(
+                                return_ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
@@ -145,7 +145,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 ),
@@ -172,7 +172,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -182,7 +182,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -191,7 +191,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
@@ -218,7 +218,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -228,7 +228,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -237,7 +237,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
@@ -264,7 +264,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -274,7 +274,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -283,7 +283,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
@@ -310,7 +310,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -320,7 +320,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -330,7 +330,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -339,7 +339,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 ),
@@ -366,7 +366,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                 ),
@@ -376,7 +376,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                 ),
@@ -385,7 +385,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::i32`, `Extern`),
                                 ),
@@ -412,7 +412,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -422,7 +422,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -432,7 +432,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -442,7 +442,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                 ),
@@ -451,7 +451,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 ),
@@ -472,20 +472,20 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                         ),
                                     ),
                                     ident: `prev1`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::i32`, `Extern`),
                                         ),
@@ -493,13 +493,13 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                         ),
                                     ),
                                     ident: `prev2`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::i32`, `Extern`),
                                         ),
@@ -517,7 +517,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -527,7 +527,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -535,7 +535,7 @@
                                         },
                                     ),
                                 ],
-                                return_ty: DecTerm::EntityPath(
+                                return_ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                     ),
@@ -575,7 +575,7 @@
                                                             items: [],
                                                         },
                                                     ),
-                                                    argument: DecTerm::EntityPath(
+                                                    argument: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         ),
@@ -586,7 +586,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
@@ -622,7 +622,7 @@
                                                             },
                                                         },
                                                     ),
-                                                    argument: DecTerm::EntityPath(
+                                                    argument: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                         ),
@@ -645,7 +645,7 @@
                                             items: [],
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -667,13 +667,13 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: DecTerm::EntityPath(
+                        trai: DecTerm::ItemPath(
                             DecItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            DecTerm::EntityPath(
+                            DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
@@ -691,7 +691,7 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
@@ -701,7 +701,7 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
@@ -710,7 +710,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::visual::Visual`, `Extern`),
                                 ),
@@ -730,7 +730,7 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: DecTerm::EntityPath(
+                        ty: DecTerm::ItemPath(
                             DecItemPath::Type(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
@@ -755,13 +755,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 ),
@@ -787,13 +787,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
@@ -819,13 +819,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
@@ -851,13 +851,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -885,13 +885,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
@@ -901,7 +901,7 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
@@ -912,7 +912,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -922,7 +922,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -931,7 +931,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),

@@ -125,7 +125,7 @@ impl DecTerm {
             DecTerm::Literal(_)
             | DecTerm::SymbolicVariable(_)
             | DecTerm::LambdaVariable(_)
-            | DecTerm::EntityPath(_)
+            | DecTerm::ItemPath(_)
             | DecTerm::Category(_)
             | DecTerm::Universe(_) => (),
             DecTerm::Wrapper(_) => todo!(),

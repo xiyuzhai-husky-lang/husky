@@ -77,28 +77,28 @@ impl DecTermMenu0 {
             universe1,
             prop: Sort::new(universe0),
             ty0: Sort::new(universe1),
-            core_ops_add: DecTerm::EntityPath(item_path_menu.add_trai_path().into()),
+            core_ops_add: DecTerm::ItemPath(item_path_menu.add_trai_path().into()),
             // start here
             // DecTerm::Entity(item_path_menu.core_ops_())
-            core_ops_add_assign: DecTerm::EntityPath(item_path_menu.add_assign_trai_path().into()),
-            core_ops_bit_and: DecTerm::EntityPath(item_path_menu.bit_and_trai_path().into()),
-            core_ops_bit_and_assign: DecTerm::EntityPath(
+            core_ops_add_assign: DecTerm::ItemPath(item_path_menu.add_assign_trai_path().into()),
+            core_ops_bit_and: DecTerm::ItemPath(item_path_menu.bit_and_trai_path().into()),
+            core_ops_bit_and_assign: DecTerm::ItemPath(
                 item_path_menu.bit_and_assign_trai_path().into(),
             ),
-            core_ops_bit_or: DecTerm::EntityPath(item_path_menu.bit_or_trai_path().into()),
-            core_ops_bit_or_assign: DecTerm::EntityPath(
+            core_ops_bit_or: DecTerm::ItemPath(item_path_menu.bit_or_trai_path().into()),
+            core_ops_bit_or_assign: DecTerm::ItemPath(
                 item_path_menu.bit_or_assign_trai_path().into(),
             ),
-            core_ops_bit_xor: DecTerm::EntityPath(item_path_menu.bit_xor_trai_path().into()),
-            core_ops_bit_xor_assign: DecTerm::EntityPath(
+            core_ops_bit_xor: DecTerm::ItemPath(item_path_menu.bit_xor_trai_path().into()),
+            core_ops_bit_xor_assign: DecTerm::ItemPath(
                 item_path_menu.bit_xor_assign_trai_path().into(),
             ),
-            core_ops_div: DecTerm::EntityPath(item_path_menu.div_trai_path().into()),
-            core_ops_div_assign: DecTerm::EntityPath(item_path_menu.div_assign_trai_path().into()),
-            core_ops_mul: DecTerm::EntityPath(item_path_menu.mul_trai_path().into()),
-            core_ops_mul_assign: DecTerm::EntityPath(item_path_menu.mul_assign_trai_path().into()),
-            core_ops_neg: DecTerm::EntityPath(item_path_menu.neg_trai_path().into()),
-            core_ops_not: DecTerm::EntityPath(item_path_menu.not_trai_path().into()),
+            core_ops_div: DecTerm::ItemPath(item_path_menu.div_trai_path().into()),
+            core_ops_div_assign: DecTerm::ItemPath(item_path_menu.div_assign_trai_path().into()),
+            core_ops_mul: DecTerm::ItemPath(item_path_menu.mul_trai_path().into()),
+            core_ops_mul_assign: DecTerm::ItemPath(item_path_menu.mul_assign_trai_path().into()),
+            core_ops_neg: DecTerm::ItemPath(item_path_menu.neg_trai_path().into()),
+            core_ops_not: DecTerm::ItemPath(item_path_menu.not_trai_path().into()),
             option_ty_path: DecItemPath::Type(item_path_menu.option_ty_path()).into(),
             slice_ty_path: DecItemPath::Type(item_path_menu.slice_ty_path()).into(),
             str_ty_path: DecItemPath::Type(item_path_menu.str_ty_path()).into(),

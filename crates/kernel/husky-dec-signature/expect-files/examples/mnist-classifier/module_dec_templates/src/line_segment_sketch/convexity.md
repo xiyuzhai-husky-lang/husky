@@ -16,7 +16,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ),
@@ -26,7 +26,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -35,7 +35,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::basic::bool`, `Extern`),
                                 ),
