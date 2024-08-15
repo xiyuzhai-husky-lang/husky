@@ -28,6 +28,34 @@ macro_rules! idx {
     };
 }
 
+#[derive(Clone, Copy, PartialEq, Eq)]
+pub struct IdxRange {
+    start: Idx,
+    end: Idx,
+}
+
+impl std::fmt::Debug for IdxRange {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_fmt(format_args!("{:?}..{:?}", self.start, self.end))
+    }
+}
+
+impl IdxRange {
+    pub fn new(start: Idx, end: Idx) -> Self {
+        Self { start, end }
+    }
+}
+
+impl IdxRange {
+    pub fn start(&self) -> Idx {
+        self.start
+    }
+
+    pub fn end(&self) -> Idx {
+        self.end
+    }
+}
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct Option2<T> {
     first: Option<T>,

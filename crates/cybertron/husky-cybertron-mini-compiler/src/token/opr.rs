@@ -13,10 +13,13 @@ impl std::fmt::Debug for Opr {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Precedence {
+    EqNe,
     AddOrSub,
     MulOrDiv,
     Prefix,
     Suffix,
+    TypeIs,
+    ScopeResolution,
 }
 
 impl Opr {
@@ -30,6 +33,10 @@ impl Opr {
     pub const MUL: Self = Opr::Binary(BinaryOpr::Mul);
     pub const DIV: Self = Opr::Binary(BinaryOpr::Div);
     pub const ASSIGN: Self = Opr::Binary(BinaryOpr::Assign);
+    pub const EQ: Self = Opr::Binary(BinaryOpr::Eq);
+    pub const TYPE_IS: Self = Opr::Binary(BinaryOpr::TypeIs);
+    pub const SCOPE_RESOLUTION: Self = Opr::Binary(BinaryOpr::ScopeResolution);
+    pub const LIGHT_ARROW: Self = Opr::Binary(BinaryOpr::LightArrow);
     /// # suffix
     pub const INCR: Self = Opr::Suffix(SuffixOpr::Incr);
     pub const DECR: Self = Opr::Suffix(SuffixOpr::Decr);
@@ -62,6 +69,11 @@ pub enum BinaryOpr {
     Mul,
     Div,
     Assign,
+    Eq,
+    Ne,
+    ScopeResolution,
+    TypeIs,
+    LightArrow,
 }
 
 impl std::fmt::Debug for BinaryOpr {
@@ -73,9 +85,13 @@ impl std::fmt::Debug for BinaryOpr {
 impl BinaryOpr {
     pub fn precedence(self) -> Precedence {
         match self {
+            BinaryOpr::Eq | BinaryOpr::Ne => Precedence::EqNe,
             BinaryOpr::Add | BinaryOpr::Sub => Precedence::AddOrSub,
             BinaryOpr::Mul | BinaryOpr::Div => Precedence::MulOrDiv,
             BinaryOpr::Assign => todo!(),
+            BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
+            BinaryOpr::TypeIs => Precedence::TypeIs,
+            BinaryOpr::LightArrow => todo!(),
         }
     }
 }
@@ -88,6 +104,11 @@ impl BinaryOpr {
             BinaryOpr::Mul => "*",
             BinaryOpr::Div => "/",
             BinaryOpr::Assign => "=",
+            BinaryOpr::Eq => "==",
+            BinaryOpr::Ne => "!=",
+            BinaryOpr::ScopeResolution => "::",
+            BinaryOpr::TypeIs => ":",
+            BinaryOpr::LightArrow => "->",
         }
     }
 
@@ -98,6 +119,11 @@ impl BinaryOpr {
             BinaryOpr::Mul => "*",
             BinaryOpr::Div => "/",
             BinaryOpr::Assign => "=",
+            BinaryOpr::Eq => "==",
+            BinaryOpr::Ne => "!=",
+            BinaryOpr::ScopeResolution => "::",
+            BinaryOpr::TypeIs => ":",
+            BinaryOpr::LightArrow => "->",
         }
     }
 }
