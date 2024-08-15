@@ -2,14 +2,18 @@
 [
     (
         MajorFormPath(`mnist::Task`, `TypeVar`),
-        Err(
-            DecSignatureError::CyclicProj,
+        Ok(
+            [
+                MajorFormPath(`mnist::Task`, `TypeVar`),
+            ],
         ),
     ),
     (
         MajorFormPath(`mnist::TASK`, `StaticVar`),
-        Err(
-            DecSignatureError::CyclicProj,
+        Ok(
+            [
+                MajorFormPath(`mnist::TASK`, `StaticVar`),
+            ],
         ),
     ),
 ]

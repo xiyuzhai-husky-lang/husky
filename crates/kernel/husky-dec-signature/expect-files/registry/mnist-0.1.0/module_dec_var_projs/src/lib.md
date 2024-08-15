@@ -2,8 +2,10 @@
 [
     (
         MajorFormPath(`mnist::INPUT`, `StaticVar`),
-        Err(
-            DecSignatureError::CyclicProj,
+        Ok(
+            [
+                MajorFormPath(`mnist::INPUT`, `StaticVar`),
+            ],
         ),
     ),
 ]
