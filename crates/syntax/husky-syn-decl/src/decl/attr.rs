@@ -108,7 +108,7 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
 pub enum AttrSynDecl {
     Affect(AffectAttrSynDecl),
     Backprop(BackpropAttrSynDecl),
-    Deps(DepAttrSynDecl),
+    Dep(DepAttrSynDecl),
     Derive(DeriveAttrSynDecl),
     Projection(ProjAttrSynDecl),
     Singleton(SingletonAttrSynDecl),
@@ -160,7 +160,7 @@ impl AttrSynDecl {
         match self {
             AttrSynDecl::Affect(slf) => slf.path(db),
             AttrSynDecl::Backprop(slf) => slf.path(db),
-            AttrSynDecl::Deps(slf) => slf.path(db),
+            AttrSynDecl::Dep(slf) => slf.path(db),
             AttrSynDecl::Derive(slf) => slf.path(db),
             AttrSynDecl::Projection(slf) => slf.path(db),
             AttrSynDecl::Singleton(slf) => slf.path(db),
@@ -173,7 +173,7 @@ impl AttrSynDecl {
         match self {
             AttrSynDecl::Affect(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Backprop(slf) => slf.syn_expr_region(db),
-            AttrSynDecl::Deps(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Dep(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Projection(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Singleton(slf) => slf.syn_expr_region(db),

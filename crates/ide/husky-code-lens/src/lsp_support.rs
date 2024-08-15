@@ -38,7 +38,7 @@ impl CodeLens {
 
     fn lsp_resolved(&self) -> lsp_types::CodeLens {
         match *self.data() {
-            CodeLensData::Deps => todo!(),
+            CodeLensData::Dep => todo!(),
             CodeLensData::Affect => todo!(),
             CodeLensData::Runnable => todo!(),
             CodeLensData::HasImpls => todo!(),
@@ -56,8 +56,8 @@ impl CodeLens {
 
     fn lsp_command(&self, db: &::salsa::Db) -> lsp_types::Command {
         match *self.data() {
-            CodeLensData::Deps => {
-                let mut title = "#deps(".to_string();
+            CodeLensData::Dep => {
+                let mut title = "#dep(".to_string();
                 let mut empty = true;
                 for _ in item_sem_static_mut_deps(self.item_path(), db) {
                     if empty {

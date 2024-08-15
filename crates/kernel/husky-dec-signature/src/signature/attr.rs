@@ -20,7 +20,7 @@ use husky_syn_decl::decl::attr::AttrSynDecl;
 #[enum_class::from_variants]
 pub enum AttrDecTemplate {
     Backprop(BackpropAttrDecTemplate),
-    Deps(DepAttrDecTemplate),
+    Dep(DepAttrDecTemplate),
     Derive(DeriveAttrDecTemplate),
     Projection(ProjAttrDecTemplate),
     Singleton(SingletonAttrDecTemplate),
@@ -43,7 +43,7 @@ fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult
         AttrSynDecl::Backprop(decl) => {
             BackpropAttrDecTemplate::from_decl(path, decl, db).map(Into::into)
         }
-        AttrSynDecl::Deps(decl) => DepAttrDecTemplate::from_decl(path, decl, db).map(Into::into),
+        AttrSynDecl::Dep(decl) => DepAttrDecTemplate::from_decl(path, decl, db).map(Into::into),
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Projection(decl) => ProjAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Singleton(decl) => {
