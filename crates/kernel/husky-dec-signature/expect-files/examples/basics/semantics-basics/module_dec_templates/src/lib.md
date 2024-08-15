@@ -36,7 +36,7 @@
                                                             ],
                                                         },
                                                     ),
-                                                    argument: DecTerm::EntityPath(
+                                                    argument: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`core::num::f32`, `Extern`),
                                                         ),
@@ -67,7 +67,7 @@
                                             ],
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
                                         ),

@@ -14,7 +14,7 @@ impl DecTerm {
             DecTerm::Literal(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::SymbolicVariable(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::LambdaVariable(term) => term.display_fmt_with_db(f, db),
-            DecTerm::EntityPath(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
+            DecTerm::ItemPath(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),
             DecTerm::Category(term) => f.write_str(&term.to_string()),
             DecTerm::Universe(term) => f.write_str(&term.to_string()),
             DecTerm::Curry(term) => term.display_fmt_with_db_and_ctx(f, db, ctx),

@@ -11,19 +11,19 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
                                             ),
-                                            argument: DecTerm::EntityPath(
+                                            argument: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                                 ),
                                             ),
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::TypeVariant(
                                             TypeVariantPath(`mnist::MnistLabel::Five`),
                                         ),

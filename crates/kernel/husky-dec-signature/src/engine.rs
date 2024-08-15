@@ -393,7 +393,7 @@ impl<'a> DecTermEngine<'a> {
                 Ok(DecTerm::from_literal_token_data(literal, db))
             }
             SynExprData::PrincipalEntityPath { opt_path, .. } => match opt_path {
-                Some(path) => Ok(DecTerm::EntityPath(match path {
+                Some(path) => Ok(DecTerm::ItemPath(match path {
                     PrincipalEntityPath::Module(path) => {
                         husky_print_utils::p!(
                             self.syn_expr_region_data.path().debug(db),
@@ -449,7 +449,7 @@ impl<'a> DecTermEngine<'a> {
                         }
                     }
                     DecTerm::LambdaVariable(_) => todo!(),
-                    DecTerm::EntityPath(_) => todo!(),
+                    DecTerm::ItemPath(_) => todo!(),
                     DecTerm::Category(_) => todo!(),
                     DecTerm::Universe(_) => todo!(),
                     DecTerm::Curry(_) => todo!(),

@@ -10,20 +10,20 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                     ),
                                     ident: `start`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
@@ -31,13 +31,13 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                         ),
                                     ),
                                     ident: `end`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                         ),
@@ -55,7 +55,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 ),
@@ -65,7 +65,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 ),
@@ -73,7 +73,7 @@
                                         },
                                     ),
                                 ],
-                                return_ty: DecTerm::EntityPath(
+                                return_ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
@@ -94,7 +94,7 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: DecTerm::EntityPath(
+                        ty: DecTerm::ItemPath(
                             DecItemPath::Type(
                                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             ),
@@ -121,13 +121,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
@@ -137,7 +137,7 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
@@ -146,7 +146,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
@@ -174,13 +174,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
@@ -190,7 +190,7 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                     ),
@@ -201,7 +201,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 ),
@@ -210,7 +210,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),

@@ -10,7 +10,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`syntax_errors::ast::A`, `Struct`),
                                 ),
@@ -23,7 +23,7 @@
                                     ),
                                 ),
                                 params: [],
-                                return_ty: DecTerm::EntityPath(
+                                return_ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`syntax_errors::ast::A`, `Struct`),
                                     ),
@@ -44,7 +44,7 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: DecTerm::EntityPath(
+                        ty: DecTerm::ItemPath(
                             DecItemPath::Type(
                                 TypePath(`syntax_errors::ast::A`, `Struct`),
                             ),

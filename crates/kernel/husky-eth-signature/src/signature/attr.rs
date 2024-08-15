@@ -1,11 +1,11 @@
 pub mod backprop;
-pub mod deps;
+pub mod dep;
 pub mod derive;
 pub mod proj;
 pub mod task;
 
 use self::backprop::BackpropAttrEthTemplate;
-use self::deps::DepAttrEthTemplate;
+use self::dep::DepAttrEthTemplate;
 use self::derive::*;
 use self::task::*;
 use super::*;

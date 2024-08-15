@@ -67,6 +67,20 @@ where
     }
 }
 
+impl<K, const N: usize> IntoIterator for &SmallVecSet<K, N>
+where
+    [K; N]: Array<Item = K>,
+    K: Copy + Eq,
+{
+    type Item = K;
+
+    type IntoIter = impl Iterator<Item = K>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.data.iter().copied()
+    }
+}
+
 impl<K, const N: usize, const N2: usize> From<[K; N2]> for SmallVecSet<K, N>
 where
     [K; N]: Array<Item = K>,

@@ -22,7 +22,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`malamute::Class`, `Enum`),
                                         ),
@@ -95,7 +95,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
@@ -196,7 +196,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                 ),
@@ -299,7 +299,7 @@
                                     DeclarativeRitchieParameter::Variadic(
                                         DeclarativeRitchieVariadicParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::f32`, `Extern`),
                                                 ),
@@ -310,7 +310,7 @@
                                         DeclarativeRitchieKeyedParameter {
                                             key: `skip`,
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -324,7 +324,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                 ),
@@ -420,7 +420,7 @@
                                 },
                             ],
                         },
-                        trai: DecTerm::EntityPath(
+                        trai: DecTerm::ItemPath(
                             DecItemPath::Trait(
                                 TraitPath(`core::default::Default`),
                             ),
@@ -430,7 +430,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
@@ -509,7 +509,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
@@ -581,7 +581,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
@@ -683,12 +683,12 @@
                                     DecApplication {
                                         function: DecTerm::Application(
                                             DecApplication {
-                                                function: DecTerm::EntityPath(
+                                                function: DecTerm::ItemPath(
                                                     DecItemPath::Trait(
                                                         TraitPath(`core::ops::Unveil`),
                                                     ),
                                                 ),
-                                                argument: DecTerm::EntityPath(
+                                                argument: DecTerm::ItemPath(
                                                     DecItemPath::Type(
                                                         TypePath(`malamute::OneVsAll`, `Enum`),
                                                     ),
@@ -755,7 +755,7 @@
                         self_ty: DeclarativeSelfType::Path(
                             DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`malamute::Class`, `Enum`),
                                         ),
@@ -809,7 +809,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            ty_term: DecTerm::EntityPath(
+                            ty_term: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::basic::unit`, `Extern`),
                                 ),
@@ -829,7 +829,7 @@
                         TraitForTypeAssocRitchieDecTemplate {
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`malamute::Class`, `Enum`),
                                         ),
@@ -875,7 +875,7 @@
                                                 DecApplication {
                                                     function: DecTerm::Application(
                                                         DecApplication {
-                                                            function: DecTerm::EntityPath(
+                                                            function: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                                 ),
@@ -945,14 +945,14 @@
                                 DecApplicationOrRitchieCall {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::ops::ControlFlow`, `Enum`),
                                                 ),
                                             ),
                                             argument: DecTerm::Application(
                                                 DecApplication {
-                                                    function: DecTerm::EntityPath(
+                                                    function: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`malamute::Class`, `Enum`),
                                                         ),
@@ -1033,12 +1033,12 @@
                                     DecApplication {
                                         function: DecTerm::Application(
                                             DecApplication {
-                                                function: DecTerm::EntityPath(
+                                                function: DecTerm::ItemPath(
                                                     DecItemPath::Trait(
                                                         TraitPath(`core::ops::Unveil`),
                                                     ),
                                                 ),
-                                                argument: DecTerm::EntityPath(
+                                                argument: DecTerm::ItemPath(
                                                     DecItemPath::Type(
                                                         TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                     ),
@@ -1107,7 +1107,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
@@ -1189,7 +1189,7 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            ty_term: DecTerm::EntityPath(
+                            ty_term: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::basic::unit`, `Extern`),
                                 ),
@@ -1211,7 +1211,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
@@ -1285,7 +1285,7 @@
                                                 DecApplication {
                                                     function: DecTerm::Application(
                                                         DecApplication {
-                                                            function: DecTerm::EntityPath(
+                                                            function: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                                 ),
@@ -1355,7 +1355,7 @@
                                 DecApplicationOrRitchieCall {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::ops::ControlFlow`, `Enum`),
                                                 ),
@@ -1364,7 +1364,7 @@
                                                 DecApplication {
                                                     function: DecTerm::Application(
                                                         DecApplication {
-                                                            function: DecTerm::EntityPath(
+                                                            function: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                                 ),

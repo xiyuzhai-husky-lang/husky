@@ -43,7 +43,7 @@
                                 },
                             ],
                         },
-                        trai: DecTerm::EntityPath(
+                        trai: DecTerm::ItemPath(
                             DecItemPath::Trait(
                                 TraitPath(`core::clone::Clone`),
                             ),

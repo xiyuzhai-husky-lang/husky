@@ -160,7 +160,7 @@
                                 },
                             ],
                         },
-                        trai: DecTerm::EntityPath(
+                        trai: DecTerm::ItemPath(
                             DecItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
                             ),
@@ -168,7 +168,7 @@
                         self_ty: DeclarativeSelfType::Path(
                             DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::mem::Leash`, `Extern`),
                                         ),

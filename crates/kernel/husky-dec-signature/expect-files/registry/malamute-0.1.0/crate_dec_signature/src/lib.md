@@ -20,12 +20,12 @@ Ok(
                 [
                     DecTerm::TypeAsTraitItem(
                         DecTypeAsTraitItem {
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Form(
                                     MajorFormPath(`core::task::Task`, `TypeVar`),
                                 ),
                             ),
-                            trai: DecTerm::EntityPath(
+                            trai: DecTerm::ItemPath(
                                 DecItemPath::Trait(
                                     TraitPath(`ml_task::IsMlTask`),
                                 ),

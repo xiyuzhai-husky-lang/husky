@@ -80,11 +80,13 @@ pub struct EthSignatureJar(
     // attr
     crate::signature::attr::attr_eth_template,
     crate::signature::attr::backprop::BackpropAttrEthTemplate,
-    crate::signature::attr::deps::DepAttrEthTemplate,
-    crate::signature::attr::deps::DepAttrShardEthTemplate,
+    crate::signature::attr::dep::DepAttrEthTemplate,
+    crate::signature::attr::dep::DepAttrShardEthTemplate,
     crate::signature::attr::derive::ty_path_derive_attr_eth_templates_map,
     crate::signature::attr::derive::DeriveAttrEthTemplate,
     crate::signature::attr::derive::DeriveAttrShardEthTemplate,
+    crate::signature::attr::proj::ProjAttrEthTemplate,
+    crate::signature::attr::proj::ProjAttrShardEthTemplate,
     crate::signature::attr::task::TaskAttrEthTemplate,
     // helpers
     crate::helpers::trai_for_ty::ty_side_impl_block_signature_templates_map,

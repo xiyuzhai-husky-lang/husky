@@ -33,7 +33,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::result::Result`, `Enum`),
                                                 ),
@@ -154,12 +154,12 @@
                                     DecApplication {
                                         function: DecTerm::Application(
                                             DecApplication {
-                                                function: DecTerm::EntityPath(
+                                                function: DecTerm::ItemPath(
                                                     DecItemPath::Trait(
                                                         TraitPath(`core::ops::Unveil`),
                                                     ),
                                                 ),
-                                                argument: DecTerm::EntityPath(
+                                                argument: DecTerm::ItemPath(
                                                     DecItemPath::Type(
                                                         TypePath(`core::result::Result`, `Enum`),
                                                     ),
@@ -229,7 +229,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::result::Result`, `Enum`),
                                                 ),
@@ -356,7 +356,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::result::Result`, `Enum`),
                                                 ),
@@ -431,7 +431,7 @@
                                                 DecApplication {
                                                     function: DecTerm::Application(
                                                         DecApplication {
-                                                            function: DecTerm::EntityPath(
+                                                            function: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`core::result::Result`, `Enum`),
                                                                 ),
@@ -502,7 +502,7 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::result::Result`, `Enum`),
                                                 ),
