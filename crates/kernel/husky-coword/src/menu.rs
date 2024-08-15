@@ -44,7 +44,7 @@ pub struct CowordMenu {
     /// # attrs
     affect_ident: Ident,
     backprop_ident: Ident,
-    deps_ident: Ident,
+    dep_ident: Ident,
     derive_ident: Ident,
     task_attr_ident: Ident,
     test_ident: Ident,
@@ -90,7 +90,7 @@ impl CowordMenu {
             snake_case_unveil_ident: Ident::from_ref(db, "unveil").unwrap(),
             affect_ident: Ident::from_ref(db, "affect").unwrap(),
             backprop_ident: Ident::from_ref(db, "backprop").unwrap(),
-            deps_ident: Ident::from_ref(db, "deps").unwrap(),
+            dep_ident: Ident::from_ref(db, "dep").unwrap(),
             derive_ident: Ident::from_ref(db, "derive").unwrap(),
             task_attr_ident: Ident::from_ref(db, "task").unwrap(),
             test_ident: Ident::from_ref(db, "test").unwrap(),
@@ -240,8 +240,8 @@ impl CowordMenu {
     }
 
     /// `deps`
-    pub fn deps_ident(&self) -> Ident {
-        self.deps_ident
+    pub fn dep_ident(&self) -> Ident {
+        self.dep_ident
     }
 
     /// `derive`

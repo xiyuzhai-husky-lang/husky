@@ -3,7 +3,7 @@ Some(
     SemItemPathDepsCyclceGroupItd {
         cycle_group: CycleGroup {
             nodes: [
-                ItemPath(`core::num::u64(0)::abs`),
+                ItemPath(`malamute::narrow_down::#dep(0)`),
             ],
         },
     },
