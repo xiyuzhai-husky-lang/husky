@@ -4,7 +4,7 @@ pub mod derive;
 pub mod task;
 
 use self::backprop::BackpropAttrEthTemplate;
-use self::deps::DepsAttrEthTemplate;
+use self::deps::DepAttrEthTemplate;
 use self::derive::*;
 use self::task::*;
 use super::*;
@@ -18,7 +18,7 @@ use husky_entity_path::path::attr::AttrItemPath;
 pub enum AttrEthTemplate {
     Affect,
     Backprop(BackpropAttrEthTemplate),
-    Deps(DepsAttrEthTemplate),
+    Deps(DepAttrEthTemplate),
     Derive(DeriveAttrEthTemplate),
     Task(TaskAttrEthTemplate),
     Test,
@@ -52,7 +52,7 @@ fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult
             BackpropAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
         }
         AttrDecTemplate::Deps(dec_template) => {
-            DepsAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
+            DepAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
         }
         AttrDecTemplate::Derive(dec_template) => {
             DeriveAttrEthTemplate::from_dec(db, path, dec_template).map(Into::into)

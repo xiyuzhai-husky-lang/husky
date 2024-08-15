@@ -1,21 +1,21 @@
 use super::*;
-use husky_syn_decl::decl::attr::deps::DepsAttrSynDecl;
+use husky_syn_decl::decl::attr::dep::DepAttrSynDecl;
 
 #[salsa::interned]
-pub struct DepsAttrDecTemplate {
+pub struct DepAttrDecTemplate {
     pub path: AttrItemPath,
-    pub shards: SmallVec<[DepsAttrShardDecTemplate; 8]>,
+    pub shards: SmallVec<[DepAttrShardDecTemplate; 8]>,
 }
 
 #[salsa::interned]
-pub struct DepsAttrShardDecTemplate {
+pub struct DepAttrShardDecTemplate {
     pub dep_term: DecTerm,
 }
 
-impl DepsAttrDecTemplate {
+impl DepAttrDecTemplate {
     pub(super) fn from_decl(
         path: AttrItemPath,
-        decl: DepsAttrSynDecl,
+        decl: DepAttrSynDecl,
         db: &::salsa::Db,
     ) -> DecSignatureResult<Self> {
         let syn_expr_region = decl.syn_expr_region(db);
@@ -24,7 +24,7 @@ impl DepsAttrDecTemplate {
             .deps(db)
             .iter()
             .map(|dep| {
-                Ok(DepsAttrShardDecTemplate::new(
+                Ok(DepAttrShardDecTemplate::new(
                     db,
                     dec_term_region.expr_term(dep.syn_expr_idx())?,
                 ))

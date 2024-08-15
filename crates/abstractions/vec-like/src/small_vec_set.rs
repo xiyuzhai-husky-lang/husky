@@ -54,17 +54,23 @@ where
 impl<K, const N: usize> FromIterator<K> for SmallVecSet<K, N>
 where
     [K; N]: Array<Item = K>,
+    K: Copy + Eq,
 {
     fn from_iter<T: IntoIterator<Item = K>>(t: T) -> Self {
-        Self {
-            data: t.into_iter().collect(),
+        let mut slf = Self {
+            data: Default::default(),
+        };
+        for elem in t {
+            slf.insert(elem)
         }
+        slf
     }
 }
 
 impl<K, const N: usize, const N2: usize> From<[K; N2]> for SmallVecSet<K, N>
 where
     [K; N]: Array<Item = K>,
+    K: Copy + Eq,
 {
     fn from(value: [K; N2]) -> Self {
         Self::from_iter(value.into_iter())

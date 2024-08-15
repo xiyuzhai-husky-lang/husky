@@ -261,5 +261,6 @@ fn root_contract(root_kind: SynExprRootKind) -> Option<Contract> {
         SynExprRootKind::Effect => todo!(),
         SynExprRootKind::DefaultConstExclude => todo!(),
         SynExprRootKind::Dep => None,
+        SynExprRootKind::Projection => None,
     }
 }

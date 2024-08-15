@@ -1,36 +1,36 @@
 use super::*;
-use husky_dec_signature::signature::attr::deps::{DepsAttrDecTemplate, DepsAttrShardDecTemplate};
+use husky_dec_signature::signature::attr::dep::{DepAttrDecTemplate, DepAttrShardDecTemplate};
 use husky_term_prelude::TypeFinalDestinationExpectation;
 
 #[salsa::interned]
-pub struct DepsAttrEthTemplate {
+pub struct DepAttrEthTemplate {
     pub path: AttrItemPath,
-    pub shards: SmallVec<[DepsAttrShardEthTemplate; 8]>,
+    pub shards: SmallVec<[DepAttrShardEthTemplate; 8]>,
 }
 
 #[salsa::interned]
-pub struct DepsAttrShardEthTemplate {
+pub struct DepAttrShardEthTemplate {
     pub dep_term: EthTerm,
 }
 
-impl DepsAttrEthTemplate {
+impl DepAttrEthTemplate {
     pub(super) fn from_dec(
         path: AttrItemPath,
-        dec_template: DepsAttrDecTemplate,
+        dec_template: DepAttrDecTemplate,
         db: &::salsa::Db,
     ) -> EthSignatureResult<Self> {
         let shards = dec_template
             .shards(db)
             .iter()
-            .map(|&shard| DepsAttrShardEthTemplate::from_dec(shard, db))
+            .map(|&shard| DepAttrShardEthTemplate::from_dec(shard, db))
             .collect::<EthSignatureResult<_>>()?;
         Ok(Self::new(db, path, shards))
     }
 }
 
-impl DepsAttrShardEthTemplate {
+impl DepAttrShardEthTemplate {
     fn from_dec(
-        dec_template: DepsAttrShardDecTemplate,
+        dec_template: DepAttrShardDecTemplate,
         db: &::salsa::Db,
     ) -> EthSignatureResult<Self> {
         Ok(Self::new(

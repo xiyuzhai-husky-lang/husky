@@ -1,22 +1,18 @@
 use super::*;
 use husky_eth_term::term::EthTerm;
-use husky_syn_decl::decl::attr::deps::DepsAttrSynDecl;
+use husky_syn_decl::decl::attr::dep::DepAttrSynDecl;
 use husky_term_prelude::ItemPathTerm;
 
 #[salsa::interned]
-pub struct DepsAttrHirDecl {
+pub struct DepAttrHirDecl {
     pub path: AttrItemPath,
     #[return_ref]
     pub deps: Vec<ItemPathTerm>,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl DepsAttrHirDecl {
-    pub(super) fn from_syn(
-        path: AttrItemPath,
-        syn_decl: DepsAttrSynDecl,
-        db: &::salsa::Db,
-    ) -> Self {
+impl DepAttrHirDecl {
+    pub(super) fn from_syn(path: AttrItemPath, syn_decl: DepAttrSynDecl, db: &::salsa::Db) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let deps = syn_decl
             .deps(db)
@@ -39,6 +35,6 @@ impl DepsAttrHirDecl {
                 None => todo!(),
             })
             .collect();
-        DepsAttrHirDecl::new(db, path, deps, builder.finish().eager())
+        DepAttrHirDecl::new(db, path, deps, builder.finish().eager())
     }
 }

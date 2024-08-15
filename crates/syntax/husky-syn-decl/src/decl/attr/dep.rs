@@ -4,7 +4,7 @@ use husky_syn_expr::syndicates::dep::DepSyndicate;
 use parsec::PunctuatedSmallList;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
-pub struct DepsAttrSynNodeDecl {
+pub struct DepAttrSynNodeDecl {
     #[id]
     pub syn_node_path: AttrSynNodePath,
     pub pound_token: PoundRegionalToken,
@@ -23,7 +23,7 @@ pub struct DepsAttrSynNodeDecl {
 
 /// # constructor
 
-impl DepsAttrSynNodeDecl {
+impl DepAttrSynNodeDecl {
     pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
         let parser_factory = ItemSynNodeDeclParser::new(db, syn_node_path.into());
         let mut parser = parser_factory.expr_parser(
@@ -63,14 +63,14 @@ impl DepsAttrSynNodeDecl {
 
 /// # getters
 
-impl DepsAttrSynNodeDecl {
+impl DepAttrSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         todo!()
     }
 }
 
 #[salsa::tracked]
-pub struct DepsAttrSynDecl {
+pub struct DepAttrSynDecl {
     #[id]
     pub path: AttrItemPath,
     #[return_ref]
@@ -78,10 +78,10 @@ pub struct DepsAttrSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl DepsAttrSynDecl {
+impl DepAttrSynDecl {
     pub(super) fn from_node(
         path: AttrItemPath,
-        syn_node_decl: DepsAttrSynNodeDecl,
+        syn_node_decl: DepAttrSynNodeDecl,
         db: &::salsa::Db,
     ) -> SynDeclResult<Self> {
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
