@@ -603,7 +603,7 @@ impl<'a> SemExprBuilder<'a> {
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
                 }
-                SynExprRootKind::Projection => {
+                SynExprRootKind::Proj => {
                     let sem_expr_idx = self.build_expr(root.syn_expr_idx(), ExpectAnyOriginal);
                     self.infer_expr_term(sem_expr_idx);
                     sem_expr_idx
