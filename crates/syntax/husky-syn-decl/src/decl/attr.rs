@@ -87,7 +87,7 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
         attr_ident if attr_ident == coword_menu.backprop_ident() => {
             AttrSynNodeDecl::Backprop(BackpropAttrSynNodeDecl::new(db, syn_node_path))
         }
-        attr_ident if attr_ident == coword_menu.deps_ident() => {
+        attr_ident if attr_ident == coword_menu.dep_ident() => {
             AttrSynNodeDecl::Dep(DepAttrSynNodeDecl::new(db, syn_node_path))
         }
         attr_ident if attr_ident == coword_menu.derive_ident() => {

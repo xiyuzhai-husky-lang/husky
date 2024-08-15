@@ -417,7 +417,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(`malamute::narrow_down::#deps(0)`),
+                                AttrItemPath(`malamute::narrow_down::#dep(0)`),
                             ),
                         },
                     ),

@@ -1438,7 +1438,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `deps`,
+            `dep`,
         ),
         TokenData::Punctuation(
             Punctuation(

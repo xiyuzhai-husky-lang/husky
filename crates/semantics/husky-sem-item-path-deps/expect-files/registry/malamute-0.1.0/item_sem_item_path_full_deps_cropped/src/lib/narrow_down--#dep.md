@@ -1,7 +1,7 @@
 ```rust
 Some(
     [
-        ItemPath(`malamute::narrow_down::#deps(0)`),
+        ItemPath(`malamute::narrow_down::#dep(0)`),
         ItemPath(`core::task::Task`),
     ],
 )

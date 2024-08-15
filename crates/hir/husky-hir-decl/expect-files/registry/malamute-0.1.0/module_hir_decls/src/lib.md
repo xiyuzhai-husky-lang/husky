@@ -692,7 +692,7 @@
     HirDecl::Attr(
         AttrHirDecl::Deps(
             DepAttrHirDecl {
-                path: AttrItemPath(`malamute::narrow_down::#deps(0)`),
+                path: AttrItemPath(`malamute::narrow_down::#dep(0)`),
                 deps: [
                     ItemPathTerm::MajorForm(
                         MajorFormPath(`core::task::Task`, `TypeVar`),
@@ -700,7 +700,7 @@
                 ],
                 hir_eager_expr_region: HirEagerExprRegion {
                     region_path: RegionPath::ItemDecl(
-                        ItemPath(`malamute::narrow_down::#deps(0)`),
+                        ItemPath(`malamute::narrow_down::#dep(0)`),
                     ),
                     self_value_ty: None,
                     expr_arena: Arena {
