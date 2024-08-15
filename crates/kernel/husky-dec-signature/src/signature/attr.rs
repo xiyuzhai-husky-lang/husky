@@ -22,7 +22,7 @@ pub enum AttrDecTemplate {
     Backprop(BackpropAttrDecTemplate),
     Dep(DepAttrDecTemplate),
     Derive(DeriveAttrDecTemplate),
-    Projection(ProjAttrDecTemplate),
+    Proj(ProjAttrDecTemplate),
     Singleton(SingletonAttrDecTemplate),
     Task(TaskAttrDecTemplate),
     Test,
@@ -45,7 +45,7 @@ fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult
         }
         AttrSynDecl::Dep(decl) => DepAttrDecTemplate::from_decl(path, decl, db).map(Into::into),
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
-        AttrSynDecl::Projection(decl) => ProjAttrDecTemplate::from_decl(decl, db).map(Into::into),
+        AttrSynDecl::Proj(decl) => ProjAttrDecTemplate::from_decl(decl, db).map(Into::into),
         AttrSynDecl::Singleton(decl) => {
             SingletonAttrDecTemplate::from_decl(decl, db).map(Into::into)
         }

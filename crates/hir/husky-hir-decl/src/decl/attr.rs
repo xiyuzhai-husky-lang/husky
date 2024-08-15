@@ -62,7 +62,7 @@ fn attr_hir_decl(db: &::salsa::Db, path: AttrItemPath) -> Option<AttrHirDecl> {
         AttrSynDecl::Derive(syn_decl) => {
             Some(DeriveAttrHirDecl::from_syn(path, syn_decl, db).into())
         }
-        AttrSynDecl::Projection(syn_decl) => todo!(),
+        AttrSynDecl::Proj(syn_decl) => todo!(),
         AttrSynDecl::Singleton(syn_decl) => todo!(),
         AttrSynDecl::Task(syn_decl) => Some(TaskAttrHirDecl::from_syn(path, syn_decl, db).into()),
         AttrSynDecl::Test(syn_decl) => Some(TestAttrHirDecl::from_syn(path, syn_decl, db).into()),

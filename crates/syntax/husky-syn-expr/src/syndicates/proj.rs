@@ -17,7 +17,7 @@ impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ProjSyndicate
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::Projection) {
+        if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::Proj) {
             Ok(Some(ProjSyndicate { syn_expr_idx: expr }))
         } else {
             Ok(None)
