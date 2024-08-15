@@ -18,7 +18,7 @@ use husky_entity_path::path::attr::AttrItemPath;
 pub enum AttrEthTemplate {
     Affect,
     Backprop(BackpropAttrEthTemplate),
-    Deps(DepAttrEthTemplate),
+    Dep(DepAttrEthTemplate),
     Derive(DeriveAttrEthTemplate),
     Task(TaskAttrEthTemplate),
     Test,
@@ -29,7 +29,7 @@ impl AttrEthTemplate {
         match self {
             AttrEthTemplate::Affect => todo!(),
             AttrEthTemplate::Backprop(slf) => slf.path(db).into(),
-            AttrEthTemplate::Deps(slf) => slf.path(db).into(),
+            AttrEthTemplate::Dep(slf) => slf.path(db).into(),
             AttrEthTemplate::Derive(slf) => slf.path(db).into(),
             AttrEthTemplate::Task(slf) => slf.path(db).into(),
             AttrEthTemplate::Test => todo!(),
@@ -51,7 +51,7 @@ fn attr_eth_template(db: &::salsa::Db, path: AttrItemPath) -> EthSignatureResult
         AttrDecTemplate::Backprop(dec_template) => {
             BackpropAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
         }
-        AttrDecTemplate::Deps(dec_template) => {
+        AttrDecTemplate::Dep(dec_template) => {
             DepAttrEthTemplate::from_dec(path, dec_template, db).map(Into::into)
         }
         AttrDecTemplate::Derive(dec_template) => {

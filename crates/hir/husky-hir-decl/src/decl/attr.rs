@@ -21,7 +21,7 @@ use husky_syn_decl::decl::attr::AttrSynDecl;
 pub enum AttrHirDecl {
     Affect(AffectAttrHirDecl),
     Backprop(BackpropAttrHirDecl),
-    Deps(DepAttrHirDecl),
+    Dep(DepAttrHirDecl),
     Derive(DeriveAttrHirDecl),
     Task(TaskAttrHirDecl),
     Test(TestAttrHirDecl),
@@ -31,7 +31,7 @@ impl AttrHirDecl {
     pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         match self {
             AttrHirDecl::Backprop(slf) => slf.path(db),
-            AttrHirDecl::Deps(slf) => slf.path(db),
+            AttrHirDecl::Dep(slf) => slf.path(db),
             AttrHirDecl::Derive(slf) => slf.path(db),
             AttrHirDecl::Affect(slf) => slf.path(db),
             AttrHirDecl::Task(slf) => slf.path(db),
@@ -58,7 +58,7 @@ fn attr_hir_decl(db: &::salsa::Db, path: AttrItemPath) -> Option<AttrHirDecl> {
         AttrSynDecl::Backprop(syn_decl) => {
             Some(BackpropAttrHirDecl::from_syn(path, syn_decl, db).into())
         }
-        AttrSynDecl::Deps(syn_decl) => Some(DepAttrHirDecl::from_syn(path, syn_decl, db).into()),
+        AttrSynDecl::Dep(syn_decl) => Some(DepAttrHirDecl::from_syn(path, syn_decl, db).into()),
         AttrSynDecl::Derive(syn_decl) => {
             Some(DeriveAttrHirDecl::from_syn(path, syn_decl, db).into())
         }

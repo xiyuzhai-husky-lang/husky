@@ -126,7 +126,7 @@ fn item_sem_static_mut_deps_initial_value(
     for attr_path in attr_paths {
         use husky_eth_signature::signature::HasEthTemplate;
 
-        let AttrEthTemplate::Deps(deps_eth_template) = attr_path.eth_template(db).unwrap() else {
+        let AttrEthTemplate::Dep(deps_eth_template) = attr_path.eth_template(db).unwrap() else {
             continue;
         };
         for shard in deps_eth_template.shards(db) {
