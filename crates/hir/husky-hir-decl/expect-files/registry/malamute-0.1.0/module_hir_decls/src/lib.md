@@ -691,7 +691,7 @@
     ),
     HirDecl::Attr(
         AttrHirDecl::Deps(
-            DepsAttrHirDecl {
+            DepAttrHirDecl {
                 path: AttrItemPath(`malamute::narrow_down::#deps(0)`),
                 deps: [
                     ItemPathTerm::MajorForm(

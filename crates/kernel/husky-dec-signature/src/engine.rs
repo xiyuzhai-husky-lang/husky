@@ -322,7 +322,8 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::TypeVarDefault
                 | SynExprRootKind::AssocTypeValue
                 | SynExprRootKind::DefaultConstExclude
-                | SynExprRootKind::Dep => (),
+                | SynExprRootKind::Dep
+                | SynExprRootKind::Projection => (),
                 SynExprRootKind::SelfType => {
                     let self_ty_term = self.infer_new_expr_term(expr_root.syn_expr_idx()).ok();
                     self.symbolic_variable_region.set_self_ty(self_ty_term);

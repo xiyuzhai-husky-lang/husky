@@ -1,12 +1,12 @@
 use super::*;
-use husky_syn_decl::decl::attr::marker::MarkerAttrSynDecl;
+use husky_syn_decl::decl::attr::mark::MarkerAttrSynDecl;
 
 #[salsa::interned]
-pub struct MarkerAttrHirDecl {
+pub struct MarkAttrHirDecl {
     pub path: AttrItemPath,
 }
 
-impl MarkerAttrHirDecl {
+impl MarkAttrHirDecl {
     pub(super) fn from_syn(
         path: AttrItemPath,
         syn_decl: MarkerAttrSynDecl,

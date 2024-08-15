@@ -2,18 +2,18 @@ use super::*;
 use husky_entity_tree::node::attr::AttrSynNodePath;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
-pub struct ProjectionAttrSynNodeDecl {
+pub struct MarkAttrSynNodeDecl {
     #[id]
     pub syn_node_path: AttrSynNodePath,
     pub pound_token: PoundRegionalToken,
-    pub projection_token: IdentRegionalToken,
+    pub marker_token: IdentRegionalToken,
     #[skip_fmt]
     pub syn_expr_region: SynExprRegion,
 }
 
 /// # constructor
 
-impl ProjectionAttrSynNodeDecl {
+impl MarkAttrSynNodeDecl {
     pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
         let parser_factory = ItemSynNodeDeclParser::new(db, syn_node_path.into());
         let mut parser = parser_factory.expr_parser(
@@ -29,7 +29,7 @@ impl ProjectionAttrSynNodeDecl {
             .try_parse_option()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
-        let projection_token = parser
+        let marker_token = parser
             .try_parse_option()
             .expect("should be guaranteed")
             .expect("should be guaranteed");
@@ -37,7 +37,7 @@ impl ProjectionAttrSynNodeDecl {
             db,
             syn_node_path,
             pound_token,
-            projection_token,
+            marker_token,
             parser.finish(),
         )
     }
@@ -45,24 +45,24 @@ impl ProjectionAttrSynNodeDecl {
 
 /// # getters
 
-impl ProjectionAttrSynNodeDecl {
+impl MarkAttrSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         todo!()
     }
 }
 
 #[salsa::tracked]
-pub struct ProjectionAttrSynDecl {
+pub struct MarkerAttrSynDecl {
     #[id]
     pub path: AttrItemPath,
-    // todo: Projections
+    // todo: Markers
     pub syn_expr_region: SynExprRegion,
 }
 
-impl ProjectionAttrSynDecl {
+impl MarkerAttrSynDecl {
     pub(super) fn from_node(
         path: AttrItemPath,
-        syn_node_decl: ProjectionAttrSynNodeDecl,
+        syn_node_decl: MarkAttrSynNodeDecl,
         db: &::salsa::Db,
     ) -> SynDeclResult<Self> {
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
