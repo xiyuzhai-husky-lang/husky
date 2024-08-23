@@ -3,6 +3,7 @@
 #![feature(try_trait_v2)]
 mod config;
 mod eval;
+mod static_var;
 #[cfg(test)]
 mod tests;
 

@@ -5,7 +5,7 @@ where
     StaticVarId: std::fmt::Debug + Copy + Eq,
 {
     fn item_path_id_interface() -> ItemPathIdInterface;
-    fn ids() -> impl Iterator<Item = StaticVarId>;
+    fn ids(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = StaticVarId>;
     fn get_id() -> StaticVarId;
     /// use with_id instead
     unsafe fn replace_id(id: StaticVarId) -> Option<StaticVarId>;

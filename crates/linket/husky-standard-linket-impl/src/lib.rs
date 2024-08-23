@@ -100,10 +100,11 @@ pub enum StandardLinketImpl {
     },
     StaticVar {
         init_item_path_id_interface: fn(ItemPathIdInterface),
-        set_up_for_testing: fn(usize),
         get_id: fn() -> StandardStaticVarId,
+        ids: for<'db> fn(
+            &'db [ItemPathIdInterface],
+        ) -> Box<dyn Iterator<Item = StandardStaticVarId> + 'db>,
         replace_id: unsafe fn(StandardStaticVarId) -> Option<StandardStaticVarId>,
-        ids: fn() -> Box<dyn Iterator<Item = StandardStaticVarId>>,
     },
     // todo: memo
 }
