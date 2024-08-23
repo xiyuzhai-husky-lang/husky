@@ -25,10 +25,10 @@ where
         label0: Label,
     ) -> Result<Self, __TrackedException> {
         let mut stalks: Vec<Stalk> = vec![];
-        let mut ids = Task::INPUT::ids();
+        let locked = &[]; // double check that this is correct
+        let mut ids = Task::INPUT::ids(locked);
         for i in 0..5 {
             let Some(id) = ids.next() else { break };
-            let locked = &[]; // double check that this is correct
             Task::INPUT::with_id(id, locked, || {
                 if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
                     stalks.push(stalk)

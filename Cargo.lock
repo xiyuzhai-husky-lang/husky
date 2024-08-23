@@ -4580,6 +4580,7 @@ dependencies = [
  "husky-ast",
  "husky-check-utils",
  "husky-coword",
+ "husky-dec-signature",
  "husky-dev-comptime",
  "husky-devsoul",
  "husky-devsoul-interface",
@@ -4622,6 +4623,7 @@ dependencies = [
  "salsa",
  "serde",
  "smallvec",
+ "vec-like",
 ]
 
 [[package]]
