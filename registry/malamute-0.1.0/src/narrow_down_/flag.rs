@@ -28,7 +28,8 @@ where
         let mut ids = Task::INPUT::ids();
         for i in 0..5 {
             let Some(id) = ids.next() else { break };
-            Task::INPUT::with_id(id, || {
+            let locked = &[]; // double check that this is correct
+            Task::INPUT::with_id(id, locked, || {
                 if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
                     stalks.push(stalk)
                 }

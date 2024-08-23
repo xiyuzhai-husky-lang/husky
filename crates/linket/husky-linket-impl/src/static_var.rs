@@ -10,7 +10,13 @@ where
     /// use with_id instead
     unsafe fn replace_id(id: StaticVarId) -> Option<StaticVarId>;
 
-    fn with_id<R>(id: StaticVarId, f: impl FnOnce() -> R) -> R {
+    fn with_id<R>(id: StaticVarId, locked: &[ItemPathIdInterface], f: impl FnOnce() -> R) -> R {
+        if locked.contains(&Self::item_path_id_interface()) {
+            if Self::get_id() != id {
+                unreachable!("Serious error. Shouldn't change locked static vars")
+            }
+            return f();
+        }
         unsafe {
             let old = Self::replace_id(id);
             let r = f();
