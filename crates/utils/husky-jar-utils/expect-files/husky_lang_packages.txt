@@ -3639,6 +3639,7 @@
             "husky-wild-utils",
             "indexmap",
             "lazy_static",
+            "ordered-float",
             "shifted-unsigned-int",
         ],
     },
