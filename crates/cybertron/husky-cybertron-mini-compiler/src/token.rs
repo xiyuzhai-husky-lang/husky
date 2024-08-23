@@ -12,15 +12,31 @@ use delimiter::{Delimiter, LeftDelimiter, RightDelimiter};
 use husky_cybertron::seq::Seq;
 use husky_text_protocol::char::TextCharIter;
 
+/// The `Token` enum represents the various types of tokens that can be
+/// identified during the lexical analysis phase of a compiler. Each variant
+/// corresponds to a specific category of token that can be encountered
+/// in the source code.
 #[enum_class::from_variants]
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Token {
+    /// A literal value, which can be a number, string, or other primitive type.
     Literal(Literal),
+    /// A reserved keyword in the language, such as `if`, `else`, `while`, etc.
     Keyword(Keyword),
+    /// An identifier, typically representing variable names, function names,
+    /// or other user-defined symbols.
     Ident(Ident),
+    /// An operator, such as `+`, `-`, `*`, `==`, etc., representing mathematical
+    /// or logical operations.
     Opr(Opr),
+    /// A left delimiter, such as `(`, `{`, `[`, used to denote the beginning of
+    /// a block, list, or expression.
     LeftDelimiter(LeftDelimiter),
+    /// A right delimiter, such as `)`, `}`, `]`, used to denote the end of a
+    /// block, list, or expression.
     RightDelimiter(RightDelimiter),
+    /// A separator, such as `,` or `;`, used to separate elements in a list or
+    /// statements in a block.
     Separator(Separator),
 }
 

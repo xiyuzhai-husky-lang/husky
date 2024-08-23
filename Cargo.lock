@@ -4392,6 +4392,7 @@ dependencies = [
  "husky-wild-utils",
  "indexmap 2.2.6",
  "lazy_static",
+ "ordered-float 4.2.0",
  "shifted-unsigned-int",
 ]
 
