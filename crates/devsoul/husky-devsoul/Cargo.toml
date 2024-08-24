@@ -9,6 +9,7 @@ smallvec.workspace = true
 enum-class.workspace = true
 salsa.workspace = true
 ui = { workspace = true, features = ["egui"] }
+vec-like.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
