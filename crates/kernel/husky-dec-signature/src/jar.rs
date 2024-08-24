@@ -18,6 +18,17 @@ impl DecSignatureDb for ::salsa::Db {
 #[salsa::jar]
 pub struct DecSignatureJar(
     crate::region::syn_expr_dec_term_region,
+    // attr
+    crate::signature::attr::attr_dec_template,
+    crate::signature::attr::backprop::BackpropAttrDecTemplate,
+    crate::signature::attr::dep::DepAttrDecTemplate,
+    crate::signature::attr::dep::DepAttrShardDecTemplate,
+    crate::signature::attr::derive::DeriveAttrDecTemplate,
+    crate::signature::attr::derive::DeriveAttrShardDecTemplate,
+    crate::signature::attr::proj::ProjAttrDecTemplate,
+    crate::signature::attr::proj::ProjAttrShardDecTemplate,
+    crate::signature::attr::singleton::SingletonAttrDecTemplate,
+    crate::signature::attr::task::TaskAttrDecTemplate,
     // package
     crate::signature::package::PackageDecSignature,
     crate::signature::package::package_dec_signature,
@@ -83,14 +94,9 @@ pub struct DecSignatureJar(
     crate::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieDecTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeDecTemplate,
     crate::signature::assoc_item::trai_for_ty_item::assoc_val::TraitForTypeAssocValDecTemplate,
-    // attr
-    crate::signature::attr::attr_dec_template,
-    crate::signature::attr::backprop::BackpropAttrDecTemplate,
-    crate::signature::attr::deps::DepsAttrDecTemplate,
-    crate::signature::attr::deps::DepsAttrShardDecTemplate,
-    crate::signature::attr::derive::DeriveAttrDecTemplate,
-    crate::signature::attr::derive::DeriveAttrShardDecTemplate,
-    crate::signature::attr::projection::ProjectionAttrDecTemplate,
-    crate::signature::attr::singleton::SingletonAttrDecTemplate,
-    crate::signature::attr::task::TaskAttrDecTemplate,
+    // helpers
+    // - projs
+    crate::helpers::projs::dec_var_full_projs,
+    crate::helpers::projs::dec_var_projs_unchecked,
+    crate::helpers::projs::dec_var_full_projs_unchecked,
 );

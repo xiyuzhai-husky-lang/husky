@@ -1,5 +1,6 @@
 pub mod engine;
 pub mod error;
+pub mod helpers;
 pub mod jar;
 pub mod parameter;
 pub mod region;

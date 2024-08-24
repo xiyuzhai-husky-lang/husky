@@ -5,6 +5,7 @@ pub mod closure_parameter;
 pub mod dep;
 pub mod let_variable;
 pub mod parenate_parameter;
+pub mod proj;
 pub mod props_field;
 pub mod return_ty;
 pub mod self_ty;

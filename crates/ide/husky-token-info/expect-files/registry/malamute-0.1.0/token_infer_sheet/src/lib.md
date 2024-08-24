@@ -4085,7 +4085,7 @@ Ok(
                     ),
                     source: TokenInfoSource::SemExpr(
                         RegionPath::ItemDecl(
-                            ItemPath(`malamute::narrow_down::#deps(0)`),
+                            ItemPath(`malamute::narrow_down::#dep(0)`),
                         ),
                         SemExprIdx(
                             0,

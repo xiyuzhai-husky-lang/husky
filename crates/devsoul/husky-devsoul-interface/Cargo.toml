@@ -8,8 +8,12 @@ once_cell.workspace = true
 smallvec.workspace = true
 serde.workspace = true
 # abstractions
+enum-class.workspace = true
 shifted-unsigned-int = { workspace = true, features = ["serde"] }
 serde-impl.workspace = true
+vec-like.workspace = true
+# kernel
+husky-item-path-interface.workspace = true
 # linket
 husky-linket-impl.workspace = true
 # protocols

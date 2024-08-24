@@ -24,6 +24,8 @@ pub enum DecSignatureError {
     ExprError,
     #[error("todo")]
     SelfTypeNotInferred,
+    #[error("cyclic proj")]
+    CyclicProj,
 }
 
 impl From<&DecSignatureError> for DecSignatureError {

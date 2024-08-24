@@ -1,13 +1,14 @@
 pub mod affect;
 pub mod backprop;
-pub mod deps;
+pub mod dep;
 pub mod derive;
-pub mod marker;
+pub mod mark;
+pub mod proj;
 pub mod task;
 pub mod test;
 
 use self::{
-    affect::AffectAttrHirDecl, backprop::BackpropAttrHirDecl, deps::DepsAttrHirDecl,
+    affect::AffectAttrHirDecl, backprop::BackpropAttrHirDecl, dep::DepAttrHirDecl,
     derive::DeriveAttrHirDecl, task::TaskAttrHirDecl, test::TestAttrHirDecl,
 };
 use super::*;
@@ -20,7 +21,7 @@ use husky_syn_decl::decl::attr::AttrSynDecl;
 pub enum AttrHirDecl {
     Affect(AffectAttrHirDecl),
     Backprop(BackpropAttrHirDecl),
-    Deps(DepsAttrHirDecl),
+    Dep(DepAttrHirDecl),
     Derive(DeriveAttrHirDecl),
     Task(TaskAttrHirDecl),
     Test(TestAttrHirDecl),
@@ -30,7 +31,7 @@ impl AttrHirDecl {
     pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         match self {
             AttrHirDecl::Backprop(slf) => slf.path(db),
-            AttrHirDecl::Deps(slf) => slf.path(db),
+            AttrHirDecl::Dep(slf) => slf.path(db),
             AttrHirDecl::Derive(slf) => slf.path(db),
             AttrHirDecl::Affect(slf) => slf.path(db),
             AttrHirDecl::Task(slf) => slf.path(db),
@@ -57,11 +58,11 @@ fn attr_hir_decl(db: &::salsa::Db, path: AttrItemPath) -> Option<AttrHirDecl> {
         AttrSynDecl::Backprop(syn_decl) => {
             Some(BackpropAttrHirDecl::from_syn(path, syn_decl, db).into())
         }
-        AttrSynDecl::Deps(syn_decl) => Some(DepsAttrHirDecl::from_syn(path, syn_decl, db).into()),
+        AttrSynDecl::Dep(syn_decl) => Some(DepAttrHirDecl::from_syn(path, syn_decl, db).into()),
         AttrSynDecl::Derive(syn_decl) => {
             Some(DeriveAttrHirDecl::from_syn(path, syn_decl, db).into())
         }
-        AttrSynDecl::Projection(syn_decl) => todo!(),
+        AttrSynDecl::Proj(syn_decl) => todo!(),
         AttrSynDecl::Singleton(syn_decl) => todo!(),
         AttrSynDecl::Task(syn_decl) => Some(TaskAttrHirDecl::from_syn(path, syn_decl, db).into()),
         AttrSynDecl::Test(syn_decl) => Some(TestAttrHirDecl::from_syn(path, syn_decl, db).into()),

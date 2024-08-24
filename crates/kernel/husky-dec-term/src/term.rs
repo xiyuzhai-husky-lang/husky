@@ -44,7 +44,7 @@ pub enum DecTerm {
     /// variables are those appearing in lambda expression
     /// variables are derived from symbols
     LambdaVariable(DecLambdaVariable),
-    EntityPath(DecItemPath),
+    ItemPath(DecItemPath),
     Category(Sort),
     Universe(Universe),
     /// X -> Y (a function X to Y, function can be a function pointer or closure or purely conceptual)

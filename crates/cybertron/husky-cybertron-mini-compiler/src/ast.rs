@@ -28,60 +28,104 @@ pub struct Ast {
     pub data: AstData,
 }
 
+/// Enumeration representing different types of Abstract Syntax Tree (AST) nodes
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AstData {
+    /// Represents a literal value (e.g., integer, string)
     Literal(Literal),
+    /// Represents an identifier (e.g., variable name)
     Ident(Ident),
+    /// Represents a prefix expression (e.g., `!x`, `-x`)
+    ///
     /// # exprs
     Prefix {
+        /// Operator in the prefix expression (e.g., `!`, `-`)
         opr: PrefixOpr,
+        /// Operand index of the expression
         opd: Idx,
     },
+    /// Represents a binary expression (e.g., `x + y`, `a * b`)
     Binary {
+        /// Index of the left operand
         lopd: Idx,
+        /// Operator in the binary expression (e.g., `+`, `*`)
         opr: BinaryOpr,
+        /// Index of the right operand
         ropd: Idx,
     },
+    /// Represents a suffix expression (e.g., `x++`, `y--`)
     Suffix {
+        /// Index of the operand
         opd: Idx,
+        /// Operator in the suffix expression (e.g., `++`, `--`)
         opr: SuffixOpr,
     },
+    /// Represents a delimited expression (e.g., `(x + y)`, `{a, b, c}`)
     Delimited {
+        /// Index of the left delimiter in the expression
         left_delimiter_idx: Idx,
+        /// The left delimiter (e.g., `(`, `{`)
         left_delimiter: LeftDelimiter,
+        /// The right delimiter (e.g., `)`, `}`)
         right_delimiter: RightDelimiter,
     },
+    /// Represents an item separated by a separator (e.g., elements in an array or list)
     SeparatedItem {
+        /// Index of the content, if any
         content: Option<Idx>,
+        /// The separator (e.g., `,`, `;`)
         separator: Separator,
     },
+    /// Represents a function call or array access (e.g., `f(...)`, `a[...]`)
+    ///
     /// things like `f(...)` or `a[...]`
     Call {
+        /// Index of the caller (e.g., function or array)
         caller: Idx,
+        /// The left delimiter of the call (e.g., `(`, `[`)
         left_delimiter: LeftDelimiter,
+        /// The right delimiter of the call (e.g., `)`, `]`)
         right_delimiter: RightDelimiter,
+        /// Index of the delimited arguments in the call
         delimited_arguments: Idx,
     },
+    /// Represents a `let` statement with an initialization (e.g., `let x = 5;`)
+    ///
     /// # stmts
     LetInit {
+        /// Index of the expression in the initialization
         expr: Idx,
+        /// Index of the pattern being initialized
         pattern: Idx,
+        /// Optional index of the initial value
         initial_value: Option<Idx>,
     },
+    /// Represents an `if` statement
     If {
+        /// Index of the condition in the `if` statement
         condition: Idx,
+        /// Index of the body of the `if` statement
         body: Idx,
     },
+    /// Represents an `else` statement
     Else {
+        /// Index of the associated `if` statement
         if_stmt: Idx,
+        /// Index of the body of the `else` statement
         body: Idx,
     },
+    /// Represents a function or variable definition
+    ///
     /// # defn
     Defn {
+        /// The keyword in the definition (e.g., `fn`, `enum`)
         keyword: DefnKeyword,
+        /// Index of the identifier in the definition
         ident_idx: Idx,
+        /// The identifier being defined (e.g., function name, variable name)
         ident: Ident,
+        /// Index of the content or body of the definition
         content: Idx,
     },
 }
@@ -107,13 +151,28 @@ pub enum AstError {
     Opr,
 }
 
+/// The `PreAst` enum represents the intermediate forms of tokens and ASTs that are
+/// encountered during the parsing phase, before the final AST is constructed.
+/// Each variant corresponds to a specific type of token or partial
+/// AST node that contributes to the construction of the final AST.
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum PreAst {
+    /// A reserved keyword in the language, such as `if`, `else`, `while`, etc.
     Keyword(Keyword),
+    /// An operator, such as `+`, `-`, `*`, `==`, etc., representing mathematical
+    /// or logical operations.
     Opr(Opr),
+    /// A left delimiter, such as `(`, `{`, `[`, used to denote the beginning of
+    /// a block, list, or expression.
     LeftDelimiter(LeftDelimiter),
+    /// A right delimiter, such as `)`, `}`, `]`, used to denote the end of a
+    /// block, list, or expression.
     RightDelimiter(RightDelimiter),
+    /// A partially constructed AST node, representing a more complex structure
+    /// that will be further processed to build the final AST.
     Ast(AstData),
+    /// A separator, such as `,` or `;`, used to separate elements in a list or
+    /// statements in a block.
     Separator(Separator),
 }
 
