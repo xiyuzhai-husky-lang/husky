@@ -116,25 +116,25 @@ hashlink = "0.9.0"
 heck = "0.5"
 image = "0.25.0"
 imageproc = "0.25.0"
-indexmap = "2.0.0"
+indexmap = "2.4.0"
 itertools = "0.13.0"
-jobserver_crate = { version = "0.1.28", package = "jobserver" }
-lazy_static = "1.4.0"
+jobserver_crate = { version = "0.1.32", package = "jobserver" }
+lazy_static = "1.5.0"
 libc = "0.2"
-libloading = "0.8.1"
-log = "0.4.5"
+libloading = "0.8.5"
+log = "0.4.22"
 lsp-server = "0.7.0"
 lsp-types = { version = "=0.95.0", features = ["proposed"] }
 measureme = "12"
 ndarray = "0.15.6"
 ndarray-stats = "0.5.1"
 once_cell = "1.19.0"
-ordered-float = { version = "4.1.0", features = ["serde"] }
+ordered-float = { version = "4.2.2", features = ["serde"] }
 parking_lot = "0.12.1"
 paste = "1.0.6"
 pathdiff = "0.2.1"
-proc-macro2 = "1.0.69"
-quote = "1.0"
+proc-macro2 = "1.0.86"
+quote = "1.0.37"
 relative-path = "1.7.2"
 # `bundled` causes us to automatically compile and link in an up to date
 # version of SQLite for you. This avoids many common build issues, and
@@ -153,9 +153,9 @@ rustc-rayon = { version = "0.5.0" }
 rustc-rayon-core = { version = "0.5.0" }
 rustc_version = "0.4"
 sealed = "0.5"
-serde = { version = "1.0.106", features = ["derive"] }
-serde_json = { version = "1.0.48", features = ["preserve_order"] }
-serde_with = "3.4.0"
+serde = { version = "1.0.209", features = ["derive"] }
+serde_json = { version = "1.0.127", features = ["preserve_order"] }
+serde_with = "3.9.0"
 # turn on "union" to guarantee the size of SmallVec is unaffected by dependencies
 smallvec = { version = "1.12", features = [
     "union",
@@ -163,18 +163,18 @@ smallvec = { version = "1.12", features = [
     "const_generics",
     "may_dangle"
 ] }
-stacker = "0.1.15"
-syn = { version = "2.0.38", features = ["full", "extra-traits", "visit-mut"] }
-tempfile = "3.2"
+stacker = "0.1.16"
+syn = { version = "2.0.76", features = ["full", "extra-traits", "visit-mut"] }
+tempfile = "3.12"
 thin-vec = "0.2.12"
-thiserror = "1.0.37"
+thiserror = "1.0.63"
 threadpool = "1.7.1"
-tokio = { version = "1.32.0", features = ["full"] }
+tokio = { version = "1.39.3", features = ["full"] }
 tokio-stream = { version = "0.1.9" }
-tokio-tungstenite = { version = "0.21" }
-toml = "0.8.8"
-toml_edit = "0.22.6"
-tower = { version = "0.4", features = ["util"] }
+tokio-tungstenite = { version = "0.23.1" }
+toml = "0.8.19"
+toml_edit = "0.22.20"
+tower = { version = "0.5.0", features = ["util"] }
 tower-http = { version = "0.5.1", features = ["fs", "trace"] }
 tracing = "0.1.40"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
