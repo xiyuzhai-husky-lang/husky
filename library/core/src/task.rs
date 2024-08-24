@@ -11,7 +11,7 @@ impl __IsStaticVar<__StaticVarId> for TASK {
         todo!()
     }
 
-    fn ids(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
         [].into_iter()
     }
 
