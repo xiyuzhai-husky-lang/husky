@@ -426,9 +426,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            0.0,
-                                                        ),
+                                                        value: 0.0,
                                                         text: "0.0f32",
                                                     },
                                                 ),
@@ -1610,9 +1608,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            0.0,
-                                                        ),
+                                                        value: 0.0,
                                                         text: "0.0f32",
                                                     },
                                                 ),
@@ -2794,9 +2790,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            0.0,
-                                                        ),
+                                                        value: 0.0,
                                                         text: "0.0f32",
                                                     },
                                                 ),
