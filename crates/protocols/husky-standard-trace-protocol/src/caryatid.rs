@@ -57,7 +57,7 @@ pub struct StandardCaryatidUiBuffer {}
 impl IsCaryatidUiBuffer for StandardCaryatidUiBuffer {
     type Caryatid = StandardCaryatid;
 
-    fn update(&mut self, pedestal: &Self::Caryatid) {
-        todo!()
+    fn update(&mut self, caryatid: &Self::Caryatid) {
+        // ad hoc, todo!()
     }
 }

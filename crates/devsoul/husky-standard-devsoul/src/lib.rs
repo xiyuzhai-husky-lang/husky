@@ -46,17 +46,12 @@ impl IsDevsoul for StandardDevsoul {
         visual_synchrotron: &mut VisualSynchrotron,
         ki_visual_cache: &mut KiVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
-        let (followed, followed_domain_and_var_deps) = match followed {
-            Some((trace_id, ki_repr, ki_domain_repr_interface, var_deps)) => (
-                Some((trace_id, ki_repr)),
-                Some((ki_domain_repr_interface, var_deps)),
-            ),
-            None => (None, None),
+        let followed = match followed {
+            Some((trace_id, ki_repr, ki_domain_repr_interface, var_deps)) => {
+                caryatid.covers(var_deps).then_some((trace_id, ki_repr))
+            }
+            None => None,
         };
-        // checking that caryatid should at least cover the var deps of the followed
-        if let Some((_, followed_var_deps)) = followed_domain_and_var_deps {
-            assert!(caryatid.covers(followed_var_deps))
-        }
         // throw away unnessary things
         let accompanyings = &accompanyings
             .iter()
