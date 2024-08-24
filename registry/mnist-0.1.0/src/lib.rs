@@ -139,7 +139,7 @@ impl __IsStaticVar<__StaticVarId> for INPUT {
         })
     }
 
-    fn ids(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
         assert!(!locked.contains(unsafe { __INPUT__ITEM_PATH_ID_INTERFACE }.as_ref().unwrap()));
         input_ids().map(Into::into)
     }
@@ -159,7 +159,7 @@ impl __IsStaticVar<__StaticVarId> for TASK {
         todo!()
     }
 
-    fn ids(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
         // ad hoc
         [].into_iter()
     }

@@ -1,11 +1,18 @@
 use crate::*;
 
-pub trait IsStaticVar<StaticVarId>
+pub trait IsStaticVar<StaticVarId>: 'static
 where
-    StaticVarId: std::fmt::Debug + Copy + Eq,
+    StaticVarId: std::fmt::Debug + Copy + Eq + 'static,
 {
     fn item_path_id_interface() -> ItemPathIdInterface;
-    fn ids(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = StaticVarId>;
+    fn ids<'a>(locked: &'a [ItemPathIdInterface]) -> Box<dyn Iterator<Item = StaticVarId> + 'a> {
+        if locked.contains(&Self::item_path_id_interface()) {
+            return Box::new([Self::get_id()].into_iter());
+        }
+        Box::new(unsafe { Self::ids_aux(locked) })
+    }
+
+    unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = StaticVarId>;
     fn get_id() -> StaticVarId;
 
     /// returns a restore if okay,

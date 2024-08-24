@@ -3,7 +3,7 @@ use husky_core::*;
 
 pub trait IsMlTask<StaticVarId>
 where
-    StaticVarId: std::fmt::Debug + Copy + Eq,
+    StaticVarId: std::fmt::Debug + Copy + Eq + 'static,
 {
     type Input;
 

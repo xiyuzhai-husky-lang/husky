@@ -90,7 +90,7 @@ fn static_var_linket_impl_works() {
             todo!()
         }
 
-        fn ids(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+        unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
             (0..10u32).map(Into::into)
         }
 
