@@ -13,7 +13,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn with_static_vars<R>(
         &self,
         static_vars: impl Iterator<Item = (ItemPath, DevsoulAnchor<Devsoul>)>,
-        f: impl Fn() -> Option<R>,
+        f: impl FnMut() -> Option<R>,
     ) -> Option<Chart<DevsoulStaticVarId<Devsoul>, R>> {
         let db = self.db();
         let mut locked: SmallVecSet<ItemPathIdInterface, 2> = Default::default();
@@ -60,10 +60,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             .count();
         match number_of_generics {
             0 => self
-                .with_static_vars_aux0(Default::default(), &static_vars, &f)
+                .with_static_vars_aux0(Default::default(), &static_vars, f)
                 .map(Into::into),
             1 => self
-                .with_static_vars_aux1(Default::default(), &static_vars, &f)
+                .with_static_vars_aux1(Default::default(), &static_vars, f)
                 .map(Into::into),
             2 => {
                 todo!()
@@ -80,7 +80,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        f: impl Fn() -> Option<R>,
+        mut f: impl FnMut() -> Option<R>,
     ) -> Option<ChartDim0<DevsoulStaticVarId<Devsoul>, R>> {
         let db = self.db();
         for &(path, anchor, ref locked) in remaining_static_vars {
@@ -106,7 +106,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        f: &impl Fn() -> Option<R>,
+        mut f: impl FnMut() -> Option<R>,
     ) -> Option<ChartDim1<DevsoulStaticVarId<Devsoul>, R>> {
         let &[(path, anchor, ref locked), ref remaining_static_vars @ ..] = remaining_static_vars
         else {
@@ -137,7 +137,11 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                         static_var_map.insert(((*path).into(), static_var_id));
                         linket_impl
                             .with_static_var_id(static_var_id, locked, || {
-                                self.with_static_vars_aux0(static_var_map, remaining_static_vars, f)
+                                self.with_static_vars_aux0(
+                                    static_var_map,
+                                    remaining_static_vars,
+                                    || f(),
+                                )
                             })
                             .ok()
                             .flatten()
