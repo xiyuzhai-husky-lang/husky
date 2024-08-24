@@ -38,20 +38,20 @@ use husky_vfs::path::module_path::ModulePath;
 #[derive(Default)]
 pub(crate) struct DB;
 
-fn module_dec_templates(
-    db: &::salsa::Db,
-    module_path: ModulePath,
-) -> Vec<(ItemPath, DecSignatureResult<ItemDecTemplate>)> {
-    husky_syn_decl::sheet::syn_decl_sheet(db, module_path)
-        .decls(db)
-        .iter()
-        .copied()
-        .map(|(path, _)| (path, path.dec_template(db)))
-        .collect()
-}
-
 #[test]
 fn module_dec_templates_works() {
+    fn module_dec_templates(
+        db: &::salsa::Db,
+        module_path: ModulePath,
+    ) -> Vec<(ItemPath, DecSignatureResult<ItemDecTemplate>)> {
+        husky_syn_decl::sheet::syn_decl_sheet(db, module_path)
+            .decls(db)
+            .iter()
+            .copied()
+            .map(|(path, _)| (path, path.dec_template(db)))
+            .collect()
+    }
+
     DB::ast_rich_test_debug_with_db(
         |db, module_path| module_dec_templates(db, module_path),
         &AstTestConfig::new(

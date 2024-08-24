@@ -22,7 +22,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::option::Option`, `Enum`),
                                         ),

@@ -8,9 +8,10 @@ pub struct HirDeclJar(
     crate::decl::attr::attr_hir_decl,
     crate::decl::attr::affect::AffectAttrHirDecl,
     crate::decl::attr::backprop::BackpropAttrHirDecl,
-    crate::decl::attr::deps::DepsAttrHirDecl,
+    crate::decl::attr::dep::DepAttrHirDecl,
     crate::decl::attr::derive::DeriveAttrHirDecl,
-    crate::decl::attr::marker::MarkerAttrHirDecl,
+    crate::decl::attr::mark::MarkAttrHirDecl,
+    crate::decl::attr::proj::ProjAttrHirDecl,
     crate::decl::attr::task::TaskAttrHirDecl,
     crate::decl::attr::test::TestAttrHirDecl,
     // template

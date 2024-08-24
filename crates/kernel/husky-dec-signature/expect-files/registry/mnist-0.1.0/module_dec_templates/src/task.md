@@ -25,7 +25,7 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: DecTerm::EntityPath(
+                        ty: DecTerm::ItemPath(
                             DecItemPath::Type(
                                 TypePath(`mnist::task::MnistTask`, `Extern`),
                             ),
@@ -48,7 +48,7 @@
                                     RitchieItemKind::Fn,
                                 ),
                             ),
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist::task::MnistTask`, `Extern`),
                                 ),
@@ -59,7 +59,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist::task::MnistTask`, `Extern`),
                                 ),

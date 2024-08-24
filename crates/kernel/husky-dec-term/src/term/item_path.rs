@@ -31,7 +31,7 @@ impl From<ItemPathTerm> for DecItemPath {
 
 impl From<ItemPathTerm> for DecTerm {
     fn from(path: ItemPathTerm) -> Self {
-        DecTerm::EntityPath(path.into())
+        DecTerm::ItemPath(path.into())
     }
 }
 
@@ -45,19 +45,19 @@ impl DecItemPath {
 }
 impl From<MajorFormPath> for DecTerm {
     fn from(value: MajorFormPath) -> Self {
-        DecTerm::EntityPath(value.into())
+        DecTerm::ItemPath(value.into())
     }
 }
 
 impl From<TraitPath> for DecTerm {
     fn from(value: TraitPath) -> Self {
-        DecTerm::EntityPath(value.into())
+        DecTerm::ItemPath(value.into())
     }
 }
 
 impl From<TypePath> for DecTerm {
     fn from(value: TypePath) -> Self {
-        DecTerm::EntityPath(value.into())
+        DecTerm::ItemPath(value.into())
     }
 }
 

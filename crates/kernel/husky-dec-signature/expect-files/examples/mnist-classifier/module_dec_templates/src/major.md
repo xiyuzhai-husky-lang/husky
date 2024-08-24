@@ -19,7 +19,7 @@
                                             items: [],
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
@@ -48,7 +48,7 @@
                                             },
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
@@ -68,7 +68,7 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -107,7 +107,7 @@
                                                     items: [],
                                                 },
                                             ),
-                                            argument: DecTerm::EntityPath(
+                                            argument: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
@@ -138,7 +138,7 @@
                                             },
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -167,7 +167,7 @@
                                             },
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         ),
@@ -208,7 +208,7 @@
                                                     items: [],
                                                 },
                                             ),
-                                            argument: DecTerm::EntityPath(
+                                            argument: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                 ),

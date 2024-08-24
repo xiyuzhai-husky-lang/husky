@@ -9,7 +9,7 @@ impl DecTerm {
 
     pub fn family(self, db: &::salsa::Db) -> DecTermFamily {
         match self {
-            DecTerm::EntityPath(DecItemPath::Type(path)) => DecTermFamily::TypePath(path),
+            DecTerm::ItemPath(DecItemPath::Type(path)) => DecTermFamily::TypePath(path),
             DecTerm::Category(cat) => DecTermFamily::Category(cat),
             DecTerm::Application(term) => term.function(db).family(db),
             DecTerm::ApplicationOrRitchieCall(term) => term.function(db).family(db),
@@ -26,7 +26,7 @@ impl DecTerm {
         db: &::salsa::Db,
     ) -> DecTermResult<TypeFinalDestinationExpectation> {
         match self {
-            DecTerm::EntityPath(DecItemPath::Type(path)) => {
+            DecTerm::ItemPath(DecItemPath::Type(path)) => {
                 Ok(TypeFinalDestinationExpectation::EqsNonSortTypePath(path))
             }
             DecTerm::Category(_) => Ok(TypeFinalDestinationExpectation::EqsSort),

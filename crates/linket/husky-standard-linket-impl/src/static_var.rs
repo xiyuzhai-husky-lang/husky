@@ -66,38 +66,44 @@ macro_rules! static_var_linket_impl {
             init_item_path_id_interface: |item_path_id_interface| unsafe {
                 $item_path_id_interface = Some(item_path_id_interface)
             },
-            set_up_for_testing: <$static_var>::set_up_for_testing,
-            get_id: <$static_var>::get_id,
-            replace_id: <$static_var>::replace_id,
-            ids: || Box::new(<$static_var>::ids()),
+            get_id: <$static_var as __IsStaticVar<__StaticVarId>>::get_id,
+            try_replace_id: |id, locked| unsafe {
+                <$static_var as __IsStaticVar<__StaticVarId>>::try_replace_id(id, locked)
+                    .map(|restore| -> Box<dyn FnOnce()> { Box::new(restore) })
+            },
+            ids: |locked| Box::new(<$static_var as __IsStaticVar<__StaticVarId>>::ids(locked)),
         }
     };
 }
 
 #[test]
 fn static_var_linket_impl_works() {
-    use crate::{pedestal::StandardPedestal, static_var::StandardStaticVarId};
+    use crate::{pedestal::StandardPedestal, static_var::StandardStaticVarId, ugly::*};
+    use husky_linket_impl::static_var::IsStaticVar;
     use StandardLinketImpl as __LinketImpl;
 
     #[allow(non_camel_case_types)]
     struct STATIC_VAR_A {}
 
-    impl STATIC_VAR_A {
-        pub fn set_up_for_testing(index: usize) {
-            STATIC_VAR_A.set(index.try_into().unwrap())
-        }
-
-        pub fn get_id() -> StandardStaticVarId {
-            todo!()
-            // StandardStaticVarId::
-        }
-
-        pub fn replace_id(id: StandardStaticVarId) -> Option<StandardStaticVarId> {
+    impl __IsStaticVar<__StaticVarId> for STATIC_VAR_A {
+        fn item_path_id_interface() -> ItemPathIdInterface {
             todo!()
         }
 
-        pub fn ids() -> impl Iterator<Item = StandardStaticVarId> {
+        unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
             (0..10u32).map(Into::into)
+        }
+
+        fn get_id() -> __StaticVarId {
+            todo!()
+        }
+
+        unsafe fn try_replace_id_aux(
+            id: __StaticVarId,
+            locked: &[ItemPathIdInterface],
+        ) -> __StaticVarResult<impl FnOnce() + 'static> {
+            todo!();
+            Ok(|| todo!())
         }
     }
 
@@ -111,14 +117,11 @@ fn static_var_linket_impl_works() {
 
     let LinketImpl::StaticVar {
         init_item_path_id_interface,
-        set_up_for_testing,
         get_id,
-        replace_id: set_id,
+        try_replace_id,
         ids,
     } = static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
     else {
         unreachable!()
     };
-    set_up_for_testing(45);
-    assert_eq!(STATIC_VAR_A.get(), 45);
 }

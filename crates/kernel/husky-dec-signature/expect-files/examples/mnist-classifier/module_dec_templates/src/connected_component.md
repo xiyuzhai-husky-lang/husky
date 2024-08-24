@@ -10,20 +10,20 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
                                     ident: `row_start`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::i32`, `Extern`),
                                         ),
@@ -31,13 +31,13 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
                                     ident: `row_end`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::i32`, `Extern`),
                                         ),
@@ -45,13 +45,13 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
                                     ident: `upper_mass`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::i32`, `Extern`),
                                         ),
@@ -59,13 +59,13 @@
                                     has_initialization: false,
                                 },
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                         ),
                                     ),
                                     ident: `lower_mass`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::i32`, `Extern`),
                                         ),
@@ -83,7 +83,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -93,7 +93,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -103,7 +103,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -113,7 +113,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -121,7 +121,7 @@
                                         },
                                     ),
                                 ],
-                                return_ty: DecTerm::EntityPath(
+                                return_ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                     ),
@@ -143,14 +143,14 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                         ),
@@ -170,7 +170,7 @@
                                             ),
                                             argument: DecTerm::Application(
                                                 DecApplication {
-                                                    function: DecTerm::EntityPath(
+                                                    function: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`core::option::Option`, `Enum`),
                                                         ),
@@ -184,7 +184,7 @@
                                                                     },
                                                                 },
                                                             ),
-                                                            argument: DecTerm::EntityPath(
+                                                            argument: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                 ),
@@ -222,7 +222,7 @@
                                                     ),
                                                     argument: DecTerm::Application(
                                                         DecApplication {
-                                                            function: DecTerm::EntityPath(
+                                                            function: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`core::option::Option`, `Enum`),
                                                                 ),
@@ -236,7 +236,7 @@
                                                                             },
                                                                         },
                                                                     ),
-                                                                    argument: DecTerm::EntityPath(
+                                                                    argument: DecTerm::ItemPath(
                                                                         DecItemPath::Type(
                                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                                         ),
@@ -250,7 +250,7 @@
                                         },
                                     ),
                                 ],
-                                return_ty: DecTerm::EntityPath(
+                                return_ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                     ),
@@ -287,7 +287,7 @@
                                                             },
                                                         },
                                                     ),
-                                                    argument: DecTerm::EntityPath(
+                                                    argument: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                         ),
@@ -300,12 +300,12 @@
                             },
                             return_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::option::Option`, `Enum`),
                                         ),
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::num::f32`, `Extern`),
                                         ),
@@ -328,20 +328,20 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
                             fields: [
                                 PropsStructFieldDecTemplate {
-                                    self_ty: DecTerm::EntityPath(
+                                    self_ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
                                     ),
                                     ident: `mask`,
-                                    ty: DecTerm::EntityPath(
+                                    ty: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist::BinaryImage28`, `Extern`),
                                         ),
@@ -359,7 +359,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Move,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
@@ -367,7 +367,7 @@
                                         },
                                     ),
                                 ],
-                                return_ty: DecTerm::EntityPath(
+                                return_ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
@@ -395,7 +395,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -405,7 +405,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                                 ),
@@ -414,7 +414,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
@@ -441,7 +441,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 ),
@@ -462,7 +462,7 @@
                                             items: [],
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                         ),
@@ -484,13 +484,13 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        trai: DecTerm::EntityPath(
+                        trai: DecTerm::ItemPath(
                             DecItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
                             ),
                         ),
                         self_ty: DeclarativeSelfType::Path(
-                            DecTerm::EntityPath(
+                            DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
@@ -508,7 +508,7 @@
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
@@ -518,7 +518,7 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
@@ -527,7 +527,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::visual::Visual`, `Extern`),
                                 ),
@@ -547,7 +547,7 @@
                         template_parameters: DecTemplateParameters {
                             data: [],
                         },
-                        ty: DecTerm::EntityPath(
+                        ty: DecTerm::ItemPath(
                             DecItemPath::Type(
                                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             ),
@@ -572,7 +572,7 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
@@ -590,7 +590,7 @@
                                             items: [],
                                         },
                                     ),
-                                    argument: DecTerm::EntityPath(
+                                    argument: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         ),
@@ -618,13 +618,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
@@ -650,13 +650,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -682,13 +682,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -714,13 +714,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -746,13 +746,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
@@ -778,13 +778,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -810,13 +810,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -844,13 +844,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
@@ -860,7 +860,7 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
@@ -871,7 +871,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -880,7 +880,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
@@ -908,13 +908,13 @@
                                 template_parameters: DecTemplateParameters {
                                     data: [],
                                 },
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
                                 ),
                             },
-                            self_ty: DecTerm::EntityPath(
+                            self_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
@@ -924,7 +924,7 @@
                             },
                             self_value_parameter: DeclarativeRitchieSimpleParameter {
                                 contract: Contract::Pure,
-                                ty: DecTerm::EntityPath(
+                                ty: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                     ),
@@ -935,7 +935,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -944,7 +944,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),

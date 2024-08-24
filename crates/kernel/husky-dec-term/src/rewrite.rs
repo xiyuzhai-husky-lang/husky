@@ -30,7 +30,7 @@ impl DecTermRewriteCopy for DecTerm {
             },
             DecTerm::SymbolicVariable(_)
             | DecTerm::Literal(_)
-            | DecTerm::EntityPath(_)
+            | DecTerm::ItemPath(_)
             | DecTerm::Category(_)
             | DecTerm::Universe(_)
             | DecTerm::LeashOrBitNot(_) => self,

@@ -14,7 +14,7 @@ Ok(
         },
         data: PackageDecSignatureData {
             task_ty_default: Some(
-                EntityPath(
+                ItemPath(
                     Type(
                         TypePath(
                             ItemPathId(

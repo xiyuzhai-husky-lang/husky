@@ -45,7 +45,7 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::StaticVar(
                         MajorStaticVarDecTemplate {
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Form(
                                     MajorFormPath(`core::task::Task`, `TypeVar`),
                                 ),

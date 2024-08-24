@@ -8,7 +8,7 @@
                     MajorFormDecTemplate::TypeVar(
                         TypeVarDecTemplate {
                             default: Some(
-                                DecTerm::EntityPath(
+                                DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`mnist::task::MnistTask`, `Extern`),
                                     ),
@@ -27,7 +27,7 @@
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::StaticVar(
                         MajorStaticVarDecTemplate {
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`mnist::task::MnistTask`, `Extern`),
                                 ),

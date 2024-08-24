@@ -648,7 +648,7 @@ AstSheet {
                     lcurl: None,
                     raw: 30,
                 },
-                ident: `deps`,
+                ident: `dep`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {

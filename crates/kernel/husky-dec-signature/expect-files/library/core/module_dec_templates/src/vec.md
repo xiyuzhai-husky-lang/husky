@@ -49,7 +49,7 @@
                         },
                         ty: DecTerm::Application(
                             DecApplication {
-                                function: DecTerm::EntityPath(
+                                function: DecTerm::ItemPath(
                                     DecItemPath::Type(
                                         TypePath(`core::vec::Vec`, `Extern`),
                                     ),
@@ -117,7 +117,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -154,7 +154,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -195,7 +195,7 @@
                                 contract: Contract::Pure,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -233,7 +233,7 @@
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::num::i32`, `Extern`),
                                 ),
@@ -273,7 +273,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -310,7 +310,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -361,7 +361,7 @@
                                 contract: Contract::BorrowMut,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -432,7 +432,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DecTerm::EntityPath(
+                            return_ty: DecTerm::ItemPath(
                                 DecItemPath::Type(
                                     TypePath(`core::basic::unit`, `Extern`),
                                 ),
@@ -472,7 +472,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -509,7 +509,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -560,7 +560,7 @@
                                 contract: Contract::At,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -602,14 +602,14 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::option::Option`, `Enum`),
                                                 ),
                                             ),
                                             argument: DecTerm::Application(
                                                 DecApplication {
-                                                    function: DecTerm::EntityPath(
+                                                    function: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`core::mem::At`, `Extern`),
                                                         ),
@@ -622,7 +622,7 @@
                                                                 },
                                                             },
                                                             ty: Ok(
-                                                                EntityPath(
+                                                                ItemPath(
                                                                     Type(
                                                                         TypePath(
                                                                             ItemPathId(
@@ -707,7 +707,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -744,7 +744,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -795,7 +795,7 @@
                                 contract: Contract::At,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -837,14 +837,14 @@
                                 DecApplication {
                                     function: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::option::Option`, `Enum`),
                                                 ),
                                             ),
                                             argument: DecTerm::Application(
                                                 DecApplication {
-                                                    function: DecTerm::EntityPath(
+                                                    function: DecTerm::ItemPath(
                                                         DecItemPath::Type(
                                                             TypePath(`core::mem::At`, `Extern`),
                                                         ),
@@ -857,7 +857,7 @@
                                                                 },
                                                             },
                                                             ty: Ok(
-                                                                EntityPath(
+                                                                ItemPath(
                                                                     Type(
                                                                         TypePath(
                                                                             ItemPathId(
@@ -942,7 +942,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -979,7 +979,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -1030,7 +1030,7 @@
                                 contract: Contract::BorrowMut,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -1070,7 +1070,7 @@
                             },
                             return_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::option::Option`, `Enum`),
                                         ),
@@ -1139,7 +1139,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -1176,7 +1176,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -1217,7 +1217,7 @@
                                 contract: Contract::Leash,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -1342,7 +1342,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -1379,7 +1379,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -1420,7 +1420,7 @@
                                 contract: Contract::Leash,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -1460,7 +1460,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -1470,7 +1470,7 @@
                                     DeclarativeRitchieParameter::Simple(
                                         DeclarativeRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: DecTerm::EntityPath(
+                                            ty: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::num::i32`, `Extern`),
                                                 ),
@@ -1490,7 +1490,7 @@
                                     ),
                                     argument: DecTerm::Application(
                                         DecApplication {
-                                            function: DecTerm::EntityPath(
+                                            function: DecTerm::ItemPath(
                                                 DecItemPath::Type(
                                                     TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                 ),
@@ -1561,7 +1561,7 @@
                                 },
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -1598,7 +1598,7 @@
                             },
                             self_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::vec::Vec`, `Extern`),
                                         ),
@@ -1649,7 +1649,7 @@
                                 contract: Contract::BorrowMut,
                                 ty: DecTerm::Application(
                                     DecApplication {
-                                        function: DecTerm::EntityPath(
+                                        function: DecTerm::ItemPath(
                                             DecItemPath::Type(
                                                 TypePath(`core::vec::Vec`, `Extern`),
                                             ),
@@ -1732,12 +1732,12 @@
                                                     ],
                                                     return_ty: DecTerm::Application(
                                                         DecApplication {
-                                                            function: DecTerm::EntityPath(
+                                                            function: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`core::option::Option`, `Enum`),
                                                                 ),
                                                             ),
-                                                            argument: DecTerm::EntityPath(
+                                                            argument: DecTerm::ItemPath(
                                                                 DecItemPath::Type(
                                                                     TypePath(`core::num::f32`, `Extern`),
                                                                 ),
@@ -1752,7 +1752,7 @@
                             },
                             return_ty: DecTerm::Application(
                                 DecApplication {
-                                    function: DecTerm::EntityPath(
+                                    function: DecTerm::ItemPath(
                                         DecItemPath::Type(
                                             TypePath(`core::option::Option`, `Enum`),
                                         ),

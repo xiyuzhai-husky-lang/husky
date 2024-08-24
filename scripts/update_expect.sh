@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Duration over which to change the brightness, in seconds
 DURATION=0.5
 MONITOR=HDMI-2

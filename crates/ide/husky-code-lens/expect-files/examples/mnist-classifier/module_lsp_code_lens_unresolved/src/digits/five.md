@@ -13,7 +13,7 @@
         },
         command: Some(
             Command {
-                title: "#deps()",
+                title: "#dep()",
                 command: "husky-analyzer.deps",
                 arguments: None,
             },

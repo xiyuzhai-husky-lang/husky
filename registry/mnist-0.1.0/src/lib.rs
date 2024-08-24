@@ -129,23 +129,19 @@ impl __IsStaticVar<__StaticVarId> for INPUT {
         input_id().index().into()
     }
 
-    unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
-        replace_input_id(id.into()).map(Into::into)
+    unsafe fn try_replace_id_aux(
+        id: __StaticVarId,
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<impl FnOnce() + 'static> {
+        let old = replace_input_id(id.into());
+        Ok(move || {
+            old.map(replace_input_id);
+        })
     }
 
-    fn ids() -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+        assert!(!locked.contains(unsafe { __INPUT__ITEM_PATH_ID_INTERFACE }.as_ref().unwrap()));
         input_ids().map(Into::into)
-    }
-}
-
-impl INPUT {
-    pub fn item_path_id_interface() -> __ItemPathIdInterface {
-        unsafe { __INPUT__ITEM_PATH_ID_INTERFACE.expect("__INPUT__ITEM_PATH_ID_INTERFACE") }
-    }
-
-    pub fn set_up_for_testing(index: usize) {
-        // todo: check range!
-        replace_input_id(MnistInputId::from_index(index));
     }
 }
 
@@ -158,20 +154,24 @@ pub fn TASK() {}
 
 pub struct TASK {}
 
-impl TASK {
-    pub fn set_up_for_testing(index: usize) {
+impl __IsStaticVar<__StaticVarId> for TASK {
+    fn item_path_id_interface() -> __ItemPathIdInterface {
         todo!()
     }
 
-    pub fn get_id() -> __StaticVarId {
-        todo!()
-    }
-
-    pub unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
-        todo!()
-    }
-
-    pub fn ids() -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+        // ad hoc
         [].into_iter()
+    }
+
+    fn get_id() -> __StaticVarId {
+        todo!()
+    }
+
+    unsafe fn try_replace_id_aux(
+        id: __StaticVarId,
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<Box<dyn FnOnce()>> {
+        todo!()
     }
 }

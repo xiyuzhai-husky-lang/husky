@@ -27,7 +27,7 @@ impl CodeLens {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum CodeLensData {
-    Deps,
+    Dep,
     Affect,
     Runnable,
     HasImpls,
@@ -90,7 +90,7 @@ fn major_form_code_lenses_data(
         MajorFormKind::Ritchie(_) => vec![],
         MajorFormKind::TypeAlias => vec![],
         MajorFormKind::TypeVar => vec![],
-        MajorFormKind::Val => vec![CodeLensData::Deps],
+        MajorFormKind::Val => vec![CodeLensData::Dep],
         MajorFormKind::StaticMut => vec![],
         MajorFormKind::StaticVar => vec![],
         MajorFormKind::Compterm => vec![],

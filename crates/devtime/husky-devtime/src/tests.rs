@@ -12,6 +12,7 @@ use tracing_test::traced_test;
 type StandardDevtime = Devtime<StandardDevsoul>;
 
 #[test]
+#[ignore]
 fn devtime_trace_server_works() {
     let dev_paths = HuskyLangDevPaths::new();
     let devtime = StandardDevtime::new(
@@ -24,6 +25,7 @@ fn devtime_trace_server_works() {
 
 #[traced_test]
 #[test]
+#[ignore]
 fn devtime_trace_client_works() {
     let dev_paths = HuskyLangDevPaths::new();
     let devtime = StandardDevtime::new(

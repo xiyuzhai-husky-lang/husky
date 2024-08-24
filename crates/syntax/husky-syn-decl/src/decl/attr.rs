@@ -1,9 +1,9 @@
 pub mod affect;
 pub mod backprop;
-pub mod deps;
+pub mod dep;
 pub mod derive;
-pub mod marker;
-pub mod projection;
+pub mod mark;
+pub mod proj;
 pub mod singleton;
 pub mod task;
 pub mod test;
@@ -11,9 +11,9 @@ pub mod test;
 use self::{
     affect::{AffectAttrSynDecl, AffectAttrSynNodeDecl},
     backprop::{BackpropAttrSynDecl, BackpropAttrSynNodeDecl},
-    deps::{DepsAttrSynDecl, DepsAttrSynNodeDecl},
+    dep::{DepAttrSynDecl, DepAttrSynNodeDecl},
     derive::{DeriveAttrSynDecl, DeriveAttrSynNodeDecl},
-    projection::{ProjectionAttrSynDecl, ProjectionAttrSynNodeDecl},
+    proj::{ProjAttrSynDecl, ProjAttrSynNodeDecl},
     singleton::{SingletonAttrSynDecl, SingletonAttrSynNodeDecl},
     task::{TaskAttrSynDecl, TaskAttrSynNodeDecl},
     test::{TestAttrSynDecl, TestAttrSynNodeDecl},
@@ -28,9 +28,9 @@ use husky_entity_tree::node::attr::AttrSynNodePath;
 pub enum AttrSynNodeDecl {
     Affect(AffectAttrSynNodeDecl),
     Backprop(BackpropAttrSynNodeDecl),
-    Deps(DepsAttrSynNodeDecl),
+    Dep(DepAttrSynNodeDecl),
     Derive(DeriveAttrSynNodeDecl),
-    Projection(ProjectionAttrSynNodeDecl),
+    Proj(ProjAttrSynNodeDecl),
     Singleton(SingletonAttrSynNodeDecl),
     Task(TaskAttrSynNodeDecl),
     Test(TestAttrSynNodeDecl),
@@ -43,9 +43,9 @@ impl AttrSynNodeDecl {
         Some(match self {
             AttrSynNodeDecl::Affect(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Backprop(slf) => slf.syn_expr_region(db),
-            AttrSynNodeDecl::Deps(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Dep(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Derive(slf) => slf.syn_expr_region(db),
-            AttrSynNodeDecl::Projection(slf) => slf.syn_expr_region(db),
+            AttrSynNodeDecl::Proj(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Singleton(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynNodeDecl::Test(slf) => slf.syn_expr_region(db),
@@ -57,9 +57,9 @@ impl AttrSynNodeDecl {
         match self {
             AttrSynNodeDecl::Affect(slf) => slf.errors(db),
             AttrSynNodeDecl::Backprop(slf) => slf.errors(db),
-            AttrSynNodeDecl::Deps(slf) => slf.errors(db),
+            AttrSynNodeDecl::Dep(slf) => slf.errors(db),
             AttrSynNodeDecl::Derive(slf) => slf.errors(db),
-            AttrSynNodeDecl::Projection(slf) => slf.errors(db),
+            AttrSynNodeDecl::Proj(slf) => slf.errors(db),
             AttrSynNodeDecl::Singleton(slf) => slf.errors(db),
             AttrSynNodeDecl::Task(slf) => slf.errors(db),
             AttrSynNodeDecl::Test(slf) => slf.errors(db),
@@ -87,8 +87,8 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
         attr_ident if attr_ident == coword_menu.backprop_ident() => {
             AttrSynNodeDecl::Backprop(BackpropAttrSynNodeDecl::new(db, syn_node_path))
         }
-        attr_ident if attr_ident == coword_menu.deps_ident() => {
-            AttrSynNodeDecl::Deps(DepsAttrSynNodeDecl::new(db, syn_node_path))
+        attr_ident if attr_ident == coword_menu.dep_ident() => {
+            AttrSynNodeDecl::Dep(DepAttrSynNodeDecl::new(db, syn_node_path))
         }
         attr_ident if attr_ident == coword_menu.derive_ident() => {
             AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
@@ -108,9 +108,9 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
 pub enum AttrSynDecl {
     Affect(AffectAttrSynDecl),
     Backprop(BackpropAttrSynDecl),
-    Deps(DepsAttrSynDecl),
+    Dep(DepAttrSynDecl),
     Derive(DeriveAttrSynDecl),
-    Projection(ProjectionAttrSynDecl),
+    Proj(ProjAttrSynDecl),
     Singleton(SingletonAttrSynDecl),
     Task(TaskAttrSynDecl),
     Test(TestAttrSynDecl),
@@ -131,14 +131,14 @@ impl AttrSynDecl {
             AttrSynNodeDecl::Backprop(syn_node_decl) => {
                 BackpropAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
-            AttrSynNodeDecl::Deps(syn_node_decl) => {
-                DepsAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
+            AttrSynNodeDecl::Dep(syn_node_decl) => {
+                DepAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
             }
             AttrSynNodeDecl::Derive(syn_node_decl) => {
                 DeriveAttrSynDecl::from_node(db, path, syn_node_decl)?.into()
             }
-            AttrSynNodeDecl::Projection(syn_node_decl) => {
-                ProjectionAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
+            AttrSynNodeDecl::Proj(syn_node_decl) => {
+                ProjAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
             }
             AttrSynNodeDecl::Singleton(syn_node_decl) => {
                 SingletonAttrSynDecl::from_node(path, syn_node_decl, db)?.into()
@@ -160,9 +160,9 @@ impl AttrSynDecl {
         match self {
             AttrSynDecl::Affect(slf) => slf.path(db),
             AttrSynDecl::Backprop(slf) => slf.path(db),
-            AttrSynDecl::Deps(slf) => slf.path(db),
+            AttrSynDecl::Dep(slf) => slf.path(db),
             AttrSynDecl::Derive(slf) => slf.path(db),
-            AttrSynDecl::Projection(slf) => slf.path(db),
+            AttrSynDecl::Proj(slf) => slf.path(db),
             AttrSynDecl::Singleton(slf) => slf.path(db),
             AttrSynDecl::Task(slf) => slf.path(db),
             AttrSynDecl::Test(slf) => slf.path(db),
@@ -173,9 +173,9 @@ impl AttrSynDecl {
         match self {
             AttrSynDecl::Affect(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Backprop(slf) => slf.syn_expr_region(db),
-            AttrSynDecl::Deps(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Dep(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
-            AttrSynDecl::Projection(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Proj(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Singleton(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Task(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Test(slf) => slf.syn_expr_region(db),

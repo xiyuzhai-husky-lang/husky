@@ -11,6 +11,7 @@ smallvec.workspace = true
 relative-path = "1.7.2"
 # abstractions
 idx-arena.workspace = true
+vec-like.workspace = true
 # comptime
 husky-dev-comptime.workspace = true
 # fs
@@ -20,12 +21,13 @@ husky-hir-opr.workspace = true
 husky-hir-lazy-expr.workspace = true
 # kernel
 husky-coword.workspace = true
+husky-dec-signature.workspace = true
 husky-entity-kind.workspace = true
 husky-entity-path.workspace = true
-husky-item-path-interface.workspace = true
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
+husky-item-path-interface.workspace = true
 husky-term-prelude.workspace = true
 husky-opr.workspace = true
 # ki

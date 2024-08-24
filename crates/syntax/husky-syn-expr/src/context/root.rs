@@ -57,6 +57,7 @@ pub enum SynExprRootKind {
     Effect,
     DefaultConstExclude,
     Dep,
+    Proj,
 }
 
 #[salsa::derive_debug_with_db]

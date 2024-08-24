@@ -6,20 +6,24 @@ pub static mut __TASK__ITEM_PATH_ID_INTERFACE: Option<__ItemPathIdInterface> = N
 
 pub struct TASK;
 
-impl TASK {
-    pub fn set_up_for_testing(index: usize) {
+impl __IsStaticVar<__StaticVarId> for TASK {
+    fn item_path_id_interface() -> __ItemPathIdInterface {
         todo!()
     }
 
-    pub fn get_id() -> __StaticVarId {
-        todo!()
-    }
-
-    pub unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
-        todo!()
-    }
-
-    pub fn ids() -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
         [].into_iter()
+    }
+
+    fn get_id() -> __StaticVarId {
+        todo!()
+    }
+
+    unsafe fn try_replace_id_aux(
+        id: __StaticVarId,
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<impl FnOnce() + 'static> {
+        todo!();
+        Ok(|| todo!())
     }
 }

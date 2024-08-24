@@ -100,7 +100,7 @@ impl EthTerm {
             DecTerm::LambdaVariable(declarative_term) => {
                 EthLambdaVariable::from_dec(db, declarative_term)?.into()
             }
-            DecTerm::EntityPath(declarative_term) => match declarative_term {
+            DecTerm::ItemPath(declarative_term) => match declarative_term {
                 DecItemPath::Form(path) => ItemPathTerm::MajorForm(path).into(),
                 DecItemPath::Trait(path) => ItemPathTerm::Trait(path).into(),
                 DecItemPath::Type(path) => match ty_expectation {

@@ -35,7 +35,9 @@ impl MajorFormPath {
             })),
         ))
     }
+}
 
+impl MajorFormPath {
     pub fn data(self, db: &::salsa::Db) -> FormPathData {
         match self.0.data(db) {
             ItemPathData::MajorItem(MajorItemPathData::Form(data)) => data,
@@ -49,6 +51,10 @@ impl MajorFormPath {
 
     pub fn kind(self, db: &::salsa::Db) -> MajorFormKind {
         self.data(db).kind
+    }
+
+    pub fn is_var(self, db: &::salsa::Db) -> bool {
+        self.kind(db).is_var()
     }
 
     #[inline(never)]
