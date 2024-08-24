@@ -13,8 +13,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn with_static_vars<R>(
         &self,
         static_vars: impl Iterator<Item = (ItemPath, DevsoulAnchor<Devsoul>)>,
-        domain: KiDomainRepr,
-        f: impl Fn() -> R,
+        f: impl Fn() -> Option<R>,
     ) -> Option<Chart<DevsoulStaticVarId<Devsoul>, R>> {
         let db = self.db();
         let mut locked: SmallVecSet<ItemPathIdInterface, 2> = Default::default();
@@ -61,10 +60,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             .count();
         match number_of_generics {
             0 => self
-                .with_static_vars_aux0(Default::default(), &static_vars, domain, &f)
+                .with_static_vars_aux0(Default::default(), &static_vars, &f)
                 .map(Into::into),
             1 => self
-                .with_static_vars_aux1(Default::default(), &static_vars, domain, &f)
+                .with_static_vars_aux1(Default::default(), &static_vars, &f)
                 .map(Into::into),
             2 => {
                 todo!()
@@ -81,8 +80,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        mut domain: KiDomainRepr,
-        f: impl Fn() -> R,
+        f: impl Fn() -> Option<R>,
     ) -> Option<ChartDim0<DevsoulStaticVarId<Devsoul>, R>> {
         let db = self.db();
         for &(path, anchor, ref locked) in remaining_static_vars {
@@ -97,15 +95,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             };
             todo!()
         }
-        match self.eval_ki_domain_repr(domain) {
-            KiControlFlow::Continue(_) => (),
-            KiControlFlow::LoopContinue | KiControlFlow::LoopExit(_) | KiControlFlow::Return(_) => {
-                unreachable!()
-            }
-            KiControlFlow::Undefined => return None,
-            KiControlFlow::Throw(_) => todo!(),
-        }
-        Some((static_var_map, f()))
+        Some((static_var_map, f()?))
     }
 
     pub fn with_static_vars_aux1<R>(
@@ -116,8 +106,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        domain: KiDomainRepr,
-        f: &impl Fn() -> R,
+        f: &impl Fn() -> Option<R>,
     ) -> Option<ChartDim1<DevsoulStaticVarId<Devsoul>, R>> {
         let &[(path, anchor, ref locked), ref remaining_static_vars @ ..] = remaining_static_vars
         else {
@@ -135,7 +124,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 static_var_map.insert(((*path).into(), static_var_id));
                 linket_impl
                     .with_static_var_id(static_var_id, locked, || {
-                        self.with_static_vars_aux1(static_var_map, remaining_static_vars, domain, f)
+                        self.with_static_vars_aux1(static_var_map, remaining_static_vars, f)
                     })
                     .ok()
                     .flatten()
@@ -148,12 +137,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                         static_var_map.insert(((*path).into(), static_var_id));
                         linket_impl
                             .with_static_var_id(static_var_id, locked, || {
-                                self.with_static_vars_aux0(
-                                    static_var_map,
-                                    remaining_static_vars,
-                                    domain,
-                                    f,
-                                )
+                                self.with_static_vars_aux0(static_var_map, remaining_static_vars, f)
                             })
                             .ok()
                             .flatten()
