@@ -438,9 +438,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        1.5,
-                                    ),
+                                    value: 1.5,
                                     text: "1.5f32",
                                 },
                             ),
@@ -1241,9 +1239,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        5.5,
-                                    ),
+                                    value: 5.5,
                                     text: "5.5f32",
                                 },
                             ),
@@ -2207,9 +2203,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        3.0,
-                                    ),
+                                    value: 3.0,
                                     text: "3.0f32",
                                 },
                             ),
@@ -3894,9 +3888,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        0.4,
-                                    ),
+                                    value: 0.4,
                                     text: "0.4f32",
                                 },
                             ),

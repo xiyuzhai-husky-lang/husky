@@ -8130,9 +8130,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            1.0,
-                                                        ),
+                                                        value: 1.0,
                                                         text: "1.0f32",
                                                     },
                                                 ),
@@ -8289,9 +8287,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            1.0,
-                                                        ),
+                                                        value: 1.0,
                                                         text: "1.0f32",
                                                     },
                                                 ),
@@ -8356,9 +8352,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            0.001,
-                                                        ),
+                                                        value: 0.001,
                                                         text: "0.001f32",
                                                     },
                                                 ),
@@ -8467,9 +8461,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            180.0,
-                                                        ),
+                                                        value: 180.0,
                                                         text: "180.0f32",
                                                     },
                                                 ),
@@ -8505,9 +8497,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            180.0,
-                                                        ),
+                                                        value: 180.0,
                                                         text: "180.0f32",
                                                     },
                                                 ),
@@ -8935,9 +8925,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            180.0,
-                                                        ),
+                                                        value: 180.0,
                                                         text: "180.0f32",
                                                     },
                                                 ),
@@ -9002,9 +8990,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            3.1415925,
-                                                        ),
+                                                        value: 3.1415925,
                                                         text: "3.1415926f32",
                                                     },
                                                 ),
@@ -10007,9 +9993,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            0.0,
-                                                        ),
+                                                        value: 0.0,
                                                         text: "0.0f32",
                                                     },
                                                 ),
@@ -10228,9 +10212,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            0.0,
-                                                        ),
+                                                        value: 0.0,
                                                         text: "0.0f32",
                                                     },
                                                 ),
@@ -10644,9 +10626,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            1.0,
-                                                        ),
+                                                        value: 1.0,
                                                         text: "1.0f32",
                                                     },
                                                 ),
@@ -10803,9 +10783,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            1.0,
-                                                        ),
+                                                        value: 1.0,
                                                         text: "1.0f32",
                                                     },
                                                 ),
@@ -10870,9 +10848,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            0.001,
-                                                        ),
+                                                        value: 0.001,
                                                         text: "0.001f32",
                                                     },
                                                 ),
@@ -10981,9 +10957,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            180.0,
-                                                        ),
+                                                        value: 180.0,
                                                         text: "180.0f32",
                                                     },
                                                 ),
@@ -11019,9 +10993,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            180.0,
-                                                        ),
+                                                        value: 180.0,
                                                         text: "180.0f32",
                                                     },
                                                 ),
@@ -11491,9 +11463,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            180.0,
-                                                        ),
+                                                        value: 180.0,
                                                         text: "180.0f32",
                                                     },
                                                 ),
@@ -11558,9 +11528,7 @@
                                             data: HirEagerExprData::Literal(
                                                 Literal::F32(
                                                     F32Literal {
-                                                        value: OrderedFloat(
-                                                            3.1415925,
-                                                        ),
+                                                        value: 3.1415925,
                                                         text: "3.1415926f32",
                                                     },
                                                 ),
