@@ -1882,9 +1882,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        1.8,
-                                    ),
+                                    value: 1.8,
                                     text: "1.8f32",
                                 },
                             ),
@@ -2066,9 +2064,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        2.5,
-                                    ),
+                                    value: 2.5,
                                     text: "2.5f32",
                                 },
                             ),
@@ -2211,9 +2207,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        30.0,
-                                    ),
+                                    value: 30.0,
                                     text: "30.0f32",
                                 },
                             ),
@@ -3475,9 +3469,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        0.7,
-                                    ),
+                                    value: 0.7,
                                     text: "0.7f32",
                                 },
                             ),
@@ -3988,9 +3980,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        1.8,
-                                    ),
+                                    value: 1.8,
                                     text: "1.8f32",
                                 },
                             ),
@@ -4152,9 +4142,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        1.8,
-                                    ),
+                                    value: 1.8,
                                     text: "1.8f32",
                                 },
                             ),
@@ -4581,9 +4569,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        0.75,
-                                    ),
+                                    value: 0.75,
                                     text: "0.75f32",
                                 },
                             ),
@@ -5200,9 +5186,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        0.75,
-                                    ),
+                                    value: 0.75,
                                     text: "0.75f32",
                                 },
                             ),
@@ -5332,9 +5316,7 @@
                         opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
-                                    value: OrderedFloat(
-                                        15.0,
-                                    ),
+                                    value: 15.0,
                                     text: "15.0f32",
                                 },
                             ),
