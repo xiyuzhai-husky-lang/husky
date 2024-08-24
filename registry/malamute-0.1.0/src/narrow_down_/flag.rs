@@ -34,7 +34,8 @@ where
                     stalks.push(stalk)
                 }
                 Ok(())
-            })?
+            })
+            .unwrap()?
         }
         Ok(Self { stalks, label0 })
     }

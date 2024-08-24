@@ -19,7 +19,11 @@ impl __IsStaticVar<__StaticVarId> for TASK {
         todo!()
     }
 
-    unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
-        todo!()
+    unsafe fn try_replace_id_aux(
+        id: __StaticVarId,
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<impl FnOnce() + 'static> {
+        todo!();
+        Ok(|| todo!())
     }
 }

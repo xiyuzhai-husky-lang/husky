@@ -1,8 +1,8 @@
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
 use husky_linket::linket::{Linket, LinketData};
-use husky_linket_impl::pedestal::IsPedestal;
 use husky_linket_impl::{eval_context::DevEvalContext, linket_impl::IsLinketImpl};
+use husky_linket_impl::{linket_impl::LinketImplStaticVarResult, pedestal::IsPedestal};
 use husky_linket_impl::{
     linket_impl::{LinketImplKiControlFlow, VmArgumentValue},
     LinketImplVmControlFlow,
@@ -131,11 +131,27 @@ impl IsLinketImpl for VirtualLinketImpl {
         todo!()
     }
 
-    fn get_static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
+    fn init_item_path_id_interface(self, item_path_id_interface: ItemPathIdInterface) {
+        ()
+    }
+
+    fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
         todo!()
     }
 
-    fn init_item_path_id_interface(self, item_path_id_interface: ItemPathIdInterface) {
-        ()
+    fn with_static_var_id<R>(
+        self,
+        static_var_id: <Self::Pedestal as IsPedestal>::StaticVarId,
+        locked: &[ItemPathIdInterface],
+        f: impl FnOnce() -> R,
+    ) -> LinketImplStaticVarResult<Self, R> {
+        todo!()
+    }
+
+    fn all_static_var_ids<'a>(
+        self,
+        locked: &'a [ItemPathIdInterface],
+    ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::StaticVarId> + 'a> {
+        todo!()
     }
 }

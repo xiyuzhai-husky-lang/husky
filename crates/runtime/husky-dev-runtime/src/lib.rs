@@ -118,7 +118,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         };
         let linket = Linket::new_static_var(path, db);
         let linket_impl = self.comptime.linket_impl(linket);
-        linket_impl.get_static_var_id()
+        linket_impl.static_var_id()
     }
 }
 
@@ -266,7 +266,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
                             MajorFormKind::StaticVar => {
                                 let linket = Linket::new_static_var(var_dep_major_form_path, db);
                                 let linket_impl = self.comptime.linket_impl(linket);
-                                let static_var_id = linket_impl.get_static_var_id();
+                                let static_var_id = linket_impl.static_var_id();
                                 ((*var_dep_item_path).into(), static_var_id)
                             }
                             MajorFormKind::Compterm => todo!(),

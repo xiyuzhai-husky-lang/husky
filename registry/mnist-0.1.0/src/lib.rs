@@ -129,8 +129,14 @@ impl __IsStaticVar<__StaticVarId> for INPUT {
         input_id().index().into()
     }
 
-    unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
-        replace_input_id(id.into()).map(Into::into)
+    unsafe fn try_replace_id_aux(
+        id: __StaticVarId,
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<impl FnOnce() + 'static> {
+        let old = replace_input_id(id.into());
+        Ok(move || {
+            old.map(replace_input_id);
+        })
     }
 
     fn ids(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
@@ -162,7 +168,10 @@ impl __IsStaticVar<__StaticVarId> for TASK {
         todo!()
     }
 
-    unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
+    unsafe fn try_replace_id_aux(
+        id: __StaticVarId,
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<Box<dyn FnOnce()>> {
         todo!()
     }
 }

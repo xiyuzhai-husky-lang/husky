@@ -4650,14 +4650,17 @@ dependencies = [
  "salsa",
  "smallvec",
  "ui",
+ "vec-like",
 ]
 
 [[package]]
 name = "husky-devsoul-interface"
 version = "0.1.0"
 dependencies = [
+ "enum-class",
  "husky-decl-macro-utils",
  "husky-devsoul-interface-macros",
+ "husky-item-path-interface",
  "husky-linket-impl",
  "husky-value-interface",
  "husky-value-protocol",
@@ -4667,6 +4670,7 @@ dependencies = [
  "serde-impl",
  "shifted-unsigned-int",
  "smallvec",
+ "vec-like",
 ]
 
 [[package]]

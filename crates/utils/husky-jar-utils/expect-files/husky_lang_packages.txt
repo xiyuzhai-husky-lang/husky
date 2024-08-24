@@ -2165,14 +2165,17 @@
             "salsa",
             "smallvec",
             "ui",
+            "vec-like",
         ],
     },
     PackageSummary {
         name: "husky-devsoul-interface",
         relative_path: "crates/devsoul/husky-devsoul-interface",
         dependencies: [
+            "enum-class",
             "husky-decl-macro-utils",
             "husky-devsoul-interface-macros",
+            "husky-item-path-interface",
             "husky-linket-impl",
             "husky-value-interface",
             "husky-value-protocol",
@@ -2182,6 +2185,7 @@
             "serde-impl",
             "shifted-unsigned-int",
             "smallvec",
+            "vec-like",
         ],
     },
     PackageSummary {

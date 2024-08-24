@@ -67,7 +67,10 @@ macro_rules! static_var_linket_impl {
                 $item_path_id_interface = Some(item_path_id_interface)
             },
             get_id: <$static_var as __IsStaticVar<__StaticVarId>>::get_id,
-            replace_id: <$static_var as __IsStaticVar<__StaticVarId>>::replace_id,
+            try_replace_id: |id, locked| unsafe {
+                <$static_var as __IsStaticVar<__StaticVarId>>::try_replace_id(id, locked)
+                    .map(|restore| -> Box<dyn FnOnce()> { Box::new(restore) })
+            },
             ids: |locked| Box::new(<$static_var as __IsStaticVar<__StaticVarId>>::ids(locked)),
         }
     };
@@ -95,8 +98,12 @@ fn static_var_linket_impl_works() {
             todo!()
         }
 
-        unsafe fn replace_id(id: __StaticVarId) -> Option<__StaticVarId> {
-            todo!()
+        unsafe fn try_replace_id_aux(
+            id: __StaticVarId,
+            locked: &[ItemPathIdInterface],
+        ) -> __StaticVarResult<impl FnOnce() + 'static> {
+            todo!();
+            Ok(|| todo!())
         }
     }
 
@@ -111,7 +118,7 @@ fn static_var_linket_impl_works() {
     let LinketImpl::StaticVar {
         init_item_path_id_interface,
         get_id,
-        replace_id,
+        try_replace_id,
         ids,
     } = static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
     else {
