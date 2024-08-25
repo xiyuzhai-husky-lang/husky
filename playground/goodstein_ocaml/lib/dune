@@ -1,5 +1,0 @@
-(library
- (name goodstein_ocaml)
- (inline_tests)
- (preprocess
-  (pps ppx_deriving.std ppx_inline_test)))
