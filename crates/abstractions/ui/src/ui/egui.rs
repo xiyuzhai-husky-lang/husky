@@ -5,6 +5,7 @@ use ::egui::{
 
 impl IsUi for ::egui::Ui {
     type TextureHandle = TextureHandle;
+    type HotkeyBuffer = crate::hotkey::egui::HotkeyBuffer;
 
     fn load_texture(
         &self,
