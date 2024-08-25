@@ -124,6 +124,7 @@ pub type HotkeyPatternParseResult<T> = Result<T, HotkeyPatternParseError>;
 
 impl HotkeyBuffer {
     fn reset(&mut self) {
+        self.number = None;
         self.fragments = Default::default()
     }
 }
@@ -137,8 +138,13 @@ impl HotkeyBuffer {
     }
 
     fn absorb_events(&mut self, events: &[Event]) {
-        if let Some(fragment) = HotkeyFragment::from_events(events, self.intercept_for_text_edit) {
-            self.absorb_fragment(fragment)
+        match HotkeyFragment::from_events(events, self.intercept_for_text_edit) {
+            Ok(fragment) => self.absorb_fragment(fragment),
+            Err(reset) => {
+                if reset {
+                    self.reset()
+                }
+            }
         }
     }
 
@@ -199,18 +205,22 @@ fn number_str_from_key(key: Key) -> Option<usize> {
 }
 
 impl HotkeyFragment {
-    fn from_events(events: &[Event], intercept_for_text_edit: bool) -> Option<Self> {
+    /// returns whether to reset or not if not a valid fragment
+    fn from_events(events: &[Event], intercept_for_text_edit: bool) -> Result<Self, bool> {
         let mut slf: Option<Self> = None;
         let mut text: Option<String> = None;
         for event in events {
             match *event {
                 Event::Text(ref text1) => {
                     if intercept_for_text_edit {
-                        return None;
+                        return Err(false);
                     }
                     assert!(text.is_none());
                     text = Some(text1.clone());
                 }
+                Event::Key {
+                    key: Key::Escape, ..
+                } => Err(true)?,
                 Event::Key {
                     key,
                     pressed: true,
@@ -231,9 +241,9 @@ impl HotkeyFragment {
             let mut slf = slf.unwrap();
             assert!(slf.text.is_none());
             slf.text = Some(text);
-            return Some(slf);
+            return Ok(slf);
         }
-        slf
+        slf.ok_or(false)
     }
 }
 
@@ -396,6 +406,104 @@ fn hotkey_buffer_works() {
             ],
         ],
         Some((Some(1), &Return)),
+        false,
+        &hotkey_map,
+    );
+    t(
+        &[
+            &[
+                Event::Text("1".to_string()),
+                Event::Key {
+                    key: Key::Num1,
+                    physical_key: None,
+                    pressed: true,
+                    repeat: false,
+                    modifiers: Modifiers::NONE,
+                },
+            ],
+            &[
+                Event::Text("F".to_string()),
+                Event::Key {
+                    key: Key::F,
+                    physical_key: None,
+                    pressed: true,
+                    repeat: false,
+                    modifiers: Modifiers::ALT,
+                },
+            ],
+            &[Event::Key {
+                key: Key::Escape,
+                physical_key: None,
+                pressed: true,
+                repeat: false,
+                modifiers: Modifiers::ALT,
+            }],
+            &[
+                Event::Text("R".to_string()),
+                Event::Key {
+                    key: Key::R,
+                    physical_key: None,
+                    pressed: true,
+                    repeat: false,
+                    modifiers: Modifiers::NONE,
+                },
+            ],
+        ],
+        None,
+        false,
+        &hotkey_map,
+    );
+    t(
+        &[
+            &[
+                Event::Text("1".to_string()),
+                Event::Key {
+                    key: Key::Num1,
+                    physical_key: None,
+                    pressed: true,
+                    repeat: false,
+                    modifiers: Modifiers::NONE,
+                },
+            ],
+            &[
+                Event::Text("F".to_string()),
+                Event::Key {
+                    key: Key::F,
+                    physical_key: None,
+                    pressed: true,
+                    repeat: false,
+                    modifiers: Modifiers::ALT,
+                },
+            ],
+            &[Event::Key {
+                key: Key::Escape,
+                physical_key: None,
+                pressed: true,
+                repeat: false,
+                modifiers: Modifiers::ALT,
+            }],
+            &[
+                Event::Text("F".to_string()),
+                Event::Key {
+                    key: Key::F,
+                    physical_key: None,
+                    pressed: true,
+                    repeat: false,
+                    modifiers: Modifiers::ALT,
+                },
+            ],
+            &[
+                Event::Text("R".to_string()),
+                Event::Key {
+                    key: Key::R,
+                    physical_key: None,
+                    pressed: true,
+                    repeat: false,
+                    modifiers: Modifiers::NONE,
+                },
+            ],
+        ],
+        Some((None, &Return)),
         false,
         &hotkey_map,
     );
