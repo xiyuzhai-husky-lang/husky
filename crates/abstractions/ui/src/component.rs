@@ -1,7 +1,7 @@
 use crate::ui::IsUi;
 
 pub trait IsUiComponent<Ui: IsUi, Settings, ParentActionBuffer> {
-    fn render_dyn(
+    fn render(
         &mut self,
         settings: &mut Settings,
         hotkey_buffer: &mut Ui::HotkeyBuffer,
@@ -22,8 +22,7 @@ impl<Ui: IsUi, Settings, ParentActionBuffer> UiComponent<Ui, Settings, ParentAct
         action_buffer: &mut ParentActionBuffer,
         ui: &mut Ui,
     ) {
-        self.0
-            .render_dyn(settings, hotkey_buffer, action_buffer, ui)
+        self.0.render(settings, hotkey_buffer, action_buffer, ui)
     }
 }
 

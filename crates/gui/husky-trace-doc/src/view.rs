@@ -56,11 +56,17 @@ where
             action_buffer,
             settings,
             glyph_width,
-            caryatid_ui_buffer: caryatid_ui_buffer,
+            caryatid_ui_buffer,
             figure_ui_cache,
         }
     }
+}
 
+impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
+where
+    TraceProtocol: IsTraceProtocol,
+    Settings: HasTraceDocSettings,
+{
     fn add_action(&mut self, action: TraceViewAction<TraceProtocol>)
     where
         TraceProtocol: IsTraceProtocol,

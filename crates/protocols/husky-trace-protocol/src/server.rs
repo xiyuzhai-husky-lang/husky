@@ -186,7 +186,6 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 self.trace_synchrotron_mut()
                     .take_action(TraceSynchrotronToggleExpansion::new(trace_id))
             }
-            TraceViewAction::Marker { _marker } => todo!(),
             TraceViewAction::ToggleAssocTrace {
                 trace_id,
                 assoc_trace_id,

@@ -34,7 +34,6 @@ members = [
     "library/core",
     "registry/*",
     "playground/learn-rusqlite",
-    "playground/goodstein-rs",
     "playground/egui/*",
 ]
 resolver = "2"

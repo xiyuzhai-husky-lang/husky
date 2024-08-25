@@ -37,6 +37,13 @@ impl IsCaryatid for StandardCaryatid {
     fn init_ui_buffer(&self) -> Self::UiBuffer {
         StandardCaryatidUiBuffer {}
     }
+
+    fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self {
+        let mut slf = self.clone();
+        slf.anchors
+            .extend(var_deps.iter().map(|&var_dep| (var_dep, None)));
+        slf
+    }
 }
 
 impl StandardCaryatid {

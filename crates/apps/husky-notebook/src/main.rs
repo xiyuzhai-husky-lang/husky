@@ -60,6 +60,7 @@ impl eframe::App for NotebookApp {
             self.init(ctx);
             self.init_done = true;
         }
+        self.hotkey_buffer.start_frame(ctx);
         self.render_panels(ctx)
     }
 }
