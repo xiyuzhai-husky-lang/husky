@@ -7,10 +7,21 @@ edition = "2021"
 smallvec.workspace = true
 egui = { workspace = true, optional = true }
 rustc-hash = { workspace = true, optional = true }
+thiserror.workspace = true
 # abstractions
 enum-class = { workspace = true, optional = true }
 # protocols
 husky-visual-protocol = { workspace = true }
 
+[dev-dependencies]
+expect-test.workspace = true
+# abstractions
+ui = { path = ".", features = ["egui"] }
+
 [features]
-egui = ["dep:egui", "dep:rustc-hash", "dep:enum-class", "husky-visual-protocol/egui"]
+egui = [
+    "dep:egui",
+    "dep:rustc-hash",
+    "dep:enum-class",
+    "husky-visual-protocol/egui"
+]

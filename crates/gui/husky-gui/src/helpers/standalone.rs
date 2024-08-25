@@ -1,8 +1,8 @@
-use ui::component::IsUiComponent;
+use ui::{component::IsUiComponent, hotkey::egui::HotkeyBuffer};
 
 pub fn run_standalone_ui_component<UiComponent, UiComponentConfig, UiActionBuffer>(
     component: UiComponent,
-    config: UiComponentConfig,
+    settings: UiComponentConfig,
     action_buffer: UiActionBuffer,
 ) -> Result<(), eframe::Error>
 where
@@ -20,7 +20,8 @@ where
         Box::new(|_cc| {
             Ok(Box::new(StandaloneUiApp {
                 component,
-                settings: config,
+                hotkey_buffer: Default::default(),
+                settings,
                 action_buffer,
             }))
         }),
@@ -30,6 +31,7 @@ where
 struct StandaloneUiApp<UiComponent, UiComponentSettings, UiActionBuffer> {
     component: UiComponent,
     settings: UiComponentSettings,
+    hotkey_buffer: HotkeyBuffer,
     action_buffer: UiActionBuffer,
 }
 
@@ -40,8 +42,12 @@ where
 {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            self.component
-                .render_dyn(ui, &mut self.settings, &mut self.action_buffer)
+            self.component.render_dyn(
+                &mut self.settings,
+                &mut self.hotkey_buffer,
+                &mut self.action_buffer,
+                ui,
+            )
         });
     }
 }

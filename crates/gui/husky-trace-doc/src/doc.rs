@@ -13,7 +13,7 @@ use husky_trace_protocol::{
     view::action::TraceViewActionBuffer,
 };
 use notify_change::NotifyChange;
-use ui::component::IsUiComponent;
+use ui::{component::IsUiComponent, hotkey::egui::HotkeyBuffer};
 
 /// storage, state
 pub struct TraceDoc<TraceProtocol, RepaintSignal>
@@ -40,9 +40,10 @@ where
 {
     fn render_dyn(
         &mut self,
-        ui: &mut egui::Ui,
         settings: &mut Settings,
-        _action_buffer: &mut UiActionBuffer,
+        hotkey_buffer: &mut HotkeyBuffer,
+        action_buffer: &mut UiActionBuffer,
+        ui: &mut egui::Ui,
     ) {
         self.trace_client.update(&mut self.caryatid_ui_buffer);
         self.render(ui, settings);
