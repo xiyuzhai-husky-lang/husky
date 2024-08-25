@@ -35,6 +35,7 @@ members = [
     "registry/*",
     "playground/learn-rusqlite",
     "playground/goodstein-rs",
+    "playground/egui/*",
 ]
 resolver = "2"
 
@@ -102,6 +103,7 @@ egui = { version = "0.28.1", features = ["callstack", "document-features"] }
 either = "1.13.0"
 elsa = "=1.10.0"
 ena = "0.14.2"
+env_logger = "0.10"
 env_proxy = "0.4"
 epaint = "0.28.1"
 expect-test = "1.4.1"
