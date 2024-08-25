@@ -392,6 +392,8 @@
             "husky-visual-protocol",
             "rustc-hash",
             "smallvec",
+            "thiserror",
+            "expect-test",
         ],
     },
     PackageSummary {
@@ -4057,8 +4059,13 @@
         ],
     },
     PackageSummary {
-        name: "goodstein-rs",
-        relative_path: "playground/goodstein-rs",
-        dependencies: [],
+        name: "use-keyboard-events",
+        relative_path: "playground/egui/use-keyboard-events",
+        dependencies: [
+            "eframe",
+            "env_logger",
+            "husky-print-utils",
+            "ui",
+        ],
     },
 ]

@@ -1,6 +1,7 @@
 use crate::{view::TraceDocView, *};
 #[cfg(feature = "egui")]
 use egui::*;
+use hotkey::TraceDocHotkeyAction;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 
 use std::{path::PathBuf, sync::Arc};
@@ -13,7 +14,10 @@ use husky_trace_protocol::{
     view::action::TraceViewActionBuffer,
 };
 use notify_change::NotifyChange;
-use ui::component::IsUiComponent;
+use ui::{
+    component::IsUiComponent,
+    hotkey::egui::{HotkeyBuffer, HotkeyMap},
+};
 
 /// storage, state
 pub struct TraceDoc<TraceProtocol, RepaintSignal>
@@ -23,30 +27,42 @@ where
 {
     current_dir: PathBuf,
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
-    action_buffer: TraceViewActionBuffer<TraceProtocol>,
+    view_action_buffer: TraceViewActionBuffer<TraceProtocol>,
     figure_ui_cache: FigureUiCache<egui::Ui>,
     // set after client is initialized
     caryatid_ui_buffer: Option<<TraceProtocol::Caryatid as IsCaryatid>::UiBuffer>,
+    hotkey_map: HotkeyMap<TraceDocHotkeyAction>,
 }
 
 #[cfg(feature = "egui")]
-impl<TraceProtocol, Settings, UiActionBuffer> IsUiComponent<egui::Ui, Settings, UiActionBuffer>
+impl<TraceProtocol, ParentSettings, ParentActionBuffer>
+    IsUiComponent<egui::Ui, ParentSettings, ParentActionBuffer>
     for TraceDoc<TraceProtocol, EguiRepaintSignal>
 where
     TraceProtocol: IsTraceProtocolFull,
     TraceProtocol::Figure: FigureUi<egui::Ui>,
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
-    Settings: HasTraceDocSettings,
+    ParentSettings: HasTraceDocSettings,
 {
-    fn render_dyn(
+    fn render(
         &mut self,
+        parent_settings: &mut ParentSettings,
+        hotkey_buffer: &mut HotkeyBuffer,
+        parent_action_buffer: &mut ParentActionBuffer,
         ui: &mut egui::Ui,
-        settings: &mut Settings,
-        _action_buffer: &mut UiActionBuffer,
     ) {
         self.trace_client.update(&mut self.caryatid_ui_buffer);
-        self.render(ui, settings);
-        let actions = self.action_buffer.take_actions();
+        if let Some((number, hotkey_action)) = hotkey_buffer.extract(&self.hotkey_map) {
+            if let Some(view_action) =
+                hotkey_action.view_action(number, self.trace_client.opt_trace_synchrotron())
+            {
+                self.view_action_buffer.push(view_action)
+            } else {
+                // todo: report invalid hotkey press
+            }
+        }
+        self.render_inner(ui, parent_settings);
+        let actions = self.view_action_buffer.take_actions();
         if actions.len() > 1 {
             use husky_print_utils::p;
             p!(actions);
@@ -68,7 +84,7 @@ where
     TraceProtocol::Figure: FigureUi<egui::Ui>,
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
 {
-    fn render<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
+    fn render_inner<Settings>(&mut self, ui: &mut Ui, settings: &mut Settings)
     where
         Settings: HasTraceDocSettings,
     {
@@ -80,7 +96,7 @@ where
             TraceDocView::new(
                 &self.current_dir,
                 trace_synchrotron,
-                &mut self.action_buffer,
+                &mut self.view_action_buffer,
                 settings,
                 &mut self.figure_ui_cache,
                 self.caryatid_ui_buffer.as_mut().unwrap(),
@@ -102,9 +118,14 @@ impl<TraceProtocol: IsTraceProtocolFull> TraceDoc<TraceProtocol, EguiRepaintSign
         Self {
             current_dir: std::env::current_dir().unwrap(),
             trace_client: TraceClient::new_mock(tokio_runtime, repaint_signal),
-            action_buffer: Default::default(),
+            view_action_buffer: Default::default(),
             figure_ui_cache: Default::default(),
             caryatid_ui_buffer: Default::default(),
+            hotkey_map: HotkeyMap::new([(
+                "Alt+F",
+                TraceDocHotkeyAction::FillCaryatidWithTraceVarDeps,
+            )])
+            .unwrap(),
         }
     }
 }

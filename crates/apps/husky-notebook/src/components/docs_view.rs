@@ -1,6 +1,6 @@
-use egui::{vec2, Color32};
-
 use super::*;
+use egui::{vec2, Color32};
+use ui::hotkey::egui::HotkeyBuffer;
 
 impl NotebookApp {
     pub(crate) fn render_docs_view(&mut self, ui: &mut egui::Ui) {
@@ -17,8 +17,9 @@ impl NotebookApp {
                 ui,
                 &mut DocsView {
                     docs: &mut self.docs,
-                    action_buffer: &mut self.action_buffer,
                     settings: &mut self.settings,
+                    hotkey_buffer: &mut self.hotkey_buffer,
+                    action_buffer: &mut self.action_buffer,
                 },
             )
     }
@@ -26,8 +27,9 @@ impl NotebookApp {
 
 struct DocsView<'a> {
     docs: &'a mut Docs,
-    action_buffer: &'a mut NotebookActionBuffer,
     settings: &'a mut NotebookSettings,
+    hotkey_buffer: &'a mut HotkeyBuffer,
+    action_buffer: &'a mut NotebookActionBuffer,
 }
 
 impl<'a> egui_dock::TabViewer for DocsView<'a> {
@@ -35,9 +37,12 @@ impl<'a> egui_dock::TabViewer for DocsView<'a> {
 
     fn ui(&mut self, ui: &mut egui::Ui, tab: &mut Self::Tab) {
         ui.style_mut().spacing.item_spacing = vec2(0.0, 0.0);
-        self.docs
-            .component_mut(tab.id())
-            .ui(ui, self.settings, self.action_buffer);
+        self.docs.component_mut(tab.id()).ui(
+            self.settings,
+            self.hotkey_buffer,
+            self.action_buffer,
+            ui,
+        );
     }
 
     fn title(&mut self, tab: &mut Self::Tab) -> egui::WidgetText {

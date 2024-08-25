@@ -34,7 +34,7 @@ members = [
     "library/core",
     "registry/*",
     "playground/learn-rusqlite",
-    "playground/goodstein-rs",
+    "playground/egui/*",
 ]
 resolver = "2"
 
@@ -72,7 +72,7 @@ atomic_enum = "0.3.0"
 axum = { version = "0.7.4" }
 bit-set = "0.8.0"
 bitflags = "2.6.0"
-cargo = "0.78"
+cargo = "0.81.0"
 cargo-manifest = "0.15.1"
 chinese-number = { version = "0.7.2", default-features = false, features = [
     "number-to-chinese"
@@ -95,15 +95,21 @@ ctrlc = "3.4.1"
 csv = "1"
 dashmap = "6.0.1"
 dirs = "5.0.1"
-ecolor = { version = "0.28.1", features = ["serde", "bytemuck"] }
+ecolor = { git = "https://github.com/xiyuzhai-husky-lang/egui.git", features = [
+    "serde",
+    "bytemuck"
+] }
 ecow = { version = "0.2", features = ["serde"] }
-eframe = "0.28.1"
-egui = { version = "0.28.1", features = ["callstack", "document-features"] }
+eframe = { git = "https://github.com/xiyuzhai-husky-lang/egui.git" }
+egui = { git = "https://github.com/xiyuzhai-husky-lang/egui.git", features = [
+    "callstack",
+] }
 either = "1.13.0"
 elsa = "=1.10.0"
 ena = "0.14.2"
+env_logger = "0.10"
 env_proxy = "0.4"
-epaint = "0.28.1"
+epaint = { git = "https://github.com/xiyuzhai-husky-lang/egui.git" }
 expect-test = "1.4.1"
 futures = "0.3.28"
 futures-util = { version = "0.3", default-features = false, features = [
@@ -111,7 +117,7 @@ futures-util = { version = "0.3", default-features = false, features = [
     "std"
 ] }
 fxhash = "0.2.1"
-git2 = "0.18.2"
+git2 = "0.18.3"
 hashlink = "0.9.0"
 heck = "0.5"
 image = "0.25.0"
@@ -145,10 +151,10 @@ relative-path = "1.7.2"
 # That said, it's not ideal for all scenarios and in particular, generic
 # libraries built around `rusqlite` should probably not enable it, which
 # is why it is not a default feature -- it could become hard to disable.
-rusqlite = { version = "0.30.0", features = ["bundled"] }
+rusqlite = { version = "0.31.0", features = ["bundled"] }
 rust-optimal-transport = { version = "0.2", features = ["blas"] }
 rustc_apfloat = "0.2.0"
-rustc-hash = "1.1.0"
+rustc-hash = "2.0.0"
 rustc-rayon = { version = "0.5.0" }
 rustc-rayon-core = { version = "0.5.0" }
 rustc_version = "0.4"

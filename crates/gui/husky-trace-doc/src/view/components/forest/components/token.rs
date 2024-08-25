@@ -1,3 +1,5 @@
+use egui::CursorIcon;
+
 use super::*;
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
@@ -22,7 +24,8 @@ where
             RichText::new(token_data.text())
                 .family(FontFamily::Monospace)
                 .color(token_foreground_colors[token_data.token_class()]),
-        );
+        )
+        .selectable(false);
         if token_data.assoc_trace_id().is_some() {
             label = label.sense(Sense::click());
         }

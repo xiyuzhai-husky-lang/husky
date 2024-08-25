@@ -1,0 +1,27 @@
+[package]
+name = "use-keyboard-events"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+eframe = { workspace = true, features = [
+    "default",
+    "__screenshot", # __screenshot is so we can dump a screenshot using EFRAME_SCREENSHOT_TO
+
+] }
+env_logger = { workspace = true, features = ["auto-color", "humantime"] }
+# abstractions
+ui = { workspace = true, features = ["egui"] }
+# utils
+husky-print-utils.workspace = true
+
+[lints]
+workspace = true
