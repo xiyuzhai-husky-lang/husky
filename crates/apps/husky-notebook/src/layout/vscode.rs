@@ -11,16 +11,11 @@ impl NotebookApp {
     }
 
     fn render_middle_ground(&mut self, ctx: &egui::Context) {
-        egui::SidePanel::left("activity_bar")
-            .resizable(false)
-            .frame(self.settings.activity_bar_frame())
-            .show(ctx, |ui| self.render_activity_bar(ctx, ui));
-
-        egui::SidePanel::left("activity_view")
+        egui::SidePanel::left("explorer")
             .resizable(false)
             .frame(self.explorer_frame())
-            .show(ctx, |ui| self.render_activity_view(ctx, ui));
-        egui::SidePanel::right("figure_view")
+            .show(ctx, |ui| self.render_explorer(ctx, ui));
+        egui::SidePanel::right("middle_right_ground")
             .resizable(false)
             .show(ctx, |ui| self.render_middle_right_ground(ctx, ui));
         egui::CentralPanel::default()
