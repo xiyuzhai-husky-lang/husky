@@ -10,13 +10,19 @@ pub struct HotkeyBuffer {
     fragments: Vec<HotkeyFragment>,
 }
 
-impl IsHotkeyBuffer for HotkeyBuffer {}
-
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct HotkeyFragment {
     key: Key,
     modifiers: Modifiers,
     text: Option<String>,
+}
+
+impl IsHotkeyBuffer for HotkeyBuffer {}
+
+impl HotkeyBuffer {
+    pub fn intercept_for_text_edit(&self) -> bool {
+        self.intercept_for_text_edit
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -126,6 +132,11 @@ impl HotkeyBuffer {
     fn reset(&mut self) {
         self.number = None;
         self.fragments = Default::default()
+    }
+
+    pub fn set_intercept_for_text_edit(&mut self) {
+        assert!(!self.intercept_for_text_edit);
+        self.intercept_for_text_edit = true
     }
 }
 
