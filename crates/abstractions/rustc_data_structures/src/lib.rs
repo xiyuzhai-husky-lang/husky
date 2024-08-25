@@ -65,7 +65,7 @@ pub mod graph;
 pub mod intern;
 pub mod jobserver;
 pub mod macros;
-pub mod obligation_forest;
+// pub mod obligation_forest;
 pub mod sip128;
 pub mod small_c_str;
 pub mod snapshot_map;
