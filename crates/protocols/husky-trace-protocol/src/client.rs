@@ -73,15 +73,16 @@ where
             TraceResponse::TakeTraceSynchrotronActionsDiff {
                 trace_synchrotron_actions_diff,
             } => {
+                use crate::caryatid::IsCaryatidUiBuffer;
+
                 let Some(ref mut trace_synchrotron) = self.trace_synchrotron else {
                     unreachable!()
                 };
                 trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff);
-                // caryatid_ui_buffer
-                //     .as_mut()
-                //     .unwrap()
-                //     .update(trace_synchrotron.pedestal());
-                todo!()
+                caryatid_ui_buffer
+                    .as_mut()
+                    .unwrap()
+                    .update(trace_synchrotron.caryatid());
             }
             TraceResponse::Err(e) => panic!("{e}"),
         }
@@ -155,7 +156,6 @@ where
                 }
                 Some(TraceSynchrotronToggleExpansion::new(trace_id).into())
             }
-            TraceViewAction::Marker { _marker } => todo!(),
             TraceViewAction::ToggleAssocTrace {
                 trace_id,
                 assoc_trace_id,

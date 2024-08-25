@@ -1,11 +1,12 @@
 use crate::ui::IsUi;
 
 pub trait IsUiComponent<Ui: IsUi, Settings, ParentActionBuffer> {
-    fn render_dyn(
+    fn render(
         &mut self,
-        ui: &mut Ui,
         settings: &mut Settings,
+        hotkey_buffer: &mut Ui::HotkeyBuffer,
         action_buffer: &mut ParentActionBuffer,
+        ui: &mut Ui,
     );
 }
 
@@ -16,11 +17,12 @@ pub struct UiComponent<Ui: IsUi, Settings, ParentActionBuffer>(
 impl<Ui: IsUi, Settings, ParentActionBuffer> UiComponent<Ui, Settings, ParentActionBuffer> {
     pub fn ui(
         &mut self,
-        ui: &mut Ui,
         settings: &mut Settings,
+        hotkey_buffer: &mut Ui::HotkeyBuffer,
         action_buffer: &mut ParentActionBuffer,
+        ui: &mut Ui,
     ) {
-        self.0.render_dyn(ui, settings, action_buffer)
+        self.0.render(settings, hotkey_buffer, action_buffer, ui)
     }
 }
 

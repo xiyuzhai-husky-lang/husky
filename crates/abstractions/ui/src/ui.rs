@@ -1,9 +1,11 @@
+use crate::hotkey::IsHotkeyBuffer;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::image::ImageVisual};
 
 #[cfg(feature = "egui")]
 pub mod egui;
 
 pub trait IsUi: Sized {
+    type HotkeyBuffer: IsHotkeyBuffer;
     type TextureHandle: IsTextureHandle;
     fn load_texture(
         &self,
