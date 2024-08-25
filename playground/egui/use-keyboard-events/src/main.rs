@@ -20,6 +20,7 @@ pub enum Action {
     Jump,
     Run,
     Sit,
+    Alt8,
 }
 
 struct Content {
@@ -36,7 +37,8 @@ impl Default for Content {
 
         Self {
             hotkey_buffer: Default::default(),
-            hotkey_map: HotkeyMap::new([("R", Run), ("S", Sit), ("J", Jump)]).unwrap(),
+            hotkey_map: HotkeyMap::new([("R", Run), ("S", Sit), ("J", Jump), ("Alt+8", Alt8)])
+                .unwrap(),
             text1: Default::default(),
             text2: Default::default(),
             last_action: None,
