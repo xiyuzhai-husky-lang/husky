@@ -1,4 +1,0 @@
-(executable
- (public_name cybertron_ocaml)
- (name main)
- (libraries cybertron_ocaml))
