@@ -156,7 +156,6 @@ where
                 }
                 Some(TraceSynchrotronToggleExpansion::new(trace_id).into())
             }
-            TraceViewAction::Marker { _marker } => todo!(),
             TraceViewAction::ToggleAssocTrace {
                 trace_id,
                 assoc_trace_id,

@@ -142,7 +142,11 @@ impl HotkeyBuffer {
 
 impl HotkeyBuffer {
     /// should be invoked before rendering a frame
-    pub fn start_frame(&mut self, events: &[Event]) {
+    pub fn start_frame(&mut self, ctx: &::egui::Context) {
+        ctx.input(|i| self.start_frame_aux(&i.events));
+    }
+
+    fn start_frame_aux(&mut self, events: &[Event]) {
         self.absorb_events(events);
         // reset interception
         self.intercept_for_text_edit = false;
@@ -307,7 +311,7 @@ fn hotkey_buffer_works() {
         let mut buffer = HotkeyBuffer::default();
         for (i, events) in events_sequence.iter().enumerate() {
             buffer.intercept_for_text_edit = intercept_for_text_edit;
-            buffer.start_frame(events);
+            buffer.start_frame_aux(events);
             let extract = buffer.extract(hotkey_map);
             assert_eq!(
                 extract,

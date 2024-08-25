@@ -10,9 +10,6 @@ pub enum TraceViewAction<TraceProtocol: IsTraceProtocol> {
     ToggleExpansion {
         trace_id: TraceId,
     },
-    Marker {
-        _marker: PhantomData<TraceProtocol>,
-    },
     ToggleAssocTrace {
         trace_id: TraceId,
         assoc_trace_id: TraceId,

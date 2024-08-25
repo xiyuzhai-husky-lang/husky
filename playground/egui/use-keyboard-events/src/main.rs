@@ -48,7 +48,7 @@ impl Default for Content {
 
 impl eframe::App for Content {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        ctx.input(|i| self.hotkey_buffer.start_frame(&i.events));
+        self.hotkey_buffer.start_frame(ctx);
         egui::CentralPanel::default().show(ctx, |ui| {
             use husky_print_utils::p;
 

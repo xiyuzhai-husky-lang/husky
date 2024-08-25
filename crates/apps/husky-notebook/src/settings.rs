@@ -59,7 +59,7 @@ pub(crate) struct NotebookSettingsView;
 impl<ParentActionBuffer> IsUiComponent<egui::Ui, NotebookSettings, ParentActionBuffer>
     for NotebookSettingsView
 {
-    fn render_dyn(
+    fn render(
         &mut self,
         _settings: &mut NotebookSettings,
         hotkey_buffer: &mut HotkeyBuffer,

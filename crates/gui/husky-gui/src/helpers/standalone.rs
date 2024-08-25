@@ -42,7 +42,7 @@ where
 {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         egui::CentralPanel::default().show(ctx, |ui| {
-            self.component.render_dyn(
+            self.component.render(
                 &mut self.settings,
                 &mut self.hotkey_buffer,
                 &mut self.action_buffer,

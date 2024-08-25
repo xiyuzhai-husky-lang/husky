@@ -16,6 +16,7 @@ pub trait IsCaryatid:
 
     fn pedestal(&self, var_deps: &[ItemPathIdInterface]) -> Self::Pedestal;
     fn covers(&self, var_deps: &[ItemPathIdInterface]) -> bool;
+    fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self;
 }
 
 pub trait IsCaryatidUiBuffer {
