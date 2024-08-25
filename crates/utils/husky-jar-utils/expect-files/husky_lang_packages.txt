@@ -4059,11 +4059,6 @@
         ],
     },
     PackageSummary {
-        name: "goodstein-rs",
-        relative_path: "playground/goodstein-rs",
-        dependencies: [],
-    },
-    PackageSummary {
         name: "use-keyboard-events",
         relative_path: "playground/egui/use-keyboard-events",
         dependencies: [
