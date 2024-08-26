@@ -44,6 +44,7 @@ impl HirLazyVariable {
             | InheritedVariableKind::SelfField { .. } => {
                 VariableName::Ident(inherited_variable.ident()?)
             }
+            InheritedVariableKind::ReplLocal => todo!(),
         };
         let data = HirLazyVariableData::from_inherited_syn(inherited_variable.kind())?;
         Some(Self { name, data })
@@ -73,6 +74,7 @@ impl HirLazyVariableData {
             InheritedVariableKind::SelfField { ident: _ } => {
                 Some(HirLazyVariableData::FieldVariable)
             }
+            InheritedVariableKind::ReplLocal => todo!(),
         }
     }
 

@@ -143,6 +143,7 @@ impl TokenInfoData {
                 InheritedVariableKind::Parenate { .. } => TokenClass::Parameter,
                 InheritedVariableKind::Template { .. } => TokenClass::ImplicitParameter,
                 InheritedVariableKind::SelfField { .. } => TokenClass::Variable,
+                InheritedVariableKind::ReplLocal => TokenClass::Variable,
             },
             TokenInfoData::SelfType => TokenClass::SelfType,
             TokenInfoData::SelfValue => TokenClass::SelfValue,

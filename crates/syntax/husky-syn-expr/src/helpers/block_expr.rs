@@ -14,6 +14,7 @@ pub fn parse_defn_block_expr(
         decl_expr_region,
         allow_self_type,
         allow_self_value,
+        None,
         db,
     )?;
     let root_body = ctx.parse_root_body();

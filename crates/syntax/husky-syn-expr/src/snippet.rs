@@ -35,6 +35,7 @@ where
         None,
         AllowSelfType::False,
         AllowSelfValue::False,
+        None,
     )
     .unwrap();
     let token_stream =
@@ -57,6 +58,7 @@ pub fn parse_expr_from_script(
         None,
         AllowSelfType::False,
         AllowSelfValue::False,
+        None,
     )
     .unwrap();
     let token_stream =

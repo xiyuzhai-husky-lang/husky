@@ -9,6 +9,7 @@ use husky_entity_tree::{
     region_path::SynNodeRegionPath, symbol::ModuleSymbolContext,
 };
 use husky_vfs::path::module_path::ModulePath;
+use repl::ReplSource;
 
 pub struct SynExprContext<'a> {
     db: &'a ::salsa::Db,
@@ -44,6 +45,7 @@ impl<'a> SynExprContext<'a> {
         decl_expr_region: impl Into<Option<SynExprRegion>>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
+        repl_src: Option<ReplSource>,
         db: &'a ::salsa::Db,
     ) -> Option<Self> {
         Self::new2(
@@ -53,6 +55,7 @@ impl<'a> SynExprContext<'a> {
             decl_expr_region.into(),
             allow_self_type,
             allow_self_value,
+            repl_src,
         )
     }
 
@@ -63,6 +66,7 @@ impl<'a> SynExprContext<'a> {
         parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
+        repl_src: Option<ReplSource>,
     ) -> Option<Self> {
         let module_path = path.module_path(db);
         Some(Self {
@@ -76,6 +80,7 @@ impl<'a> SynExprContext<'a> {
                 parent_expr_region.map(|er| er.data(db).variable_region()),
                 allow_self_type,
                 allow_self_value,
+                repl_src,
             ),
             syn_expr_arena: Default::default(),
             syn_principal_entity_path_expr_arena: Default::default(),
