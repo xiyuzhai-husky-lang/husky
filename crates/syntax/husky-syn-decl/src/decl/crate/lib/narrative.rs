@@ -3,7 +3,6 @@ pub mod default_const_excludes;
 
 use self::default_const_excludes::LibCrateSynDeclDefaultConstExcludes;
 use super::*;
-use husky_entity_tree::region_path::SynNodeRegionPath;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -11,13 +10,13 @@ pub enum LibCrateSynDeclNarrative {
     DefaultConstExcludes(LibCrateSynDeclDefaultConstExcludes),
 }
 
-impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a, SynNodeRegionPath>>
+impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a>>
     for LibCrateSynDeclNarrative
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut ProducedSynExprParser<'db, 'a, SynNodeRegionPath>,
+        sp: &mut ProducedSynExprParser<'db, 'a>,
     ) -> Result<Option<Self>, Self::Error> {
         if let Some(default_const_excludes) =
             sp.try_parse_option::<LibCrateSynDeclDefaultConstExcludes>()?
@@ -30,7 +29,7 @@ impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a, SynNodeReg
 }
 
 pub(crate) fn parse_narrative<'db, 'a>(
-    mut parser: ProducedSynExprParser<'db, 'a, SynNodeRegionPath>,
+    mut parser: ProducedSynExprParser<'db, 'a>,
     narrate_token: NarrateRegionalToken,
 ) -> SynNodeDeclResult<LibCrateSynDeclItem> {
     let narrative =

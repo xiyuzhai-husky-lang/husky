@@ -1,6 +1,5 @@
 use super::*;
 use crate::syndicates::trais::TraitsSyndicate;
-use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_token_data::delimiter::Delimiter;
 
 #[salsa::derive_debug_with_db]
@@ -46,13 +45,11 @@ pub enum TemplateParameterSyndicateVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
-    for TemplateSynParameterData
-{
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TemplateSynParameterData {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         let syn_attrs = ctx.try_parse()?;
         let annotated_variance_token = ctx.try_parse_err_as_none();

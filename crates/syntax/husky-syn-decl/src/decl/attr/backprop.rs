@@ -1,6 +1,5 @@
 use super::*;
 use husky_coword::Ident;
-use husky_entity_tree::region_path::SynNodeRegionPath;
 use parsec::{PunctuatedSmallList, TryParseOptionFromStream};
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
@@ -90,13 +89,11 @@ impl BackpropAttrArgument {
     }
 }
 
-impl<'db> TryParseOptionFromStream<StandaloneSynExprParser<'db, SynNodeRegionPath>>
-    for BackpropAttrArgument
-{
+impl<'db> TryParseOptionFromStream<StandaloneSynExprParser<'db>> for BackpropAttrArgument {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut StandaloneSynExprParser<'db, SynNodeRegionPath>,
+        sp: &mut StandaloneSynExprParser<'db>,
     ) -> SynNodeDeclResult<Option<Self>> {
         let Some(parameter_ident_token) = sp.try_parse_option::<IdentRegionalToken>()? else {
             return Ok(None);

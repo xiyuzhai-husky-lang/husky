@@ -42,7 +42,7 @@ impl<'db> ItemSynNodeDeclParser<'db> {
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
         env: Option<ExprEnvironment>,
-    ) -> StandaloneSynExprParser<'db, SynNodeRegionPath> {
+    ) -> StandaloneSynExprParser<'db> {
         SynExprContext::new2(
             self.db,
             SynNodeRegionPath::ItemDecl(self.syn_node_path.into()),
@@ -71,17 +71,16 @@ pub(crate) struct CrateDeclParser<'db> {
     crate_path: CratePath,
     module_symbol_context: ModuleSymbolContext<'db>,
     tokra_region_data: CrateDeclTokraRegionDataRef<'db>,
-    ctx: SynExprContext<'db, SynNodeRegionPath>,
+    ctx: SynExprContext<'db>,
 }
 
 impl<'db> std::ops::Deref for CrateDeclParser<'db> {
-    type Target = SynExprContext<'db, SynNodeRegionPath>;
+    type Target = SynExprContext<'db>;
 
     fn deref(&self) -> &Self::Target {
         &self.ctx
     }
 }
-
 impl<'db> std::ops::DerefMut for CrateDeclParser<'db> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.ctx
