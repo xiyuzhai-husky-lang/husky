@@ -13,6 +13,7 @@ use self::expr_stack::*;
 use self::incomplete_expr::*;
 use crate::variable::*;
 use crate::*;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_opr::precedence::*;
 use original_error::OriginalError;
 use parsec::{HasStreamState, IsStreamParser};
@@ -29,8 +30,8 @@ where
     stack: ExprStack,
 }
 
-pub type StandaloneSynExprParser<'a> = SynExprParser<'a, SynExprContext<'a>>;
-pub type ProducedSynExprParser<'a, 'b> = SynExprParser<'a, &'b mut SynExprContext<'a>>;
+pub type StandaloneSynExprParser<'a, P> = SynExprParser<'a, SynExprContext<'a, P>>;
+pub type ProducedSynExprParser<'a, 'b, P> = SynExprParser<'a, &'b mut SynExprContext<'a, P>>;
 
 impl<'a, C> ::salsa::db::HasDb<'a> for SynExprParser<'a, C>
 where
@@ -58,11 +59,11 @@ where
         }
     }
 
-    pub(crate) fn context(&self) -> &SynExprContext<'a> {
+    pub(crate) fn context(&self) -> &SynExprContext<'a, C::P> {
         self.context.borrow()
     }
 
-    pub(crate) fn context_mut(&mut self) -> &mut SynExprContext<'a> {
+    pub(crate) fn context_mut(&mut self) -> &mut SynExprContext<'a, C::P> {
         self.context.borrow_mut()
     }
 
@@ -210,7 +211,7 @@ where
     }
 }
 
-impl<'a> SynExprParser<'a, SynExprContext<'a>> {
+impl<'a> SynExprParser<'a, SynExprContext<'a, SynNodeRegionPath>> {
     pub fn finish(self) -> SynExprRegion {
         self.context.finish()
     }

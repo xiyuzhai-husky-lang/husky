@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use parsec::parse_punctuated_small2_list_expected;
 
 pub(crate) type TemplateSynParametersData = SmallVec<[TemplateSynParameterData; 2]>;
@@ -27,13 +28,13 @@ impl SynTemplateParameterSyndicateList {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>>
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
     for SynTemplateParameterSyndicateList
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
     ) -> SynNodeDeclResult<Option<Self>> {
         let Some(langle) = ctx.try_parse_option::<LaOrLtRegionalToken>()? else {
             return Ok(None);

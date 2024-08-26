@@ -1,3 +1,5 @@
+use husky_entity_tree::region_path::SynNodeRegionPath;
+
 use super::*;
 
 #[salsa::derive_debug_with_db]
@@ -39,11 +41,13 @@ impl PropsFieldSyndicate {
     }
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a>> for PropsFieldSyndicate {
+impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for PropsFieldSyndicate
+{
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
     ) -> SynExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.try_parse_option()?;
@@ -105,11 +109,13 @@ pub struct PropsFieldAttr {
     ident: Ident,
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a>> for PropsFieldAttr {
+impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for PropsFieldAttr
+{
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(pound_token) = ctx.try_parse_option::<PoundRegionalToken>()? else {
             return Ok(None);
@@ -135,11 +141,13 @@ pub enum FieldVisibilityExpr {
     Pub { pub_token: PubRegionalToken },
 }
 
-impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a>> for FieldVisibilityExpr {
+impl<'a, 'b> parsec::TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for FieldVisibilityExpr
+{
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(pub_token) = ctx.try_parse_option::<PubRegionalToken>()? else {
             return Ok(None);

@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TraitSyndicate {
@@ -11,11 +12,13 @@ impl TraitSyndicate {
     }
 }
 
-impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TraitSyndicate {
+impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for TraitSyndicate
+{
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::PrimalTrait) {
             Ok(Some(TraitSyndicate { syn_expr_idx: expr }))

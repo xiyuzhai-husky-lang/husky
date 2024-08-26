@@ -29,13 +29,13 @@ impl LibCrateSynDeclDefaultConstExclude {
 }
 
 /// # parsers
-impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a>>
+impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a, SynNodeRegionPath>>
     for LibCrateSynDeclDefaultConstExcludes
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut ProducedSynExprParser<'db, 'a>,
+        sp: &mut ProducedSynExprParser<'db, 'a, SynNodeRegionPath>,
     ) -> Result<Option<Self>, Self::Error> {
         let db = sp.db();
         let Some(default_const_excludes_ident_token) =
@@ -63,13 +63,13 @@ impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a>>
     }
 }
 
-impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a>>
+impl<'db, 'a> TryParseOptionFromStream<ProducedSynExprParser<'db, 'a, SynNodeRegionPath>>
     for LibCrateSynDeclDefaultConstExclude
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut ProducedSynExprParser<'db, 'a>,
+        sp: &mut ProducedSynExprParser<'db, 'a, SynNodeRegionPath>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(expr) = sp.parse_expr_root(None, SynExprRootKind::DefaultConstExclude) else {
             return Ok(None);

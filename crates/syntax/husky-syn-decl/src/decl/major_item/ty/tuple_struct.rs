@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(constructor = pub(super) new)]
@@ -31,10 +32,14 @@ impl TupleStructSynNodeDecl {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TupleStructRparRegionalToken(RparRegionalToken);
 
-impl<'a> TryParseFromStream<StandaloneSynExprParser<'a>> for TupleStructRparRegionalToken {
+impl<'a> TryParseFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for TupleStructRparRegionalToken
+{
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(
+        sp: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+    ) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_parenthesis
