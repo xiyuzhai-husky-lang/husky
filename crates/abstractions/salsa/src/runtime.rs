@@ -149,6 +149,13 @@ impl Runtime {
         }
     }
 
+    pub(crate) fn report_store_mut(&self, durability: Durability) {
+        let new_revision = self.current_revision();
+        for rev in &self.shared_state.revisions[1..=durability.index()] {
+            rev.store(new_revision);
+        }
+    }
+
     /// Adds `key` to the list of output created by the current query
     /// (if not already present).
     pub(crate) fn add_output(&self, key: DependencyIndex) {
