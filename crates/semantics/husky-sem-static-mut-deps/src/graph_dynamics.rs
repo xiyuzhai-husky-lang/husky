@@ -121,7 +121,7 @@ fn item_sem_static_mut_deps_initial_value(
         ItemPath::TypeVariant(_, _) => (),
         ItemPath::ImplBlock(_) => (),
         ItemPath::Attr(_, _) => (),
-        ItemPath::Chunk(_, _) => (),
+        ItemPath::Script(_, _) => (),
     };
     for attr_path in attr_paths {
         use husky_eth_signature::signature::HasEthTemplate;

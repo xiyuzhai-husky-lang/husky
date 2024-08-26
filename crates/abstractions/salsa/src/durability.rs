@@ -21,7 +21,7 @@ pub struct Durability(u8);
 impl Durability {
     /// Super low durability: things that change extremely frequently.
     ///
-    /// Example: chunk being edited in debugger
+    /// Example: script being edited in debugger
     pub const SUPER_LOW: Durability = Durability(0);
 
     /// Low durability: things that change frequently.

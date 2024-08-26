@@ -5,7 +5,7 @@ pub(crate) use husky_vfs::test_utils::*;
 use crate::*;
 use husky_coword::jar::CowordJar;
 use husky_expect_test_snippets_utils::*;
-use husky_vfs::{chunk::Chunk, *};
+use husky_vfs::{script::Script, *};
 use salsa::DebugWithDb;
 
 #[salsa::db(
@@ -22,7 +22,7 @@ pub(crate) struct DB;
 fn tokenize_snippet_debug(snippet: &str) -> String {
     let db = DB::default();
     let db = &*db;
-    let snippet = Chunk::new_dev_snippet(snippet, db);
+    let snippet = Script::new_dev_snippet(snippet, db);
     format!("{:#?}", db.chunk_token_sheet_data(snippet).debug(db))
 }
 

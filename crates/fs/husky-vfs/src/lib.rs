@@ -3,13 +3,13 @@
 #![feature(absolute_path)]
 #![feature(let_chains)]
 mod cache;
-pub mod chunk;
 pub mod error;
 mod file;
 pub mod jar;
 #[cfg(feature = "lsp_support")]
 mod lsp_support;
 pub mod path;
+pub mod script;
 #[cfg(feature = "test_utils")]
 pub mod test_utils;
 #[cfg(test)]

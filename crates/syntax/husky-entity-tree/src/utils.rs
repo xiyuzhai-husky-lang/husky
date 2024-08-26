@@ -91,7 +91,7 @@ fn item_syn_node_path_stem_inner(
                 slf.ident(db).data(db)
             )
         }
-        ItemSynNodePath::Chunk(_, _) => todo!(),
+        ItemSynNodePath::Script(_, _) => todo!(),
     }
 }
 

@@ -1,16 +1,16 @@
 pub mod assoc_item;
 pub mod attr;
-pub mod chunk;
 pub mod impl_block;
 pub mod major_item;
+pub mod script;
 pub mod submodule;
 pub mod ty_variant;
 
 use self::assoc_item::*;
 use self::attr::*;
-use self::chunk::{ChunkSynNodePath, ChunkSynNodePathData};
 use self::impl_block::{ImplBlockSynNode, ImplBlockSynNodePath, ImplBlockSynNodePathData};
 use self::major_item::*;
+use self::script::{ScriptSynNodePath, ScriptSynNodePathData};
 use self::submodule::*;
 use self::ty_variant::*;
 use crate::*;
@@ -32,7 +32,7 @@ pub enum ItemSynNodePath {
     ImplBlock(ImplBlockSynNodePath),
     AssocItem(AssocItemSynNodePath),
     Attr(Room32, AttrSynNodePath),
-    Chunk(Room32, ChunkSynNodePath),
+    Script(Room32, ScriptSynNodePath),
 }
 
 impl std::ops::Deref for ItemSynNodePath {
@@ -59,7 +59,7 @@ pub enum ItemSynNodePathData {
     ImplBlock(ImplBlockSynNodePathData),
     AssocItem(AssocItemSynNodePathData),
     Attr(AttrSynNodePathData),
-    Chunk(ChunkSynNodePathData),
+    Script(ScriptSynNodePathData),
 }
 
 impl ItemSynNodePathId {
@@ -71,7 +71,7 @@ impl ItemSynNodePathId {
             ItemSynNodePathData::ImplBlock(data) => data.syn_node_path(self).into(),
             ItemSynNodePathData::AssocItem(data) => data.syn_node_path(self).into(),
             ItemSynNodePathData::Attr(data) => data.syn_node_path(self).into(),
-            ItemSynNodePathData::Chunk(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::Script(data) => data.syn_node_path(self).into(),
         }
     }
 
@@ -115,7 +115,7 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::ImplBlock(slf) => slf.unambiguous_item_path().map(Into::into),
             ItemSynNodePathData::AssocItem(slf) => slf.unambiguous_item_path().map(Into::into),
             ItemSynNodePathData::Attr(slf) => slf.unambiguous_item_path().map(Into::into),
-            ItemSynNodePathData::Chunk(slf) => Some(slf.item_path().into()),
+            ItemSynNodePathData::Script(slf) => Some(slf.item_path().into()),
         }
     }
 
@@ -127,7 +127,7 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::ImplBlock(slf) => slf.module_path(db),
             ItemSynNodePathData::AssocItem(slf) => slf.module_path(db),
             ItemSynNodePathData::Attr(slf) => slf.module_path(db),
-            ItemSynNodePathData::Chunk(slf) => *slf.module_path(db),
+            ItemSynNodePathData::Script(slf) => *slf.module_path(db),
         }
     }
     pub fn opt_ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> Option<AstIdx> {
@@ -138,7 +138,7 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::ImplBlock(slf) => Some(slf.ast_idx(id, db)),
             ItemSynNodePathData::AssocItem(slf) => Some(slf.ast_idx(id, db)),
             ItemSynNodePathData::Attr(slf) => Some(slf.ast_idx(id, db)),
-            ItemSynNodePathData::Chunk(_) => None,
+            ItemSynNodePathData::Script(_) => None,
         }
     }
 }
@@ -164,7 +164,7 @@ impl ItemSynNodePath {
             ItemSynNodePath::Attr(_, syn_node_path) => {
                 syn_node_path.unambiguous_item_path(db).map(Into::into)
             }
-            ItemSynNodePath::Chunk(_, syn_node_path) => Some(syn_node_path.item_path().into()),
+            ItemSynNodePath::Script(_, syn_node_path) => Some(syn_node_path.item_path().into()),
         }
     }
 
@@ -190,7 +190,7 @@ impl HasSynNodePath for ItemPath {
             ItemPath::TypeVariant(_, path) => path.syn_node_path(db).into(),
             ItemPath::ImplBlock(path) => path.syn_node_path(db).into(),
             ItemPath::Attr(_, path) => path.syn_node_path(db).into(),
-            ItemPath::Chunk(_, chunk) => todo!(),
+            ItemPath::Script(_, script) => todo!(),
         }
     }
 }
@@ -289,7 +289,7 @@ impl ItemSynNode {
             ),
             ItemPath::AssocItem(_) | ItemPath::TypeVariant(_, _) => None,
             ItemPath::ImplBlock(_) | ItemPath::Attr(_, _) => unreachable!(),
-            ItemPath::Chunk(_, _) => todo!(),
+            ItemPath::Script(_, _) => todo!(),
         }
     }
 
