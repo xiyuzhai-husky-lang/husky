@@ -223,7 +223,7 @@ impl<'a> ItemDefnTokraRegionBuilder<'a> {
                 }
             },
             None => match id.data(db) {
-                ItemSynNodePathData::Chunk(_) => ast_sheet.top_level_asts(),
+                ItemSynNodePathData::Script(_) => ast_sheet.top_level_asts(),
                 ItemSynNodePathData::Submodule(_)
                 | ItemSynNodePathData::MajorItem(_)
                 | ItemSynNodePathData::TypeVariant(_)

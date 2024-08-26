@@ -34,7 +34,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                                 todo!()
                             }
                         }
-                        husky_entity_path::region::RegionPath::Chunk(_) => (),
+                        husky_entity_path::region::RegionPath::Script(_) => (),
                     }
                 }
                 builder.on_fresh_semicolon_line(|builder| {

@@ -29,7 +29,7 @@ impl HasLspInlayHints for ModulePath {
         match self.data(db) {
             ModulePathData::Root(crate_path) => builder.add_crate_decl(crate_path),
             ModulePathData::Child { parent, ident } => (),
-            ModulePathData::Chunk { chunk } => (),
+            ModulePathData::Script { script } => (),
         }
         for &item_path in module_item_paths(db, self) {
             builder.add_item_decl_and_defn(item_path)

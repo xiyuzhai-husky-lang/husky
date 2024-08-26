@@ -2,7 +2,7 @@ use crate::{path::ItemPath, *};
 use husky_vfs::{
     path::{
         crate_path::CratePath,
-        module_path::{ChunkModulePath, ModulePath},
+        module_path::{ModulePath, ScriptModulePath},
     },
     toolchain::Toolchain,
 };
@@ -13,7 +13,7 @@ pub enum RegionPath {
     CrateDecl(CratePath),
     ItemDecl(ItemPath),
     ItemDefn(ItemPath),
-    Chunk(ChunkModulePath),
+    Script(ScriptModulePath),
 }
 
 impl RegionPath {
@@ -22,7 +22,7 @@ impl RegionPath {
             RegionPath::CrateDecl(slf) => slf.root_module_path(db),
             RegionPath::ItemDecl(slf) => slf.module_path(db),
             RegionPath::ItemDefn(slf) => slf.module_path(db),
-            RegionPath::Chunk(slf) => slf.module_path(),
+            RegionPath::Script(slf) => slf.module_path(),
         }
     }
 
@@ -31,7 +31,7 @@ impl RegionPath {
             RegionPath::CrateDecl(slf) => slf.toolchain(db),
             RegionPath::ItemDecl(slf) => slf.toolchain(db),
             RegionPath::ItemDefn(slf) => slf.toolchain(db),
-            RegionPath::Chunk(slf) => slf.toolchain(db),
+            RegionPath::Script(slf) => slf.toolchain(db),
         }
     }
 }

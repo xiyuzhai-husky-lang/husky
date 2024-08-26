@@ -39,6 +39,6 @@ pub(crate) fn item_path_id_interface_cache_path_aux(
         ItemPath::TypeVariant(_, _) => None,
         ItemPath::ImplBlock(_) => None,
         ItemPath::Attr(_, _) => None,
-        ItemPath::Chunk(_, _) => None,
+        ItemPath::Script(_, _) => None,
     }
 }

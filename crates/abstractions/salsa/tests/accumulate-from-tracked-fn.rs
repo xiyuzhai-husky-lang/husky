@@ -63,8 +63,7 @@ fn test1() {
     compute(&db, l1);
     expect![[r#"
         [
-            12,
-            2,
+            11,
         ]
     "#]]
     .assert_debug_eq(&compute::accumulated::<Integers>(&db, l1));

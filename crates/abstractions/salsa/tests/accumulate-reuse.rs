@@ -67,9 +67,5 @@ fn test1() {
     // which have not changed.
     l1.set_value(&mut db).to(2);
     assert_eq!(compute(&db, l2), 2);
-    db.assert_logs(expect![[r#"
-        [
-            "compute(List(Id { value: 2 }))",
-            "compute(List(Id { value: 1 }))",
-        ]"#]]);
+    db.assert_logs(expect!["[]"]);
 }

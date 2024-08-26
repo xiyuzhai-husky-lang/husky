@@ -131,7 +131,7 @@ impl HasHirDefn for ItemPath {
             ItemPath::AssocItem(path) => path.hir_defn(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.hir_defn(db)?.into(),
             ItemPath::Attr(_, _) => return None,
-            ItemPath::Chunk(_, _) => todo!(),
+            ItemPath::Script(_, _) => todo!(),
         })
     }
 }
