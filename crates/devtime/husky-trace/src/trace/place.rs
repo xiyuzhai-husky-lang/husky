@@ -1,16 +1,16 @@
 use super::TracePath;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct ValueTracePathData {
+pub struct PlaceTracePathData {
     biological_parent_path: TracePath,
-    variant: ValueTraceAccessData,
+    place_access: PlaceAccess,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub enum ValueTraceAccessData {
+pub enum PlaceAccess {
     StructField,
     EnumVariantField,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct ValueTraceData {}
+pub struct PlaceTraceData {}

@@ -1,3 +1,4 @@
+pub mod chunk;
 pub mod eager_call;
 pub mod eager_call_input;
 pub mod eager_expr;
@@ -10,12 +11,12 @@ pub mod lazy_expr;
 pub mod lazy_loop_group;
 pub mod lazy_pattern_expr;
 pub mod lazy_stmt;
-pub mod repl;
+pub mod place;
 pub mod static_var;
 pub mod submodule;
 pub mod val;
-pub mod value;
 
+use self::chunk::*;
 use self::eager_call::*;
 use self::eager_call_input::*;
 use self::eager_expr::*;
@@ -26,10 +27,9 @@ use self::lazy_call_input::*;
 use self::lazy_expr::*;
 use self::lazy_pattern_expr::*;
 use self::lazy_stmt::*;
-use self::repl::*;
+use self::place::*;
 use self::submodule::*;
 use self::val::*;
-use self::value::*;
 use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
@@ -81,8 +81,8 @@ pub enum TracePathData {
     EagerExpr(EagerExprTracePathData),
     EagerPattern(EagerPatternTracePathData),
     EagerStmt(EagerStmtTracePathData),
-    Value(ValueTracePathData),
-    Repl(ReplTracePathData),
+    Place(PlaceTracePathData),
+    Chunk(ChunkTracePathData),
 }
 
 impl TracePath {
@@ -127,8 +127,8 @@ pub enum TraceData {
     EagerExpr(EagerExprTraceData),
     EagerPattern(EagerPatternTraceData),
     EagerStmt(EagerStmtTraceData),
-    Value(ValueTraceData),
-    Repl(ReplTraceData),
+    Place(PlaceTraceData),
+    Chunk(ChunkTraceData),
 }
 
 impl Trace {
@@ -232,8 +232,8 @@ impl TraceData {
             TraceData::EagerExpr(_) => TraceKind::EagerExpr,
             TraceData::EagerPattern(_) => TraceKind::EagerPattern,
             TraceData::EagerStmt(_) => TraceKind::EagerStmt,
-            TraceData::Value(_) => TraceKind::Value,
-            TraceData::Repl(_) => TraceKind::Repl,
+            TraceData::Place(_) => TraceKind::Value,
+            TraceData::Chunk(_) => TraceKind::Repl,
         }
     }
 
@@ -252,8 +252,8 @@ impl TraceData {
             TraceData::EagerCallInput(_) => None,
             TraceData::EagerCall(_) => None,
             TraceData::EagerStmt(_) => None,
-            TraceData::Value(_) => todo!(),
-            TraceData::Repl(_) => todo!(),
+            TraceData::Place(_) => todo!(),
+            TraceData::Chunk(_) => todo!(),
         }
     }
 
@@ -272,8 +272,8 @@ impl TraceData {
             TraceData::EagerExpr(slf) => slf.var_deps(trace, db),
             TraceData::EagerPattern(slf) => slf.var_deps(trace, db),
             TraceData::EagerStmt(slf) => slf.var_deps(trace, db),
-            TraceData::Value(_) => todo!(),
-            TraceData::Repl(_) => todo!(),
+            TraceData::Place(_) => todo!(),
+            TraceData::Chunk(_) => todo!(),
         }
     }
 
@@ -292,8 +292,8 @@ impl TraceData {
             TraceData::EagerExpr(slf) => slf.var_deps_expansion(db),
             TraceData::EagerPattern(slf) => slf.var_deps_expansion(db),
             TraceData::EagerStmt(slf) => slf.var_deps_expansion(db),
-            TraceData::Value(_) => todo!(),
-            TraceData::Repl(_) => todo!(),
+            TraceData::Place(_) => todo!(),
+            TraceData::Chunk(_) => todo!(),
         }
     }
 }
@@ -334,8 +334,8 @@ impl TraceData {
             TraceData::EagerExpr(slf) => slf.view_lines(db),
             TraceData::EagerPattern(slf) => slf.view_lines(db),
             TraceData::EagerStmt(slf) => slf.view_lines(trace_id, db),
-            TraceData::Value(_) => todo!(),
-            TraceData::Repl(_) => todo!(),
+            TraceData::Place(_) => todo!(),
+            TraceData::Chunk(_) => todo!(),
         }
     }
 
@@ -354,8 +354,8 @@ impl TraceData {
             TraceData::EagerExpr(slf) => slf.have_subtraces(db),
             TraceData::EagerPattern(slf) => slf.have_subtraces(db),
             TraceData::EagerStmt(slf) => slf.have_subtraces(db),
-            TraceData::Value(_) => todo!(),
-            TraceData::Repl(_) => todo!(),
+            TraceData::Place(_) => todo!(),
+            TraceData::Chunk(_) => todo!(),
         }
     }
 
@@ -374,8 +374,8 @@ impl TraceData {
             TraceData::EagerExpr(slf) => slf.subtraces(trace_id, db),
             TraceData::EagerPattern(slf) => slf.subtraces(),
             TraceData::EagerStmt(slf) => slf.subtraces(trace_id, db),
-            TraceData::Value(_) => todo!(),
-            TraceData::Repl(_) => todo!(),
+            TraceData::Place(_) => todo!(),
+            TraceData::Chunk(_) => todo!(),
         }
     }
 
@@ -394,8 +394,8 @@ impl TraceData {
             TraceData::EagerExpr(_) => todo!(),
             TraceData::EagerPattern(_) => todo!(),
             TraceData::EagerStmt(_) => todo!(),
-            TraceData::Value(_) => todo!(),
-            TraceData::Repl(_) => todo!(),
+            TraceData::Place(_) => todo!(),
+            TraceData::Chunk(_) => todo!(),
         }
     }
 }
