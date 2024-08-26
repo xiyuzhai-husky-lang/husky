@@ -20,6 +20,7 @@ pub(super) fn reduce_by_stmt(
     (pre_asts, allocated_asts)
 }
 
+// todo: return, assert
 fn new_stmt_ast(
     pre_ast_nearest_left2: Option2<(Idx, PreAst)>,
     pre_ast: Option<PreAst>,
