@@ -1,8 +1,9 @@
 #![allow(warnings)]
 
+use std::panic::{RefUnwindSafe, UnwindSafe};
+
 use expect_test::expect;
 use salsa::{Db, Durability};
-use std::panic::{RefUnwindSafe, UnwindSafe};
 
 // Axes:
 //
@@ -257,11 +258,6 @@ fn cycle_recovery_unchanged_twice() {
 fn cycle_appears() {
     let mut db = Database::default();
 
-    ::test_log::env_logger::builder()
-        .is_test(true)
-        .filter_level(log::LevelFilter::Info)
-        .init();
-
     //     A --> B
     let abc = ABC::new(&db, CycleQuery::B, CycleQuery::None, CycleQuery::None);
     assert!(cycle_a(&db, abc).is_ok());
@@ -302,7 +298,7 @@ fn cycle_disappears_durability() {
         CycleQuery::None,
     );
     abc.set_a(&mut db)
-        .with_durability(Durability::MIN)
+        .with_durability(Durability::LOW)
         .to(CycleQuery::B);
     abc.set_b(&mut db)
         .with_durability(Durability::HIGH)
@@ -318,6 +314,39 @@ fn cycle_disappears_durability() {
     // observe that the cycle goes away.
     abc.set_a(&mut db)
         .with_durability(Durability::LOW)
+        .to(CycleQuery::None);
+
+    assert!(cycle_b(&mut db, abc).is_ok());
+}
+
+/// this indicates salsa-2022's bug
+#[test]
+#[ignore]
+fn cycle_disappears_durability2() {
+    let mut db = Database::default();
+    let abc = ABC::new(
+        &mut db,
+        CycleQuery::None,
+        CycleQuery::None,
+        CycleQuery::None,
+    );
+    abc.set_a(&mut db)
+        .with_durability(Durability::MEDIUM)
+        .to(CycleQuery::B);
+    abc.set_b(&mut db)
+        .with_durability(Durability::HIGH)
+        .to(CycleQuery::A);
+
+    assert!(cycle_a(&db, abc).is_err());
+
+    // At this point, `a` read `LOW` input, and `b` read `HIGH` input. However,
+    // because `b` participates in the same cycle as `a`, its final durability
+    // should be `LOW`.
+    //
+    // Check that setting a `LOW` input causes us to re-execute `b` query, and
+    // observe that the cycle goes away.
+    abc.set_a(&mut db)
+        .with_durability(Durability::MEDIUM)
         .to(CycleQuery::None);
 
     assert!(cycle_b(&mut db, abc).is_ok());

@@ -88,13 +88,7 @@ impl QueryOrigin {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EdgeKind {
-    /// Set of subqueries that were accessed thus far.
     Input,
-    /// Tracks values written by this query. Could be...
-    ///
-    /// * tracked structs created
-    /// * invocations of `specify`
-    /// * accumulators pushed to
     Output,
 }
 

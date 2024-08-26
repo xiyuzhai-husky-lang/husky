@@ -19,10 +19,10 @@ impl Script {
         let __id = __ingredients.2.new_input(__runtime);
         __ingredients
             .0
-            .store_new(__runtime, __id, source, salsa::Durability::SUPER_LOW);
+            .store_new(__runtime, __id, source, salsa::Durability::LOW);
         __ingredients
             .1
-            .store_new(__runtime, __id, data, salsa::Durability::SUPER_LOW);
+            .store_new(__runtime, __id, data, salsa::Durability::LOW);
         __id
     }
     pub fn source<'db>(self, __db: &'db ::salsa::Db) -> ScriptSource {
