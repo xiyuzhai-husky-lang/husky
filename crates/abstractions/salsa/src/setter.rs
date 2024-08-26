@@ -23,7 +23,7 @@ where
             runtime,
             key,
             ingredient,
-            durability: Durability::MIN,
+            durability: Durability::LOW,
         }
     }
 

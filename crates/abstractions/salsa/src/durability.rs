@@ -19,45 +19,29 @@
 pub struct Durability(u8);
 
 impl Durability {
-    /// Super low durability: things that change extremely frequently.
-    ///
-    /// Example: script being edited in debugger
-    pub const SUPER_LOW: Durability = Durability(0);
-
     /// Low durability: things that change frequently.
     ///
     /// Example: part of the crate being edited
-    pub const LOW: Durability = Durability(1);
+    pub const LOW: Durability = Durability(0);
 
     /// Medium durability: things that change sometimes, but rarely.
     ///
     /// Example: a Cargo.toml file
-    pub const MEDIUM: Durability = Durability(2);
+    pub const MEDIUM: Durability = Durability(1);
 
     /// High durability: things that are not expected to change under
     /// common usage.
     ///
     /// Example: the standard library or something from crates.io
-    pub const HIGH: Durability = Durability(3);
-
-    /// Super high durability: things that are not expected to change under
-    /// common usage.
-    ///
-    /// Example: the standard library or something from crates.io
-    pub const SUPER_HIGH: Durability = Durability(4);
-
-    /// The maximum possible durability; equivalent to SUPER_LOW but
-    /// "conceptually" distinct (i.e., if we add more durability
-    /// levels, this could change).
-    pub const MIN: Durability = Self::SUPER_LOW;
+    pub const HIGH: Durability = Durability(2);
 
     /// The maximum possible durability; equivalent to HIGH but
     /// "conceptually" distinct (i.e., if we add more durability
     /// levels, this could change).
-    pub(crate) const MAX: Durability = Self::SUPER_HIGH;
+    pub(crate) const MAX: Durability = Self::HIGH;
 
     /// Number of durability levels.
-    pub(crate) const LEN: usize = 5;
+    pub(crate) const LEN: usize = 3;
 
     pub(crate) fn index(self) -> usize {
         self.0 as usize
