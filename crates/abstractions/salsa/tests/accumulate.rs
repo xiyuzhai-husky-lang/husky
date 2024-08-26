@@ -116,9 +116,17 @@ fn change_a_and_reaccumulate() {
     // Change to `a = 1`, which means `push_logs` does not call `push_a_logs` at all
     input.set_field_a(&mut db).to(1);
     let logs = push_logs::accumulated::<Logs>(&db, input);
-    expect!["[]"]
+    expect![[r#"
+        [
+            "log_b(0 of 3)",
+            "log_b(1 of 3)",
+            "log_b(2 of 3)",
+        ]"#]]
     .assert_eq(&format!("{:#?}", logs));
-    db.assert_logs(expect!["[]"]);
+    db.assert_logs(expect![[r#"
+        [
+            "push_logs(a = 1, b = 3)",
+        ]"#]]);
 }
 
 #[test]

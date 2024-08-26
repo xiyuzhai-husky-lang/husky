@@ -353,7 +353,7 @@ impl coword_menu {
         let __key = __ingredients.intern_map.intern(__runtime, ());
         __ingredients
             .function
-            .store(__runtime, __key, __value, salsa::Durability::LOW)
+            .store(__runtime, __key, __value, salsa::Durability::SUPER_HIGH)
     }
     #[allow(dead_code, clippy::needless_lifetimes)]
     pub(crate) fn accumulated<'__db, __A: salsa::accumulator::Accumulator>(

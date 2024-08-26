@@ -66,5 +66,9 @@ fn test1() {
     // `compute` for `l2`.
     l1.set_value(&mut db).to(2);
     assert_eq!(compute(&db, l2), 2);
-    db.assert_logs(expect!["[]"]);
+    db.assert_logs(expect![[r#"
+        [
+            "accumulated(List(Id { value: 1 }))",
+            "compute(List(Id { value: 1 }))",
+        ]"#]]);
 }

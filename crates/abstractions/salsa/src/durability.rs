@@ -46,6 +46,11 @@ impl Durability {
     /// Example: the standard library or something from crates.io
     pub const SUPER_HIGH: Durability = Durability(4);
 
+    /// The maximum possible durability; equivalent to SUPER_LOW but
+    /// "conceptually" distinct (i.e., if we add more durability
+    /// levels, this could change).
+    pub const MIN: Durability = Self::SUPER_LOW;
+
     /// The maximum possible durability; equivalent to HIGH but
     /// "conceptually" distinct (i.e., if we add more durability
     /// levels, this could change).
