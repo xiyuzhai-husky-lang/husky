@@ -123,10 +123,10 @@ pub enum SynPatternRootKind {
 }
 
 impl SynPatternRoot {
-    pub(crate) fn new(
+    pub(crate) fn new<P>(
         kind: SynPatternRootKind,
         syn_pattern_idx: SynPatternIdx,
-        ctx: &mut SynExprContext,
+        ctx: &mut SynExprContext<P>,
     ) -> Self {
         let slf = Self {
             kind,
@@ -145,7 +145,7 @@ impl SynPatternRoot {
     }
 }
 
-impl<'a> SynExprContext<'a> {
+impl<'a, P> SynExprContext<'a, P> {
     pub(crate) fn add_expr_root(&mut self, kind: SynExprRootKind, expr: SynExprIdx) {
         self.syn_expr_roots.push(SynExprRoot::new(kind, expr))
     }

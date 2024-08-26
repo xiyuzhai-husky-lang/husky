@@ -1,3 +1,5 @@
+use husky_entity_tree::region_path::SynNodeRegionPath;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -17,12 +19,14 @@ impl SelfValueParameterSyndicate {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for SelfValueParameterSyndicate {
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for SelfValueParameterSyndicate
+{
     type Error = SynExprError;
 
     // needs more testing
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a>,
+        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
     ) -> Result<Option<Self>, Self::Error> {
         let ephem_symbol_modifier_token_verse = ctx.try_parse_option()?;
         let Some(self_value_token) = ctx.try_parse_option::<SelfValueRegionalToken>()? else {

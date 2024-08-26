@@ -8,7 +8,7 @@ pub struct SynCaseBranch {
     pub stmts: SynExprResult<SynStmtIdxRange>,
 }
 
-impl<'a> SynExprContext<'a> {
+impl<'a, P> SynExprContext<'a, P> {
     pub(super) fn parse_case_branches(
         &mut self,
         case_branches: ItemDefnAstIdxRange,

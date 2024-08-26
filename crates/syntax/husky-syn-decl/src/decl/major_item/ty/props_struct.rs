@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_tree::region_path::SynNodeRegionPath;
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(constructor = pub(super) new)]
@@ -37,10 +38,14 @@ impl PropsStructSynNodeDecl {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PropsStructLcurlRegionalToken(InlineLcurlRegionalToken);
 
-impl<'a> TryParseFromStream<StandaloneSynExprParser<'a>> for PropsStructLcurlRegionalToken {
+impl<'a> TryParseFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for PropsStructLcurlRegionalToken
+{
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(
+        sp: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+    ) -> Result<Self, Self::Error> {
         let lcurl = sp.try_parse_expected(
             OriginalSynNodeDeclError::ExpectedLcurlOrLparOrSemicolonForStruct,
         )?;
@@ -51,10 +56,14 @@ impl<'a> TryParseFromStream<StandaloneSynExprParser<'a>> for PropsStructLcurlReg
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct PropsStructRcurlRegionalToken(InlineRcurlRegionalToken);
 
-impl<'a> TryParseFromStream<StandaloneSynExprParser<'a>> for PropsStructRcurlRegionalToken {
+impl<'a> TryParseFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for PropsStructRcurlRegionalToken
+{
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(
+        sp: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+    ) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace

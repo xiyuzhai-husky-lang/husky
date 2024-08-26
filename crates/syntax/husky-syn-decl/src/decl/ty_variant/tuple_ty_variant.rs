@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_tree::node::ty_variant::TypeVariantSynNodePath;
+use husky_entity_tree::{node::ty_variant::TypeVariantSynNodePath, region_path::SynNodeRegionPath};
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
@@ -20,10 +20,14 @@ pub struct TypeTupleVariantSynNodeDecl {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TypeTupleVariantRparRegionalToken(RparRegionalToken);
 
-impl<'a> TryParseFromStream<StandaloneSynExprParser<'a>> for TypeTupleVariantRparRegionalToken {
+impl<'a> TryParseFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+    for TypeTupleVariantRparRegionalToken
+{
     type Error = SynNodeDeclError;
 
-    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(
+        sp: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+    ) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_parenthesis

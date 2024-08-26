@@ -65,7 +65,7 @@ impl SynElseBranch {
     }
 }
 
-impl<'a> SynExprContext<'a> {
+impl<'a, P> SynExprContext<'a, P> {
     pub(super) fn parse_if_branch(&mut self, if_branch: ItemDefnAstIdx) -> SynIfBranch {
         match self.asts()[if_branch] {
             ItemDefnAst::BasicStmtOrBranch {
