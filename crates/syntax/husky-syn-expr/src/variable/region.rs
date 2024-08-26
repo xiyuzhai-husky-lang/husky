@@ -1,3 +1,5 @@
+use repl::ReplSource;
+
 use crate::*;
 
 #[salsa::derive_debug_with_db]
@@ -72,6 +74,7 @@ impl VariableRegionData {
         parent_symbol_region: Option<&VariableRegionData>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
+        repl_src: Option<ReplSource>,
     ) -> Self {
         #[cfg(test)]
         {
@@ -90,7 +93,7 @@ impl VariableRegionData {
         }
         Self {
             inherited_variable_arena: match parent_symbol_region {
-                Some(parent_symbol_region) => parent_symbol_region.bequeath(),
+                Some(parent_symbol_region) => parent_symbol_region.bequeath(repl_src),
                 None => Default::default(),
             },
             current_variable_arena: Default::default(),
@@ -196,45 +199,50 @@ impl VariableRegionData {
         self.current_variable_arena.indices()
     }
 
-    fn bequeath(&self) -> InheritedVariableArena {
+    /// todo: needs overhaul for repl trace
+    ///
+    /// add an argument for repl insertion position (RegionalTokenIdx)
+    fn bequeath(&self, repl_src: Option<ReplSource>) -> InheritedVariableArena {
         let mut inherited_variable_arena = InheritedVariableArena::default();
-        for (_, inherited_variable) in self.indexed_inherited_variables() {
-            inherited_variable_arena.alloc_one(inherited_variable);
+        for (_, inherited_variable_entry) in self.indexed_inherited_variables() {
+            inherited_variable_arena.alloc_one(inherited_variable_entry);
         }
         for (current_variable_idx, current_variable) in self.indexed_current_variables() {
+            if repl_src.is_some() {
+                todo!("filter out those inaccessible for the `repl_src`")
+            }
             let kind = match current_variable.data {
                 CurrentVariableData::SimpleParenateParameter { ident, .. } => {
+                    // should we add `InheritedVariableKind::ReplParenate`?
                     InheritedVariableKind::Parenate { ident }
                 }
-                CurrentVariableData::LetVariable { .. } => unreachable!(),
-                CurrentVariableData::BeVariable { .. } => todo!(),
-                CurrentVariableData::CaseVariable { .. } => unreachable!(),
-                CurrentVariableData::LoopVariable { .. } => unreachable!(),
-                CurrentVariableData::TemplateParameter {
-                    data: ref template_parameter_variant,
-                    ..
-                } => InheritedVariableKind::Template(template_parameter_variant.bequeath()),
+                CurrentVariableData::LetVariable { .. }
+                | CurrentVariableData::BeVariable { .. }
+                | CurrentVariableData::CaseVariable { .. }
+                | CurrentVariableData::LoopVariable { .. }
+                | CurrentVariableData::SelfValue { .. }
+                | CurrentVariableData::SimpleClosureParameter { .. } => {
+                    // we should only encounter these cases when processing repl traces
+                    debug_assert!(repl_src.is_some());
+                    InheritedVariableKind::ReplLocal
+                }
+                CurrentVariableData::TemplateParameter { ref data, .. } => {
+                    InheritedVariableKind::Template(data.bequeath())
+                }
                 CurrentVariableData::VariadicParenateParameter { ident_token, .. } => {
                     InheritedVariableKind::Parenate {
                         ident: ident_token.ident(),
                     }
                 }
                 CurrentVariableData::SelfType => unreachable!(),
-                CurrentVariableData::SelfValue { .. } => todo!(),
                 CurrentVariableData::FieldVariable { ident_token } => {
                     InheritedVariableKind::SelfField {
                         ident: ident_token.ident(),
                     }
                 }
-                CurrentVariableData::SimpleClosureParameter {
-                    ident,
-                    pattern_variable_idx,
-                } => todo!(),
             };
-            inherited_variable_arena.alloc_one(InheritedVariableEntry {
-                kind,
-                modifier: current_variable.modifier,
-            });
+            let modifier = current_variable.modifier;
+            inherited_variable_arena.alloc_one(InheritedVariableEntry { kind, modifier });
         }
         inherited_variable_arena
     }

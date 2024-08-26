@@ -50,6 +50,7 @@ impl<'db> ItemSynNodeDeclParser<'db> {
             parent_expr_region,
             allow_self_type,
             allow_self_value,
+            None,
         )
         .unwrap()
         .token_stream_expr_parser(env, self.tokra_region_data.regional_token_stream())
@@ -101,6 +102,7 @@ impl<'db> CrateDeclParser<'db> {
             None,
             AllowSelfType::False,
             AllowSelfValue::False,
+            None,
             db,
         )?;
         Some(Self {

@@ -118,6 +118,7 @@ impl HirEagerRuntimeVariableEntry {
             | InheritedVariableKind::SelfField { .. } => {
                 HirEagerRuntimeVariableName::Ident(inherited_variable.ident()?)
             }
+            InheritedVariableKind::ReplLocal => todo!(),
         };
         let data = HirEagerRuntimeVariableData::from_inherited_syn(inherited_variable.kind())?;
         Some(Self { name, data })
@@ -147,6 +148,7 @@ impl HirEagerRuntimeVariableData {
             InheritedVariableKind::SelfField { ident: _ } => {
                 Some(HirEagerRuntimeVariableData::FieldVariable)
             }
+            InheritedVariableKind::ReplLocal => todo!(),
         }
     }
 
