@@ -139,7 +139,7 @@ impl InputStruct {
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#input_index.new_singleton_input(__runtime);
                     #(
-                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, salsa::Durability::LOW);
+                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, salsa::Durability::MIN);
                     )*
                     __id
                 }
@@ -152,7 +152,7 @@ impl InputStruct {
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#input_index.new_input(__runtime);
                     #(
-                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, salsa::Durability::LOW);
+                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, salsa::Durability::MIN);
                     )*
                     __id
                 }

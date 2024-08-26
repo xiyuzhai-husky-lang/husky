@@ -1,9 +1,8 @@
 #![allow(warnings)]
 
-use std::panic::{RefUnwindSafe, UnwindSafe};
-
 use expect_test::expect;
 use salsa::{Db, Durability};
+use std::panic::{RefUnwindSafe, UnwindSafe};
 
 // Axes:
 //
@@ -258,6 +257,11 @@ fn cycle_recovery_unchanged_twice() {
 fn cycle_appears() {
     let mut db = Database::default();
 
+    ::test_log::env_logger::builder()
+        .is_test(true)
+        .filter_level(log::LevelFilter::Info)
+        .init();
+
     //     A --> B
     let abc = ABC::new(&db, CycleQuery::B, CycleQuery::None, CycleQuery::None);
     assert!(cycle_a(&db, abc).is_ok());
@@ -298,7 +302,7 @@ fn cycle_disappears_durability() {
         CycleQuery::None,
     );
     abc.set_a(&mut db)
-        .with_durability(Durability::LOW)
+        .with_durability(Durability::MIN)
         .to(CycleQuery::B);
     abc.set_b(&mut db)
         .with_durability(Durability::HIGH)

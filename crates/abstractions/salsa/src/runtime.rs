@@ -135,6 +135,7 @@ impl Runtime {
     /// Queries which report untracked reads will be re-executed in the next
     /// revision.
     pub fn report_untracked_read(&self) {
+        log::debug!("xxxjjjj1");
         self.local_state
             .report_untracked_read(self.current_revision());
     }
