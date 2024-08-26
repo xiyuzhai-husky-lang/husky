@@ -319,9 +319,7 @@ fn cycle_disappears_durability() {
     assert!(cycle_b(&mut db, abc).is_ok());
 }
 
-/// this indicates salsa-2022's bug
 #[test]
-#[ignore]
 fn cycle_disappears_durability2() {
     let mut db = Database::default();
     let abc = ABC::new(
