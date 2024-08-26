@@ -9,7 +9,7 @@ pub struct LetPatternSyndicate {
     ty: Option<SynExprIdx>,
 }
 
-impl<'a, 'b, P> ProducedSynExprParser<'a, 'b, P> {
+impl<'a, 'b> ProducedSynExprParser<'a, 'b> {
     pub(crate) fn parse_let_variables_pattern_expected(
         &mut self,
         access_end: RegionalTokenIdxRangeEnd,

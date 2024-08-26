@@ -1,5 +1,4 @@
 use super::*;
-use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_opr::BinaryClosedOpr;
 use husky_token_data::delimiter::Delimiter;
 use smallvec::smallvec;
@@ -11,13 +10,11 @@ pub struct TraitsSyndicate {
     pub trai_syn_expr_idxs: SmallVec<[SynExprIdx; 4]>,
 }
 
-impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
-    for TraitsSyndicate
-{
+impl<'a, 'b> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for TraitsSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        parser: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+        parser: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         if let Some(colon_regional_token) = parser.try_parse_option::<ColonRegionalToken>()? {
             let traits_syn_expr_idx = parser.parse_expr_expected2(

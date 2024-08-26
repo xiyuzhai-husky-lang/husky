@@ -4,7 +4,7 @@ use husky_entity_tree::helpers::tokra_region::{
 };
 use husky_item_defn_ast::{ItemDefnAstArenaRef, ItemDefnAstIdx, ItemDefnAstIdxRange};
 
-impl<'a, P> SynExprContext<'a, P> {
+impl<'a> SynExprContext<'a> {
     pub(crate) fn parse_root_body(&mut self) -> SynExprIdx {
         let body = self.item_defn_tokra_region_data().root_body();
         let stmts = self.parse_stmts(body);

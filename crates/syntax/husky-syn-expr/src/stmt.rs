@@ -94,7 +94,7 @@ pub type SynStmtIdx = ArenaIdx<SynStmtData>;
 pub type SynStmtIdxRange = ArenaIdxRange<SynStmtData>;
 pub type SynStmtMap<V> = ArenaMap<SynStmtData, V>;
 
-impl<'a, P> SynExprContext<'a, P> {
+impl<'a> SynExprContext<'a> {
     pub(crate) fn parse_stmts(&mut self, body: ItemDefnAstIdxRange) -> SynStmtIdxRange {
         let block_end = self.form_body_end(body);
         let stmts = body
@@ -265,7 +265,7 @@ impl<'a, P> SynExprContext<'a, P> {
     }
 }
 
-impl<'a, 'b, P> SynExprParser<'a, &'b mut SynExprContext<'a, P>> {
+impl<'a, 'b> SynExprParser<'a, &'b mut SynExprContext<'a>> {
     pub fn parse_inline_stmt(
         &mut self,
         block_end: RegionalTokenIdxRangeEnd,

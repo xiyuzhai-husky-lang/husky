@@ -2,7 +2,6 @@ use super::*;
 use either::*;
 #[cfg(test)]
 use expect_test::*;
-use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_token_data::delimiter::Delimiter;
 
 #[salsa::derive_debug_with_db]
@@ -67,13 +66,11 @@ impl ParenateParameterSyndicate {
     }
 }
 
-impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
-    for ParenateParameterSyndicate
-{
+impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ParenateParameterSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
         let const_constraint = ctx.try_parse_option()?;
         let nucleus = if let Some(syn_pattern_root) =
@@ -200,13 +197,11 @@ impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>
     }
 }
 
-impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
-    for ConstConstraint
-{
+impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a>> for ConstConstraint {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        sp: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+        sp: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(const_token) = sp.try_parse_option()? else {
             return Ok(None);
@@ -215,14 +210,10 @@ impl<'a> TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>
     }
 }
 
-impl<'a, 'b> TryParseFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
-    for SynVariadicParameterVariant
-{
+impl<'a, 'b> TryParseFromStream<StandaloneSynExprParser<'a>> for SynVariadicParameterVariant {
     type Error = SynExprError;
 
-    fn try_parse_from_stream(
-        sp: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
-    ) -> Result<Self, Self::Error> {
+    fn try_parse_from_stream(sp: &mut StandaloneSynExprParser<'a>) -> Result<Self, Self::Error> {
         if let Some(lbox_token) = sp.try_parse_option::<LboxRegionalToken>()? {
             if let Some(rbox_token) = sp.try_parse_option::<RboxRegionalToken>()? {
                 Ok(SynVariadicParameterVariant::Vec {

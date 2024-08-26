@@ -11,9 +11,9 @@ use husky_entity_tree::{
 use husky_vfs::path::module_path::ModulePath;
 use repl::ReplSource;
 
-pub struct SynExprContext<'a, P> {
+pub struct SynExprContext<'a> {
     db: &'a ::salsa::Db,
-    path: P,
+    path: SynNodeRegionPath,
     module_path: ModulePath,
     crate_root_path: ModulePath,
     parent_syn_expr_region: Option<SynExprRegion>,
@@ -30,25 +30,19 @@ pub struct SynExprContext<'a, P> {
 }
 
 pub trait IsSynExprContext<'a>:
-    std::borrow::Borrow<SynExprContext<'a, Self::P>>
-    + std::borrow::BorrowMut<SynExprContext<'a, Self::P>>
+    std::borrow::Borrow<SynExprContext<'a>> + std::borrow::BorrowMut<SynExprContext<'a>>
 {
-    type P;
 }
 
-impl<'a, P> IsSynExprContext<'a> for SynExprContext<'a, P> {
-    type P = P;
-}
+impl<'a> IsSynExprContext<'a> for SynExprContext<'a> {}
 
-impl<'a, 'b, P> IsSynExprContext<'a> for &'b mut SynExprContext<'a, P> {
-    type P = P;
-}
+impl<'a, 'b> IsSynExprContext<'a> for &'b mut SynExprContext<'a> {}
 
-impl<'a> SynExprContext<'a, SynNodeRegionPath> {
+impl<'a> SynExprContext<'a> {
     pub fn new(
         module_path: ModulePath,
-        path: SynNodeRegionPath,
-        parent_expr_region: impl Into<Option<SynExprRegion>>,
+        syn_node_region_path: SynNodeRegionPath,
+        decl_expr_region: impl Into<Option<SynExprRegion>>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
         repl_src: Option<ReplSource>,
@@ -56,9 +50,9 @@ impl<'a> SynExprContext<'a, SynNodeRegionPath> {
     ) -> Option<Self> {
         Self::new2(
             db,
-            path,
+            syn_node_region_path,
             db.module_symbol_context(module_path).unwrap(),
-            parent_expr_region.into(),
+            decl_expr_region.into(),
             allow_self_type,
             allow_self_value,
             repl_src,
@@ -115,13 +109,11 @@ impl<'a> SynExprContext<'a, SynNodeRegionPath> {
             self.has_self_place,
         )
     }
-}
 
-impl<'a, P> SynExprContext<'a, P> {
     pub fn token_verse_expr_parser<'b>(
         &'b mut self,
         token_verse_idx: RegionalTokenVerseIdx,
-    ) -> SynExprParser<'a, &'b mut SynExprContext<'a, P>>
+    ) -> SynExprParser<'a, &'b mut SynExprContext<'a>>
     where
         'a: 'b,
     {
@@ -133,7 +125,7 @@ impl<'a, P> SynExprContext<'a, P> {
         self,
         env: Option<ExprEnvironment>,
         token_stream: RegionalTokenStream<'a>,
-    ) -> StandaloneSynExprParser<'a, P> {
+    ) -> StandaloneSynExprParser<'a> {
         SynExprParser::new(self, env, token_stream)
     }
 

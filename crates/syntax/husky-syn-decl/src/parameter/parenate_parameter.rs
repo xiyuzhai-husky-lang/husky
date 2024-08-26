@@ -1,5 +1,4 @@
 use super::*;
-use husky_entity_tree::region_path::SynNodeRegionPath;
 use parsec::parse_punctuated_small_list;
 
 pub(crate) type ParenateSynParametersData = SmallVec<[ParenateParameterSyndicate; 2]>;
@@ -15,14 +14,13 @@ pub struct ParenateParameterSyndicateList<const ALLOW_SELF_PARAMETER: bool> {
     rpar: RparRegionalToken,
 }
 
-impl<'a, const ALLOW_SELF_PARAMETER: bool>
-    TryParseOptionFromStream<StandaloneSynExprParser<'a, SynNodeRegionPath>>
+impl<'a, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<StandaloneSynExprParser<'a>>
     for ParenateParameterSyndicateList<ALLOW_SELF_PARAMETER>
 {
     type Error = SynNodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
-        ctx: &mut StandaloneSynExprParser<'a, SynNodeRegionPath>,
+        ctx: &mut StandaloneSynExprParser<'a>,
     ) -> Result<Option<Self>, SynNodeDeclError> {
         let Some(lpar) = ctx.try_parse_option::<LparRegionalToken>()? else {
             return Ok(None);
