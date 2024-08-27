@@ -113,11 +113,15 @@ impl InputStruct {
             .zip(&field_tys)
             .map(|(((field_index, set_field_name), field_vis), field_ty)| {
             parse_quote! {
-                #field_vis fn #set_field_name<'db>(self, __db: &'db mut ::salsa::Db) -> salsa::setter::Setter<'db, #ident, #field_ty>
+                #field_vis fn #set_field_name<'db>(
+                    self,
+                    durability: salsa::Durability,
+                    __db: &'db mut ::salsa::Db
+                ) -> salsa::setter::Setter<'db, #ident, #field_ty>
                 {
                     let (__jar, __runtime) = __db.jar_mut::<#jar_ty>();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient_mut(__jar);
-                    salsa::setter::Setter::new(__runtime, self, &mut __ingredients.#field_index)
+                    salsa::setter::Setter::new(__runtime, self, durability, &mut __ingredients.#field_index)
                 }
             }
         })

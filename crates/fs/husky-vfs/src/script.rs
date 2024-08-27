@@ -44,8 +44,14 @@ impl Script {
         let (__jar, __runtime) = __db.jar_mut::<crate::Jar>();
         let __ingredients =
             <crate::Jar as salsa::storage::HasIngredientsFor<Script>>::ingredient_mut(__jar);
-        salsa::setter::Setter::new(__runtime, self, &mut __ingredients.0)
+        salsa::setter::Setter::new(
+            __runtime,
+            self,
+            salsa::Durability::SUPER_LOW,
+            &mut __ingredients.0,
+        )
     }
+
     pub fn set_data<'db>(
         self,
         __db: &'db mut ::salsa::Db,
@@ -53,7 +59,12 @@ impl Script {
         let (__jar, __runtime) = __db.jar_mut::<crate::Jar>();
         let __ingredients =
             <crate::Jar as salsa::storage::HasIngredientsFor<Script>>::ingredient_mut(__jar);
-        salsa::setter::Setter::new(__runtime, self, &mut __ingredients.1)
+        salsa::setter::Setter::new(
+            __runtime,
+            self,
+            salsa::Durability::SUPER_LOW,
+            &mut __ingredients.1,
+        )
     }
 }
 impl salsa::storage::IngredientsFor for Script {

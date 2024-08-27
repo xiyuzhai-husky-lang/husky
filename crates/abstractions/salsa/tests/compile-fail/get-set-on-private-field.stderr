@@ -13,5 +13,5 @@ error[E0624]: associated function `set_field` is private
 7  |     #[salsa::input(jar = Jar)]
    |     -------------------------- private associated function defined here
 ...
-30 |     input.set_field(&mut db).to(23);
+30 |     input.set_field(salsa::Durability::LOW, &mut db).to(23);
    |           ^^^^^^^^^ private associated function

@@ -22,6 +22,11 @@ impl Durability {
     /// Low durability: things that change frequently.
     ///
     /// Example: part of the crate being edited
+    pub const SUPER_LOW: Durability = Durability(0);
+
+    /// Low durability: things that change frequently.
+    ///
+    /// Example: part of the crate being edited
     pub const LOW: Durability = Durability(0);
 
     /// Medium durability: things that change sometimes, but rarely.
@@ -35,10 +40,12 @@ impl Durability {
     /// Example: the standard library or something from crates.io
     pub const HIGH: Durability = Durability(2);
 
+    pub const MIN: Durability = Durability(0);
+
     /// The maximum possible durability; equivalent to HIGH but
     /// "conceptually" distinct (i.e., if we add more durability
     /// levels, this could change).
-    pub(crate) const MAX: Durability = Self::HIGH;
+    pub const MAX: Durability = Self::HIGH;
 
     /// Number of durability levels.
     pub(crate) const LEN: usize = 3;

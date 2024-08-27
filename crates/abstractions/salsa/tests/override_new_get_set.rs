@@ -25,7 +25,7 @@ impl MyInput {
     }
 
     pub fn set_field(self, db: &mut Db, id: String) {
-        self.set_text(db).to(id);
+        self.set_text(salsa::Durability::LOW, db).to(id);
     }
 }
 

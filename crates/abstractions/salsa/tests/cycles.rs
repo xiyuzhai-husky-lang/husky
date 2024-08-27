@@ -237,7 +237,7 @@ fn cycle_revalidate() {
     let mut db = Database::default();
     let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::None);
     assert!(cycle_a(&db, abc).is_err());
-    abc.set_b(&mut db).to(CycleQuery::A); // same value as default
+    abc.set_b(salsa::Durability::LOW, &mut db).to(CycleQuery::A); // same value as default
     assert!(cycle_a(&db, abc).is_err());
 }
 
@@ -250,7 +250,7 @@ fn cycle_recovery_unchanged_twice() {
     let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::None);
     assert!(cycle_a(&db, abc).is_err());
 
-    abc.set_c(&mut db).to(CycleQuery::A); // force new revision
+    abc.set_c(salsa::Durability::LOW, &mut db).to(CycleQuery::A); // force new revision
     assert!(cycle_a(&db, abc).is_err());
 }
 
@@ -265,7 +265,7 @@ fn cycle_appears() {
     //     A --> B
     //     ^     |
     //     +-----+
-    abc.set_b(&mut db).to(CycleQuery::A);
+    abc.set_b(salsa::Durability::LOW, &mut db).to(CycleQuery::A);
     assert!(cycle_a(&db, abc).is_err());
 }
 
@@ -280,7 +280,8 @@ fn cycle_disappears() {
     assert!(cycle_a(&db, abc).is_err());
 
     //     A --> B
-    abc.set_b(&mut db).to(CycleQuery::None);
+    abc.set_b(salsa::Durability::LOW, &mut db)
+        .to(CycleQuery::None);
     assert!(cycle_a(&db, abc).is_ok());
 }
 
@@ -297,11 +298,8 @@ fn cycle_disappears_durability() {
         CycleQuery::None,
         CycleQuery::None,
     );
-    abc.set_a(&mut db)
-        .with_durability(Durability::LOW)
-        .to(CycleQuery::B);
-    abc.set_b(&mut db)
-        .with_durability(Durability::HIGH)
+    abc.set_a(salsa::Durability::LOW, &mut db).to(CycleQuery::B);
+    abc.set_b(salsa::Durability::HIGH, &mut db)
         .to(CycleQuery::A);
 
     assert!(cycle_a(&db, abc).is_err());
@@ -312,8 +310,7 @@ fn cycle_disappears_durability() {
     //
     // Check that setting a `LOW` input causes us to re-execute `b` query, and
     // observe that the cycle goes away.
-    abc.set_a(&mut db)
-        .with_durability(Durability::LOW)
+    abc.set_a(salsa::Durability::LOW, &mut db)
         .to(CycleQuery::None);
 
     assert!(cycle_b(&mut db, abc).is_ok());
@@ -328,11 +325,9 @@ fn cycle_disappears_durability2() {
         CycleQuery::None,
         CycleQuery::None,
     );
-    abc.set_a(&mut db)
-        .with_durability(Durability::MEDIUM)
+    abc.set_a(salsa::Durability::MEDIUM, &mut db)
         .to(CycleQuery::B);
-    abc.set_b(&mut db)
-        .with_durability(Durability::HIGH)
+    abc.set_b(salsa::Durability::HIGH, &mut db)
         .to(CycleQuery::A);
 
     assert!(cycle_a(&db, abc).is_err());
@@ -343,8 +338,7 @@ fn cycle_disappears_durability2() {
     //
     // Check that setting a `LOW` input causes us to re-execute `b` query, and
     // observe that the cycle goes away.
-    abc.set_a(&mut db)
-        .with_durability(Durability::MEDIUM)
+    abc.set_a(salsa::Durability::MEDIUM, &mut db)
         .to(CycleQuery::None);
 
     assert!(cycle_b(&mut db, abc).is_ok());

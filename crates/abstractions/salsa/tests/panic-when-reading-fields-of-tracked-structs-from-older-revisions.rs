@@ -32,7 +32,7 @@ fn execute() {
     let tracked = tracked_fn(&db, input);
 
     // modify the input and change the revision
-    input.set_field(&mut db).to(24);
+    input.set_field(salsa::Durability::LOW, &mut db).to(24);
 
     // panic when reading fields of tracked structs from older revisions
     tracked.field(&db);
