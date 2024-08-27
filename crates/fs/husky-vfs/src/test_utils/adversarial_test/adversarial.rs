@@ -34,7 +34,7 @@ impl VfsAdversarial {
         db: &mut Db,
         module_path: ModulePath,
         f: &impl Fn(&::salsa::Db),
-    ) -> Result<(), ()> {
+    ) -> VfsResult<()> {
         let original_text = module_path.raw_text(db);
         let original_text = original_text.to_owned();
         let edited_text = self.edit(&original_text);
@@ -43,15 +43,16 @@ impl VfsAdversarial {
         };
         let file = db.file_from_virtual_path(path).unwrap();
         // edit text using adversarial
-        file.set_content(db.vfs_db_mut())
+        file.set_content(db.vfs_db_mut())?
             .to(FileContent::LiveDoc(edited_text));
         // run the function to see if it panicked
         let catch_unwind = std::panic::catch_unwind(AssertUnwindSafe(|| f(db)));
         // then rollback to original
-        file.set_content(db).to(FileContent::LiveDoc(original_text));
+        file.set_content(db)?
+            .to(FileContent::LiveDoc(original_text));
         match catch_unwind {
             Ok(_) => Ok(()),
-            Err(_) => Err(()),
+            Err(_) => Err(todo!()),
         }
     }
 

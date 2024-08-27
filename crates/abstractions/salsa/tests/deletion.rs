@@ -78,7 +78,7 @@ fn basic() {
     // * the struct itself
     // * the struct's field
     // * the `contribution_from_struct` result
-    input.set_field(db).to(2);
+    input.set_field(salsa::Durability::LOW, db).to(2);
     assert_eq!(final_result(db, input), 2);
     db.assert_logs(expect![[r#"
         [

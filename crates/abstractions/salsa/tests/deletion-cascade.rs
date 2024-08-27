@@ -88,7 +88,7 @@ fn basic() {
     // * the struct's field
     // * the `copy_field` result
 
-    input.set_field(&mut db).to(2);
+    input.set_field(salsa::Durability::LOW, &mut db).to(2);
     assert_eq!(final_result(&db, input), 2);
     db.assert_logs(expect![[r#"
         [
