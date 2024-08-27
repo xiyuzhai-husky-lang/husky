@@ -14,11 +14,11 @@ pub struct StandardCaryatid {
 impl IsCaryatid for StandardCaryatid {
     type Pedestal = StandardPedestal;
 
-    fn pedestal(&self, var_deps: &[ItemPathIdInterface]) -> Self::Pedestal {
+    fn pedestal(&self, var_deps: &[ItemPathIdInterface]) -> Option<Self::Pedestal> {
         var_deps
             .iter()
             .copied()
-            .filter_map(|dep| {
+            .map(|dep| {
                 self.anchors
                     .get_value(dep)
                     .copied()

@@ -228,11 +228,13 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         use crate::caryatid::IsCaryatid;
         let trace_listing = self.trace_synchrotron().trace_listing();
         for trace_id in trace_listing {
-            let pedestal = self
+            if let Some(pedestal) = self
                 .trace_synchrotron()
                 .caryatid()
-                .pedestal(&self.trace_synchrotron()[trace_id].var_deps());
-            self.cache_stalk(trace_id, pedestal)
+                .pedestal(&self.trace_synchrotron()[trace_id].var_deps())
+            {
+                self.cache_stalk(trace_id, pedestal)
+            }
         }
     }
 
