@@ -47,6 +47,7 @@ where
         value: V,
         durability: Durability,
     ) -> Option<V> {
+        runtime.report_store_mut(durability);
         let revision = runtime.current_revision();
         let stamped_value = Box::new(StampedValue {
             value,

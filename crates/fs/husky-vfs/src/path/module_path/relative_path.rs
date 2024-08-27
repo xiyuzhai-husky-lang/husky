@@ -21,7 +21,7 @@ fn module_relative_dir_for_submodules(
         ModulePathData::Child { parent, ident } => {
             module_relative_dir_for_submodules(db, parent).join(ident.data(db))
         }
-        ModulePathData::Chunk { .. } => unreachable!(),
+        ModulePathData::Script { .. } => unreachable!(),
     }
 }
 
@@ -39,7 +39,7 @@ fn module_relative_stem(db: &::salsa::Db, module_path: ModulePath) -> RelativePa
             CrateKind::Example => todo!(),
         },
         ModulePathData::Child { .. } => dir_for_submodules.clone(),
-        ModulePathData::Chunk { .. } => unreachable!(),
+        ModulePathData::Script { .. } => unreachable!(),
     }
 }
 

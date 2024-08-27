@@ -99,19 +99,20 @@ impl VfsDbInner for Db {
     }
 
     fn set_content(&mut self, path: &Path, content: FileContent) -> VfsResult<()> {
-        let abs_path = VirtualPath::try_new(self, path)?;
+        let virtual_path = VirtualPath::try_new(self, path)?;
+        let path = virtual_path.data(self);
+        let durability = self.calc_durability(path)?;
         let file = match self
             .vfs_jar()
             .cache()
             .files()
-            .entry(abs_path.data(self).to_owned())
+            .entry(virtual_path.data(self).to_owned())
         {
             // If the file already exists in our cache then just return it.
             Entry::Occupied(entry) => *entry.get(),
             // If we haven't read this file yet set up the watch, read the
             // contents, store it in the cache, and return it.
             Entry::Vacant(entry) => {
-                let path = abs_path.data(self);
                 //  &path.path(self);
                 // ad hoc
                 // if let Some(watcher) = self.watcher() {
@@ -122,15 +123,10 @@ impl VfsDbInner for Db {
                 //         .unwrap();
                 // }
                 let content = read_file_content(path);
-                *entry.insert(File::new(
-                    self,
-                    abs_path.clone(),
-                    content,
-                    self.calc_durability(path)?,
-                ))
+                *entry.insert(File::new(self, virtual_path.clone(), content, durability))
             }
         };
-        file.set_content(self).to(content);
+        file.set_content(self)?.to(content);
         Ok(())
     }
 
@@ -195,7 +191,7 @@ impl VfsDb for Db {
                             "main" | "lib" => match parent.data(db) {
                                 ModulePathData::Root(_) => false,
                                 ModulePathData::Child { .. } => true,
-                                ModulePathData::Chunk { .. } => unreachable!(),
+                                ModulePathData::Script { .. } => unreachable!(),
                             },
                             _ => true,
                         };
@@ -302,8 +298,8 @@ pub struct VfsJar(
     crate::toolchain::Toolchain,
     crate::toolchain::PublishedToolchain,
     crate::toolchain::published_toolchain_library_path,
-    crate::chunk::Chunk,
-    crate::chunk::chunk_toolchain,
+    crate::script::Script,
+    crate::script::chunk_toolchain,
 );
 
 impl salsa::storage::IngredientsFor for VfsCache {

@@ -40,7 +40,7 @@ impl File {
         let (jar, runtime) = db.jar::<VfsJar>();
         let ingredients = <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient(jar);
         let id = ingredients.2.new_input(runtime);
-        ingredients.0.store_new(runtime, id, path, Durability::HIGH);
+        ingredients.0.store_new(runtime, id, path, Durability::MAX);
         ingredients.1.store_new(runtime, id, content, durability);
         id
     }
@@ -60,11 +60,18 @@ impl File {
     pub(crate) fn set_content<'db>(
         self,
         db: &'db mut Db,
-    ) -> salsa::setter::Setter<'db, File, FileContent> {
+    ) -> VfsResult<salsa::setter::Setter<'db, File, FileContent>> {
+        let path = self.path(db).data(db);
+        let durability = db.calc_durability(path)?;
         let (__jar, __runtime) = db.jar_mut();
         let __ingredients =
             <VfsJar as salsa::storage::HasIngredientsFor<File>>::ingredient_mut(__jar);
-        salsa::setter::Setter::new(__runtime, self, &mut __ingredients.1)
+        Ok(salsa::setter::Setter::new(
+            __runtime,
+            self,
+            durability,
+            &mut __ingredients.1,
+        ))
     }
 }
 

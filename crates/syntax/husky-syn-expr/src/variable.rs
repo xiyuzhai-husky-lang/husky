@@ -46,6 +46,7 @@ impl InheritedVariableEntry {
             )
             | InheritedVariableKind::Parenate { ident }
             | InheritedVariableKind::SelfField { ident } => ident.into(),
+            InheritedVariableKind::ReplLocal => todo!(),
         }
     }
 
@@ -60,6 +61,7 @@ pub enum InheritedVariableKind {
     Template(InheritedTemplateVariable),
     Parenate { ident: Ident },
     SelfField { ident: Ident },
+    ReplLocal,
 }
 
 #[salsa::derive_debug_with_db]

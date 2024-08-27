@@ -24,7 +24,7 @@ struct Database;
 #[test]
 fn basic() {
     let db = Database::default();
-    let input1 = MyInput::new(&db, 3, 4);
+    let input1 = MyInput::new(&db, 3, 4, salsa::Durability::LOW);
     let input2 = MyInput::get(&db);
 
     assert_eq!(input1, input2);
@@ -37,19 +37,19 @@ fn basic() {
 #[should_panic]
 fn twice() {
     let db = Database::default();
-    let input1 = MyInput::new(&db, 3, 4);
+    let input1 = MyInput::new(&db, 3, 4, salsa::Durability::LOW);
     let input2 = MyInput::get(&db);
 
     assert_eq!(input1, input2);
 
     // should panic here
-    _ = MyInput::new(&db, 3, 5);
+    _ = MyInput::new(&db, 3, 5, salsa::Durability::LOW);
 }
 
 #[test]
 fn debug() {
     let db = Database::default();
-    let input = MyInput::new(&db, 3, 4);
+    let input = MyInput::new(&db, 3, 4, salsa::Durability::LOW);
     let actual = format!("{:?}", input.debug(&db));
     let expected = expect!["MyInput { field: 3, id_field: 4 }"];
     expected.assert_eq(&actual);

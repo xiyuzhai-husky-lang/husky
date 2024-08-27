@@ -25,5 +25,5 @@ fn main() {
     let input = a::MyInput::new(&mut db, 22);
 
     input.field(&db);
-    input.set_field(&mut db).to(23);
+    input.set_field(salsa::Durability::LOW, &mut db).to(23);
 }

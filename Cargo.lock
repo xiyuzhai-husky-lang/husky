@@ -4451,6 +4451,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-cybertron-mini-lean-compiler"
+version = "0.1.0"
+
+[[package]]
 name = "husky-cybertron-prototype"
 version = "0.1.0"
 dependencies = [

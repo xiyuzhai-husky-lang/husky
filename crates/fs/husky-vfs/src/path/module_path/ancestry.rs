@@ -28,7 +28,7 @@ pub(crate) fn module_ancestry(db: &::salsa::Db, module_path: ModulePath) -> Modu
             crate_path,
             module_paths: vec![module_path],
         },
-        ModulePathData::Chunk { .. } => todo!(),
+        ModulePathData::Script { .. } => todo!(),
         ModulePathData::Child { parent, ident: _ } => {
             let mut ancestry = module_ancestry(db, parent).clone();
             ancestry.module_paths.push(module_path);

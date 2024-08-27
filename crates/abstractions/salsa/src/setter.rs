@@ -17,18 +17,15 @@ where
     pub fn new(
         runtime: &'setter mut Runtime,
         key: K,
+        durability: Durability,
         ingredient: &'setter mut InputFieldIngredient<K, F>,
     ) -> Self {
         Setter {
             runtime,
             key,
             ingredient,
-            durability: Durability::LOW,
+            durability,
         }
-    }
-
-    pub fn with_durability(self, durability: Durability) -> Self {
-        Setter { durability, ..self }
     }
 
     pub fn to(self, value: F) -> F {

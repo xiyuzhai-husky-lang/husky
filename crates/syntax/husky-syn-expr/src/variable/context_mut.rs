@@ -1,7 +1,7 @@
+use super::*;
+use crate::repl::ReplSource;
 use husky_entity_tree::region_path::SynNodeRegionPath;
 use husky_vfs::path::module_path::ModulePath;
-
-use super::*;
 
 pub struct VariableContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
@@ -14,6 +14,7 @@ impl<'a> VariableContextMut<'a> {
         parent_symbol_region: Option<&VariableRegionData>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
+        repl_src: Option<ReplSource>,
     ) -> Self {
         Self {
             module_symbol_context,
@@ -21,6 +22,7 @@ impl<'a> VariableContextMut<'a> {
                 parent_symbol_region,
                 allow_self_type,
                 allow_self_value,
+                repl_src,
             ),
         }
     }

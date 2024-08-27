@@ -38,7 +38,7 @@ fn execute() {
     // result_depends_on_y = y - 1
     let mut db = Database::default();
 
-    let input = MyInput::new(&db, 22, 33);
+    let input = MyInput::new(&db, 22, 33, salsa::Durability::LOW);
     assert_eq!(result_depends_on_x(&db, input), 23);
     db.assert_logs(expect![[r#"
         [
@@ -51,7 +51,7 @@ fn execute() {
             "result_depends_on_y(MyInput(Id { value: 1 }))",
         ]"#]]);
 
-    input.set_x(&mut db).to(23);
+    input.set_x(salsa::Durability::LOW, &mut db).to(23);
     // input x changes, so result depends on x needs to be recomputed;
     assert_eq!(result_depends_on_x(&db, input), 24);
     db.assert_logs(expect![[r#"

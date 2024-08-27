@@ -175,7 +175,7 @@ fn extract_cycle(f: impl FnOnce() + UnwindSafe) -> salsa::Cycle {
 #[test]
 fn cycle_memoized() {
     let mut db = Database::default();
-    let input = MyInput::new(&db);
+    let input = MyInput::new(&db, salsa::Durability::LOW);
     let cycle = extract_cycle(|| memoized_a(&db, input));
     let expected = expect![[r#"
         [
@@ -189,7 +189,7 @@ fn cycle_memoized() {
 #[test]
 fn cycle_volatile() {
     let mut db = Database::default();
-    let input = MyInput::new(&db);
+    let input = MyInput::new(&db, salsa::Durability::LOW);
     let cycle = extract_cycle(|| volatile_a(&db, input));
     let expected = expect![[r#"
         [
@@ -207,7 +207,13 @@ fn expect_cycle() {
     //     +-----+
 
     let mut db = Database::default();
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::None);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::A,
+        CycleQuery::None,
+        salsa::Durability::LOW,
+    );
     assert!(cycle_a(&db, abc).is_err());
 }
 
@@ -217,7 +223,13 @@ fn inner_cycle() {
     //     ^     |
     //     +-----+
     let mut db = Database::default();
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::B);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::A,
+        CycleQuery::B,
+        salsa::Durability::LOW,
+    );
     let err = cycle_c(&db, abc);
     assert!(err.is_err());
     let expected = expect![[r#"
@@ -235,9 +247,15 @@ fn cycle_revalidate() {
     //     ^     |
     //     +-----+
     let mut db = Database::default();
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::None);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::A,
+        CycleQuery::None,
+        salsa::Durability::LOW,
+    );
     assert!(cycle_a(&db, abc).is_err());
-    abc.set_b(&mut db).to(CycleQuery::A); // same value as default
+    abc.set_b(salsa::Durability::LOW, &mut db).to(CycleQuery::A); // same value as default
     assert!(cycle_a(&db, abc).is_err());
 }
 
@@ -247,10 +265,16 @@ fn cycle_recovery_unchanged_twice() {
     //     ^     |
     //     +-----+
     let mut db = Database::default();
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::None);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::A,
+        CycleQuery::None,
+        salsa::Durability::LOW,
+    );
     assert!(cycle_a(&db, abc).is_err());
 
-    abc.set_c(&mut db).to(CycleQuery::A); // force new revision
+    abc.set_c(salsa::Durability::LOW, &mut db).to(CycleQuery::A); // force new revision
     assert!(cycle_a(&db, abc).is_err());
 }
 
@@ -259,13 +283,19 @@ fn cycle_appears() {
     let mut db = Database::default();
 
     //     A --> B
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::None, CycleQuery::None);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::None,
+        CycleQuery::None,
+        salsa::Durability::LOW,
+    );
     assert!(cycle_a(&db, abc).is_ok());
 
     //     A --> B
     //     ^     |
     //     +-----+
-    abc.set_b(&mut db).to(CycleQuery::A);
+    abc.set_b(salsa::Durability::LOW, &mut db).to(CycleQuery::A);
     assert!(cycle_a(&db, abc).is_err());
 }
 
@@ -276,11 +306,18 @@ fn cycle_disappears() {
     //     A --> B
     //     ^     |
     //     +-----+
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::None);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::A,
+        CycleQuery::None,
+        salsa::Durability::LOW,
+    );
     assert!(cycle_a(&db, abc).is_err());
 
     //     A --> B
-    abc.set_b(&mut db).to(CycleQuery::None);
+    abc.set_b(salsa::Durability::LOW, &mut db)
+        .to(CycleQuery::None);
     assert!(cycle_a(&db, abc).is_ok());
 }
 
@@ -296,12 +333,10 @@ fn cycle_disappears_durability() {
         CycleQuery::None,
         CycleQuery::None,
         CycleQuery::None,
+        salsa::Durability::LOW,
     );
-    abc.set_a(&mut db)
-        .with_durability(Durability::LOW)
-        .to(CycleQuery::B);
-    abc.set_b(&mut db)
-        .with_durability(Durability::HIGH)
+    abc.set_a(salsa::Durability::LOW, &mut db).to(CycleQuery::B);
+    abc.set_b(salsa::Durability::HIGH, &mut db)
         .to(CycleQuery::A);
 
     assert!(cycle_a(&db, abc).is_err());
@@ -312,8 +347,36 @@ fn cycle_disappears_durability() {
     //
     // Check that setting a `LOW` input causes us to re-execute `b` query, and
     // observe that the cycle goes away.
-    abc.set_a(&mut db)
-        .with_durability(Durability::LOW)
+    abc.set_a(salsa::Durability::LOW, &mut db)
+        .to(CycleQuery::None);
+
+    assert!(cycle_b(&mut db, abc).is_ok());
+}
+
+#[test]
+fn cycle_disappears_durability2() {
+    let mut db = Database::default();
+    let abc = ABC::new(
+        &mut db,
+        CycleQuery::None,
+        CycleQuery::None,
+        CycleQuery::None,
+        salsa::Durability::LOW,
+    );
+    abc.set_a(salsa::Durability::MEDIUM, &mut db)
+        .to(CycleQuery::B);
+    abc.set_b(salsa::Durability::HIGH, &mut db)
+        .to(CycleQuery::A);
+
+    assert!(cycle_a(&db, abc).is_err());
+
+    // At this point, `a` read `LOW` input, and `b` read `HIGH` input. However,
+    // because `b` participates in the same cycle as `a`, its final durability
+    // should be `LOW`.
+    //
+    // Check that setting a `LOW` input causes us to re-execute `b` query, and
+    // observe that the cycle goes away.
+    abc.set_a(salsa::Durability::MEDIUM, &mut db)
         .to(CycleQuery::None);
 
     assert!(cycle_b(&mut db, abc).is_ok());
@@ -326,7 +389,13 @@ fn cycle_mixed_1() {
     //     A --> B <-- C
     //           |     ^
     //           +-----+
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::C, CycleQuery::B);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::C,
+        CycleQuery::B,
+        salsa::Durability::LOW,
+    );
 
     let expected = expect![[r#"
         [
@@ -346,7 +415,13 @@ fn cycle_mixed_2() {
     //     A --> B --> C
     //     ^           |
     //     +-----------+
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::C, CycleQuery::A);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::C,
+        CycleQuery::A,
+        salsa::Durability::LOW,
+    );
     let expected = expect![[r#"
         [
             "cycle_a(0)",
@@ -366,7 +441,13 @@ fn cycle_deterministic_order() {
         //     A --> B
         //     ^     |
         //     +-----+
-        let abc = ABC::new(&db, CycleQuery::B, CycleQuery::A, CycleQuery::None);
+        let abc = ABC::new(
+            &db,
+            CycleQuery::B,
+            CycleQuery::A,
+            CycleQuery::None,
+            salsa::Durability::LOW,
+        );
         (db, abc)
     };
     let (db, abc) = f();
@@ -403,7 +484,13 @@ fn cycle_multiple() {
     //
     // Here, conceptually, B encounters a cycle with A and then
     // recovers.
-    let abc = ABC::new(&db, CycleQuery::B, CycleQuery::AthenC, CycleQuery::A);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::B,
+        CycleQuery::AthenC,
+        CycleQuery::A,
+        salsa::Durability::LOW,
+    );
 
     let c = cycle_c(&db, abc);
     let b = cycle_b(&db, abc);
@@ -438,7 +525,13 @@ fn cycle_recovery_set_but_not_participating() {
     //     A --> C -+
     //           ^  |
     //           +--+
-    let abc = ABC::new(&db, CycleQuery::C, CycleQuery::None, CycleQuery::C);
+    let abc = ABC::new(
+        &db,
+        CycleQuery::C,
+        CycleQuery::None,
+        CycleQuery::C,
+        salsa::Durability::LOW,
+    );
 
     // Here we expect C to panic and A not to recover:
     let r = extract_cycle(|| drop(cycle_a(&db, abc)));

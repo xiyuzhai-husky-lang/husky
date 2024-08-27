@@ -6,6 +6,7 @@ use husky_sem_expr::{helpers::range::sem_expr_range_region, SemExprRegion};
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EagerCallInputTracePathData {
     biological_parent_path: TracePath,
+    // todo: add more?
 }
 
 #[salsa::derive_debug_with_db]

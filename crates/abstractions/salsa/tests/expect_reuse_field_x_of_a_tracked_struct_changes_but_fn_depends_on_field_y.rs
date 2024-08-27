@@ -59,7 +59,7 @@ fn execute() {
     // intermediate results:
     // x = (22 + 1) / 2 = 11
     // y = 22 / 2 = 11
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     assert_eq!(final_result_depends_on_x(&db, input), 22);
     db.assert_logs(expect![[r#"
         [
@@ -72,7 +72,7 @@ fn execute() {
             "final_result_depends_on_y(MyInput(Id { value: 1 }))",
         ]"#]]);
 
-    input.set_field(&mut db).to(23);
+    input.set_field(salsa::Durability::LOW, &mut db).to(23);
     // x = (23 + 1) / 2 = 12
     // Intermediate result x changes, so final result depends on x
     // needs to be recomputed;

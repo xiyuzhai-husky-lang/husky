@@ -23,9 +23,9 @@ fn quick_parse<T, Error>(db: &::salsa::Db, input: &str) -> Result<Option<T>, Err
 where
     T: for<'a> TryParseOptionFromStream<TokenStream<'a>, Error = Error>,
 {
-    use husky_vfs::chunk::Chunk;
+    use husky_vfs::script::Script;
 
-    let token_sheet = db.chunk_token_sheet_data(Chunk::new_dev_snippet(input, db));
+    let token_sheet = db.chunk_token_sheet_data(Script::new_dev_snippet(input, db));
     let mut stream = token_sheet
         .token_verse_token_stream(token_sheet.main_token_verse_iter().next().unwrap().0, None);
     stream.try_parse_option()

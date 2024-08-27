@@ -1,10 +1,10 @@
 use crate::*;
 use husky_entity_tree::{
-    node::chunk::ChunkSynNodePath, prelude::PreludeResult, region_path::SynNodeRegionPath,
+    node::script::ScriptSynNodePath, prelude::PreludeResult, region_path::SynNodeRegionPath,
     symbol::ModuleSymbolContext,
 };
 use husky_token::TokenDb;
-use husky_vfs::{chunk::Chunk, path::crate_path::CratePath};
+use husky_vfs::{path::crate_path::CratePath, script::Script};
 
 #[cfg(test)]
 pub(crate) fn try_parse_snippet_in_decl<T>(
@@ -23,18 +23,19 @@ where
 
     // "" wouldn't work
     assert!(input.len() > 0);
-    let chunk = Chunk::new_dev_snippet(input, db);
+    let script = Script::new_dev_snippet(input, db);
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.vfs_path_menu(toolchain);
     let crate_path = path_menu.core_library();
-    let token_sheet_data = db.chunk_token_sheet_data(chunk);
+    let token_sheet_data = db.chunk_token_sheet_data(script);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::ItemDefn(ChunkSynNodePath::new(chunk, db).into()),
+        SynNodeRegionPath::ItemDefn(ScriptSynNodePath::new(script, db).into()),
         ModuleSymbolContext::new_default(db, crate_path).unwrap(),
         None,
         AllowSelfType::False,
         AllowSelfValue::False,
+        None,
     )
     .unwrap();
     let token_stream =
@@ -47,16 +48,17 @@ where
 pub fn parse_expr_from_script(
     db: &::salsa::Db,
     crate_path: CratePath,
-    chunk: Chunk,
+    script: Script,
 ) -> PreludeResult<(SynExprRegion, Option<SynExprIdx>)> {
-    let token_sheet_data = db.chunk_token_sheet_data(chunk);
+    let token_sheet_data = db.chunk_token_sheet_data(script);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::ItemDefn(ChunkSynNodePath::new(chunk, db).into()),
+        SynNodeRegionPath::ItemDefn(ScriptSynNodePath::new(script, db).into()),
         ModuleSymbolContext::new_default(db, crate_path)?,
         None,
         AllowSelfType::False,
         AllowSelfValue::False,
+        None,
     )
     .unwrap();
     let token_stream =

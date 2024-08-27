@@ -1,16 +1,16 @@
 pub mod assoc_item;
 pub mod attr;
-pub mod chunk;
 pub mod impl_block;
 pub mod major_item;
+pub mod script;
 pub mod submodule;
 pub mod ty_variant;
 mod utils;
 
 use self::assoc_item::*;
-use self::chunk::{ChunkItemPath, ChunkItemPathData};
 use self::impl_block::*;
 use self::major_item::{form::MajorFormPath, ty::TypePath, *};
+use self::script::{ScriptItemPath, ScriptItemPathData};
 use self::submodule::*;
 use self::ty_variant::*;
 use self::utils::item_debug_fmt_with_db;
@@ -19,8 +19,8 @@ use crate::*;
 use enum_class::Room32;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_vfs::{
-    chunk::Chunk,
     path::{crate_path::CratePath, module_path::ModulePath},
+    script::Script,
     toolchain::Toolchain,
 };
 use salsa::DisplayWithDb;
@@ -96,7 +96,7 @@ pub enum ItemPathData {
     TypeVariant(TypeVariantPathData),
     ImplBlock(ImplBlockPathData),
     Attr(AttrItemPathData),
-    Chunk(ChunkItemPathData),
+    Script(ScriptItemPathData),
 }
 
 impl ItemPathData {
@@ -109,7 +109,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(slf) => slf.item_path(id).into(),
             ItemPathData::ImplBlock(slf) => slf.item_path(id).into(),
             ItemPathData::Attr(slf) => slf.item_path(id).into(),
-            ItemPathData::Chunk(_) => todo!(),
+            ItemPathData::Script(_) => todo!(),
         }
     }
 
@@ -121,7 +121,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(slf) => slf.module_path(db),
             ItemPathData::ImplBlock(slf) => slf.module_path(db),
             ItemPathData::Attr(slf) => slf.module_path(db),
-            ItemPathData::Chunk(slf) => *slf.module_path(db),
+            ItemPathData::Script(slf) => *slf.module_path(db),
         }
     }
 
@@ -133,7 +133,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(slf) => Some(slf.ident),
             ItemPathData::ImplBlock(_) => None,
             ItemPathData::Attr(slf) => Some(slf.ident),
-            ItemPathData::Chunk(_) => todo!(),
+            ItemPathData::Script(_) => todo!(),
         }
     }
 
@@ -145,7 +145,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(_slf) => EntityKind::TypeVariant,
             ItemPathData::ImplBlock(_slf) => EntityKind::ImplBlock,
             ItemPathData::Attr(_slf) => EntityKind::Attr,
-            ItemPathData::Chunk(_slf) => EntityKind::Chunk,
+            ItemPathData::Script(_slf) => EntityKind::Script,
         }
     }
 }
@@ -278,7 +278,7 @@ pub enum ItemPath {
     TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
     Attr(Room32, AttrItemPath),
-    Chunk(Room32, ChunkItemPath),
+    Script(Room32, ScriptItemPath),
 }
 
 impl salsa::DebugWithDb for ItemPath {
@@ -343,7 +343,7 @@ impl ItemPath {
             | ItemPath::TypeVariant(_, _)
             | ItemPath::ImplBlock(_)
             | ItemPath::Attr(_, _)
-            | ItemPath::Chunk(_, _) => None,
+            | ItemPath::Script(_, _) => None,
         }
     }
 }
@@ -361,7 +361,7 @@ impl salsa::DisplayWithDb for ItemPath {
             ItemPath::TypeVariant(_, path) => path.display_fmt_with_db(f, db),
             ItemPath::ImplBlock(path) => path.display_fmt_with_db(f, db),
             ItemPath::Attr(_, path) => path.display_fmt_with_db(f, db),
-            ItemPath::Chunk(_, _) => todo!(),
+            ItemPath::Script(_, _) => todo!(),
         }
     }
 }
