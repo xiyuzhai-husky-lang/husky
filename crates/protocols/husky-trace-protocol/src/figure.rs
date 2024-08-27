@@ -1,9 +1,9 @@
-use crate::TraceId;
+use crate::{chart::Chart, TraceId};
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::IsPedestalFull;
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
-    visual::{image::ImageVisual, Visual},
+    visual::{image::ImageVisual, CompositeVisual, Visual},
 };
 use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
@@ -15,39 +15,14 @@ use ui::ui::{IsUi, UiTextureId};
 pub trait IsFigure<Pedestal: IsPedestalFull>:
     std::fmt::Debug + PartialEq + Eq + Clone + Serialize + for<'a> Deserialize<'a> + Send + 'static
 {
-    /// construct a figure for a specific datapoint
-    fn new_specific(
-        followed_visual: Option<(TraceId, KiReprInterface)>,
-        accompanyings: &[(TraceId, KiReprInterface)],
-        f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
-        visual_synchrotron: &mut VisualSynchrotron,
-    ) -> Self;
-
-    fn new_generic(
-        followed_visual: Option<(TraceId, KiReprInterface)>,
-        accompanyings: &[(TraceId, KiReprInterface)],
-        pedestals: impl Iterator<Item = Pedestal>,
-        f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
-        visual_synchrotron: &mut VisualSynchrotron,
+    fn from_chart_of_composite_visuals<StaticVarId>(
+        chart: Option<Chart<StaticVarId, CompositeVisual<TraceId>>>,
     ) -> Self;
 }
 
 impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for () {
-    fn new_specific(
-        _followed_visual: Option<(TraceId, KiReprInterface)>,
-        _accompanyings: &[(TraceId, KiReprInterface)],
-        _f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
-        _visual_synchrotron: &mut VisualSynchrotron,
-    ) -> Self {
-        ()
-    }
-
-    fn new_generic(
-        _followed_visual: Option<(TraceId, KiReprInterface)>,
-        _accompanyings: &[(TraceId, KiReprInterface)],
-        _pedestals: impl Iterator<Item = Pedestal>,
-        _f: impl FnMut(KiReprInterface, Pedestal, &mut VisualSynchrotron) -> Visual,
-        _visual_synchrotron: &mut VisualSynchrotron,
+    fn from_chart_of_composite_visuals<StaticVarId>(
+        chart: Option<Chart<StaticVarId, CompositeVisual<TraceId>>>,
     ) -> Self {
         ()
     }

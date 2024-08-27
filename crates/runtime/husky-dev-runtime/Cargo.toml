@@ -41,6 +41,7 @@ husky-token.workspace = true
 husky-linket.workspace = true
 husky-linket-impl.workspace = true
 # protocols
+husky-trace-protocol = { workspace = true, features = ["test_utils"] }
 husky-visual-protocol.workspace = true
 # syntax
 husky-entity-tree.workspace = true
@@ -70,5 +71,4 @@ husky-standard-linket-impl.workspace = true
 # linktime
 husky-mono-linktime.workspace = true
 # protocols
-husky-trace-protocol = { workspace = true, features = ["test_utils"] }
 husky-standard-visual-protocol.workspace = true

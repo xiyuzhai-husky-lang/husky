@@ -28,40 +28,6 @@ pub trait IsDevsoul: 'static {
     type RuntimeStorage: IsRuntimeStorage<Self::LinketImpl>;
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
-    fn calc_figure(
-        followed: Option<(
-            TraceId,
-            KiReprInterface,
-            KiDomainReprInterface,
-            &[ItemPathIdInterface],
-        )>,
-        accompanyings_except_followed: &[(TraceId, KiReprInterface, &[ItemPathIdInterface])],
-        pedestal: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
-        runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
-        visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut KiVisualCache<Self::Pedestal>,
-    ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
-
-    /// final
-    fn get_ki_visual(
-        ki_repr: KiReprInterface,
-        runtime: &dyn IsDevRuntimeDyn<Self::LinketImpl>,
-        visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut KiVisualCache<Self::Pedestal>,
-    ) -> Visual {
-        let pedestal = todo!();
-        ki_visual_cache.get_visual(ki_repr, pedestal, || {
-            use husky_value_interface::IsValue;
-            match runtime.eval_ki_repr_interface_dyn(ki_repr) {
-                KiControlFlow::Continue(value) => value.visualize(visual_synchrotron),
-                KiControlFlow::LoopContinue => todo!(),
-                KiControlFlow::LoopExit(_) => todo!(),
-                KiControlFlow::Return(_) => todo!(),
-                KiControlFlow::Undefined => todo!(),
-                KiControlFlow::Throw(_) => todo!(),
-            }
-        })
-    }
 }
 
 pub trait IsRuntimeStorage<LinketImpl: IsLinketImpl>: Default + Send {
