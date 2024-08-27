@@ -40,7 +40,7 @@ struct Database;
 fn one_entity() {
     let mut db = Database::default();
 
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 22);
     db.assert_logs(expect![[r#"
         [
@@ -71,7 +71,7 @@ fn one_entity() {
 fn red_herring() {
     let mut db = Database::default();
 
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 22);
     db.assert_logs(expect![[r#"
         [
@@ -82,7 +82,7 @@ fn red_herring() {
     // Create a distinct input and mutate it.
     // This will trigger a new revision in the database
     // but shouldn't actually invalidate our existing ones.
-    let input2 = MyInput::new(&db, 44);
+    let input2 = MyInput::new(&db, 44, salsa::Durability::LOW);
     input2.set_field(salsa::Durability::LOW, &mut db).to(66);
 
     // Re-run the query on the original input. Nothing re-executes!

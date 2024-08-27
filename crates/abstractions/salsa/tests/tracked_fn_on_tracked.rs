@@ -28,6 +28,6 @@ struct Database;
 #[test]
 fn execute() {
     let db = Database::default();
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     assert_eq!(tracked_fn(&db, input).field(&db), 44);
 }

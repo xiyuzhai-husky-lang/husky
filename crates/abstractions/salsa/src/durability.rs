@@ -27,18 +27,18 @@ impl Durability {
     /// Low durability: things that change frequently.
     ///
     /// Example: part of the crate being edited
-    pub const LOW: Durability = Durability(0);
+    pub const LOW: Durability = Durability(1);
 
     /// Medium durability: things that change sometimes, but rarely.
     ///
     /// Example: a Cargo.toml file
-    pub const MEDIUM: Durability = Durability(1);
+    pub const MEDIUM: Durability = Durability(2);
 
     /// High durability: things that are not expected to change under
     /// common usage.
     ///
     /// Example: the standard library or something from crates.io
-    pub const HIGH: Durability = Durability(2);
+    pub const HIGH: Durability = Durability(3);
 
     pub const MIN: Durability = Durability(0);
 
@@ -48,7 +48,7 @@ impl Durability {
     pub const MAX: Durability = Self::HIGH;
 
     /// Number of durability levels.
-    pub(crate) const LEN: usize = 3;
+    pub(crate) const LEN: usize = 4;
 
     pub(crate) fn index(self) -> usize {
         self.0 as usize

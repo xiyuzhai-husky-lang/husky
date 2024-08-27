@@ -30,11 +30,11 @@ struct Database;
 fn input() {
     let db = Database::default();
 
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     let not_salsa = NotSalsa {
         field: "it's salsa time".to_string(),
     };
-    let complex_struct = ComplexStruct::new(&db, input, not_salsa);
+    let complex_struct = ComplexStruct::new(&db, input, not_salsa, salsa::Durability::LOW);
 
     // default debug only includes identity fields
     let actual = format!("{:?}", complex_struct.debug(&db));

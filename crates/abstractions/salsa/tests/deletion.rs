@@ -63,7 +63,7 @@ fn basic() {
     let db = &mut *db;
 
     // Creates 3 tracked structs
-    let input = MyInput::new(db, 3);
+    let input = MyInput::new(db, 3, salsa::Durability::LOW);
     assert_eq!(final_result(db, input), 2 * 2 + 2);
     db.assert_logs(expect![[r#"
         [

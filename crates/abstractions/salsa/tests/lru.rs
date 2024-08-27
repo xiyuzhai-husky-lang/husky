@@ -74,13 +74,13 @@ fn lru_works() {
     assert_eq!(load_n_potatoes(), 0);
 
     for i in 0..128u32 {
-        let input = MyInput::new(&db, i);
+        let input = MyInput::new(&db, i, salsa::Durability::LOW);
         let p = get_hot_potato(&db, input);
         assert_eq!(p.0, i)
     }
 
     // Create a new input to change the revision, and trigger the GC
-    MyInput::new(&db, 0);
+    MyInput::new(&db, 0, salsa::Durability::LOW);
     assert_eq!(load_n_potatoes(), 32);
 }
 
@@ -89,7 +89,9 @@ fn lru_doesnt_break_volatile_queries() {
     let db = DatabaseImpl::default();
 
     // Create all inputs first, so that there are no revision changes among calls to `get_volatile`
-    let inputs: Vec<MyInput> = (0..128usize).map(|i| MyInput::new(&db, i as u32)).collect();
+    let inputs: Vec<MyInput> = (0..128usize)
+        .map(|i| MyInput::new(&db, i as u32, salsa::Durability::LOW))
+        .collect();
 
     // Here, we check that we execute each volatile query at most once, despite
     // LRU. That does mean that we have more values in DB than the LRU capacity,
@@ -107,7 +109,9 @@ fn lru_can_be_changed_at_runtime() {
     let db = DatabaseImpl::default();
     assert_eq!(load_n_potatoes(), 0);
 
-    let inputs: Vec<(u32, MyInput)> = (0..128).map(|i| (i, MyInput::new(&db, i))).collect();
+    let inputs: Vec<(u32, MyInput)> = (0..128)
+        .map(|i| (i, MyInput::new(&db, i, salsa::Durability::LOW)))
+        .collect();
 
     for &(i, input) in inputs.iter() {
         let p = get_hot_potato(&db, input);
@@ -115,7 +119,7 @@ fn lru_can_be_changed_at_runtime() {
     }
 
     // Create a new input to change the revision, and trigger the GC
-    MyInput::new(&db, 0);
+    MyInput::new(&db, 0, salsa::Durability::LOW);
     assert_eq!(load_n_potatoes(), 32);
 
     get_hot_potato::set_lru_capacity(&db, 64);
@@ -126,7 +130,7 @@ fn lru_can_be_changed_at_runtime() {
     }
 
     // Create a new input to change the revision, and trigger the GC
-    MyInput::new(&db, 0);
+    MyInput::new(&db, 0, salsa::Durability::LOW);
     assert_eq!(load_n_potatoes(), 64);
 
     // Special case: setting capacity to zero disables LRU
@@ -138,7 +142,7 @@ fn lru_can_be_changed_at_runtime() {
     }
 
     // Create a new input to change the revision, and trigger the GC
-    MyInput::new(&db, 0);
+    MyInput::new(&db, 0, salsa::Durability::LOW);
     assert_eq!(load_n_potatoes(), 128);
 
     drop(db);
@@ -153,7 +157,7 @@ fn lru_keeps_dependency_info() {
     // Invoke `get_hot_potato2` 33 times. This will (in turn) invoke
     // `get_hot_potato`, which will trigger LRU after 32 executions.
     let inputs: Vec<MyInput> = (0..(capacity + 1))
-        .map(|i| MyInput::new(&db, i as u32))
+        .map(|i| MyInput::new(&db, i as u32, salsa::Durability::LOW))
         .collect();
 
     for (i, input) in inputs.iter().enumerate() {
