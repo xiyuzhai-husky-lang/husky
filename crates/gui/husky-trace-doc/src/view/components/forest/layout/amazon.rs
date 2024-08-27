@@ -86,7 +86,7 @@ where
     {
         let caryatid = self.trace_synchrotron.caryatid();
         let entry = &self.trace_synchrotron[trace_id];
-        self.render_trace_view(&caryatid.pedestal(entry.var_deps()), trace_id, entry, ui);
+        self.render_trace_view(caryatid.pedestal(entry.var_deps()), trace_id, entry, ui);
         if entry.expanded()
             && let Some(subtrace_ids) = entry.subtrace_ids()
         {
@@ -99,7 +99,7 @@ where
 
     fn render_trace_view(
         &mut self,
-        pedestal: &<TraceProtocol as IsTraceProtocol>::Pedestal,
+        pedestal: Option<<TraceProtocol as IsTraceProtocol>::Pedestal>,
         trace_id: TraceId,
         entry: &TraceSynchrotronEntry<TraceProtocol>,
         ui: &mut egui::Ui,
@@ -168,21 +168,27 @@ where
                         }
                         ui.horizontal(|ui| {
                             self.render_line(lines_data.last().unwrap(), trace_id, entry, ui);
-                            match entry.stalk(pedestal) {
-                                TraceStalk::None => (),
-                                TraceStalk::Ki(value_control_flow) => match value_control_flow {
-                                    KiControlFlow::Continue(value) => self.render_value(value, ui),
-                                    KiControlFlow::LoopContinue => todo!(),
-                                    KiControlFlow::LoopExit(_) => todo!(),
-                                    KiControlFlow::Return(value) => {
-                                        self.render_space_chars(1, ui);
-                                        ui.label("return");
-                                        self.render_value(value, ui)
+                            if let Some(pedestal) = pedestal {
+                                match entry.stalk(&pedestal) {
+                                    TraceStalk::None => (),
+                                    TraceStalk::Ki(value_control_flow) => {
+                                        match value_control_flow {
+                                            KiControlFlow::Continue(value) => {
+                                                self.render_value(value, ui)
+                                            }
+                                            KiControlFlow::LoopContinue => todo!(),
+                                            KiControlFlow::LoopExit(_) => todo!(),
+                                            KiControlFlow::Return(value) => {
+                                                self.render_space_chars(1, ui);
+                                                ui.label("return");
+                                                self.render_value(value, ui)
+                                            }
+                                            KiControlFlow::Undefined => todo!(),
+                                            KiControlFlow::Throw(_) => todo!(),
+                                        }
                                     }
-                                    KiControlFlow::Undefined => todo!(),
-                                    KiControlFlow::Throw(_) => todo!(),
-                                },
-                                TraceStalk::Vm(_) => todo!(),
+                                    TraceStalk::Vm(_) => todo!(),
+                                }
                             }
                             // this is important to keep the interaction region large enough
                             let desired_size = ui.available_size() - Vec2::new(1.0, 0.0);

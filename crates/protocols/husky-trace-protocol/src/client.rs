@@ -210,16 +210,18 @@ where
                 let trace_synchrotron = self.trace_synchrotron();
                 {
                     use crate::caryatid::IsCaryatid;
-                    // see if setting pedestal will affect stalk
+                    // see if setting caryatid will affect stalk
                     for trace_id in trace_synchrotron.trace_listing() {
                         let entry = &trace_synchrotron[trace_id];
-                        if !entry.has_stalk(&caryatid.pedestal(todo!())) {
-                            return None;
+                        if let Some(pedestal) = caryatid.pedestal(entry.var_deps()) {
+                            if !entry.has_stalk(&pedestal) {
+                                return None;
+                            }
                         }
                     }
                 }
                 {
-                    // see if setting pedestal will affect figure
+                    // see if setting caryatid will affect figure
                     let trace_synchrotron = self.trace_synchrotron();
                     let accompanying_trace_ids_expect_followed =
                         trace_synchrotron.accompanying_trace_ids_except_followed();
