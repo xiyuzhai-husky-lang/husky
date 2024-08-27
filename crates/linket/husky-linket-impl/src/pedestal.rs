@@ -35,6 +35,7 @@ impl<T> IsPedestalFull for T where T: IsPedestal + Serialize + for<'a> Deseriali
 /// we don't make it a trait because it's not likely to affect efficiency,
 ///
 /// as it's used only in the debugger end.
+#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct JointPedestal<StaticVarId: IsStaticVarId> {
     data: OrderedSmallVecPairMap<ItemPathIdInterface, StaticVarId, 4>,
 }
@@ -46,10 +47,14 @@ impl<StaticVarId: IsStaticVarId> JointPedestal<StaticVarId> {
 }
 
 impl<StaticVarId: IsStaticVarId> JointPedestal<StaticVarId> {
+    /// # Panics
+    ///
+    /// Panics if the `var_deps` is not fully covered
+    ///
     pub fn pedestal<Pedestal>(&self, var_deps: &[ItemPathIdInterface]) -> Pedestal
     where
         Pedestal: IsPedestal<StaticVarId = StaticVarId>,
     {
-        todo!()
+        var_deps.iter().map(|&dep| self.data[dep]).collect()
     }
 }

@@ -113,7 +113,12 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     }
 
     pub fn figure_key(&self) -> TraceFigureKey<TraceProtocol> {
-        todo!()
+        FigureKey::new(
+            self.followed(),
+            self.accompanyings_except_followed(self.followed()),
+            self.caryatid(),
+            self,
+        )
     }
 
     pub(crate) fn status(&self) -> TraceSynchrotronStatus {

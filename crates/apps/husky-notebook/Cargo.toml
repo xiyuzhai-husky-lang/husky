@@ -28,7 +28,6 @@ husky-trace-doc = { workspace = true, features = [
 husky-token-protocol.workspace = true
 husky-trace-protocol.workspace = true
 husky-standard-trace-protocol = { workspace = true, features = ["egui"] }
-husky-standard-visual-protocol.workspace = true
 # utils
 husky-print-utils.workspace = true
 husky-unicode-symbols.workspace = true

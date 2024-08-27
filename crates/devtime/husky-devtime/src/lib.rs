@@ -19,7 +19,7 @@ use husky_linket_impl::eval_context::IsDevRuntime;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     caryatid::IsCaryatid,
-    figure::TraceFigureKey,
+    figure::{IsFigure, TraceFigureKey},
     id::TraceId,
     protocol::{IsTraceProtocol, TraceBundle},
     server::TraceVisualCache,
@@ -131,12 +131,13 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                     let mut t = |trace_id: TraceId| {
                         let trace: Trace = trace_id.into();
                         let var_deps = trace.var_deps(db);
-                        let pedestal = todo!();
+                        let pedestal = joint_pedestal.pedestal(var_deps);
                         match trace.ki_repr(db) {
                             Some(ki_repr) => runtime
                                 .trace_ki_repr_visual(
                                     trace_id,
                                     ki_repr,
+                                    pedestal,
                                     visual_synchrotron,
                                     ki_visual_cache,
                                 )
@@ -158,7 +159,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                     })
                 },
             );
-        todo!();
+        IsFigure::from_chart(chart, todo!(), visual_synchrotron)
     }
 }
 
