@@ -2916,6 +2916,8 @@
             "husky-standard-devsoul-interface",
             "husky-standard-linket-impl",
             "rustc_version",
+            "husky-devsoul-interface",
+            "husky-standard-devsoul-interface",
         ],
     },
     PackageSummary {

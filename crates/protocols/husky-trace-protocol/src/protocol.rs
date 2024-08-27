@@ -9,7 +9,7 @@ pub trait IsTraceProtocol:
 {
     type Pedestal: IsPedestalFull;
     type Caryatid: IsCaryatidFull<Pedestal = Self::Pedestal>;
-    type Figure: IsFigure<Self::Pedestal>;
+    type Figure: IsFigure<Pedestal = Self::Pedestal>;
 }
 
 pub trait IsTraceProtocolFull: IsTraceProtocol + Serialize + for<'a> Deserialize<'a> {}

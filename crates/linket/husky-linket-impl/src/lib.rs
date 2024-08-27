@@ -6,6 +6,7 @@ pub mod linket_impl;
 pub mod linket_impls;
 pub mod pedestal;
 pub mod static_var;
+#[cfg(feature = "ugly")]
 pub mod ugly;
 
 pub type LinketImplVmControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =

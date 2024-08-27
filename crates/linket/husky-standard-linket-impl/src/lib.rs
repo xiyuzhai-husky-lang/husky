@@ -7,6 +7,7 @@ pub mod static_var;
 pub mod r#struct;
 #[cfg(test)]
 mod tests;
+#[cfg(feature = "ugly")]
 pub mod ugly;
 pub mod val;
 
@@ -31,7 +32,6 @@ use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, VmArgumentValue},
     pedestal::{IsPedestal, IsPedestalFull},
     static_var::StaticVarResult,
-    ugly::__IsPedestal,
     LinketImplVmControlFlow, *,
 };
 use husky_standard_value::exception::Exception;
