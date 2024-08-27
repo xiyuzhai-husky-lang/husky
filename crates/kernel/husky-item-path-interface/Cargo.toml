@@ -17,3 +17,6 @@ shifted-unsigned-int.workspace = true
 
 [lints]
 workspace = true
+
+[features]
+ugly = []

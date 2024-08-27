@@ -37,6 +37,7 @@ pub mod frozen;
 mod helpers;
 mod regular;
 mod r#static;
+#[cfg(feature = "ugly")]
 pub mod ugly;
 mod value;
 mod weak_static;

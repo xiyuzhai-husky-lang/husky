@@ -19,3 +19,4 @@ expect-test.workspace = true
 
 [features]
 egui = ["dep:egui"]
+ugly = []

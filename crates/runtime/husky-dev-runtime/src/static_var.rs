@@ -1,6 +1,8 @@
 use crate::*;
 use husky_dec_signature::helpers::projs::dec_var_full_projs;
-use husky_devsoul::helpers::{DevsoulAnchor, DevsoulStaticVarMap};
+use husky_devsoul::helpers::{
+    DevsoulAnchor, DevsoulChart, DevsoulChartDim0, DevsoulChartDim1, DevsoulStaticVarMap,
+};
 use husky_ki_repr::repr::KiDomainRepr;
 use husky_trace_protocol::chart::{ChartDim0, ChartDim1};
 use husky_trace_protocol::{anchor::Anchor, chart::Chart};
@@ -12,7 +14,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         &self,
         static_vars: impl IntoIterator<Item = (ItemPath, DevsoulAnchor<Devsoul>)>,
         f: impl FnMut(&Self) -> Option<R>,
-    ) -> Option<Chart<DevsoulStaticVarId<Devsoul>, R>> {
+    ) -> Option<DevsoulChart<Devsoul, R>> {
         let db = self.db();
         let mut locked: SmallVecSet<ItemPathIdInterface, 2> = Default::default();
         let static_vars: SmallVec<
@@ -80,7 +82,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
         mut f: impl FnMut(&Self) -> Option<R>,
-    ) -> Option<ChartDim0<DevsoulStaticVarId<Devsoul>, R>> {
+    ) -> Option<DevsoulChartDim0<Devsoul, R>> {
         let db = self.db();
         for &(path, anchor, ref locked) in remaining_static_vars {
             let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path else {
@@ -94,7 +96,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             };
             todo!()
         }
-        Some((static_var_map, f(self)?))
+        Some((static_var_map.into_iter().collect(), f(self)?))
     }
 
     pub fn with_static_vars_aux1<R>(
@@ -106,7 +108,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
         mut f: impl FnMut(&Self) -> Option<R>,
-    ) -> Option<ChartDim1<DevsoulStaticVarId<Devsoul>, R>> {
+    ) -> Option<DevsoulChartDim1<Devsoul, R>> {
         let &[(path, anchor, ref locked), ref remaining_static_vars @ ..] = remaining_static_vars
         else {
             unreachable!()

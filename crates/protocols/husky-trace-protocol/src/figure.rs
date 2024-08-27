@@ -1,6 +1,6 @@
 use crate::{chart::Chart, TraceId};
 use husky_ki_repr_interface::KiReprInterface;
-use husky_linket_impl::pedestal::IsPedestalFull;
+use husky_linket_impl::{pedestal::IsPedestal, pedestal::IsPedestalFull};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, CompositeVisual, Visual},
@@ -12,20 +12,14 @@ use ui::ui::{IsUi, UiTextureId};
 /// `IsFigure` extends `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
 ///
 /// for example TraceSynchrotron
-pub trait IsFigure<Pedestal: IsPedestalFull>:
+pub trait IsFigure:
     std::fmt::Debug + PartialEq + Eq + Clone + Serialize + for<'a> Deserialize<'a> + Send + 'static
 {
-    fn from_chart_of_composite_visuals<StaticVarId>(
-        chart: Option<Chart<StaticVarId, CompositeVisual<TraceId>>>,
-    ) -> Self;
-}
+    type Pedestal: IsPedestal;
 
-impl<Pedestal: IsPedestalFull> IsFigure<Pedestal> for () {
-    fn from_chart_of_composite_visuals<StaticVarId>(
-        chart: Option<Chart<StaticVarId, CompositeVisual<TraceId>>>,
-    ) -> Self {
-        ()
-    }
+    fn from_chart_of_composite_visuals(
+        chart: Option<Chart<Self::Pedestal, CompositeVisual<TraceId>>>,
+    ) -> Self;
 }
 
 pub trait FigureUi<Ui: IsUi> {

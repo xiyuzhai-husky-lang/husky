@@ -27,3 +27,11 @@ husky-print-utils.workspace = true
 husky-standard-value.workspace = true
 
 [features]
+ugly = [
+    "husky-devsoul-interface/ugly",
+    "husky-item-path-interface/ugly",
+    "husky-ki-repr-interface/ugly",
+    "husky-linket-impl/ugly",
+    "husky-standard-linket-impl/ugly",
+    "husky-standard-value/ugly",
+]

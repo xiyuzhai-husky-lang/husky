@@ -1,3 +1,4 @@
+#[cfg(feature = "ugly")]
 pub mod ugly;
 
 use serde::Serialize;

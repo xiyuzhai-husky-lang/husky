@@ -1,7 +1,8 @@
-mod generic;
-mod specific;
+mod dim0;
+mod dim1;
+pub mod dim2;
 
-use self::{generic::GenericStandardFigure, specific::SpecificStandardFigure};
+use self::{dim0::StandardFigureDim0, dim1::StandardFigureDim1};
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull};
@@ -28,44 +29,26 @@ use serde::{Deserialize, Serialize};
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub enum StandardFigure {
-    Specific(SpecificStandardFigure),
-    Generic(GenericStandardFigure),
+    Void,
+    Dim0(StandardFigureDim0),
+    Dim1(StandardFigureDim1),
 }
 
 /// # impl IsFigure
-impl IsFigure<StandardPedestal> for StandardFigure {
-    fn from_chart_of_composite_visuals<StaticVarId>(
-        chart: Option<Chart<StaticVarId, CompositeVisual<TraceId>>>,
-    ) -> Self {
-        todo!()
-    }
-}
+impl IsFigure for StandardFigure {
+    type Pedestal = StandardPedestal;
 
-impl StandardFigure {
-    fn new_specific(
-        followed_visual: Option<(TraceId, KiReprInterface)>,
-        accompanyings: &[(TraceId, KiReprInterface)],
-        f: impl FnMut(KiReprInterface, &mut VisualSynchrotron) -> Visual,
-        visual_synchrotron: &mut VisualSynchrotron,
+    fn from_chart_of_composite_visuals(
+        chart: Option<Chart<StandardPedestal, CompositeVisual<TraceId>>>,
     ) -> Self {
-        SpecificStandardFigure::new(followed_visual, accompanyings, f, visual_synchrotron).into()
-    }
-
-    fn new_generic(
-        followed_visual: Option<(TraceId, KiReprInterface)>,
-        accompanyings: &[(TraceId, KiReprInterface)],
-        pedestals: impl Iterator<Item = StandardPedestal>,
-        f: impl FnMut(KiReprInterface, StandardPedestal, &mut VisualSynchrotron) -> Visual,
-        visual_synchrotron: &mut VisualSynchrotron,
-    ) -> Self {
-        GenericStandardFigure::new(
-            followed_visual,
-            accompanyings,
-            pedestals,
-            f,
-            visual_synchrotron,
-        )
-        .into()
+        let Some(chart) = chart else {
+            return StandardFigure::Void;
+        };
+        match chart {
+            Chart::Dim0(chart) => todo!(),
+            Chart::Dim1(chart) => todo!(),
+            Chart::Dim2(chart) => todo!(),
+        }
     }
 }
 
@@ -77,12 +60,11 @@ impl FigureUi<Ui> for StandardFigure {
         ui: &mut Ui,
     ) {
         match self {
-            StandardFigure::Specific(figure) => {
-                figure.specific_figure_ui(visual_synchrotron, cache, ui)
+            StandardFigure::Void => {
+                ui.label("todo: void");
             }
-            StandardFigure::Generic(figure) => {
-                figure.generic_figure_ui(visual_synchrotron, cache, ui)
-            }
+            StandardFigure::Dim0(slf) => slf.ui(visual_synchrotron, cache, ui),
+            StandardFigure::Dim1(slf) => slf.ui(visual_synchrotron, cache, ui),
         }
     }
 }

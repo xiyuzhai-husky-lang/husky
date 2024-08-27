@@ -32,3 +32,4 @@ husky-standard-value-macros.workspace = true
 constant = ["salsa", "dep:husky-term-prelude", "dep:husky-hir-prelude"]
 helpers = []
 vm_support = ["helpers"]
+ugly = ["husky-value-protocol/ugly", "husky-value-interface/ugly"]
