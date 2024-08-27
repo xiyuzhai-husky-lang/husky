@@ -6,6 +6,7 @@ mod eval;
 mod static_var;
 #[cfg(test)]
 mod tests;
+mod visual;
 
 pub use self::config::*;
 

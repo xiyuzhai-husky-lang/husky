@@ -126,14 +126,14 @@ where
             max: ui.cursor().min + desired_space,
         };
         let trace_view_response = &ui.interact(desired_rect, ui.next_auto_id(), Sense::click());
-        let followed = self.trace_synchrotron.followed_trace_id() == Some(trace_id);
+        let followed = self.trace_synchrotron.followed() == Some(trace_id);
         // `hovered_within` tells if the pointer is within the trace view
         // we don't use hover because we don't want widgets to intercept
         let hovered_within = ui.rect_contains_pointer(trace_view_response.rect);
         if !followed {
             let follow = trace_view_response.clicked();
             if follow {
-                self.add_action(TraceViewAction::FollowTrace { trace_id })
+                self.add_action(TraceViewAction::FollowTrace { followed: trace_id })
             }
         }
         let mut frame = Frame::none()

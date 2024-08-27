@@ -380,12 +380,12 @@ fn ki_repr_eval_works() {
             continue;
         }
         let ki_repr = KiRepr::new_val(form_path, db);
-        runtime.with_static_vars(
+        runtime.with_static_var_anchors(
             ki_repr
                 .var_deps(db)
                 .iter()
                 .map(|&dep| (dep, Anchor::Generic { limit: 10 })),
-            |runtime| Some(runtime.eval_ki_repr(ki_repr)),
+            |runtime, _| Some(runtime.eval_ki_repr(ki_repr)),
         );
     }
 }

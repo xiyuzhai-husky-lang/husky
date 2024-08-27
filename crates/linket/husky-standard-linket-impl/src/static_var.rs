@@ -1,9 +1,12 @@
 use crate::*;
+use husky_linket_impl::static_var::IsStaticVarId;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct StandardStaticVarId {
     data: [u64; 4],
 }
+
+impl IsStaticVarId for StandardStaticVarId {}
 
 impl StandardStaticVarId {
     pub fn new(data: [u64; 4]) -> Self {

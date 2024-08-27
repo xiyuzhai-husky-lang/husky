@@ -22,7 +22,7 @@ impl TraceDocHotkeyAction {
                 let trace_synchrotron = trace_synchrotron?;
                 let trace_id = match number {
                     Some(number) => todo!(),
-                    None => trace_synchrotron.followed_trace_id()?,
+                    None => trace_synchrotron.followed()?,
                 };
                 let trace_var_deps = trace_synchrotron[trace_id].var_deps();
                 let mut caryatid = trace_synchrotron

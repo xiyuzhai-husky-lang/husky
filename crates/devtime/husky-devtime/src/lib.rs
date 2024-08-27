@@ -11,6 +11,7 @@ use husky_devsoul::{
     devsoul::IsDevsoul,
     helpers::{DevsoulCaryatid, DevsoulChart, DevsoulFigure},
 };
+use husky_entity_path::path::ItemPathId;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr::repr::KiRepr;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
@@ -18,9 +19,10 @@ use husky_linket_impl::eval_context::IsDevRuntime;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     caryatid::IsCaryatid,
+    figure::TraceFigureKey,
     id::TraceId,
     protocol::{IsTraceProtocol, TraceBundle},
-    server::KiVisualCache,
+    server::TraceVisualCache,
     stalk::TraceStalk,
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
 };
@@ -85,7 +87,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         trace.view_data(self.db())
     }
 
-    fn trace_stalk(
+    fn calc_trace_stalk(
         &self,
         trace: Self::Trace,
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
@@ -110,173 +112,53 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         }
     }
 
-    fn figure(
-        &self,
-        followed_trace: Option<Self::Trace>,
-        accompanying_trace_ids_expect_followed: &AccompanyingTraceIdsExceptFollowed,
-        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
-        visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut KiVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
-    ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
-        let db = self.runtime.db();
-        let followed = match followed_trace {
-            Some(followed_trace) => followed_trace.ki_repr(db).map(|ki_repr| {
-                (
-                    followed_trace.into(),
-                    ki_repr.into(),
-                    ki_repr.ki_domain_repr(db).into(),
-                    followed_trace.var_deps(db),
-                )
-            }),
-            None => None,
-        };
-        let accompanyings_except_followed = &accompanying_trace_ids_expect_followed
-            .iter()
-            .filter_map(|&accompanying_trace_id| {
-                let trace: Trace = accompanying_trace_id.into();
-                let ki_repr = trace.ki_repr(db)?;
-                Some((trace.into(), ki_repr.into(), trace.var_deps(db)))
-            })
-            .collect::<Vec<_>>();
-        self.calc_figure(
-            followed,
-            accompanyings_except_followed,
-            caryatid,
-            visual_synchrotron,
-            ki_visual_cache,
-        )
-    }
-}
-
-impl<Devsoul> Devtime<Devsoul>
-where
-    Devsoul: IsDevsoul,
-{
     fn calc_figure(
         &self,
-        followed: Option<(
-            TraceId,
-            KiReprInterface,
-            KiDomainReprInterface,
-            &[ItemPathIdInterface],
-        )>,
-        accompanyings: &[(TraceId, KiReprInterface, &[ItemPathIdInterface])],
-        caryatid: DevsoulCaryatid<Devsoul>,
+        figure_key: &TraceFigureKey<Devsoul::TraceProtocol>,
         visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut KiVisualCache<Devsoul::Pedestal>,
-    ) -> DevsoulFigure<Devsoul> {
-        let followed = match followed {
-            Some((trace_id, ki_repr, ki_domain_repr_interface, var_deps)) => {
-                caryatid.covers(var_deps).then_some((trace_id, ki_repr))
-            }
-            None => None,
-        };
-        // throw away unnessary things
-        let accompanyings = &accompanyings
-            .iter()
-            .copied()
-            .filter_map(|(trace_id, ki_repr, var_deps)| {
-                caryatid.covers(var_deps).then_some((trace_id, ki_repr))
-            })
-            .collect::<Vec<_>>();
-        let static_vars = [todo!()];
+        ki_visual_cache: &mut TraceVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+    ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
+        let db = self.runtime.db();
         let chart: Option<DevsoulChart<Devsoul, CompositeVisual<TraceId>>> =
-            self.runtime.with_static_vars(static_vars, |runtime| {
-                if let Some((_, followed_ki_repr_interface)) = followed {
-                    let followed_ki_repr: KiRepr = followed_ki_repr_interface.into();
-                    match runtime.eval_ki_repr(followed_ki_repr) {
-                        KiControlFlow::Continue(_) => (),
-                        KiControlFlow::LoopContinue => (),
-                        KiControlFlow::LoopExit(_) => (),
-                        KiControlFlow::Return(_) => (),
-                        KiControlFlow::Undefined => return None,
-                        KiControlFlow::Throw(_) => (),
-                    }
-                }
-                let mut t = |(trace_id, ki_repr)| {
-                    get_ki_visual(runtime, ki_repr, todo!(), ki_visual_cache)
-                        .map(|visual| (trace_id, visual))
-                };
-                Some(CompositeVisual {
-                    followed: match followed {
-                        Some(followed) => Some(t(followed)?),
-                        None => None,
+            self.runtime.with_static_var_anchors(
+                figure_key.joint_static_var_anchors().iter().copied().map(
+                    |(item_path_id_interface, anchor)| {
+                        let item_path_id: ItemPathId = item_path_id_interface.into();
+                        (item_path_id.item_path(db), anchor)
                     },
-                    accompanyings: accompanyings.iter().copied().filter_map(t).collect(),
-                })
-            });
+                ),
+                |runtime, joint_pedestal| {
+                    let mut t = |trace_id: TraceId| {
+                        let trace: Trace = trace_id.into();
+                        let var_deps = trace.var_deps(db);
+                        let pedestal = todo!();
+                        match trace.ki_repr(db) {
+                            Some(ki_repr) => runtime
+                                .trace_ki_repr_visual(
+                                    trace_id,
+                                    ki_repr,
+                                    visual_synchrotron,
+                                    ki_visual_cache,
+                                )
+                                .map(|visual| (trace_id, visual)),
+                            None => todo!(),
+                        }
+                    };
+                    Some(CompositeVisual {
+                        followed_reduced: match figure_key.followed_reduced() {
+                            Some(followed_reduced) => Some(t(followed_reduced)?),
+                            None => None,
+                        },
+                        accompanyings_except_followed_reduced: figure_key
+                            .accompanyings_except_followed_reduced()
+                            .iter()
+                            .copied()
+                            .filter_map(t)
+                            .collect(),
+                    })
+                },
+            );
         todo!();
-        // if caryatid.is_specific() {
-        //     <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_specific(
-        //             followed ,
-        //             accompanyings,
-        //             |ki_repr, visual_synchrotron| {
-        //                 Self::get_ki_visual(
-        //                     ki_repr,
-        //                     runtime,
-        //                     visual_synchrotron,
-        //                     ki_visual_cache,
-        //                 )
-        //             },
-        //             visual_synchrotron,
-        //         )
-        // } else {
-        //     todo!()
-        //     //         let pedestals = (0..49).into_iter().filter_map(|index| {
-        //     //                 let pedestal = StandardPedestal::Specific(DeprecatedInputId::from_index(index));
-        //     //                 let Some(ki_domain_repr_interface) = domain else {
-        //     //                     return Some(pedestal)
-        //     //                 };
-        //     //                 match runtime.eval_ki_domain_repr_interface_dyn(
-        //     //                     ki_domain_repr_interface,
-        //     //                 ) {
-        //     //                     KiControlFlow::Continue(_) => Some(pedestal),
-        //     //                     KiControlFlow::LoopContinue => todo!(),
-        //     //                     KiControlFlow::LoopExit(_) => todo!(),
-        //     //                     KiControlFlow::Return(_) => todo!(),
-        //     //                     KiControlFlow::Undefined => todo!(),
-        //     //                     KiControlFlow::Throw(_) => todo!(),
-        //     //                 }
-        //     //             });
-        //     //         <<Self::TraceProtocol as IsTraceProtocol>::Figure as IsFigure<StandardPedestal>>::new_generic(
-        //     //             followed,
-        //     //             accompanyings,
-        //     //             pedestals,
-        //     //             |ki_repr, pedestal, visual_synchrotron| {
-        //     //                 Self::get_ki_visual(
-        //     //                     ki_repr,
-        //     //                     runtime,
-        //     //                     visual_synchrotron,
-        //     //                     ki_visual_cache,
-        //     //                 )
-        //     //             },
-        //     //             visual_synchrotron,
-        //     //         )
-        //     //     }
-        // }
-        todo!()
-    }
-}
-
-fn get_ki_visual<Devsoul: IsDevsoul>(
-    runtime: &DevRuntime<Devsoul>,
-    ki_repr: KiReprInterface,
-    visual_synchrotron: &mut VisualSynchrotron,
-    ki_visual_cache: &mut KiVisualCache<Devsoul::Pedestal>,
-) -> Option<Visual> {
-    let pedestal = todo!();
-    use husky_value_interface::IsValue;
-    match runtime.eval_ki_repr_interface(ki_repr) {
-        KiControlFlow::Continue(value) => Some(ki_visual_cache.get_visual(
-            ki_repr,
-            pedestal,
-            || value.visualize(visual_synchrotron),
-        )),
-        KiControlFlow::LoopContinue => todo!(),
-        KiControlFlow::LoopExit(_) => todo!(),
-        KiControlFlow::Return(_) => todo!(),
-        KiControlFlow::Undefined => None,
-        KiControlFlow::Throw(_) => todo!(),
     }
 }
 

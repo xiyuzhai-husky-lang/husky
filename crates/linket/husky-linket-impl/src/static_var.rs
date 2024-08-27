@@ -1,4 +1,7 @@
+pub mod virtual_static_var_id;
+
 use crate::*;
+use serde::{Deserialize, Serialize};
 
 pub trait IsStaticVar<StaticVarId>: 'static
 where
@@ -64,3 +67,15 @@ pub enum StaticVarError<StaticVarId> {
 }
 
 pub type StaticVarResult<StaticVarId, T> = Result<T, StaticVarError<StaticVarId>>;
+
+pub trait IsStaticVarId:
+    std::fmt::Debug + Copy + Eq + std::hash::Hash + Send + Sync + 'static
+{
+}
+
+pub trait IsStaticVarIdFull: IsStaticVarId + Serialize + for<'a> Deserialize<'a> {}
+
+impl<StaticVarId> IsStaticVarIdFull for StaticVarId where
+    StaticVarId: IsStaticVarId + Serialize + for<'a> Deserialize<'a>
+{
+}

@@ -1,4 +1,5 @@
 pub mod caryatid;
+pub mod chart;
 
 use self::caryatid::*;
 use husky_standard_linket_impl::{pedestal::StandardPedestal, static_var::StandardStaticVarId};

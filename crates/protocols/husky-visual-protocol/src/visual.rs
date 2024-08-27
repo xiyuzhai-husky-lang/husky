@@ -127,6 +127,6 @@ impl std::ops::Index<VisualId> for VisualArena {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CompositeVisual<Id> {
-    pub followed: Option<(Id, Visual)>,
-    pub accompanyings: Vec<(Id, Visual)>,
+    pub followed_reduced: Option<(Id, Visual)>,
+    pub accompanyings_except_followed_reduced: Vec<(Id, Visual)>,
 }

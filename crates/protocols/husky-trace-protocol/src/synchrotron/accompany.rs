@@ -12,13 +12,10 @@ impl std::ops::Deref for AccompanyingTraceIdsExceptFollowed {
 }
 
 impl AccompanyingTraceIdsExceptFollowed {
-    pub(crate) fn new(
-        followed_trace_id: Option<TraceId>,
-        mut accompanying_trace_ids: AccompanyingTraceIds,
-    ) -> Self {
-        if let Some(followed_trace_id) = followed_trace_id {
-            accompanying_trace_ids.remove(followed_trace_id)
+    pub(crate) fn new(followed: Option<TraceId>, mut accompanyings: AccompanyingTraceIds) -> Self {
+        if let Some(followed) = followed {
+            accompanyings.remove(followed)
         }
-        Self(accompanying_trace_ids)
+        Self(accompanyings)
     }
 }

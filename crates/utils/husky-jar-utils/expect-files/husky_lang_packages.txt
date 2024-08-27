@@ -3292,6 +3292,7 @@
             "husky-devsoul",
             "husky-devsoul-interface",
             "husky-entity-kind",
+            "husky-entity-path",
             "husky-eth-signature",
             "husky-eth-term",
             "husky-item-path-interface",
