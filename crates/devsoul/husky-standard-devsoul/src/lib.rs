@@ -10,7 +10,7 @@ use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_standard_trace_protocol::{caryatid::StandardCaryatid, StandardTraceProtocol};
 use husky_trace_protocol::{
     caryatid::IsCaryatid, figure::IsFigure, id::TraceId, protocol::IsTraceProtocol,
-    server::KiVisualCache,
+    server::TraceVisualCache,
 };
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};

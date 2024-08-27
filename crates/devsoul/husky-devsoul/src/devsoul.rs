@@ -15,7 +15,7 @@ use husky_linktime::IsLinktime;
 use husky_trace_protocol::{
     id::TraceId,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
-    server::KiVisualCache,
+    server::TraceVisualCache,
 };
 use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};

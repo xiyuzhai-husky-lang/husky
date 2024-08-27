@@ -1,6 +1,13 @@
-use crate::{chart::Chart, TraceId};
+use crate::{
+    accompany::AccompanyingTraceIdsExceptFollowed, anchor::Anchor, caryatid::IsCaryatid,
+    chart::Chart, IsTraceProtocol, TraceId, TraceSynchrotron,
+};
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
-use husky_linket_impl::{pedestal::IsPedestal, pedestal::IsPedestalFull};
+use husky_linket_impl::{
+    pedestal::{IsPedestal, IsPedestalFull},
+    static_var::{IsStaticVarId, IsStaticVarIdFull},
+};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, CompositeVisual, Visual},
@@ -8,6 +15,7 @@ use husky_visual_protocol::{
 use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
 use ui::ui::{IsUi, UiTextureId};
+use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, OrderedSmallVecSet, SmallVecSet};
 
 /// `IsFigure` extends `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
 ///
@@ -18,7 +26,7 @@ pub trait IsFigure:
     type Pedestal: IsPedestal;
 
     fn from_chart_of_composite_visuals(
-        chart: Option<Chart<Self::Pedestal, CompositeVisual<TraceId>>>,
+        chart: Option<Chart<<Self::Pedestal as IsPedestal>::StaticVarId, CompositeVisual<TraceId>>>,
     ) -> Self;
 }
 
@@ -63,5 +71,68 @@ impl<Ui: IsUi> FigureUiCache<Ui> {
     ) -> UiTextureId<Ui> {
         use ui::ui::IsTextureHandle;
         self.texture_handles.entry(image).or_insert_with(f).id()
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Hash)]
+pub struct FigureKey<StaticVarId: IsStaticVarId> {
+    followed_reduced: Option<TraceId>,
+    accompanyings_except_followed_reduced: OrderedSmallVecSet<TraceId, 4>,
+    joint_static_var_anchors: OrderedSmallVecPairMap<ItemPathIdInterface, Anchor<StaticVarId>, 4>,
+}
+
+pub type TraceFigureKey<TraceProtocol> =
+    FigureKey<<<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::StaticVarId>;
+
+impl<StaticVarId: IsStaticVarIdFull> FigureKey<StaticVarId> {
+    pub fn new<Pedestal, TraceProtocol>(
+        followed: Option<TraceId>,
+        accompanyings_except_followed: AccompanyingTraceIdsExceptFollowed,
+        caryatid: &TraceProtocol::Caryatid,
+        trace_synchrotron: &TraceSynchrotron<TraceProtocol>,
+    ) -> Self
+    where
+        Pedestal: IsPedestal<StaticVarId = StaticVarId>,
+        TraceProtocol: IsTraceProtocol<Pedestal = Pedestal>,
+    {
+        let mut joint_static_var_anchors: OrderedSmallVecPairMap<
+            ItemPathIdInterface,
+            Anchor<Pedestal::StaticVarId>,
+            4,
+        > = Default::default();
+        let mut t = |&trace_id: &TraceId| -> bool {
+            let entry = &trace_synchrotron[trace_id];
+            let var_deps = entry.var_deps();
+            if !caryatid.covers(var_deps) {
+                return false;
+            }
+            joint_static_var_anchors.extend(var_deps.iter().copied().map(|_| todo!()));
+            true
+        };
+        let followed_reduced = followed.filter(&mut t);
+        let accompanyings_except_followed_reduced = accompanyings_except_followed
+            .iter()
+            .copied()
+            .filter(t)
+            .collect();
+        Self {
+            followed_reduced,
+            accompanyings_except_followed_reduced,
+            joint_static_var_anchors,
+        }
+    }
+}
+
+impl<StaticVarId: IsStaticVarIdFull> FigureKey<StaticVarId> {
+    pub fn followed_reduced(&self) -> Option<TraceId> {
+        self.followed_reduced
+    }
+
+    pub fn accompanyings_except_followed_reduced(&self) -> &[TraceId] {
+        &self.accompanyings_except_followed_reduced
+    }
+
+    pub fn joint_static_var_anchors(&self) -> &[(ItemPathIdInterface, Anchor<StaticVarId>)] {
+        &self.joint_static_var_anchors
     }
 }

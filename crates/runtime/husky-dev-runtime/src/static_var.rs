@@ -1,19 +1,21 @@
 use crate::*;
 use husky_dec_signature::helpers::projs::dec_var_full_projs;
 use husky_devsoul::helpers::{
-    DevsoulAnchor, DevsoulChart, DevsoulChartDim0, DevsoulChartDim1, DevsoulStaticVarMap,
+    DevsoulAnchor, DevsoulChart, DevsoulChartDim0, DevsoulChartDim1, DevsoulJointPedestal,
+    DevsoulOrderedStaticVarMap, DevsoulPedestal, DevsoulStaticVarMap,
 };
 use husky_ki_repr::repr::KiDomainRepr;
+use husky_linket_impl::pedestal::JointPedestal;
 use husky_trace_protocol::chart::{ChartDim0, ChartDim1};
 use husky_trace_protocol::{anchor::Anchor, chart::Chart};
 use smallvec::SmallVec;
 use vec_like::SmallVecSet;
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
-    pub fn with_static_vars<R>(
+    pub fn with_static_var_anchors<R>(
         &self,
         static_vars: impl IntoIterator<Item = (ItemPath, DevsoulAnchor<Devsoul>)>,
-        f: impl FnMut(&Self) -> Option<R>,
+        f: impl FnMut(&Self, &DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChart<Devsoul, R>> {
         let db = self.db();
         let mut locked: SmallVecSet<ItemPathIdInterface, 2> = Default::default();
@@ -75,13 +77,13 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 
     pub fn with_static_vars_aux0<R>(
         &self,
-        mut static_var_map: DevsoulStaticVarMap<Devsoul>,
+        mut static_var_map: DevsoulOrderedStaticVarMap<Devsoul>,
         remaining_static_vars: &[(
             ItemPath,
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        mut f: impl FnMut(&Self) -> Option<R>,
+        mut f: impl FnMut(&Self, &DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChartDim0<Devsoul, R>> {
         let db = self.db();
         for &(path, anchor, ref locked) in remaining_static_vars {
@@ -96,18 +98,20 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             };
             todo!()
         }
-        Some((static_var_map.into_iter().collect(), f(self)?))
+        let joint_pedestal = JointPedestal::new(static_var_map);
+        let r = f(self, &joint_pedestal)?;
+        Some((joint_pedestal, r))
     }
 
     pub fn with_static_vars_aux1<R>(
         &self,
-        mut static_var_map: DevsoulStaticVarMap<Devsoul>,
+        mut static_var_map: DevsoulOrderedStaticVarMap<Devsoul>,
         remaining_static_vars: &[(
             ItemPath,
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        mut f: impl FnMut(&Self) -> Option<R>,
+        mut f: impl FnMut(&Self, &DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChartDim1<Devsoul, R>> {
         let &[(path, anchor, ref locked), ref remaining_static_vars @ ..] = remaining_static_vars
         else {
@@ -141,7 +145,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                                 self.with_static_vars_aux0(
                                     static_var_map,
                                     remaining_static_vars,
-                                    |runtime| f(runtime),
+                                    &mut f,
                                 )
                             })
                             .ok()
