@@ -124,3 +124,9 @@ impl std::ops::Index<VisualId> for VisualArena {
         &self.0[id.index()]
     }
 }
+
+#[derive(Debug, PartialEq, Eq)]
+pub struct CompositeVisual<Id> {
+    pub followed: Option<(Id, Visual)>,
+    pub accompanyings: Vec<(Id, Visual)>,
+}

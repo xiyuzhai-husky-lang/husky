@@ -7,10 +7,14 @@ use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull};
 use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_trace_protocol::{
+    chart::Chart,
     figure::{FigureUi, FigureUiCache, IsFigure},
     id::TraceId,
 };
-use husky_visual_protocol::visual::shape::{Point, VisualRect};
+use husky_visual_protocol::visual::{
+    shape::{Point, VisualRect},
+    CompositeVisual,
+};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{
@@ -30,6 +34,14 @@ pub enum StandardFigure {
 
 /// # impl IsFigure
 impl IsFigure<StandardPedestal> for StandardFigure {
+    fn from_chart_of_composite_visuals<StaticVarId>(
+        chart: Option<Chart<StaticVarId, CompositeVisual<TraceId>>>,
+    ) -> Self {
+        todo!()
+    }
+}
+
+impl StandardFigure {
     fn new_specific(
         followed_visual: Option<(TraceId, KiReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
