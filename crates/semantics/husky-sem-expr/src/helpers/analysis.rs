@@ -12,7 +12,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
     let sem_expr_region_data = sem_expr_region.data(db);
     match sem_expr_region_data.path() {
         RegionPath::CrateDecl(_) => todo!(),
-        RegionPath::Chunk(_) => return false, // ad hoc
+        RegionPath::Script(_) => return false, // ad hoc
         RegionPath::ItemDecl(path) => match path {
             ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
                 MajorFormKind::Ritchie(ritchie_item_kind) => match ritchie_item_kind {

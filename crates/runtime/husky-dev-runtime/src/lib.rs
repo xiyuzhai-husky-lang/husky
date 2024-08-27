@@ -172,7 +172,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
             ItemPath::TypeVariant(_, _) => todo!(),
             ItemPath::ImplBlock(_) => todo!(),
             ItemPath::Attr(_, _) => todo!(),
-            ItemPath::Chunk(_, _) => todo!(),
+            ItemPath::Script(_, _) => todo!(),
         };
         self.storage.get_or_try_init_val_value(
             val_item_path_id_interface,
@@ -278,7 +278,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
                 ItemPath::TypeVariant(_, _) => todo!(),
                 ItemPath::ImplBlock(_) => todo!(),
                 ItemPath::Attr(_, _) => todo!(),
-                ItemPath::Chunk(_, _) => todo!(),
+                ItemPath::Script(_, _) => todo!(),
             })
             .collect()
     }

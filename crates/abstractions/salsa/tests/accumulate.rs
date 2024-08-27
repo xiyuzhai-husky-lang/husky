@@ -71,7 +71,7 @@ fn accumulate_once() {
     let mut db = Database::default();
 
     // Just call accumulate on a base input to see what happens.
-    let input = MyInput::new(&db, 2, 3);
+    let input = MyInput::new(&db, 2, 3, salsa::Durability::LOW);
     let logs = push_logs::accumulated::<Logs>(&db, input);
     expect![[r#"
         [
@@ -95,7 +95,7 @@ fn change_a_and_reaccumulate() {
     let mut db = Database::default();
 
     // Accumulate logs for `a = 2` and `b = 3`
-    let input = MyInput::new(&db, 2, 3);
+    let input = MyInput::new(&db, 2, 3, salsa::Durability::LOW);
     let logs = push_logs::accumulated::<Logs>(&db, input);
     expect![[r#"
         [
@@ -114,7 +114,7 @@ fn change_a_and_reaccumulate() {
         ]"#]]);
 
     // Change to `a = 1`, which means `push_logs` does not call `push_a_logs` at all
-    input.set_field_a(&mut db).to(1);
+    input.set_field_a(salsa::Durability::LOW, &mut db).to(1);
     let logs = push_logs::accumulated::<Logs>(&db, input);
     expect![[r#"
         [
@@ -135,7 +135,7 @@ fn get_a_logs_after_changing_b() {
     let db = &mut *db;
 
     // Invoke `push_a_logs` with `a = 2` and `b = 3` (but `b` doesn't matter)
-    let input = MyInput::new(db, 2, 3);
+    let input = MyInput::new(db, 2, 3, salsa::Durability::LOW);
     let logs = push_a_logs::accumulated::<Logs>(&db, input);
     expect![[r#"
         [
@@ -150,7 +150,7 @@ fn get_a_logs_after_changing_b() {
 
     // Changing `b` does not cause `push_a_logs` to re-execute
     // and we still get the same result
-    input.set_field_b(db).to(5);
+    input.set_field_b(salsa::Durability::LOW, db).to(5);
     let logs = push_a_logs::accumulated::<Logs>(&db, input);
     expect![[r#"
         [

@@ -51,8 +51,8 @@ struct Database {
 fn test1() {
     let mut db = Database::default();
 
-    let l1 = List::new(&db, 1, None);
-    let l2 = List::new(&db, 2, Some(l1));
+    let l1 = List::new(&db, 1, None, salsa::Durability::LOW);
+    let l2 = List::new(&db, 2, Some(l1), salsa::Durability::LOW);
 
     assert_eq!(compute(&db, l2), 2);
     db.assert_logs(expect![[r#"
@@ -65,7 +65,7 @@ fn test1() {
     // but we should not have to re-execute `compute` for `l2`.
     // The only inpout for `compute(l1)` is the accumulated values from `l1`,
     // which have not changed.
-    l1.set_value(&mut db).to(2);
+    l1.set_value(salsa::Durability::LOW, &mut db).to(2);
     assert_eq!(compute(&db, l2), 2);
     db.assert_logs(expect![[r#"
         [

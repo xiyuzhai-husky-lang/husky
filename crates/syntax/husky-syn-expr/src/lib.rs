@@ -10,6 +10,7 @@ pub mod parser;
 pub mod pattern;
 pub mod range;
 pub mod region;
+pub mod repl;
 pub mod snippet;
 pub mod stmt;
 pub mod syndicates;

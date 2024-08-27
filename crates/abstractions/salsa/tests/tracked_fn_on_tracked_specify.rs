@@ -38,7 +38,7 @@ struct Database;
 #[test]
 fn execute_when_specified() {
     let mut db = Database::default();
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     let tracked = tracked_fn(&db, input);
     assert_eq!(tracked.field(&db), 44);
     assert_eq!(tracked_fn_extra(&db, tracked), 2222);
@@ -47,7 +47,7 @@ fn execute_when_specified() {
 #[test]
 fn execute_when_not_specified() {
     let mut db = Database::default();
-    let input = MyInput::new(&db, 0);
+    let input = MyInput::new(&db, 0, salsa::Durability::LOW);
     let tracked = tracked_fn(&db, input);
     assert_eq!(tracked.field(&db), 0);
     assert_eq!(tracked_fn_extra(&db, tracked), 0);

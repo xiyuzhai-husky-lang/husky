@@ -78,7 +78,7 @@ fn item_code_lenses_data(db: &::salsa::Db, item_path_id: ItemPathId) -> Vec<Code
         ItemPath::TypeVariant(_, _) => vec![],
         ItemPath::ImplBlock(_) => vec![],
         ItemPath::Attr(_, _) => vec![],
-        ItemPath::Chunk(_, _) => vec![],
+        ItemPath::Script(_, _) => vec![],
     }
 }
 

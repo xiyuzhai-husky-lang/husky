@@ -71,7 +71,7 @@ impl JavTypeContext {
                     ItemPath::TypeVariant(_, _) => todo!(),
                     ItemPath::ImplBlock(_) => todo!(),
                     ItemPath::Attr(_, _) => todo!(),
-                    ItemPath::Chunk(_, _) => todo!(),
+                    ItemPath::Script(_, _) => todo!(),
                 },
             }
         }

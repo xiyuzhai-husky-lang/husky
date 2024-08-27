@@ -239,6 +239,8 @@ where
                 self.render_traces(subtrace_ids, ui);
             }
             TraceKind::EagerCallInput => todo!(),
+            TraceKind::Value => todo!(),
+            TraceKind::Repl => todo!(),
         }
     }
 

@@ -347,11 +347,11 @@ where
     T: for<'a> TryParseOptionFromStream<RegionalTokenStream<'a>, Error = Error>,
 {
     use husky_vfs::{
-        chunk::{Chunk, ScriptSource},
+        script::{Script, ScriptSource},
         test_utils::VfsTestUtilsDb,
     };
 
-    let token_sheet = db.chunk_token_sheet_data(Chunk::new(
+    let token_sheet = db.chunk_token_sheet_data(Script::new(
         db,
         ScriptSource::Snippet {
             toolchain: db.dev_toolchain().unwrap(),

@@ -79,7 +79,7 @@ pub enum EntityKind {
     TypeVariant,
     ImplBlock,
     Attr,
-    Chunk,
+    Script,
 }
 
 impl EntityKind {
@@ -101,7 +101,7 @@ impl EntityKind {
             EntityKind::TypeVariant => todo!(),
             EntityKind::ImplBlock => todo!(),
             EntityKind::Attr => todo!(),
-            EntityKind::Chunk => todo!(),
+            EntityKind::Script => todo!(),
         }
     }
 }
@@ -135,7 +135,7 @@ impl EntityKind {
             EntityKind::TypeVariant => EntityClass::TypeVariant,
             EntityKind::ImplBlock => EntityClass::ImplBlock,
             EntityKind::Attr => EntityClass::Attr,
-            EntityKind::Chunk => EntityClass::Chunk,
+            EntityKind::Script => EntityClass::Script,
         }
     }
 }

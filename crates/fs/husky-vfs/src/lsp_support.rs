@@ -21,18 +21,20 @@ pub fn apply_live_file_changes(
 }
 
 fn update_content(db: &mut Db, path: &Path, f: impl FnOnce(&mut String)) -> VfsResult<()> {
-    let abs_path = VirtualPath::try_new(db, path)?;
+    let virtual_path = VirtualPath::try_new(db, path)?;
     let file = match db
         .vfs_jar()
         .cache()
         .files()
-        .entry(abs_path.data(db).to_owned())
+        .entry(virtual_path.data(db).to_owned())
     {
         Entry::Occupied(entry) => *entry.get(),
         Entry::Vacant(_entry) => return Ok(()),
     };
     let mut text = file.text(db)?.unwrap_or("").to_string();
     f(&mut text);
-    file.set_content(db).to(FileContent::LiveDoc(text));
+    let path = virtual_path.data(db);
+    let durability = db.calc_durability(path)?;
+    file.set_content(db)?.to(FileContent::LiveDoc(text));
     Ok(())
 }

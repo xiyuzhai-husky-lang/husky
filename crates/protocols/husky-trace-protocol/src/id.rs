@@ -39,4 +39,6 @@ pub enum TraceKind {
     EagerPattern,
     EagerStmt,
     EagerCallInput,
+    Value,
+    Repl,
 }

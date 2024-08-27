@@ -2,8 +2,8 @@ pub(crate) use expect_test::*;
 pub(crate) use husky_vfs::test_utils::*;
 
 use expect_test::{expect, Expect};
-use husky_vfs::chunk::Chunk;
 use husky_vfs::jar::VfsDb;
+use husky_vfs::script::Script;
 use salsa::DebugWithDb;
 
 #[salsa::db(
@@ -29,7 +29,7 @@ pub(crate) struct DB;
 pub(crate) fn t<'a>(db: &DB, input: &str, expected: &Expect) {
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.vfs_path_menu(toolchain);
-    let snippet = Chunk::new_dev_snippet(input, db);
+    let snippet = Script::new_dev_snippet(input, db);
     let (expr_region, expr_idx) =
         crate::snippet::parse_expr_from_script(db, path_menu.core_library(), snippet)
             .as_ref()
@@ -49,13 +49,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -141,13 +141,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -240,13 +240,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -332,13 +332,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -424,13 +424,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -513,13 +513,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -625,13 +625,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -730,13 +730,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -850,13 +850,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -974,13 +974,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -1078,13 +1078,13 @@ fn parse_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {
@@ -1195,13 +1195,13 @@ fn parse_application_expr_works() {
                 SynExprRegionData {
                     parent: None,
                     path: SynNodeRegionPath::ItemDefn(
-                        ItemSynNodePath::Chunk(
+                        ItemSynNodePath::Script(
                             Room32,
-                            ChunkSynNodePath(
+                            ScriptSynNodePath(
                                 ItemSynNodePathId {
-                                    data: ItemSynNodePathData::Chunk(
-                                        ChunkSynNodePathData {
-                                            chunk: Chunk {
+                                    data: ItemSynNodePathData::Script(
+                                        ScriptSynNodePathData {
+                                            script: Script {
                                                 source: Snippet {
                                                     toolchain: Toolchain(
                                                         Id {

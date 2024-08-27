@@ -3636,7 +3636,7 @@
     },
     PackageSummary {
         name: "husky-cybertron-mini-compiler",
-        relative_path: "crates/cybertron/husky-cybertron-mini-compiler",
+        relative_path: "crates/cybertron/husky-cybertron-mini-husky-compiler",
         dependencies: [
             "enum-class",
             "expect-test",
@@ -3650,6 +3650,11 @@
             "ordered-float",
             "shifted-unsigned-int",
         ],
+    },
+    PackageSummary {
+        name: "husky-cybertron-mini-lean-compiler",
+        relative_path: "crates/cybertron/husky-cybertron-mini-lean-compiler",
+        dependencies: [],
     },
     PackageSummary {
         name: "cargo-clean-repo",

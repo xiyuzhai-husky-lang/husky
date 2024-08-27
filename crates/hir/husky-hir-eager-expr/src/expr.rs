@@ -279,6 +279,7 @@ impl ToHirEager for SemExprIdx {
                         .inherited_variable_to_hir_eager_runtime_symbol(inherited_variable_idx)
                         .unwrap(),
                 ),
+                InheritedVariableKind::ReplLocal => todo!(),
             },
             SemExprData::CurrentVariable {
                 current_variable_idx,

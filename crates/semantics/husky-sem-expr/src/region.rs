@@ -42,7 +42,7 @@ impl WithFmtContext for SemExprRegionData {
             RegionPath::CrateDecl(_) => todo!(),
             RegionPath::ItemDecl(path) => with_item_eth_term_fmt_context(path, f, db),
             RegionPath::ItemDefn(path) => with_item_eth_term_fmt_context(path, f, db),
-            RegionPath::Chunk(_) => todo!(),
+            RegionPath::Script(_) => todo!(),
         }
     }
 }
