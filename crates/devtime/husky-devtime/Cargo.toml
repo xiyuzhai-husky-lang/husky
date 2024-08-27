@@ -63,7 +63,7 @@ tracing-subscriber.workspace = true
 tracing-test.workspace = true
 # protocols
 husky-trace-protocol = { workspace = true, features = ["test_utils"] }
-husky-standard-visual-protocol.workspace = true
+husky-standard-trace-protocol.workspace = true
 # devsoul
 husky-standard-devsoul.workspace = true
 # utils

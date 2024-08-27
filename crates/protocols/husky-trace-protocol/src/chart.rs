@@ -3,6 +3,7 @@ use husky_linket_impl::{pedestal::JointPedestal, static_var::IsStaticVarId};
 use vec_like::SmallVecPairMap;
 
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq)]
 pub enum Chart<StaticVarId: IsStaticVarId, R> {
     Dim0(ChartDim0<StaticVarId, R>),
     Dim1(ChartDim1<StaticVarId, R>),

@@ -25,8 +25,10 @@ pub trait IsFigure:
 {
     type Pedestal: IsPedestal;
 
-    fn from_chart_of_composite_visuals(
+    fn from_chart(
         chart: Option<Chart<<Self::Pedestal as IsPedestal>::StaticVarId, CompositeVisual<TraceId>>>,
+        trace_plot_map: &[(TraceId, usize)],
+        visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
 }
 

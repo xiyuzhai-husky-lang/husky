@@ -8,10 +8,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         &self,
         trace_id: TraceId,
         ki_repr: KiRepr,
+        pedestal: Devsoul::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
         ki_visual_cache: &mut TraceVisualCache<Devsoul::Pedestal>,
     ) -> Option<Visual> {
-        let pedestal = todo!();
         use husky_value_interface::IsValue;
         match self.eval_ki_repr(ki_repr) {
             KiControlFlow::Continue(value) => Some(ki_visual_cache.get_visual(

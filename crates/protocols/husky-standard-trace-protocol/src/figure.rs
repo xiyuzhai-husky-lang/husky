@@ -2,6 +2,8 @@ mod dim0;
 mod dim1;
 pub mod dim2;
 
+use crate::chart::StandardChart;
+
 use self::{dim0::StandardFigureDim0, dim1::StandardFigureDim1};
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_ki_repr_interface::KiReprInterface;
@@ -39,14 +41,18 @@ pub enum StandardFigure {
 impl IsFigure for StandardFigure {
     type Pedestal = StandardPedestal;
 
-    fn from_chart_of_composite_visuals(
-        chart: Option<Chart<StandardStaticVarId, CompositeVisual<TraceId>>>,
+    fn from_chart(
+        chart: Option<StandardChart<CompositeVisual<TraceId>>>,
+        trace_plot_map: &[(TraceId, usize)],
+        visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
         let Some(chart) = chart else {
             return StandardFigure::Void;
         };
         match chart {
-            Chart::Dim0(chart) => todo!(),
+            Chart::Dim0(chart) => {
+                StandardFigureDim0::from_chart(chart, trace_plot_map, visual_synchrotron).into()
+            }
             Chart::Dim1(chart) => todo!(),
             Chart::Dim2(chart) => todo!(),
         }
@@ -61,9 +67,7 @@ impl FigureUi<Ui> for StandardFigure {
         ui: &mut Ui,
     ) {
         match self {
-            StandardFigure::Void => {
-                ui.label("todo: void");
-            }
+            StandardFigure::Void => (),
             StandardFigure::Dim0(slf) => slf.ui(visual_synchrotron, cache, ui),
             StandardFigure::Dim1(slf) => slf.ui(visual_synchrotron, cache, ui),
         }

@@ -1,11 +1,15 @@
+use crate::chart::StandardChartDim0;
+
 use super::*;
 use egui::Frame;
 use husky_control_flow_utils::pass;
+use husky_linket_impl::pedestal::JointPedestal;
+use husky_standard_linket_impl::pedestal::StandardJointPedestal;
 use husky_visual_protocol::visual::primitive::PrimitiveVisual;
 
-#[derive(Debug, Default, PartialEq, Eq, Clone, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct StandardFigureDim0 {
-    joint_pedestal: StandardPedestal,
+    joint_pedestal: StandardJointPedestal,
     plots: Vec<StandardPlot>,
 }
 
@@ -24,8 +28,24 @@ pub enum StandardPlot {
 
 /// # constructor
 impl StandardFigureDim0 {
-    pub(super) fn new(
-        joint_pedestal: StandardPedestal,
+    pub(super) fn from_chart(
+        (joint_pedestal, composite_visual): StandardChartDim0<CompositeVisual<TraceId>>,
+        trace_plot_map: &[(TraceId, usize)],
+        visual_synchrotron: &VisualSynchrotron,
+    ) -> Self {
+        Self::new(
+            joint_pedestal,
+            composite_visual
+                .followed_reduced
+                .into_iter()
+                .chain(composite_visual.accompanyings_except_followed_reduced),
+            trace_plot_map,
+            visual_synchrotron,
+        )
+    }
+
+    fn new(
+        joint_pedestal: StandardJointPedestal,
         traced_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
         trace_plot_map: &[(TraceId, usize)],
         visual_synchrotron: &VisualSynchrotron,
@@ -39,7 +59,7 @@ impl StandardFigureDim0 {
 
 /// # builder
 struct StandardFigureBuilder<'a> {
-    joint_pedestal: StandardPedestal,
+    joint_pedestal: StandardJointPedestal,
     trace_plot_map: &'a [(TraceId, usize)],
     visual_synchrotron: &'a VisualSynchrotron,
     plots: Vec<StandardPlot>,
@@ -47,7 +67,7 @@ struct StandardFigureBuilder<'a> {
 
 impl<'a> StandardFigureBuilder<'a> {
     fn new(
-        joint_pedestal: StandardPedestal,
+        joint_pedestal: StandardJointPedestal,
         trace_plot_map: &'a [(TraceId, usize)],
         visual_synchrotron: &'a VisualSynchrotron,
     ) -> Self {

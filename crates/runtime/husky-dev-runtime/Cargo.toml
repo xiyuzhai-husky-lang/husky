@@ -71,4 +71,4 @@ husky-standard-linket-impl.workspace = true
 # linktime
 husky-mono-linktime.workspace = true
 # protocols
-husky-standard-visual-protocol.workspace = true
+husky-standard-trace-protocol.workspace = true
