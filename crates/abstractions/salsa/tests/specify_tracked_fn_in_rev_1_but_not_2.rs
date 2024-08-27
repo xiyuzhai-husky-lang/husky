@@ -71,7 +71,7 @@ fn test_run_0() {
     let mut db = Database::default();
     let db = &mut *db;
 
-    let input = MyInput::new(&db, 0);
+    let input = MyInput::new(&db, 0, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 100);
     db.assert_logs(expect![[r#"
         [
@@ -85,7 +85,7 @@ fn test_run_0() {
 fn test_run_5() {
     let mut db = Database::default();
 
-    let input = MyInput::new(&db, 5);
+    let input = MyInput::new(&db, 5, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 100);
     db.assert_logs(expect![[r#"
         [
@@ -99,7 +99,7 @@ fn test_run_5() {
 fn test_run_10() {
     let mut db = Database::default();
 
-    let input = MyInput::new(&db, 10);
+    let input = MyInput::new(&db, 10, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 100);
     db.assert_logs(expect![[r#"
         [
@@ -114,7 +114,7 @@ fn test_run_10() {
 fn test_run_20() {
     let mut db = Database::default();
 
-    let input = MyInput::new(&db, 20);
+    let input = MyInput::new(&db, 20, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 200);
     db.assert_logs(expect![[r#"
         [
@@ -133,7 +133,7 @@ fn test_run_0_then_5_then_20() {
     //
     // * `create_tracked` specifies `10` for `maybe_specified`
     // * final resuilt of `100` is derived by executing `read_maybe_specified`
-    let input = MyInput::new(&db, 0);
+    let input = MyInput::new(&db, 0, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 100);
     db.assert_logs(expect![[r#"
         [
@@ -177,7 +177,7 @@ fn test_run_0_then_5_then_10_then_20() {
     //
     // * `create_tracked` specifies `10` for `maybe_specified`
     // * final resuilt of `100` is derived by executing `read_maybe_specified`
-    let input = MyInput::new(&db, 0);
+    let input = MyInput::new(&db, 0, salsa::Durability::LOW);
     assert_eq!(final_result(&db, input), 100);
     db.assert_logs(expect![[r#"
         [
@@ -229,7 +229,7 @@ fn test_run_5_then_20() {
     let mut db = Database::default();
     let db = &mut *db;
 
-    let input = MyInput::new(db, 5);
+    let input = MyInput::new(db, 5, salsa::Durability::LOW);
     assert_eq!(final_result(db, input), 100);
     db.assert_logs(expect![[r#"
         [

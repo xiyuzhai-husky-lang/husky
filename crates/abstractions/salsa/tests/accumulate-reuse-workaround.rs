@@ -50,8 +50,8 @@ struct Database;
 fn test1() {
     let mut db = Database::default();
 
-    let l1 = List::new(&db, 1, None);
-    let l2 = List::new(&db, 2, Some(l1));
+    let l1 = List::new(&db, 1, None, salsa::Durability::LOW);
+    let l2 = List::new(&db, 2, Some(l1), salsa::Durability::LOW);
 
     assert_eq!(compute(&db, l2), 2);
     db.assert_logs(expect![[r#"

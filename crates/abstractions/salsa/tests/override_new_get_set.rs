@@ -17,7 +17,7 @@ struct MyInput {
 
 impl MyInput {
     pub fn new(db: &mut Db, s: impl Display) -> MyInput {
-        MyInput::from_string(db, s.to_string())
+        MyInput::from_string(db, s.to_string(), salsa::Durability::LOW)
     }
 
     pub fn field(self, db: &Db) -> String {

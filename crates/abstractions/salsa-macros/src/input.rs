@@ -137,26 +137,32 @@ impl InputStruct {
                 /// # Panics
                 ///
                 /// If called when an instance already exists
-                pub fn #constructor_name(__db: &::salsa::Db, #(#field_names: #field_tys,)*) -> Self
-                {
+                pub fn #constructor_name(
+                    __db: &::salsa::Db,
+                    #(#field_names: #field_tys,)*
+                    durability: ::salsa::Durability
+                ) -> Self {
                     let (__jar, __runtime) = __db.jar::<#jar_ty>();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#input_index.new_singleton_input(__runtime);
                     #(
-                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, salsa::Durability::LOW);
+                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, durability);
                     )*
                     __id
                 }
             }
         } else {
             parse_quote! {
-                pub fn #constructor_name(__db: &::salsa::Db, #(#field_names: #field_tys,)*) -> Self
-                {
+                pub fn #constructor_name(
+                    __db: &::salsa::Db,
+                    #(#field_names: #field_tys,)*
+                    durability: ::salsa::Durability
+                ) -> Self {
                     let (__jar, __runtime) = __db.jar::<#jar_ty>();
                     let __ingredients = <#jar_ty as salsa::storage::HasIngredientsFor< #ident >>::ingredient(__jar);
                     let __id = __ingredients.#input_index.new_input(__runtime);
                     #(
-                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, salsa::Durability::LOW);
+                        __ingredients.#field_indices.store_new(__runtime, __id, #field_names, durability);
                     )*
                     __id
                 }

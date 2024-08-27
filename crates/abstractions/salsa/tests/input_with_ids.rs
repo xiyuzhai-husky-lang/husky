@@ -22,7 +22,7 @@ struct Database;
 fn test_debug() {
     let mut db = Database::default();
 
-    let input = MyInput::new(&mut db, 22, 50, 10);
+    let input = MyInput::new(&mut db, 22, 50, 10, salsa::Durability::LOW);
 
     let actual = format!("{:?}", input.debug(&db));
     let expected = expect!["MyInput { id_one: 22, id_two: 50, field: 10 }"];

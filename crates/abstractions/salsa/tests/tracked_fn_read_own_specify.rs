@@ -35,7 +35,7 @@ struct Database;
 #[test]
 fn execute() {
     let mut db = Database::default();
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     assert_eq!(tracked_fn(&db, input), 2222);
     db.assert_logs(expect![[r#"
         [

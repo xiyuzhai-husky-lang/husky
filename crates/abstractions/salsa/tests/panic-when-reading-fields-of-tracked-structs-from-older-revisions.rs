@@ -28,7 +28,7 @@ struct Database;
 fn execute() {
     let mut db = Database::default();
 
-    let input = MyInput::new(&db, 22);
+    let input = MyInput::new(&db, 22, salsa::Durability::LOW);
     let tracked = tracked_fn(&db, input);
 
     // modify the input and change the revision

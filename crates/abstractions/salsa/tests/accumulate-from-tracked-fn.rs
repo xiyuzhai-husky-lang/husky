@@ -47,8 +47,8 @@ fn compute(db: &Db, input: List) {
 fn test1() {
     let mut db = Database::default();
 
-    let l0 = List::new(&db, 1, None);
-    let l1 = List::new(&db, 10, Some(l0));
+    let l0 = List::new(&db, 1, None, salsa::Durability::LOW);
+    let l1 = List::new(&db, 10, Some(l0), salsa::Durability::LOW);
 
     compute(&db, l1);
     expect![[r#"
