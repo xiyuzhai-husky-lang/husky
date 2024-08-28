@@ -5,7 +5,7 @@
         start_character: Some(
             0,
         ),
-        end_line: 3,
+        end_line: 5,
         end_character: Some(
             29,
         ),
@@ -15,11 +15,11 @@
         collapsed_text: None,
     },
     FoldingRange {
-        start_line: 7,
+        start_line: 16,
         start_character: Some(
             0,
         ),
-        end_line: 8,
+        end_line: 20,
         end_character: Some(
             29,
         ),

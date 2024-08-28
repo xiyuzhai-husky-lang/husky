@@ -121,7 +121,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 42,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
@@ -317,12 +317,12 @@
                                 },
                                 EthTemplateParameter {
                                     annotated_variance: None,
-                                    variable: EthSymbolicVariable(`label`, `phan`),
+                                    variable: EthSymbolicVariable(`LABEL`, `phan`),
                                     traits: [],
                                 },
                             ],
                         },
-                        trai: EthTerm(`Unveil OneVsAllResult Label label`),
+                        trai: EthTerm(`Unveil OneVsAllResult Label LABEL`),
                         self_ty_refined: PathLeading(
                             Application(
                                 EthApplication(
@@ -379,12 +379,12 @@
                                     EtherealRitchieParameter::Simple(
                                         EthRitchieSimpleParameter {
                                             contract: Contract::Pure,
-                                            ty: EthTerm(`OneVsAllResult Label label`),
+                                            ty: EthTerm(`OneVsAllResult Label LABEL`),
                                         },
                                     ),
                                 ],
                             },
-                            return_ty: EthTerm(`ControlFlow OneVsAll Label label unit`),
+                            return_ty: EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                         },
                     ),
                 ),

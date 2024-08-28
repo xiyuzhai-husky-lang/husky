@@ -4839,7 +4839,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::CurrentVariable {
-                                    ident: `label`,
+                                    ident: `LABEL`,
                                     regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
@@ -4847,7 +4847,7 @@
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                             ident_token: IdentRegionalToken {
-                                                ident: `label`,
+                                                ident: `LABEL`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -5022,7 +5022,7 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::CurrentVariable {
-                                    ident: `label`,
+                                    ident: `LABEL`,
                                     regional_token_idx: RegionalTokenIdx(
                                         25,
                                     ),
@@ -5030,7 +5030,7 @@
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
                                         template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                             ident_token: IdentRegionalToken {
-                                                ident: `label`,
+                                                ident: `LABEL`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
@@ -5222,7 +5222,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`label`),
+                                EthTerm(`LABEL`),
                             ),
                         },
                     ),
@@ -5235,7 +5235,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`Unveil OneVsAllResult Label label`),
+                                EthTerm(`Unveil OneVsAllResult Label LABEL`),
                             ),
                         },
                     ),
@@ -5287,7 +5287,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`label`),
+                                EthTerm(`LABEL`),
                             ),
                         },
                     ),
@@ -5300,7 +5300,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`OneVsAll Label label`),
+                                EthTerm(`OneVsAll Label LABEL`),
                             ),
                         },
                     ),
@@ -5343,7 +5343,7 @@
                     FlyTerm {
                         quary: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`label`),
+                            EthTerm(`LABEL`),
                         ),
                     },
                 ],
@@ -5860,7 +5860,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`OneVsAll Label label`),
+                EthTerm(`OneVsAll Label LABEL`),
             ),
             self_value_ty: None,
             context_itd: EthTermContextItd {
@@ -5987,7 +5987,7 @@
                     FlyTerm {
                         quary: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`label`),
+                            EthTerm(`LABEL`),
                         ),
                     },
                 ],
@@ -6044,7 +6044,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`OneVsAll Label label`),
+                EthTerm(`OneVsAll Label LABEL`),
             ),
             self_value_ty: None,
             context_itd: EthTermContextItd {
@@ -6177,14 +6177,14 @@
                         SemExprEntry {
                             data_result: Ok(
                                 SemExprData::InheritedVariable {
-                                    ident: `label`,
+                                    ident: `LABEL`,
                                     regional_token_idx: RegionalTokenIdx(
                                         9,
                                     ),
                                     inherited_variable_idx: 1,
                                     inherited_variable_kind: InheritedVariableKind::Template(
                                         InheritedTemplateVariable::Constant {
-                                            ident: `label`,
+                                            ident: `LABEL`,
                                         },
                                     ),
                                 },
@@ -6480,7 +6480,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`label`),
+                                EthTerm(`LABEL`),
                             ),
                         },
                     ),
@@ -6493,7 +6493,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`OneVsAllResult Label label`),
+                                EthTerm(`OneVsAllResult Label LABEL`),
                             ),
                         },
                     ),
@@ -6519,7 +6519,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`OneVsAll Label label`),
+                                EthTerm(`OneVsAll Label LABEL`),
                             ),
                         },
                     ),
@@ -6532,7 +6532,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`ControlFlow OneVsAll Label label`),
+                                EthTerm(`ControlFlow OneVsAll Label LABEL`),
                             ),
                         },
                     ),
@@ -6558,7 +6558,7 @@
                         FlyTerm {
                             quary: None,
                             base: FlyTermBase::Eth(
-                                EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                             ),
                         },
                     ),
@@ -6598,7 +6598,7 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`OneVsAllResult Label label`),
+                                EthTerm(`OneVsAllResult Label LABEL`),
                             ),
                         },
                     ),
@@ -6615,7 +6615,7 @@
                     FlyTerm {
                         quary: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`label`),
+                            EthTerm(`LABEL`),
                         ),
                     },
                 ],
@@ -7032,7 +7032,7 @@
             },
             return_ty: None,
             self_ty: Some(
-                EthTerm(`OneVsAll Label label`),
+                EthTerm(`OneVsAll Label LABEL`),
             ),
             self_value_ty: None,
             context_itd: EthTermContextItd {
