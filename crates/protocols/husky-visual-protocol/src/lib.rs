@@ -1,3 +1,4 @@
+pub mod plot;
 pub mod synchrotron;
 #[cfg(feature = "ugly")]
 pub mod ugly;

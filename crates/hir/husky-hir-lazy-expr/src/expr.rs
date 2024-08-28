@@ -439,11 +439,11 @@ impl ToHirLazy for SemExprIdx {
             SemExprData::Block { stmts } => HirLazyExprData::Block {
                 stmts: stmts.to_hir_lazy(builder),
             },
-            SemExprData::EmptyHtmlTag {
-                empty_html_bra_idx: _,
+            SemExprData::EmptyHtmxTag {
+                empty_htmx_bra_idx: _,
                 function_ident: _,
                 arguments: _,
-                empty_html_ket: _,
+                empty_htmx_ket: _,
             } => todo!(),
             SemExprData::Sorry {
                 regional_token_idx: _,

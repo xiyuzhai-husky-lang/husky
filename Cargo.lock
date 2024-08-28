@@ -6227,6 +6227,7 @@ dependencies = [
  "husky-toml-ast",
  "husky-toml-token",
  "husky-vfs",
+ "husky-visual-protocol",
  "husky-wild-utils",
  "idx-arena",
  "maybe-result",
