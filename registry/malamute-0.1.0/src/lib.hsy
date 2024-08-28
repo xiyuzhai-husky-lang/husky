@@ -28,10 +28,10 @@ pub enum OneVsAllResult<#phan Label, #phan compterm label: Label>
 | ConfidentNo
 | Unconfident
 
-impl<#phan Label, #phan compterm label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
+impl<#phan Label, #phan compterm LABEL: Label> core::ops::Unveil OneVsAllResult Label LABEL for OneVsAll Label label:
     type Output = ()
 
-    assoc fn unveil(one_vs_all_result: OneVsAllResult Label label) -> core::ops::ControlFlow Self ():
+    assoc fn unveil(one_vs_all_result: OneVsAllResult Label LABEL) -> core::ops::ControlFlow Self ():
         match one_vs_all_result with
         | OneVsAllResult::ConfidentYes => core::ops::ControlFlow::Break(OneVsAll::Yes)
         | OneVsAllResult::ConfidentNo => core::ops::ControlFlow::Break(OneVsAll::No)
