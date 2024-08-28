@@ -1,11 +1,9 @@
 ```rust
-Some(
-    SemItemPathDepsCyclceGroupItd {
-        cycle_group: CycleGroup {
-            nodes: [
-                ItemPath(`core::ops::BitAnd::Output`),
-            ],
-        },
+SemItemPathDepsCyclceGroupItd {
+    cycle_group: CycleGroup {
+        nodes: [
+            ItemPath(`core::ops::BitAnd::Output`),
+        ],
     },
-)
+}
 ```

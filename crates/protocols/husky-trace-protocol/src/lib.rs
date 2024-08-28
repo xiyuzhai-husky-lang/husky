@@ -1,4 +1,6 @@
+pub mod anchor;
 pub mod caryatid;
+pub mod chart;
 #[cfg(feature = "client")]
 pub mod client;
 pub mod figure;

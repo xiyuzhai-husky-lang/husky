@@ -6,11 +6,11 @@ use husky_value_interface::{exception::IsException, ki_control_flow::KiControlFl
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use pedestal::{IsPedestal, IsPedestalFull};
 use serde::Serialize;
-use static_var::StaticVarResult;
+use var::StaticVarResult;
 use std::num::Saturating;
 
 pub type LinketImplStaticVarResult<LinketImpl, R> =
-    StaticVarResult<<<LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::StaticVarId, R>;
+    StaticVarResult<<<LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::VarId, R>;
 
 pub trait IsLinketImpl: Send + Copy + 'static {
     type Pedestal: IsPedestalFull;
@@ -37,10 +37,10 @@ pub trait IsLinketImpl: Send + Copy + 'static {
     /// applies only for static var linkage
     fn init_item_path_id_interface(self, item_path_id_interface: ItemPathIdInterface);
     /// applies only for static var linkage
-    fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId;
+    fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::VarId;
     fn with_static_var_id<R>(
         self,
-        static_var_id: <Self::Pedestal as IsPedestal>::StaticVarId,
+        static_var_id: <Self::Pedestal as IsPedestal>::VarId,
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
     ) -> LinketImplStaticVarResult<Self, R>;
@@ -48,7 +48,7 @@ pub trait IsLinketImpl: Send + Copy + 'static {
     fn all_static_var_ids<'a>(
         self,
         locked: &'a [ItemPathIdInterface],
-    ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::StaticVarId> + 'a>;
+    ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::VarId> + 'a>;
 }
 
 pub type LinketImplKiControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =

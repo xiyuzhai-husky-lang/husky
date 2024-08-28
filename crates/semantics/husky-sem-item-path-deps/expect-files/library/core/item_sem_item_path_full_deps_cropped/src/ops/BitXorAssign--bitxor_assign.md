@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::ops::BitXorAssign::bitxor_assign`),
-    ],
-)
+[
+    ItemPath(`core::ops::BitXorAssign::bitxor_assign`),
+]
 ```

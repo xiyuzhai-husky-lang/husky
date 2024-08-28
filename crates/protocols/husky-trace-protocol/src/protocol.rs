@@ -1,6 +1,6 @@
 use crate::*;
 use caryatid::IsCaryatidFull;
-use husky_linket_impl::pedestal::IsPedestalFull;
+use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull};
 use serde_with::Same;
 use std::path::{Path, PathBuf};
 
@@ -9,12 +9,15 @@ pub trait IsTraceProtocol:
 {
     type Pedestal: IsPedestalFull;
     type Caryatid: IsCaryatidFull<Pedestal = Self::Pedestal>;
-    type Figure: IsFigure<Self::Pedestal>;
+    type Figure: IsFigure<Pedestal = Self::Pedestal>;
 }
 
 pub trait IsTraceProtocolFull: IsTraceProtocol + Serialize + for<'a> Deserialize<'a> {}
 
 impl<T> IsTraceProtocolFull for T where T: IsTraceProtocol + Serialize + for<'a> Deserialize<'a> {}
+
+pub type TraceProtocolVarId<TraceProtocol> =
+    <<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId;
 
 pub trait IsTrace: std::fmt::Debug + Eq + Copy + From<TraceId> + Into<TraceId> {}
 

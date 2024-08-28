@@ -186,23 +186,23 @@ impl SemExprIdx {
                     }
                 }
                 SemExprData::Block { stmts } => stmts.simulate(visitor),
-                SemExprData::EmptyHtmlTag {
-                    empty_html_bra_idx,
+                SemExprData::EmptyHtmxTag {
+                    empty_htmx_bra_idx: empty_html_bra_idx,
                     function_ident,
                     ref arguments,
-                    empty_html_ket,
+                    empty_htmx_ket: empty_html_ket,
                 } => {
                     // ad hoc
                     for argument in arguments {
                         match argument {
-                            SemaHtmlArgumentExpr::Expanded {
+                            SemaHtmxArgumentExpr::Expanded {
                                 property_ident,
                                 eq,
                                 lcurl,
                                 argument,
                                 rcurl,
                             } => argument.simulate(visitor),
-                            SemaHtmlArgumentExpr::Shortened {
+                            SemaHtmxArgumentExpr::Shortened {
                                 lcurl,
                                 property_ident,
                                 rcurl,

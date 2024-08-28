@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::basic::Lifetime`),
-    ],
-)
+[
+    ItemPath(`core::basic::Lifetime`),
+]
 ```

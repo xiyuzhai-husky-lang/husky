@@ -19,3 +19,6 @@ husky-visual-protocol.workspace = true
 
 [lints]
 workspace = true
+
+[features]
+ugly = ["husky-value-protocol/ugly", "husky-visual-protocol/ugly"]

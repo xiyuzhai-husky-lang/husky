@@ -1,11 +1,11 @@
 use ad_hoc_devsoul_dependency::{ugly::*, *};
 use husky_core::*;
 
-pub trait IsMlTask<StaticVarId>
+pub trait IsMlTask<VarId>
 where
-    StaticVarId: std::fmt::Debug + Copy + Eq + 'static,
+    VarId: std::fmt::Debug + Copy + Eq + 'static,
 {
     type Input;
 
-    type INPUT: __IsStaticVar<StaticVarId>;
+    type INPUT: __IsStaticVar<VarId>;
 }

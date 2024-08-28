@@ -1,9 +1,7 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist::TASK`),
-        ItemPath(`mnist::task::MnistTask`),
-        ItemPath(`mnist::task::MnistTask(0)::new`),
-    ],
-)
+[
+    ItemPath(`mnist::TASK`),
+    ItemPath(`mnist::task::MnistTask`),
+    ItemPath(`mnist::task::MnistTask(0)::new`),
+]
 ```

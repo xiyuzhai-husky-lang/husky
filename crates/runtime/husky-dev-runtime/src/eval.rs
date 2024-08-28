@@ -5,7 +5,6 @@ use husky_devsoul::{
     devsoul::IsDevsoul,
     helpers::{DevsoulTrackedException, DevsoulValue},
 };
-use husky_devsoul_interface::anchor::Anchor;
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
@@ -364,6 +363,7 @@ fn ki_repr_eval_works() {
     use husky_path_utils::dev_paths::*;
     use husky_standard_devsoul::StandardDevsoul;
     use husky_standard_linket_impl::StandardLinketImpl;
+    use husky_trace_protocol::anchor::Anchor;
 
     let dev_paths = HuskyLangDevPaths::new();
     let runtime: Pin<Box<DevRuntime<StandardDevsoul>>> =
@@ -380,12 +380,12 @@ fn ki_repr_eval_works() {
             continue;
         }
         let ki_repr = KiRepr::new_val(form_path, db);
-        runtime.with_static_vars(
+        runtime.with_static_var_anchors(
             ki_repr
                 .var_deps(db)
                 .iter()
                 .map(|&dep| (dep, Anchor::Generic { limit: 10 })),
-            || Some(runtime.eval_ki_repr(ki_repr)),
+            |runtime, _| Some(runtime.eval_ki_repr(ki_repr)),
         );
     }
 }

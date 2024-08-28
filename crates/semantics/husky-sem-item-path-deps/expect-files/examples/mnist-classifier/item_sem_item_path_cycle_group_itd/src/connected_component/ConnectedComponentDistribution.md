@@ -1,11 +1,9 @@
 ```rust
-Some(
-    SemItemPathDepsCyclceGroupItd {
-        cycle_group: CycleGroup {
-            nodes: [
-                ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
-            ],
-        },
+SemItemPathDepsCyclceGroupItd {
+    cycle_group: CycleGroup {
+        nodes: [
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+        ],
     },
-)
+}
 ```

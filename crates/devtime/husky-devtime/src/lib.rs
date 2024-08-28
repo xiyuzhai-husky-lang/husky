@@ -7,20 +7,34 @@ pub use husky_trace_protocol::server::IsTracetime;
 
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
-use husky_devsoul::devsoul::IsDevsoul;
+use husky_devsoul::{
+    devsoul::IsDevsoul,
+    helpers::{DevsoulCaryatid, DevsoulChart, DevsoulFigure},
+};
+use husky_entity_path::path::ItemPathId;
 use husky_item_path_interface::ItemPathIdInterface;
+use husky_ki_repr::repr::KiRepr;
+use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
+use husky_linket_impl::eval_context::IsDevRuntime;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
+    caryatid::IsCaryatid,
+    figure::{IsFigure, TraceFigureKey},
+    id::TraceId,
     protocol::{IsTraceProtocol, TraceBundle},
-    server::KiVisualCache,
+    server::TraceVisualCache,
     stalk::TraceStalk,
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
 };
+use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
 use husky_vfs::error::VfsResult;
-use husky_visual_protocol::synchrotron::VisualSynchrotron;
+use husky_visual_protocol::{
+    synchrotron::VisualSynchrotron,
+    visual::{CompositeVisual, Visual},
+};
 use smallvec::{SmallVec, ToSmallVec};
 use std::{path::Path, pin::Pin};
 
@@ -73,7 +87,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         trace.view_data(self.db())
     }
 
-    fn trace_stalk(
+    fn calc_trace_stalk(
         &self,
         trace: Self::Trace,
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
@@ -98,42 +112,60 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         }
     }
 
-    fn figure(
+    fn calc_figure(
         &self,
-        followed_trace: Option<Self::Trace>,
-        accompanying_trace_ids_expect_followed: &AccompanyingTraceIdsExceptFollowed,
-        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
+        figure_key: &TraceFigureKey<Devsoul::TraceProtocol>,
         visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut KiVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        trace_visual_cache: &mut TraceVisualCache<
+            <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        >,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
-        let followed = match followed_trace {
-            Some(followed_trace) => followed_trace.ki_repr(db).map(|ki_repr| {
-                (
-                    followed_trace.into(),
-                    ki_repr.into(),
-                    ki_repr.ki_domain_repr(db).into(),
-                    followed_trace.var_deps(db),
-                )
-            }),
-            None => None,
-        };
-        let accompanyings_except_followed = &accompanying_trace_ids_expect_followed
-            .iter()
-            .filter_map(|&accompanying_trace_id| {
-                let trace: Trace = accompanying_trace_id.into();
-                let ki_repr = trace.ki_repr(db)?;
-                Some((trace.into(), ki_repr.into(), trace.var_deps(db)))
-            })
-            .collect::<Vec<_>>();
-        Devsoul::calc_figure(
-            followed,
-            accompanyings_except_followed,
-            caryatid,
-            &*self.runtime,
-            visual_synchrotron,
-            ki_visual_cache,
-        )
+        let chart: Option<DevsoulChart<Devsoul, CompositeVisual<TraceId>>> =
+            self.runtime.with_static_var_anchors(
+                figure_key.joint_static_var_anchors().iter().copied().map(
+                    |(item_path_id_interface, anchor)| {
+                        let item_path_id: ItemPathId = item_path_id_interface.into();
+                        (item_path_id.item_path(db), anchor)
+                    },
+                ),
+                |runtime, joint_pedestal| {
+                    let mut t = |trace_id: TraceId| {
+                        let trace: Trace = trace_id.into();
+                        let var_deps = trace.var_deps(db);
+                        let pedestal = joint_pedestal.pedestal(var_deps);
+                        match trace.ki_repr(db) {
+                            Some(ki_repr) => runtime
+                                .trace_ki_repr_visual(
+                                    trace_id,
+                                    ki_repr,
+                                    pedestal,
+                                    visual_synchrotron,
+                                    trace_visual_cache,
+                                )
+                                .map(|visual| (trace_id, visual)),
+                            None => todo!(),
+                        }
+                    };
+                    Some(CompositeVisual {
+                        followed_reduced: match figure_key.followed_reduced() {
+                            Some(followed_reduced) => Some(t(followed_reduced)?),
+                            None => None,
+                        },
+                        accompanyings_except_followed_reduced: figure_key
+                            .accompanyings_except_followed_reduced()
+                            .iter()
+                            .copied()
+                            .filter_map(t)
+                            .collect(),
+                    })
+                },
+            );
+        let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
+        use ::husky_print_utils::p;
+        use ::salsa::DebugWithDb;
+        p!(trace_plot_map);
+        IsFigure::from_chart(chart, trace_plot_map, visual_synchrotron)
     }
 }
 

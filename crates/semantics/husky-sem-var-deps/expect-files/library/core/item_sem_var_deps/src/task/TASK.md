@@ -1,11 +1,9 @@
 ```rust
-Some(
-    SemVarDeps(
-        [
-            SemVarDep::Item(
-                ItemPath(`core::task::TASK`),
-            ),
-        ],
-    ),
+SemVarDeps(
+    [
+        SemVarDep::Item(
+            ItemPath(`core::task::TASK`),
+        ),
+    ],
 )
 ```

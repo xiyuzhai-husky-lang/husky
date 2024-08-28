@@ -222,7 +222,7 @@ pub enum SynExprData {
         empty_html_bra_idx: RegionalTokenIdx,
         function_ident: IdentRegionalToken,
         arguments: IdentMap<SynHtmlArgumentExpr>,
-        empty_html_ket: EmptyHtmlKetRegionalToken,
+        empty_html_ket: EmptyHtmxKetRegionalToken,
     },
     /// sorry is for comptime (say proof) terms
     Sorry {

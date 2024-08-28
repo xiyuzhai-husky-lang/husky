@@ -3166,7 +3166,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -3202,7 +3202,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -5107,7 +5107,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -5143,7 +5143,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -6429,7 +6429,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -6465,7 +6465,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -7266,7 +7266,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],
@@ -7302,7 +7302,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Six`),
                                                 ),
                                             ],

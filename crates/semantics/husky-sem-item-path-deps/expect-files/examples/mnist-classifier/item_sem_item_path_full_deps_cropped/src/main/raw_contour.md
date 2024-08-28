@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::raw_contour`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::raw_contour`),
+]
 ```

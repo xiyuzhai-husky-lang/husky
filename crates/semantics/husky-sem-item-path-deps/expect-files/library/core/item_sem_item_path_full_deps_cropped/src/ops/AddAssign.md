@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::ops::AddAssign`),
-    ],
-)
+[
+    ItemPath(`core::ops::AddAssign`),
+]
 ```

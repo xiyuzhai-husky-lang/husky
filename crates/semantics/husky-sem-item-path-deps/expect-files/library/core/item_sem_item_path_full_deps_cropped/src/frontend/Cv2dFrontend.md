@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::frontend::Cv2dFrontend`),
-    ],
-)
+[
+    ItemPath(`core::frontend::Cv2dFrontend`),
+]
 ```

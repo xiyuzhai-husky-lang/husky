@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::cmp::Ord`),
-    ],
-)
+[
+    ItemPath(`core::cmp::Ord`),
+]
 ```

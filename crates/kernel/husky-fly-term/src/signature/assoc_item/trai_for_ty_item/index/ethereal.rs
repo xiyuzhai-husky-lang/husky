@@ -77,5 +77,6 @@ fn prelude_ethereal_owner_ty_index_signature(
         PreludeTypePath::Option => todo!(),
         PreludeTypePath::Result => todo!(),
         PreludeTypePath::Universe => todo!(),
+        PreludeTypePath::Visual => todo!(),
     }
 }

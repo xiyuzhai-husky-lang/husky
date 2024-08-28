@@ -2334,7 +2334,7 @@
                                         },
                                     ),
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`OneVsAllResult Label label`),
+                                        EthTerm(`OneVsAllResult Label LABEL`),
                                     ),
                                 },
                             ),
@@ -2350,7 +2350,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`OneVsAllResult Label label`),
+                                            EthTerm(`OneVsAllResult Label LABEL`),
                                         ),
                                     },
                                 ),
@@ -2977,7 +2977,7 @@
                                 FlyTerm {
                                     quary: None,
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                        EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                     ),
                                 },
                             ),
@@ -2987,7 +2987,7 @@
                                     FlyTerm {
                                         quary: None,
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                            EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                         ),
                                     },
                                 ),
@@ -3023,7 +3023,7 @@
                                 FlyTerm {
                                     quary: None,
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                        EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                     ),
                                 },
                             ),
@@ -3052,7 +3052,7 @@
                                 FlyTerm {
                                     quary: None,
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                        EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                     ),
                                 },
                             ),
@@ -3081,7 +3081,7 @@
                                 FlyTerm {
                                     quary: None,
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                        EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                     ),
                                 },
                             ),
@@ -3186,7 +3186,7 @@
                                 FlyTerm {
                                     quary: None,
                                     base: FlyTermBase::Eth(
-                                        EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                        EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                     ),
                                 },
                             ),
@@ -3309,7 +3309,7 @@
                                 },
                             ),
                             base: FlyTermBase::Eth(
-                                EthTerm(`OneVsAllResult Label label`),
+                                EthTerm(`OneVsAllResult Label LABEL`),
                             ),
                         },
                     ),
@@ -3327,7 +3327,7 @@
                     FlyTerm {
                         quary: None,
                         base: FlyTermBase::Eth(
-                            EthTerm(`label`),
+                            EthTerm(`LABEL`),
                         ),
                     },
                 ],
@@ -3370,7 +3370,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll Label label`),
+                                    EthTerm(`OneVsAll Label LABEL`),
                                 ),
                             },
                             HolTermEntry {
@@ -3430,7 +3430,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                    EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3465,7 +3465,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  OneVsAll Label label) -> ControlFlow OneVsAll Label label unit`),
+                                    EthTerm(`fn((move  OneVsAll Label LABEL) -> ControlFlow OneVsAll Label LABEL unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3507,7 +3507,7 @@
                                         FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`label`),
+                                                EthTerm(`LABEL`),
                                             ),
                                         },
                                     ),
@@ -3516,14 +3516,14 @@
                                             target: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`label`),
+                                                    EthTerm(`LABEL`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`label`),
+                                    EthTerm(`LABEL`),
                                 ),
                             },
                             HolTermEntry {
@@ -3554,7 +3554,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll Label label`),
+                                    EthTerm(`OneVsAll Label LABEL`),
                                 ),
                             },
                             HolTermEntry {
@@ -3587,7 +3587,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll Label label`),
+                                    EthTerm(`OneVsAll Label LABEL`),
                                 ),
                             },
                             HolTermEntry {
@@ -3647,7 +3647,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                    EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3682,7 +3682,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  OneVsAll Label label) -> ControlFlow OneVsAll Label label unit`),
+                                    EthTerm(`fn((move  OneVsAll Label LABEL) -> ControlFlow OneVsAll Label LABEL unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3724,7 +3724,7 @@
                                         FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`label`),
+                                                EthTerm(`LABEL`),
                                             ),
                                         },
                                     ),
@@ -3733,14 +3733,14 @@
                                             target: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`label`),
+                                                    EthTerm(`LABEL`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`label`),
+                                    EthTerm(`LABEL`),
                                 ),
                             },
                             HolTermEntry {
@@ -3771,7 +3771,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll Label label`),
+                                    EthTerm(`OneVsAll Label LABEL`),
                                 ),
                             },
                             HolTermEntry {
@@ -3784,7 +3784,7 @@
                                         FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll Label label`),
+                                                EthTerm(`OneVsAll Label LABEL`),
                                             ),
                                         },
                                     ),
@@ -3793,14 +3793,14 @@
                                             target: FlyTerm {
                                                 quary: None,
                                                 base: FlyTermBase::Eth(
-                                                    EthTerm(`OneVsAll Label label`),
+                                                    EthTerm(`OneVsAll Label LABEL`),
                                                 ),
                                             },
                                         },
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`OneVsAll Label label`),
+                                    EthTerm(`OneVsAll Label LABEL`),
                                 ),
                             },
                             HolTermEntry {
@@ -3860,7 +3860,7 @@
                                     ],
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                    EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                 ),
                             },
                             HolTermEntry {
@@ -3895,7 +3895,7 @@
                                     },
                                 },
                                 resolve_progress: HolTermResolveProgressBuf::ResolvedEthereal(
-                                    EthTerm(`fn((move  unit) -> ControlFlow OneVsAll Label label unit`),
+                                    EthTerm(`fn((move  unit) -> ControlFlow OneVsAll Label LABEL unit`),
                                 ),
                             },
                         ],
@@ -3924,7 +3924,7 @@
                                             },
                                         ),
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`OneVsAllResult Label label`),
+                                            EthTerm(`OneVsAllResult Label LABEL`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -4044,7 +4044,7 @@
                                         ty_expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                             ),
                                         },
                                     },
@@ -4084,7 +4084,7 @@
                                         expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll Label label`),
+                                                EthTerm(`OneVsAll Label LABEL`),
                                             ),
                                         },
                                     },
@@ -4192,7 +4192,7 @@
                                         expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`label`),
+                                                EthTerm(`LABEL`),
                                             ),
                                         },
                                     },
@@ -4330,7 +4330,7 @@
                                         ty_expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                             ),
                                         },
                                     },
@@ -4370,7 +4370,7 @@
                                         expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll Label label`),
+                                                EthTerm(`OneVsAll Label LABEL`),
                                             ),
                                         },
                                     },
@@ -4478,7 +4478,7 @@
                                         expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`label`),
+                                                EthTerm(`LABEL`),
                                             ),
                                         },
                                     },
@@ -4614,7 +4614,7 @@
                                         ty_expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                             ),
                                         },
                                     },
@@ -4654,7 +4654,7 @@
                                         expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`OneVsAll Label label`),
+                                                EthTerm(`OneVsAll Label LABEL`),
                                             ),
                                         },
                                     },
@@ -4727,7 +4727,7 @@
                                         ty_expected: FlyTerm {
                                             quary: None,
                                             base: FlyTermBase::Eth(
-                                                EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                                EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                             ),
                                         },
                                     },
@@ -4741,7 +4741,7 @@
                                     expectee: FlyTerm {
                                         quary: None,
                                         base: FlyTermBase::Eth(
-                                            EthTerm(`ControlFlow OneVsAll Label label unit`),
+                                            EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
                                         ),
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
@@ -4765,10 +4765,10 @@
                 },
             },
             return_ty: Some(
-                EthTerm(`ControlFlow OneVsAll Label label unit`),
+                EthTerm(`ControlFlow OneVsAll Label LABEL unit`),
             ),
             self_ty: Some(
-                EthTerm(`OneVsAll Label label`),
+                EthTerm(`OneVsAll Label LABEL`),
             ),
             self_value_ty: None,
             context_itd: EthTermContextItd {

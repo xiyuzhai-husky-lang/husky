@@ -1,8 +1,10 @@
 pub mod caryatid;
+pub mod chart;
+pub mod figure;
 
 use self::caryatid::*;
-use husky_standard_linket_impl::{pedestal::StandardPedestal, static_var::StandardStaticVarId};
-use husky_standard_visual_protocol::figure::StandardFigure;
+use self::figure::StandardFigure;
+use husky_standard_linket_impl::{pedestal::StandardPedestal, static_var::StandardVarId};
 use husky_trace_protocol::{figure::IsFigure, protocol::IsTraceProtocol};
 use serde::{Deserialize, Serialize};
 use std::marker::PhantomData;

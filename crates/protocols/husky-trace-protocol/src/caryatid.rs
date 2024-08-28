@@ -1,12 +1,20 @@
+use self::view::action::TraceViewActionBuffer;
 use crate::*;
+use anchor::Anchor;
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_linket_impl::pedestal::IsPedestalFull;
+use husky_linket_impl::{pedestal::IsPedestal, pedestal::IsPedestalFull, var::IsVarId};
 use ui::ui::IsUi;
 
-use self::view::action::TraceViewActionBuffer;
-
 pub trait IsCaryatid:
-    std::fmt::Debug + Default + Clone + Eq + std::hash::Hash + Send + Sync + 'static
+    std::fmt::Debug
+    + Default
+    + Clone
+    + Eq
+    + std::hash::Hash
+    + Send
+    + Sync
+    + std::ops::Index<ItemPathIdInterface, Output = Anchor<<Self::Pedestal as IsPedestal>::VarId>>
+    + 'static
 {
     type Pedestal: IsPedestalFull;
 
@@ -14,7 +22,7 @@ pub trait IsCaryatid:
 
     fn init_ui_buffer(&self) -> Self::UiBuffer;
 
-    fn pedestal(&self, var_deps: &[ItemPathIdInterface]) -> Self::Pedestal;
+    fn pedestal(&self, var_deps: &[ItemPathIdInterface]) -> Option<Self::Pedestal>;
     fn covers(&self, var_deps: &[ItemPathIdInterface]) -> bool;
     fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self;
 }

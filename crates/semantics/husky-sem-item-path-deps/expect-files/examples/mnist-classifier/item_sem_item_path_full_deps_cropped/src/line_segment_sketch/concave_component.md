@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::line_segment_sketch::concave_component`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::line_segment_sketch::concave_component`),
+]
 ```

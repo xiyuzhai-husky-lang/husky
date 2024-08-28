@@ -43,7 +43,7 @@ where
         }
         // todo!();
         client.take_view_action(TraceViewAction::FollowTrace {
-            trace_id: TraceId::from_index(0),
+            followed: TraceId::from_index(0),
         });
         // server_thread.join();
     }

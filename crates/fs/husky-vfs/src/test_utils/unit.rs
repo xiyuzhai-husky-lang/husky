@@ -1,7 +1,7 @@
 use super::*;
 use crate::jar::VfsDb;
 
-pub(crate) fn collect_units_from_package_path<U: IsVfsTestUnit>(
+pub(crate) fn collect_units_from_package_path<M, U: IsVfsTestUnit<M>>(
     db: &::salsa::Db,
     package_path: PackagePath,
 ) -> Vec<U> {
@@ -14,7 +14,7 @@ pub(crate) fn collect_units_from_package_path<U: IsVfsTestUnit>(
     units
 }
 
-pub trait IsVfsTestUnit: Copy + std::fmt::Debug + salsa::DebugWithDb + Eq {
+pub trait IsVfsTestUnit<M>: Copy + std::fmt::Debug + salsa::DebugWithDb + Eq {
     fn collect_from_package_path_aux(
         db: &::salsa::Db,
         package_path: PackagePath,
@@ -37,7 +37,7 @@ pub trait IsVfsTestUnit: Copy + std::fmt::Debug + salsa::DebugWithDb + Eq {
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath>;
 }
 
-impl IsVfsTestUnit for PackagePath {
+impl IsVfsTestUnit<Jar> for PackagePath {
     fn collect_from_package_path_aux(
         _db: &::salsa::Db,
         package_path: PackagePath,
@@ -71,7 +71,7 @@ impl IsVfsTestUnit for PackagePath {
     }
 }
 
-impl IsVfsTestUnit for CratePath {
+impl IsVfsTestUnit<Jar> for CratePath {
     fn collect_from_package_path_aux(
         db: &::salsa::Db,
         package_path: PackagePath,
@@ -120,7 +120,7 @@ impl IsVfsTestUnit for CratePath {
     }
 }
 
-impl IsVfsTestUnit for ModulePath {
+impl IsVfsTestUnit<Jar> for ModulePath {
     fn collect_from_package_path_aux(
         db: &::salsa::Db,
         package_path: PackagePath,

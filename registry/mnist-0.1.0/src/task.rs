@@ -11,7 +11,7 @@ impl MnistTask {
     }
 }
 
-impl IsMlTask<__StaticVarId> for MnistTask {
+impl IsMlTask<__VarId> for MnistTask {
     type Input = Leash<BinaryImage28>;
 
     type INPUT = INPUT;

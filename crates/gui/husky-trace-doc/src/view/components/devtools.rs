@@ -16,10 +16,14 @@ where
                 RichText::new(format!(
                     r#"followed trace id = {:?}
 pointer interact position = {:?}
-accompanying trace ids = {:?}"#,
-                    self.trace_synchrotron.followed_trace_id(),
+accompanying trace ids = {:?}
+caryatid = {:?}
+figure_key = {:?}"#,
+                    self.trace_synchrotron.followed(),
                     ui.input(|input| input.pointer.interact_pos()),
                     &**self.trace_synchrotron.accompanying_trace_ids(),
+                    self.trace_synchrotron.caryatid(),
+                    self.trace_synchrotron.figure_key(),
                 ))
                 .color(Color32::GRAY),
             );

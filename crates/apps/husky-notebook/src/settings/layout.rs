@@ -2,23 +2,23 @@ use super::*;
 
 #[derive(Default, PartialEq, Eq)]
 pub(crate) struct HuskyNotebookLayoutSettings {
-    high_level: HuskyNotebookHighLevelLayout,
+    high_level: NotebookFacadeLayout,
 }
 
 impl HuskyNotebookLayoutSettings {
-    pub fn high_level(&self) -> HuskyNotebookHighLevelLayout {
+    pub fn high_level(&self) -> NotebookFacadeLayout {
         self.high_level
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub(crate) enum HuskyNotebookHighLevelLayout {
-    Vscode,
+pub(crate) enum NotebookFacadeLayout {
+    Focused,
 }
 
-impl Default for HuskyNotebookHighLevelLayout {
+impl Default for NotebookFacadeLayout {
     fn default() -> Self {
-        HuskyNotebookHighLevelLayout::Vscode
+        NotebookFacadeLayout::Focused
     }
 }
 

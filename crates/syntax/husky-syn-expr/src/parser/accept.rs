@@ -577,7 +577,7 @@ where
                             Ok(arguments) => arguments,
                             Err(e) => return SynExprData::Err(e).into(),
                         };
-                        match parser.try_parse_option::<EmptyHtmlKetRegionalToken>() {
+                        match parser.try_parse_option::<EmptyHtmxKetRegionalToken>() {
                             Ok(Some(empty_html_ket)) => SynExprData::EmptyHtmlTag {
                                 empty_html_bra_idx: bra_regional_token_idx,
                                 function_ident,

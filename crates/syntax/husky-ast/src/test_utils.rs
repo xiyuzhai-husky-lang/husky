@@ -4,29 +4,31 @@ pub use husky_token::test_utils::*;
 pub trait AstTestUtils: TokenTestUtils {
     /// only run to see whether the program will panic
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn ast_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
+    fn ast_plain_test<M, U>(f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb;
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn ast_rich_test_debug_with_db<'a, U, R>(
+    fn ast_rich_test_debug_with_db<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &AstTestConfig<'a>,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn ast_rich_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &AstTestConfig)
-    where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+    fn ast_rich_test_debug<'a, M, U, R>(
+        f: impl Fn(&'a ::salsa::Db, U) -> R,
+        config: &AstTestConfig,
+    ) where
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn ast_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &AstTestConfig)
+    fn ast_rich_test_display<M, U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &AstTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
 
@@ -34,37 +36,37 @@ impl<DB> AstTestUtils for DB
 where
     DB: TokenTestUtils,
 {
-    fn ast_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
+    fn ast_plain_test<M, U>(f: impl Fn(&::salsa::Db, U), config: &AstTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
     {
         // todo: robustness
         DB::token_plain_test(f, config)
     }
 
-    fn ast_rich_test_debug_with_db<'a, U, R>(
+    fn ast_rich_test_debug_with_db<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &AstTestConfig<'a>,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: salsa::DebugWithDb,
     {
         // todo: robustness
         DB::token_rich_test_debug_with_db(f, &config.token)
     }
 
-    fn ast_rich_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &AstTestConfig)
+    fn ast_rich_test_debug<'a, M, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &AstTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
         // todo: robustness
         DB::token_rich_test_debug(f, &config.token)
     }
 
-    fn ast_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &AstTestConfig)
+    fn ast_rich_test_display<M, U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &AstTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
         // todo: robustness

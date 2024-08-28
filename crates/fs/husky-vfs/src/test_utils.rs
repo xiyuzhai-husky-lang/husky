@@ -20,29 +20,31 @@ use std::{collections::HashMap, path::PathBuf};
 pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::DerefMut {
     /// only run to see whether the program will panic
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
+    fn vfs_plain_test<M, U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb;
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn vfs_rich_test_debug_with_db<'a, U, R>(
+    fn vfs_rich_test_debug_with_db<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn vfs_rich_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
-    where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+    fn vfs_rich_test_debug<'a, M, U, R>(
+        f: impl Fn(&'a ::salsa::Db, U) -> R,
+        config: &VfsTestConfig,
+    ) where
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn vfs_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
+    fn vfs_rich_test_display<M, U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
 
@@ -54,9 +56,9 @@ where
 {
     /// only run to see whether the program will panic
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
+    fn vfs_plain_test<M, U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit + ::salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + ::salsa::DebugWithDb,
     {
         let mut paths_used: HashMap<PathBuf, PathUsage<U>> = Default::default();
         for test_suite in config.test_domains() {
@@ -69,7 +71,7 @@ where
                     &path.to_logical_path(&test_suite.src_base()),
                 )
                 .unwrap();
-                let units = collect_units_from_package_path::<U>(db, package_path);
+                let units = collect_units_from_package_path::<M, U>(db, package_path);
                 for unit in units {
                     f(db, unit);
                     if let Some(adversarials_base) = test_suite.adversarials_base() {
@@ -89,14 +91,14 @@ where
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn vfs_rich_test_debug_with_db<'a, U, R>(
+    fn vfs_rich_test_debug_with_db<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: salsa::DebugWithDb,
     {
-        vfs_rich_test::<DB, _>(
+        vfs_rich_test::<DB, _, _>(
             |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u).debug(db)),
             config,
         )
@@ -104,23 +106,23 @@ where
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn vfs_rich_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
+    fn vfs_rich_test_debug<'a, M, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
-        vfs_rich_test::<DB, _>(
+        vfs_rich_test::<DB, _, _>(
             |db, u| format!("{:#?}", &f(unsafe { std::mem::transmute(db) }, u)),
             config,
         )
     }
 
-    fn vfs_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
+    fn vfs_rich_test_display<M, U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
-        vfs_rich_test::<DB, _>(|db, u| format!("{}", &f(db, u)), config)
+        vfs_rich_test::<DB, _, _>(|db, u| format!("{}", &f(db, u)), config)
     }
 }
 

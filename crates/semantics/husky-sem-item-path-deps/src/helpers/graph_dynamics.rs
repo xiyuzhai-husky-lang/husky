@@ -48,9 +48,12 @@ impl<'db> IsGraphDepsContext<'db> for SemItemPathGraphDepsContext<'db> {
 }
 
 #[salsa::tracked(return_ref)]
-pub fn item_sem_item_path_full_deps_cropped(db: &::salsa::Db, node: ItemPathId) -> Vec<ItemPath> {
+pub fn item_sem_item_path_full_deps_cropped(
+    db: &::salsa::Db,
+    item_path_id: ItemPathId,
+) -> Vec<ItemPath> {
     let ctx = SemItemPathGraphDepsContext { db };
-    ctx.calc_full_deps_cropped(node.item_path(db))
+    ctx.calc_full_deps_cropped(item_path_id.item_path(db))
 }
 
 #[test]
@@ -58,11 +61,7 @@ fn item_sem_item_path_full_deps_cropped_works() {
     use husky_entity_tree::node::ItemSynNodePath;
 
     DB::ast_rich_test_debug_with_db(
-        |db, item_syn_node_path: ItemSynNodePath| {
-            item_syn_node_path
-                .unambiguous_item_path(db)
-                .map(|item_path| item_sem_item_path_full_deps_cropped(db, *item_path))
-        },
+        item_sem_item_path_full_deps_cropped,
         &AstTestConfig::new(
             "item_sem_item_path_full_deps_cropped",
             FileExtensionConfig::Markdown,
@@ -86,11 +85,7 @@ fn item_sem_item_path_cycle_group_itd_works() {
     use husky_entity_tree::node::ItemSynNodePath;
 
     DB::ast_rich_test_debug_with_db(
-        |db, item_syn_node_path: ItemSynNodePath| {
-            item_syn_node_path
-                .unambiguous_item_path(db)
-                .map(|item_path| item_sem_item_path_cycle_group_itd(db, *item_path))
-        },
+        item_sem_item_path_cycle_group_itd,
         &AstTestConfig::new(
             "item_sem_item_path_cycle_group_itd",
             FileExtensionConfig::Markdown,

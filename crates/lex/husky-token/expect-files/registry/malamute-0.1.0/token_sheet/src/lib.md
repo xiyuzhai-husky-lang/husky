@@ -980,7 +980,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `label`,
+            `LABEL`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -1025,7 +1025,7 @@ TokenSheetData {
             `Label`,
         ),
         TokenData::Ident(
-            `label`,
+            `LABEL`,
         ),
         TokenData::Keyword(
             Keyword::Connection(
@@ -1039,7 +1039,7 @@ TokenSheetData {
             `Label`,
         ),
         TokenData::Ident(
-            `label`,
+            `LABEL`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -1106,7 +1106,7 @@ TokenSheetData {
             `Label`,
         ),
         TokenData::Ident(
-            `label`,
+            `LABEL`,
         ),
         TokenData::Punctuation(
             Punctuation(

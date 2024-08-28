@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::marker::Copy`),
-    ],
-)
+[
+    ItemPath(`core::marker::Copy`),
+]
 ```

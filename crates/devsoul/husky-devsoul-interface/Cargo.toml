@@ -25,3 +25,6 @@ husky-devsoul-interface-macros.workspace = true
 husky-decl-macro-utils.workspace = true
 # value
 husky-value-interface.workspace = true
+
+[features]
+ugly = ["husky-item-path-interface/ugly"]

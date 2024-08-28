@@ -1,7 +1,7 @@
 pub mod action;
 mod components;
 mod doc;
-mod layout;
+mod facade;
 mod settings;
 
 use std::sync::Arc;
@@ -61,7 +61,7 @@ impl eframe::App for NotebookApp {
             self.init_done = true;
         }
         self.hotkey_buffer.start_frame(ctx);
-        self.render_panels(ctx)
+        self.render_facade(ctx)
     }
 }
 

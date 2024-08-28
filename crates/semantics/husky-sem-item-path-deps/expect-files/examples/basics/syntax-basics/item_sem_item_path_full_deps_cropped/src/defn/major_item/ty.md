@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`syntax_basics::defn::major_item::ty`),
-    ],
-)
+[
+    ItemPath(`syntax_basics::defn::major_item::ty`),
+]
 ```

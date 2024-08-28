@@ -1,10 +1,11 @@
 pub mod devsoul_interface;
 pub mod label;
+#[cfg(feature = "ugly")]
 pub mod ugly;
 
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
-use husky_standard_linket_impl::{StandardKiControlFlow, StandardLinketImpl};
-use husky_standard_value::{ugly::__ValueStands, FromValue};
+use husky_standard_linket_impl::{StandardKiControlFlow, StandardLinketImpl, ValueStands};
+use husky_standard_value::FromValue;
 use serde::{Deserialize, Serialize};
 use shifted_unsigned_int::ShiftedU32;
 use std::{cell::Cell, convert::Infallible};
@@ -54,7 +55,7 @@ pub(crate) fn unset_dev_eval_context() {
 
 pub fn eval_ki_repr_interface<T>(
     ki_repr: KiReprInterface,
-    value_stands: Option<&mut __ValueStands>,
+    value_stands: Option<&mut ValueStands>,
 ) -> StandardKiControlFlow<T>
 where
     T: FromValue + 'static,

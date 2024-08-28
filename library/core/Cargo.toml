@@ -4,13 +4,13 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
-ordered-float = { version = "4.2.0", features = ["serde"] }
+ordered-float = { workspace = true, features = ["serde"] }
 # devsoul
-husky-devsoul-interface.workspace = true
-husky-standard-devsoul-interface.workspace = true
+husky-devsoul-interface = { workspace = true, features = ["ugly"] }
+husky-standard-devsoul-interface = { workspace = true, features = ["ugly"] }
 # protocols
-husky-visual-protocol.workspace = true
+husky-visual-protocol = { workspace = true, features = ["ugly"] }
 # value
-husky-standard-value.workspace = true
+husky-standard-value = { workspace = true, features = ["ugly"] }
 # linket
-husky-standard-linket-impl.workspace = true
+husky-standard-linket-impl = { workspace = true, features = ["ugly"] }

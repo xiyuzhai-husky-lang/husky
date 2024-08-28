@@ -1,8 +1,6 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::vec::Vec(0)::pop`),
-        ItemPath(`core::option::Option`),
-    ],
-)
+[
+    ItemPath(`core::vec::Vec(0)::pop`),
+    ItemPath(`core::option::Option`),
+]
 ```
