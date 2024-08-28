@@ -8,3 +8,6 @@ struct A {}
 
 impl A:
     mod submodule_name
+
+enum IllFormedEnumType
+| 
