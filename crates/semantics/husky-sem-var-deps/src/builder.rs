@@ -341,11 +341,11 @@ where
             SemExprData::Block { stmts } | SemExprData::NestedBlock { stmts, .. } => {
                 self.stmt_value_var_deps_table[stmts.last().unwrap()].clone()
             }
-            SemExprData::EmptyHtmlTag {
-                empty_html_bra_idx,
+            SemExprData::EmptyHtmxTag {
+                empty_htmx_bra_idx: empty_html_bra_idx,
                 function_ident,
                 ref arguments,
-                empty_html_ket,
+                empty_htmx_ket: empty_html_ket,
             } => {
                 let mut deps = SemVarDeps::default();
                 for argument in arguments {
@@ -534,11 +534,11 @@ where
                 self.calc_stmts_control_flow(None, stmts, &mut deps);
                 deps
             }
-            SemExprData::EmptyHtmlTag {
-                empty_html_bra_idx,
+            SemExprData::EmptyHtmxTag {
+                empty_htmx_bra_idx: empty_html_bra_idx,
                 function_ident,
                 ref arguments,
-                empty_html_ket,
+                empty_htmx_ket: empty_html_ket,
             } => {
                 let mut deps = SemControlFlowVarDeps::default();
                 for argument in arguments {

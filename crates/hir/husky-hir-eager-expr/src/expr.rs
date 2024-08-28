@@ -582,7 +582,7 @@ impl ToHirEager for SemExprIdx {
             SemExprData::Block { stmts } => HirEagerExprData::Block {
                 stmts: stmts.to_hir_eager(builder),
             },
-            SemExprData::EmptyHtmlTag {
+            SemExprData::EmptyHtmxTag {
                 function_ident,
                 ref arguments,
                 ..

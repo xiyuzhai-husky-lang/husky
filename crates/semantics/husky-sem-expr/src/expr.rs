@@ -1,11 +1,11 @@
-mod assoc_item;
+pub mod assoc_item;
 pub mod binary;
 pub mod box_list;
 pub mod closure;
 pub mod field;
 pub mod function_application;
 pub mod function_call;
-pub mod html;
+pub mod htmx;
 pub mod index_or_compose_with_list;
 pub mod list;
 pub mod list_item;
@@ -16,11 +16,11 @@ pub mod principal_item_path;
 pub mod ritchie_call_arguments_ty;
 pub mod suffix;
 pub mod template_argument;
-mod ty_as_target_item;
+pub mod ty_as_target_item;
 pub mod utils;
 pub mod variable;
 
-pub use self::html::*;
+pub use self::htmx::*;
 pub use self::list_item::*;
 pub use self::ritchie_call_arguments_ty::*;
 pub(crate) use self::suffix::*;
@@ -55,7 +55,7 @@ use husky_fly_term::{
 };
 use husky_opr::*;
 use husky_regional_token::{
-    ColonColonRegionalToken, EmptyHtmlKetRegionalToken, EqRegionalToken, IdentRegionalToken,
+    ColonColonRegionalToken, EmptyHtmxKetRegionalToken, EqRegionalToken, IdentRegionalToken,
     LightArrowRegionalToken, LparRegionalToken, NestedRcurlRegionalToken, PlaceLabelRegionalToken,
     RegionalTokenIdx, RvertRegionalToken,
 };
@@ -309,11 +309,11 @@ pub enum SemExprData {
         stmts: SemStmtIdxRange,
     },
     // todo: handle container
-    EmptyHtmlTag {
-        empty_html_bra_idx: RegionalTokenIdx,
+    EmptyHtmxTag {
+        empty_htmx_bra_idx: RegionalTokenIdx,
         function_ident: IdentRegionalToken,
-        arguments: IdentMap<SemaHtmlArgumentExpr>,
-        empty_html_ket: EmptyHtmlKetRegionalToken,
+        arguments: IdentMap<SemaHtmxArgumentExpr>,
+        empty_htmx_ket: EmptyHtmxKetRegionalToken,
     },
     Closure {
         closure_kind_regional_token_idx: Option<RegionalTokenIdx>,
@@ -1304,8 +1304,8 @@ impl<'a> SemExprBuilder<'a> {
                 ref arguments,
                 empty_html_ket,
             } => (
-                Ok(SemExprData::EmptyHtmlTag {
-                    empty_html_bra_idx,
+                Ok(SemExprData::EmptyHtmxTag {
+                    empty_htmx_bra_idx: empty_html_bra_idx,
                     function_ident,
                     arguments: unsafe {
                         VecMap::from_iter_assuming_no_repetitions_unchecked(
@@ -1314,7 +1314,7 @@ impl<'a> SemExprBuilder<'a> {
                                 .map(|&argument| self.build_sem_html_argument_expr(argument)),
                         )
                     },
-                    empty_html_ket,
+                    empty_htmx_ket: empty_html_ket,
                 }),
                 Ok(self.term_menu().html_ty_ontology().into()),
             ),
@@ -1641,11 +1641,11 @@ impl<'a> SemExprBuilder<'a> {
             //     Err(e) => Err(DerivedExprTermError::SemExprError.into()),
             //     Ok(_) => unreachable!(),
             // },
-            SemExprData::EmptyHtmlTag {
-                empty_html_bra_idx,
+            SemExprData::EmptyHtmxTag {
+                empty_htmx_bra_idx: empty_html_bra_idx,
                 function_ident,
                 ref arguments,
-                empty_html_ket,
+                empty_htmx_ket: empty_html_ket,
             } => todo!(),
             SemExprData::At {
                 at_regional_token_idx,

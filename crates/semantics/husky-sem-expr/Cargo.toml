@@ -13,9 +13,9 @@ thiserror.workspace = true
 salsa.workspace = true
 enum-class.workspace = true
 idx-arena.workspace = true
-vec-like.workspace = true
-original-error.workspace = true
 maybe-result.workspace = true
+original-error.workspace = true
+vec-like.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
@@ -35,6 +35,8 @@ husky-text.workspace = true
 husky-token-data.workspace = true
 husky-token.workspace = true
 husky-regional-token.workspace = true
+# protocol
+husky-visual-protocol.workspace = true
 # semantics
 husky-sem-opr.workspace = true
 # syntax

@@ -503,9 +503,9 @@ impl<'a> SemExprRangeCalculator<'a> {
                     rcurl_regional_token.regional_token_idx(),
                 )
             }
-            SemExprData::EmptyHtmlTag {
-                empty_html_bra_idx,
-                empty_html_ket,
+            SemExprData::EmptyHtmxTag {
+                empty_htmx_bra_idx: empty_html_bra_idx,
+                empty_htmx_ket: empty_html_ket,
                 ..
             } => RegionalTokenIdxRange::new_closed(
                 *empty_html_bra_idx,

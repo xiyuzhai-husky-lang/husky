@@ -181,7 +181,7 @@ impl<'a> PlaceContractEngine<'a> {
             SemExprData::VecFunctor { .. } => (),
             SemExprData::ArrayFunctor { .. } => (),
             SemExprData::Block { stmts } => self.infer_stmts(stmts, contract, site.clone()),
-            SemExprData::EmptyHtmlTag { ref arguments, .. } => {
+            SemExprData::EmptyHtmxTag { ref arguments, .. } => {
                 for arg in arguments {
                     self.infer_expr(arg.expr(), Contract::Pure, Default::default())
                 }

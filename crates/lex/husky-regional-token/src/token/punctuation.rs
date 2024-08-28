@@ -172,7 +172,7 @@ define_specific_punctuation_regional_token!(
 );
 
 define_specific_punctuation_regional_token!(
-    EmptyHtmlKetRegionalToken,
+    EmptyHtmxKetRegionalToken,
     EMPTY_HTML_KET,
     empty_html_ket_token_works,
     "/>"

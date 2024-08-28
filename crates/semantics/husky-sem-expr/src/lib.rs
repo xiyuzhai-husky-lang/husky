@@ -10,6 +10,7 @@ pub mod expr;
 pub mod jar;
 // mod info;
 pub mod helpers;
+pub mod htmx;
 pub mod obelisks;
 pub mod pattern;
 pub mod region;
