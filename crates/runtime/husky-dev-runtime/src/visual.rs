@@ -10,15 +10,17 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         ki_repr: KiRepr,
         pedestal: Devsoul::Pedestal,
         visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut TraceVisualCache<Devsoul::Pedestal>,
+        trace_visual_cache: &mut TraceVisualCache<Devsoul::Pedestal>,
     ) -> Option<Visual> {
         use husky_value_interface::IsValue;
         match self.eval_ki_repr(ki_repr) {
-            KiControlFlow::Continue(value) => Some(ki_visual_cache.get_visual(
-                trace_id,
-                pedestal,
-                || value.visualize(visual_synchrotron),
-            )),
+            KiControlFlow::Continue(value) => {
+                Some(trace_visual_cache.visual(trace_id, pedestal, || {
+                    let visual = value.visualize(visual_synchrotron);
+                    let plot_class = visual.plot_class(visual_synchrotron);
+                    (visual, plot_class)
+                }))
+            }
             KiControlFlow::LoopContinue => todo!(),
             KiControlFlow::LoopExit(_) => todo!(),
             KiControlFlow::Return(_) => todo!(),

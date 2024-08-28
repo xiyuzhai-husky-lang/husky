@@ -14,6 +14,7 @@ use husky_trace_protocol::{
     chart::Chart,
     figure::{FigureUi, FigureUiCache, IsFigure},
     id::TraceId,
+    server::TracePlotMap,
 };
 use husky_visual_protocol::visual::{
     shape::{Point, VisualRect},
@@ -43,7 +44,7 @@ impl IsFigure for StandardFigure {
 
     fn from_chart(
         chart: Option<StandardChart<CompositeVisual<TraceId>>>,
-        trace_plot_map: &[(TraceId, usize)],
+        trace_plot_map: &TracePlotMap,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
         let Some(chart) = chart else {

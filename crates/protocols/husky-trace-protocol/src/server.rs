@@ -17,11 +17,13 @@ use husky_linket_impl::pedestal::IsPedestalFull;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
-use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
+use husky_visual_protocol::{plot::PlotClass, synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 use rustc_hash::FxHashMap;
+use shifted_unsigned_int::ShiftedU32;
 use smallvec::*;
 use std::net::ToSocketAddrs;
+use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, OrderedSmallVecSet};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     trace_synchrotron: Option<TraceSynchrotron<Tracetime::TraceProtocol>>,
@@ -36,23 +38,95 @@ pub struct TraceServer<Tracetime: IsTracetime> {
 ///
 /// but the client doesn't need to know about this
 pub struct TraceVisualCache<Pedestal: IsPedestalFull> {
+    trace_plot_classes: FxHashMap<TraceId, PlotClass>,
+    trace_plot_maps: FxHashMap<OrderedSmallVecSet<TraceId, 4>, TracePlotMap>,
     visuals: FxHashMap<(TraceId, Pedestal), Visual>,
 }
 
+pub struct TracePlotMap {
+    /// the class for each plot
+    plot_infos: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]>,
+    trace_plots: OrderedSmallVecPairMap<TraceId, PlotId, 2>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct PlotId(ShiftedU32);
+
+impl PlotId {
+    pub fn index(self) -> usize {
+        self.0.index()
+    }
+
+    fn from_index(index: usize) -> Self {
+        Self(index.into())
+    }
+}
+
+impl std::ops::Index<PlotId> for TracePlotMap {
+    type Output = (OrderedSmallVecSet<TraceId, 2>, PlotClass);
+
+    fn index(&self, id: PlotId) -> &Self::Output {
+        &self.plot_infos[id.index()]
+    }
+}
+
+impl std::ops::Index<TraceId> for TracePlotMap {
+    type Output = PlotId;
+
+    fn index(&self, trace_id: TraceId) -> &Self::Output {
+        &self.trace_plots[trace_id].1
+    }
+}
+
+impl TracePlotMap {
+    fn new(
+        traces: OrderedSmallVecSet<TraceId, 4>,
+        trace_plot_classes: &FxHashMap<TraceId, PlotClass>,
+    ) -> Self {
+        Self {
+            plot_infos: todo!(),
+            trace_plots: todo!(),
+        }
+    }
+}
+
 impl<Pedestal: IsPedestalFull> TraceVisualCache<Pedestal> {
-    pub fn get_visual(
+    pub fn visual(
         &mut self,
         trace_id: TraceId,
         pedestal: Pedestal,
-        f: impl FnOnce() -> Visual,
+        f: impl FnOnce() -> (Visual, PlotClass),
     ) -> Visual {
-        *self.visuals.entry((trace_id, pedestal)).or_insert_with(f)
+        *self.visuals.entry((trace_id, pedestal)).or_insert_with(|| {
+            let (visual, plot_class) = f();
+            match self.trace_plot_classes.entry(trace_id) {
+                std::collections::hash_map::Entry::Occupied(mut entry) => {
+                    entry.get_mut().merge(plot_class);
+                }
+                std::collections::hash_map::Entry::Vacant(mut entry) => {
+                    entry.insert(plot_class);
+                }
+            }
+            visual
+        })
+    }
+
+    // todo: caching this??
+    pub fn calc_plots<'a>(
+        &'a mut self,
+        traces: OrderedSmallVecSet<TraceId, 4>,
+    ) -> &'a TracePlotMap {
+        self.trace_plot_maps
+            .entry(traces.clone())
+            .or_insert_with(|| TracePlotMap::new(traces, &self.trace_plot_classes))
     }
 }
 
 impl<Pedestal: IsPedestalFull> Default for TraceVisualCache<Pedestal> {
     fn default() -> Self {
         Self {
+            trace_plot_classes: Default::default(),
+            trace_plot_maps: Default::default(),
             visuals: Default::default(),
         }
     }
@@ -308,6 +382,8 @@ pub trait IsTracetime: Send + 'static + Sized {
         &self,
         figure_key: &TraceFigureKey<Self::TraceProtocol>,
         visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut TraceVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        trace_visual_cache: &mut TraceVisualCache<
+            <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        >,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }

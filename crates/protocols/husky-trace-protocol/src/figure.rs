@@ -1,6 +1,6 @@
 use crate::{
     accompany::AccompanyingTraceIdsExceptFollowed, anchor::Anchor, caryatid::IsCaryatid,
-    chart::Chart, IsTraceProtocol, TraceId, TraceSynchrotron,
+    chart::Chart, server::TracePlotMap, IsTraceProtocol, TraceId, TraceSynchrotron,
 };
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
@@ -9,6 +9,7 @@ use husky_linket_impl::{
     static_var::{IsStaticVarId, IsStaticVarIdFull},
 };
 use husky_visual_protocol::{
+    plot::PlotClass,
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, CompositeVisual, Visual},
 };
@@ -27,7 +28,7 @@ pub trait IsFigure:
 
     fn from_chart(
         chart: Option<Chart<<Self::Pedestal as IsPedestal>::StaticVarId, CompositeVisual<TraceId>>>,
-        trace_plot_map: &[(TraceId, usize)],
+        trace_plot_map: &TracePlotMap,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
 }
@@ -132,6 +133,12 @@ impl<StaticVarId: IsStaticVarIdFull> FigureKey<StaticVarId> {
 
     pub fn accompanyings_except_followed_reduced(&self) -> &[TraceId] {
         &self.accompanyings_except_followed_reduced
+    }
+
+    pub fn traces<'a>(&'a self) -> impl Iterator<Item = TraceId> + 'a {
+        self.followed_reduced
+            .into_iter()
+            .chain(self.accompanyings_except_followed_reduced.iter().copied())
     }
 
     pub fn joint_static_var_anchors(&self) -> &[(ItemPathIdInterface, Anchor<StaticVarId>)] {
