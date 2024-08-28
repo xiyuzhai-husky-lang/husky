@@ -1,15 +1,15 @@
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_linket_impl::{pedestal::JointPedestal, static_var::IsStaticVarId};
+use husky_linket_impl::{pedestal::JointPedestal, var::IsVarId};
 use vec_like::SmallVecPairMap;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq)]
-pub enum Chart<StaticVarId: IsStaticVarId, R> {
-    Dim0(ChartDim0<StaticVarId, R>),
-    Dim1(ChartDim1<StaticVarId, R>),
-    Dim2(ChartDim2<StaticVarId, R>),
+pub enum Chart<VarId: IsVarId, R> {
+    Dim0(ChartDim0<VarId, R>),
+    Dim1(ChartDim1<VarId, R>),
+    Dim2(ChartDim2<VarId, R>),
 }
 
-pub type ChartDim0<StaticVarId, R> = (JointPedestal<StaticVarId>, R);
-pub type ChartDim1<StaticVarId, R> = Vec<(JointPedestal<StaticVarId>, R)>;
-pub type ChartDim2<StaticVarId, R> = Vec<Vec<(JointPedestal<StaticVarId>, R)>>;
+pub type ChartDim0<VarId, R> = (JointPedestal<VarId>, R);
+pub type ChartDim1<VarId, R> = Vec<(JointPedestal<VarId>, R)>;
+pub type ChartDim2<VarId, R> = Vec<Vec<(JointPedestal<VarId>, R)>>;

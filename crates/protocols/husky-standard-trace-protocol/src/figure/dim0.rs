@@ -35,10 +35,7 @@ impl StandardFigureDim0 {
     ) -> Self {
         Self::new(
             joint_pedestal,
-            composite_visual
-                .followed_reduced
-                .into_iter()
-                .chain(composite_visual.accompanyings_except_followed_reduced),
+            composite_visual,
             trace_plot_map,
             visual_synchrotron,
         )
@@ -46,13 +43,17 @@ impl StandardFigureDim0 {
 
     fn new(
         joint_pedestal: StandardJointPedestal,
-        traced_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
+        composite_visual: CompositeVisual<TraceId>,
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
-        let mut builder =
-            StandardFigureBuilder::new(joint_pedestal, trace_plot_map, visual_synchrotron);
-        builder.collect_all(traced_visuals.into_iter());
+        let mut builder = StandardFigureBuilder::new(
+            joint_pedestal,
+            composite_visual,
+            trace_plot_map,
+            visual_synchrotron,
+        );
+        builder.build_plots();
         builder.finish()
     }
 }
@@ -60,7 +61,8 @@ impl StandardFigureDim0 {
 /// # builder
 struct StandardFigureBuilder<'a> {
     joint_pedestal: StandardJointPedestal,
-    trace_plot_map: &'a TracePlotInfos,
+    composite_visual: CompositeVisual<TraceId>,
+    trace_plot_infos: &'a TracePlotInfos,
     visual_synchrotron: &'a VisualSynchrotron,
     plots: Vec<StandardPlot>,
 }
@@ -68,39 +70,55 @@ struct StandardFigureBuilder<'a> {
 impl<'a> StandardFigureBuilder<'a> {
     fn new(
         joint_pedestal: StandardJointPedestal,
-        trace_plot_map: &'a TracePlotInfos,
+        composite_visual: CompositeVisual<TraceId>,
+        trace_plot_infos: &'a TracePlotInfos,
         visual_synchrotron: &'a VisualSynchrotron,
     ) -> Self {
         Self {
             joint_pedestal,
-            trace_plot_map,
+            composite_visual,
+            trace_plot_infos,
             visual_synchrotron,
             plots: vec![],
         }
     }
 
-    fn collect_all(&mut self, visuals: impl Iterator<Item = (TraceId, Visual)>) {
-        visuals.for_each(|(trace_id, visual)| self.collect(trace_id, visual))
+    fn build_plots(&mut self) {
+        for (plot_index, (traces, plot_class)) in self.trace_plot_infos.iter().enumerate() {
+            for &trace_id in traces {
+                self.build_plot(plot_index, self.composite_visual[trace_id])
+            }
+        }
     }
 
-    fn collect(&mut self, trace_id: TraceId, visual: Visual) {
-        todo!()
-        // match visual {
-        //     Visual::Void => (),
-        //     Visual::Primitive(primitive) => self.primitives.push((trace_id, primitive)),
-        //     Visual::Text(_) => todo!(),
-        //     Visual::RichText(_) => todo!(),
-        //     Visual::Image(image) => self.images.push(image),
-        //     Visual::Shape(shape) => self.shapes.push(shape),
-        //     Visual::Mesh(_) => todo!(),
-        //     Visual::Video(_) => todo!(),
-        //     Visual::Group(group) => {
-        //         for &element in group.elements(self.visual_synchrotron) {
-        //             self.collect(trace_id, element)
-        //         }
-        //     }
-        //     Visual::Math(_) => pass!("math is not displayed"),
-        // }
+    fn build_plot(&mut self, plot_index: usize, visual: Visual) {
+        match visual {
+            Visual::Void => (),
+            Visual::Primitive(primitive) => todo!(),
+            // self.primitives.push((trace_id, primitive)),
+            Visual::Text(_) => todo!(),
+            Visual::RichText(_) => todo!(),
+            Visual::Image(image) => match self.plots[plot_index] {
+                StandardPlot::Graphics2D { ref mut images, .. } => images.push(image),
+                StandardPlot::Graphics3D { meshes } => todo!(),
+                StandardPlot::Text => todo!(),
+                StandardPlot::Code => todo!(),
+            },
+            Visual::Shape(shape) => match self.plots[plot_index] {
+                StandardPlot::Graphics2D { ref mut shapes, .. } => shapes.push(shape),
+                StandardPlot::Graphics3D { meshes } => todo!(),
+                StandardPlot::Text => todo!(),
+                StandardPlot::Code => todo!(),
+            },
+            Visual::Mesh(_) => todo!(),
+            Visual::Video(_) => todo!(),
+            Visual::Group(group) => {
+                for &element in group.elements(self.visual_synchrotron) {
+                    self.build_plot(plot_index, element)
+                }
+            }
+            Visual::Math(_) => todo!(),
+        }
     }
 
     fn finish(self) -> StandardFigureDim0 {

@@ -16,8 +16,8 @@ pub trait IsTraceProtocolFull: IsTraceProtocol + Serialize + for<'a> Deserialize
 
 impl<T> IsTraceProtocolFull for T where T: IsTraceProtocol + Serialize + for<'a> Deserialize<'a> {}
 
-pub type TraceProtocolStaticVarId<TraceProtocol> =
-    <<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::StaticVarId;
+pub type TraceProtocolVarId<TraceProtocol> =
+    <<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId;
 
 pub trait IsTrace: std::fmt::Debug + Eq + Copy + From<TraceId> + Into<TraceId> {}
 

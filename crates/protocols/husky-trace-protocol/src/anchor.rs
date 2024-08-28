@@ -1,12 +1,13 @@
+use husky_linket_impl::var::IsVarId;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub enum Anchor<StaticVarId> {
-    Specific(StaticVarId),
+pub enum Anchor<VarId: IsVarId> {
+    Specific(VarId),
     Generic { limit: usize },
 }
 
-impl<StaticVarId> Anchor<StaticVarId> {
+impl<VarId: IsVarId> Anchor<VarId> {
     pub fn is_generic(self) -> bool {
         matches!(self, Anchor::Generic { .. })
     }

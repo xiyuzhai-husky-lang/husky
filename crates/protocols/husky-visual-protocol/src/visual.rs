@@ -130,3 +130,27 @@ pub struct CompositeVisual<Id> {
     pub followed_reduced: Option<(Id, Visual)>,
     pub accompanyings_except_followed_reduced: Vec<(Id, Visual)>,
 }
+
+impl<Id> std::ops::Index<Id> for CompositeVisual<Id>
+where
+    Id: Eq,
+{
+    type Output = Visual;
+
+    fn index(&self, index: Id) -> &Self::Output {
+        // Check if the index matches the followed_reduced option
+        if let Some((id, visual)) = &self.followed_reduced {
+            if *id == index {
+                return visual;
+            }
+        }
+        // Search through the accompanyings_except_followed_reduced vector
+        for (id, visual) in &self.accompanyings_except_followed_reduced {
+            if *id == index {
+                return visual;
+            }
+        }
+        // If no match is found, panic as per the contract of the Index trait
+        panic!("No visual found for the given index");
+    }
+}

@@ -1,35 +1,36 @@
-pub mod virtual_static_var_id;
+pub mod virtual_var_id;
 
 use crate::*;
+use husky_value_interface::IsValue;
 use serde::{Deserialize, Serialize};
 
-pub trait IsStaticVar<StaticVarId>: 'static
+pub trait IsStaticVar<VarId>: 'static
 where
-    StaticVarId: std::fmt::Debug + Copy + Eq + 'static,
+    VarId: std::fmt::Debug + Copy + Eq + 'static,
 {
     fn item_path_id_interface() -> ItemPathIdInterface;
-    fn ids<'a>(locked: &'a [ItemPathIdInterface]) -> Box<dyn Iterator<Item = StaticVarId> + 'a> {
+    fn ids<'a>(locked: &'a [ItemPathIdInterface]) -> Box<dyn Iterator<Item = VarId> + 'a> {
         if locked.contains(&Self::item_path_id_interface()) {
             return Box::new([Self::get_id()].into_iter());
         }
         Box::new(unsafe { Self::ids_aux(locked) })
     }
 
-    unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = StaticVarId>;
-    fn get_id() -> StaticVarId;
+    unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = VarId>;
+    fn get_id() -> VarId;
 
     /// returns a restore if okay,
     ///
     /// otherwise, it's guaranteed that nothing changes on the binary side if err
     unsafe fn try_replace_id_aux(
-        new: StaticVarId,
+        new: VarId,
         locked: &[ItemPathIdInterface],
-    ) -> StaticVarResult<StaticVarId, impl FnOnce() + 'static>;
+    ) -> StaticVarResult<VarId, impl FnOnce() + 'static>;
 
     unsafe fn try_replace_id(
-        new: StaticVarId,
+        new: VarId,
         locked: &[ItemPathIdInterface],
-    ) -> StaticVarResult<StaticVarId, impl FnOnce() + 'static> {
+    ) -> StaticVarResult<VarId, impl FnOnce() + 'static> {
         let item_path_id_interface = Self::item_path_id_interface();
         if locked.contains(&item_path_id_interface) {
             let old = Self::get_id();
@@ -45,37 +46,35 @@ where
     }
 
     fn with_id<R>(
-        id: StaticVarId,
+        id: VarId,
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
-    ) -> StaticVarResult<StaticVarId, R> {
+    ) -> StaticVarResult<VarId, R> {
         let restore = unsafe { Self::try_replace_id(id, locked) }?;
         let r = f();
         restore();
         Ok(r)
     }
+
+    type Value: IsValue;
+
+    fn get_value() -> Self::Value;
 }
 
 /// this is a mild error, sometimes intentionally triggered
 #[derive(Debug)]
-pub enum StaticVarError<StaticVarId> {
+pub enum StaticVarError<VarId> {
     ReplaceLocked {
         locked_path: ItemPathIdInterface,
-        old: StaticVarId,
-        new: StaticVarId,
+        old: VarId,
+        new: VarId,
     },
 }
 
-pub type StaticVarResult<StaticVarId, T> = Result<T, StaticVarError<StaticVarId>>;
+pub type StaticVarResult<VarId, T> = Result<T, StaticVarError<VarId>>;
 
-pub trait IsStaticVarId:
-    std::fmt::Debug + Copy + Eq + std::hash::Hash + Send + Sync + 'static
-{
-}
+pub trait IsVarId: std::fmt::Debug + Copy + Eq + std::hash::Hash + Send + Sync + 'static {}
 
-pub trait IsStaticVarIdFull: IsStaticVarId + Serialize + for<'a> Deserialize<'a> {}
+pub trait IsVarIdFull: IsVarId + Serialize + for<'a> Deserialize<'a> {}
 
-impl<StaticVarId> IsStaticVarIdFull for StaticVarId where
-    StaticVarId: IsStaticVarId + Serialize + for<'a> Deserialize<'a>
-{
-}
+impl<VarId> IsVarIdFull for VarId where VarId: IsVarId + Serialize + for<'a> Deserialize<'a> {}
