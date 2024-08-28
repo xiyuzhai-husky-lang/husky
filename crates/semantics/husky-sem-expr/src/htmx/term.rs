@@ -6,6 +6,7 @@ pub struct PlotClassTerm {
     data: PlotClassTermData,
 }
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum PlotClassTermData {
     Literal(PlotClass),
