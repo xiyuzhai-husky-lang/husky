@@ -116,7 +116,9 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         &self,
         figure_key: &TraceFigureKey<Devsoul::TraceProtocol>,
         visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut TraceVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        trace_visual_cache: &mut TraceVisualCache<
+            <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        >,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
         let chart: Option<DevsoulChart<Devsoul, CompositeVisual<TraceId>>> =
@@ -139,7 +141,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                                     ki_repr,
                                     pedestal,
                                     visual_synchrotron,
-                                    ki_visual_cache,
+                                    trace_visual_cache,
                                 )
                                 .map(|visual| (trace_id, visual)),
                             None => todo!(),
@@ -159,7 +161,8 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                     })
                 },
             );
-        IsFigure::from_chart(chart, todo!(), visual_synchrotron)
+        let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
+        IsFigure::from_chart(chart, trace_plot_map, visual_synchrotron)
     }
 }
 

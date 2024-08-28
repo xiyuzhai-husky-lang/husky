@@ -30,7 +30,7 @@ pub enum StandardPlot {
 impl StandardFigureDim0 {
     pub(super) fn from_chart(
         (joint_pedestal, composite_visual): StandardChartDim0<CompositeVisual<TraceId>>,
-        trace_plot_map: &[(TraceId, usize)],
+        trace_plot_map: &TracePlotMap,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
         Self::new(
@@ -47,7 +47,7 @@ impl StandardFigureDim0 {
     fn new(
         joint_pedestal: StandardJointPedestal,
         traced_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
-        trace_plot_map: &[(TraceId, usize)],
+        trace_plot_map: &TracePlotMap,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
         let mut builder =
@@ -60,7 +60,7 @@ impl StandardFigureDim0 {
 /// # builder
 struct StandardFigureBuilder<'a> {
     joint_pedestal: StandardJointPedestal,
-    trace_plot_map: &'a [(TraceId, usize)],
+    trace_plot_map: &'a TracePlotMap,
     visual_synchrotron: &'a VisualSynchrotron,
     plots: Vec<StandardPlot>,
 }
@@ -68,7 +68,7 @@ struct StandardFigureBuilder<'a> {
 impl<'a> StandardFigureBuilder<'a> {
     fn new(
         joint_pedestal: StandardJointPedestal,
-        trace_plot_map: &'a [(TraceId, usize)],
+        trace_plot_map: &'a TracePlotMap,
         visual_synchrotron: &'a VisualSynchrotron,
     ) -> Self {
         Self {
