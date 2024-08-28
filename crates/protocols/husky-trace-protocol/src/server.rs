@@ -43,6 +43,7 @@ pub struct TraceVisualCache<Pedestal: IsPedestalFull> {
     visuals: FxHashMap<(TraceId, Pedestal), Visual>,
 }
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct TracePlotInfos {
     /// the class for each plot
     data: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]>,
@@ -67,11 +68,16 @@ impl TracePlotInfos {
             match plot_class {
                 PlotClass::Void => (),
                 PlotClass::Graphics2D | PlotClass::Graphics3D => {
+                    let mut flag = false;
                     for &mut (ref mut traces, plot_class0) in &mut data {
                         if plot_class0 == plot_class {
                             traces.insert(trace_id);
+                            flag = true;
                             break;
                         }
+                    }
+                    if !flag {
+                        data.push((OrderedSmallVecSet::new_one_elem_set(trace_id), plot_class))
                     }
                 }
                 PlotClass::Any => {
