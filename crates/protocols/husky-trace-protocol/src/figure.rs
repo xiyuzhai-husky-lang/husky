@@ -1,6 +1,6 @@
 use crate::{
     accompany::AccompanyingTraceIdsExceptFollowed, anchor::Anchor, caryatid::IsCaryatid,
-    chart::Chart, server::TracePlotMap, IsTraceProtocol, TraceId, TraceSynchrotron,
+    chart::Chart, server::TracePlotInfos, IsTraceProtocol, TraceId, TraceSynchrotron,
 };
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
@@ -28,7 +28,7 @@ pub trait IsFigure:
 
     fn from_chart(
         chart: Option<Chart<<Self::Pedestal as IsPedestal>::StaticVarId, CompositeVisual<TraceId>>>,
-        trace_plot_map: &TracePlotMap,
+        trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
 }
@@ -109,7 +109,7 @@ impl<StaticVarId: IsStaticVarIdFull> FigureKey<StaticVarId> {
             if !caryatid.covers(var_deps) {
                 return false;
             }
-            joint_static_var_anchors.extend(var_deps.iter().copied().map(|_| todo!()));
+            joint_static_var_anchors.extend(var_deps.iter().copied().map(|dep| todo!()));
             true
         };
         let followed_reduced = followed.filter(&mut t);
