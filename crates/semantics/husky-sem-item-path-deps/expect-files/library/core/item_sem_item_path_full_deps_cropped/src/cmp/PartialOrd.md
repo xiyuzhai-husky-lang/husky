@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::cmp::PartialOrd`),
-    ],
-)
+[
+    ItemPath(`core::cmp::PartialOrd`),
+]
 ```

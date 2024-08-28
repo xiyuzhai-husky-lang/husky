@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::basic::never`),
-    ],
-)
+[
+    ItemPath(`core::basic::never`),
+]
 ```

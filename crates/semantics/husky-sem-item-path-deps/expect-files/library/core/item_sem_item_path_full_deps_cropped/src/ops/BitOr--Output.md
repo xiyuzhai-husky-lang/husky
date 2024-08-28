@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::ops::BitOr::Output`),
-    ],
-)
+[
+    ItemPath(`core::ops::BitOr::Output`),
+]
 ```

@@ -1,9 +1,7 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::raw_bits::r32(0)::last_bits`),
-        ItemPath(`core::num::i32`),
-        ItemPath(`core::raw_bits::r32`),
-    ],
-)
+[
+    ItemPath(`core::raw_bits::r32(0)::last_bits`),
+    ItemPath(`core::num::i32`),
+    ItemPath(`core::raw_bits::r32`),
+]
 ```

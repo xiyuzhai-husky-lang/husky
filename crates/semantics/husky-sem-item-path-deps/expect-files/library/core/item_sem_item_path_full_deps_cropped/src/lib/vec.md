@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::vec`),
-    ],
-)
+[
+    ItemPath(`core::vec`),
+]
 ```

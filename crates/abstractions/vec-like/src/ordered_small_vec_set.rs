@@ -12,6 +12,16 @@ where
     data: SmallVec<[K; N]>,
 }
 
+impl<K, const N: usize> IntoIterator for OrderedSmallVecSet<K, N> {
+    type Item = K;
+
+    type IntoIter = impl Iterator<Item = K>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.data.into_iter()
+    }
+}
+
 impl<K, const N: usize> OrderedSmallVecSet<K, N>
 where
     [K; N]: Array<Item = K>,

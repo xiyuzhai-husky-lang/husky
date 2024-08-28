@@ -11,7 +11,7 @@ husky-dev-comptime.workspace = true
 # devtime
 husky-devtime.workspace = true
 # protocols
-husky-standard-visual-protocol.workspace = true
+husky-standard-trace-protocol.workspace = true
 husky-ad-hoc-protocol.workspace = true
 # devsoul
 husky-standard-devsoul.workspace = true

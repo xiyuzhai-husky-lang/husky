@@ -29,7 +29,7 @@ impl TestLinket {
     }
 }
 
-impl IsVfsTestUnit for TestLinket {
+impl IsVfsTestUnit<Jar> for TestLinket {
     fn collect_from_package_path_aux(
         db: &salsa::Db,
         package_path: husky_vfs::path::package_path::PackagePath,

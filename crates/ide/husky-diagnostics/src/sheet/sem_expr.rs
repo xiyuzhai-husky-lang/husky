@@ -14,6 +14,7 @@ pub struct ExprTypeDiagnosticSheet {
     pub diagnostics: Vec<Diagnostic>,
 }
 
+// TODO add diagnostics for htmx
 #[salsa::tracked(jar = DiagnosticsJar)]
 pub(crate) fn expr_ty_diagnostic_sheet(
     db: &::salsa::Db,

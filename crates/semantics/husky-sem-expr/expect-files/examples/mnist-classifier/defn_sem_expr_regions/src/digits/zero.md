@@ -4870,7 +4870,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Zero`),
                                                 ),
                                             ],
@@ -4906,7 +4906,7 @@
                                                     EthTerm(`MnistLabel`),
                                                 ),
                                                 (
-                                                    EthSymbolicVariable(`label`, `phan`),
+                                                    EthSymbolicVariable(`LABEL`, `phan`),
                                                     EthTerm(`Zero`),
                                                 ),
                                             ],

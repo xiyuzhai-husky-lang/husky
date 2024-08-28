@@ -24,3 +24,8 @@ husky-wild-utils.workspace = true
 husky-core.workspace = true
 
 [features]
+ugly = [
+    "husky-item-path-interface/ugly",
+    "husky-value-protocol/ugly",
+    "husky-value-interface/ugly"
+]

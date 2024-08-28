@@ -18,5 +18,5 @@ pub fn item_sem_static_mut_deps<'db>(
     item_path: ItemPath,
     db: &'db ::salsa::Db,
 ) -> &'db SemStaticMutDeps {
-    crate::graph_dynamics::item_sem_static_mut_deps(db, *item_path)
+    crate::graph_dynamics::item_sem_static_mut_deps(db, item_path)
 }

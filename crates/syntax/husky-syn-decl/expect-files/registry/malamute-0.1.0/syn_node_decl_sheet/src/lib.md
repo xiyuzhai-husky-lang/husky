@@ -1256,7 +1256,7 @@ SynNodeDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 40,
+                                                                    value: 41,
                                                                 },
                                                             ),
                                                         ),
@@ -3995,7 +3995,7 @@ SynNodeDeclSheet {
                                                     ),
                                                 },
                                                 ident_token: IdentRegionalToken {
-                                                    ident: `label`,
+                                                    ident: `LABEL`,
                                                     regional_token_idx: RegionalTokenIdx(
                                                         10,
                                                     ),
@@ -4134,7 +4134,7 @@ SynNodeDeclSheet {
                                             argument_expr_idx: 4,
                                         },
                                         SynExprData::CurrentVariable {
-                                            ident: `label`,
+                                            ident: `LABEL`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 21,
                                             ),
@@ -4142,7 +4142,7 @@ SynNodeDeclSheet {
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: `label`,
+                                                        ident: `LABEL`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             10,
                                                         ),
@@ -4186,7 +4186,7 @@ SynNodeDeclSheet {
                                             argument_expr_idx: 9,
                                         },
                                         SynExprData::CurrentVariable {
-                                            ident: `label`,
+                                            ident: `LABEL`,
                                             regional_token_idx: RegionalTokenIdx(
                                                 25,
                                             ),
@@ -4194,7 +4194,7 @@ SynNodeDeclSheet {
                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                 template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                     ident_token: IdentRegionalToken {
-                                                        ident: `label`,
+                                                        ident: `LABEL`,
                                                         regional_token_idx: RegionalTokenIdx(
                                                             10,
                                                         ),
@@ -4382,7 +4382,7 @@ SynNodeDeclSheet {
                                                     annotated_variance_token: None,
                                                     data: CurrentTemplateVariableData::Constant {
                                                         ident_token: IdentRegionalToken {
-                                                            ident: `label`,
+                                                            ident: `LABEL`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 10,
                                                             ),
@@ -4576,7 +4576,7 @@ SynNodeDeclSheet {
                                                             argument_expr_idx: 4,
                                                         },
                                                         SynExprData::CurrentVariable {
-                                                            ident: `label`,
+                                                            ident: `LABEL`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
@@ -4584,7 +4584,7 @@ SynNodeDeclSheet {
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
-                                                                        ident: `label`,
+                                                                        ident: `LABEL`,
                                                                         regional_token_idx: RegionalTokenIdx(
                                                                             10,
                                                                         ),
@@ -4628,7 +4628,7 @@ SynNodeDeclSheet {
                                                             argument_expr_idx: 9,
                                                         },
                                                         SynExprData::CurrentVariable {
-                                                            ident: `label`,
+                                                            ident: `LABEL`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 25,
                                                             ),
@@ -4636,7 +4636,7 @@ SynNodeDeclSheet {
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
-                                                                        ident: `label`,
+                                                                        ident: `LABEL`,
                                                                         regional_token_idx: RegionalTokenIdx(
                                                                             10,
                                                                         ),
@@ -4824,7 +4824,7 @@ SynNodeDeclSheet {
                                                                     annotated_variance_token: None,
                                                                     data: CurrentTemplateVariableData::Constant {
                                                                         ident_token: IdentRegionalToken {
-                                                                            ident: `label`,
+                                                                            ident: `LABEL`,
                                                                             regional_token_idx: RegionalTokenIdx(
                                                                                 10,
                                                                             ),
@@ -4942,7 +4942,7 @@ SynNodeDeclSheet {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
-                                                            ident: `label`,
+                                                            ident: `LABEL`,
                                                         },
                                                     ),
                                                 },
@@ -5175,7 +5175,7 @@ SynNodeDeclSheet {
                                                             argument_expr_idx: 4,
                                                         },
                                                         SynExprData::CurrentVariable {
-                                                            ident: `label`,
+                                                            ident: `LABEL`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 21,
                                                             ),
@@ -5183,7 +5183,7 @@ SynNodeDeclSheet {
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
-                                                                        ident: `label`,
+                                                                        ident: `LABEL`,
                                                                         regional_token_idx: RegionalTokenIdx(
                                                                             10,
                                                                         ),
@@ -5227,7 +5227,7 @@ SynNodeDeclSheet {
                                                             argument_expr_idx: 9,
                                                         },
                                                         SynExprData::CurrentVariable {
-                                                            ident: `label`,
+                                                            ident: `LABEL`,
                                                             regional_token_idx: RegionalTokenIdx(
                                                                 25,
                                                             ),
@@ -5235,7 +5235,7 @@ SynNodeDeclSheet {
                                                             current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                                 template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                                                     ident_token: IdentRegionalToken {
-                                                                        ident: `label`,
+                                                                        ident: `LABEL`,
                                                                         regional_token_idx: RegionalTokenIdx(
                                                                             10,
                                                                         ),
@@ -5423,7 +5423,7 @@ SynNodeDeclSheet {
                                                                     annotated_variance_token: None,
                                                                     data: CurrentTemplateVariableData::Constant {
                                                                         ident_token: IdentRegionalToken {
-                                                                            ident: `label`,
+                                                                            ident: `LABEL`,
                                                                             regional_token_idx: RegionalTokenIdx(
                                                                                 10,
                                                                             ),
@@ -5526,14 +5526,14 @@ SynNodeDeclSheet {
                                                 argument_expr_idx: 1,
                                             },
                                             SynExprData::InheritedVariable {
-                                                ident: `label`,
+                                                ident: `LABEL`,
                                                 regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
                                                 inherited_variable_idx: 1,
                                                 inherited_variable_kind: InheritedVariableKind::Template(
                                                     InheritedTemplateVariable::Constant {
-                                                        ident: `label`,
+                                                        ident: `LABEL`,
                                                     },
                                                 ),
                                             },
@@ -5705,7 +5705,7 @@ SynNodeDeclSheet {
                                                     modifier: Compterm,
                                                     kind: InheritedVariableKind::Template(
                                                         InheritedTemplateVariable::Constant {
-                                                            ident: `label`,
+                                                            ident: `LABEL`,
                                                         },
                                                     ),
                                                 },

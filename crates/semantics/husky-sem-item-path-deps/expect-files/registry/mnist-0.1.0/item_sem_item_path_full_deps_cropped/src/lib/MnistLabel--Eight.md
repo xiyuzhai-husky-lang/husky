@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist::MnistLabel::Eight`),
-    ],
-)
+[
+    ItemPath(`mnist::MnistLabel::Eight`),
+]
 ```

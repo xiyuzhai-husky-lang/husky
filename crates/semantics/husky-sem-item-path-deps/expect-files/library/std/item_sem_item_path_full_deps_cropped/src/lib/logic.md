@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`std::logic`),
-    ],
-)
+[
+    ItemPath(`std::logic`),
+]
 ```

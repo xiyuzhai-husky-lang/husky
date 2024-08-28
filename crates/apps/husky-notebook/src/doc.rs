@@ -7,8 +7,8 @@ use self::arena::*;
 use super::*;
 use husky_gui::helpers::repaint_signal::EguiRepaintSignal;
 use husky_standard_linket_impl::pedestal::StandardPedestal;
+use husky_standard_trace_protocol::figure::StandardFigure;
 use husky_standard_trace_protocol::StandardTraceProtocol;
-use husky_standard_visual_protocol::figure::StandardFigure;
 use husky_trace_doc::doc::TraceDoc;
 use ui::component::UiComponent;
 

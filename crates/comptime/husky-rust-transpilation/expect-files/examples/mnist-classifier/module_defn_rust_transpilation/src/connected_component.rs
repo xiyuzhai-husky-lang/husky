@@ -138,7 +138,7 @@ pub fn find_connected_components(img: &mnist::BinaryImage28) -> Vec<crate::conne
 
 #[rustfmt::skip]
 impl Visualize for crate::connected_component::ConnectedComponent {
-    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
         self.mask.visualize(__visual_synchrotron)
     }
 }

@@ -1,8 +1,6 @@
 ```rust
-Some(
-    [
-        ItemPath(`syntax_basics::expr::closure_inline`),
-        ItemPath(`core::num::i32`),
-    ],
-)
+[
+    ItemPath(`syntax_basics::expr::closure_inline`),
+    ItemPath(`core::num::i32`),
+]
 ```

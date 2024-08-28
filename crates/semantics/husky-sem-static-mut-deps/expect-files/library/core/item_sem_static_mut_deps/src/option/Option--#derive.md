@@ -1,7 +1,5 @@
 ```rust
-Some(
-    SemStaticMutDeps(
-        [],
-    ),
+SemStaticMutDeps(
+    [],
 )
 ```

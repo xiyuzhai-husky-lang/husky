@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::cmp::PartialEq`),
-    ],
-)
+[
+    ItemPath(`core::cmp::PartialEq`),
+]
 ```

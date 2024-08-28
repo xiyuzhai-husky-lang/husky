@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::clone::Clone`),
-    ],
-)
+[
+    ItemPath(`core::clone::Clone`),
+]
 ```

@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
+]
 ```

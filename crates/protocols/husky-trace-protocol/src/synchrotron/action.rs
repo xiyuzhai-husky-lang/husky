@@ -16,7 +16,7 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         assoc_trace_id: TraceId,
     },
     FollowTrace {
-        trace_id: TraceId,
+        followed: TraceId,
     },
     CacheStalk {
         pedestal: TraceProtocol::Pedestal,
@@ -24,9 +24,7 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
         stalk: TraceStalk,
     },
     CacheFigure {
-        followed_trace_id: Option<TraceId>,
-        accompanying_trace_ids_except_followed: AccompanyingTraceIdsExceptFollowed,
-        pedestal: TraceProtocol::Caryatid,
+        figure_key: TraceFigureKey<TraceProtocol>,
         figure: TraceProtocol::Figure,
     },
     ToggleAccompany {
@@ -76,12 +74,12 @@ where
     type Outcome = ();
 
     fn act(&self, synchrotron: &mut TraceSynchrotron<TraceProtocol>) -> Self::Outcome {
-        match self {
-            TraceSynchrotronAction::NewTrace(action) => action.act(synchrotron),
-            TraceSynchrotronAction::ToggleExpansion(action) => action.act(synchrotron),
-            TraceSynchrotronAction::SetSubtraces(action) => action.act(synchrotron),
-            TraceSynchrotronAction::Phantom(action) => action.act(synchrotron),
-            &TraceSynchrotronAction::ToggleAssocTrace {
+        match *self {
+            TraceSynchrotronAction::NewTrace(ref action) => action.act(synchrotron),
+            TraceSynchrotronAction::ToggleExpansion(ref action) => action.act(synchrotron),
+            TraceSynchrotronAction::SetSubtraces(ref action) => action.act(synchrotron),
+            TraceSynchrotronAction::Phantom(ref action) => action.act(synchrotron),
+            TraceSynchrotronAction::ToggleAssocTrace {
                 trace_id,
                 assoc_trace_id,
             } => {
@@ -91,10 +89,10 @@ where
                     .unwrap()
                     .toggle_assoc_traces(assoc_trace_id);
             }
-            &TraceSynchrotronAction::FollowTrace { trace_id } => {
+            TraceSynchrotronAction::FollowTrace { followed: trace_id } => {
                 synchrotron.followed_trace_id = Some(trace_id)
             }
-            &TraceSynchrotronAction::CacheStalk {
+            TraceSynchrotronAction::CacheStalk {
                 ref pedestal,
                 trace_id,
                 ref stalk,
@@ -102,21 +100,14 @@ where
                 let trace_entry = &mut synchrotron[trace_id];
                 trace_entry.cache_stalk(pedestal.clone(), stalk.clone())
             }
-            &TraceSynchrotronAction::CacheFigure {
-                ref pedestal,
-                followed_trace_id,
-                accompanying_trace_ids_except_followed: ref accompanying_trace_ids,
+            TraceSynchrotronAction::CacheFigure {
+                figure_key: ref key,
                 ref figure,
-            } => synchrotron.cache_figure(
-                followed_trace_id,
-                accompanying_trace_ids.clone(),
-                pedestal.clone(),
-                figure.clone(),
-            ),
-            &TraceSynchrotronAction::ToggleAccompany { trace_id } => {
-                synchrotron.accompanying_trace_ids.toggle(trace_id)
+            } => synchrotron.cache_figure(key.clone(), figure.clone()),
+            TraceSynchrotronAction::ToggleAccompany { trace_id } => {
+                synchrotron.accompanyings.toggle(trace_id)
             }
-            &TraceSynchrotronAction::SetCaryatid { ref caryatid } => {
+            TraceSynchrotronAction::SetCaryatid { ref caryatid } => {
                 synchrotron.caryatid = caryatid.clone()
             }
         }

@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::mem::RefMut`),
-    ],
-)
+[
+    ItemPath(`core::mem::RefMut`),
+]
 ```

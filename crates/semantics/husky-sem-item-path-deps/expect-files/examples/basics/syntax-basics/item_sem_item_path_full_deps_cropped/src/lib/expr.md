@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`syntax_basics::expr`),
-    ],
-)
+[
+    ItemPath(`syntax_basics::expr`),
+]
 ```

@@ -153,7 +153,7 @@ impl<'db> SemItemPathDepsBuilder<'db> {
             SemExprData::VecFunctor { .. } => (),
             SemExprData::ArrayFunctor { .. } => (),
             SemExprData::Block { .. } => (),
-            SemExprData::EmptyHtmlTag { .. } => (),
+            SemExprData::EmptyHtmxTag { .. } => (),
             SemExprData::Closure { .. } => (),
             SemExprData::Sorry { .. } => (),
             SemExprData::Todo { .. } => (),

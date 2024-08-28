@@ -4,10 +4,10 @@ use super::*;
 use std::collections::HashMap;
 
 /// includes adversarial
-pub(super) fn vfs_rich_test<DB, U>(f: impl Fn(&::salsa::Db, U) -> String, config: &VfsTestConfig)
+pub(super) fn vfs_rich_test<DB, M, U>(f: impl Fn(&::salsa::Db, U) -> String, config: &VfsTestConfig)
 where
     DB: VfsTestUtils,
-    U: IsVfsTestUnit + salsa::DebugWithDb,
+    U: IsVfsTestUnit<M> + salsa::DebugWithDb,
 {
     // use this to detect conflicting paths
     let mut paths_used: HashMap<PathBuf, PathUsage<U>> = Default::default();
@@ -23,7 +23,7 @@ where
                 &package_relative_dir.to_logical_path(&test_domain.src_base()),
             )
             .unwrap();
-            let units = collect_units_from_package_path::<U>(db, package_path);
+            let units = collect_units_from_package_path::<M, U>(db, package_path);
             for unit in units {
                 let expect_file_path = unit.determine_expect_file_path(
                     db,

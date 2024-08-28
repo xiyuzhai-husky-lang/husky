@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::ops::ControlFlow::Continue`),
-    ],
-)
+[
+    ItemPath(`core::ops::ControlFlow::Continue`),
+]
 ```

@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::task::IsTask`),
-    ],
-)
+[
+    ItemPath(`core::task::IsTask`),
+]
 ```

@@ -1,8 +1,6 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::raw_contour::StreakCache`),
-        ItemPath(`core::num::i32`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::raw_contour::StreakCache`),
+    ItemPath(`core::num::i32`),
+]
 ```

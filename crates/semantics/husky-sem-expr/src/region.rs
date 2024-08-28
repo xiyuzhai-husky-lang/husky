@@ -10,7 +10,7 @@ use husky_term_prelude::symbol::SymbolName;
 use salsa::fmt::WithFmtContext;
 use vec_like::{VecMap, VecPairMap};
 
-#[salsa::tracked(db = SemExprDb, jar = SemExprJar, constructor = new_inner)]
+#[salsa::tracked(constructor = new_inner)]
 pub struct SemExprRegion {
     #[id]
     pub path: RegionPath,

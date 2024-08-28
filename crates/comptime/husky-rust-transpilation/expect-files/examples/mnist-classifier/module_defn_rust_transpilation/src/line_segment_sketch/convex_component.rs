@@ -22,7 +22,7 @@ impl ConvexComponent {
 
 #[rustfmt::skip]
 impl Visualize for crate::line_segment_sketch::convex_component::ConvexComponent {
-    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
         self.line_segments.deleash().visualize(__visual_synchrotron)
     }
 }

@@ -1,17 +1,20 @@
 use crate::*;
+use husky_linket_impl::var::IsVarId;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
-pub struct StandardStaticVarId {
+pub struct StandardVarId {
     data: [u64; 4],
 }
 
-impl StandardStaticVarId {
+impl IsVarId for StandardVarId {}
+
+impl StandardVarId {
     pub fn new(data: [u64; 4]) -> Self {
         Self { data }
     }
 }
 
-impl From<u32> for StandardStaticVarId {
+impl From<u32> for StandardVarId {
     fn from(data: u32) -> Self {
         Self {
             data: [data as u64, 0, 0, 0],
@@ -19,13 +22,13 @@ impl From<u32> for StandardStaticVarId {
     }
 }
 
-impl Into<u32> for StandardStaticVarId {
+impl Into<u32> for StandardVarId {
     fn into(self) -> u32 {
         self.data[0] as u32
     }
 }
 
-impl From<u64> for StandardStaticVarId {
+impl From<u64> for StandardVarId {
     fn from(data: u64) -> Self {
         Self {
             data: [data, 0, 0, 0],
@@ -33,13 +36,13 @@ impl From<u64> for StandardStaticVarId {
     }
 }
 
-impl Into<u64> for StandardStaticVarId {
+impl Into<u64> for StandardVarId {
     fn into(self) -> u64 {
         self.data[0]
     }
 }
 
-impl From<usize> for StandardStaticVarId {
+impl From<usize> for StandardVarId {
     fn from(data: usize) -> Self {
         Self {
             data: [data as u64, 0, 0, 0],
@@ -47,13 +50,13 @@ impl From<usize> for StandardStaticVarId {
     }
 }
 
-impl Into<usize> for StandardStaticVarId {
+impl Into<usize> for StandardVarId {
     fn into(self) -> usize {
         self.data[0] as usize
     }
 }
 
-impl From<[u64; 4]> for StandardStaticVarId {
+impl From<[u64; 4]> for StandardVarId {
     fn from(data: [u64; 4]) -> Self {
         Self { data }
     }
@@ -66,44 +69,51 @@ macro_rules! static_var_linket_impl {
             init_item_path_id_interface: |item_path_id_interface| unsafe {
                 $item_path_id_interface = Some(item_path_id_interface)
             },
-            get_id: <$static_var as __IsStaticVar<__StaticVarId>>::get_id,
+            get_id: <$static_var as __IsStaticVar<__VarId>>::get_id,
             try_replace_id: |id, locked| unsafe {
-                <$static_var as __IsStaticVar<__StaticVarId>>::try_replace_id(id, locked)
+                <$static_var as __IsStaticVar<__VarId>>::try_replace_id(id, locked)
                     .map(|restore| -> Box<dyn FnOnce()> { Box::new(restore) })
             },
-            ids: |locked| Box::new(<$static_var as __IsStaticVar<__StaticVarId>>::ids(locked)),
+            ids: |locked| Box::new(<$static_var as __IsStaticVar<__VarId>>::ids(locked)),
+            get_value: <$static_var as __IsStaticVar<__VarId>>::get_value,
         }
     };
 }
 
 #[test]
 fn static_var_linket_impl_works() {
-    use crate::{pedestal::StandardPedestal, static_var::StandardStaticVarId, ugly::*};
-    use husky_linket_impl::static_var::IsStaticVar;
+    use crate::{pedestal::StandardPedestal, static_var::StandardVarId, ugly::*};
+    use husky_linket_impl::var::IsStaticVar;
     use StandardLinketImpl as __LinketImpl;
 
     #[allow(non_camel_case_types)]
     struct STATIC_VAR_A {}
 
-    impl __IsStaticVar<__StaticVarId> for STATIC_VAR_A {
+    impl __IsStaticVar<__VarId> for STATIC_VAR_A {
         fn item_path_id_interface() -> ItemPathIdInterface {
             todo!()
         }
 
-        unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+        unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
             (0..10u32).map(Into::into)
         }
 
-        fn get_id() -> __StaticVarId {
+        fn get_id() -> __VarId {
             todo!()
         }
 
         unsafe fn try_replace_id_aux(
-            id: __StaticVarId,
+            id: __VarId,
             locked: &[ItemPathIdInterface],
         ) -> __StaticVarResult<impl FnOnce() + 'static> {
             todo!();
             Ok(|| todo!())
+        }
+
+        type Value = Value;
+
+        fn get_value() -> Self::Value {
+            todo!()
         }
     }
 
@@ -120,6 +130,7 @@ fn static_var_linket_impl_works() {
         get_id,
         try_replace_id,
         ids,
+        ..
     } = static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
     else {
         unreachable!()

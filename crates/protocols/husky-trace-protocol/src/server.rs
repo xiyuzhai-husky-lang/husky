@@ -10,22 +10,25 @@ use crate::{
     view::{action::TraceViewAction, TraceViewData},
     *,
 };
+use figure::TraceFigureKey;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::IsPedestalFull;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
-use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
+use husky_visual_protocol::{plot::PlotClass, synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
 use rustc_hash::FxHashMap;
+use shifted_unsigned_int::ShiftedU32;
 use smallvec::*;
 use std::net::ToSocketAddrs;
+use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, OrderedSmallVecSet};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
     trace_synchrotron: Option<TraceSynchrotron<Tracetime::TraceProtocol>>,
     value_presenter_cache: ValuePresenterCache,
-    visual_cache: KiVisualCache<<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal>,
+    visual_cache: TraceVisualCache<<Tracetime::TraceProtocol as IsTraceProtocol>::Pedestal>,
     tracetime: Tracetime,
 }
 
@@ -34,24 +37,95 @@ pub struct TraceServer<Tracetime: IsTracetime> {
 /// useful for calculating figure,
 ///
 /// but the client doesn't need to know about this
-pub struct KiVisualCache<Pedestal: IsPedestalFull> {
-    visuals: FxHashMap<(KiReprInterface, Pedestal), Visual>,
+pub struct TraceVisualCache<Pedestal: IsPedestalFull> {
+    trace_plot_classes: FxHashMap<TraceId, PlotClass>,
+    trace_plot_maps: FxHashMap<OrderedSmallVecSet<TraceId, 4>, TracePlotInfos>,
+    visuals: FxHashMap<(TraceId, Pedestal), Visual>,
 }
 
-impl<Pedestal: IsPedestalFull> KiVisualCache<Pedestal> {
-    pub fn get_visual(
-        &mut self,
-        ki_repr: KiReprInterface,
-        pedestal: Pedestal,
-        f: impl FnOnce() -> Visual,
-    ) -> Visual {
-        *self.visuals.entry((ki_repr, pedestal)).or_insert_with(f)
+#[derive(Debug, PartialEq, Eq)]
+pub struct TracePlotInfos {
+    /// the class for each plot
+    data: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]>,
+}
+
+impl std::ops::Deref for TracePlotInfos {
+    type Target = SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.data
     }
 }
 
-impl<Pedestal: IsPedestalFull> Default for KiVisualCache<Pedestal> {
+impl TracePlotInfos {
+    fn new(
+        traces: OrderedSmallVecSet<TraceId, 4>,
+        trace_plot_classes: &FxHashMap<TraceId, PlotClass>,
+    ) -> Self {
+        let mut data: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]> = smallvec![];
+        for trace_id in traces {
+            let plot_class = trace_plot_classes[&trace_id];
+            match plot_class {
+                PlotClass::Void => (),
+                PlotClass::Graphics2D | PlotClass::Graphics3D => {
+                    let mut flag = false;
+                    for &mut (ref mut traces, plot_class0) in &mut data {
+                        if plot_class0 == plot_class {
+                            traces.insert(trace_id);
+                            flag = true;
+                            break;
+                        }
+                    }
+                    if !flag {
+                        data.push((OrderedSmallVecSet::new_one_elem_set(trace_id), plot_class))
+                    }
+                }
+                PlotClass::Any => {
+                    data.push((OrderedSmallVecSet::new_one_elem_set(trace_id), plot_class))
+                }
+            }
+        }
+        Self { data }
+    }
+}
+
+impl<Pedestal: IsPedestalFull> TraceVisualCache<Pedestal> {
+    pub fn visual(
+        &mut self,
+        trace_id: TraceId,
+        pedestal: Pedestal,
+        f: impl FnOnce() -> (Visual, PlotClass),
+    ) -> Visual {
+        *self.visuals.entry((trace_id, pedestal)).or_insert_with(|| {
+            let (visual, plot_class) = f();
+            match self.trace_plot_classes.entry(trace_id) {
+                std::collections::hash_map::Entry::Occupied(mut entry) => {
+                    entry.get_mut().merge(plot_class);
+                }
+                std::collections::hash_map::Entry::Vacant(mut entry) => {
+                    entry.insert(plot_class);
+                }
+            }
+            visual
+        })
+    }
+
+    // todo: caching this??
+    pub fn calc_plots<'a>(
+        &'a mut self,
+        traces: OrderedSmallVecSet<TraceId, 4>,
+    ) -> &'a TracePlotInfos {
+        self.trace_plot_maps
+            .entry(traces.clone())
+            .or_insert_with(|| TracePlotInfos::new(traces, &self.trace_plot_classes))
+    }
+}
+
+impl<Pedestal: IsPedestalFull> Default for TraceVisualCache<Pedestal> {
     fn default() -> Self {
         Self {
+            trace_plot_classes: Default::default(),
+            trace_plot_maps: Default::default(),
             visuals: Default::default(),
         }
     }
@@ -197,9 +271,9 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                         assoc_trace_id,
                     })
             }
-            TraceViewAction::FollowTrace { trace_id } => self
+            TraceViewAction::FollowTrace { followed: trace_id } => self
                 .trace_synchrotron_mut()
-                .take_action(TraceSynchrotronAction::FollowTrace { trace_id }),
+                .take_action(TraceSynchrotronAction::FollowTrace { followed: trace_id }),
             TraceViewAction::ToggleAccompany { trace_id } => self
                 .trace_synchrotron_mut()
                 .take_action(TraceSynchrotronAction::ToggleAccompany { trace_id }),
@@ -228,11 +302,13 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         use crate::caryatid::IsCaryatid;
         let trace_listing = self.trace_synchrotron().trace_listing();
         for trace_id in trace_listing {
-            let pedestal = self
+            if let Some(pedestal) = self
                 .trace_synchrotron()
                 .caryatid()
-                .pedestal(&self.trace_synchrotron()[trace_id].var_deps());
-            self.cache_stalk(trace_id, pedestal)
+                .pedestal(&self.trace_synchrotron()[trace_id].var_deps())
+            {
+                self.cache_stalk(trace_id, pedestal)
+            }
         }
     }
 
@@ -243,7 +319,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     ) {
         if !self.trace_synchrotron()[trace_id].has_stalk(&pedestal) {
             let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
-            let stalk = self.tracetime.trace_stalk(
+            let stalk = self.tracetime.calc_trace_stalk(
                 trace_id.into(),
                 &pedestal,
                 &mut self.value_presenter_cache,
@@ -259,30 +335,15 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
 
     fn cache_figure(&mut self) {
         let trace_synchrotron = self.trace_synchrotron.as_mut().unwrap();
-        let caryatid = trace_synchrotron.caryatid().clone();
-        let accompanying_trace_ids_except_followed = trace_synchrotron
-            .accompanying_trace_ids_except_followed()
-            .clone();
-        let followed_trace_id = trace_synchrotron.followed_trace_id();
-        let (has_figure, accompanying_trace_ids_except_followed) = trace_synchrotron.has_figure(
-            followed_trace_id,
-            caryatid.clone(),
-            accompanying_trace_ids_except_followed,
-        );
-        if !has_figure {
-            let figure = self.tracetime.figure(
-                followed_trace_id.map(Into::into),
-                &accompanying_trace_ids_except_followed,
-                caryatid.clone(),
+        let figure_key = trace_synchrotron.figure_key();
+        if !trace_synchrotron.has_figure(&figure_key) {
+            let figure = self.tracetime.calc_figure(
+                &figure_key,
                 trace_synchrotron.visual_synchrotron_mut(),
                 &mut self.visual_cache,
             );
-            trace_synchrotron.take_action(TraceSynchrotronAction::CacheFigure {
-                pedestal: caryatid.clone(),
-                followed_trace_id,
-                accompanying_trace_ids_except_followed,
-                figure,
-            })
+            trace_synchrotron
+                .take_action(TraceSynchrotronAction::CacheFigure { figure_key, figure })
         }
     }
 }
@@ -308,7 +369,7 @@ pub trait IsTracetime: Send + 'static + Sized {
 
     fn trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
 
-    fn trace_stalk(
+    fn calc_trace_stalk(
         &self,
         trace: Self::Trace,
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
@@ -316,12 +377,12 @@ pub trait IsTracetime: Send + 'static + Sized {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> TraceStalk;
 
-    fn figure(
+    fn calc_figure(
         &self,
-        followed_trace: Option<Self::Trace>,
-        accompanying_trace_ids: &AccompanyingTraceIdsExceptFollowed,
-        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
+        figure_key: &TraceFigureKey<Self::TraceProtocol>,
         visual_synchrotron: &mut VisualSynchrotron,
-        ki_visual_cache: &mut KiVisualCache<<Self::TraceProtocol as IsTraceProtocol>::Pedestal>,
+        trace_visual_cache: &mut TraceVisualCache<
+            <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
+        >,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
 }

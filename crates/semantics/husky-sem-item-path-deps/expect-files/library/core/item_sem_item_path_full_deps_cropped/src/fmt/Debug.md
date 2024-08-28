@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::fmt::Debug`),
-    ],
-)
+[
+    ItemPath(`core::fmt::Debug`),
+]
 ```

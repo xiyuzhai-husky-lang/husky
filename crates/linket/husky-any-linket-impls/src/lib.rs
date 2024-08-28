@@ -1,7 +1,6 @@
 #![feature(downcast_unchecked)]
 use colored::Colorize;
 use husky_devsoul_interface::devsoul::IsDevsoulInterface;
-use husky_item_path_interface::ugly::__ItemPathIdInterface;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket_impl::linket_impls::LinketImpls;
 use husky_linket_impl::{

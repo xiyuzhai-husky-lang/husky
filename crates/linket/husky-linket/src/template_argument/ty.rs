@@ -108,6 +108,7 @@ impl LinTypePathLeading {
                 PreludeTypePath::Option => todo!(),
                 PreludeTypePath::Result => todo!(),
                 PreludeTypePath::Universe => unreachable!(),
+                PreludeTypePath::Visual => todo!(),
             },
             // ad hoc
             Right(_) => false,

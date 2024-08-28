@@ -13,6 +13,9 @@ vec-like.workspace = true
 serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
 husky-dev-comptime.workspace = true
+# devsoul
+husky-devsoul.workspace = true
+husky-devsoul-interface.workspace = true
 # devtime
 husky-trace = { path = "../../devtime/husky-trace" }
 # fs
@@ -23,7 +26,10 @@ husky-eth-signature.workspace = true
 husky-coword.workspace = true
 husky-opr.workspace = true
 husky-entity-kind.workspace = true
+husky-entity-path.workspace = true
 husky-item-path-interface.workspace = true
+# ki
+husky-ki-repr-interface.workspace = true
 # lex
 husky-text-protocol.workspace = true
 # linket
@@ -41,14 +47,13 @@ husky-ast.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-decl.workspace = true
 husky-syn-defn.workspace = true
-# devsoul
-husky-devsoul.workspace = true
-husky-devsoul-interface.workspace = true
 # utils
 husky-check-utils.workspace = true
 husky-print-utils.workspace = true
 husky-sync-utils.workspace = true
 husky-wild-utils.workspace = true
+# value
+husky-value-interface.workspace = true
 # vm
 husky-vm.workspace = true
 
@@ -58,7 +63,7 @@ tracing-subscriber.workspace = true
 tracing-test.workspace = true
 # protocols
 husky-trace-protocol = { workspace = true, features = ["test_utils"] }
-husky-standard-visual-protocol.workspace = true
+husky-standard-trace-protocol.workspace = true
 # devsoul
 husky-standard-devsoul.workspace = true
 # utils

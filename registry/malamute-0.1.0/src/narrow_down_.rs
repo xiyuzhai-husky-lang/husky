@@ -8,7 +8,7 @@ use smallvec::SmallVec;
 #[allow(warnings, non_camel_case_types)]
 pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 
-impl<Task: IsMlTask<__StaticVarId>, Label> narrow_down<Task, Label>
+impl<Task: IsMlTask<__VarId>, Label> narrow_down<Task, Label>
 where
     Label: IsLabel
         + __WeakStatic<Static = Label>
@@ -113,7 +113,7 @@ where
 
 impl<Task, Label> __IsGnItem for narrow_down<Task, Label>
 where
-    Task: IsMlTask<__StaticVarId>,
+    Task: IsMlTask<__VarId>,
     Label: IsLabel,
 {
     type LinketImpl = __LinketImpl;

@@ -135,13 +135,13 @@ impl IsLinketImpl for VirtualLinketImpl {
         ()
     }
 
-    fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
+    fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::VarId {
         todo!()
     }
 
     fn with_static_var_id<R>(
         self,
-        static_var_id: <Self::Pedestal as IsPedestal>::StaticVarId,
+        static_var_id: <Self::Pedestal as IsPedestal>::VarId,
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
     ) -> LinketImplStaticVarResult<Self, R> {
@@ -151,7 +151,7 @@ impl IsLinketImpl for VirtualLinketImpl {
     fn all_static_var_ids<'a>(
         self,
         locked: &'a [ItemPathIdInterface],
-    ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::StaticVarId> + 'a> {
+    ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::VarId> + 'a> {
         todo!()
     }
 }

@@ -192,11 +192,7 @@ fn item_sem_var_deps_works() {
     use husky_entity_tree::node::ItemSynNodePath;
 
     DB::ast_rich_test_debug_with_db(
-        |db, item_syn_node_path: ItemSynNodePath| {
-            item_syn_node_path
-                .unambiguous_item_path(db)
-                .map(|item_path| item_sem_var_deps(db, *item_path))
-        },
+        item_sem_var_deps,
         &AstTestConfig::new(
             "item_sem_var_deps",
             FileExtensionConfig::Markdown,

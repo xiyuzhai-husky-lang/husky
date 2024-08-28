@@ -2,7 +2,7 @@ use crate::{channel::MnistChannel, op::history::OpTime, trace::Trace, MnistDb};
 
 use husky_ki_repr_interface::KiReprInterface;
 use husky_standard_linket_impl::pedestal::StandardPedestal;
-use husky_standard_visual_protocol::figure::StandardFigure;
+use husky_standard_trace_protocol::figure::StandardFigure;
 use husky_trace_protocol::{figure::IsFigure, id::TraceId};
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 

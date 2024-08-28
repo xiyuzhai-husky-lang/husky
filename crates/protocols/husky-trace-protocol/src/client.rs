@@ -9,6 +9,7 @@ use crate::{
     message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
     view::action::TraceViewAction, *,
 };
+use figure::FigureKey;
 use husky_websocket_utils::imgui_client::{
     ImmediateWebsocketClientConnection, WebsocketClientConnectionError,
 };
@@ -168,21 +169,22 @@ where
                     assoc_trace_id,
                 })
             }
-            TraceViewAction::FollowTrace { trace_id } => {
+            TraceViewAction::FollowTrace { followed } => {
                 let trace_synchrotron = self.trace_synchrotron();
-                let accompanying_trace_ids = trace_synchrotron
-                    .accompanying_trace_ids_except_followed()
+                let accompanyings_except_followed = trace_synchrotron
+                    .accompanyings_except_followed(Some(followed))
                     .clone();
                 let caryatid = trace_synchrotron.caryatid();
-                let (has_figure, _) = trace_synchrotron.has_figure(
-                    Some(trace_id),
-                    caryatid.clone(),
-                    accompanying_trace_ids,
+                let figure_key = FigureKey::new(
+                    Some(followed),
+                    accompanyings_except_followed,
+                    caryatid,
+                    trace_synchrotron,
                 );
-                if !has_figure {
+                if !trace_synchrotron.has_figure(&figure_key) {
                     return None;
                 }
-                Some(TraceSynchrotronAction::FollowTrace { trace_id })
+                Some(TraceSynchrotronAction::FollowTrace { followed })
             }
             TraceViewAction::ToggleAccompany { trace_id } => {
                 {
@@ -192,14 +194,14 @@ where
                     let mut accompanying_trace_ids =
                         trace_synchrotron.accompanying_trace_ids().clone();
                     accompanying_trace_ids.toggle(trace_id);
-                    let (has_figure, _) = trace_synchrotron.has_figure(
-                        trace_synchrotron.followed_trace_id(),
-                        caryatid.clone(),
-                        AccompanyingTraceIdsExceptFollowed::new(
-                            trace_synchrotron.followed_trace_id(),
-                            accompanying_trace_ids,
-                        ),
+                    let followed = trace_synchrotron.followed();
+                    let figure_key = FigureKey::new(
+                        followed,
+                        AccompanyingTraceIdsExceptFollowed::new(followed, accompanying_trace_ids),
+                        caryatid,
+                        trace_synchrotron,
                     );
+                    let has_figure = trace_synchrotron.has_figure(&figure_key);
                     if !has_figure {
                         return None;
                     }
@@ -210,25 +212,29 @@ where
                 let trace_synchrotron = self.trace_synchrotron();
                 {
                     use crate::caryatid::IsCaryatid;
-                    // see if setting pedestal will affect stalk
+                    // see if setting caryatid will affect stalk
                     for trace_id in trace_synchrotron.trace_listing() {
                         let entry = &trace_synchrotron[trace_id];
-                        if !entry.has_stalk(&caryatid.pedestal(todo!())) {
-                            return None;
+                        if let Some(pedestal) = caryatid.pedestal(entry.var_deps()) {
+                            if !entry.has_stalk(&pedestal) {
+                                return None;
+                            }
                         }
                     }
                 }
                 {
-                    // see if setting pedestal will affect figure
+                    // see if setting caryatid will affect figure
                     let trace_synchrotron = self.trace_synchrotron();
-                    let accompanying_trace_ids_expect_followed =
-                        trace_synchrotron.accompanying_trace_ids_except_followed();
-                    let (has_figure, _) = trace_synchrotron.has_figure(
-                        trace_synchrotron.followed_trace_id(),
-                        caryatid.clone(),
-                        accompanying_trace_ids_expect_followed,
+                    let followed = trace_synchrotron.followed();
+                    let accompanyings_except_followed =
+                        trace_synchrotron.accompanyings_except_followed(followed);
+                    let figure_key = FigureKey::new(
+                        followed,
+                        accompanyings_except_followed,
+                        caryatid,
+                        trace_synchrotron,
                     );
-                    if !has_figure {
+                    if !trace_synchrotron.has_figure(&figure_key) {
                         return None;
                     }
                 }
