@@ -19,4 +19,6 @@ pub enum OriginalSemExprHtmxError {}
 pub enum DerivedSemExprHtmxError {
     #[error("plot class not infered")]
     PlotClassNotInferred,
+    #[error("method ritchie call")]
+    MethodRitchieCall,
 }
