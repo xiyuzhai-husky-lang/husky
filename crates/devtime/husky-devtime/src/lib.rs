@@ -162,6 +162,9 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                 },
             );
         let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
+        use ::husky_print_utils::p;
+        use ::salsa::DebugWithDb;
+        p!(trace_plot_map);
         IsFigure::from_chart(chart, trace_plot_map, visual_synchrotron)
     }
 }

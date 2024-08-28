@@ -5,7 +5,7 @@ use egui::Frame;
 use husky_control_flow_utils::pass;
 use husky_linket_impl::pedestal::JointPedestal;
 use husky_standard_linket_impl::pedestal::StandardJointPedestal;
-use husky_visual_protocol::visual::primitive::PrimitiveVisual;
+use husky_visual_protocol::{plot::PlotClass, visual::primitive::PrimitiveVisual};
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct StandardFigureDim0 {
@@ -84,27 +84,37 @@ impl<'a> StandardFigureBuilder<'a> {
     }
 
     fn build_plots(&mut self) {
-        for (plot_index, (traces, plot_class)) in self.trace_plot_infos.iter().enumerate() {
+        for (traces, plot_class) in &**self.trace_plot_infos {
+            let mut plot = match plot_class {
+                PlotClass::Void => unreachable!(),
+                PlotClass::Graphics2D => StandardPlot::Graphics2D {
+                    images: vec![],
+                    shapes: vec![],
+                },
+                PlotClass::Graphics3D => todo!(),
+                PlotClass::Any => todo!(),
+            };
             for &trace_id in traces {
-                self.build_plot(plot_index, self.composite_visual[trace_id])
+                self.build_plot(self.composite_visual[trace_id], &mut plot)
             }
+            self.plots.push(plot)
         }
     }
 
-    fn build_plot(&mut self, plot_index: usize, visual: Visual) {
+    fn build_plot(&mut self, visual: Visual, plot: &mut StandardPlot) {
         match visual {
             Visual::Void => (),
             Visual::Primitive(primitive) => todo!(),
             // self.primitives.push((trace_id, primitive)),
             Visual::Text(_) => todo!(),
             Visual::RichText(_) => todo!(),
-            Visual::Image(image) => match self.plots[plot_index] {
+            Visual::Image(image) => match plot {
                 StandardPlot::Graphics2D { ref mut images, .. } => images.push(image),
                 StandardPlot::Graphics3D { meshes } => todo!(),
                 StandardPlot::Text => todo!(),
                 StandardPlot::Code => todo!(),
             },
-            Visual::Shape(shape) => match self.plots[plot_index] {
+            Visual::Shape(shape) => match plot {
                 StandardPlot::Graphics2D { ref mut shapes, .. } => shapes.push(shape),
                 StandardPlot::Graphics3D { meshes } => todo!(),
                 StandardPlot::Text => todo!(),
@@ -114,7 +124,7 @@ impl<'a> StandardFigureBuilder<'a> {
             Visual::Video(_) => todo!(),
             Visual::Group(group) => {
                 for &element in group.elements(self.visual_synchrotron) {
-                    self.build_plot(plot_index, element)
+                    self.build_plot(element, plot)
                 }
             }
             Visual::Math(_) => todo!(),
