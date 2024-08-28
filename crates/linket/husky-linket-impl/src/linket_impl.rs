@@ -6,8 +6,8 @@ use husky_value_interface::{exception::IsException, ki_control_flow::KiControlFl
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use pedestal::{IsPedestal, IsPedestalFull};
 use serde::Serialize;
-use var::StaticVarResult;
 use std::num::Saturating;
+use var::StaticVarResult;
 
 pub type LinketImplStaticVarResult<LinketImpl, R> =
     StaticVarResult<<<LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::VarId, R>;

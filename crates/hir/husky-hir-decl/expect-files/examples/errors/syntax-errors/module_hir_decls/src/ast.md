@@ -39,6 +39,44 @@
             ),
         ),
     ),
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
+            TypeHirDecl::Enum(
+                EnumHirDecl {
+                    path: TypePath(`syntax_errors::ast::IllFormedEnumType`, `Enum`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::ItemDecl(
+                            ItemPath(`syntax_errors::ast::IllFormedEnumType`),
+                        ),
+                        self_value_ty: None,
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_variable_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_variable_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {

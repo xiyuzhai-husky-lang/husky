@@ -13,5 +13,10 @@
             },
         },
     },
+    Linket {
+        data: LinketData::EnumUnitToJsonValue {
+            ty_path: TypePath(`syntax_errors::ast::IllFormedEnumType`, `Enum`),
+        },
+    },
 ]
 ```

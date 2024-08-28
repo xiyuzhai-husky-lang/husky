@@ -6,5 +6,11 @@
             DecTerm(`Type`),
         ),
     ),
+    (
+        TypePath(`syntax_errors::ast::IllFormedEnumType`, `Enum`),
+        Ok(
+            DecTerm(`Type`),
+        ),
+    ),
 ]
 ```

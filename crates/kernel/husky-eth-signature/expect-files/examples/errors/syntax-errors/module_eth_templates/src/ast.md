@@ -28,6 +28,23 @@
         ),
     ),
     (
+        ItemPath(`syntax_errors::ast::IllFormedEnumType`),
+        Ok(
+            ItemEthTemplate::MajorItem(
+                MajorItemEthTemplate::Type(
+                    TypeEthTemplate::Enum(
+                        EnumEthTemplate {
+                            path: TypePath(`syntax_errors::ast::IllFormedEnumType`, `Enum`),
+                            template_parameters: EthTemplateParameters {
+                                data: [],
+                            },
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         ItemPath(`syntax_errors::ast::A(0)`),
         Ok(
             ItemEthTemplate::ImplBlock(

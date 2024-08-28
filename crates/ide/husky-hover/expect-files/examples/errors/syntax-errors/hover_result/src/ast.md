@@ -330,5 +330,95 @@
             },
         ),
     ),
+    (
+        TokenIdx(
+            12,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other keyword\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 11,
+                                character: 0,
+                            },
+                            end: Position {
+                                line: 11,
+                                character: 4,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            13,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\nentity node\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 11,
+                                character: 5,
+                            },
+                            end: Position {
+                                line: 11,
+                                character: 22,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            14,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\n\n\nregional_token_indices = [];\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 12,
+                                character: 0,
+                            },
+                            end: Position {
+                                line: 12,
+                                character: 1,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
 ]
 ```

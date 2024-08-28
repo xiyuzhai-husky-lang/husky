@@ -17,5 +17,22 @@
             },
         },
     ),
+    AmazonJavelin(
+        Javelin {
+            data: JavelinData::PathLeading {
+                path: JavPath::Type(
+                    TypePath(`syntax_errors::ast::IllFormedEnumType`, `Enum`),
+                ),
+                instantiation: JavInstantiation {
+                    path: ItemPath(`syntax_errors::ast::IllFormedEnumType`),
+                    context: JavTypeContext {
+                        comptime_var_overrides: [],
+                    },
+                    variable_resolutions: [],
+                    separator: None,
+                },
+            },
+        },
+    ),
 ]
 ```
