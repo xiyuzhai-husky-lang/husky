@@ -36,6 +36,27 @@
         ),
     ),
     (
+        ItemPath(`syntax_errors::ast::IllFormedEnumType`),
+        Ok(
+            ItemDecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::Enum(
+                        EnumDecTemplate {
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_ty: DecTerm::ItemPath(
+                                DecItemPath::Type(
+                                    TypePath(`syntax_errors::ast::IllFormedEnumType`, `Enum`),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         ItemPath(`syntax_errors::ast::A(0)`),
         Ok(
             ItemDecTemplate::ImplBlock(

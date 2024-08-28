@@ -5,6 +5,7 @@ use ad_hoc_devsoul_dependency::{*, ugly::*};
 #[rustfmt::skip]
 linket_impls![
     fn_linket_impl!(syntax_errors::ast::A::__constructor),
+    enum_index_presenter_linket_impl!(syntax_errors::ast::IllFormedEnumType),
     fn_linket_impl!(<i8>::abs),
     fn_linket_impl!(<i8>::max),
     fn_linket_impl!(<i8 as Add<i8>>::add),

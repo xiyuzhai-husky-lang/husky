@@ -14,6 +14,11 @@ DiagnosticSheet {
                 range: [10:5, 10:23),
             },
             Diagnostic {
+                message: "Syntax Error: ExpectedIdentForTypeVariant",
+                severity: Error,
+                range: [13:1, 13:2),
+            },
+            Diagnostic {
                 message: "submodule file not found",
                 severity: Error,
                 range: [3:5, 3:19),
