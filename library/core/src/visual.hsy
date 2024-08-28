@@ -1,21 +1,21 @@
 use crate::*
 
 pub trait Visualize:
-    compterm PLOT_CLASS: PlotClass
+    // compterm PLOT_CLASS: PlotClass
 
     fn visualize() -> Visual;
 
 pub extern Visual;
 
-pub enum PlotClass
-| Graphics2D
-| Graphics3D
-| Video
-| Text
-| Code
+// pub enum PlotClass
+// | Graphics2D
+// | Graphics3D
+// | Video
+// | Text
+// | Code
 
 impl Visualize for #derive _:
     // what to do here?
-    compterm PLOT_CLASS: PlotClass
+    // compterm PLOT_CLASS: PlotClass
 
     fn visualize() -> Visual:

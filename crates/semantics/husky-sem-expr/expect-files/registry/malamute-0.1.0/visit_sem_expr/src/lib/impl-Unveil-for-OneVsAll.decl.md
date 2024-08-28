@@ -7,13 +7,13 @@ Some(
         "core::ops::Unveil OneVsAllResult",
         "Label",
         "core::ops::Unveil OneVsAllResult Label",
-        "label",
-        "core::ops::Unveil OneVsAllResult Label label",
+        "LABEL",
+        "core::ops::Unveil OneVsAllResult Label LABEL",
         "OneVsAll",
         "Label",
         "OneVsAll Label",
-        "label",
-        "OneVsAll Label label",
+        "LABEL",
+        "OneVsAll Label LABEL",
     ],
 )
 ```
