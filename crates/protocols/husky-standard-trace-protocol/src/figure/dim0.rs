@@ -30,7 +30,7 @@ pub enum StandardPlot {
 impl StandardFigureDim0 {
     pub(super) fn from_chart(
         (joint_pedestal, composite_visual): StandardChartDim0<CompositeVisual<TraceId>>,
-        trace_plot_map: &TracePlotMap,
+        trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
         Self::new(
@@ -47,7 +47,7 @@ impl StandardFigureDim0 {
     fn new(
         joint_pedestal: StandardJointPedestal,
         traced_visuals: impl IntoIterator<Item = (TraceId, Visual)>,
-        trace_plot_map: &TracePlotMap,
+        trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
         let mut builder =
@@ -60,7 +60,7 @@ impl StandardFigureDim0 {
 /// # builder
 struct StandardFigureBuilder<'a> {
     joint_pedestal: StandardJointPedestal,
-    trace_plot_map: &'a TracePlotMap,
+    trace_plot_map: &'a TracePlotInfos,
     visual_synchrotron: &'a VisualSynchrotron,
     plots: Vec<StandardPlot>,
 }
@@ -68,7 +68,7 @@ struct StandardFigureBuilder<'a> {
 impl<'a> StandardFigureBuilder<'a> {
     fn new(
         joint_pedestal: StandardJointPedestal,
-        trace_plot_map: &'a TracePlotMap,
+        trace_plot_map: &'a TracePlotInfos,
         visual_synchrotron: &'a VisualSynchrotron,
     ) -> Self {
         Self {
@@ -120,7 +120,10 @@ impl StandardFigureDim0 {
         cache: &mut FigureUiCache<Ui>,
         ui: &mut Ui,
     ) {
-        todo!()
+        // ad hoc
+        for plot in &self.plots {
+            plot.ui(visual_synchrotron, cache, ui)
+        }
     }
 }
 

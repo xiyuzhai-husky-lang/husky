@@ -39,54 +39,47 @@ pub struct TraceServer<Tracetime: IsTracetime> {
 /// but the client doesn't need to know about this
 pub struct TraceVisualCache<Pedestal: IsPedestalFull> {
     trace_plot_classes: FxHashMap<TraceId, PlotClass>,
-    trace_plot_maps: FxHashMap<OrderedSmallVecSet<TraceId, 4>, TracePlotMap>,
+    trace_plot_maps: FxHashMap<OrderedSmallVecSet<TraceId, 4>, TracePlotInfos>,
     visuals: FxHashMap<(TraceId, Pedestal), Visual>,
 }
 
-pub struct TracePlotMap {
+pub struct TracePlotInfos {
     /// the class for each plot
-    plot_infos: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]>,
-    trace_plots: OrderedSmallVecPairMap<TraceId, PlotId, 2>,
+    data: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]>,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct PlotId(ShiftedU32);
+impl std::ops::Deref for TracePlotInfos {
+    type Target = SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]>;
 
-impl PlotId {
-    pub fn index(self) -> usize {
-        self.0.index()
-    }
-
-    fn from_index(index: usize) -> Self {
-        Self(index.into())
+    fn deref(&self) -> &Self::Target {
+        &self.data
     }
 }
 
-impl std::ops::Index<PlotId> for TracePlotMap {
-    type Output = (OrderedSmallVecSet<TraceId, 2>, PlotClass);
-
-    fn index(&self, id: PlotId) -> &Self::Output {
-        &self.plot_infos[id.index()]
-    }
-}
-
-impl std::ops::Index<TraceId> for TracePlotMap {
-    type Output = PlotId;
-
-    fn index(&self, trace_id: TraceId) -> &Self::Output {
-        &self.trace_plots[trace_id].1
-    }
-}
-
-impl TracePlotMap {
+impl TracePlotInfos {
     fn new(
         traces: OrderedSmallVecSet<TraceId, 4>,
         trace_plot_classes: &FxHashMap<TraceId, PlotClass>,
     ) -> Self {
-        Self {
-            plot_infos: todo!(),
-            trace_plots: todo!(),
+        let mut data: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]> = smallvec![];
+        for trace_id in traces {
+            let plot_class = trace_plot_classes[&trace_id];
+            match plot_class {
+                PlotClass::Void => (),
+                PlotClass::Graphics2D | PlotClass::Graphics3D => {
+                    for &mut (ref mut traces, plot_class0) in &mut data {
+                        if plot_class0 == plot_class {
+                            traces.insert(trace_id);
+                            break;
+                        }
+                    }
+                }
+                PlotClass::Any => {
+                    data.push((OrderedSmallVecSet::new_one_elem_set(trace_id), plot_class))
+                }
+            }
         }
+        Self { data }
     }
 }
 
@@ -115,10 +108,10 @@ impl<Pedestal: IsPedestalFull> TraceVisualCache<Pedestal> {
     pub fn calc_plots<'a>(
         &'a mut self,
         traces: OrderedSmallVecSet<TraceId, 4>,
-    ) -> &'a TracePlotMap {
+    ) -> &'a TracePlotInfos {
         self.trace_plot_maps
             .entry(traces.clone())
-            .or_insert_with(|| TracePlotMap::new(traces, &self.trace_plot_classes))
+            .or_insert_with(|| TracePlotInfos::new(traces, &self.trace_plot_classes))
     }
 }
 
