@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist::BinaryGrid28`),
-    ],
-)
+[
+    ItemPath(`mnist::BinaryGrid28`),
+]
 ```

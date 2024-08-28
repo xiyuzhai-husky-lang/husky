@@ -1,12 +1,10 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
-        ItemPath(`mnist_classifier::raw_contour::RawContour`),
-        ItemPath(`core::num::f32`),
-        ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
-        ItemPath(`mnist_classifier::geom2d::Point2d`),
-        ItemPath(`mnist::BinaryImage28`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour`),
+    ItemPath(`core::num::f32`),
+    ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+    ItemPath(`mnist_classifier::geom2d::Point2d`),
+    ItemPath(`mnist::BinaryImage28`),
+]
 ```

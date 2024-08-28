@@ -35,7 +35,7 @@ impl std::fmt::Display for AdversarialKind {
     }
 }
 
-pub(super) fn vfs_adversarial_test<U, R>(
+pub(super) fn vfs_adversarial_test<M, U, R>(
     db: &mut Db,
     package_adversarials_dir: &Path,
     unit: U,
@@ -43,7 +43,7 @@ pub(super) fn vfs_adversarial_test<U, R>(
     config: &VfsTestConfig,
     paths_used: &mut HashMap<PathBuf, PathUsage<U>>,
 ) where
-    U: IsVfsTestUnit + ::salsa::DebugWithDb,
+    U: IsVfsTestUnit<M> + ::salsa::DebugWithDb,
 {
     let Some(adversarial_path) =
         unit.determine_adversarial_path(db, AdversarialKind::Vfs, package_adversarials_dir, config)

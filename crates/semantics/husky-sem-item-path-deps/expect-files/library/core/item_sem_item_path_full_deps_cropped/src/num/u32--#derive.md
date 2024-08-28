@@ -1,12 +1,10 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::num::u32::#derive(0)`),
-        ItemPath(`core::fmt::Debug`),
-        ItemPath(`core::cmp::PartialEq`),
-        ItemPath(`core::cmp::Eq`),
-        ItemPath(`core::clone::Clone`),
-        ItemPath(`core::marker::Copy`),
-    ],
-)
+[
+    ItemPath(`core::num::u32::#derive(0)`),
+    ItemPath(`core::fmt::Debug`),
+    ItemPath(`core::cmp::PartialEq`),
+    ItemPath(`core::cmp::Eq`),
+    ItemPath(`core::clone::Clone`),
+    ItemPath(`core::marker::Copy`),
+]
 ```

@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::geom2d`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::geom2d`),
+]
 ```

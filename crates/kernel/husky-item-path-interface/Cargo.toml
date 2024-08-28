@@ -13,7 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 serde.workspace = true
-shifted-unsigned-int.workspace = true
+shifted-unsigned-int = { workspace = true, features = ["serde"] }
 
 [lints]
 workspace = true

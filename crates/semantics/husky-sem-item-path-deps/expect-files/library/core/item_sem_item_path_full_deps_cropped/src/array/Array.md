@@ -1,8 +1,6 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::array::Array`),
-        ItemPath(`core::num::usize`),
-    ],
-)
+[
+    ItemPath(`core::array::Array`),
+    ItemPath(`core::num::usize`),
+]
 ```

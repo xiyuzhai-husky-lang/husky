@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`malamute::Class::Known`),
-    ],
-)
+[
+    ItemPath(`malamute::Class::Known`),
+]
 ```

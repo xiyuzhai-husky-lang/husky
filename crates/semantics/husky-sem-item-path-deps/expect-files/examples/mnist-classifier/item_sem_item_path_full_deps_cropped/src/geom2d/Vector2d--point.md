@@ -1,9 +1,7 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::geom2d::Vector2d(0)::point`),
-        ItemPath(`mnist_classifier::geom2d::Point2d`),
-        ItemPath(`core::num::f32`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::geom2d::Vector2d(0)::point`),
+    ItemPath(`mnist_classifier::geom2d::Point2d`),
+    ItemPath(`core::num::f32`),
+]
 ```

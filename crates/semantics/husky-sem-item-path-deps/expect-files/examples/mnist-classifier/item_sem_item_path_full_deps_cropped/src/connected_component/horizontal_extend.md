@@ -1,8 +1,6 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
-        ItemPath(`core::raw_bits::r32`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::connected_component::horizontal_extend`),
+    ItemPath(`core::raw_bits::r32`),
+]
 ```

@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist::BinaryImage28`),
-    ],
-)
+[
+    ItemPath(`mnist::BinaryImage28`),
+]
 ```

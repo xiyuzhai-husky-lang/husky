@@ -4,31 +4,31 @@ pub use husky_vfs::test_utils::*;
 pub trait TokenTestUtils: VfsTestUtils {
     /// only run to see whether the program will panic
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn token_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
+    fn token_plain_test<M, U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb;
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn token_rich_test_debug_with_db<'a, U, R>(
+    fn token_rich_test_debug_with_db<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig<'a>,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke adversarial test if environment variable `ADVERSARIAL_ROUND` is set be a positive number
-    fn token_rich_test_debug<'a, U, R>(
+    fn token_rich_test_debug<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
-    fn token_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &TokenTestConfig)
+    fn token_rich_test_display<M, U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &TokenTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
 
@@ -36,39 +36,39 @@ impl<DB> TokenTestUtils for DB
 where
     DB: VfsTestUtils,
 {
-    fn token_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
+    fn token_plain_test<M, U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
     {
         // todo: robustness
         DB::vfs_plain_test(f, config);
     }
 
-    fn token_rich_test_debug_with_db<'a, U, R>(
+    fn token_rich_test_debug_with_db<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig<'a>,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: salsa::DebugWithDb,
     {
         // todo: robustness
         DB::vfs_rich_test_debug_with_db(f, &config.vfs)
     }
 
-    fn token_rich_test_debug<'a, U, R>(
+    fn token_rich_test_debug<'a, M, U, R>(
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &TokenTestConfig,
     ) where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
         // todo: robustness
         DB::vfs_rich_test_debug(&f, &config.vfs)
     }
 
-    fn token_rich_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &TokenTestConfig)
+    fn token_rich_test_display<M, U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &TokenTestConfig)
     where
-        U: IsVfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit<M> + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
         // todo: robustness

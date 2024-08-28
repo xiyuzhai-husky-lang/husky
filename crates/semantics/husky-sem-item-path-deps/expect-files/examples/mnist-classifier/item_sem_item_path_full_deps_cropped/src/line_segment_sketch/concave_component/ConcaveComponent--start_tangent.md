@@ -1,13 +1,11 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`),
-        ItemPath(`mnist_classifier::geom2d::Vector2d`),
-        ItemPath(`core::slice::CyclicSlice(0)::first`),
-        ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
-        ItemPath(`core::num::f32`),
-        ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
-        ItemPath(`mnist_classifier::geom2d::Point2d`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`),
+    ItemPath(`mnist_classifier::geom2d::Vector2d`),
+    ItemPath(`core::slice::CyclicSlice(0)::first`),
+    ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+    ItemPath(`core::num::f32`),
+    ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
+    ItemPath(`mnist_classifier::geom2d::Point2d`),
+]
 ```

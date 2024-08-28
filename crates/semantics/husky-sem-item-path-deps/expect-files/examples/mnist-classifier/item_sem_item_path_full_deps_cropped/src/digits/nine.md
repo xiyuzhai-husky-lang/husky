@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::digits::nine`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::digits::nine`),
+]
 ```
