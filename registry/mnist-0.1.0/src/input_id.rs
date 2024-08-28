@@ -15,14 +15,14 @@ impl MnistInputId {
     }
 }
 
-impl From<__StaticVarId> for MnistInputId {
-    fn from(id: __StaticVarId) -> Self {
+impl From<__VarId> for MnistInputId {
+    fn from(id: __VarId) -> Self {
         Self::from_index(id.into())
     }
 }
 
-impl Into<__StaticVarId> for MnistInputId {
-    fn into(self) -> __StaticVarId {
+impl Into<__VarId> for MnistInputId {
+    fn into(self) -> __VarId {
         self.index().into()
     }
 }

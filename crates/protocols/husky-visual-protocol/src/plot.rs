@@ -22,7 +22,7 @@ impl Visual {
     pub fn plot_class(self, visual_synchrotron: &VisualSynchrotron) -> PlotClass {
         match self {
             Visual::Void => PlotClass::Void,
-            Visual::Image(_) => todo!(),
+            Visual::Image(_) => PlotClass::Graphics2D,
             Visual::Math(_) => todo!(),
             Visual::Mesh(_) => todo!(),
             Visual::Primitive(_) => todo!(),
@@ -30,7 +30,7 @@ impl Visual {
             Visual::Shape(_) => todo!(),
             Visual::Text(_) => todo!(),
             Visual::Video(_) => todo!(),
-            Visual::Group(_) => todo!(),
+            Visual::Group(visual) => todo!(),
         }
     }
 }

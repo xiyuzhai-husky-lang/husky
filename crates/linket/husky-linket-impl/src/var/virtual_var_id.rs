@@ -1,6 +1,6 @@
 use super::*;
 
 #[derive(Debug, Default, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
-pub struct VirtualStaticVarId;
+pub struct VirtualVarId;
 
-impl IsStaticVarId for () {}
+impl IsVarId for () {}

@@ -1,38 +1,29 @@
+use husky_standard_linket_impl::pedestal::StandardJointPedestal;
+
+use crate::chart::StandardChartDim1;
+
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct StandardFigureDim1 {
-    data: Vec<(StandardPedestal, StandardFigureDim0)>,
+    data: Vec<StandardFigureDim0>,
 }
 
 /// # constructor
 impl StandardFigureDim1 {
-    pub(crate) fn new(
-        followed_visual: Option<(TraceId, KiReprInterface)>,
-        accompanyings: &[(TraceId, KiReprInterface)],
-        joint_pedestals: impl Iterator<Item = StandardPedestal>,
-        mut f: impl FnMut(KiReprInterface, StandardPedestal, &mut VisualSynchrotron) -> Visual,
-        visual_synchrotron: &mut VisualSynchrotron,
+    pub(super) fn from_chart(
+        chart: StandardChartDim1<CompositeVisual<TraceId>>,
+        trace_plot_map: &TracePlotInfos,
+        visual_synchrotron: &VisualSynchrotron,
     ) -> Self {
-        todo!()
-        // StandardFigureDim1 {
-        //     data: joint_pedestals
-        //         .map(|pedestal| {
-        //             let specific_standard_figure = StandardFigureDim0::new(
-        //                 pedestal,
-        //                 followed_visual
-        //                     .map(|(trace_id, ki_repr_interface)| (trace_id, ki_repr_interface)),
-        //                 accompanyings,
-        //                 todo!(),
-        //                 |ki_repr_interface, visual_synchrotron| {
-        //                     f(ki_repr_interface, pedestal.clone(), visual_synchrotron)
-        //                 },
-        //                 visual_synchrotron,
-        //             );
-        //             (pedestal, specific_standard_figure)
-        //         })
-        //         .collect(),
-        // }
+        Self {
+            data: chart
+                .into_iter()
+                .map(|chart_dim0| {
+                    StandardFigureDim0::from_chart(chart_dim0, trace_plot_map, visual_synchrotron)
+                })
+                .collect(),
+        }
     }
 }
 
@@ -61,7 +52,7 @@ impl StandardFigureDim1 {
                         let index = i * num_columns + j;
                         if index < self.data.len() {
                             ui.allocate_ui(Vec2::splat(l), |ui| {
-                                self.data[index].1.ui(visual_synchrotron, cache, ui)
+                                self.data[index].ui(visual_synchrotron, cache, ui)
                             });
                         }
                     }

@@ -9,7 +9,7 @@ use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull};
 use husky_standard_linket_impl::pedestal::StandardPedestal;
-use husky_standard_linket_impl::static_var::StandardStaticVarId;
+use husky_standard_linket_impl::static_var::StandardVarId;
 use husky_trace_protocol::{
     chart::Chart,
     figure::{FigureUi, FigureUiCache, IsFigure},
@@ -54,7 +54,9 @@ impl IsFigure for StandardFigure {
             Chart::Dim0(chart) => {
                 StandardFigureDim0::from_chart(chart, trace_plot_map, visual_synchrotron).into()
             }
-            Chart::Dim1(chart) => todo!(),
+            Chart::Dim1(chart) => {
+                StandardFigureDim1::from_chart(chart, trace_plot_map, visual_synchrotron).into()
+            }
             Chart::Dim2(chart) => todo!(),
         }
     }

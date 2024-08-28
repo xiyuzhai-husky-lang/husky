@@ -1,19 +1,17 @@
 use super::*;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket_impl::pedestal::{IsPedestal, JointPedestal};
-use husky_linket_impl::static_var::IsStaticVar;
-use static_var::StandardStaticVarId;
+use husky_linket_impl::var::IsStaticVar;
+use static_var::StandardVarId;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
 #[derive(Debug, Default, Clone, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct StandardPedestal {
-    static_var_ids: OrderedSmallVecPairMap<ItemPathIdInterface, StandardStaticVarId, 2>,
+    static_var_ids: OrderedSmallVecPairMap<ItemPathIdInterface, StandardVarId, 2>,
 }
 
-impl FromIterator<(ItemPathIdInterface, StandardStaticVarId)> for StandardPedestal {
-    fn from_iter<T: IntoIterator<Item = (ItemPathIdInterface, StandardStaticVarId)>>(
-        iter: T,
-    ) -> Self {
+impl FromIterator<(ItemPathIdInterface, StandardVarId)> for StandardPedestal {
+    fn from_iter<T: IntoIterator<Item = (ItemPathIdInterface, StandardVarId)>>(iter: T) -> Self {
         Self {
             static_var_ids: iter.into_iter().collect(),
         }
@@ -21,9 +19,9 @@ impl FromIterator<(ItemPathIdInterface, StandardStaticVarId)> for StandardPedest
 }
 
 impl IsPedestal for StandardPedestal {
-    type StaticVarId = StandardStaticVarId;
+    type VarId = StandardVarId;
 
-    fn exclude<V: IsStaticVar<StandardStaticVarId>>(mut self) -> Self {
+    fn exclude<V: IsStaticVar<StandardVarId>>(mut self) -> Self {
         let _ = self.static_var_ids.remove(V::item_path_id_interface());
         self
     }
@@ -45,4 +43,4 @@ macro_rules! pedestal {
     }};
 }
 
-pub type StandardJointPedestal = JointPedestal<StandardStaticVarId>;
+pub type StandardJointPedestal = JointPedestal<StandardVarId>;

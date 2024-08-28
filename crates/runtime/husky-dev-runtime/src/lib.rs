@@ -13,7 +13,7 @@ pub use self::config::*;
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
 use husky_devsoul::{
     devsoul::IsDevsoul,
-    helpers::{DevsoulStaticVarId, DevsoulTrackedException, DevsoulValue},
+    helpers::{DevsoulTrackedException, DevsoulValue, DevsoulVarId},
 };
 use husky_devsoul::{
     devsoul::IsRuntimeStorage,
@@ -112,7 +112,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             .collect()
     }
 
-    fn get_static_var_id(&self, path: ItemPath) -> DevsoulStaticVarId<Devsoul> {
+    fn get_static_var_id(&self, path: ItemPath) -> DevsoulVarId<Devsoul> {
         let db = self.db();
         let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
             todo!()

@@ -10,7 +10,7 @@ impl FromIterator<(ItemPathIdInterface, ())> for VirtualPedestal {
 }
 
 impl IsPedestal for VirtualPedestal {
-    type StaticVarId = ();
+    type VarId = ();
 
     fn exclude<V: IsStaticVar<()>>(self) -> Self {
         Self

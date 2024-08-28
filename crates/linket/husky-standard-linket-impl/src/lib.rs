@@ -16,7 +16,7 @@ pub use husky_standard_value::{
 };
 
 use self::pedestal::StandardPedestal;
-use self::static_var::StandardStaticVarId;
+use self::static_var::StandardVarId;
 use self::StandardLinketImpl as LinketImpl;
 #[cfg(test)]
 use self::StandardLinketImpl as __LinketImpl;
@@ -31,7 +31,7 @@ use husky_linket_impl::{
     impl_is_fn_linket_impl_source, impl_is_unveil_fn_linket_impl_source,
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, VmArgumentValue},
     pedestal::{IsPedestal, IsPedestalFull},
-    static_var::StaticVarResult,
+    var::StaticVarResult,
     LinketImplVmControlFlow, *,
 };
 use husky_standard_value::exception::Exception;
@@ -48,7 +48,7 @@ pub type StandardTrackedExceptedValue =
 pub type StandardKiControlFlow<C = Value, B = Value> =
     KiControlFlow<C, B, StandardTrackedException>;
 
-pub type StandardStaticVarResult<T> = StaticVarResult<StandardStaticVarId, T>;
+pub type StandardStaticVarResult<T> = StaticVarResult<StandardVarId, T>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinketImpl {
@@ -103,14 +103,15 @@ pub enum StandardLinketImpl {
     },
     StaticVar {
         init_item_path_id_interface: fn(ItemPathIdInterface),
-        get_id: fn() -> StandardStaticVarId,
+        get_id: fn() -> StandardVarId,
         ids: for<'db> fn(
             &'db [ItemPathIdInterface],
-        ) -> Box<dyn Iterator<Item = StandardStaticVarId> + 'db>,
+        ) -> Box<dyn Iterator<Item = StandardVarId> + 'db>,
         try_replace_id: unsafe fn(
-            StandardStaticVarId,
+            StandardVarId,
             locked: &[ItemPathIdInterface],
         ) -> StandardStaticVarResult<Box<dyn FnOnce() + 'static>>,
+        get_value: fn() -> Value,
     },
     // todo: memo
 }
@@ -161,7 +162,7 @@ impl IsLinketImpl for StandardLinketImpl {
                 let owner = ctx.eval_ki_repr_interface(owner)?;
                 StandardKiControlFlow::Continue(struct_field_wrapper(owner))
             }
-            StandardLinketImpl::StaticVar { .. } => todo!(),
+            StandardLinketImpl::StaticVar { get_value, .. } => KiControlFlow::Continue(get_value()),
             StandardLinketImpl::Val { ki_wrapper, .. } => {
                 debug_assert!(ki_argument_reprs.is_empty());
                 ki_wrapper()
@@ -222,7 +223,7 @@ impl IsLinketImpl for StandardLinketImpl {
         }
     }
 
-    fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::StaticVarId {
+    fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::VarId {
         let StandardLinketImpl::StaticVar { get_id, .. } = self else {
             unreachable!()
         };
@@ -231,10 +232,10 @@ impl IsLinketImpl for StandardLinketImpl {
 
     fn with_static_var_id<R>(
         self,
-        static_var_id: <Self::Pedestal as IsPedestal>::StaticVarId,
+        static_var_id: <Self::Pedestal as IsPedestal>::VarId,
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
-    ) -> StaticVarResult<<Self::Pedestal as IsPedestal>::StaticVarId, R> {
+    ) -> StaticVarResult<<Self::Pedestal as IsPedestal>::VarId, R> {
         let StandardLinketImpl::StaticVar {
             get_id,
             try_replace_id,
@@ -254,7 +255,7 @@ impl IsLinketImpl for StandardLinketImpl {
     fn all_static_var_ids<'db>(
         self,
         locked: &'db [ItemPathIdInterface],
-    ) -> Box<dyn Iterator<Item = StandardStaticVarId> + 'db> {
+    ) -> Box<dyn Iterator<Item = StandardVarId> + 'db> {
         let StandardLinketImpl::StaticVar { ids, .. } = self else {
             unreachable!()
         };

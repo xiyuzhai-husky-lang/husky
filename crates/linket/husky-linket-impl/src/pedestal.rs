@@ -1,6 +1,6 @@
 pub mod virtual_pedestal;
 
-use crate::static_var::{IsStaticVar, IsStaticVarId, IsStaticVarIdFull};
+use crate::var::{IsStaticVar, IsVarId, IsVarIdFull};
 use crate::ItemPathIdInterface;
 use serde::{Deserialize, Serialize};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
@@ -18,11 +18,11 @@ pub trait IsPedestal:
     + Sync
     + std::hash::Hash
     + 'static
-    + FromIterator<(ItemPathIdInterface, Self::StaticVarId)>
+    + FromIterator<(ItemPathIdInterface, Self::VarId)>
 {
-    type StaticVarId: IsStaticVarIdFull;
+    type VarId: IsVarIdFull;
 
-    fn exclude<V: IsStaticVar<Self::StaticVarId>>(self) -> Self;
+    fn exclude<V: IsStaticVar<Self::VarId>>(self) -> Self;
 
     /// a closed point in algebraic geometry is a minimal prime point locally
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool;
@@ -36,24 +36,24 @@ impl<T> IsPedestalFull for T where T: IsPedestal + Serialize + for<'a> Deseriali
 ///
 /// as it's used only in the debugger end.
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
-pub struct JointPedestal<StaticVarId: IsStaticVarId> {
-    data: OrderedSmallVecPairMap<ItemPathIdInterface, StaticVarId, 4>,
+pub struct JointPedestal<VarId: IsVarId> {
+    data: OrderedSmallVecPairMap<ItemPathIdInterface, VarId, 4>,
 }
 
-impl<StaticVarId: IsStaticVarId> JointPedestal<StaticVarId> {
-    pub fn new(data: OrderedSmallVecPairMap<ItemPathIdInterface, StaticVarId, 4>) -> Self {
+impl<VarId: IsVarId> JointPedestal<VarId> {
+    pub fn new(data: OrderedSmallVecPairMap<ItemPathIdInterface, VarId, 4>) -> Self {
         Self { data }
     }
 }
 
-impl<StaticVarId: IsStaticVarId> JointPedestal<StaticVarId> {
+impl<VarId: IsVarId> JointPedestal<VarId> {
     /// # Panics
     ///
     /// Panics if the `var_deps` is not fully covered
     ///
     pub fn pedestal<Pedestal>(&self, var_deps: &[ItemPathIdInterface]) -> Pedestal
     where
-        Pedestal: IsPedestal<StaticVarId = StaticVarId>,
+        Pedestal: IsPedestal<VarId = VarId>,
     {
         var_deps.iter().map(|&dep| self.data[dep]).collect()
     }

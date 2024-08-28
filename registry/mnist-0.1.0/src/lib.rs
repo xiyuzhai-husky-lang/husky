@@ -120,17 +120,17 @@ pub fn INPUT() -> Leash<BinaryImage28> {
 
 pub struct INPUT {}
 
-impl __IsStaticVar<__StaticVarId> for INPUT {
+impl __IsStaticVar<__VarId> for INPUT {
     fn item_path_id_interface() -> __ItemPathIdInterface {
         unsafe { __INPUT__ITEM_PATH_ID_INTERFACE.expect("__INPUT__ITEM_PATH_ID_INTERFACE") }
     }
 
-    fn get_id() -> __StaticVarId {
+    fn get_id() -> __VarId {
         input_id().index().into()
     }
 
     unsafe fn try_replace_id_aux(
-        id: __StaticVarId,
+        id: __VarId,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<impl FnOnce() + 'static> {
         let old = replace_input_id(id.into());
@@ -139,9 +139,15 @@ impl __IsStaticVar<__StaticVarId> for INPUT {
         })
     }
 
-    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
         assert!(!locked.contains(unsafe { __INPUT__ITEM_PATH_ID_INTERFACE }.as_ref().unwrap()));
         input_ids().map(Into::into)
+    }
+
+    type Value = __Value;
+
+    fn get_value() -> Self::Value {
+        INPUT().into_value()
     }
 }
 
@@ -154,24 +160,30 @@ pub fn TASK() {}
 
 pub struct TASK {}
 
-impl __IsStaticVar<__StaticVarId> for TASK {
+impl __IsStaticVar<__VarId> for TASK {
     fn item_path_id_interface() -> __ItemPathIdInterface {
         todo!()
     }
 
-    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __StaticVarId> {
+    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
         // ad hoc
         [].into_iter()
     }
 
-    fn get_id() -> __StaticVarId {
+    fn get_id() -> __VarId {
         todo!()
     }
 
     unsafe fn try_replace_id_aux(
-        id: __StaticVarId,
+        id: __VarId,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<Box<dyn FnOnce()>> {
+        todo!()
+    }
+
+    type Value = __Value;
+
+    fn get_value() -> Self::Value {
         todo!()
     }
 }
