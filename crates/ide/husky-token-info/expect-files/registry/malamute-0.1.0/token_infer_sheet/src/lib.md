@@ -2559,7 +2559,7 @@ Ok(
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                 ident_token: IdentRegionalToken {
-                                    ident: `label`,
+                                    ident: `LABEL`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -2790,7 +2790,7 @@ Ok(
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                 ident_token: IdentRegionalToken {
-                                    ident: `label`,
+                                    ident: `LABEL`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -2899,7 +2899,7 @@ Ok(
                         current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterVariableKind::Constant {
                                 ident_token: IdentRegionalToken {
-                                    ident: `label`,
+                                    ident: `LABEL`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
@@ -3138,7 +3138,7 @@ Ok(
                         inherited_variable_idx: 1,
                         inherited_variable_kind: InheritedVariableKind::Template(
                             InheritedTemplateVariable::Constant {
-                                ident: `label`,
+                                ident: `LABEL`,
                             },
                         ),
                         syn_expr_region: ExprRegionLeash(_),
