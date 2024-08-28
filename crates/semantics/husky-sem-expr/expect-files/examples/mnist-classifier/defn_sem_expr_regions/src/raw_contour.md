@@ -53014,8 +53014,8 @@
                         },
                         SemExprEntry {
                             data_result: Ok(
-                                SemExprData::EmptyHtmlTag {
-                                    empty_html_bra_idx: RegionalTokenIdx(
+                                SemExprData::EmptyHtmxTag {
+                                    empty_htmx_bra_idx: RegionalTokenIdx(
                                         1,
                                     ),
                                     function_ident: IdentRegionalToken {
@@ -53058,7 +53058,7 @@
                                             ),
                                         },
                                     ],
-                                    empty_html_ket: EmptyHtmlKetRegionalToken(
+                                    empty_htmx_ket: EmptyHtmxKetRegionalToken(
                                         RegionalTokenIdx(
                                             10,
                                         ),

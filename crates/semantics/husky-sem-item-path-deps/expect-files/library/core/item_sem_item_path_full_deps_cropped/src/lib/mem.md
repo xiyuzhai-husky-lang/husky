@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::mem`),
-    ],
-)
+[
+    ItemPath(`core::mem`),
+]
 ```

@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::result::Result::Ok`),
-    ],
-)
+[
+    ItemPath(`core::result::Result::Ok`),
+]
 ```

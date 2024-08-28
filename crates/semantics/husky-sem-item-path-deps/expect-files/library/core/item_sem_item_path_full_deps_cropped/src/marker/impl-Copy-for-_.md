@@ -1,8 +1,6 @@
 ```rust
-Some(
-    [
-        ItemPath(`#derive _ as core::marker::Copy(0)`),
-        ItemPath(`core::marker::Copy`),
-    ],
-)
+[
+    ItemPath(`#derive _ as core::marker::Copy(0)`),
+    ItemPath(`core::marker::Copy`),
+]
 ```

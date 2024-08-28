@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
-    ],
-)
+[
+    ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
+]
 ```

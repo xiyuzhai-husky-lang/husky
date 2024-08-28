@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::fermi`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::fermi`),
+]
 ```

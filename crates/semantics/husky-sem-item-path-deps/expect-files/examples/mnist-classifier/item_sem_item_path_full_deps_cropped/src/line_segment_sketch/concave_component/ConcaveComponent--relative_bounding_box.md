@@ -1,13 +1,11 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
-        ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox`),
-        ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`),
-        ItemPath(`mnist_classifier::geom2d::ClosedRange`),
-        ItemPath(`mnist_classifier::geom2d::BoundingBox`),
-        ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
-        ItemPath(`core::num::f32`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`),
+    ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox`),
+    ItemPath(`mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`),
+    ItemPath(`mnist_classifier::geom2d::ClosedRange`),
+    ItemPath(`mnist_classifier::geom2d::BoundingBox`),
+    ItemPath(`mnist_classifier::geom2d::ClosedRange(0)::relative_range`),
+    ItemPath(`core::num::f32`),
+]
 ```

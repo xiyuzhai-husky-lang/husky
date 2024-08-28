@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::mem::Leash`),
-    ],
-)
+[
+    ItemPath(`core::mem::Leash`),
+]
 ```

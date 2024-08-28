@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`std::prelude`),
-    ],
-)
+[
+    ItemPath(`std::prelude`),
+]
 ```

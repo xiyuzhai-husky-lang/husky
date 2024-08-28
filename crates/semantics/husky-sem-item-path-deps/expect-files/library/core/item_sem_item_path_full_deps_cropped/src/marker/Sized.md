@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::marker::Sized`),
-    ],
-)
+[
+    ItemPath(`core::marker::Sized`),
+]
 ```

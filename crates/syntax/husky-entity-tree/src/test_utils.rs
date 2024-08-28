@@ -1,22 +1,25 @@
 use crate::{
     helpers::paths::module_item_syn_node_paths,
     node::{
-        assoc_item::AssocItemSynNodePath, impl_block::ImplBlockSynNodePath, ItemSynNodePath,
-        ItemSynNodePathId,
+        assoc_item::AssocItemSynNodePath, impl_block::ImplBlockSynNodePath, HasSynNodePath,
+        ItemSynNodePath, ItemSynNodePathId,
     },
     region_path::SynNodeRegionPath,
+    Jar,
 };
-use husky_entity_path::path::impl_block::TypeSketch;
+use husky_entity_path::path::{
+    impl_block::TypeSketch, major_item::ty::TypePath, ItemPath, ItemPathId,
+};
 use husky_path_utils::{Path, PathBuf};
 use husky_vfs::{
-    path::{crate_path::CratePath, module_path::ModulePath},
+    path::{crate_path::CratePath, module_path::ModulePath, package_path::PackagePath},
     test_utils::*,
 };
 
-impl IsVfsTestUnit for ItemSynNodePath {
+impl IsVfsTestUnit<Jar> for ItemSynNodePath {
     fn collect_from_package_path_aux(
         db: &salsa::Db,
-        package_path: husky_vfs::path::package_path::PackagePath,
+        package_path: PackagePath,
     ) -> impl Iterator<Item = Self> {
         ModulePath::collect_from_package_path_aux(db, package_path)
             .into_iter()
@@ -57,10 +60,10 @@ impl IsVfsTestUnit for ItemSynNodePath {
     }
 }
 
-impl IsVfsTestUnit for SynNodeRegionPath {
+impl IsVfsTestUnit<Jar> for SynNodeRegionPath {
     fn collect_from_package_path_aux(
         db: &salsa::Db,
-        package_path: husky_vfs::path::package_path::PackagePath,
+        package_path: PackagePath,
     ) -> impl Iterator<Item = Self> {
         CratePath::collect_from_package_path_aux(db, package_path)
             .map(|crate_path| SynNodeRegionPath::CrateDecl(crate_path))
@@ -129,6 +132,118 @@ impl IsVfsTestUnit for SynNodeRegionPath {
                     )),
             ),
         }
+    }
+
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
+        None
+    }
+}
+
+impl IsVfsTestUnit<Jar> for ItemPath {
+    fn collect_from_package_path_aux(
+        db: &salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
+        ItemSynNodePath::collect_from_package_path_aux(db, package_path)
+            .filter_map(|item_syn_node_path| item_syn_node_path.unambiguous_item_path(db))
+    }
+
+    fn determine_expect_file_path(
+        self,
+        db: &salsa::Db,
+        package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> PathBuf {
+        self.syn_node_path(db)
+            .determine_expect_file_path(db, package_expect_files_dir, config)
+    }
+
+    fn determine_adversarial_path(
+        self,
+        db: &salsa::Db,
+        adversarial_kind: AdversarialKind,
+        package_adversarials_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> Option<PathBuf> {
+        self.syn_node_path(db).determine_adversarial_path(
+            db,
+            adversarial_kind,
+            package_adversarials_dir,
+            config,
+        )
+    }
+
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
+        None
+    }
+}
+
+impl IsVfsTestUnit<Jar> for ItemPathId {
+    fn collect_from_package_path_aux(
+        db: &salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
+        ItemPath::collect_from_package_path_aux(db, package_path).map(|item_path| *item_path)
+    }
+
+    fn determine_expect_file_path(
+        self,
+        db: &salsa::Db,
+        package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> PathBuf {
+        self.item_path(db)
+            .determine_expect_file_path(db, package_expect_files_dir, config)
+    }
+
+    fn determine_adversarial_path(
+        self,
+        db: &salsa::Db,
+        adversarial_kind: AdversarialKind,
+        package_adversarials_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> Option<PathBuf> {
+        self.item_path(db).determine_adversarial_path(
+            db,
+            adversarial_kind,
+            package_adversarials_dir,
+            config,
+        )
+    }
+
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
+        None
+    }
+}
+
+impl IsVfsTestUnit<Jar> for TypePath {
+    fn collect_from_package_path_aux(
+        db: &salsa::Db,
+        package_path: PackagePath,
+    ) -> impl Iterator<Item = Self> {
+        ItemPath::collect_from_package_path_aux(db, package_path)
+            .filter_map(|item_path| item_path.ty_path())
+    }
+
+    fn determine_expect_file_path(
+        self,
+        db: &salsa::Db,
+        package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> PathBuf {
+        let slf: ItemPath = self.into();
+        slf.determine_expect_file_path(db, package_expect_files_dir, config)
+    }
+
+    fn determine_adversarial_path(
+        self,
+        db: &salsa::Db,
+        adversarial_kind: AdversarialKind,
+        package_adversarials_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> Option<PathBuf> {
+        let slf: ItemPath = self.into();
+        slf.determine_adversarial_path(db, adversarial_kind, package_adversarials_dir, config)
     }
 
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {

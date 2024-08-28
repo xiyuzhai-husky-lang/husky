@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::cmp::Eq`),
-    ],
-)
+[
+    ItemPath(`core::cmp::Eq`),
+]
 ```

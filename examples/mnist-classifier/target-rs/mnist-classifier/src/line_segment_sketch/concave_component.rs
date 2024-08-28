@@ -48,7 +48,7 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
 
 #[rustfmt::skip]
 impl Visualize for crate::line_segment_sketch::concave_component::ConcaveComponent {
-    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> husky_core::visual::Visual {
+    fn visualize(&self, __visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
         self.strokes.deleash().visualize(__visual_synchrotron)
     }
 }

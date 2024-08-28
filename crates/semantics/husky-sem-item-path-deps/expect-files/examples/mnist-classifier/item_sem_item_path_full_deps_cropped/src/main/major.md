@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::major`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::major`),
+]
 ```

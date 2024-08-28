@@ -23,12 +23,22 @@ use husky_vfs::{
     script::Script,
     toolchain::Toolchain,
 };
-use salsa::DisplayWithDb;
+use salsa::{DebugWithDb, DisplayWithDb};
 
 /// doesn't support DebugWithDb by design
 #[salsa::interned(override_debug)]
 pub struct ItemPathId {
     pub data: ItemPathData,
+}
+
+impl DebugWithDb for ItemPathId {
+    fn debug_fmt_with_db(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &salsa::Db,
+    ) -> std::fmt::Result {
+        self.item_path(db).debug_fmt_with_db(f, db)
+    }
 }
 
 impl From<ItemPathIdInterface> for ItemPathId {

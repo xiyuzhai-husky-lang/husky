@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::default::Default::default`),
-    ],
-)
+[
+    ItemPath(`core::default::Default::default`),
+]
 ```

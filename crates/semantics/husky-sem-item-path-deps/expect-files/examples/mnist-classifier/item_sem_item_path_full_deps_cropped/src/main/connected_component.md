@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`mnist_classifier::connected_component`),
-    ],
-)
+[
+    ItemPath(`mnist_classifier::connected_component`),
+]
 ```

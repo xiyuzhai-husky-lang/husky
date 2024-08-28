@@ -1,11 +1,9 @@
 ```rust
-Some(
-    SemVarDeps(
-        [
-            SemVarDep::Item(
-                ItemPath(`mnist::INPUT`),
-            ),
-        ],
-    ),
+SemVarDeps(
+    [
+        SemVarDep::Item(
+            ItemPath(`mnist::INPUT`),
+        ),
+    ],
 )
 ```

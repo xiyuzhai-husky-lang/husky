@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`ml_task::IsMlTask::Input`),
-    ],
-)
+[
+    ItemPath(`ml_task::IsMlTask::Input`),
+]
 ```

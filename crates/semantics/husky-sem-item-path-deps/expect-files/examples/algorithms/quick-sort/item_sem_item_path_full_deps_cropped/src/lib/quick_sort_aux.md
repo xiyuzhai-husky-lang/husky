@@ -1,12 +1,10 @@
 ```rust
-Some(
-    [
-        ItemPath(`quick_sort::quick_sort_aux`),
-        ItemPath(`core::cmp::Ord`),
-        ItemPath(`core::num::isize`),
-        ItemPath(`quick_sort::partition`),
-        ItemPath(`core::num::usize`),
-        ItemPath(`core::slice::Slice(0)::swap`),
-    ],
-)
+[
+    ItemPath(`quick_sort::quick_sort_aux`),
+    ItemPath(`core::cmp::Ord`),
+    ItemPath(`core::num::isize`),
+    ItemPath(`quick_sort::partition`),
+    ItemPath(`core::num::usize`),
+    ItemPath(`core::slice::Slice(0)::swap`),
+]
 ```

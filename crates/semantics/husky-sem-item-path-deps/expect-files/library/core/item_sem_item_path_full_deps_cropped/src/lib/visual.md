@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::visual`),
-    ],
-)
+[
+    ItemPath(`core::visual`),
+]
 ```

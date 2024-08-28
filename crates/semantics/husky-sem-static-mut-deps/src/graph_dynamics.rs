@@ -176,22 +176,16 @@ fn item_sem_static_mut_deps_cycle_group_final_values(
 
 pub fn item_sem_static_mut_deps<'db>(
     db: &'db ::salsa::Db,
-    item_path_id: ItemPathId,
+    item_path: ItemPath,
 ) -> &'db SemStaticMutDeps {
     let ctx = SemStaticMutDepsGraphDynamicsContext { db };
-    ctx.final_value(item_path_id.item_path(db)).unwrap()
+    ctx.final_value(item_path).unwrap()
 }
 
 #[test]
 fn item_sem_static_mut_deps_works() {
-    use husky_entity_tree::node::ItemSynNodePath;
-
     DB::ast_rich_test_debug_with_db(
-        |db, item_syn_node_path: ItemSynNodePath| {
-            item_syn_node_path
-                .unambiguous_item_path(db)
-                .map(|item_path| item_sem_static_mut_deps(db, *item_path))
-        },
+        item_sem_static_mut_deps,
         &AstTestConfig::new(
             "item_sem_static_mut_deps",
             FileExtensionConfig::Markdown,

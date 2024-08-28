@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::raw_bits`),
-    ],
-)
+[
+    ItemPath(`core::raw_bits`),
+]
 ```

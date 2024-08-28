@@ -1,7 +1,5 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::frontend::NlpFrontend`),
-    ],
-)
+[
+    ItemPath(`core::frontend::NlpFrontend`),
+]
 ```

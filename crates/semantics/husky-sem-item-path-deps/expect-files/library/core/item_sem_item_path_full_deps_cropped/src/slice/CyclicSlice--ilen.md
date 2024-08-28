@@ -1,8 +1,6 @@
 ```rust
-Some(
-    [
-        ItemPath(`core::slice::CyclicSlice(0)::ilen`),
-        ItemPath(`core::num::i32`),
-    ],
-)
+[
+    ItemPath(`core::slice::CyclicSlice(0)::ilen`),
+    ItemPath(`core::num::i32`),
+]
 ```
