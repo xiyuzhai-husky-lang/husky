@@ -10,9 +10,11 @@ pub enum SemExprHtmxError {
 
 pub type SemExprHtmxResult<T> = Result<T, SemExprHtmxError>;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum OriginalSemExprHtmxError {}
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedSemExprHtmxError {
     #[error("plot class not infered")]

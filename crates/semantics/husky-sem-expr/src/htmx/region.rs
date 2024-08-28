@@ -1,12 +1,16 @@
 use self::term::PlotClassTerm;
 use super::{error::DerivedSemExprHtmxError, *};
-use husky_entity_path::path::major_item::ty::PreludeTypePath;
+use helpers::region::sem_expr_region_from_region_path;
+use husky_entity_path::{path::major_item::ty::PreludeTypePath, region::RegionPath};
 use husky_eth_term::term::EthTerm;
 use husky_term_prelude::ItemPathTerm;
 use husky_visual_protocol::plot::PlotClass;
+use path::ItemPath;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemExprHtmxRegion {
+    path: RegionPath,
     plot_class_term: SemExprHtmxResult<PlotClassTerm>,
     // ad hoc
     errors: Vec<()>,
@@ -24,9 +28,10 @@ pub fn sem_expr_htmx_region(
 }
 
 struct SemExprHtmxRegionBuilder<'db> {
-    pub(crate) db: &'db ::salsa::Db,
-    pub(crate) plot_class_term: Option<PlotClassTerm>,
-    pub(crate) errors: Vec<()>,
+    db: &'db ::salsa::Db,
+    sem_expr_region_data: &'db SemExprRegionData,
+    plot_class_term: Option<PlotClassTerm>,
+    errors: Vec<()>,
 }
 
 impl<'db> SemExprHtmxRegionBuilder<'db> {
@@ -42,6 +47,7 @@ impl<'db> SemExprHtmxRegionBuilder<'db> {
         }
         Some(Self {
             db,
+            sem_expr_region_data,
             plot_class_term: None,
             errors: vec![],
         })
@@ -63,10 +69,27 @@ impl<'db> SemExprHtmxRegionBuilder<'db> {
 
     fn finish(self) -> SemExprHtmxRegion {
         SemExprHtmxRegion {
+            path: self.sem_expr_region_data.path(),
             plot_class_term: self
                 .plot_class_term
                 .ok_or(DerivedSemExprHtmxError::PlotClassNotInferred.into()),
             errors: self.errors,
         }
     }
+}
+
+#[test]
+fn sem_expr_htmx_region_works() {
+    DB::ast_rich_test_debug_with_db(
+        |db, item_path: ItemPath| {
+            let sem_expr_region =
+                sem_expr_region_from_region_path(RegionPath::ItemDefn(item_path), db)?;
+            sem_expr_htmx_region(db, sem_expr_region).as_ref()
+        },
+        &AstTestConfig::new(
+            "sem_expr_htmx_region",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SEMANTICS,
+        ),
+    )
 }
