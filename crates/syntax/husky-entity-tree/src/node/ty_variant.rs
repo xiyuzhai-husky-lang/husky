@@ -179,7 +179,7 @@ pub(crate) fn ty_variant_syn_nodes(
     };
     ast_sheet
         .indexed_iter(variants.ast_idx_range())
-        .map(|(ast_idx, variant_ast)| match variant_ast {
+        .filter_map(|(ast_idx, variant_ast)| match variant_ast {
             AstData::TypeVariant {
                 variant_path,
                 ident_token,
@@ -194,8 +194,9 @@ pub(crate) fn ty_variant_syn_nodes(
                     ast_idx,
                     *ident_token,
                 );
-                (ident, syn_node_path, node)
+                Some((ident, syn_node_path, node))
             }
+            AstData::Err { .. } => None,
             _ => unreachable!(),
         })
         .collect()
