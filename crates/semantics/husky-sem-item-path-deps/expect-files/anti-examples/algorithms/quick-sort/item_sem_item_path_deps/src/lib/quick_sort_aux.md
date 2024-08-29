@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::cmp::Ord`),
+            ItemPath(`core::num::isize`),
+            ItemPath(`quick_sort::partition`),
+        ],
+    ),
+)
+```

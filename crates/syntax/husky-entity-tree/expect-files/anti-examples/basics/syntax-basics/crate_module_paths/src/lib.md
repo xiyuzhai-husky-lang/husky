@@ -1,0 +1,13 @@
+```rust
+[
+    ModulePath(`syntax_basics`),
+    ModulePath(`syntax_basics::ast`),
+    ModulePath(`syntax_basics::ast::submodule_name`),
+    ModulePath(`syntax_basics::uses`),
+    ModulePath(`syntax_basics::defn`),
+    ModulePath(`syntax_basics::defn::major_item`),
+    ModulePath(`syntax_basics::defn::major_item::ty`),
+    ModulePath(`syntax_basics::defn::major_item::ty::enum_ty`),
+    ModulePath(`syntax_basics::expr`),
+]
+```

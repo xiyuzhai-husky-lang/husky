@@ -1,0 +1,12 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
+            ItemPath(`mnist_classifier::fermi::fermi_match`),
+            ItemPath(`mnist_classifier::major::major_concave_components`),
+            ItemPath(`mnist_classifier::digits::nine::big_cc`),
+        ],
+    ),
+)
+```

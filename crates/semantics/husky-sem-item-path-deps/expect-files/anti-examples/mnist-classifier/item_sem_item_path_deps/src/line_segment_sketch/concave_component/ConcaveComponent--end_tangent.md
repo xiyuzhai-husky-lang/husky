@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::geom2d::Vector2d`),
+            ItemPath(`core::slice::CyclicSlice(0)::last`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+        ],
+    ),
+)
+```

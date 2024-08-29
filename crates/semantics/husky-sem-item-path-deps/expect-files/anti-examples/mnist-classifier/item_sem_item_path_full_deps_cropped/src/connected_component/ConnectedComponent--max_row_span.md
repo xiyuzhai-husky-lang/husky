@@ -1,0 +1,9 @@
+```rust
+[
+    ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`),
+    ItemPath(`core::num::f32`),
+    ItemPath(`core::num::i32`),
+    ItemPath(`core::raw_bits::r32(0)::span`),
+    ItemPath(`core::num::i32(0)::max`),
+]
+```

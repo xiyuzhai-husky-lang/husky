@@ -1,0 +1,13 @@
+```rust
+Some(
+    [
+        "Ord",
+        "[:]",
+        "T",
+        "[:]T",
+        "isize",
+        "isize",
+        "isize",
+    ],
+)
+```

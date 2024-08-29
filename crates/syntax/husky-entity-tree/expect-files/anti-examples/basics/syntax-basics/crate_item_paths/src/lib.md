@@ -1,0 +1,21 @@
+```rust
+[
+    ItemPath(`syntax_basics::ast`),
+    ItemPath(`syntax_basics::uses`),
+    ItemPath(`syntax_basics::defn`),
+    ItemPath(`syntax_basics::expr`),
+    ItemPath(`syntax_basics::ast::submodule_name`),
+    ItemPath(`syntax_basics::defn::major_item`),
+    ItemPath(`syntax_basics::defn::major_item::ty`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
+    ItemPath(`syntax_basics::expr::nested`),
+    ItemPath(`syntax_basics::expr::closure_inline`),
+    ItemPath(`syntax_basics::expr::closure_nested`),
+]
+```

@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::num::i32`),
+            ItemPath(`mnist_classifier::geom2d::Point2d`),
+            ItemPath(`core::num::f32`),
+        ],
+    ),
+)
+```

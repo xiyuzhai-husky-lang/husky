@@ -1,0 +1,20 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`malamute::OneVsAll`),
+            ItemPath(`mnist::MnistLabel`),
+            ItemPath(`mnist::MnistLabel::Two`),
+            ItemPath(`mnist_classifier::major::major_concave_components`),
+            ItemPath(`core::vec::Vec(0)::ilen`),
+            ItemPath(`mnist_classifier::major::major_connected_component`),
+            ItemPath(`mnist_classifier::digits::two::two_match`),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::angle`),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`),
+            ItemPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`),
+            ItemPath(`malamute::OneVsAll::Yes`),
+        ],
+    ),
+)
+```

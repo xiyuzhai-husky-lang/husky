@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        "self",
+        "self.mask",
+        "self.mask.visualize()",
+        "self.mask.visualize()",
+        "self.mask.visualize()",
+    ],
+)
+```

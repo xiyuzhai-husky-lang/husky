@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::num::f32`),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+        ],
+    ),
+)
+```

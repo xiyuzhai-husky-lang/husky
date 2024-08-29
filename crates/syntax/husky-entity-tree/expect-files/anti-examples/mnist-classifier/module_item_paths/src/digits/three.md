@@ -1,0 +1,9 @@
+```rust
+[
+    ItemPath(`mnist_classifier::digits::three::three_fermi_match`),
+    ItemPath(`mnist_classifier::digits::three::is_three`),
+    ItemPath(`mnist_classifier::digits::three::uparc`),
+    ItemPath(`mnist_classifier::digits::three::downarc`),
+    ItemPath(`mnist_classifier::digits::three::back`),
+]
+```

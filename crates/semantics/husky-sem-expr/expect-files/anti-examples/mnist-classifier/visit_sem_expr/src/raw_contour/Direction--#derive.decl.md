@@ -1,0 +1,10 @@
+```rust
+Some(
+    [
+        "Clone",
+        "Copy",
+        "PartialEq",
+        "Eq",
+    ],
+)
+```

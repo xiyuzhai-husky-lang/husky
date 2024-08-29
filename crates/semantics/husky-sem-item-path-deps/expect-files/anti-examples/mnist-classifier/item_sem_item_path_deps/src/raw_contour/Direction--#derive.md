@@ -1,0 +1,12 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::clone::Clone`),
+            ItemPath(`core::marker::Copy`),
+            ItemPath(`core::cmp::PartialEq`),
+            ItemPath(`core::cmp::Eq`),
+        ],
+    ),
+)
+```
