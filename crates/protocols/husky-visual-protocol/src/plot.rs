@@ -16,6 +16,15 @@ impl PlotClass {
             _ => PlotClass::Any,
         }
     }
+
+    fn group(self) -> PlotClass {
+        match self {
+            PlotClass::Void => PlotClass::Void,
+            PlotClass::Graphics2D => PlotClass::Graphics2D,
+            PlotClass::Graphics3D => PlotClass::Graphics3D,
+            PlotClass::Any => PlotClass::Any,
+        }
+    }
 }
 
 impl Visual {
@@ -27,10 +36,16 @@ impl Visual {
             Visual::Mesh(_) => todo!(),
             Visual::Primitive(_) => todo!(),
             Visual::RichText(_) => todo!(),
-            Visual::Shape(_) => todo!(),
+            Visual::Shape(_) => PlotClass::Graphics2D,
             Visual::Text(_) => todo!(),
             Visual::Video(_) => todo!(),
-            Visual::Group(visual) => todo!(),
+            Visual::Group(visual) => {
+                let mut plot_class = PlotClass::Void;
+                for &elem in visual.elements(visual_synchrotron) {
+                    plot_class.merge(elem.plot_class(visual_synchrotron).group())
+                }
+                plot_class
+            }
         }
     }
 }
