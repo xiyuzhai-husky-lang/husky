@@ -28,6 +28,7 @@ impl StandardFigureDim1 {
 }
 
 /// # ui
+#[cfg(feature = "egui")]
 impl StandardFigureDim1 {
     pub(super) fn ui(
         &self,
