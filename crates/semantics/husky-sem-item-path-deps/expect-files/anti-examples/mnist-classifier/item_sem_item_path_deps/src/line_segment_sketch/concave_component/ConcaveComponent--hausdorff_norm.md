@@ -1,0 +1,16 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`core::num::f32`),
+            ItemPath(`core::slice::CyclicSlice(0)::first`),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+            ItemPath(`core::slice::CyclicSlice(0)::start`),
+            ItemPath(`core::slice::CyclicSlice(0)::end`),
+            ItemPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`),
+        ],
+    ),
+)
+```

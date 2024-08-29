@@ -1,0 +1,10 @@
+```rust
+[
+    ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
+    ItemPath(`core::num::f32`),
+    ItemPath(`core::vec::Vec(0)::ilen`),
+    ItemPath(`core::num::f32(0)::abs`),
+    ItemPath(`core::num::f32(0)::max`),
+    ItemPath(`core::num::i32`),
+]
+```

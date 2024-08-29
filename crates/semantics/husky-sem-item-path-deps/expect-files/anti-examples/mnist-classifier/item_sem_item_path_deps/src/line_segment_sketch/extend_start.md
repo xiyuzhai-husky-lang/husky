@@ -1,0 +1,18 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`core::num::i32`),
+            ItemPath(`core::num::f32`),
+            ItemPath(`mnist_classifier::raw_contour::RawContour(0)::displacement`),
+            ItemPath(`core::vec::Vec(0)::ilen`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
+            ItemPath(`core::num::i32(0)::min`),
+            ItemPath(`mnist_classifier::line_segment_sketch::go_right`),
+            ItemPath(`mnist_classifier::line_segment_sketch::go_left`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`),
+        ],
+    ),
+)
+```

@@ -1,0 +1,28 @@
+```rust
+[
+    (
+        ItemPath(`syntax_basics::ast`),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath(`syntax_basics::uses`),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath(`syntax_basics::defn`),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath(`syntax_basics::expr`),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+]
+```
