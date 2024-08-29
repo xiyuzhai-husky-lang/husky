@@ -16,10 +16,11 @@ fn fn_linket_impl_works() {
             todo!()
         }
 
-        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+        unsafe fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
-        fn unset_dev_eval_context() {
+
+        unsafe fn unset_dev_eval_context() {
             todo!()
         }
     }
@@ -42,10 +43,11 @@ fn unveil_fn_linket_impl_works() {
             todo!()
         }
 
-        fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
+        unsafe fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
             todo!()
         }
-        fn unset_dev_eval_context() {
+
+        unsafe fn unset_dev_eval_context() {
             todo!()
         }
     }

@@ -5,6 +5,7 @@ pub mod dim2;
 use crate::chart::StandardChart;
 
 use self::{dim0::StandardFigureDim0, dim1::StandardFigureDim1};
+#[cfg(feature = "egui")]
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull};
@@ -62,6 +63,7 @@ impl IsFigure for StandardFigure {
     }
 }
 
+#[cfg(feature = "egui")]
 impl FigureUi<Ui> for StandardFigure {
     fn figure_ui(
         &self,

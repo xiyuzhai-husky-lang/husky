@@ -1,6 +1,7 @@
 use crate::chart::StandardChartDim0;
 
 use super::*;
+#[cfg(feature = "egui")]
 use egui::Frame;
 use husky_control_flow_utils::pass;
 use husky_linket_impl::pedestal::JointPedestal;
@@ -140,7 +141,7 @@ impl<'a> StandardFigureBuilder<'a> {
 }
 
 /// # ui
-
+#[cfg(feature = "egui")]
 impl StandardFigureDim0 {
     pub(super) fn ui(
         &self,
@@ -155,6 +156,7 @@ impl StandardFigureDim0 {
     }
 }
 
+#[cfg(feature = "egui")]
 impl StandardPlot {
     pub(super) fn ui(
         &self,
