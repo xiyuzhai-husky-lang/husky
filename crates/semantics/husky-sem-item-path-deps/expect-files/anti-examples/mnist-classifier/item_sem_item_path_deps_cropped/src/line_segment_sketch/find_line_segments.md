@@ -1,0 +1,17 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
+        ],
+    ),
+)
+```

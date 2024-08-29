@@ -1,0 +1,76 @@
+```rust
+[
+    (
+        ItemPath(`mnist_classifier::connected_component`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`mnist_classifier::connected_component),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`mnist_classifier::raw_contour`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`mnist_classifier::raw_contour),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`mnist_classifier::geom2d`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`mnist_classifier::geom2d),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`mnist_classifier::line_segment_sketch`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`mnist_classifier::line_segment_sketch),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`mnist_classifier::fermi`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`mnist_classifier::fermi),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`mnist_classifier::digits`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`mnist_classifier::digits),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`mnist_classifier::major`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`mnist_classifier::major),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`mnist_classifier::main`),
+        Ok(
+            ItemEthTemplate::MajorItem(
+                MajorItemEthTemplate::Form(
+                    FormEthTemplate::Val(
+                        MajorValEthTemplate {
+                            path: MajorFormPath(`mnist_classifier::main`, `Val`),
+                            return_ty: EthTerm(`Class MnistLabel`),
+                            expr_ty: EthTerm(`Class MnistLabel`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+]
+```

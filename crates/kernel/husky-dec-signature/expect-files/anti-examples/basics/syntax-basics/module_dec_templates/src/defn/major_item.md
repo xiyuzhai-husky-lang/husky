@@ -1,0 +1,10 @@
+```rust
+[
+    (
+        ItemPath(`syntax_basics::defn::major_item::ty`),
+        Ok(
+            ItemDecTemplate::Submodule,
+        ),
+    ),
+]
+```

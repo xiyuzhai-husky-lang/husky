@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+            ItemPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`),
+        ],
+    ),
+)
+```

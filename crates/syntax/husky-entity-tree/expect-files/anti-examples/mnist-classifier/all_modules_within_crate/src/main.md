@@ -1,0 +1,26 @@
+```rust
+[
+    ModulePath(`mnist_classifier`),
+    ModulePath(`mnist_classifier::connected_component`),
+    ModulePath(`mnist_classifier::raw_contour`),
+    ModulePath(`mnist_classifier::geom2d`),
+    ModulePath(`mnist_classifier::line_segment_sketch`),
+    ModulePath(`mnist_classifier::line_segment_sketch::concave_component`),
+    ModulePath(`mnist_classifier::line_segment_sketch::convex_component`),
+    ModulePath(`mnist_classifier::line_segment_sketch::convexity`),
+    ModulePath(`mnist_classifier::line_segment_sketch::line_segment`),
+    ModulePath(`mnist_classifier::fermi`),
+    ModulePath(`mnist_classifier::digits`),
+    ModulePath(`mnist_classifier::digits::zero`),
+    ModulePath(`mnist_classifier::digits::one`),
+    ModulePath(`mnist_classifier::digits::six`),
+    ModulePath(`mnist_classifier::digits::three`),
+    ModulePath(`mnist_classifier::digits::four`),
+    ModulePath(`mnist_classifier::digits::five`),
+    ModulePath(`mnist_classifier::digits::seven`),
+    ModulePath(`mnist_classifier::digits::eight`),
+    ModulePath(`mnist_classifier::digits::nine`),
+    ModulePath(`mnist_classifier::digits::two`),
+    ModulePath(`mnist_classifier::major`),
+]
+```

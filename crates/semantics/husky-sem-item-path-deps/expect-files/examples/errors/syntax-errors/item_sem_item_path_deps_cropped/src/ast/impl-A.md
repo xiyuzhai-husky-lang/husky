@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`syntax_errors::ast::A`),
-        ],
-    ),
-)
-```

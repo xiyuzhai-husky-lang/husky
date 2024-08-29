@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::geom2d::Point2d`),
+            ItemPath(`core::vec::Vec(0)::ilen`),
+        ],
+    ),
+)
+```

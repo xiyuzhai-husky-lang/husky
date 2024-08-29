@@ -1,0 +1,10 @@
+```rust
+[
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::UnitVariant`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithOneField`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::PropsVariantWithTwoFields`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithOneField`),
+    ItemPath(`syntax_basics::defn::major_item::ty::enum_ty::A::TupleVariantWithTwoFields`),
+]
+```

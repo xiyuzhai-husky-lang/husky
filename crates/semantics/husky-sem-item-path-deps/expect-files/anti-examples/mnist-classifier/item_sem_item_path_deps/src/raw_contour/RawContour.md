@@ -1,0 +1,10 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+            ItemPath(`mnist_classifier::geom2d::Point2d`),
+        ],
+    ),
+)
+```
