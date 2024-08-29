@@ -1,0 +1,26 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`core::num::f32`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+            ItemPath(`core::vec::Vec(0)::ilen`),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_end`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`),
+            ItemPath(`core::vec::Vec(0)::last`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::cross`),
+            ItemPath(`core::num::f32(0)::abs`),
+            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::dot`),
+            ItemPath(`core::slice::CyclicSlice(0)::start`),
+            ItemPath(`mnist_classifier::line_segment_sketch::extend_start`),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::to`),
+            ItemPath(`core::vec::Vec(0)::pop`),
+            ItemPath(`core::slice::CyclicSlice(0)::end`),
+            ItemPath(`core::vec::Vec(0)::push`),
+            ItemPath(`core::vec::Vec(0)::first`),
+        ],
+    ),
+)
+```

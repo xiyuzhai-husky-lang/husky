@@ -1,0 +1,12 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`core::num::f32`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+            ItemPath(`mnist_classifier::line_segment_sketch::find_line_segments`),
+        ],
+    ),
+)
+```

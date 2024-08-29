@@ -186,7 +186,6 @@ fn collect_package_relative_dirs_works() {
             "./algorithms/quick-sort",
             "./basics/semantics-basics",
             "./basics/syntax-basics",
-            "./errors/syntax-errors",
             "./mnist-classifier",
         ]
     "#]]

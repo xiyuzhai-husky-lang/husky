@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        "ConnectedComponent",
+        "~ConnectedComponent",
+        "[",
+        "RawContour",
+        "[]RawContour",
+    ],
+)
+```

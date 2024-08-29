@@ -1,0 +1,11 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+            ItemPath(`core::slice::CyclicSlice`),
+            ItemPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+        ],
+    ),
+)
+```

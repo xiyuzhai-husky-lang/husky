@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        "self",
+        "self.strokes",
+        "self.strokes.visualize()",
+        "self.strokes.visualize()",
+        "self.strokes.visualize()",
+    ],
+)
+```

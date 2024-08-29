@@ -1,0 +1,10 @@
+```rust
+Some(
+    [
+        "BinaryImage28",
+        "[",
+        "ConnectedComponent",
+        "[]ConnectedComponent",
+    ],
+)
+```

@@ -1,0 +1,11 @@
+```rust
+Some(
+    [
+        "find_concave_components",
+        "self",
+        "find_concave_components(self)",
+        "find_concave_components(self)",
+        "find_concave_components(self)",
+    ],
+)
+```

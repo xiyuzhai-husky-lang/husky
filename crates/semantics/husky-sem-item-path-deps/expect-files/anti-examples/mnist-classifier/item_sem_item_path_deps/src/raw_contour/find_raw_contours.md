@@ -1,0 +1,21 @@
+```rust
+Some(
+    Ok(
+        [
+            ItemPath(`mnist_classifier::connected_component::ConnectedComponent`),
+            ItemPath(`mnist_classifier::raw_contour::RawContour`),
+            ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
+            ItemPath(`mnist_classifier::geom2d::Point2d`),
+            ItemPath(`core::raw_bits::r32(0)::ctz`),
+            ItemPath(`mnist_classifier::raw_contour::get_inward_direction`),
+            ItemPath(`mnist_classifier::raw_contour::get_outward_direction`),
+            ItemPath(`mnist_classifier::raw_contour::get_angle_change`),
+            ItemPath(`core::vec::Vec(0)::last`),
+            ItemPath(`mnist_classifier::raw_contour::get_concave_middle_point`),
+            ItemPath(`mnist_classifier::geom2d::Point2d(0)::from_i_shift28`),
+            ItemPath(`core::vec::Vec(0)::push`),
+            ItemPath(`core::vec::Vec(0)::pop`),
+        ],
+    ),
+)
+```

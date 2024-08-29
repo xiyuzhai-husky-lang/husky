@@ -1,0 +1,9 @@
+```rust
+SemVarDeps(
+    [
+        SemVarDep::Item(
+            ItemPath(`mnist::INPUT`),
+        ),
+    ],
+)
+```

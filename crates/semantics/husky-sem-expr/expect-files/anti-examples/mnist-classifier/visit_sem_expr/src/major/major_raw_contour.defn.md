@@ -1,0 +1,12 @@
+```rust
+Some(
+    [
+        "major_connected_component",
+        "major_connected_component.raw_contours",
+        "0",
+        "major_connected_component.raw_contours[0]",
+        "major_connected_component.raw_contours[0]",
+        "major_connected_component.raw_contours[0]",
+    ],
+)
+```

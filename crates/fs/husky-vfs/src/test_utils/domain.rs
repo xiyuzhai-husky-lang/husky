@@ -41,26 +41,30 @@ impl TestDomain {
 pub struct TestDomainsConfig(TestDomainsConfigImpl);
 
 pub enum TestDomainsConfigImpl {
-    Full,
-    ExcludeLibrary,
+    All,
+    ExcludeLibraryAndAntiExamples,
     ExamplesOnly,
 }
 
 /// # exports
 impl TestDomainsConfig {
-    pub const COMPTIME: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
-    pub const DEVTIME: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
-    pub const FS: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const HIR: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const IDE: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const LEX: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const LINKET: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
-    pub const LINKTIME: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
-    pub const KERNEL: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const SYNTAX: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const SEMANTICS: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const TOML: Self = TestDomainsConfig(TestDomainsConfigImpl::Full);
-    pub const VAL: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibrary);
+    pub const COMPTIME: Self =
+        TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibraryAndAntiExamples);
+    pub const DEVTIME: Self =
+        TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibraryAndAntiExamples);
+    pub const FS: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const HIR: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const IDE: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const LEX: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const LINKET: Self =
+        TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibraryAndAntiExamples);
+    pub const LINKTIME: Self =
+        TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibraryAndAntiExamples);
+    pub const KERNEL: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const SYNTAX: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const SEMANTICS: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const TOML: Self = TestDomainsConfig(TestDomainsConfigImpl::All);
+    pub const VAL: Self = TestDomainsConfig(TestDomainsConfigImpl::ExcludeLibraryAndAntiExamples);
 }
 
 impl TestDomainsConfig {
@@ -71,12 +75,17 @@ impl TestDomainsConfig {
             .map(|p| p.to_owned())
             .unwrap_or("temp".into());
         match self.0 {
-            TestDomainsConfigImpl::Full => {
+            TestDomainsConfigImpl::All => {
                 vec![
                     TestDomain::new(
                         env.lang_dev_library_dir().to_owned(),
                         dir.join("expect-files/library"),
                         None,
+                    ),
+                    TestDomain::new(
+                        env.lang_dev_examples_dir().to_owned(),
+                        dir.join("expect-files/anti-examples"),
+                        Some(dir.join("adversarials/anti-examples")),
                     ),
                     TestDomain::new(
                         env.lang_dev_examples_dir().to_owned(),
@@ -90,7 +99,7 @@ impl TestDomainsConfig {
                     ),
                 ]
             }
-            TestDomainsConfigImpl::ExcludeLibrary => {
+            TestDomainsConfigImpl::ExcludeLibraryAndAntiExamples => {
                 vec![
                     TestDomain::new(
                         env.lang_dev_examples_dir().to_owned(),
