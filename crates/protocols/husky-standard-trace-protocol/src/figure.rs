@@ -14,7 +14,7 @@ use husky_standard_linket_impl::static_var::StandardVarId;
 use husky_trace_protocol::{
     chart::Chart,
     figure::{FigureUi, IsFigure},
-    id::TraceId,
+    trace_id::TraceId,
     server::TracePlotInfos,
 };
 use husky_visual_protocol::visual::{

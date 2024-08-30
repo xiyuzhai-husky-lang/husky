@@ -1,5 +1,5 @@
 use crate::*;
-use husky_linket_impl::var::IsVarId;
+use husky_linket_impl::var_id::IsVarId;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Windlass<VarId: IsVarId> {

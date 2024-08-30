@@ -21,11 +21,11 @@ use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     caryatid::IsCaryatid,
     figure::{IsFigure, TraceFigureKey},
-    id::TraceId,
     protocol::{IsTraceProtocol, TraceBundle},
     server::TraceVisualCache,
     stalk::TraceStalk,
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
+    trace_id::TraceId,
 };
 use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{

@@ -32,6 +32,10 @@ pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
     actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
     #[serde_as(as = "Vec<(_, _)>")]
+    item_paths: FxHashMap<ItemPathIdInterface, String>,
+    #[serde_as(as = "Vec<(_, _)>")]
+    var_ids: FxHashMap<(ItemPathIdInterface, TraceVarId<TraceProtocol>), String>,
+    #[serde_as(as = "Vec<(_, _)>")]
     figures: FxHashMap<TraceFigureKey<TraceProtocol>, TraceProtocol::Figure>,
     // child synchrotrons
     value_presentation_synchrotron: ValuePresentationSynchrotron,
@@ -83,6 +87,8 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             value_presentation_synchrotron: Default::default(),
             visual_synchrotron: Default::default(),
             followed_trace_id: None,
+            item_paths: Default::default(),
+            var_ids: Default::default(),
             accompanyings: Default::default(),
             figures: Default::default(),
         }

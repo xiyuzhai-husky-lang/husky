@@ -1,4 +1,4 @@
-use husky_linket_impl::var::IsVarId;
+use husky_linket_impl::var_id::IsVarId;
 use serde::{Deserialize, Serialize};
 
 use crate::windlass::Windlass;

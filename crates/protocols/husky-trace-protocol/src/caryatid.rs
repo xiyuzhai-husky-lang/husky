@@ -2,7 +2,7 @@ use self::view::action::TraceViewActionBuffer;
 use crate::*;
 use anchor::Anchor;
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_linket_impl::{pedestal::IsPedestal, pedestal::IsPedestalFull, var::IsVarId};
+use husky_linket_impl::{pedestal::IsPedestal, pedestal::IsPedestalFull, var_id::IsVarId};
 use ui::ui::IsUi;
 use windlass::Windlass;
 

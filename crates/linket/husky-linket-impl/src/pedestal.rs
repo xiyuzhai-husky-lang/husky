@@ -1,7 +1,10 @@
 pub mod virtual_pedestal;
 
-use crate::var::{IsStaticVar, IsVarId, IsVarIdFull};
 use crate::ItemPathIdInterface;
+use crate::{
+    static_var::IsStaticVar,
+    var_id::{IsVarId, IsVarIdFull},
+};
 use serde::{Deserialize, Serialize};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
