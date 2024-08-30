@@ -5,7 +5,8 @@ use self::accompany::AccompanyingTraceIdsExceptFollowed;
 use crate::{
     message::{TraceRequest, TraceResponse},
     synchrotron::action::{
-        TraceSynchrotronNewTrace, TraceSynchrotronSetSubtraces, TraceSynchrotronToggleExpansion,
+        TraceSynchrotronActionNewTrace, TraceSynchrotronActionSetSubtraces,
+        TraceSynchrotronActionToggleExpansion,
     },
     view::{action::TraceViewAction, TraceViewData},
     *,
@@ -19,10 +20,12 @@ use husky_value_protocol::presentation::{
 };
 use husky_visual_protocol::{plot::PlotClass, synchrotron::VisualSynchrotron, visual::Visual};
 use husky_websocket_utils::easy_server::IsEasyWebsocketServer;
+use item_path::ItemPathPresentation;
 use rustc_hash::FxHashMap;
 use shifted_unsigned_int::ShiftedU32;
 use smallvec::*;
 use std::net::ToSocketAddrs;
+use var_id::VarIdPresentation;
 use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, OrderedSmallVecSet};
 
 pub struct TraceServer<Tracetime: IsTracetime> {
@@ -166,7 +169,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 self.tracetime.trace_view_data(trace).clone(),
             )
         }));
-        self.cache_periphery()
+        self.cache_peripheries()
     }
 
     #[track_caller]
@@ -256,9 +259,12 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                     })
                     .collect();
                 self.trace_synchrotron_mut()
-                    .take_action(TraceSynchrotronSetSubtraces::new(trace_id, subtrace_ids));
+                    .take_action(TraceSynchrotronActionSetSubtraces::new(
+                        trace_id,
+                        subtrace_ids,
+                    ));
                 self.trace_synchrotron_mut()
-                    .take_action(TraceSynchrotronToggleExpansion::new(trace_id))
+                    .take_action(TraceSynchrotronActionToggleExpansion::new(trace_id))
             }
             TraceViewAction::ToggleAssocTrace {
                 trace_id,
@@ -281,7 +287,7 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 .trace_synchrotron_mut()
                 .take_action(TraceSynchrotronAction::SetCaryatid { caryatid: pedestal }),
         }
-        self.cache_periphery()
+        self.cache_peripheries()
     }
 
     fn cache_trace_if_new(&mut self, trace_id: TraceId) {
@@ -289,13 +295,26 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             let var_deps = self.tracetime.trace_var_deps(trace_id.into());
             let view_data = self.tracetime.trace_view_data(trace_id.into());
             self.trace_synchrotron_mut()
-                .take_action(TraceSynchrotronNewTrace::new(trace_id, var_deps, view_data))
+                .take_action(TraceSynchrotronActionNewTrace::new(
+                    trace_id, var_deps, view_data,
+                ))
         }
     }
 
-    fn cache_periphery(&mut self) {
+    fn cache_peripheries(&mut self) {
+        self.cache_item_path_presentations();
         self.cache_stalks();
         self.cache_figure()
+    }
+
+    fn cache_item_path_presentations(&mut self) {
+        self.trace_synchrotron
+            .as_mut()
+            .unwrap()
+            .cache_item_path_presentations(|item_path_id_interface| {
+                self.tracetime
+                    .calc_item_path_presentations(item_path_id_interface)
+            })
     }
 
     fn cache_stalks(&mut self) {
@@ -342,9 +361,22 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
                 trace_synchrotron.visual_synchrotron_mut(),
                 &mut self.visual_cache,
             );
+            trace_synchrotron.cache_var_id_presentations_from_figure(&figure, |var_id| {
+                self.tracetime.calc_var_id_presentations(var_id)
+            });
             trace_synchrotron
                 .take_action(TraceSynchrotronAction::CacheFigure { figure_key, figure })
         }
+    }
+
+    fn cache_var_id_presentations_from_caryatid(&mut self) {
+        self.trace_synchrotron.as_mut().unwrap().caryatid();
+        self.trace_synchrotron
+            .as_mut()
+            .unwrap()
+            .cache_var_id_presentations_from_caryatid(|var_id| {
+                self.tracetime.calc_var_id_presentations(var_id)
+            })
     }
 }
 
@@ -385,4 +417,13 @@ pub trait IsTracetime: Send + 'static + Sized {
             <Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         >,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
+
+    fn calc_item_path_presentations(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+    ) -> ItemPathPresentation;
+    fn calc_var_id_presentations(
+        &self,
+        var_id: TraceVarId<Self::TraceProtocol>,
+    ) -> VarIdPresentation;
 }

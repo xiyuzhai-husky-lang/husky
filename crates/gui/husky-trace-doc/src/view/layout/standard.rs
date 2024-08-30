@@ -14,7 +14,7 @@ where
     pub(crate) fn render_standard_layout(mut self, ui: &mut egui::Ui) {
         TopBottomPanel::bottom(ui.next_auto_id())
             .frame(Frame::none().inner_margin(5.0))
-            .show_inside(ui, |ui| self.render_caryatid(ui));
+            .show_inside(ui, |ui| ui.horizontal(|ui| self.render_caryatid(ui)));
         self.render_central_region(ui);
     }
 

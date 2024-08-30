@@ -27,6 +27,14 @@ impl StandardFigureDim1 {
     }
 }
 
+impl StandardFigureDim1 {
+    pub(super) fn for_all_joint_pedestals(&self, mut f: impl FnMut(&StandardJointPedestal)) {
+        self.data
+            .iter()
+            .for_each(|figure| figure.for_all_joint_pedestals(&mut f))
+    }
+}
+
 /// # ui
 #[cfg(feature = "egui")]
 impl StandardFigureDim1 {

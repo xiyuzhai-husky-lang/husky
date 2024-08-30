@@ -25,6 +25,14 @@ pub trait IsCaryatid:
     fn pedestal(&self, var_deps: &[ItemPathIdInterface]) -> Option<Self::Pedestal>;
     fn has(&self, var_deps: &[ItemPathIdInterface]) -> bool;
     fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self;
+    fn var_path_windlasses(
+        &self,
+    ) -> impl Iterator<
+        Item = (
+            ItemPathIdInterface,
+            Windlass<<Self::Pedestal as IsPedestal>::VarId>,
+        ),
+    >;
 }
 
 pub trait IsCaryatidUiBuffer {
@@ -40,11 +48,12 @@ impl<T> IsCaryatidFull for T where T: IsCaryatid + Serialize + for<'a> Deseriali
 pub trait CaryatidUi<Ui: IsUi>: IsCaryatidFull {
     fn caryatid_ui<TraceProtocol>(
         &self,
+        trace_synchrotron: &TraceSynchrotron<TraceProtocol>,
         ui: &mut Ui,
         caryatid_buffer: &mut Self::UiBuffer,
         action_buffer: &mut TraceViewActionBuffer<TraceProtocol>,
     ) where
-        TraceProtocol: IsTraceProtocol<Caryatid = Self>;
+        TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal, Caryatid = Self>;
 }
 
 pub type TraceCaryatidUiBuffer<TraceProtocol> =
