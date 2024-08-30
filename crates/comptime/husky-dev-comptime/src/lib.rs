@@ -32,31 +32,6 @@ pub struct DevComptime<Devsoul: IsDevsoul> {
     linktime: Devsoul::Linktime,
 }
 
-pub struct IngredientKiInfo {
-    ki_repr: KiRepr,
-    ki: Ki,
-    caching_class: KiCachingClass,
-    ki_var_deps: KiVarDeps,
-}
-
-impl IngredientKiInfo {
-    pub fn ki_repr(&self) -> KiRepr {
-        self.ki_repr
-    }
-
-    pub fn ki(&self) -> Ki {
-        self.ki
-    }
-
-    pub fn caching_class(&self) -> KiCachingClass {
-        self.caching_class
-    }
-
-    pub fn ki_var_deps(&self) -> &KiVarDeps {
-        &self.ki_var_deps
-    }
-}
-
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum DevComptimeTarget {

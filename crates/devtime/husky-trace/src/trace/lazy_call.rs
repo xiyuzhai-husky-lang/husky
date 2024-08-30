@@ -44,7 +44,7 @@ impl Trace {
 }
 
 impl LazyCallTraceData {
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let callee_path = self.callee_path;
         TraceViewLines::new(
             callee_path.module_path(db),
@@ -56,11 +56,11 @@ impl LazyCallTraceData {
         )
     }
 
-    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         item_syn_defn(db, self.callee_path).is_some()
     }
 
-    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         Trace::new_lazy_stmts_from_syn_body_with_syn_expr_region(
             self.path,
             trace,
@@ -73,11 +73,11 @@ impl LazyCallTraceData {
         self.biological_parent.ki_repr(db).expect("should be some")
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         todo!()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }

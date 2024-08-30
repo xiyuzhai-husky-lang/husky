@@ -29,6 +29,7 @@ pub enum Visual {
     Video(VideoVisual),
     // composites
     Group(GroupVisual),
+    Error,
 }
 
 #[enum_class::from_variants]

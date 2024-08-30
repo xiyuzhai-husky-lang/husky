@@ -38,7 +38,7 @@ pub struct SubmoduleTraceData {
 }
 
 impl SubmoduleTraceData {
-    pub(super) fn view_lines(self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(self, db: &::salsa::Db) -> TraceViewLines {
         let submodule_item_path = self.submodule_item_path;
         let token_idx_range = submodule_item_path
             .syn_node_path(db)
@@ -51,22 +51,22 @@ impl SubmoduleTraceData {
         )
     }
 
-    pub(super) fn have_subtraces(self) -> bool {
+    pub fn have_subtraces(self) -> bool {
         true
     }
 
-    pub(super) fn subtraces(self, db: &::salsa::Db) -> Vec<Trace> {
+    pub fn subtraces(self, db: &::salsa::Db) -> Vec<Trace> {
         module_item_paths(db, self.submodule_item_path.self_module_path(db))
             .iter()
             .filter_map(|&item_path| Trace::from_item_path(item_path, db))
             .collect()
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         vec![]
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }

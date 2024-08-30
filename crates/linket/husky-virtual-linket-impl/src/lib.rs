@@ -1,13 +1,13 @@
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
 use husky_linket::linket::{Linket, LinketData};
+use husky_linket_impl::pedestal::virtual_pedestal::VirtualPedestal;
 use husky_linket_impl::{eval_context::DevEvalContext, linket_impl::IsLinketImpl};
 use husky_linket_impl::{linket_impl::LinketImplStaticVarResult, pedestal::IsPedestal};
 use husky_linket_impl::{
     linket_impl::{LinketImplKiControlFlow, VmArgumentValue},
     LinketImplVmControlFlow,
 };
-use husky_linket_impl::{pedestal::virtual_pedestal::VirtualPedestal, ugly::__IsPedestal};
 use husky_value_interface::vm_control_flow::VmControlFlow;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use husky_virtual_value::{exception::Exception, value::Value};
