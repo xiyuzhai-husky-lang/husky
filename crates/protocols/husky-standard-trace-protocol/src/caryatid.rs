@@ -47,8 +47,7 @@ impl IsCaryatid for StandardCaryatid {
     }
 
     fn has(&self, var_deps: &[ItemPathIdInterface]) -> bool {
-        todo!()
-        // var_deps.iter().copied().all(|dep| self.winlasses.has(dep))
+        var_deps.iter().copied().all(|dep| self.windlasses.has(dep))
     }
 
     type UiBuffer = StandardCaryatidUiBuffer;
