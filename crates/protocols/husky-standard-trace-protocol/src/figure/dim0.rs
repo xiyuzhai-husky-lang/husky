@@ -1,12 +1,13 @@
-use crate::chart::StandardChartDim0;
-
 use super::*;
+use crate::chart::StandardChartDim0;
+use ::ui::visual::VisualUi;
 #[cfg(feature = "egui")]
 use egui::Frame;
 use husky_control_flow_utils::pass;
 use husky_linket_impl::pedestal::JointPedestal;
 use husky_standard_linket_impl::pedestal::StandardJointPedestal;
 use husky_visual_protocol::{plot::PlotClass, visual::primitive::PrimitiveVisual};
+use ui::visual::cache::VisualUiCache;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct StandardFigureDim0 {
@@ -148,13 +149,14 @@ impl<'a> StandardFigureBuilder<'a> {
 impl StandardFigureDim0 {
     pub(super) fn ui(
         &self,
+        rect: ::egui::Rect,
         visual_synchrotron: &VisualSynchrotron,
-        cache: &mut FigureUiCache<Ui>,
+        cache: &mut ui::visual::cache::VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
         // ad hoc
         for plot in &self.plots {
-            plot.ui(visual_synchrotron, cache, ui)
+            plot.ui(/* ad hoc */ rect, visual_synchrotron, cache, ui)
         }
     }
 }
@@ -163,8 +165,9 @@ impl StandardFigureDim0 {
 impl StandardPlot {
     pub(super) fn ui(
         &self,
+        rect: ::egui::Rect,
         visual_synchrotron: &VisualSynchrotron,
-        cache: &mut FigureUiCache<Ui>,
+        cache: &mut ui::visual::cache::VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
         match self {
@@ -179,12 +182,7 @@ impl StandardPlot {
                     .show(ui, |ui| ui.allocate_space(Vec2::splat(d)))
                     .inner;
                 for &image in images {
-                    ui.painter().image(
-                        cache.texture_id(image, visual_synchrotron, ui),
-                        rect,
-                        Rect::from_min_max(pos2(0.0, 0.0), pos2(1.0, 1.0)),
-                        egui::Color32::WHITE,
-                    );
+                    image.ui(rect, visual_synchrotron, cache, ui)
                 }
                 let mnist_visual_rect = VisualRect::mnist();
                 let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
@@ -208,7 +206,7 @@ impl StandardPlot {
             StandardPlot::Text => todo!(),
             StandardPlot::Code => todo!(),
             StandardPlot::Any(visual) => {
-                ui.label("todo: any plot");
+                visual.ui(rect, visual_synchrotron, cache, ui);
             }
         }
     }

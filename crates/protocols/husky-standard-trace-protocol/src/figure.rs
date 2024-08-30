@@ -13,7 +13,7 @@ use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_standard_linket_impl::static_var::StandardVarId;
 use husky_trace_protocol::{
     chart::Chart,
-    figure::{FigureUi, FigureUiCache, IsFigure},
+    figure::{FigureUi, IsFigure},
     id::TraceId,
     server::TracePlotInfos,
 };
@@ -30,6 +30,7 @@ use husky_visual_protocol::{
     },
 };
 use serde::{Deserialize, Serialize};
+use ui::visual::cache::VisualUiCache;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
@@ -65,16 +66,17 @@ impl IsFigure for StandardFigure {
 
 #[cfg(feature = "egui")]
 impl FigureUi<Ui> for StandardFigure {
-    fn figure_ui(
+    fn ui(
         &self,
+        rect: ::egui::Rect,
         visual_synchrotron: &VisualSynchrotron,
-        cache: &mut FigureUiCache<Ui>,
+        cache: &mut VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
         match self {
             StandardFigure::Void => (),
-            StandardFigure::Dim0(slf) => slf.ui(visual_synchrotron, cache, ui),
-            StandardFigure::Dim1(slf) => slf.ui(visual_synchrotron, cache, ui),
+            StandardFigure::Dim0(slf) => slf.ui(rect, visual_synchrotron, cache, ui),
+            StandardFigure::Dim1(slf) => slf.ui(rect, visual_synchrotron, cache, ui),
         }
     }
 }

@@ -9,7 +9,7 @@ use std::{path::PathBuf, sync::Arc};
 use husky_trace_protocol::{
     caryatid::CaryatidUi,
     client::TraceClient,
-    figure::{FigureUi, FigureUiCache},
+    figure::FigureUi,
     protocol::{IsTraceProtocol, IsTraceProtocolFull},
     view::action::TraceViewActionBuffer,
 };
@@ -17,6 +17,7 @@ use notify_change::NotifyChange;
 use ui::{
     component::IsUiComponent,
     hotkey::egui::{HotkeyBuffer, HotkeyMap},
+    visual::cache::VisualUiCache,
 };
 
 /// storage, state
@@ -28,7 +29,7 @@ where
     current_dir: PathBuf,
     trace_client: TraceClient<TraceProtocol, RepaintSignal>,
     view_action_buffer: TraceViewActionBuffer<TraceProtocol>,
-    figure_ui_cache: FigureUiCache<egui::Ui>,
+    figure_ui_cache: ui::visual::cache::VisualUiCache<egui::Ui>,
     // set after client is initialized
     caryatid_ui_buffer: Option<<TraceProtocol::Caryatid as IsCaryatid>::UiBuffer>,
     hotkey_map: HotkeyMap<TraceDocHotkeyAction>,

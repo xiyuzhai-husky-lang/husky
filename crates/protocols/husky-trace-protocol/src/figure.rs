@@ -15,7 +15,10 @@ use husky_visual_protocol::{
 };
 use rustc_hash::FxHashMap;
 use serde::{Deserialize, Serialize};
-use ui::ui::{IsUi, UiTextureId};
+use ui::{
+    ui::{IsUi, UiTextureId},
+    visual::cache::VisualUiCache,
+};
 use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, OrderedSmallVecSet, SmallVecSet};
 
 /// `IsFigure` extends `Serialize` and `Deserialize` for the convenience of deriving `Serialize` and `Deserialize` for generic types
@@ -34,47 +37,13 @@ pub trait IsFigure:
 }
 
 pub trait FigureUi<Ui: IsUi> {
-    fn figure_ui(
+    fn ui(
         &self,
+        rect: Ui::Rect,
         visual_synchrotron: &VisualSynchrotron,
-        cache: &mut FigureUiCache<Ui>,
+        cache: &mut VisualUiCache<Ui>,
         ui: &mut Ui,
     );
-}
-
-pub struct FigureUiCache<Ui: IsUi> {
-    //todo: optimize by LRU??
-    texture_handles: FxHashMap<ImageVisual, Ui::TextureHandle>,
-}
-
-impl<Ui: IsUi> Default for FigureUiCache<Ui> {
-    fn default() -> Self {
-        Self {
-            texture_handles: Default::default(),
-        }
-    }
-}
-
-impl<Ui: IsUi> FigureUiCache<Ui> {
-    #[inline(always)]
-    pub fn texture_id(
-        &mut self,
-        image: ImageVisual,
-        visual_synchrotron: &VisualSynchrotron,
-        ui: &Ui,
-    ) -> UiTextureId<Ui> {
-        self.texture_id_aux(image, || ui.load_texture(image, visual_synchrotron))
-    }
-
-    // get or insert with
-    fn texture_id_aux(
-        &mut self,
-        image: ImageVisual,
-        f: impl FnOnce() -> Ui::TextureHandle,
-    ) -> UiTextureId<Ui> {
-        use ui::ui::IsTextureHandle;
-        self.texture_handles.entry(image).or_insert_with(f).id()
-    }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Hash)]
