@@ -176,15 +176,31 @@ where
                                             KiControlFlow::Continue(value) => {
                                                 self.render_value(value, ui)
                                             }
-                                            KiControlFlow::LoopContinue => todo!(),
-                                            KiControlFlow::LoopExit(_) => todo!(),
+                                            KiControlFlow::LoopContinue => {
+                                                ui.label("loop continue");
+                                            }
+                                            KiControlFlow::LoopExit(_) => {
+                                                ui.label("loop exit");
+                                            }
                                             KiControlFlow::Return(value) => {
                                                 self.render_space_chars(1, ui);
-                                                ui.label("return");
+                                                ui.label(
+                                                    RichText::new("return")
+                                                        .color(::egui::Color32::BLUE),
+                                                );
                                                 self.render_value(value, ui)
                                             }
-                                            KiControlFlow::Undefined => todo!(),
-                                            KiControlFlow::Throw(_) => todo!(),
+                                            KiControlFlow::Undefined => {
+                                                ui.label("undefined");
+                                            }
+                                            KiControlFlow::Throw(value) => {
+                                                self.render_space_chars(1, ui);
+                                                ui.label(
+                                                    RichText::new("throw")
+                                                        .color(::egui::Color32::BLUE),
+                                                );
+                                                self.render_value(value, ui)
+                                            }
                                         }
                                     }
                                     TraceStalk::Vm(_) => todo!(),
