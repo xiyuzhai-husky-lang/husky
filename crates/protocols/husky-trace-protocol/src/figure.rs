@@ -37,7 +37,7 @@ pub trait IsFigure:
 }
 
 pub trait FigureUi<Ui: IsUi> {
-    fn ui(
+    fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut VisualUiCache<Ui>,

@@ -1,6 +1,6 @@
 use super::*;
 use crate::chart::StandardChartDim1;
-use egui::Sense;
+use egui::{vec2, Frame, Sense};
 use husky_standard_linket_impl::pedestal::StandardJointPedestal;
 use ui::visual::cache::VisualUiCache;
 
@@ -30,15 +30,19 @@ impl StandardFigureDim1 {
 /// # ui
 #[cfg(feature = "egui")]
 impl StandardFigureDim1 {
-    pub(super) fn ui(
+    pub(super) fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut ui::visual::cache::VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
+        let num_rows = 7;
         let num_columns = 7;
-        let l = ui.available_height().min(ui.available_width()) / (num_columns as f32);
-        let l = l.floor();
+        let grid_height = ui.available_height() / (num_rows as f32);
+        let figure_height = grid_height.floor();
+        let grid_width = ui.available_width() / (num_columns as f32);
+        let figure_width = grid_width.floor();
+        let base = ui.cursor().min;
         egui::Grid::new("generic_standard_figure")
             .num_columns(num_columns)
             .show(ui, |ui| {
@@ -52,8 +56,15 @@ impl StandardFigureDim1 {
                     for j in 0..num_columns {
                         let index = i * num_columns + j;
                         if index < self.data.len() {
-                            ui.allocate_ui(Vec2::splat(l), |ui| {
-                                self.data[index].ui(visual_synchrotron, cache, ui)
+                            let rect = Rect::from_min_max(
+                                base + vec2((i as f32) * grid_width, (j as f32) * grid_height),
+                                base + vec2(
+                                    ((i + 1) as f32) * grid_width,
+                                    ((j + 1) as f32) * grid_height,
+                                ),
+                            );
+                            ui.allocate_ui_at_rect(rect, |ui| {
+                                self.data[index].figure_ui(visual_synchrotron, cache, ui)
                             });
                         }
                     }
