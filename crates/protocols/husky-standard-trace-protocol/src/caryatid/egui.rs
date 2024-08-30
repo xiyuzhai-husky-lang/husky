@@ -17,7 +17,7 @@ impl CaryatidUi<::egui::Ui> for StandardCaryatid {
         for &(item_path_id_interface, windlass) in &self.windlasses {
             let (bg, text) = match windlass {
                 Windlass::Specific(_) => (Color32::DARK_RED, "S"),
-                Windlass::Generic { .. } => (Color32::GREEN, "G"),
+                Windlass::Generic { .. } => (Color32::DARK_GREEN, "G"),
             };
             Frame::none()
                 .inner_margin(2.0)
@@ -25,7 +25,7 @@ impl CaryatidUi<::egui::Ui> for StandardCaryatid {
                 .show(ui, |ui| ui.horizontal_centered(|ui| ui.label(text)));
             Frame::none()
                 .inner_margin(2.0)
-                .fill(Color32::LIGHT_GRAY)
+                .fill(Color32::DARK_GRAY)
                 .show(ui, |ui| {
                     ui.horizontal_centered(|ui| {
                         ui.label(
@@ -37,7 +37,7 @@ impl CaryatidUi<::egui::Ui> for StandardCaryatid {
                 });
             Frame::none()
                 .inner_margin(2.0)
-                .fill(Color32::WHITE)
+                .fill(Color32::GRAY)
                 .show(ui, |ui| {
                     ui.horizontal_centered(|ui| match windlass {
                         Windlass::Specific(var_id)
