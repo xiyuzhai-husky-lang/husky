@@ -103,7 +103,7 @@ where
                 self.caryatid_ui_buffer.as_mut().unwrap(),
                 ui,
             )
-            .render_standard_layout(ui);
+            .render_standard_facade(ui);
         } else {
             // todo: render connecting status
         }
