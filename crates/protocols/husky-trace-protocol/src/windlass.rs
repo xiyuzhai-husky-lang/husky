@@ -21,4 +21,14 @@ impl<VarId: IsVarId> Windlass<VarId> {
             _ => false,
         }
     }
+
+    pub fn var_id(self) -> Option<VarId> {
+        match self {
+            Windlass::Specific(var_id)
+            | Windlass::Generic {
+                base: Some(var_id), ..
+            } => Some(var_id),
+            Windlass::Generic { base: None, .. } => None,
+        }
+    }
 }

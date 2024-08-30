@@ -31,7 +31,7 @@ where
     view_action_buffer: TraceViewActionBuffer<TraceProtocol>,
     figure_ui_cache: ui::visual::cache::VisualUiCache<egui::Ui>,
     // set after client is initialized
-    caryatid_ui_buffer: Option<<TraceProtocol::Caryatid as IsCaryatid>::UiBuffer>,
+    caryatid_ui_buffer: <TraceProtocol::Caryatid as IsCaryatid>::UiBuffer,
     hotkey_map: HotkeyMap<TraceDocHotkeyAction>,
 }
 
@@ -52,7 +52,7 @@ where
         parent_action_buffer: &mut ParentActionBuffer,
         ui: &mut egui::Ui,
     ) {
-        self.trace_client.update(&mut self.caryatid_ui_buffer);
+        self.trace_client.update();
         if let Some((number, hotkey_action)) = hotkey_buffer.extract(&self.hotkey_map) {
             if let Some(view_action) =
                 hotkey_action.view_action(number, self.trace_client.opt_trace_synchrotron())
@@ -100,7 +100,7 @@ where
                 &mut self.view_action_buffer,
                 settings,
                 &mut self.figure_ui_cache,
-                self.caryatid_ui_buffer.as_mut().unwrap(),
+                &mut self.caryatid_ui_buffer,
                 ui,
             )
             .render_standard_facade(ui);

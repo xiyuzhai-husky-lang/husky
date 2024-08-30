@@ -6545,6 +6545,7 @@ dependencies = [
  "husky-standard-linket-impl",
  "husky-trace-protocol",
  "husky-visual-protocol",
+ "rustc-hash 2.0.0",
  "serde",
  "ui",
  "vec-like",

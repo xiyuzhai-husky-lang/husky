@@ -20,8 +20,6 @@ pub trait IsCaryatid:
 
     type UiBuffer: IsCaryatidUiBuffer<Caryatid = Self>;
 
-    fn init_ui_buffer(&self) -> Self::UiBuffer;
-
     fn pedestal(&self, var_deps: &[ItemPathIdInterface]) -> Option<Self::Pedestal>;
     fn has(&self, var_deps: &[ItemPathIdInterface]) -> bool;
     fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self;
@@ -35,10 +33,21 @@ pub trait IsCaryatid:
     >;
 }
 
-pub trait IsCaryatidUiBuffer {
+pub trait IsCaryatidUiBuffer: Default {
     type Caryatid: IsCaryatid;
 
-    fn update(&mut self, caryatid: &Self::Caryatid);
+    fn show_var_id_edit<TraceProtocol>(
+        &mut self,
+        item_path_id_interface: ItemPathIdInterface,
+        var_id: Option<<<Self::Caryatid as IsCaryatid>::Pedestal as IsPedestal>::VarId>,
+        trace_synchrotron: &TraceSynchrotron<TraceProtocol>,
+    ) where
+        TraceProtocol: IsTraceProtocol<
+            Pedestal = <Self::Caryatid as IsCaryatid>::Pedestal,
+            Caryatid = Self::Caryatid,
+        >;
+
+    fn var_id_edit(&mut self, item_path_id_interface: ItemPathIdInterface) -> Option<&mut String>;
 }
 
 pub trait IsCaryatidFull: IsCaryatid + Serialize + for<'a> Deserialize<'a> {}

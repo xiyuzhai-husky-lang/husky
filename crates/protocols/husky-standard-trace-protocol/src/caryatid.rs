@@ -9,6 +9,7 @@ use husky_trace_protocol::{
     caryatid::{IsCaryatid, IsCaryatidUiBuffer},
     windlass::Windlass,
 };
+use rustc_hash::FxHashMap;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
 #[derive(Default, Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -52,10 +53,6 @@ impl IsCaryatid for StandardCaryatid {
     }
 
     type UiBuffer = StandardCaryatidUiBuffer;
-
-    fn init_ui_buffer(&self) -> Self::UiBuffer {
-        StandardCaryatidUiBuffer {}
-    }
 
     fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self {
         let mut slf = self.clone();
@@ -101,12 +98,40 @@ fn standard_caryatid_is_specific_works() {
     assert!(caryatid.is_specific());
 }
 
-pub struct StandardCaryatidUiBuffer {}
+#[derive(Debug, Default)]
+pub struct StandardCaryatidUiBuffer {
+    var_id_edits: FxHashMap<ItemPathIdInterface, String>,
+}
 
 impl IsCaryatidUiBuffer for StandardCaryatidUiBuffer {
     type Caryatid = StandardCaryatid;
 
-    fn update(&mut self, caryatid: &Self::Caryatid) {
-        // ad hoc, todo!()
+    fn show_var_id_edit<TraceProtocol>(
+        &mut self,
+        item_path_id_interface: ItemPathIdInterface,
+        var_id: Option<<<Self::Caryatid as IsCaryatid>::Pedestal as IsPedestal>::VarId>,
+        trace_synchrotron: &husky_trace_protocol::synchrotron::TraceSynchrotron<TraceProtocol>,
+    ) where
+        TraceProtocol: IsTraceProtocol<
+            Pedestal = <Self::Caryatid as IsCaryatid>::Pedestal,
+            Caryatid = Self::Caryatid,
+        >,
+    {
+        assert!(!self.var_id_edits.contains_key(&item_path_id_interface));
+        self.var_id_edits.insert(
+            item_path_id_interface,
+            var_id
+                .map(|var_id| {
+                    trace_synchrotron
+                        .var_id_presentation(item_path_id_interface, var_id)
+                        .data()
+                })
+                .unwrap_or_default()
+                .to_string(),
+        );
+    }
+
+    fn var_id_edit(&mut self, item_path_id_interface: ItemPathIdInterface) -> Option<&mut String> {
+        self.var_id_edits.get_mut(&item_path_id_interface)
     }
 }

@@ -13,6 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 egui = { workspace = true, optional = true }
+rustc-hash.workspace = true
 serde.workspace = true
 # abstractions
 enum-class.workspace = true
