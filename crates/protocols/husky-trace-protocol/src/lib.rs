@@ -14,6 +14,7 @@ pub mod settings;
 pub mod stalk;
 pub mod synchrotron;
 pub mod view;
+pub mod windlass;
 
 use self::figure::IsFigure;
 use self::id::*;

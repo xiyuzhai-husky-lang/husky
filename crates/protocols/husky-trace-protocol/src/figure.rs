@@ -75,11 +75,15 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
         let mut t = |&trace_id: &TraceId| -> bool {
             let entry = &trace_synchrotron[trace_id];
             let var_deps = entry.var_deps();
-            if !caryatid.covers(var_deps) {
+            if !caryatid.has(var_deps) {
                 return false;
             }
-            joint_static_var_anchors
-                .extend(var_deps.iter().copied().map(|dep| (dep, caryatid[dep])));
+            joint_static_var_anchors.extend(
+                var_deps
+                    .iter()
+                    .copied()
+                    .map(|dep| (dep, caryatid[dep].into())),
+            );
             true
         };
         let followed_reduced = followed.filter(&mut t);
