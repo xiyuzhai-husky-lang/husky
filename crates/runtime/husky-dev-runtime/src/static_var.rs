@@ -15,7 +15,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn with_static_var_anchors<R>(
         &self,
         static_vars: impl IntoIterator<Item = (ItemPath, DevsoulAnchor<Devsoul>)>,
-        f: impl FnMut(&Self, &DevsoulJointPedestal<Devsoul>) -> Option<R>,
+        f: impl FnMut(&DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChart<Devsoul, R>> {
         let db = self.db();
         let mut locked: SmallVecSet<ItemPathIdInterface, 2> = Default::default();
@@ -83,7 +83,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        mut f: impl FnMut(&Self, &DevsoulJointPedestal<Devsoul>) -> Option<R>,
+        mut f: impl FnMut(&DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChartDim0<Devsoul, R>> {
         let db = self.db();
         for &(path, anchor, ref locked) in remaining_static_vars {
@@ -99,7 +99,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             todo!()
         }
         let joint_pedestal = JointPedestal::new(static_var_map);
-        let r = f(self, &joint_pedestal)?;
+        let r = f(&joint_pedestal)?;
         Some((joint_pedestal, r))
     }
 
@@ -111,7 +111,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             DevsoulAnchor<Devsoul>,
             SmallVecSet<ItemPathIdInterface, 2>,
         )],
-        mut f: impl FnMut(&Self, &DevsoulJointPedestal<Devsoul>) -> Option<R>,
+        mut f: impl FnMut(&DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChartDim1<Devsoul, R>> {
         let &[(path, anchor, ref locked), ref remaining_static_vars @ ..] = remaining_static_vars
         else {
