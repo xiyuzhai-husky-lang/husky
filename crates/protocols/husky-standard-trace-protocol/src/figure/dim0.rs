@@ -25,6 +25,7 @@ pub enum StandardPlot {
     },
     Text,
     Code,
+    Any(Visual),
 }
 
 /// # constructor
@@ -93,7 +94,7 @@ impl<'a> StandardFigureBuilder<'a> {
                     shapes: vec![],
                 },
                 PlotClass::Graphics3D => todo!(),
-                PlotClass::Any => todo!(),
+                PlotClass::Any => StandardPlot::Any(self.composite_visual[traces[0]]),
             };
             for &trace_id in traces {
                 self.build_plot(self.composite_visual[trace_id], &mut plot)
@@ -105,8 +106,7 @@ impl<'a> StandardFigureBuilder<'a> {
     fn build_plot(&mut self, visual: Visual, plot: &mut StandardPlot) {
         match visual {
             Visual::Void => (),
-            Visual::Primitive(primitive) => todo!(),
-            // self.primitives.push((trace_id, primitive)),
+            Visual::Primitive(primitive) => (),
             Visual::Text(_) => todo!(),
             Visual::RichText(_) => todo!(),
             Visual::Image(image) => match plot {
@@ -114,12 +114,14 @@ impl<'a> StandardFigureBuilder<'a> {
                 StandardPlot::Graphics3D { meshes } => todo!(),
                 StandardPlot::Text => todo!(),
                 StandardPlot::Code => todo!(),
+                StandardPlot::Any(_) => todo!(),
             },
             Visual::Shape(shape) => match plot {
                 StandardPlot::Graphics2D { ref mut shapes, .. } => shapes.push(shape),
                 StandardPlot::Graphics3D { meshes } => todo!(),
                 StandardPlot::Text => todo!(),
                 StandardPlot::Code => todo!(),
+                StandardPlot::Any(_) => todo!(),
             },
             Visual::Mesh(_) => todo!(),
             Visual::Video(_) => todo!(),
@@ -129,6 +131,7 @@ impl<'a> StandardFigureBuilder<'a> {
                 }
             }
             Visual::Math(_) => todo!(),
+            Visual::Error => (),
         }
     }
 
@@ -204,6 +207,9 @@ impl StandardPlot {
             StandardPlot::Graphics3D { meshes } => todo!(),
             StandardPlot::Text => todo!(),
             StandardPlot::Code => todo!(),
+            StandardPlot::Any(visual) => {
+                ui.label("todo: any plot");
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ husky-dev-comptime.workspace = true
 husky-devsoul.workspace = true
 husky-devsoul-interface.workspace = true
 # devtime
-husky-trace = { path = "../../devtime/husky-trace" }
+husky-trace.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel

@@ -52,27 +52,27 @@ impl Trace {
 }
 
 impl LazyCallInputTraceData {
-    pub(super) fn view_lines(&self, _db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, _db: &::salsa::Db) -> TraceViewLines {
         todo!()
     }
 
-    pub(super) fn have_subtraces(&self) -> bool {
+    pub fn have_subtraces(&self) -> bool {
         false
     }
 
-    pub(super) fn subtraces(&self) -> Vec<Trace> {
+    pub fn subtraces(&self) -> Vec<Trace> {
         vec![]
     }
 
-    pub(super) fn ki_repr(&self, _db: &::salsa::Db) -> KiRepr {
+    pub fn ki_repr(&self, _db: &::salsa::Db) -> KiRepr {
         todo!()
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         todo!()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }
