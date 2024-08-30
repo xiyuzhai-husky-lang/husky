@@ -75,7 +75,7 @@ impl Trace {
 }
 
 impl LazyExprTraceData {
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sem_expr_region = self.sem_expr_region;
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
         let sem_expr_range_region_data = sem_expr_range_region.data(db);
@@ -91,7 +91,7 @@ impl LazyExprTraceData {
         )
     }
 
-    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         use husky_hir_defn::defn::HasHirDefn;
         let Some(hir_eager_expr_idx) = self.hir_lazy_expr_idx else {
             return false;
@@ -106,7 +106,7 @@ impl LazyExprTraceData {
         }
     }
 
-    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let sem_expr_idx = self.sem_expr_idx;
@@ -225,25 +225,25 @@ impl LazyExprTraceData {
         }
     }
 
-    pub(super) fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
-        let ki_repr_expansion = trace_ki_repr_expansion(db, trace_id);
+    pub fn ki_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<KiRepr> {
+        let ki_repr_expansion = trace_ki_repr_expansion(db, trace);
         ki_repr_expansion
             .hir_lazy_expr_ki_repr_map(db)
             .get(self.hir_lazy_expr_idx?)
             .copied()
     }
 
-    pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
+    pub fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
         self.biological_parent.ki_repr_expansion(db)
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.var_deps_expansion(db)
             .expr_value_var_deps(self.sem_expr_idx, db)
             .clone()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         self.biological_parent.var_deps_expansion(db)
     }
 }

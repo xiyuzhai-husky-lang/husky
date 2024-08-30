@@ -94,9 +94,9 @@ impl TracePath {
 #[salsa::tracked(db = TraceDb, jar = TraceJar, constructor = new_inner)]
 pub struct Trace {
     #[id]
-    path: TracePath,
+    pub path: TracePath,
     #[return_ref]
-    data: TraceData,
+    pub data: TraceData,
 }
 
 impl From<TraceId> for Trace {
@@ -211,7 +211,7 @@ impl Trace {
         trace_var_deps(db, self)
     }
 
-    pub(super) fn var_deps_expansion(self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         trace_var_deps_expansion(db, self)
     }
 }

@@ -21,11 +21,11 @@ pub struct StaticVarTraceData {
 }
 
 impl StaticVarTraceData {
-    pub(super) fn ki_repr(&self, db: &::salsa::Db) -> KiRepr {
+    pub fn ki_repr(&self, db: &::salsa::Db) -> KiRepr {
         KiRepr::new_static_var_item(self.static_var_item_path, db)
     }
 
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         use husky_entity_tree::node::HasSynNodePath;
         let static_var_item_path = self.static_var_item_path;
         let token_idx_range = static_var_item_path
@@ -40,15 +40,15 @@ impl StaticVarTraceData {
     }
 
     #[inline(always)]
-    pub(super) fn have_subtraces(self, db: &::salsa::Db) -> bool {
+    pub fn have_subtraces(self, db: &::salsa::Db) -> bool {
         false
     }
 
-    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         vec![]
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         item_sem_var_deps(self.static_var_item_path, db)
             .iter()
             .map(|&dep| match dep {
@@ -57,7 +57,7 @@ impl StaticVarTraceData {
             .collect()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }

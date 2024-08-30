@@ -10,7 +10,7 @@ salsa.workspace = true
 # comptime
 husky-rust-transpilation.workspace = true
 # devtime
-husky-trace = { path = "../../devtime/husky-trace" }
+husky-trace.workspace = true
 # fs
 husky-corgi-config.workspace = true
 husky-manifest.workspace = true

@@ -11,6 +11,7 @@ pub enum PlotClass {
 impl PlotClass {
     pub fn merge(&mut self, other: Self) {
         *self = match (*self, other) {
+            (slf, PlotClass::Void) => slf,
             (PlotClass::Void, other) => other,
             (slf, other) if slf == other => slf,
             _ => PlotClass::Any,
@@ -34,7 +35,7 @@ impl Visual {
             Visual::Image(_) => PlotClass::Graphics2D,
             Visual::Math(_) => todo!(),
             Visual::Mesh(_) => todo!(),
-            Visual::Primitive(_) => todo!(),
+            Visual::Primitive(_) => PlotClass::Any,
             Visual::RichText(_) => todo!(),
             Visual::Shape(_) => PlotClass::Graphics2D,
             Visual::Text(_) => todo!(),
@@ -46,6 +47,7 @@ impl Visual {
                 }
                 plot_class
             }
+            Visual::Error => PlotClass::Any,
         }
     }
 }

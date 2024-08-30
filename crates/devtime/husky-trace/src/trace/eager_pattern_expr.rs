@@ -67,7 +67,7 @@ impl Trace {
 }
 
 impl EagerPatternTraceData {
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sem_expr_region = self.sem_expr_region;
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
         let sem_expr_range_region_data = sem_expr_range_region.data(db);
@@ -91,12 +91,12 @@ impl EagerPatternTraceData {
         vec![]
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         // ad hoc
         Default::default()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }

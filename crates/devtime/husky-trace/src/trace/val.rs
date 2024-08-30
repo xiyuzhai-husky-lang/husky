@@ -31,7 +31,7 @@ impl Trace {
 }
 
 impl ValTraceData {
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         use husky_entity_tree::node::HasSynNodePath;
         let val_path = self.val_path;
         let token_idx_range = val_path
@@ -45,12 +45,12 @@ impl ValTraceData {
         )
     }
 
-    pub(super) fn have_subtraces(self, db: &::salsa::Db) -> bool {
+    pub fn have_subtraces(self, db: &::salsa::Db) -> bool {
         // ad hoc, incorrect
         self.val_path.hir_defn(db).is_some()
     }
 
-    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let val_path = self.val_path;
@@ -89,11 +89,11 @@ impl ValTraceData {
         }
     }
 
-    pub(super) fn ki_repr(&self, db: &::salsa::Db) -> KiRepr {
+    pub fn ki_repr(&self, db: &::salsa::Db) -> KiRepr {
         KiRepr::new_val(self.val_path, db)
     }
 
-    pub(super) fn ki_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> KiReprExpansion {
+    pub fn ki_repr_expansion(&self, trace_id: Trace, db: &::salsa::Db) -> KiReprExpansion {
         trace_id
             .ki_repr(db)
             .expect("should be some")
@@ -101,7 +101,7 @@ impl ValTraceData {
             .expect("should be some")
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         item_sem_var_deps(self.val_path, db)
             .iter()
             .map(|&dep| match dep {
@@ -110,7 +110,7 @@ impl ValTraceData {
             .collect()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         TraceVarDepsExpansion::new(
             item_defn_sem_var_deps_region(db, *self.val_path).unwrap(),
             db,
