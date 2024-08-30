@@ -125,19 +125,23 @@ where
                 item_path_id_interface,
                 ref item_path_presentation,
             } => {
-                synchrotron
+                assert!(synchrotron
                     .item_path_presentations
-                    .insert(item_path_id_interface, item_path_presentation.clone());
+                    .insert(item_path_id_interface, item_path_presentation.clone())
+                    .is_none());
             }
             TraceSynchrotronAction::CacheVarIdPresentation {
                 item_path_id_interface,
                 var_id,
                 ref var_id_presentation,
             } => {
-                synchrotron.var_id_presentations.insert(
-                    (item_path_id_interface, var_id),
-                    var_id_presentation.clone(),
-                );
+                assert!(synchrotron
+                    .var_id_presentations
+                    .insert(
+                        (item_path_id_interface, var_id),
+                        var_id_presentation.clone(),
+                    )
+                    .is_none());
             }
         }
     }
