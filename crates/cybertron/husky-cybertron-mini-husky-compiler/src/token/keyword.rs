@@ -15,6 +15,8 @@ pub enum DefnKeyword {
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum StmtKeyword {
     Let,
+    Return,
+    Assert,
     If,
     Else,
 }
@@ -44,6 +46,8 @@ impl Keyword {
             "enum" => Some(Keyword::Defn(DefnKeyword::Enum)),
             "fn" => Some(Keyword::Defn(DefnKeyword::Fn)),
             "let" => Some(Keyword::Stmt(StmtKeyword::Let)),
+            "return" => Some(Keyword::Stmt(StmtKeyword::Return)),
+            "assert" => Some(Keyword::Stmt(StmtKeyword::Assert)),
             "if" => Some(Keyword::Stmt(StmtKeyword::If)),
             "else" => Some(Keyword::Stmt(StmtKeyword::Else)),
             _ => None,
@@ -67,6 +71,8 @@ impl StmtKeyword {
             StmtKeyword::Let => "let",
             StmtKeyword::If => "if",
             StmtKeyword::Else => "else",
+            StmtKeyword::Return => "return",
+            StmtKeyword::Assert => "assert",
         }
     }
 }
