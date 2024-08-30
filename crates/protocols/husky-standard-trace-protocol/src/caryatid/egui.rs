@@ -1,6 +1,7 @@
 use super::*;
 use ::egui::{Color32, Frame};
 use husky_trace_protocol::{caryatid::CaryatidUi, synchrotron::TraceSynchrotron};
+use ui::ui::IsUi;
 
 impl CaryatidUi<::egui::Ui> for StandardCaryatid {
     fn caryatid_ui<TraceProtocol>(
@@ -19,16 +20,15 @@ impl CaryatidUi<::egui::Ui> for StandardCaryatid {
                 Windlass::Specific(_) => (Color32::DARK_RED, "S"),
                 Windlass::Generic { .. } => (Color32::DARK_GREEN, "G"),
             };
-            Frame::none()
-                .inner_margin(2.0)
-                .fill(bg)
-                .show(ui, |ui| ui.horizontal_centered(|ui| ui.label(text)));
+            Frame::none().inner_margin(2.0).fill(bg).show(ui, |ui| {
+                ui.horizontal_centered(|ui| ui.non_selectable_label(text))
+            });
             Frame::none()
                 .inner_margin(2.0)
                 .fill(Color32::DARK_GRAY)
                 .show(ui, |ui| {
                     ui.horizontal_centered(|ui| {
-                        ui.label(
+                        ui.non_selectable_label(
                             trace_synchrotron
                                 .item_path_presentation(item_path_id_interface)
                                 .ident(),
@@ -44,14 +44,14 @@ impl CaryatidUi<::egui::Ui> for StandardCaryatid {
                         | Windlass::Generic {
                             base: Some(var_id), ..
                         } => {
-                            ui.label(
+                            ui.non_selectable_label(
                                 trace_synchrotron
                                     .var_id_presentation(item_path_id_interface, var_id)
                                     .data(),
                             );
                         }
                         Windlass::Generic { base: None, limit } => {
-                            ui.label("--");
+                            ui.non_selectable_label("--");
                         }
                     })
                 });

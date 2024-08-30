@@ -21,6 +21,7 @@ pub trait IsUi: Sized {
         uv: Self::Rect,
         tint: Self::Color32,
     );
+    fn non_selectable_label(&mut self, text: &str);
 }
 
 pub trait IsTextureHandle {

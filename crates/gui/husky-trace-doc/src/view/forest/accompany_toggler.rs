@@ -23,6 +23,7 @@ where
                 .color(color),
         )
         .sense(Sense::click())
+        .selectable(false)
         .ui(ui);
         if toggler.clicked() {
             self.add_action(TraceViewAction::ToggleAccompany { trace_id })
