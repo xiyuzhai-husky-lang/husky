@@ -19,11 +19,11 @@ pub struct StandardDevsoulInterface {}
 impl IsDevsoulInterface for StandardDevsoulInterface {
     type LinketImpl = StandardLinketImpl;
 
-    fn set_dev_eval_context(ctx: DevEvalContext) {
+    unsafe fn set_dev_eval_context(ctx: DevEvalContext) {
         set_dev_eval_context(ctx)
     }
 
-    fn unset_dev_eval_context() {
+    unsafe fn unset_dev_eval_context() {
         unset_dev_eval_context()
     }
 

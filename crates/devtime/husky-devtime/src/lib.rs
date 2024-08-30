@@ -1,4 +1,5 @@
 #![feature(try_trait_v2)]
+pub mod eval;
 mod state;
 #[cfg(test)]
 mod tests;
@@ -129,23 +130,13 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                         (item_path_id.item_path(db), anchor)
                     },
                 ),
-                |runtime, joint_pedestal| {
+                |joint_pedestal| {
                     let mut t = |trace_id: TraceId| {
                         let trace: Trace = trace_id.into();
                         let var_deps = trace.var_deps(db);
                         let pedestal = joint_pedestal.pedestal(var_deps);
-                        match trace.ki_repr(db) {
-                            Some(ki_repr) => runtime
-                                .trace_ki_repr_visual(
-                                    trace_id,
-                                    ki_repr,
-                                    pedestal,
-                                    visual_synchrotron,
-                                    trace_visual_cache,
-                                )
-                                .map(|visual| (trace_id, visual)),
-                            None => todo!(),
-                        }
+                        self.trace_visual(trace, pedestal, visual_synchrotron, trace_visual_cache)
+                            .map(|visual| (trace_id, visual))
                     };
                     Some(CompositeVisual {
                         followed_reduced: match figure_key.followed_reduced() {
@@ -162,9 +153,6 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
                 },
             );
         let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
-        use ::husky_print_utils::p;
-        use ::salsa::DebugWithDb;
-        p!(trace_plot_map);
         IsFigure::from_chart(chart, trace_plot_map, visual_synchrotron)
     }
 }

@@ -63,7 +63,7 @@ impl Trace {
 }
 
 impl EagerCallInputTraceData {
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let caller_sem_expr_region = self.caller_sem_expr_region;
         let caller_sem_expr_range_region = sem_expr_range_region(db, caller_sem_expr_region);
         let caller_sem_expr_range_region_data = caller_sem_expr_range_region.data(db);
@@ -101,7 +101,7 @@ impl EagerCallInputTraceData {
         todo!()
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         match self.input_sketch {
             EagerCallInputSketch::Simple {
                 argument_sem_expr_idx,
@@ -118,7 +118,7 @@ impl EagerCallInputTraceData {
         }
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }

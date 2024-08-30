@@ -457,7 +457,7 @@ impl IsValue for Value {
             Value::Uninit => todo!(),
             Value::Invalid => unreachable!(),
             Value::Moved => unreachable!(),
-            Value::Unit(_) => todo!(),
+            Value::Unit(_) => Visual::Void,
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
             Value::I8(value) => PrimitiveVisual::I8(value).into(),

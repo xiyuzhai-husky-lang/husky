@@ -12,46 +12,30 @@ use std::{cell::Cell, convert::Infallible};
 
 pub type DevEvalContext = husky_linket_impl::eval_context::DevEvalContext<StandardLinketImpl>;
 
-/// this is still subject to parallel testing bug, two different tests might want to use the same context.
+/// this wll be safe because only one runtime have access
 ///
-/// it depends on rust's implementation though.
+/// I fear that some usage of runtime in testing will break this, see `dev_runtimes_should_panic`
 ///
-/// a possible fix:
-///
-thread_local! {
-    static DEV_EVAL_CONTEXT: std::cell::Cell<std::option::Option<DevEvalContext>> = Default::default();
-}
+/// If so, put some measures to ensure only one runtime exists at the same time.
+static mut DEV_EVAL_CONTEXT: std::option::Option<DevEvalContext> = None;
 
 pub fn dev_eval_context() -> DevEvalContext {
-    DEV_EVAL_CONTEXT.get().expect("`DEV_EVAL_CONTEXT` not set")
+    unsafe { DEV_EVAL_CONTEXT.expect("`DEV_EVAL_CONTEXT` not set") }
 }
 
-pub(crate) fn set_dev_eval_context(ctx: DevEvalContext) {
-    assert!(DEV_EVAL_CONTEXT.get().is_none());
-    DEV_EVAL_CONTEXT.set(Some(ctx))
+pub(crate) unsafe fn set_dev_eval_context(ctx: DevEvalContext) {
+    assert!(
+        DEV_EVAL_CONTEXT.is_none(),
+        "current DEV_EVAL_CONTEXT = {:?}, but new ctx = {:?}",
+        unsafe { DEV_EVAL_CONTEXT },
+        ctx
+    );
+    DEV_EVAL_CONTEXT = Some(ctx)
 }
-pub(crate) fn unset_dev_eval_context() {
-    assert!(DEV_EVAL_CONTEXT.get().is_some());
-    DEV_EVAL_CONTEXT.set(None)
+pub(crate) unsafe fn unset_dev_eval_context() {
+    assert!(DEV_EVAL_CONTEXT.is_some());
+    DEV_EVAL_CONTEXT = None
 }
-/// but this brings some other problems, needs thinking.
-// static mut DEV_EVAL_CONTEXT: std::option::Option<DevEvalContext> = None;
-
-// pub fn dev_eval_context() -> DevEvalContext {
-//     unsafe { DEV_EVAL_CONTEXT.expect("`DEV_EVAL_CONTEXT` not set") }
-// }
-// pub(crate) fn set_dev_eval_context(ctx: DevEvalContext) {
-//     unsafe {
-//         assert!(DEV_EVAL_CONTEXT.is_none());
-//         DEV_EVAL_CONTEXT = Some(ctx);
-//     }
-// }
-// pub(crate) fn unset_dev_eval_context() {
-//     unsafe {
-//         assert!(DEV_EVAL_CONTEXT.is_some());
-//         DEV_EVAL_CONTEXT = None;
-//     }
-// }
 
 pub fn eval_ki_repr_interface<T>(
     ki_repr: KiReprInterface,

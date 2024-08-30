@@ -383,7 +383,7 @@ impl Trace {
 }
 
 impl EagerStmtTraceData {
-    pub(super) fn view_lines(&self, trace_id: Trace, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, trace_id: Trace, db: &::salsa::Db) -> TraceViewLines {
         let sem_stmt_idx = self.sem_stmt_idx;
         let sem_expr_region = self.sem_expr_region;
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
@@ -437,7 +437,7 @@ impl EagerStmtTraceData {
         TraceViewLines::new(region_path.module_path(db), token_idx_range, registry, db)
     }
 
-    pub(super) fn have_subtraces(&self, _db: &::salsa::Db) -> bool {
+    pub fn have_subtraces(&self, _db: &::salsa::Db) -> bool {
         match self.eager_stmt_data_sketch {
             EagerStmtDataSketch::BasicStmt => false,
             EagerStmtDataSketch::IfBranch { .. } => true,
@@ -448,7 +448,7 @@ impl EagerStmtTraceData {
         }
     }
 
-    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         match self.eager_stmt_data_sketch {
             EagerStmtDataSketch::BasicStmt => vec![],
             EagerStmtDataSketch::IfBranch { stmts, .. }
@@ -461,14 +461,14 @@ impl EagerStmtTraceData {
         }
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.biological_parent
             .var_deps_expansion(db)
             .stmt_value_var_deps(self.sem_stmt_idx, db)
             .clone()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         self.biological_parent.var_deps_expansion(db)
     }
 }

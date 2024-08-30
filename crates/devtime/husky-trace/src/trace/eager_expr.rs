@@ -77,7 +77,7 @@ impl Trace {
 }
 
 impl EagerExprTraceData {
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sem_expr_region = self.sem_expr_region;
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
         let sem_expr_range_region_data = sem_expr_range_region.data(db);
@@ -93,7 +93,7 @@ impl EagerExprTraceData {
         )
     }
 
-    pub(super) fn have_subtraces(&self, db: &::salsa::Db) -> bool {
+    pub fn have_subtraces(&self, db: &::salsa::Db) -> bool {
         use husky_hir_defn::defn::HasHirDefn;
         let Some(hir_eager_expr_idx) = self.hir_eager_expr_idx else {
             return false;
@@ -110,7 +110,7 @@ impl EagerExprTraceData {
         }
     }
 
-    pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
+    pub fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
         let sem_expr_idx = self.sem_expr_idx;
@@ -214,14 +214,14 @@ impl EagerExprTraceData {
         }
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.biological_parent
             .var_deps_expansion(db)
             .expr_value_var_deps_table(db)[self.sem_expr_idx]
             .clone()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         self.biological_parent.var_deps_expansion(db)
     }
 }

@@ -79,11 +79,11 @@ impl LazyPatternTraceData {
         false
     }
 
-    pub(super) fn subtraces(&self) -> Vec<Trace> {
+    pub fn subtraces(&self) -> Vec<Trace> {
         vec![]
     }
 
-    pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sem_expr_region = self.sem_expr_region;
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
         let sem_expr_range_region_data = sem_expr_range_region.data(db);
@@ -99,7 +99,7 @@ impl LazyPatternTraceData {
         )
     }
 
-    pub(super) fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
+    pub fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let ki_repr_expansion = trace_ki_repr_expansion(db, trace_id);
         match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)[self.hir_lazy_pattern_idx?]
         {
@@ -119,16 +119,16 @@ impl LazyPatternTraceData {
         }
     }
 
-    pub(super) fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
+    pub fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
         self.biological_parent.ki_repr_expansion(db)
     }
 
-    pub(super) fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         // ad hoc
         Default::default()
     }
 
-    pub(super) fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
+    pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         todo!()
     }
 }
