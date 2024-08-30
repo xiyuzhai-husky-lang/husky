@@ -31,11 +31,11 @@ where
         tracing::info!(?x);
         // two updates are needed because first the connection needs to get refreshed, then client needs to get updated by receiving the init response
         sleep(1000);
-        client.update(&mut None);
+        client.update();
         sleep(1000);
-        client.update(&mut None);
+        client.update();
         sleep(1000);
-        client.update(&mut None);
+        client.update();
         match client.connection.creation_status() {
             CreationStatus::Await(_) => todo!(),
             CreationStatus::Ok => (),
