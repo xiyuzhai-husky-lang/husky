@@ -1,5 +1,8 @@
-mod components;
-mod facade;
+mod caryatid;
+mod devtools;
+mod figure;
+mod forest;
+mod layout;
 pub(crate) mod settings;
 
 use crate::*;
