@@ -1,3 +1,4 @@
+use egui::CentralPanel;
 use husky_trace_protocol::caryatid::CaryatidUi;
 
 use super::*;
@@ -29,6 +30,6 @@ where
 
     fn render_central_right_region(&mut self, ui: &mut egui::Ui) {
         TopBottomPanel::bottom(ui.next_auto_id()).show_inside(ui, |ui| self.render_devtools(ui));
-        self.render_figure(ui);
+        CentralPanel::default().show_inside(ui, |ui| self.render_figure(ui));
     }
 }
