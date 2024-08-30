@@ -5878,6 +5878,7 @@ dependencies = [
  "rust-optimal-transport",
  "shifted-unsigned-int",
  "smallvec",
+ "ui",
 ]
 
 [[package]]
@@ -6545,6 +6546,7 @@ dependencies = [
  "husky-trace-protocol",
  "husky-visual-protocol",
  "serde",
+ "ui",
  "vec-like",
 ]
 
