@@ -6,7 +6,7 @@ use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::{
     pedestal::{IsPedestal, IsPedestalFull},
-    var::{IsVarId, IsVarIdFull},
+    var_id::{IsVarId, IsVarIdFull},
 };
 use husky_visual_protocol::{
     plot::PlotClass,

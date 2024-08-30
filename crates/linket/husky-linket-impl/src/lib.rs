@@ -5,9 +5,10 @@ pub mod exception;
 pub mod linket_impl;
 pub mod linket_impls;
 pub mod pedestal;
+pub mod static_var;
 #[cfg(feature = "ugly")]
 pub mod ugly;
-pub mod var;
+pub mod var_id;
 
 pub type LinketImplVmControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =
     VmControlFlow<C, <LinketImpl as IsLinketImpl>::Value, <LinketImpl as IsLinketImpl>::Exception>;

@@ -9,7 +9,7 @@ use egui::{
 };
 use husky_trace_protocol::{
     figure::FigureUi,
-    id::{TraceId, TraceKind},
+    trace_id::{TraceId, TraceKind},
     protocol::IsTraceProtocol,
     stalk::TraceStalk,
     synchrotron::{TraceSynchrotron, TraceSynchrotronEntry},

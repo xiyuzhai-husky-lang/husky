@@ -1,7 +1,7 @@
 use super::*;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket_impl::pedestal::{IsPedestal, JointPedestal};
-use husky_linket_impl::var::IsStaticVar;
+use husky_linket_impl::static_var::IsStaticVar;
 use static_var::StandardVarId;
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
