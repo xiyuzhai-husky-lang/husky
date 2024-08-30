@@ -106,6 +106,12 @@ pub enum AstData {
         /// Optional index of the initial value
         initial_value: Option<Idx>,
     },
+    Return {
+        result: Idx,
+    },
+    Assert {
+        condition: Idx,
+    },
     /// Represents an `if` statement
     If {
         /// Index of the condition in the `if` statement

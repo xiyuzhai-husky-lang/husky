@@ -65,6 +65,42 @@ fn new_stmt_ast(
                 initial_value,
             })
         }
+        StmtKeyword::Return => {
+            let Some((idx1, PreAst::Ast(ast))) = pre_ast_nearest_right2.first() else {
+                return None;
+            };
+            if let Some((_, pre_ast)) = pre_ast_nearest_right2.second() {
+                match pre_ast {
+                    PreAst::Keyword(_) => (),
+                    PreAst::Opr(_) | PreAst::LeftDelimiter(_) => return None,
+                    PreAst::RightDelimiter(_) => (),
+                    PreAst::Ast(_) => return None,
+                    PreAst::Separator(separator) => match separator {
+                        Separator::Comma => return None,
+                        Separator::Semicolon => (),
+                    },
+                }
+            }
+            Some(AstData::Return { result: idx1 })
+        }
+        StmtKeyword::Assert => {
+            let Some((idx1, PreAst::Ast(ast))) = pre_ast_nearest_right2.first() else {
+                return None;
+            };
+            if let Some((_, pre_ast)) = pre_ast_nearest_right2.second() {
+                match pre_ast {
+                    PreAst::Keyword(_) => (),
+                    PreAst::Opr(_) | PreAst::LeftDelimiter(_) => return None,
+                    PreAst::RightDelimiter(_) => (),
+                    PreAst::Ast(_) => return None,
+                    PreAst::Separator(separator) => match separator {
+                        Separator::Comma => return None,
+                        Separator::Semicolon => (),
+                    },
+                }
+            }
+            Some(AstData::Assert { condition: idx1 })
+        }
         StmtKeyword::If => {
             let Some((condition, PreAst::Ast(ast1))) = pre_ast_nearest_right2.first() else {
                 return None;
@@ -130,6 +166,8 @@ fn reduce_pre_ast_by_stmt(
     if let Some((idx1, ast)) = new_ast_nearest_left {
         match ast {
             AstData::LetInit { expr, .. } if expr == idx => (None, Some(idx1)),
+            AstData::Return { result } if result == idx => (None, Some(idx1)),
+            AstData::Assert { condition } if condition == idx => (None, Some(idx1)),
             AstData::If {
                 condition, body, ..
             } if condition == idx || body == idx => (None, Some(idx1)),
@@ -146,7 +184,7 @@ fn reduce_pre_ast_by_stmt(
 }
 
 #[test]
-fn reduce_n_times_for_stmt_works1() {
+fn reduce_n_times_for_let_stmt_works() {
     t(
         "let x = 1",
         2,
@@ -159,6 +197,62 @@ fn reduce_n_times_for_stmt_works1() {
             ]
         "#]],
     );
+}
+
+#[test]
+fn reduce_n_times_for_return_stmt_works() {
+    t(
+        "return x",
+        2,
+        expect![[r#"
+            [
+                `return`: "return x" ✓,
+                `x`: "x",
+            ]
+        "#]],
+    );
+    t(
+        "return x + 1",
+        2,
+        expect![[r#"
+            [
+                `return`: "return x + 1" ✓,
+                `x`: "x",
+                `+`: "x + 1",
+                `1`: "1",
+            ]
+        "#]],
+    );
+}
+
+#[test]
+fn reduce_n_times_for_assert_stmt_works() {
+    t(
+        "assert x",
+        2,
+        expect![[r#"
+            [
+                `assert`: "assert x" ✓,
+                `x`: "x",
+            ]
+        "#]],
+    );
+    t(
+        "assert x + 1",
+        2,
+        expect![[r#"
+            [
+                `assert`: "assert x + 1" ✓,
+                `x`: "x",
+                `+`: "x + 1",
+                `1`: "1",
+            ]
+        "#]],
+    );
+}
+
+#[test]
+fn reduce_n_times_for_if_else_stmt_works() {
     t(
         "if 1 == 2 { 3 }",
         2,
