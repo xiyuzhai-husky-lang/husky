@@ -9,8 +9,8 @@ use husky_mono_linktime::MonoLinktime;
 use husky_standard_linket_impl::pedestal::StandardPedestal;
 use husky_standard_trace_protocol::{caryatid::StandardCaryatid, StandardTraceProtocol};
 use husky_trace_protocol::{
-    caryatid::IsCaryatid, figure::IsFigure, trace_id::TraceId, protocol::IsTraceProtocol,
-    server::TraceVisualCache,
+    caryatid::IsCaryatid, figure::IsFigure, protocol::IsTraceProtocol, server::TraceVisualCache,
+    trace_id::TraceId,
 };
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use serde::{Deserialize, Serialize};
