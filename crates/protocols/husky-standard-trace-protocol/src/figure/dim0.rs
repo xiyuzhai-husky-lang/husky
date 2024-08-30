@@ -144,6 +144,11 @@ impl<'a> StandardFigureBuilder<'a> {
     }
 }
 
+impl StandardFigureDim0 {
+    pub(super) fn for_all_joint_pedestals(&self, mut f: impl FnMut(&StandardJointPedestal)) {
+        f(&self.joint_pedestal)
+    }
+}
 /// # ui
 #[cfg(feature = "egui")]
 impl StandardFigureDim0 {

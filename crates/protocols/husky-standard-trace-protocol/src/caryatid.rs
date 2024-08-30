@@ -3,6 +3,7 @@ mod egui;
 
 use super::*;
 use husky_item_path_interface::ItemPathIdInterface;
+use husky_linket_impl::pedestal::IsPedestal;
 use husky_trace_protocol::{
     anchor::Anchor,
     caryatid::{IsCaryatid, IsCaryatidUiBuffer},
@@ -70,6 +71,17 @@ impl IsCaryatid for StandardCaryatid {
             }), // ad hoc
         );
         slf
+    }
+
+    fn var_path_windlasses(
+        &self,
+    ) -> impl Iterator<
+        Item = (
+            ItemPathIdInterface,
+            Windlass<<Self::Pedestal as IsPedestal>::VarId>,
+        ),
+    > {
+        self.windlasses.iter().copied()
     }
 }
 

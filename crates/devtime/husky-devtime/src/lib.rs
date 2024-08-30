@@ -21,11 +21,13 @@ use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     caryatid::IsCaryatid,
     figure::{IsFigure, TraceFigureKey},
-    protocol::{IsTraceProtocol, TraceBundle},
+    item_path::ItemPathPresentation,
+    protocol::{IsTraceProtocol, TraceBundle, TraceVarId},
     server::TraceVisualCache,
     stalk::TraceStalk,
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
     trace_id::TraceId,
+    var_id::VarIdPresentation,
 };
 use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{
@@ -36,6 +38,7 @@ use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{CompositeVisual, Visual},
 };
+use salsa::DebugWithDb;
 use smallvec::{SmallVec, ToSmallVec};
 use std::{path::Path, pin::Pin};
 
@@ -154,6 +157,27 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
             );
         let trace_plot_map = trace_visual_cache.calc_plots(figure_key.traces().collect());
         IsFigure::from_chart(chart, trace_plot_map, visual_synchrotron)
+    }
+
+    fn calc_item_path_presentations(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+    ) -> ItemPathPresentation {
+        use salsa::DisplayWithDb;
+
+        let db = self.db();
+        let item_path_id: ItemPathId = item_path_id_interface.into();
+        ItemPathPresentation::new(
+            format!("{}", item_path_id.ident(db).unwrap().data(db)),
+            format!("{:?}", item_path_id.item_path(db).display(db)),
+        )
+    }
+
+    fn calc_var_id_presentations(
+        &self,
+        var_id: TraceVarId<Self::TraceProtocol>,
+    ) -> VarIdPresentation {
+        VarIdPresentation::new(format!("{:?}", var_id))
     }
 }
 

@@ -5,7 +5,7 @@ use crate::{
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_linket_impl::{
-    pedestal::{IsPedestal, IsPedestalFull},
+    pedestal::{IsPedestal, IsPedestalFull, JointPedestal},
     var_id::{IsVarId, IsVarIdFull},
 };
 use husky_visual_protocol::{
@@ -34,6 +34,11 @@ pub trait IsFigure:
         trace_plot_map: &TracePlotInfos,
         visual_synchrotron: &VisualSynchrotron,
     ) -> Self;
+
+    fn for_all_joint_pedestals(
+        &self,
+        f: impl FnMut(&JointPedestal<<Self::Pedestal as IsPedestal>::VarId>),
+    );
 }
 
 pub trait FigureUi<Ui: IsUi> {

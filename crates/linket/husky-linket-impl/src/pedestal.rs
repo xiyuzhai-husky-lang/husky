@@ -43,6 +43,14 @@ pub struct JointPedestal<VarId: IsVarId> {
     data: OrderedSmallVecPairMap<ItemPathIdInterface, VarId, 4>,
 }
 
+impl<VarId: IsVarId> std::ops::Deref for JointPedestal<VarId> {
+    type Target = OrderedSmallVecPairMap<ItemPathIdInterface, VarId, 4>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.data
+    }
+}
+
 impl<VarId: IsVarId> JointPedestal<VarId> {
     pub fn new(data: OrderedSmallVecPairMap<ItemPathIdInterface, VarId, 4>) -> Self {
         Self { data }

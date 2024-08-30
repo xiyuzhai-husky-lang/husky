@@ -6,7 +6,7 @@ pub mod test_utils;
 
 use crate::caryatid::IsCaryatid;
 use crate::{
-    message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
+    message::*, synchrotron::action::TraceSynchrotronActionToggleExpansion,
     view::action::TraceViewAction, *,
 };
 use figure::FigureKey;
@@ -155,7 +155,7 @@ where
                 if !trace_cache_entry.expanded() {
                     trace_cache_entry.subtrace_ids()?;
                 }
-                Some(TraceSynchrotronToggleExpansion::new(trace_id).into())
+                Some(TraceSynchrotronActionToggleExpansion::new(trace_id).into())
             }
             TraceViewAction::ToggleAssocTrace {
                 trace_id,
