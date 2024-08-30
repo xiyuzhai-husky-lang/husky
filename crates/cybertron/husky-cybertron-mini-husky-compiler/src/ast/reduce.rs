@@ -1,15 +1,8 @@
-pub mod call;
-pub mod defn;
-pub mod delimited;
-pub mod opr;
-pub mod stmt;
-mod utils;
-
-use self::{
+use super::*;
+use super::{
     call::reduce_by_call, defn::reduce_by_defn, delimited::reduce_by_delimited, opr::reduce_by_opr,
     show::show_asts, stmt::reduce_by_stmt, utils::update_pre_asts_by_new_asts,
 };
-use super::*;
 use husky_cybertron::{
     debug::{is_debug, set_debug},
     prelude::*,
@@ -43,7 +36,7 @@ pub fn reduce_n_times(
 }
 
 #[cfg(test)]
-fn t(input: &str, n: usize, expect: Expect) {
+pub(super) fn t(input: &str, n: usize, expect: Expect) {
     let tokens = tokenize(input);
     let pre_asts = calc_pre_ast_initial_seq(tokens);
     let allocated_asts: Seq<Option<Ast>> = tokens.map(|token| token.into());
