@@ -149,14 +149,13 @@ impl<'a> StandardFigureBuilder<'a> {
 impl StandardFigureDim0 {
     pub(super) fn ui(
         &self,
-        rect: ::egui::Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut ui::visual::cache::VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
         // ad hoc
         for plot in &self.plots {
-            plot.ui(/* ad hoc */ rect, visual_synchrotron, cache, ui)
+            plot.ui(visual_synchrotron, cache, ui)
         }
     }
 }
@@ -165,7 +164,6 @@ impl StandardFigureDim0 {
 impl StandardPlot {
     pub(super) fn ui(
         &self,
-        rect: ::egui::Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut ui::visual::cache::VisualUiCache<Ui>,
         ui: &mut Ui,
@@ -206,6 +204,9 @@ impl StandardPlot {
             StandardPlot::Text => todo!(),
             StandardPlot::Code => todo!(),
             StandardPlot::Any(visual) => {
+                let (_, rect) = Frame::none()
+                    .show(ui, |ui| ui.allocate_space(ui.available_size()))
+                    .inner;
                 visual.ui(rect, visual_synchrotron, cache, ui);
             }
         }

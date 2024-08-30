@@ -14,8 +14,8 @@ use husky_standard_linket_impl::static_var::StandardVarId;
 use husky_trace_protocol::{
     chart::Chart,
     figure::{FigureUi, IsFigure},
-    trace_id::TraceId,
     server::TracePlotInfos,
+    trace_id::TraceId,
 };
 use husky_visual_protocol::visual::{
     shape::{Point, VisualRect},
@@ -68,15 +68,14 @@ impl IsFigure for StandardFigure {
 impl FigureUi<Ui> for StandardFigure {
     fn ui(
         &self,
-        rect: ::egui::Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
         match self {
             StandardFigure::Void => (),
-            StandardFigure::Dim0(slf) => slf.ui(rect, visual_synchrotron, cache, ui),
-            StandardFigure::Dim1(slf) => slf.ui(rect, visual_synchrotron, cache, ui),
+            StandardFigure::Dim0(slf) => slf.ui(visual_synchrotron, cache, ui),
+            StandardFigure::Dim1(slf) => slf.ui(visual_synchrotron, cache, ui),
         }
     }
 }
