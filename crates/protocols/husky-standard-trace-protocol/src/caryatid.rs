@@ -80,7 +80,7 @@ impl StandardCaryatid {
         self.windlasses
             .iter()
             .copied()
-            .all(|(_, windlass)| !windlass.is_generic())
+            .all(|(_, windlass)| windlass.is_specific())
     }
 }
 
