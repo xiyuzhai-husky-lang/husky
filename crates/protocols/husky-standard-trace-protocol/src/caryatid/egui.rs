@@ -1,4 +1,5 @@
 use super::*;
+use ::egui::{Color32, Frame};
 use husky_trace_protocol::{caryatid::CaryatidUi, synchrotron::TraceSynchrotron};
 
 impl CaryatidUi<::egui::Ui> for StandardCaryatid {
@@ -14,30 +15,46 @@ impl CaryatidUi<::egui::Ui> for StandardCaryatid {
         TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal, Caryatid = Self>,
     {
         for &(item_path_id_interface, windlass) in &self.windlasses {
-            match windlass {
-                Windlass::Specific(_) => ui.label("S"),
-                Windlass::Generic { .. } => ui.label("G"),
+            let (bg, text) = match windlass {
+                Windlass::Specific(_) => (Color32::DARK_RED, "S"),
+                Windlass::Generic { .. } => (Color32::GREEN, "G"),
             };
-            ui.label(
-                trace_synchrotron
-                    .item_path_presentation(item_path_id_interface)
-                    .ident(),
-            );
-            match windlass {
-                Windlass::Specific(var_id)
-                | Windlass::Generic {
-                    base: Some(var_id), ..
-                } => {
-                    ui.label(
-                        trace_synchrotron
-                            .var_id_presentation(item_path_id_interface, var_id)
-                            .data(),
-                    );
-                }
-                Windlass::Generic { base: None, limit } => {
-                    ui.label("--");
-                }
-            }
+            Frame::none()
+                .inner_margin(2.0)
+                .fill(bg)
+                .show(ui, |ui| ui.horizontal_centered(|ui| ui.label(text)));
+            Frame::none()
+                .inner_margin(2.0)
+                .fill(Color32::LIGHT_GRAY)
+                .show(ui, |ui| {
+                    ui.horizontal_centered(|ui| {
+                        ui.label(
+                            trace_synchrotron
+                                .item_path_presentation(item_path_id_interface)
+                                .ident(),
+                        )
+                    })
+                });
+            Frame::none()
+                .inner_margin(2.0)
+                .fill(Color32::WHITE)
+                .show(ui, |ui| {
+                    ui.horizontal_centered(|ui| match windlass {
+                        Windlass::Specific(var_id)
+                        | Windlass::Generic {
+                            base: Some(var_id), ..
+                        } => {
+                            ui.label(
+                                trace_synchrotron
+                                    .var_id_presentation(item_path_id_interface, var_id)
+                                    .data(),
+                            );
+                        }
+                        Windlass::Generic { base: None, limit } => {
+                            ui.label("--");
+                        }
+                    })
+                });
         }
     }
 }

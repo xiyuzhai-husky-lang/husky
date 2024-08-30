@@ -1,5 +1,5 @@
 mod components;
-mod layout;
+mod facade;
 pub(crate) mod settings;
 
 use crate::*;
@@ -9,10 +9,10 @@ use egui::{
 };
 use husky_trace_protocol::{
     figure::FigureUi,
-    trace_id::{TraceId, TraceKind},
     protocol::IsTraceProtocol,
     stalk::TraceStalk,
     synchrotron::{TraceSynchrotron, TraceSynchrotronEntry},
+    trace_id::{TraceId, TraceKind},
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
 use husky_value_protocol::presentation::ValuePresentation;

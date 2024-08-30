@@ -11,10 +11,17 @@ where
     TraceProtocol::Caryatid: CaryatidUi<Ui>,
     Settings: HasTraceDocSettings,
 {
-    pub(crate) fn render_standard_layout(mut self, ui: &mut egui::Ui) {
+    pub(crate) fn render_standard_facade(mut self, ui: &mut egui::Ui) {
         TopBottomPanel::bottom(ui.next_auto_id())
-            .frame(Frame::none().inner_margin(5.0))
-            .show_inside(ui, |ui| ui.horizontal(|ui| self.render_caryatid(ui)));
+            .frame(Frame::none().inner_margin(Margin {
+                left: 2.0,
+                right: 2.0,
+                top: 4.0, // ad hoc, investigate the implementation of egui to understand why this is needed
+                bottom: 2.0,
+            }))
+            .show_inside(ui, |ui| {
+                ui.horizontal_centered(|ui| self.render_caryatid(ui))
+            });
         self.render_central_region(ui);
     }
 
