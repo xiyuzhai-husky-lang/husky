@@ -66,7 +66,7 @@ impl IsFigure for StandardFigure {
 
 #[cfg(feature = "egui")]
 impl FigureUi<Ui> for StandardFigure {
-    fn ui(
+    fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut VisualUiCache<Ui>,
@@ -74,8 +74,8 @@ impl FigureUi<Ui> for StandardFigure {
     ) {
         match self {
             StandardFigure::Void => (),
-            StandardFigure::Dim0(slf) => slf.ui(visual_synchrotron, cache, ui),
-            StandardFigure::Dim1(slf) => slf.ui(visual_synchrotron, cache, ui),
+            StandardFigure::Dim0(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
+            StandardFigure::Dim1(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
         }
     }
 }

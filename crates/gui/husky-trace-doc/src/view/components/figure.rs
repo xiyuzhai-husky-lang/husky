@@ -8,6 +8,7 @@ where
 {
     pub(in crate::view) fn render_figure(&mut self, ui: &mut egui::Ui) {
         let visual_synchrotron = self.trace_synchrotron.visual_synchrotron();
-        self.figure.ui(visual_synchrotron, self.visual_ui_cache, ui);
+        self.figure
+            .figure_ui(visual_synchrotron, self.visual_ui_cache, ui);
     }
 }

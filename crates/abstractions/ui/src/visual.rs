@@ -12,7 +12,7 @@ use rustc_hash::FxHashMap;
 pub trait VisualUi<Ui: IsUi>: Copy {
     fn ui(
         self,
-        rect: Rect,
+        rect: Option<Rect>,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<Ui>,
         ui: &mut Ui,
@@ -22,7 +22,7 @@ pub trait VisualUi<Ui: IsUi>: Copy {
 impl VisualUi<::egui::Ui> for Visual {
     fn ui(
         self,
-        rect: Rect,
+        rect: Option<Rect>,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<::egui::Ui>,
         ui: &mut ::egui::Ui,
@@ -46,24 +46,27 @@ impl VisualUi<::egui::Ui> for Visual {
 impl VisualUi<::egui::Ui> for ImageVisual {
     fn ui(
         self,
-        rect: Rect,
+        rect: Option<Rect>,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<::egui::Ui>,
         ui: &mut ::egui::Ui,
     ) {
-        ui.paint_image(
-            cache.texture_id(self, visual_synchrotron, ui),
-            rect,
-            Rect::from_min_max(pos2(0.0, 0.0), pos2(1.0, 1.0)),
-            ::egui::Color32::WHITE,
-        )
+        match rect {
+            Some(rect) => ui.paint_image(
+                cache.texture_id(self, visual_synchrotron, ui),
+                rect,
+                Rect::from_min_max(pos2(0.0, 0.0), pos2(1.0, 1.0)),
+                ::egui::Color32::WHITE,
+            ),
+            None => todo!(),
+        }
     }
 }
 
 impl VisualUi<::egui::Ui> for PrimitiveVisual {
     fn ui(
         self,
-        rect: Rect,
+        rect: Option<Rect>,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<::egui::Ui>,
         ui: &mut ::egui::Ui,

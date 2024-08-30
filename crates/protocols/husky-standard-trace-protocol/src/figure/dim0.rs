@@ -147,7 +147,7 @@ impl<'a> StandardFigureBuilder<'a> {
 /// # ui
 #[cfg(feature = "egui")]
 impl StandardFigureDim0 {
-    pub(super) fn ui(
+    pub(super) fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut ui::visual::cache::VisualUiCache<Ui>,
@@ -180,7 +180,7 @@ impl StandardPlot {
                     .show(ui, |ui| ui.allocate_space(Vec2::splat(d)))
                     .inner;
                 for &image in images {
-                    image.ui(rect, visual_synchrotron, cache, ui)
+                    image.ui(Some(rect), visual_synchrotron, cache, ui)
                 }
                 let mnist_visual_rect = VisualRect::mnist();
                 let t = |point: Point| point.to_screen(mnist_visual_rect, rect);
@@ -204,10 +204,7 @@ impl StandardPlot {
             StandardPlot::Text => todo!(),
             StandardPlot::Code => todo!(),
             StandardPlot::Any(visual) => {
-                let (_, rect) = Frame::none()
-                    .show(ui, |ui| ui.allocate_space(ui.available_size()))
-                    .inner;
-                visual.ui(rect, visual_synchrotron, cache, ui);
+                visual.ui(None, visual_synchrotron, cache, ui);
             }
         }
     }

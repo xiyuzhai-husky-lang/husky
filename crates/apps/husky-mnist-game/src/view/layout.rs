@@ -44,7 +44,7 @@ impl MnistApp {
                                         &self.db,
                                         &mut self.visual_synchrotron,
                                     )
-                                    .ui(
+                                    .figure_ui(
                                         &self.visual_synchrotron,
                                         self.ui_cache.figure_ui_cache_mut(),
                                         ui,
