@@ -3018,7 +3018,9 @@
             "husky-standard-linket-impl",
             "husky-trace-protocol",
             "husky-visual-protocol",
+            "rustc-hash",
             "serde",
+            "ui",
             "vec-like",
         ],
     },
@@ -3398,6 +3400,7 @@
             "rust-optimal-transport",
             "shifted-unsigned-int",
             "smallvec",
+            "ui",
             "expect-test",
         ],
     },
@@ -3626,7 +3629,7 @@
         ],
     },
     PackageSummary {
-        name: "husky-cybertron-mini-compiler",
+        name: "husky-cybertron-mini-husky-compiler",
         relative_path: "crates/cybertron/husky-cybertron-mini-husky-compiler",
         dependencies: [
             "enum-class",
