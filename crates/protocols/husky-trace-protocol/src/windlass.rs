@@ -8,7 +8,7 @@ pub enum Windlass<VarId: IsVarId> {
 }
 
 impl<VarId: IsVarId> Windlass<VarId> {
-    pub fn is_generic(self) -> _ {
+    pub fn is_generic(self) -> bool {
         match self {
             Windlass::Generic { .. } => true,
             _ => false,
