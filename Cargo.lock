@@ -4435,7 +4435,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-cybertron-mini-compiler"
+name = "husky-cybertron-mini-husky-compiler"
 version = "0.1.0"
 dependencies = [
  "enum-class",
