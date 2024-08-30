@@ -297,7 +297,7 @@ fn tokenize_works() {
     t(
         "A.x",
         expect![[r#"
-            [`.x`]
+            [`A`, `.x`]
         "#]],
     );
 }
