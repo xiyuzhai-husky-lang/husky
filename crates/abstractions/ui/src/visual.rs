@@ -2,7 +2,7 @@ pub mod cache;
 
 use super::*;
 use crate::ui::{IsTextureHandle, IsUi};
-use egui::{pos2, Rect};
+use egui::{pos2, Rect, Sense};
 use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{image::ImageVisual, primitive::PrimitiveVisual, Visual},
@@ -12,7 +12,7 @@ use rustc_hash::FxHashMap;
 pub trait VisualUi<Ui: IsUi>: Copy {
     fn ui(
         self,
-        rect: Ui::Rect,
+        rect: Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<Ui>,
         ui: &mut Ui,
@@ -22,7 +22,7 @@ pub trait VisualUi<Ui: IsUi>: Copy {
 impl VisualUi<::egui::Ui> for Visual {
     fn ui(
         self,
-        rect: ::egui::Rect,
+        rect: Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<::egui::Ui>,
         ui: &mut ::egui::Ui,
@@ -46,7 +46,7 @@ impl VisualUi<::egui::Ui> for Visual {
 impl VisualUi<::egui::Ui> for ImageVisual {
     fn ui(
         self,
-        rect: ::egui::Rect,
+        rect: Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<::egui::Ui>,
         ui: &mut ::egui::Ui,
@@ -63,7 +63,7 @@ impl VisualUi<::egui::Ui> for ImageVisual {
 impl VisualUi<::egui::Ui> for PrimitiveVisual {
     fn ui(
         self,
-        rect: ::egui::Rect,
+        rect: Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut cache::VisualUiCache<::egui::Ui>,
         ui: &mut ::egui::Ui,

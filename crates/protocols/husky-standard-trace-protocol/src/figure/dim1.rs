@@ -32,7 +32,6 @@ impl StandardFigureDim1 {
 impl StandardFigureDim1 {
     pub(super) fn ui(
         &self,
-        rect: ::egui::Rect,
         visual_synchrotron: &VisualSynchrotron,
         cache: &mut ui::visual::cache::VisualUiCache<Ui>,
         ui: &mut Ui,
@@ -53,17 +52,8 @@ impl StandardFigureDim1 {
                     for j in 0..num_columns {
                         let index = i * num_columns + j;
                         if index < self.data.len() {
-                            // let (rect, response) =
-                            //     ui.allocate_exact_size(Vec2::splat(l), Sense::hover());
-                            // ui.allocate_ui_at_rect(rect, |ui| {
-                            //     self.data[index].ui(rect, visual_synchrotron, cache, ui)
-                            // });
-
-                            // previous:
-                            let (rect, response) =
-                                ui.allocate_exact_size(Vec2::splat(0.0), Sense::hover());
                             ui.allocate_ui(Vec2::splat(l), |ui| {
-                                self.data[index].ui(rect, visual_synchrotron, cache, ui)
+                                self.data[index].ui(visual_synchrotron, cache, ui)
                             });
                         }
                     }
