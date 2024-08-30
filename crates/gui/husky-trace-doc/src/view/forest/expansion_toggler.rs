@@ -39,6 +39,7 @@ where
         let toggler =
             Label::new(RichText::new(symbol_style.text(expanded)).family(FontFamily::Monospace))
                 .sense(Sense::click())
+                .selectable(false)
                 .ui(ui);
         if toggler.clicked() {
             self.add_action(TraceViewAction::ToggleExpansion { trace_id })

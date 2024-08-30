@@ -1,6 +1,7 @@
 use super::*;
 use ::egui::{
-    ColorImage, TextureFilter, TextureHandle, TextureId, TextureOptions, TextureWrapMode,
+    ColorImage, Label, TextureFilter, TextureHandle, TextureId, TextureOptions, TextureWrapMode,
+    Widget,
 };
 
 impl IsUi for ::egui::Ui {
@@ -31,6 +32,11 @@ impl IsUi for ::egui::Ui {
         tint: Self::Color32,
     ) {
         self.painter().image(texture_id, rect, uv, tint);
+    }
+
+    fn non_selectable_label(&mut self, text: &str) {
+        let label = Label::new(text).selectable(false);
+        label.ui(self);
     }
 }
 
