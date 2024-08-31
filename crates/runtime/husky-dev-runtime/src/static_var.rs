@@ -134,7 +134,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     .ok()
                     .flatten()
             }
-            Anchor::Generic { limit } => {
+            Anchor::Generic { page_limit } => {
                 let iter = linket_impl
                     .all_static_var_ids(locked)
                     .filter_map(|static_var_id| {
@@ -151,8 +151,8 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                             .ok()
                             .flatten()
                     });
-                Some(match limit {
-                    Some(limit) => iter.take(limit).collect(),
+                Some(match page_limit {
+                    Some(page_limit) => iter.take(page_limit).collect(),
                     None => iter.collect(),
                 })
             }
