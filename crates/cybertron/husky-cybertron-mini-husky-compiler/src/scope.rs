@@ -2,7 +2,10 @@ use crate::{
     ast::{helpers::parent_queries, Ast, AstData},
     *,
 };
-use ast::calc_asts_from_input;
+use ast::{
+    calc_asts_from_input, calc_asts_from_input_together_with_tokens_and_pre_asts,
+    show::show_asts_mapped_values,
+};
 use husky_cybertron::{abstractions::bounded_vec::BoundedVec, prelude::*, seq::Seq};
 use token::delimiter::{LCURL, RCURL};
 
@@ -15,7 +18,7 @@ pub struct Scope {
 
 impl std::fmt::Debug for Scope {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("Scope(`")?;
+        f.write_str("`")?;
         if self.enclosing_blocks.is_empty() {
             f.write_str("::")?;
         }
@@ -23,7 +26,7 @@ impl std::fmt::Debug for Scope {
             f.write_str("::")?;
             idx.index().fmt(f)?
         }
-        f.write_str("`)")
+        f.write_str("`")
     }
 }
 
@@ -83,9 +86,10 @@ fn infer_scope_step(
 #[test]
 fn infer_scopes_works() {
     fn t(input: &str, n: usize, expect: Expect) {
-        let asts = calc_asts_from_input(input, n);
+        let (token, (pre_asts, asts)) =
+            calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
         let scopes = infer_scopes(asts, n);
-        expect.assert_debug_eq(&scopes);
+        expect.assert_debug_eq(&show_asts_mapped_values(token, pre_asts, asts, scopes));
     }
     t(
         "",
@@ -98,14 +102,59 @@ fn infer_scopes_works() {
         "()",
         1,
         expect![[r#"
-            [None, Some(Scope(`::`))]
+            [
+                `(`: `(`,
+                `)`: "()" ✓ → `::`,
+            ]
         "#]],
     );
     t(
         "{}",
         1,
         expect![[r#"
-            [None, Some(Scope(`::1`))]
+            [
+                `{`: `{`,
+                `}`: "{}" ✓ → `::1`,
+            ]
+        "#]],
+    );
+    t(
+        "{x}",
+        2,
+        expect![[r#"
+            [
+                `{`: `{`,
+                `x`: "x" → `::2`,
+                `}`: "{ x }" ✓ → `::2`,
+            ]
+        "#]],
+    );
+    t(
+        "{ x { y } }",
+        1,
+        expect![[r#"
+            [
+                `{`: `{` ✓,
+                `x`: "x" → `::`,
+                `{`: "x { y }" ✓ → `::`,
+                `y`: "y",
+                `}`: "{ y }" → `::4`,
+                `}`: `}` ✓,
+            ]
+        "#]],
+    );
+    t(
+        "{ x { y } }",
+        3,
+        expect![[r#"
+            [
+                `{`: `{`,
+                `x`: "x" → `::5`,
+                `{`: "x { y }" → `::5`,
+                `y`: "y" → `::5::4`,
+                `}`: "{ y }" → `::5::4`,
+                `}`: "{ x { y } }" ✓ → `::5`,
+            ]
         "#]],
     );
 }
