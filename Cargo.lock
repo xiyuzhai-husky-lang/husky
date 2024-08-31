@@ -873,6 +873,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "bounded-vec"
+version = "0.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68534a48cbf63a4b1323c433cf21238c9ec23711e0df13b08c33e5c2082663ce"
+dependencies = [
+ "thiserror",
+]
+
+[[package]]
 name = "bstr"
 version = "1.10.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4414,6 +4423,7 @@ dependencies = [
 name = "husky-cybertron"
 version = "0.1.0"
 dependencies = [
+ "bounded-vec",
  "expect-test",
  "husky-cybertron-macros",
  "husky-decl-macro-utils",

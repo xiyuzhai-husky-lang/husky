@@ -1,6 +1,7 @@
 #![feature(let_chains)]
 
 pub mod ast;
+pub mod scope;
 pub mod symbol;
 pub mod token;
 

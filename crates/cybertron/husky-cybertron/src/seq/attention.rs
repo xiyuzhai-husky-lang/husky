@@ -1,3 +1,5 @@
+use idx::Idx;
+
 use super::*;
 
 impl<T> Seq<T>
@@ -54,6 +56,19 @@ where
                         .filter_map(|j| f(qs[i], ks[j]).then_some(slf[j]))
                         .next()
                 })
+                .collect(),
+        )
+    }
+
+    pub fn index(self, indices: Seq<Option<Idx>>) -> Seq<Option<T>> {
+        let slf = self.data();
+        let indices = indices.data();
+        let len = slf.len();
+        assert_eq!(len, indices.len());
+        Seq::new(
+            (0..len)
+                .into_iter()
+                .map(|i| indices[i].map(|idx| slf[idx.index()]))
                 .collect(),
         )
     }
