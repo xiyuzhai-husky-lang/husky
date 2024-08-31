@@ -37,7 +37,9 @@ use husky_linket_impl::{
 use husky_standard_value::exception::Exception;
 use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
-use linket_impl::{LinketImplTrackedExcepted, LinketImplTrackedExceptedValue};
+use linket_impl::{
+    LinketImplStaticVarResult, LinketImplTrackedExcepted, LinketImplTrackedExceptedValue,
+};
 use serde::{Deserialize, Serialize};
 
 pub type StandardTrackedException = TrackedException<Exception, StandardPedestal>;
@@ -103,11 +105,15 @@ pub enum StandardLinketImpl {
     },
     StaticVar {
         init_item_path_id_interface: fn(ItemPathIdInterface),
-        get_id: fn() -> StandardVarId,
-        ids: for<'db> fn(
+        get_var_id: fn() -> StandardVarId,
+        page_var_ids: for<'db> fn(
             &'db [ItemPathIdInterface],
+            StandardVarId,
+            Option<usize>,
         ) -> Box<dyn Iterator<Item = StandardVarId> + 'db>,
-        try_replace_id: unsafe fn(
+        default_page_start: fn(&[ItemPathIdInterface]) -> StandardStaticVarResult<StandardVarId>,
+        // todo: use guard?
+        try_set_var_id: unsafe fn(
             StandardVarId,
             locked: &[ItemPathIdInterface],
         ) -> StandardStaticVarResult<Box<dyn FnOnce() + 'static>>,
@@ -224,21 +230,24 @@ impl IsLinketImpl for StandardLinketImpl {
     }
 
     fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::VarId {
-        let StandardLinketImpl::StaticVar { get_id, .. } = self else {
+        let StandardLinketImpl::StaticVar {
+            get_var_id: get_id, ..
+        } = self
+        else {
             unreachable!()
         };
         get_id()
     }
 
-    fn with_static_var_id<R>(
+    fn with_var_id<R>(
         self,
         static_var_id: <Self::Pedestal as IsPedestal>::VarId,
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
     ) -> StaticVarResult<<Self::Pedestal as IsPedestal>::VarId, R> {
         let StandardLinketImpl::StaticVar {
-            get_id,
-            try_replace_id,
+            get_var_id: get_id,
+            try_set_var_id: try_replace_id,
             ..
         } = self
         else {
@@ -252,14 +261,29 @@ impl IsLinketImpl for StandardLinketImpl {
         }
     }
 
-    fn all_static_var_ids<'db>(
+    fn page_var_ids<'db>(
         self,
         locked: &'db [ItemPathIdInterface],
+        page_start: StandardVarId,
+        page_limit: Option<usize>,
     ) -> Box<dyn Iterator<Item = StandardVarId> + 'db> {
-        let StandardLinketImpl::StaticVar { ids, .. } = self else {
+        let StandardLinketImpl::StaticVar { page_var_ids, .. } = self else {
             unreachable!()
         };
-        ids(locked)
+        page_var_ids(locked, page_start, page_limit)
+    }
+
+    fn var_default_page_start(
+        self,
+        locked: &[ItemPathIdInterface],
+    ) -> LinketImplStaticVarResult<Self, <Self::Pedestal as IsPedestal>::VarId> {
+        let StandardLinketImpl::StaticVar {
+            default_page_start, ..
+        } = self
+        else {
+            unreachable!()
+        };
+        default_page_start(locked)
     }
 }
 

@@ -30,7 +30,8 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             match windlass {
                 Windlass::Specific(var_id)
                 | Windlass::Generic {
-                    base: Some(var_id), ..
+                    followed: Some(var_id),
+                    ..
                 } => {
                     if !self
                         .var_id_presentations

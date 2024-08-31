@@ -139,7 +139,7 @@ impl IsLinketImpl for VirtualLinketImpl {
         todo!()
     }
 
-    fn with_static_var_id<R>(
+    fn with_var_id<R>(
         self,
         static_var_id: <Self::Pedestal as IsPedestal>::VarId,
         locked: &[ItemPathIdInterface],
@@ -148,10 +148,19 @@ impl IsLinketImpl for VirtualLinketImpl {
         todo!()
     }
 
-    fn all_static_var_ids<'a>(
+    fn page_var_ids<'a>(
         self,
         locked: &'a [ItemPathIdInterface],
+        page_start: <Self::Pedestal as IsPedestal>::VarId,
+        page_limit: Option<usize>,
     ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::VarId> + 'a> {
+        todo!()
+    }
+
+    fn var_default_page_start(
+        self,
+        locked: &[ItemPathIdInterface],
+    ) -> LinketImplStaticVarResult<Self, <Self::Pedestal as IsPedestal>::VarId> {
         todo!()
     }
 }

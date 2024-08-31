@@ -64,18 +64,23 @@ impl From<[u64; 4]> for StandardVarId {
 
 #[macro_export]
 macro_rules! static_var_linket_impl {
-    ($static_var: path, $item_path_id_interface: path) => {
+    ($var_path: path, $item_path_id_interface: path) => {
         __LinketImpl::StaticVar {
             init_item_path_id_interface: |item_path_id_interface| unsafe {
                 $item_path_id_interface = Some(item_path_id_interface)
             },
-            get_id: <$static_var as __IsStaticVar<__VarId>>::get_id,
-            try_replace_id: |id, locked| unsafe {
-                <$static_var as __IsStaticVar<__VarId>>::try_replace_id(id, locked)
+            get_var_id: <$var_path as __IsStaticVar<__VarId>>::get_id,
+            try_set_var_id: |id, locked| unsafe {
+                <$var_path as __IsStaticVar<__VarId>>::try_set_var_id(id, locked)
                     .map(|restore| -> Box<dyn FnOnce()> { Box::new(restore) })
             },
-            ids: |locked| Box::new(<$static_var as __IsStaticVar<__VarId>>::ids(locked)),
-            get_value: <$static_var as __IsStaticVar<__VarId>>::get_value,
+            page_var_ids: |locked, page_start, page_limit| {
+                Box::new(<$var_path as __IsStaticVar<__VarId>>::page_var_ids(
+                    locked, page_start, page_limit,
+                ))
+            },
+            default_page_start: <$var_path as __IsStaticVar<__VarId>>::default_page_start,
+            get_value: <$var_path as __IsStaticVar<__VarId>>::get_value,
         }
     };
 }
@@ -94,7 +99,7 @@ fn static_var_linket_impl_works() {
             todo!()
         }
 
-        unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
+        fn page_var_ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
             (0..10u32).map(Into::into)
         }
 
@@ -102,7 +107,7 @@ fn static_var_linket_impl_works() {
             todo!()
         }
 
-        unsafe fn try_replace_id_aux(
+        fn try_set_var_id_aux(
             id: __VarId,
             locked: &[ItemPathIdInterface],
         ) -> __StaticVarResult<impl FnOnce() + 'static> {
@@ -113,6 +118,10 @@ fn static_var_linket_impl_works() {
         type Value = Value;
 
         fn get_value() -> Self::Value {
+            todo!()
+        }
+
+        fn default_page_start(locked: &[ItemPathIdInterface]) -> StaticVarResult<__VarId, __VarId> {
             todo!()
         }
     }
@@ -127,9 +136,9 @@ fn static_var_linket_impl_works() {
 
     let LinketImpl::StaticVar {
         init_item_path_id_interface,
-        get_id,
-        try_replace_id,
-        ids,
+        get_var_id: get_id,
+        try_set_var_id: try_replace_id,
+        page_var_ids: ids,
         ..
     } = static_var_linket_impl!(STATIC_VAR_A, STATIC_VAR_A__ITEM_PATH_ID_INTERFACE)
     else {

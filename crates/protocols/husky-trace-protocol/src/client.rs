@@ -133,6 +133,7 @@ where
         return Ok(());
     }
 
+    /// returns Some if the action can be resolved in the client without relying on server
     fn try_resolve_view_action(
         &self,
         view_action: &TraceViewAction<TraceProtocol>,
@@ -230,6 +231,7 @@ where
                     caryatid: caryatid.clone(),
                 })
             }
+            TraceViewAction::AddExtraVarDepsToCaryatid { ref var_deps } => None,
         }
     }
 }

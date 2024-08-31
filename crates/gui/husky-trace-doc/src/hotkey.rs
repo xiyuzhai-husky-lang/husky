@@ -25,10 +25,9 @@ impl TraceDocHotkeyAction {
                     None => trace_synchrotron.followed()?,
                 };
                 let trace_var_deps = trace_synchrotron[trace_id].var_deps();
-                let mut caryatid = trace_synchrotron
-                    .caryatid()
-                    .with_extra_var_deps(trace_var_deps);
-                Some(TraceViewAction::SetCaryatid { caryatid })
+                Some(TraceViewAction::AddExtraVarDepsToCaryatid {
+                    var_deps: trace_var_deps.into(),
+                })
             }
         }
     }

@@ -91,6 +91,15 @@ where
     }
 }
 
+impl<'a, K, const N: usize> From<&'a [K]> for SmallVecSet<K, N>
+where
+    K: Copy + Eq,
+{
+    fn from(value: &'a [K]) -> Self {
+        Self::from_iter(value.iter().copied())
+    }
+}
+
 impl<K, const N: usize> SmallVecSet<K, N>
 where
     [K; N]: Array<Item = K>,
