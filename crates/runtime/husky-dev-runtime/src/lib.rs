@@ -3,9 +3,9 @@
 #![feature(try_trait_v2)]
 mod config;
 mod eval;
-mod static_var;
 #[cfg(test)]
 mod tests;
+mod var;
 
 pub use self::config::*;
 
@@ -110,7 +110,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
             todo!()
         };
-        let linket = Linket::new_static_var(path, db);
+        let linket = Linket::new_var(path, db);
         let linket_impl = self.comptime.linket_impl(linket);
         linket_impl.static_var_id()
     }
@@ -258,7 +258,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
                             MajorFormKind::Val => todo!(),
                             MajorFormKind::StaticMut => todo!(),
                             MajorFormKind::StaticVar => {
-                                let linket = Linket::new_static_var(var_dep_major_form_path, db);
+                                let linket = Linket::new_var(var_dep_major_form_path, db);
                                 let linket_impl = self.comptime.linket_impl(linket);
                                 let static_var_id = linket_impl.static_var_id();
                                 ((*var_dep_item_path).into(), static_var_id)
