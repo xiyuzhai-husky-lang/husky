@@ -384,10 +384,14 @@ fn ki_repr_eval_works() {
         }
         let ki_repr = KiRepr::new_val(form_path, db);
         runtime.with_static_var_anchors(
-            ki_repr
-                .var_deps(db)
-                .iter()
-                .map(|&dep| (dep, Anchor::Generic { limit: Some(10) })),
+            ki_repr.var_deps(db).iter().map(|&dep| {
+                (
+                    dep,
+                    Anchor::Generic {
+                        page_limit: Some(10),
+                    },
+                )
+            }),
             |_| Some(runtime.eval_ki_repr(ki_repr)),
         );
     }
