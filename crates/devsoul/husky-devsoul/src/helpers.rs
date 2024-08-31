@@ -18,7 +18,7 @@ pub type DevsoulVarId<Devsoul> =
     <<<Devsoul as IsDevsoul>::LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::VarId;
 pub type DevsoulStaticVarMap<Devsoul> =
     SmallVecPairMap<ItemPathIdInterface, DevsoulVarId<Devsoul>, 4>;
-pub type DevsoulOrderedStaticVarMap<Devsoul> =
+pub type DevsoulOrderedVarMap<Devsoul> =
     OrderedSmallVecPairMap<ItemPathIdInterface, DevsoulVarId<Devsoul>, 4>;
 pub type DevsoulTrackedException<Devsoul> =
     LinketImplTrackedException<<Devsoul as IsDevsoul>::LinketImpl>;

@@ -126,7 +126,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let db = self.runtime.db();
         let chart: Option<DevsoulChart<Devsoul, CompositeVisual<TraceId>>> =
-            self.runtime.with_static_var_anchors(
+            self.runtime.with_var_anchors(
                 figure_key.joint_static_var_anchors().iter().copied().map(
                     |(item_path_id_interface, anchor)| {
                         let item_path_id: ItemPathId = item_path_id_interface.into();

@@ -230,7 +230,7 @@ impl IsLinketImpl for StandardLinketImpl {
         get_id()
     }
 
-    fn with_static_var_id<R>(
+    fn with_var_id<R>(
         self,
         static_var_id: <Self::Pedestal as IsPedestal>::VarId,
         locked: &[ItemPathIdInterface],
@@ -252,7 +252,7 @@ impl IsLinketImpl for StandardLinketImpl {
         }
     }
 
-    fn all_static_var_ids<'db>(
+    fn all_var_ids<'db>(
         self,
         locked: &'db [ItemPathIdInterface],
     ) -> Box<dyn Iterator<Item = StandardVarId> + 'db> {
