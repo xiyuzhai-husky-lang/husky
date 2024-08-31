@@ -176,6 +176,14 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
             calc_ast_repr(tokens, asts, expr, outs);
             format!("let {}", outs[expr.index()].ast,)
         }
+        AstData::Return { result } => {
+            calc_ast_repr(tokens, asts, result, outs);
+            format!("return {}", outs[result.index()].ast,)
+        }
+        AstData::Assert { condition } => {
+            calc_ast_repr(tokens, asts, condition, outs);
+            format!("assert {}", outs[condition.index()].ast,)
+        }
         AstData::If { condition, body } => {
             calc_ast_repr(tokens, asts, condition, outs);
             calc_ast_repr(tokens, asts, body, outs);

@@ -8,14 +8,14 @@ use self::{dim0::StandardFigureDim0, dim1::StandardFigureDim1};
 #[cfg(feature = "egui")]
 use egui::{pos2, Color32, Rect, Ui, Vec2};
 use husky_ki_repr_interface::KiReprInterface;
-use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull};
-use husky_standard_linket_impl::pedestal::StandardPedestal;
+use husky_linket_impl::pedestal::{IsPedestal, IsPedestalFull, JointPedestal};
+use husky_standard_linket_impl::pedestal::{StandardJointPedestal, StandardPedestal};
 use husky_standard_linket_impl::static_var::StandardVarId;
 use husky_trace_protocol::{
     chart::Chart,
-    figure::{FigureUi, FigureUiCache, IsFigure},
-    id::TraceId,
+    figure::{FigureUi, IsFigure},
     server::TracePlotInfos,
+    trace_id::TraceId,
 };
 use husky_visual_protocol::visual::{
     shape::{Point, VisualRect},
@@ -30,6 +30,7 @@ use husky_visual_protocol::{
     },
 };
 use serde::{Deserialize, Serialize};
+use ui::visual::cache::VisualUiCache;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
@@ -61,6 +62,14 @@ impl IsFigure for StandardFigure {
             Chart::Dim2(chart) => todo!(),
         }
     }
+
+    fn for_all_joint_pedestals(&self, f: impl FnMut(&StandardJointPedestal)) {
+        match self {
+            StandardFigure::Void => (),
+            StandardFigure::Dim0(slf) => slf.for_all_joint_pedestals(f),
+            StandardFigure::Dim1(slf) => slf.for_all_joint_pedestals(f),
+        }
+    }
 }
 
 #[cfg(feature = "egui")]
@@ -68,13 +77,13 @@ impl FigureUi<Ui> for StandardFigure {
     fn figure_ui(
         &self,
         visual_synchrotron: &VisualSynchrotron,
-        cache: &mut FigureUiCache<Ui>,
+        cache: &mut VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
         match self {
             StandardFigure::Void => (),
-            StandardFigure::Dim0(slf) => slf.ui(visual_synchrotron, cache, ui),
-            StandardFigure::Dim1(slf) => slf.ui(visual_synchrotron, cache, ui),
+            StandardFigure::Dim0(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
+            StandardFigure::Dim1(slf) => slf.figure_ui(visual_synchrotron, cache, ui),
         }
     }
 }

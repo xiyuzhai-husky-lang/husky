@@ -1,5 +1,5 @@
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_linket_impl::{pedestal::JointPedestal, var::IsVarId};
+use husky_linket_impl::{pedestal::JointPedestal, var_id::IsVarId};
 use vec_like::SmallVecPairMap;
 
 #[enum_class::from_variants]

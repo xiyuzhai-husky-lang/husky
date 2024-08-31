@@ -13,8 +13,9 @@ ndarray-stats.workspace = true
 rust-optimal-transport.workspace = true
 smallvec.workspace = true
 # abstractions
-shifted-unsigned-int.workspace = true
 enum-index.workspace = true
+shifted-unsigned-int.workspace = true
+ui.workspace = true
 # devsoul
 husky-devsoul-interface.workspace = true
 husky-standard-devsoul-interface.workspace = true

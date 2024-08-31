@@ -13,9 +13,6 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let expansion = ki_repr.expansion(db).expect("should be expandible");
         let item_path = expansion.path(db);
         let debugger = HirLazyExprDebugger::new_body(item_path, db).unwrap();
-        use ::husky_print_utils::p;
-        use ::salsa::DebugWithDb;
-        p!(item_path.debug(db));
         expansion
             .hir_lazy_stmt_ki_repr_map(db)
             .iter()

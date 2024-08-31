@@ -31,7 +31,7 @@ use husky_linket_impl::{
     impl_is_fn_linket_impl_source, impl_is_unveil_fn_linket_impl_source,
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, VmArgumentValue},
     pedestal::{IsPedestal, IsPedestalFull},
-    var::StaticVarResult,
+    static_var::StaticVarResult,
     LinketImplVmControlFlow, *,
 };
 use husky_standard_value::exception::Exception;

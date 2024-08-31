@@ -28,7 +28,7 @@ impl MnistApp {
                 for i in 0..number_of_rows {
                     for j in 0..number_of_columns {
                         Frame::none().stroke((1.0, Color32::WHITE)).show(ui, |ui| {
-                            let (_, response) =
+                            let (rect, response) =
                                 ui.allocate_exact_size(Vec2::splat(grid_size), Sense::hover());
                             ui.allocate_ui_at_rect(response.rect, |ui| {
                                 let pedestal = self.control.pedestal();

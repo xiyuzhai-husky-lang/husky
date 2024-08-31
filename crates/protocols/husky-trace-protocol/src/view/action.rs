@@ -3,7 +3,7 @@ use std::marker::PhantomData;
 use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
 
-use crate::{id::TraceId, IsTraceProtocol};
+use crate::{trace_id::TraceId, IsTraceProtocol};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub enum TraceViewAction<TraceProtocol: IsTraceProtocol> {

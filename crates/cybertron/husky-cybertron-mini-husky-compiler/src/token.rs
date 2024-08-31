@@ -11,6 +11,7 @@ use crate::*;
 use delimiter::{Delimiter, LeftDelimiter, RightDelimiter};
 use husky_cybertron::seq::Seq;
 use husky_text_protocol::char::TextCharIter;
+use opr::SuffixOpr;
 
 /// The `Token` enum represents the various types of tokens that can be
 /// identified during the lexical analysis phase of a compiler. Each variant
@@ -184,6 +185,13 @@ impl<'a> Tokenizer<'a> {
             '}' => Some(RCURL.into()),
             ',' => Some(Separator::Comma.into()),
             ';' => Some(Separator::Semicolon.into()),
+            '.' => {
+                let ident = Ident::new(String::from(
+                    self.chars
+                        .next_str_slice_while(|c| c.is_alphanumeric() || c == '_'),
+                ));
+                Some(Opr::Suffix(SuffixOpr::Field(ident)).into())
+            }
             c if c.is_alphabetic() || c == '_' => Some(self.next_keyword_or_ident(c)),
             c if c.is_numeric() => Some(self.next_numeric_literal(c)),
             c => todo!(),
@@ -278,6 +286,18 @@ fn tokenize_works() {
         "x--",
         expect![[r#"
             [`x`, `--`]
+        "#]],
+    );
+    t(
+        ".x",
+        expect![[r#"
+            [`.x`]
+        "#]],
+    );
+    t(
+        "A.x",
+        expect![[r#"
+            [`A`, `.x`]
         "#]],
     );
 }

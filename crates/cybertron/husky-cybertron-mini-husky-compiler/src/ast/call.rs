@@ -57,6 +57,8 @@ fn new_call_ast(
                 },
                 Keyword::Stmt(kw) => match kw {
                     StmtKeyword::Let => (),
+                    StmtKeyword::Return => (),
+                    StmtKeyword::Assert => (),
                     StmtKeyword::If => match left_delimiter.delimiter() {
                         Delimiter::Parenthesis | Delimiter::Box => (),
                         Delimiter::Curly => return None,

@@ -242,7 +242,13 @@ impl HotkeyFragment {
                     modifiers,
                     ..
                 } => {
-                    assert!(slf.is_none());
+                    assert!(
+                        slf.is_none(),
+                        "slf ={:?}, event = {:?}, intercept_for_text_edit = {}",
+                        slf,
+                        event,
+                        intercept_for_text_edit
+                    );
                     slf = Some(HotkeyFragment {
                         key,
                         modifiers,

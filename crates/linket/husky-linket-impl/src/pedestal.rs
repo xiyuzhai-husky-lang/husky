@@ -1,7 +1,10 @@
 pub mod virtual_pedestal;
 
-use crate::var::{IsStaticVar, IsVarId, IsVarIdFull};
 use crate::ItemPathIdInterface;
+use crate::{
+    static_var::IsStaticVar,
+    var_id::{IsVarId, IsVarIdFull},
+};
 use serde::{Deserialize, Serialize};
 use vec_like::ordered_small_vec_map::OrderedSmallVecPairMap;
 
@@ -38,6 +41,14 @@ impl<T> IsPedestalFull for T where T: IsPedestal + Serialize + for<'a> Deseriali
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub struct JointPedestal<VarId: IsVarId> {
     data: OrderedSmallVecPairMap<ItemPathIdInterface, VarId, 4>,
+}
+
+impl<VarId: IsVarId> std::ops::Deref for JointPedestal<VarId> {
+    type Target = OrderedSmallVecPairMap<ItemPathIdInterface, VarId, 4>;
+
+    fn deref(&self) -> &Self::Target {
+        &self.data
+    }
 }
 
 impl<VarId: IsVarId> JointPedestal<VarId> {

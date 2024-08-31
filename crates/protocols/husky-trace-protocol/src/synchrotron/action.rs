@@ -1,15 +1,17 @@
 use husky_value_protocol::presentation::synchrotron::action::ValuePresentationSynchrotronActionsDiff;
 use husky_visual_protocol::synchrotron::action::VisualSynchrotronActionsDiff;
+use item_path::ItemPathPresentation;
 use smallvec::SmallVec;
+use var_id::VarIdPresentation;
 
 use super::*;
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
-    NewTrace(TraceSynchrotronNewTrace),
-    ToggleExpansion(TraceSynchrotronToggleExpansion),
-    SetSubtraces(TraceSynchrotronSetSubtraces),
+    NewTrace(TraceSynchrotronActionNewTrace),
+    ToggleExpansion(TraceSynchrotronActionToggleExpansion),
+    SetSubtraces(TraceSynchrotronActionSetSubtraces),
     Phantom(TraceSynchrotronActionTraceProtocol<TraceProtocol>),
     ToggleAssocTrace {
         trace_id: TraceId,
@@ -26,6 +28,15 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
     CacheFigure {
         figure_key: TraceFigureKey<TraceProtocol>,
         figure: TraceProtocol::Figure,
+    },
+    CacheItemPathPresentation {
+        item_path_id_interface: ItemPathIdInterface,
+        item_path_presentation: ItemPathPresentation,
+    },
+    CacheVarIdPresentation {
+        item_path_id_interface: ItemPathIdInterface,
+        var_id: TraceVarId<TraceProtocol>,
+        var_id_presentation: VarIdPresentation,
     },
     ToggleAccompany {
         trace_id: TraceId,
@@ -110,6 +121,28 @@ where
             TraceSynchrotronAction::SetCaryatid { ref caryatid } => {
                 synchrotron.caryatid = caryatid.clone()
             }
+            TraceSynchrotronAction::CacheItemPathPresentation {
+                item_path_id_interface,
+                ref item_path_presentation,
+            } => {
+                assert!(synchrotron
+                    .item_path_presentations
+                    .insert(item_path_id_interface, item_path_presentation.clone())
+                    .is_none());
+            }
+            TraceSynchrotronAction::CacheVarIdPresentation {
+                item_path_id_interface,
+                var_id,
+                ref var_id_presentation,
+            } => {
+                assert!(synchrotron
+                    .var_id_presentations
+                    .insert(
+                        (item_path_id_interface, var_id),
+                        var_id_presentation.clone(),
+                    )
+                    .is_none());
+            }
         }
     }
 }
@@ -142,13 +175,13 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceSynchrotronNewTrace {
+pub struct TraceSynchrotronActionNewTrace {
     trace_id: TraceId,
     var_deps: SmallVec<[ItemPathIdInterface; 2]>,
     view_data: TraceViewData,
 }
 
-impl TraceSynchrotronNewTrace {
+impl TraceSynchrotronActionNewTrace {
     pub fn new(
         trace_id: TraceId,
         var_deps: SmallVec<[ItemPathIdInterface; 2]>,
@@ -162,7 +195,7 @@ impl TraceSynchrotronNewTrace {
     }
 }
 
-impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronNewTrace
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronActionNewTrace
 where
     TraceProtocol: IsTraceProtocol,
 {
@@ -197,17 +230,18 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceSynchrotronToggleExpansion {
+pub struct TraceSynchrotronActionToggleExpansion {
     trace_id: TraceId,
 }
 
-impl TraceSynchrotronToggleExpansion {
+impl TraceSynchrotronActionToggleExpansion {
     pub fn new(trace_id: TraceId) -> Self {
         Self { trace_id }
     }
 }
 
-impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronToggleExpansion
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol>
+    for TraceSynchrotronActionToggleExpansion
 where
     TraceProtocol: IsTraceProtocol,
 {
@@ -219,12 +253,12 @@ where
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
-pub struct TraceSynchrotronSetSubtraces {
+pub struct TraceSynchrotronActionSetSubtraces {
     trace_id: TraceId,
     subtrace_ids: Vec<TraceId>,
 }
 
-impl TraceSynchrotronSetSubtraces {
+impl TraceSynchrotronActionSetSubtraces {
     pub fn new(trace_id: TraceId, subtrace_ids: Vec<TraceId>) -> Self {
         Self {
             trace_id,
@@ -233,7 +267,7 @@ impl TraceSynchrotronSetSubtraces {
     }
 }
 
-impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronSetSubtraces
+impl<TraceProtocol> IsTraceSynchrotronAction<TraceProtocol> for TraceSynchrotronActionSetSubtraces
 where
     TraceProtocol: IsTraceProtocol,
 {

@@ -1,4 +1,7 @@
-mod components;
+mod caryatid;
+mod devtools;
+mod figure;
+mod forest;
 mod layout;
 pub(crate) mod settings;
 
@@ -8,15 +11,16 @@ use egui::{
     TopBottomPanel, Ui, Vec2, Widget,
 };
 use husky_trace_protocol::{
-    figure::{FigureUi, FigureUiCache},
-    id::{TraceId, TraceKind},
+    figure::FigureUi,
     protocol::IsTraceProtocol,
     stalk::TraceStalk,
     synchrotron::{TraceSynchrotron, TraceSynchrotronEntry},
+    trace_id::{TraceId, TraceKind},
     view::{action::TraceViewActionBuffer, TraceViewLineData, TraceViewTokenData},
 };
 use husky_value_protocol::presentation::ValuePresentation;
 use std::path::Path;
+use ui::visual::cache::VisualUiCache;
 
 pub(crate) struct TraceDocView<'a, TraceProtocol, Settings>
 where
@@ -28,7 +32,7 @@ where
     figure: &'a TraceProtocol::Figure,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
-    figure_ui_cache: &'a mut FigureUiCache<Ui>,
+    visual_ui_cache: &'a mut ui::visual::cache::VisualUiCache<Ui>,
     caryatid_ui_buffer: &'a mut <TraceProtocol::Caryatid as IsCaryatid>::UiBuffer,
     glyph_width: f32,
 }
@@ -43,7 +47,7 @@ where
         trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
         action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
         settings: &'a mut Settings,
-        figure_ui_cache: &'a mut FigureUiCache<Ui>,
+        figure_ui_cache: &'a mut VisualUiCache<Ui>,
         caryatid_ui_buffer: &'a mut <TraceProtocol::Caryatid as IsCaryatid>::UiBuffer,
         ui: &mut egui::Ui,
     ) -> Self {
@@ -57,7 +61,7 @@ where
             settings,
             glyph_width,
             caryatid_ui_buffer,
-            figure_ui_cache,
+            visual_ui_cache: figure_ui_cache,
         }
     }
 }

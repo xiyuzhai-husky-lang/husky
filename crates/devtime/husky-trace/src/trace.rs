@@ -46,10 +46,10 @@ use husky_ki_repr::expansion::KiReprExpansion;
 use husky_ki_repr::repr::KiRepr;
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{expr::*, pattern::*, region::*, stmt::*, variable::*};
-use husky_trace_protocol::id::TraceId;
+use husky_trace_protocol::trace_id::TraceId;
 use husky_trace_protocol::{
-    id::TraceKind,
     protocol::{IsTrace, TraceBundle},
+    trace_id::TraceKind,
     view::TraceViewData,
 };
 use husky_vfs::path::crate_path::CrateKind;
