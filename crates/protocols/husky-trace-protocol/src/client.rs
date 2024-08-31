@@ -6,7 +6,7 @@ pub mod test_utils;
 
 use crate::caryatid::IsCaryatid;
 use crate::{
-    message::*, synchrotron::action::TraceSynchrotronToggleExpansion,
+    message::*, synchrotron::action::TraceSynchrotronActionToggleExpansion,
     view::action::TraceViewAction, *,
 };
 use figure::FigureKey;
@@ -50,25 +50,17 @@ where
         }
     }
 
-    pub fn update(
-        &mut self,
-        caryatid_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
-    ) {
+    pub fn update(&mut self) {
         let Some(response) = self.connection.try_recv() else {
             return;
         };
-        self.process_response(response, caryatid_ui_buffer);
+        self.process_response(response);
     }
 
-    fn process_response(
-        &mut self,
-        response: TraceResponse<TraceProtocol>,
-        caryatid_ui_buffer: &mut Option<TraceCaryatidUiBuffer<TraceProtocol>>,
-    ) {
+    fn process_response(&mut self, response: TraceResponse<TraceProtocol>) {
         match response {
             TraceResponse::Init { trace_synchrotron } => {
                 debug_assert!(self.trace_synchrotron.is_none());
-                *caryatid_ui_buffer = Some(trace_synchrotron.caryatid().init_ui_buffer());
                 self.trace_synchrotron = Some(trace_synchrotron)
             }
             TraceResponse::TakeTraceSynchrotronActionsDiff {
@@ -80,10 +72,6 @@ where
                     unreachable!()
                 };
                 trace_synchrotron.take_actions_diff(trace_synchrotron_actions_diff);
-                caryatid_ui_buffer
-                    .as_mut()
-                    .unwrap()
-                    .update(trace_synchrotron.caryatid());
             }
             TraceResponse::Err(e) => panic!("{e}"),
         }
@@ -155,7 +143,7 @@ where
                 if !trace_cache_entry.expanded() {
                     trace_cache_entry.subtrace_ids()?;
                 }
-                Some(TraceSynchrotronToggleExpansion::new(trace_id).into())
+                Some(TraceSynchrotronActionToggleExpansion::new(trace_id).into())
             }
             TraceViewAction::ToggleAssocTrace {
                 trace_id,

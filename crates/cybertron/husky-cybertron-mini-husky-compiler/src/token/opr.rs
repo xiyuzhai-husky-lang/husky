@@ -1,3 +1,5 @@
+use super::ident::Ident;
+
 #[derive(Clone, Copy, PartialEq, Eq)]
 pub enum Opr {
     Prefix(PrefixOpr),
@@ -43,19 +45,19 @@ impl Opr {
 }
 
 impl Opr {
-    pub fn repr(self) -> &'static str {
+    pub fn repr(self) -> String {
         match self {
-            Opr::Prefix(slf) => slf.repr(),
-            Opr::Binary(slf) => slf.repr(),
+            Opr::Prefix(slf) => slf.repr().to_string(),
+            Opr::Binary(slf) => slf.repr().to_string(),
             Opr::Suffix(slf) => slf.repr(),
         }
     }
 
-    pub fn repr_short(self) -> &'static str {
+    pub fn repr_short(self) -> String {
         match self {
-            Opr::Prefix(slf) => slf.repr_short(),
-            Opr::Binary(slf) => slf.repr_short(),
-            Opr::Suffix(slf) => slf.repr(),
+            Opr::Prefix(slf) => slf.repr_short().to_owned(),
+            Opr::Binary(slf) => slf.repr_short().to_owned(),
+            Opr::Suffix(slf) => slf.repr().to_owned(),
         }
     }
 }
@@ -171,6 +173,7 @@ impl PrefixOpr {
 pub enum SuffixOpr {
     Incr,
     Decr,
+    Field(Ident),
 }
 
 impl SuffixOpr {
@@ -186,10 +189,11 @@ impl std::fmt::Debug for SuffixOpr {
 }
 
 impl SuffixOpr {
-    pub fn repr(self) -> &'static str {
+    pub fn repr(self) -> String {
         match self {
-            SuffixOpr::Incr => "++",
-            SuffixOpr::Decr => "--",
+            SuffixOpr::Incr => "++".to_string(),
+            SuffixOpr::Decr => "--".to_string(),
+            SuffixOpr::Field(ident) => format!(".{}", ident.repr()),
         }
     }
 }

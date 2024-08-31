@@ -1,5 +1,5 @@
 use crate::*;
-use husky_linket_impl::var::IsVarId;
+use husky_linket_impl::var_id::IsVarId;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
 pub struct StandardVarId {
@@ -83,7 +83,7 @@ macro_rules! static_var_linket_impl {
 #[test]
 fn static_var_linket_impl_works() {
     use crate::{pedestal::StandardPedestal, static_var::StandardVarId, ugly::*};
-    use husky_linket_impl::var::IsStaticVar;
+    use husky_linket_impl::static_var::IsStaticVar;
     use StandardLinketImpl as __LinketImpl;
 
     #[allow(non_camel_case_types)]

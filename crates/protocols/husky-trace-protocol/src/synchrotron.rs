@@ -1,6 +1,7 @@
 pub mod accompany;
 pub(crate) mod action;
 pub mod bundle;
+mod cache;
 mod entry;
 
 pub use self::action::TraceSynchrotronAction;
@@ -8,8 +9,10 @@ pub use self::entry::TraceSynchrotronEntry;
 
 use self::action::TraceSynchrotronActionsDiff;
 use self::bundle::TraceIdBundle;
-use crate::synchrotron::accompany::AccompanyingTraceIdsExceptFollowed;
-use crate::{view::TraceViewData, *};
+use crate::{
+    item_path::ItemPathPresentation, synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
+    var_id::VarIdPresentation, view::TraceViewData, *,
+};
 use figure::{FigureKey, TraceFigureKey};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_value_protocol::presentation::synchrotron::{
@@ -30,9 +33,14 @@ pub struct TraceSynchrotron<TraceProtocol: IsTraceProtocol> {
     followed_trace_id: Option<TraceId>,
     #[serde_as(as = "Vec<(_, _)>")]
     entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>>,
-    actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
+    #[serde_as(as = "Vec<(_, _)>")]
+    item_path_presentations: FxHashMap<ItemPathIdInterface, ItemPathPresentation>,
+    #[serde_as(as = "Vec<(_, _)>")]
+    var_id_presentations:
+        FxHashMap<(ItemPathIdInterface, TraceVarId<TraceProtocol>), VarIdPresentation>,
     #[serde_as(as = "Vec<(_, _)>")]
     figures: FxHashMap<TraceFigureKey<TraceProtocol>, TraceProtocol::Figure>,
+    actions: Vec<TraceSynchrotronAction<TraceProtocol>>,
     // child synchrotrons
     value_presentation_synchrotron: ValuePresentationSynchrotron,
     visual_synchrotron: VisualSynchrotron,
@@ -83,11 +91,15 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             value_presentation_synchrotron: Default::default(),
             visual_synchrotron: Default::default(),
             followed_trace_id: None,
+            item_path_presentations: Default::default(),
+            var_id_presentations: Default::default(),
             accompanyings: Default::default(),
             figures: Default::default(),
         }
     }
+}
 
+impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     pub fn trace_id_bundles(&self) -> &[TraceIdBundle] {
         &self.trace_id_bundles
     }
@@ -96,19 +108,23 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
         &self.visual_synchrotron
     }
 
+    pub fn item_path_presentation(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+    ) -> &ItemPathPresentation {
+        &self.item_path_presentations[&item_path_id_interface]
+    }
+
+    pub fn var_id_presentation(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+        var_id: TraceVarId<TraceProtocol>,
+    ) -> &VarIdPresentation {
+        &self.var_id_presentations[&(item_path_id_interface, var_id)]
+    }
+
     #[track_caller]
     pub fn figure(&self) -> &TraceProtocol::Figure {
-        // #[cfg(test)]
-        // {
-        //     if !self.figures.contains_key(&self.current) {
-        //         husky_io_utils::diff_write(
-        //             "trace_synchrotron_failure_actions.log",
-        //             format!("{:#?}", self.actions),
-        //             true,
-        //         );
-        //         panic!("trace synchrotron failed to maintain valid state")
-        //     }
-        // }
         &self.figures[&self.figure_key()]
     }
 

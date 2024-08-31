@@ -1,11 +1,14 @@
 use super::*;
 use ::egui::{
-    ColorImage, TextureFilter, TextureHandle, TextureId, TextureOptions, TextureWrapMode,
+    ColorImage, Label, TextureFilter, TextureHandle, TextureId, TextureOptions, TextureWrapMode,
+    Widget,
 };
 
 impl IsUi for ::egui::Ui {
+    type Rect = ::egui::Rect;
     type TextureHandle = TextureHandle;
     type HotkeyBuffer = crate::hotkey::egui::HotkeyBuffer;
+    type Color32 = ::egui::Color32;
 
     fn load_texture(
         &self,
@@ -19,6 +22,21 @@ impl IsUi for ::egui::Ui {
             wrap_mode: TextureWrapMode::default(),
         };
         self.ctx().load_texture("whatever", image, options)
+    }
+
+    fn paint_image(
+        &self,
+        texture_id: UiTextureId<Self>,
+        rect: Self::Rect,
+        uv: Self::Rect,
+        tint: Self::Color32,
+    ) {
+        self.painter().image(texture_id, rect, uv, tint);
+    }
+
+    fn non_selectable_label(&mut self, text: &str) {
+        let label = Label::new(text).selectable(false);
+        label.ui(self);
     }
 }
 

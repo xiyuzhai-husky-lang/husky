@@ -1,5 +1,5 @@
 [package]
-name = "husky-cybertron-mini-compiler"
+name = "husky-cybertron-mini-husky-compiler"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true
