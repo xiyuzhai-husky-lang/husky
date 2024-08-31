@@ -62,7 +62,7 @@ impl IsCaryatid for StandardCaryatid {
                     var_dep,
                     Windlass::Generic {
                         base: None,
-                        limit: 100,
+                        limit: Some(100),
                     },
                 )
             }), // ad hoc

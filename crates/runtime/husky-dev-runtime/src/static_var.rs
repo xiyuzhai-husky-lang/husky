@@ -134,8 +134,8 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     .ok()
                     .flatten()
             }
-            Anchor::Generic { limit } => Some(
-                linket_impl
+            Anchor::Generic { limit } => {
+                let iter = linket_impl
                     .all_static_var_ids(locked)
                     .filter_map(|static_var_id| {
                         let mut static_var_map = static_var_map.clone();
@@ -150,10 +150,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                             })
                             .ok()
                             .flatten()
-                    })
-                    .take(limit)
-                    .collect(),
-            ),
+                    });
+                Some(match limit {
+                    Some(limit) => iter.take(limit).collect(),
+                    None => iter.collect(),
+                })
+            }
         }
     }
 }
