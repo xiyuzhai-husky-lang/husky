@@ -4,6 +4,7 @@ pub mod ast;
 pub mod scope;
 pub mod symbol;
 pub mod token;
+pub mod ty;
 
 #[cfg(test)]
 use expect_test::*;
