@@ -1,6 +1,7 @@
 use crate::{dev_eval_context, DevEvalContext, *};
 use husky_devsoul_interface::devsoul::IsDevsoulInterface;
 use husky_item_path_interface::ItemPathIdInterface;
+use husky_linket_impl::eval_context::DevEvalContextGuard;
 use husky_standard_linket_impl::{
     pedestal::StandardPedestal, StandardKiControlFlow, StandardLinketImpl, StandardTrackedExcepted,
     StandardTrackedExceptedValue, StandardTrackedException,
@@ -10,21 +11,11 @@ use std::cell::OnceCell;
 
 pub struct StandardDevsoulInterface {}
 
-/// It looks like this definition is not safe.
-///
-/// However, the program is only going to touch this place in a mutable way, and in a sequential manner.
-///
-/// Then it will become immutable effectively;
-
 impl IsDevsoulInterface for StandardDevsoulInterface {
     type LinketImpl = StandardLinketImpl;
 
-    unsafe fn set_dev_eval_context(ctx: DevEvalContext) {
-        set_dev_eval_context(ctx)
-    }
-
-    unsafe fn unset_dev_eval_context() {
-        unset_dev_eval_context()
+    fn try_set_dev_eval_context(ctx: DevEvalContext) -> Result<DevEvalContextGuard, ()> {
+        try_set_dev_eval_context(ctx)
     }
 
     fn dev_eval_context() -> DevEvalContext {

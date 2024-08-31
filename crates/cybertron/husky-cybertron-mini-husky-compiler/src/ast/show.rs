@@ -323,3 +323,39 @@ fn show_asts_works() {
         ],
     ));
 }
+
+pub fn show_asts_mapped_values<T>(
+    tokens: Seq<Token>,
+    pre_asts: Seq<Option<PreAst>>,
+    asts: Seq<Option<Ast>>,
+    mapped: Seq<Option<T>>,
+) -> Vec<AstOutMappedValue>
+where
+    T: std::fmt::Debug + Send + Sync + Copy + 'static,
+{
+    let outs = show_asts(tokens, pre_asts, asts);
+    outs.into_iter()
+        .zip(mapped.data())
+        .map(|(ast_out, mapped)| AstOutMappedValue {
+            ast_out,
+            mapped_value: match mapped {
+                Some(mapped) => Some(format!("{:?}", mapped)),
+                None => None,
+            },
+        })
+        .collect()
+}
+
+pub struct AstOutMappedValue {
+    ast_out: AstOut,
+    mapped_value: Option<String>,
+}
+
+impl std::fmt::Debug for AstOutMappedValue {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.mapped_value {
+            Some(ref value) => f.write_fmt(format_args!("{:?} → {}", self.ast_out, value)),
+            None => f.write_fmt(format_args!("{:?}", self.ast_out)),
+        }
+    }
+}

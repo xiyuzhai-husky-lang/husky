@@ -72,6 +72,7 @@ atomic_enum = "0.3.0"
 axum = { version = "0.7.4" }
 bit-set = "0.8.0"
 bitflags = "2.6.0"
+bounded-vec = "0.7.1"
 cargo = "0.81.0"
 cargo-manifest = "0.15.1"
 chinese-number = { version = "0.7.2", default-features = false, features = [

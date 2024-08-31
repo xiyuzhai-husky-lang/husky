@@ -2,7 +2,7 @@
 use colored::Colorize;
 use husky_devsoul_interface::devsoul::IsDevsoulInterface;
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_linket_impl::linket_impls::LinketImpls;
+use husky_linket_impl::{eval_context::DevEvalContextGuard, linket_impls::LinketImpls};
 use husky_linket_impl::{
     eval_context::{DevEvalContext, IsDevRuntimeDyn},
     linket_impl::IsLinketImpl,
@@ -25,9 +25,7 @@ impl AnyLinketImpls {
     ) -> Self {
         Self {
             linket_impls: Box::new(LinketImpls::new(
-                DevsoulInterface::set_dev_eval_context,
-                DevsoulInterface::unset_dev_eval_context,
-                |_| todo!(),
+                DevsoulInterface::try_set_dev_eval_context,
                 linket_impls,
             )),
             rustc_version: rustc_version::version().unwrap(),
@@ -96,11 +94,9 @@ fn linket_impls_works() {
             todo!()
         }
 
-        unsafe fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
-            todo!()
-        }
-
-        unsafe fn unset_dev_eval_context() {
+        fn try_set_dev_eval_context(
+            ctx: DevEvalContext<Self::LinketImpl>,
+        ) -> Result<DevEvalContextGuard, ()> {
             todo!()
         }
     }

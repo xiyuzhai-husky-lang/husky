@@ -79,7 +79,7 @@ fn calc_symbol_defns(asts: Seq<Option<Ast>>) -> Seq<Option<SymbolDefn>> {
 #[test]
 fn calc_symbol_defns_works() {
     fn t(input: &str, expect: Expect) {
-        let (_, asts) = calc_asts_from_input(input, 10);
+        let asts = calc_asts_from_input(input, 10);
         let symbols = calc_symbol_defns(asts);
         expect.assert_debug_eq(&symbols)
     }
@@ -148,7 +148,7 @@ fn calc_symbol_lookup(asts: Seq<Option<Ast>>) -> Seq<Option<Symbol>> {
 #[test]
 fn calc_symbol_lookup_works() {
     fn t(input: &str, expect: Expect) {
-        let (_, asts) = calc_asts_from_input(input, 10);
+        let asts = calc_asts_from_input(input, 10);
         let symbol_lookups = calc_symbol_lookup(asts);
         expect.assert_debug_eq(&symbol_lookups)
     }

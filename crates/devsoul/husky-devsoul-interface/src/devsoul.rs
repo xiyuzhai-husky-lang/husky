@@ -1,9 +1,13 @@
-use husky_linket_impl::{eval_context::DevEvalContext, linket_impl::IsLinketImpl};
+use husky_linket_impl::{
+    eval_context::{DevEvalContext, DevEvalContextGuard},
+    linket_impl::IsLinketImpl,
+};
 
 pub trait IsDevsoulInterface {
     type LinketImpl: IsLinketImpl;
 
-    unsafe fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>);
-    unsafe fn unset_dev_eval_context();
+    fn try_set_dev_eval_context(
+        ctx: DevEvalContext<Self::LinketImpl>,
+    ) -> Result<DevEvalContextGuard, ()>;
     fn dev_eval_context() -> DevEvalContext<Self::LinketImpl>;
 }

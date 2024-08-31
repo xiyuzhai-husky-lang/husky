@@ -3608,6 +3608,7 @@
         name: "husky-cybertron",
         relative_path: "crates/cybertron/husky-cybertron",
         dependencies: [
+            "bounded-vec",
             "husky-cybertron-macros",
             "husky-decl-macro-utils",
             "husky-fmt-utils",

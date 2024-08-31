@@ -4,7 +4,7 @@ use husky_cargo_utils::compile::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket::linket::{target_linket_item_path_id_interfaces, target_linkets};
-use husky_linket_impl::linket_impls::LinketImpls;
+use husky_linket_impl::{eval_context::DevEvalContextGuard, linket_impls::LinketImpls};
 use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 use husky_vfs::path::package_path::PackagePath;
@@ -13,6 +13,9 @@ use std::path::PathBuf;
 use vec_like::{VecMap, VecPairMap};
 
 pub struct MonoLinketsLibrary<LinketImpl: IsLinketImpl> {
+    // the order is important, the guard must be dropped before cdylib,
+    // because the drop will invoke functions in the cdylib
+    dev_eval_context_guard: Option<DevEvalContextGuard>,
     pub cdylib: Cdylib,
     pub linket_impls: LinketImpls<LinketImpl>,
 }
@@ -57,17 +60,23 @@ impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {
         let item_path_id_interfaces = target_linket_item_path_id_interfaces(db, target_path);
         let linket_impls = cdylib.linket_impls(item_path_id_interfaces);
         Ok(Self {
+            dev_eval_context_guard: None,
             cdylib,
             linket_impls,
         })
     }
 
     pub fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
-        unsafe { self.linket_impls.set_dev_eval_context(runtime) };
-    }
-
-    pub fn release(&mut self) {
-        unsafe { self.linket_impls.unset_dev_eval_context() };
+        assert!(self.dev_eval_context_guard.is_none());
+        for _ in 0..60 {
+            match unsafe { self.linket_impls.try_set_dev_eval_context(runtime) } {
+                Ok(guard) => {
+                    self.dev_eval_context_guard = Some(guard);
+                    break;
+                }
+                Err(_) => std::thread::sleep(std::time::Duration::from_secs(1)),
+            }
+        }
     }
 }
 

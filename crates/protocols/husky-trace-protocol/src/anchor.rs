@@ -6,7 +6,7 @@ use crate::windlass::Windlass;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Anchor<VarId: IsVarId> {
     Specific(VarId),
-    Generic { limit: usize },
+    Generic { limit: Option<usize> },
 }
 
 impl<VarId: IsVarId> From<Windlass<VarId>> for Anchor<VarId> {
@@ -23,10 +23,10 @@ impl<VarId: IsVarId> Anchor<VarId> {
         matches!(self, Anchor::Generic { .. })
     }
 
-    pub fn generic_limit(self) -> Option<usize> {
-        match self {
-            Anchor::Specific(_) => None,
-            Anchor::Generic { limit } => Some(limit),
-        }
-    }
+    // pub fn generic_limit(self) -> Option<usize> {
+    //     match self {
+    //         Anchor::Specific(_) => None,
+    //         Anchor::Generic { limit } => Some(limit),
+    //     }
+    // }
 }

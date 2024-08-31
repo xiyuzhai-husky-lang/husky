@@ -1,4 +1,7 @@
-use std::convert::Infallible;
+use std::{
+    convert::Infallible,
+    sync::{Arc, MutexGuard},
+};
 
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
@@ -11,6 +14,44 @@ use crate::linket_impl::{
 
 pub struct DevEvalContext<LinketImpl: IsLinketImpl> {
     runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>,
+}
+
+pub struct DevEvalContextGuard {
+    ignore: bool,
+    emit: bool,
+    unset: unsafe fn(),
+}
+
+impl DevEvalContextGuard {
+    pub fn new(unset: unsafe fn()) -> Self {
+        Self {
+            ignore: false,
+            emit: false,
+            unset,
+        }
+    }
+}
+
+impl DevEvalContextGuard {
+    pub fn ignore(&mut self) {
+        self.ignore = true
+    }
+
+    pub fn emit(&mut self) {
+        self.emit = true
+    }
+}
+
+impl std::ops::Drop for DevEvalContextGuard {
+    fn drop(&mut self) {
+        if !self.ignore {
+            unsafe { (self.unset)() }
+        } else {
+            if self.emit {
+                panic!("drop ignored")
+            }
+        }
+    }
 }
 
 impl<LinketImpl: IsLinketImpl> std::fmt::Debug for DevEvalContext<LinketImpl> {

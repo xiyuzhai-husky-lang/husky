@@ -1,4 +1,5 @@
 use crate::{ugly::*, *};
+use eval_context::DevEvalContextGuard;
 use husky_ki_repr_interface::ugly::__KiArgumentReprInterface;
 
 #[test]
@@ -16,11 +17,9 @@ fn fn_linket_impl_works() {
             todo!()
         }
 
-        unsafe fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
-            todo!()
-        }
-
-        unsafe fn unset_dev_eval_context() {
+        fn try_set_dev_eval_context(
+            ctx: DevEvalContext<Self::LinketImpl>,
+        ) -> Result<DevEvalContextGuard, ()> {
             todo!()
         }
     }
@@ -43,11 +42,9 @@ fn unveil_fn_linket_impl_works() {
             todo!()
         }
 
-        unsafe fn set_dev_eval_context(ctx: DevEvalContext<Self::LinketImpl>) {
-            todo!()
-        }
-
-        unsafe fn unset_dev_eval_context() {
+        fn try_set_dev_eval_context(
+            ctx: DevEvalContext<Self::LinketImpl>,
+        ) -> Result<DevEvalContextGuard, ()> {
             todo!()
         }
     }
