@@ -4,7 +4,10 @@ use husky_linket_impl::var_id::IsVarId;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Windlass<VarId: IsVarId> {
     Specific(VarId),
-    Generic { base: Option<VarId>, limit: usize },
+    Generic {
+        base: Option<VarId>,
+        limit: Option<usize>,
+    },
 }
 
 impl<VarId: IsVarId> Windlass<VarId> {
