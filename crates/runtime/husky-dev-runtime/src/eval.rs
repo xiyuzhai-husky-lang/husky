@@ -13,6 +13,8 @@ use husky_linket_impl::exception::{ExceptionSource, TrackedException};
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_term_prelude::literal::Literal;
 use husky_value_interface::{ki_control_flow::KiControlFlow, IsValue};
+#[cfg(test)]
+use tests::runtime_test_lock;
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn eval_ki_domain_repr(
@@ -365,6 +367,7 @@ fn ki_repr_eval_works() {
     use husky_standard_linket_impl::StandardLinketImpl;
     use husky_trace_protocol::anchor::Anchor;
 
+    let lock = runtime_test_lock();
     let dev_paths = HuskyLangDevPaths::new();
     let runtime: Pin<Box<DevRuntime<StandardDevsoul>>> =
         DevRuntime::new(dev_paths.dev_root().join("examples/mnist-classifier"), None).unwrap();
