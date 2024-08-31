@@ -16,7 +16,7 @@ pub struct MonoLinktime<LinketImpl>
 where
     LinketImpl: IsLinketImpl,
 {
-    /* ad hoc pub*/ pub internal: std::sync::RwLock<MonoLinktimeInternal<LinketImpl>>,
+    internal: std::sync::RwLock<MonoLinktimeInternal<LinketImpl>>,
 }
 
 impl<LinketImpl> IsLinktime for MonoLinktime<LinketImpl>
@@ -45,10 +45,5 @@ where
     fn init(&self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
         let mut internal = self.internal.write().unwrap();
         internal.init(runtime)
-    }
-
-    fn release(&self) {
-        let mut internal = self.internal.write().unwrap();
-        internal.release()
     }
 }

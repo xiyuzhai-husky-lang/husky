@@ -4,6 +4,7 @@ pub mod label;
 pub mod ugly;
 
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
+use husky_linket_impl::eval_context::DevEvalContextGuard;
 use husky_standard_linket_impl::{StandardKiControlFlow, StandardLinketImpl, ValueStands};
 use husky_standard_value::FromValue;
 use serde::{Deserialize, Serialize};
@@ -19,20 +20,26 @@ pub type DevEvalContext = husky_linket_impl::eval_context::DevEvalContext<Standa
 /// If so, put some measures to ensure only one runtime exists at the same time.
 static mut DEV_EVAL_CONTEXT: std::option::Option<DevEvalContext> = None;
 
+/// this mutex makes set and unset operations atomic
+static DEV_EVAL_CONTEXT_MU: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
 pub fn dev_eval_context() -> DevEvalContext {
     unsafe { DEV_EVAL_CONTEXT.expect("`DEV_EVAL_CONTEXT` not set") }
 }
 
-pub(crate) unsafe fn set_dev_eval_context(ctx: DevEvalContext) {
-    assert!(
-        DEV_EVAL_CONTEXT.is_none(),
-        "current DEV_EVAL_CONTEXT = {:?}, but new ctx = {:?}",
-        unsafe { DEV_EVAL_CONTEXT },
-        ctx
-    );
-    DEV_EVAL_CONTEXT = Some(ctx)
+pub(crate) fn try_set_dev_eval_context(ctx: DevEvalContext) -> Result<DevEvalContextGuard, ()> {
+    let guard = DEV_EVAL_CONTEXT_MU.lock().unwrap();
+    unsafe {
+        if DEV_EVAL_CONTEXT.is_some() {
+            return Err(());
+        }
+        DEV_EVAL_CONTEXT = Some(ctx);
+    }
+    Ok(DevEvalContextGuard::new(unset_dev_eval_context))
 }
-pub(crate) unsafe fn unset_dev_eval_context() {
+
+unsafe fn unset_dev_eval_context() {
+    let guard = DEV_EVAL_CONTEXT_MU.lock().unwrap();
     assert!(DEV_EVAL_CONTEXT.is_some());
     DEV_EVAL_CONTEXT = None
 }
