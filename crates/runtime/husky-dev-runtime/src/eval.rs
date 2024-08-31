@@ -387,7 +387,7 @@ fn ki_repr_eval_works() {
             ki_repr
                 .var_deps(db)
                 .iter()
-                .map(|&dep| (dep, Anchor::Generic { limit: 10 })),
+                .map(|&dep| (dep, Anchor::Generic { limit: Some(10) })),
             |_| Some(runtime.eval_ki_repr(ki_repr)),
         );
     }

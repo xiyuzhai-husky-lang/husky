@@ -1,5 +1,6 @@
 use super::*;
 use crate::chart::StandardChartDim1;
+#[cfg(feature = "egui")]
 use egui::{vec2, Frame, Sense};
 use husky_standard_linket_impl::pedestal::StandardJointPedestal;
 use ui::visual::cache::VisualUiCache;

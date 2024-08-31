@@ -9,5 +9,4 @@ pub trait IsLinktime: Sized + Send {
     fn linket_impl(&self, linket: Linket, db: &::salsa::Db) -> Self::LinketImpl;
     fn new(target_path: LinktimeTargetPath, db: &::salsa::Db) -> Self;
     fn init(&self, runtime: &'static dyn IsDevRuntimeDyn<Self::LinketImpl>);
-    fn release(&self) {}
 }

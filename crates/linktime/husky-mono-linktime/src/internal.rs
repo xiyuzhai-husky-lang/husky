@@ -1,8 +1,8 @@
-mod libraries;
+mod library;
 mod linket_impls;
 
 use self::linket_impls::generate_linket_impl_map;
-use self::{libraries::MonoLinketsLibrary, linket_impls::LinketImplMap};
+use self::{library::MonoLinketsLibrary, linket_impls::LinketImplMap};
 use crate::*;
 use husky_linket::{linket::LinketData, version_stamp::LinketVersionStamp};
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
@@ -39,10 +39,6 @@ where
     /// although nothing on this side is modified, we do have modification on the linket side.
     pub(crate) fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
         self.current_library.init(runtime);
-    }
-
-    pub(crate) fn release(&mut self) {
-        self.current_library.release();
     }
 }
 

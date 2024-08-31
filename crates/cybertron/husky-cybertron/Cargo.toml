@@ -12,6 +12,7 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+bounded-vec.workspace = true
 lazy_static.workspace = true
 # abstractions
 shifted-unsigned-int.workspace = true

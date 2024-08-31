@@ -77,10 +77,6 @@ impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {
     pub fn init(&self, runtime: &'static dyn IsDevRuntimeDyn<Devsoul::LinketImpl>) {
         self.linktime.init(runtime)
     }
-
-    pub fn release(&self) {
-        self.linktime.release()
-    }
 }
 
 impl<Devsoul: IsDevsoul> DevComptime<Devsoul> {

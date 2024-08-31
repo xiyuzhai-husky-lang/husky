@@ -24,9 +24,8 @@ fn dev_runtime_works() {
 }
 
 #[test]
-#[ignore]
-#[should_panic]
-fn dev_runtimes_should_panic() {
+fn dev_runtimes_works() {
+    let lock = runtime_test_lock();
     let dev_paths = HuskyLangDevPaths::new();
     let dev_runtime = StandardDevRuntime::new(
         &dev_paths.lang_dev_examples_dir().join("mnist-classifier"),
@@ -34,11 +33,11 @@ fn dev_runtimes_should_panic() {
     )
     .unwrap();
     std::thread::spawn(move || {
+        let lock = runtime_test_lock();
         let dev_runtime = StandardDevRuntime::new(
             &dev_paths.lang_dev_examples_dir().join("mnist-classifier"),
             None,
         )
         .unwrap();
-    })
-    .join();
+    });
 }
