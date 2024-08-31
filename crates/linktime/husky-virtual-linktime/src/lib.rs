@@ -19,6 +19,4 @@ impl IsLinktime for VirtualLinktime {
     }
 
     fn init(&self, runtime_pinned: &dyn IsDevRuntimeDyn<Self::LinketImpl>) {}
-
-    fn release(&self) {}
 }
