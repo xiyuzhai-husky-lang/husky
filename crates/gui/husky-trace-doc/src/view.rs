@@ -29,7 +29,7 @@ where
 {
     current_dir: &'a Path,
     trace_synchrotron: &'a TraceSynchrotron<TraceProtocol>,
-    figure: &'a TraceProtocol::Figure,
+    generic_figure: &'a TraceProtocol::Figure,
     action_buffer: &'a mut TraceViewActionBuffer<TraceProtocol>,
     settings: &'a mut Settings,
     visual_ui_cache: &'a mut ui::visual::cache::VisualUiCache<Ui>,
@@ -56,7 +56,7 @@ where
         Self {
             current_dir,
             trace_synchrotron,
-            figure: trace_synchrotron.figure(),
+            generic_figure: trace_synchrotron.figure(),
             action_buffer,
             settings,
             glyph_width,
