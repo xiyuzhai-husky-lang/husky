@@ -1,7 +1,9 @@
 use std::marker::PhantomData;
 
+use husky_item_path_interface::ItemPathIdInterface;
 use serde::{Deserialize, Serialize};
 use smallvec::SmallVec;
+use vec_like::SmallVecSet;
 
 use crate::{trace_id::TraceId, IsTraceProtocol};
 
@@ -22,6 +24,9 @@ pub enum TraceViewAction<TraceProtocol: IsTraceProtocol> {
     },
     SetCaryatid {
         caryatid: TraceProtocol::Caryatid,
+    },
+    AddExtraVarDepsToCaryatid {
+        var_deps: SmallVecSet<ItemPathIdInterface, 2>,
     },
 }
 

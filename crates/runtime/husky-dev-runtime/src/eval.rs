@@ -364,6 +364,7 @@ fn ki_repr_eval_works() {
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_path_utils::dev_paths::*;
     use husky_standard_devsoul::StandardDevsoul;
+    use husky_standard_linket_impl::ugly::__VarId;
     use husky_standard_linket_impl::StandardLinketImpl;
     use husky_trace_protocol::anchor::Anchor;
 
@@ -386,8 +387,9 @@ fn ki_repr_eval_works() {
         runtime.with_var_anchors(
             ki_repr.var_deps(db).iter().map(|&dep| {
                 (
-                    dep,
+                    (*dep).into(),
                     Anchor::Generic {
+                        page_start: 0u32.into(),
                         page_limit: Some(10),
                     },
                 )

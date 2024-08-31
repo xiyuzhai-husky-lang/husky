@@ -3,6 +3,7 @@ use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedException},
     pedestal::{IsPedestal, JointPedestal},
+    static_var::StaticVarResult,
 };
 use husky_trace_protocol::{
     anchor::Anchor,
@@ -23,6 +24,7 @@ pub type DevsoulOrderedVarMap<Devsoul> =
 pub type DevsoulTrackedException<Devsoul> =
     LinketImplTrackedException<<Devsoul as IsDevsoul>::LinketImpl>;
 pub type DevsoulValueResult<Devsoul> = LinketImplKiControlFlow<<Devsoul as IsDevsoul>::LinketImpl>;
+pub type DevsoulStaticVarResult<Devsoul, T> = StaticVarResult<DevsoulVarId<Devsoul>, T>;
 pub type DevsoulKiControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
     LinketImplKiControlFlow<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulAnchor<Devsoul> = Anchor<<DevsoulPedestal<Devsoul> as IsPedestal>::VarId>;

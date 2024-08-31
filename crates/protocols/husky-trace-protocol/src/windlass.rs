@@ -5,6 +5,7 @@ use husky_linket_impl::var_id::IsVarId;
 pub enum Windlass<VarId: IsVarId> {
     Specific(VarId),
     Generic {
+        page_start: VarId,
         followed: Option<VarId>,
         page_limit: Option<usize>,
     },
