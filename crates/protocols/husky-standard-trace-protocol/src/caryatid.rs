@@ -39,7 +39,8 @@ impl IsCaryatid for StandardCaryatid {
                     .map(|windlass| match windlass {
                         Windlass::Specific(var_id)
                         | Windlass::Generic {
-                            followed: Some(var_id), ..
+                            followed: Some(var_id),
+                            ..
                         } => Some((dep, var_id)),
                         _ => None,
                     })
@@ -48,27 +49,28 @@ impl IsCaryatid for StandardCaryatid {
             .collect()
     }
 
-    fn has(&self, var_deps: &[ItemPathIdInterface]) -> bool {
+    fn has_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> bool {
         var_deps.iter().copied().all(|dep| self.windlasses.has(dep))
     }
 
     type UiBuffer = StandardCaryatidUiBuffer;
 
-    fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self {
-        let mut slf = self.clone();
-        slf.windlasses.extend(
-            var_deps.iter().map(|&var_dep| {
-                (
-                    var_dep,
-                    Windlass::Generic {
-                        followed: None,
-                        page_limit: Some(100),
-                    },
-                )
-            }), // ad hoc
-        );
-        slf
-    }
+    // fn with_extra_var_deps(&self, var_deps: &[ItemPathIdInterface]) -> Self {
+    //     let mut slf = self.clone();
+    //     slf.windlasses.extend(
+    //         var_deps.iter().map(|&var_dep| {
+    //             (
+    //                 var_dep,
+    //                 Windlass::Generic {
+    //                     followed: None,
+    //                     page_start: todo!(),
+    //                     page_limit: Some(100),
+    //                 },
+    //             )
+    //         }), // ad hoc
+    //     );
+    //     slf
+    // }
 
     fn var_path_windlasses(
         &self,
@@ -79,6 +81,20 @@ impl IsCaryatid for StandardCaryatid {
         ),
     > {
         self.windlasses.iter().copied()
+    }
+
+    fn add_new(
+        &mut self,
+        item_path_id_interface: ItemPathIdInterface,
+        windlass: Windlass<<Self::Pedestal as IsPedestal>::VarId>,
+    ) {
+        self.windlasses
+            .insert_new((item_path_id_interface, windlass))
+            .unwrap()
+    }
+
+    fn has_var_dep(&self, var_dep: ItemPathIdInterface) -> bool {
+        self.windlasses.has(var_dep)
     }
 }
 

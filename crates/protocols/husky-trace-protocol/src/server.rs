@@ -14,7 +14,7 @@ use crate::{
 use figure::TraceFigureKey;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
-use husky_linket_impl::pedestal::IsPedestalFull;
+use husky_linket_impl::{pedestal::IsPedestalFull, static_var::StaticVarResult};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
@@ -283,9 +283,20 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
             TraceViewAction::ToggleAccompany { trace_id } => self
                 .trace_synchrotron_mut()
                 .take_action(TraceSynchrotronAction::ToggleAccompany { trace_id }),
-            TraceViewAction::SetCaryatid { caryatid: pedestal } => self
+            TraceViewAction::SetCaryatid { caryatid } => self
                 .trace_synchrotron_mut()
-                .take_action(TraceSynchrotronAction::SetCaryatid { caryatid: pedestal }),
+                .take_action(TraceSynchrotronAction::SetCaryatid { caryatid }),
+            TraceViewAction::AddExtraVarDepsToCaryatid { ref var_deps } => {
+                let Ok(caryatid) = self.tracetime.add_extra_var_deps_to_caryatid(
+                    self.trace_synchrotron().caryatid().clone(),
+                    var_deps,
+                    50, // ad hoc
+                ) else {
+                    todo!()
+                };
+                self.trace_synchrotron_mut()
+                    .take_action(TraceSynchrotronAction::SetCaryatid { caryatid })
+            }
         }
         self.cache_peripheries()
     }
@@ -400,6 +411,16 @@ pub trait IsTracetime: Send + 'static + Sized {
     fn trace_var_deps(&self, trace: Self::Trace) -> SmallVec<[ItemPathIdInterface; 2]>;
 
     fn trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
+
+    fn add_extra_var_deps_to_caryatid(
+        &self,
+        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
+        var_deps: &[ItemPathIdInterface],
+        page_limit: usize,
+    ) -> StaticVarResult<
+        TraceVarId<Self::TraceProtocol>,
+        <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
+    >;
 
     fn calc_trace_stalk(
         &self,

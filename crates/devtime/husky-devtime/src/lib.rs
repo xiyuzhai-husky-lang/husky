@@ -1,3 +1,4 @@
+#![feature(result_flattening)]
 #![feature(try_trait_v2)]
 pub mod eval;
 mod state;
@@ -10,7 +11,7 @@ use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::{
     devsoul::IsDevsoul,
-    helpers::{DevsoulCaryatid, DevsoulChart, DevsoulFigure},
+    helpers::{DevsoulCaryatid, DevsoulChart, DevsoulFigure, DevsoulStaticVarResult},
 };
 use husky_entity_path::path::ItemPathId;
 use husky_item_path_interface::ItemPathIdInterface;
@@ -28,6 +29,7 @@ use husky_trace_protocol::{
     synchrotron::accompany::AccompanyingTraceIdsExceptFollowed,
     trace_id::TraceId,
     var_id::VarIdPresentation,
+    windlass::Windlass,
 };
 use husky_value_interface::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{
@@ -41,6 +43,7 @@ use husky_visual_protocol::{
 use salsa::DebugWithDb;
 use smallvec::{SmallVec, ToSmallVec};
 use std::{path::Path, pin::Pin};
+use vec_like::SmallVecSet;
 
 pub struct Devtime<Devsoul: IsDevsoul> {
     runtime: Pin<Box<DevRuntime<Devsoul>>>,
@@ -127,12 +130,7 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         let db = self.runtime.db();
         let chart: Option<DevsoulChart<Devsoul, CompositeVisual<TraceId>>> =
             self.runtime.with_var_anchors(
-                figure_key.joint_static_var_anchors().iter().copied().map(
-                    |(item_path_id_interface, anchor)| {
-                        let item_path_id: ItemPathId = item_path_id_interface.into();
-                        (item_path_id.item_path(db), anchor)
-                    },
-                ),
+                figure_key.joint_static_var_anchors().iter().copied(),
                 |joint_pedestal| {
                     let mut t = |trace_id: TraceId| {
                         let trace: Trace = trace_id.into();
@@ -178,6 +176,74 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         var_id: TraceVarId<Self::TraceProtocol>,
     ) -> VarIdPresentation {
         VarIdPresentation::new(format!("{:?}", var_id))
+    }
+
+    fn add_extra_var_deps_to_caryatid(
+        &self,
+        caryatid: <Self::TraceProtocol as IsTraceProtocol>::Caryatid,
+        var_deps: &[ItemPathIdInterface],
+        page_limit: usize,
+    ) -> DevsoulStaticVarResult<Devsoul, <Devsoul::TraceProtocol as IsTraceProtocol>::Caryatid>
+    {
+        self.runtime
+            .with_var_ids(
+                caryatid
+                    .clone()
+                    .var_path_windlasses()
+                    .map(|(item_path_id_interface, windlass)| match windlass {
+                        Windlass::Specific(var_id)
+                        | Windlass::Generic {
+                            page_start: var_id, ..
+                        } => (item_path_id_interface, var_id),
+                    }),
+                |locked| {
+                    self.add_extra_var_deps_to_caryatid_aux(
+                        caryatid.clone(),
+                        var_deps
+                            .iter()
+                            .copied()
+                            .filter(|&var_dep| !caryatid.has_var_dep(var_dep)),
+                        locked,
+                        page_limit,
+                    )
+                },
+            )
+            .flatten()
+    }
+}
+
+impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
+    fn add_extra_var_deps_to_caryatid_aux(
+        &self,
+        mut caryatid: <Devsoul::TraceProtocol as IsTraceProtocol>::Caryatid,
+        mut var_deps: impl Iterator<Item = ItemPathIdInterface>,
+        mut locked: SmallVecSet<ItemPathIdInterface, 4>,
+        page_limit: usize,
+    ) -> DevsoulStaticVarResult<Devsoul, <Devsoul::TraceProtocol as IsTraceProtocol>::Caryatid>
+    {
+        match var_deps.next() {
+            Some(item_path_id_interface) => {
+                let page_start = self
+                    .runtime
+                    .var_default_page_start_aux(item_path_id_interface, &locked)?;
+                caryatid.add_new(
+                    item_path_id_interface,
+                    Windlass::Generic {
+                        page_start,
+                        followed: Some(page_start),
+                        page_limit: Some(page_limit),
+                    },
+                );
+                self.runtime
+                    .with_var_id(item_path_id_interface, page_start, &locked, |locked| {
+                        self.add_extra_var_deps_to_caryatid_aux(
+                            caryatid, var_deps, locked, page_limit,
+                        )
+                    })
+                    .flatten()
+            }
+            None => Ok(caryatid),
+        }
     }
 }
 

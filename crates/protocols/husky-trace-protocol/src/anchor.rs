@@ -6,7 +6,10 @@ use crate::windlass::Windlass;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum Anchor<VarId: IsVarId> {
     Specific(VarId),
-    Generic { page_limit: Option<usize> },
+    Generic {
+        page_start: VarId,
+        page_limit: Option<usize>,
+    },
 }
 
 impl<VarId: IsVarId> From<Windlass<VarId>> for Anchor<VarId> {
@@ -14,9 +17,13 @@ impl<VarId: IsVarId> From<Windlass<VarId>> for Anchor<VarId> {
         match windlass {
             Windlass::Specific(var_id) => Anchor::Specific(var_id),
             Windlass::Generic {
+                page_start,
                 followed,
                 page_limit,
-            } => Anchor::Generic { page_limit },
+            } => Anchor::Generic {
+                page_start,
+                page_limit,
+            },
         }
     }
 }

@@ -2,19 +2,67 @@ use crate::*;
 use husky_dec_signature::helpers::projs::dec_var_full_projs;
 use husky_devsoul::helpers::{
     DevsoulAnchor, DevsoulChart, DevsoulChartDim0, DevsoulChartDim1, DevsoulJointPedestal,
-    DevsoulOrderedVarMap, DevsoulPedestal, DevsoulStaticVarMap,
+    DevsoulOrderedVarMap, DevsoulPedestal, DevsoulStaticVarMap, DevsoulStaticVarResult,
 };
 use husky_ki_repr::repr::KiDomainRepr;
-use husky_linket_impl::pedestal::JointPedestal;
+use husky_linket_impl::{pedestal::JointPedestal, static_var::StaticVarResult};
 use husky_trace_protocol::chart::{ChartDim0, ChartDim1};
 use husky_trace_protocol::{anchor::Anchor, chart::Chart};
 use smallvec::SmallVec;
 use vec_like::SmallVecSet;
 
 impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
+    pub fn with_var_id<R>(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+        var_id: DevsoulVarId<Devsoul>,
+        locked: &SmallVecSet<ItemPathIdInterface, 4>,
+        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+    ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
+        let db = self.db();
+        let mut locked1 = locked.clone();
+        locked1.insert_new(item_path_id_interface).unwrap();
+        let path_id: ItemPathId = item_path_id_interface.into();
+        let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path_id.item_path(db)
+        else {
+            todo!()
+        };
+        let linket_impl = self
+            .comptime
+            .linket_impl(Linket::new_var(major_form_path, db));
+        linket_impl.with_var_id(var_id, &locked, || f(locked1))
+    }
+
+    pub fn with_var_ids<R>(
+        &self,
+        var_ids: impl IntoIterator<Item = (ItemPathIdInterface, DevsoulVarId<Devsoul>)>,
+        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+    ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
+        let db = self.db();
+        self.with_var_ids_aux(var_ids.into_iter(), Default::default(), f)
+    }
+
+    fn with_var_ids_aux<R>(
+        &self,
+        mut var_ids: impl Iterator<Item = (ItemPathIdInterface, DevsoulVarId<Devsoul>)>,
+        locked: SmallVecSet<ItemPathIdInterface, 4>,
+        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+    ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
+        let db = self.db();
+        match var_ids.next() {
+            Some((item_path_id_interface, var_id)) => self
+                .with_var_id(item_path_id_interface, var_id, &locked, |locked| {
+                    self.with_var_ids_aux(var_ids, locked, f)
+                })
+                .flatten(),
+            None => Ok(f(locked)),
+        }
+    }
+
+    // todo: change to result
     pub fn with_var_anchors<R>(
         &self,
-        var_anchors: impl IntoIterator<Item = (ItemPath, DevsoulAnchor<Devsoul>)>,
+        var_anchors: impl IntoIterator<Item = (ItemPathIdInterface, DevsoulAnchor<Devsoul>)>,
         f: impl FnMut(&DevsoulJointPedestal<Devsoul>) -> Option<R>,
     ) -> Option<DevsoulChart<Devsoul, R>> {
         let db = self.db();
@@ -28,19 +76,22 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         > = var_anchors
             .into_iter()
             .filter_map(
-                |(path, anchor)| -> Option<(
+                |(item_path_id_interface, anchor)| -> Option<(
                     ItemPath,
                     DevsoulAnchor<Devsoul>,
                     SmallVecSet<ItemPathIdInterface, 2>,
                 )> {
-                    let ItemPath::MajorItem(MajorItemPath::Form(path)) = path else {
+                    // todo: simplify using with_var_id
+                    let item_path_id: ItemPathId = item_path_id_interface.into();
+                    let ItemPath::MajorItem(MajorItemPath::Form(path)) = item_path_id.item_path(db)
+                    else {
                         todo!()
                     };
                     match path.kind(db) {
                         MajorFormKind::TypeVar
                         | MajorFormKind::StaticMut
                         | MajorFormKind::Compterm
-                        | MajorFormKind::Conceptual => return None,
+                        | MajorFormKind::Conceptual => todo!(),
                         MajorFormKind::StaticVar => (),
                         _ => unreachable!(),
                     }
@@ -75,7 +126,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         }
     }
 
-    pub fn with_var_anchors_aux0<R>(
+    fn with_var_anchors_aux0<R>(
         &self,
         mut var_map: DevsoulOrderedVarMap<Devsoul>,
         remaining_vars: &[(
@@ -103,7 +154,7 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         Some((joint_pedestal, r))
     }
 
-    pub fn with_var_anchors_aux1<R>(
+    fn with_var_anchors_aux1<R>(
         &self,
         mut var_map: DevsoulOrderedVarMap<Devsoul>,
         remaining_vars: &[(
@@ -133,22 +184,44 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     .ok()
                     .flatten()
             }
-            Anchor::Generic { page_limit } => {
-                let iter = linket_impl.all_var_ids(locked).filter_map(|var_id| {
-                    let mut var_map = var_map.clone();
-                    var_map.insert(((*path).into(), var_id));
-                    linket_impl
-                        .with_var_id(var_id, locked, || {
-                            self.with_var_anchors_aux0(var_map, remaining_vars, &mut f)
-                        })
-                        .ok()
-                        .flatten()
-                });
+            Anchor::Generic {
+                page_start,
+                page_limit,
+            } => {
+                let iter = linket_impl
+                    .page_var_ids(locked, page_start, page_limit)
+                    .filter_map(|var_id| {
+                        let mut var_map = var_map.clone();
+                        var_map.insert(((*path).into(), var_id));
+                        linket_impl
+                            .with_var_id(var_id, locked, || {
+                                self.with_var_anchors_aux0(var_map, remaining_vars, &mut f)
+                            })
+                            .ok()
+                            .flatten()
+                    });
                 Some(match page_limit {
                     Some(page_limit) => iter.take(page_limit).collect(),
                     None => iter.collect(),
                 })
             }
         }
+    }
+
+    pub fn var_default_page_start_aux(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+        locked: &SmallVecSet<ItemPathIdInterface, 4>,
+    ) -> DevsoulStaticVarResult<Devsoul, DevsoulVarId<Devsoul>> {
+        let db = self.db();
+        let path_id: ItemPathId = item_path_id_interface.into();
+        let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path_id.item_path(db)
+        else {
+            todo!()
+        };
+        let linket_impl = self
+            .comptime
+            .linket_impl(Linket::new_var(major_form_path, db));
+        linket_impl.var_default_page_start(locked)
     }
 }

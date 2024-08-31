@@ -1,3 +1,4 @@
+#![feature(result_flattening)]
 #![feature(negative_impls)]
 #![feature(try_trait_v2_residual)]
 #![feature(try_trait_v2)]

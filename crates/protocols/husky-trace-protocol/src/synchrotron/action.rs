@@ -1,8 +1,10 @@
+use husky_item_path_interface::ItemPathIdInterface;
 use husky_value_protocol::presentation::synchrotron::action::ValuePresentationSynchrotronActionsDiff;
 use husky_visual_protocol::synchrotron::action::VisualSynchrotronActionsDiff;
 use item_path::ItemPathPresentation;
 use smallvec::SmallVec;
 use var_id::VarIdPresentation;
+use vec_like::SmallVecSet;
 
 use super::*;
 

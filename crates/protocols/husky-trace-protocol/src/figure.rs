@@ -79,7 +79,7 @@ impl<VarId: IsVarIdFull> FigureKey<VarId> {
         let mut t = |&trace_id: &TraceId| -> bool {
             let entry = &trace_synchrotron[trace_id];
             let var_deps = entry.var_deps();
-            if !caryatid.has(var_deps) {
+            if !caryatid.has_var_deps(var_deps) {
                 return false;
             }
             joint_static_var_anchors.extend(

@@ -11,7 +11,7 @@ impl __IsStaticVar<__VarId> for TASK {
         todo!()
     }
 
-    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
+    fn page_var_ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
         [].into_iter()
     }
 
@@ -19,7 +19,7 @@ impl __IsStaticVar<__VarId> for TASK {
         todo!()
     }
 
-    unsafe fn try_replace_id_aux(
+    fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<impl FnOnce() + 'static> {
@@ -30,6 +30,10 @@ impl __IsStaticVar<__VarId> for TASK {
     type Value = __Value;
 
     fn get_value() -> Self::Value {
+        todo!()
+    }
+
+    fn default_page_start(locked: &[__ItemPathIdInterface]) -> __StaticVarResult<__VarId> {
         todo!()
     }
 }
