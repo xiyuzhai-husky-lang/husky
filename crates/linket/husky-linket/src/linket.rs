@@ -146,7 +146,7 @@ impl Linket {
         }
     }
 
-    pub fn new_static_var(path: MajorFormPath, db: &::salsa::Db) -> Self {
+    pub fn new_var(path: MajorFormPath, db: &::salsa::Db) -> Self {
         Self::new(
             db,
             LinketData::MajorStaticVar {

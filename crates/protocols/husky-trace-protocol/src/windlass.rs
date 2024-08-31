@@ -5,8 +5,9 @@ use husky_linket_impl::var_id::IsVarId;
 pub enum Windlass<VarId: IsVarId> {
     Specific(VarId),
     Generic {
-        base: Option<VarId>,
-        limit: Option<usize>,
+        page_start: VarId,
+        followed: Option<VarId>,
+        page_limit: Option<usize>,
     },
 }
 
@@ -29,9 +30,10 @@ impl<VarId: IsVarId> Windlass<VarId> {
         match self {
             Windlass::Specific(var_id)
             | Windlass::Generic {
-                base: Some(var_id), ..
+                followed: Some(var_id),
+                ..
             } => Some(var_id),
-            Windlass::Generic { base: None, .. } => None,
+            Windlass::Generic { followed: None, .. } => None,
         }
     }
 }

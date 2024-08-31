@@ -7,25 +7,24 @@ where
     VarId: std::fmt::Debug + Copy + Eq + 'static,
 {
     fn item_path_id_interface() -> ItemPathIdInterface;
-    fn ids<'a>(locked: &'a [ItemPathIdInterface]) -> Box<dyn Iterator<Item = VarId> + 'a> {
+    fn page_var_ids<'a>(
+        locked: &'a [ItemPathIdInterface],
+        page_start: VarId,
+        page_limit: Option<usize>,
+    ) -> Box<dyn Iterator<Item = VarId> + 'a> {
         if locked.contains(&Self::item_path_id_interface()) {
             return Box::new([Self::get_id()].into_iter());
         }
-        Box::new(unsafe { Self::ids_aux(locked) })
+        Box::new(unsafe { Self::page_var_ids_aux(locked) })
     }
 
-    unsafe fn ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = VarId>;
+    fn page_var_ids_aux(locked: &[ItemPathIdInterface]) -> impl Iterator<Item = VarId>;
+
+    fn default_page_start(locked: &[ItemPathIdInterface]) -> StaticVarResult<VarId, VarId>;
+
     fn get_id() -> VarId;
 
-    /// returns a restore if okay,
-    ///
-    /// otherwise, it's guaranteed that nothing changes on the binary side if err
-    unsafe fn try_replace_id_aux(
-        new: VarId,
-        locked: &[ItemPathIdInterface],
-    ) -> StaticVarResult<VarId, impl FnOnce() + 'static>;
-
-    unsafe fn try_replace_id(
+    fn try_set_var_id(
         new: VarId,
         locked: &[ItemPathIdInterface],
     ) -> StaticVarResult<VarId, impl FnOnce() + 'static> {
@@ -40,15 +39,23 @@ where
                 })?
             }
         }
-        Self::try_replace_id_aux(new, locked)
+        Self::try_set_var_id_aux(new, locked)
     }
 
-    fn with_id<R>(
-        id: VarId,
+    /// returns a restore if okay,
+    ///
+    /// otherwise, it's guaranteed that nothing changes on the binary side if err
+    fn try_set_var_id_aux(
+        new: VarId,
+        locked: &[ItemPathIdInterface],
+    ) -> StaticVarResult<VarId, impl FnOnce() + 'static>;
+
+    fn with_var_id<R>(
+        var_id: VarId,
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
     ) -> StaticVarResult<VarId, R> {
-        let restore = unsafe { Self::try_replace_id(id, locked) }?;
+        let restore = unsafe { Self::try_set_var_id(var_id, locked) }?;
         let r = f();
         restore();
         Ok(r)

@@ -130,7 +130,7 @@ fn static_var_item_ki_repr(db: &::salsa::Db, path: MajorFormPath) -> KiRepr {
     let MajorFormHirDefn::StaticVar(hir_defn) = path.hir_defn(db).unwrap() else {
         unreachable!()
     };
-    let opn = KiOpn::Linket(Linket::new_static_var(path, db));
+    let opn = KiOpn::Linket(Linket::new_var(path, db));
     let opds = smallvec![];
     let caching_class = KiCachingClass::StaticVar;
     KiRepr::new(domain, opn, opds, KiReprSource::Val(path), db)

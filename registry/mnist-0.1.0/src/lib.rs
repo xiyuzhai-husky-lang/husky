@@ -129,7 +129,7 @@ impl __IsStaticVar<__VarId> for INPUT {
         input_id().index().into()
     }
 
-    unsafe fn try_replace_id_aux(
+    fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<impl FnOnce() + 'static> {
@@ -139,7 +139,7 @@ impl __IsStaticVar<__VarId> for INPUT {
         })
     }
 
-    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
+    fn page_var_ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
         assert!(!locked.contains(unsafe { __INPUT__ITEM_PATH_ID_INTERFACE }.as_ref().unwrap()));
         input_ids().map(Into::into)
     }
@@ -148,6 +148,12 @@ impl __IsStaticVar<__VarId> for INPUT {
 
     fn get_value() -> Self::Value {
         INPUT().into_value()
+    }
+
+    fn default_page_start(
+        locked: &[__ItemPathIdInterface],
+    ) -> husky_linket_impl::static_var::StaticVarResult<__VarId, __VarId> {
+        Ok(0u32.into())
     }
 }
 
@@ -165,7 +171,7 @@ impl __IsStaticVar<__VarId> for TASK {
         todo!()
     }
 
-    unsafe fn ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
+    fn page_var_ids_aux(locked: &[__ItemPathIdInterface]) -> impl Iterator<Item = __VarId> {
         // ad hoc
         [].into_iter()
     }
@@ -174,7 +180,7 @@ impl __IsStaticVar<__VarId> for TASK {
         todo!()
     }
 
-    unsafe fn try_replace_id_aux(
+    fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
     ) -> __StaticVarResult<Box<dyn FnOnce()>> {
@@ -184,6 +190,12 @@ impl __IsStaticVar<__VarId> for TASK {
     type Value = __Value;
 
     fn get_value() -> Self::Value {
+        todo!()
+    }
+
+    fn default_page_start(
+        locked: &[__ItemPathIdInterface],
+    ) -> husky_linket_impl::static_var::StaticVarResult<__VarId, __VarId> {
         todo!()
     }
 }

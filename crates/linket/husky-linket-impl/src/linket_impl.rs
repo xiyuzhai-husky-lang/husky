@@ -38,17 +38,23 @@ pub trait IsLinketImpl: Send + Copy + 'static {
     fn init_item_path_id_interface(self, item_path_id_interface: ItemPathIdInterface);
     /// applies only for static var linkage
     fn static_var_id(self) -> <Self::Pedestal as IsPedestal>::VarId;
-    fn with_static_var_id<R>(
+    fn with_var_id<R>(
         self,
         static_var_id: <Self::Pedestal as IsPedestal>::VarId,
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
     ) -> LinketImplStaticVarResult<Self, R>;
     /// applies only for static var linkage
-    fn all_static_var_ids<'a>(
+    fn page_var_ids<'a>(
         self,
         locked: &'a [ItemPathIdInterface],
+        page_start: <Self::Pedestal as IsPedestal>::VarId,
+        page_limit: Option<usize>,
     ) -> Box<dyn Iterator<Item = <Self::Pedestal as IsPedestal>::VarId> + 'a>;
+    fn var_default_page_start(
+        self,
+        locked: &[ItemPathIdInterface],
+    ) -> LinketImplStaticVarResult<Self, <Self::Pedestal as IsPedestal>::VarId>;
 }
 
 pub type LinketImplKiControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =
