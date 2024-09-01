@@ -5,7 +5,7 @@ use husky_devsoul::{
     devsoul::IsDevsoul,
     helpers::{DevsoulTrackedException, DevsoulValue},
 };
-use husky_hir_opr::binary::HirBinaryOpr;
+use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr};
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
 use husky_ki_repr_interface::KiArgumentReprInterface;
@@ -181,7 +181,20 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 control_flow
             }
             KiOpn::FunctionRitchie(_) => todo!(),
-            KiOpn::Prefix(_) => todo!(),
+            KiOpn::Prefix(opr) => {
+                let &[KiArgumentRepr::Simple(opd)] = &**ki_repr.arguments(db) else {
+                    unreachable!()
+                };
+                let opd = self.eval_ki_repr(opd)?;
+                TrackedException::ki_catch_unwind(std::panic::AssertUnwindSafe(|| match opr {
+                    HirPrefixOpr::Minus => -opd,
+                    HirPrefixOpr::NotBool => todo!(),
+                    HirPrefixOpr::NotInt => todo!(),
+                    HirPrefixOpr::BitNot => todo!(),
+                    HirPrefixOpr::TakeRef => todo!(),
+                    HirPrefixOpr::Deref => todo!(),
+                }))
+            }
             KiOpn::Suffix(_) => todo!(),
             KiOpn::Binary(opr) => {
                 let arguments: &[_] = ki_repr.arguments(db);
@@ -192,46 +205,35 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                 let KiArgumentRepr::Simple(ropd) = arguments[1] else {
                     unreachable!()
                 };
-                match opr {
-                    HirBinaryOpr::Closed(opr) => {
-                        let lopd = self.eval_ki_repr(lopd)?;
-                        let ropd = self.eval_ki_repr(ropd)?;
-                        KiControlFlow::Continue(
-                            match opr {
-                                BinaryClosedOpr::Add => lopd + ropd,
-                                BinaryClosedOpr::BitAnd => lopd & ropd,
-                                BinaryClosedOpr::BitOr => lopd | ropd,
-                                BinaryClosedOpr::BitXor => lopd ^ ropd,
-                                BinaryClosedOpr::Div => lopd / ropd,
-                                BinaryClosedOpr::Mul => lopd * ropd,
-                                BinaryClosedOpr::RemEuclid => todo!(),
-                                BinaryClosedOpr::Power => todo!(),
-                                BinaryClosedOpr::Sub => lopd - ropd,
-                            }
-                            .into(),
-                        )
-                    }
+                let lopd = self.eval_ki_repr(lopd)?;
+                let ropd = self.eval_ki_repr(ropd)?;
+                TrackedException::ki_catch_unwind(std::panic::AssertUnwindSafe(|| match opr {
+                    HirBinaryOpr::Closed(opr) => match opr {
+                        BinaryClosedOpr::Add => lopd + ropd,
+                        BinaryClosedOpr::BitAnd => lopd & ropd,
+                        BinaryClosedOpr::BitOr => lopd | ropd,
+                        BinaryClosedOpr::BitXor => lopd ^ ropd,
+                        BinaryClosedOpr::Div => lopd / ropd,
+                        BinaryClosedOpr::Mul => lopd * ropd,
+                        BinaryClosedOpr::RemEuclid => todo!(),
+                        BinaryClosedOpr::Power => todo!(),
+                        BinaryClosedOpr::Sub => lopd - ropd,
+                    },
                     HirBinaryOpr::Shift(_) => todo!(),
                     HirBinaryOpr::Assign => todo!(),
                     HirBinaryOpr::AssignClosed(_) => todo!(),
                     HirBinaryOpr::AssignShift(_) => todo!(),
-                    HirBinaryOpr::Comparison(opr) => {
-                        let lopd = self.eval_ki_repr(lopd)?;
-                        let ropd = self.eval_ki_repr(ropd)?;
-                        KiControlFlow::Continue(
-                            match opr {
-                                BinaryComparisonOpr::Eq => lopd == ropd,
-                                BinaryComparisonOpr::Neq => lopd != ropd,
-                                BinaryComparisonOpr::Geq => lopd >= ropd,
-                                BinaryComparisonOpr::Greater => lopd > ropd,
-                                BinaryComparisonOpr::Leq => lopd <= ropd,
-                                BinaryComparisonOpr::Less => lopd < ropd,
-                            }
-                            .into(),
-                        )
+                    HirBinaryOpr::Comparison(opr) => match opr {
+                        BinaryComparisonOpr::Eq => lopd == ropd,
+                        BinaryComparisonOpr::Neq => lopd != ropd,
+                        BinaryComparisonOpr::Geq => lopd >= ropd,
+                        BinaryComparisonOpr::Greater => lopd > ropd,
+                        BinaryComparisonOpr::Leq => lopd <= ropd,
+                        BinaryComparisonOpr::Less => lopd < ropd,
                     }
+                    .into(),
                     HirBinaryOpr::ShortCircuitLogic(_) => todo!(),
-                }
+                }))
             }
             KiOpn::EvalDiscarded => todo!(),
             KiOpn::Branches => {
@@ -310,7 +312,16 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     unreachable!()
                 };
                 let index = self.eval_ki_repr(index)?.to_usize();
-                KiControlFlow::Continue(self_argument.index(index))
+                self_argument
+                    .index(index)
+                    .map_err(|exception| {
+                        TrackedException::new(
+                            exception,
+                            ExceptionSource::Ki(ki_repr.into()),
+                            self.pedestal(ki_repr),
+                        )
+                    })
+                    .into()
             }
         };
         result

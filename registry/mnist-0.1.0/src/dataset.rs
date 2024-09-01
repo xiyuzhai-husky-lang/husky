@@ -20,9 +20,6 @@ impl MnistDataset {
     fn new(seed: u64) -> Self {
         let (inputs, labels) = load_mnist_inputs_and_labels();
         let permutation = husky_rng_utils::generate_random_permutation(60000, seed);
-        // debug ci
-        #[cfg(test)]
-        println!("permutation[0] = {}", permutation[0]);
         debug_assert_eq!(permutation[0], 17306);
         Self {
             inputs,

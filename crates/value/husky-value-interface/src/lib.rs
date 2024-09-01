@@ -101,7 +101,7 @@ pub trait IsValue:
     fn is_none(self) -> bool;
     /// should unreachable if not an option
     fn is_some(self) -> bool;
-    fn index(self, index: usize) -> Self;
+    fn index(self, index: usize) -> Result<Self, Self::Exception>;
     fn unwrap(self) -> Result<Self, Self::Exception>;
     fn present(
         &self,
