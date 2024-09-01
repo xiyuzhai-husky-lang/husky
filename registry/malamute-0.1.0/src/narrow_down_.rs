@@ -148,11 +148,11 @@ where
         debug_assert_eq!(runtime_constants.len(), 1);
         let label: Label = __eval_val_runtime_constant(runtime_constants[0]);
         let fvf = FlagVectorField::from_features::<Task>(ki_domain_repr, features, label)?;
-        // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
-        // let ntrim = opds[1].value().downcast_i32();
+        let flag_ranges = fvf.flag_ranges(skip, 0.1);
+        debug_assert_eq!(features.len(), flag_ranges.len());
         __KiControlFlow::Continue(NarrowDownInternal {
             label0: fvf.label0(),
-            flag_ranges: fvf.flag_ranges(skip, 0.1),
+            flag_ranges,
         })
     }
 

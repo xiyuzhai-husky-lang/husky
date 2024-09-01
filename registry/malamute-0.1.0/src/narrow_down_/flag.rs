@@ -3,12 +3,14 @@ use ad_hoc_devsoul_dependency::IsLabel;
 use ml_task::IsMlTask;
 use smallvec::*;
 
+#[derive(Debug)]
 pub struct FlagVectorField<Label> {
-    // flags: Vec<bool>,
+    number_of_features: usize,
     stalks: Vec<Stalk>,
     label0: Label,
 }
 
+#[derive(Debug)]
 pub struct Stalk {
     features: SmallVec<[NotNan<f32>; 4]>,
     // indicates whether the label is equal to label0
@@ -21,7 +23,7 @@ where
 {
     pub fn from_features<Task: IsMlTask<__VarId>>(
         ki_domain_repr: __KiDomainReprInterface,
-        arguments: &[__KiReprInterface],
+        features: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Self, __TrackedException> {
         let mut stalks: Vec<Stalk> = vec![];
@@ -30,14 +32,18 @@ where
         for i in 0..5 {
             let Some(id) = ids.next() else { break };
             Task::INPUT::with_var_id(id, locked, || {
-                if let Some(stalk) = Self::from_features_aux(ki_domain_repr, arguments, label0)? {
+                if let Some(stalk) = Self::from_features_aux(ki_domain_repr, features, label0)? {
                     stalks.push(stalk)
                 }
                 Ok(())
             })
             .unwrap()?
         }
-        Ok(Self { stalks, label0 })
+        Ok(Self {
+            number_of_features: features.len(),
+            stalks,
+            label0,
+        })
     }
 
     fn from_features_aux(
@@ -77,7 +83,8 @@ where
 
     fn raw_flag_ranges(&self) -> SmallVec<[Option<FlagRange>; 4]> {
         if self.stalks.is_empty() {
-            return smallvec![];
+            return (0..self.number_of_features).map(|_| None).collect();
+            // return smallvec![];
         }
         let num_of_features = self.stalks[0].features.len();
         (0..num_of_features)
