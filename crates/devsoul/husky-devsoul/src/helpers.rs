@@ -9,6 +9,7 @@ use husky_trace_protocol::{
     anchor::Anchor,
     chart::{Chart, ChartDim0, ChartDim1, ChartDim2},
     protocol::IsTraceProtocol,
+    stalk::TraceStalk,
 };
 use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, SmallVecPairMap};
 
@@ -28,6 +29,7 @@ pub type DevsoulStaticVarResult<Devsoul, T> = StaticVarResult<DevsoulVarId<Devso
 pub type DevsoulKiControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
     LinketImplKiControlFlow<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulAnchor<Devsoul> = Anchor<<DevsoulPedestal<Devsoul> as IsPedestal>::VarId>;
+pub type DevsoulTraceStalk<Devsoul> = TraceStalk<DevsoulVarId<Devsoul>>;
 pub type DevsoulCaryatid<Devsoul> =
     <<Devsoul as IsDevsoul>::TraceProtocol as IsTraceProtocol>::Caryatid;
 pub type DevsoulFigure<Devsoul> =
