@@ -25,9 +25,12 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
                 .runtime
                 .eval_ki_repr(data.ki_repr(trace, db).expect("why this could be none")),
             TraceData::LazyPattern(_) => todo!(),
-            TraceData::LazyStmt(data) => self
-                .runtime
-                .eval_ki_repr(data.ki_repr(trace, db).expect("why this could be none")),
+            TraceData::LazyStmt(data) => {
+                use husky_print_utils::p;
+                p!(trace.view_data(db));
+                self.runtime
+                    .eval_ki_repr(data.ki_repr(trace, db).expect("why this could be none"))
+            }
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(_) => todo!(),
             TraceData::EagerExpr(_) => todo!(),

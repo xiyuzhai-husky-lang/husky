@@ -4,31 +4,31 @@ use crate::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct HirLazyExprRegionControlFlowChart {
+pub struct HirLazyExprRegionControlFlowRegion {
     // has value means has control flow
-    hir_lazy_expr_control_flow_chart: HirLazyExprMap<HasControlFlow>,
+    hir_lazy_expr_control_flows: HirLazyExprMap<HasControlFlow>,
     // has value means has control flow
-    hir_lazy_stmt_control_flow_chart: HirLazyStmtMap<HasControlFlow>,
+    hir_lazy_stmt_control_flows: HirLazyStmtMap<HasControlFlow>,
 }
 
-impl std::ops::Index<HirLazyExprIdx> for HirLazyExprRegionControlFlowChart {
+impl std::ops::Index<HirLazyExprIdx> for HirLazyExprRegionControlFlowRegion {
     type Output = HasControlFlow;
 
     fn index(&self, index: HirLazyExprIdx) -> &Self::Output {
-        &self.hir_lazy_expr_control_flow_chart[index]
+        &self.hir_lazy_expr_control_flows[index]
     }
 }
 
-impl std::ops::Index<HirLazyStmtIdx> for HirLazyExprRegionControlFlowChart {
+impl std::ops::Index<HirLazyStmtIdx> for HirLazyExprRegionControlFlowRegion {
     type Output = HasControlFlow;
 
     fn index(&self, index: HirLazyStmtIdx) -> &Self::Output {
-        &self.hir_lazy_stmt_control_flow_chart[index]
+        &self.hir_lazy_stmt_control_flows[index]
     }
 }
 
 impl HirLazyExprRegion {
-    pub fn control_flow<'a>(self, db: &'a ::salsa::Db) -> &'a HirLazyExprRegionControlFlowChart {
+    pub fn control_flow<'a>(self, db: &'a ::salsa::Db) -> &'a HirLazyExprRegionControlFlowRegion {
         hir_lazy_expr_region_control_flow(db, self)
     }
 }
@@ -74,7 +74,7 @@ impl FromResidual<HasControlFlowR> for HasControlFlow {
 fn hir_lazy_expr_region_control_flow(
     db: &::salsa::Db,
     hir_lazy_expr_region: HirLazyExprRegion,
-) -> HirLazyExprRegionControlFlowChart {
+) -> HirLazyExprRegionControlFlowRegion {
     let mut builder = HirLazyExprControlFlowRegionBuilder::new(hir_lazy_expr_region, db);
     builder.infer_all();
     builder.finish()
@@ -294,10 +294,10 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
         }
     }
 
-    fn finish(self) -> HirLazyExprRegionControlFlowChart {
-        HirLazyExprRegionControlFlowChart {
-            hir_lazy_expr_control_flow_chart: self.hir_lazy_expr_control_flow_chart,
-            hir_lazy_stmt_control_flow_chart: self.hir_lazy_stmt_control_flow_chart,
+    fn finish(self) -> HirLazyExprRegionControlFlowRegion {
+        HirLazyExprRegionControlFlowRegion {
+            hir_lazy_expr_control_flows: self.hir_lazy_expr_control_flow_chart,
+            hir_lazy_stmt_control_flows: self.hir_lazy_stmt_control_flow_chart,
         }
     }
 }
