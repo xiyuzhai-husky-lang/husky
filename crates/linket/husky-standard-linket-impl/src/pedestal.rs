@@ -29,6 +29,10 @@ impl IsPedestal for StandardPedestal {
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool {
         var_deps.iter().copied().all(|dep| self.var_ids.has(dep))
     }
+
+    fn var_ids<'a>(&'a self) -> impl Iterator<Item = (ItemPathIdInterface, Self::VarId)> + 'a {
+        self.var_ids.iter().copied()
+    }
 }
 
 impl StandardPedestal {}

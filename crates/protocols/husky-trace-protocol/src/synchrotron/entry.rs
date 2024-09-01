@@ -1,5 +1,6 @@
 use super::*;
 use husky_item_path_interface::ItemPathIdInterface;
+use husky_linket_impl::pedestal::IsPedestal;
 use serde_with::serde_as;
 use smallvec::SmallVec;
 use vec_like::SmallVecSet;
@@ -14,7 +15,10 @@ pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
     assoc_trace_ids_shown: SmallVecSet<TraceId, 2>,
     expanded: bool,
     #[serde_as(as = "Vec<(_, _)>")]
-    stalks: FxHashMap<TraceProtocol::Pedestal, TraceStalk>,
+    stalks: FxHashMap<
+        TraceProtocol::Pedestal,
+        TraceStalk<<<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId>,
+    >,
 }
 
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
@@ -49,7 +53,10 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
         self.stalks.contains_key(pedestal)
     }
 
-    pub fn stalk(&self, pedestal: &TraceProtocol::Pedestal) -> &TraceStalk {
+    pub fn stalk(
+        &self,
+        pedestal: &TraceProtocol::Pedestal,
+    ) -> &TraceStalk<<<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId> {
         &self.stalks[pedestal]
     }
 
@@ -70,7 +77,11 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
         self.subtrace_ids = Some(subtrace_ids)
     }
 
-    pub(super) fn cache_stalk(&mut self, pedestal: TraceProtocol::Pedestal, stalk: TraceStalk) {
+    pub(super) fn cache_stalk(
+        &mut self,
+        pedestal: TraceProtocol::Pedestal,
+        stalk: TraceStalk<<<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId>,
+    ) {
         // self.stalks.get_value_mut_or_insert_with(pedestal, f);
         debug_assert!(self.stalks.insert(pedestal, stalk).is_none());
     }

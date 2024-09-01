@@ -1,12 +1,12 @@
+use super::*;
 use husky_item_path_interface::ItemPathIdInterface;
+use husky_linket_impl::pedestal::IsPedestal;
 use husky_value_protocol::presentation::synchrotron::action::ValuePresentationSynchrotronActionsDiff;
 use husky_visual_protocol::synchrotron::action::VisualSynchrotronActionsDiff;
 use item_path::ItemPathPresentation;
 use smallvec::SmallVec;
 use var_id::VarIdPresentation;
 use vec_like::SmallVecSet;
-
-use super::*;
 
 #[enum_class::from_variants]
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
@@ -25,7 +25,7 @@ pub enum TraceSynchrotronAction<TraceProtocol: IsTraceProtocol> {
     CacheStalk {
         pedestal: TraceProtocol::Pedestal,
         trace_id: TraceId,
-        stalk: TraceStalk,
+        stalk: TraceStalk<<<TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId>,
     },
     CacheFigure {
         figure_key: TraceFigureKey<TraceProtocol>,

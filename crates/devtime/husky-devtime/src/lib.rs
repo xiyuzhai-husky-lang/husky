@@ -11,7 +11,9 @@ use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::{
     devsoul::IsDevsoul,
-    helpers::{DevsoulCaryatid, DevsoulChart, DevsoulFigure, DevsoulStaticVarResult},
+    helpers::{
+        DevsoulCaryatid, DevsoulChart, DevsoulFigure, DevsoulStaticVarResult, DevsoulTraceStalk,
+    },
 };
 use husky_entity_path::path::ItemPathId;
 use husky_item_path_interface::ItemPathIdInterface;
@@ -100,21 +102,15 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
-    ) -> TraceStalk {
+    ) -> DevsoulTraceStalk<Devsoul> {
         use husky_linket_impl::pedestal::IsPedestal;
         let db = self.runtime.db();
         let var_deps = trace.var_deps(db);
         assert!(pedestal.is_closed(var_deps));
-        if let Some(ki_repr) = trace.ki_repr(db) {
-            TraceStalk::Ki(
-                self.runtime
-                    .eval_ki_repr(ki_repr)
-                    .present(value_presenter_cache, value_presentation_synchrotron),
-            )
-        } else {
-            // ad hoc
-            TraceStalk::None
-        }
+        TraceStalk::new(
+            self.eval_trace_at_pedestal(trace, pedestal)
+                .map(|vpcf| vpcf.present(value_presenter_cache, value_presentation_synchrotron)),
+        )
     }
 
     fn calc_figure(

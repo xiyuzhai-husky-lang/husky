@@ -19,4 +19,8 @@ impl IsPedestal for VirtualPedestal {
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool {
         true
     }
+
+    fn var_ids<'a>(&'a self) -> impl Iterator<Item = (ItemPathIdInterface, Self::VarId)> + 'a {
+        [].into_iter()
+    }
 }

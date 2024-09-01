@@ -224,4 +224,12 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
             .linket_impl(Linket::new_var(major_form_path, db));
         linket_impl.var_default_page_start(locked)
     }
+
+    pub fn with_pedestal<R>(
+        &self,
+        pedestal: &Devsoul::Pedestal,
+        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+    ) -> DevsoulStaticVarResult<Devsoul, R> {
+        self.with_var_ids(pedestal.var_ids(), f)
+    }
 }

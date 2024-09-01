@@ -169,10 +169,12 @@ where
                         ui.horizontal(|ui| {
                             self.render_line(lines_data.last().unwrap(), trace_id, entry, ui);
                             if let Some(pedestal) = pedestal {
-                                match entry.stalk(&pedestal) {
-                                    TraceStalk::None => (),
-                                    TraceStalk::Ki(value_control_flow) => {
-                                        match value_control_flow {
+                                match entry
+                                    .stalk(&pedestal)
+                                    .value_presentation_control_flow_result()
+                                {
+                                    Ok(value_presentation_control_flow) => {
+                                        match value_presentation_control_flow {
                                             KiControlFlow::Continue(value) => {
                                                 self.render_value(value, ui)
                                             }
@@ -203,7 +205,7 @@ where
                                             }
                                         }
                                     }
-                                    TraceStalk::Vm(_) => todo!(),
+                                    Err(_) => todo!(),
                                 }
                             }
                             // this is important to keep the interaction region large enough
