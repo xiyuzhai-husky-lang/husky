@@ -7,7 +7,7 @@ use husky_sem_var_deps::{
     region::item_defn_sem_var_deps_region,
     var_deps::{SemVarDep, SemVarDeps},
 };
-use source::KiReprExpansionSource;
+use source::{KiReprExpansionSource, KiReprSource};
 use vec_like::OrderedSmallVecSet;
 
 /// todo: make this an interned value, and there should be a dedicated linket to compute this
@@ -67,8 +67,8 @@ impl KiRepr {
 #[salsa::tracked(return_ref)]
 fn ki_repr_var_deps(db: &::salsa::Db, ki_repr: KiRepr) -> KiVarDeps {
     match ki_repr.source(db) {
-        source::KiReprSource::Val(val_path) => item_sem_var_deps(val_path, db).into(),
-        source::KiReprSource::Expansion {
+        KiReprSource::Val(val_path) => item_sem_var_deps(val_path, db).into(),
+        KiReprSource::Expansion {
             parent_ki_repr,
             source,
         } => {

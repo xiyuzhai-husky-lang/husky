@@ -107,10 +107,9 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         let db = self.runtime.db();
         let var_deps = trace.var_deps(db);
         assert!(pedestal.is_closed(var_deps));
-        TraceStalk::new(
-            self.eval_trace_at_pedestal(trace, pedestal)
-                .map(|vpcf| vpcf.present(value_presenter_cache, value_presentation_synchrotron)),
-        )
+        TraceStalk::new(self.eval_trace_at_pedestal(trace, pedestal).map(|vpcf| {
+            vpcf.map(|vpcf| vpcf.present(value_presenter_cache, value_presentation_synchrotron))
+        }))
     }
 
     fn calc_figure(

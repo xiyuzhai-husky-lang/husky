@@ -603,9 +603,12 @@ where
                 ref elif_branches,
                 ref else_branch,
             } => {
-                let mut deps =
-                    self.stmt_value_var_deps_table[if_branch.stmts.last().unwrap()].clone();
+                let mut deps = self.calc_condition_value(if_branch.condition);
+                deps.merge(
+                    &self.stmt_value_var_deps_table[if_branch.stmts.last().unwrap()].clone(),
+                );
                 for elif_branch in elif_branches {
+                    deps.merge(&self.calc_condition_value(elif_branch.condition));
                     deps.merge(&self.stmt_value_var_deps_table[elif_branch.stmts.last().unwrap()]);
                 }
                 if let Some(else_branch) = else_branch {
@@ -615,13 +618,16 @@ where
             }
             SemStmtData::Match {
                 match_token,
-                opd: match_opd,
-                contract: match_contract,
+                opd,
                 eol_with_token,
                 ref case_branches,
+                ..
             } => {
-                let mut deps = self.expr_value_var_deps_table[match_opd].clone();
+                let mut deps = self.expr_value_var_deps_table[opd].clone();
                 for case_branch in case_branches {
+                    if let Some(condition) = case_branch.condition() {
+                        deps.merge(&self.calc_condition_value(condition));
+                    }
                     deps.merge(&self.stmt_value_var_deps_table[case_branch.stmts.last().unwrap()]);
                 }
                 deps

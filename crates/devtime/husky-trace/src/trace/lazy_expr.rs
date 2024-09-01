@@ -227,10 +227,7 @@ impl LazyExprTraceData {
 
     pub fn ki_repr(&self, trace: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let ki_repr_expansion = trace_ki_repr_expansion(db, trace);
-        ki_repr_expansion
-            .hir_lazy_expr_ki_repr_map(db)
-            .get(self.hir_lazy_expr_idx?)
-            .copied()
+        Some(ki_repr_expansion.hir_lazy_expr_ki_repr_map(db)[self.hir_lazy_expr_idx?])
     }
 
     pub fn ki_repr_expansion(&self, db: &::salsa::Db) -> KiReprExpansion {
