@@ -9,7 +9,7 @@ use husky_entity_path::path::{major_item::MajorItemPath, ItemPath, PrincipalEnti
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
-    helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
+    helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowRegion},
     variable::HirLazyVariableMap,
     HirLazyBeVariablesPattern, HirLazyCallListArgument, HirLazyCondition, HirLazyExprData,
     HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternData,
@@ -105,7 +105,7 @@ struct KiReprExpansionBuilder<'a> {
     hir_lazy_expr_ki_repr_map: HirLazyExprMap<KiRepr>,
     hir_lazy_stmt_ki_repr_map: HirLazyStmtMap<KiRepr>,
     root_hir_lazy_stmt_ki_reprs: SmallVec<[KiRepr; 4]>,
-    hir_lazy_expr_control_flow_region: &'a HirLazyExprRegionControlFlowChart,
+    hir_lazy_expr_control_flow_region: &'a HirLazyExprRegionControlFlowRegion,
     lin_instantiation: LinInstantiation,
     db: &'a ::salsa::Db,
 }
@@ -151,7 +151,9 @@ impl<'a> KiReprExpansionBuilder<'a> {
             db,
         }
     }
+}
 
+impl<'a> KiReprExpansionBuilder<'a> {
     fn build_all(&mut self) {
         let ki_domain_repr_guard =
             KiDomainReprGuard::new(self.db, self.parent_ki_repr, self.ki_domain_repr);
@@ -178,6 +180,11 @@ impl<'a> KiReprExpansionBuilder<'a> {
         ki_reprs
     }
 
+    /// returns None for those guaranteed to return the unit type without control flow
+    ///
+    /// includes:
+    /// - let statements
+    /// - discard without without control flow
     fn build_stmt(
         &mut self,
         ki_domain_repr_guard: &mut KiDomainReprGuard<'a>,
@@ -209,7 +216,14 @@ impl<'a> KiReprExpansionBuilder<'a> {
                                 self.db,
                             ),
                         );
-                        return None;
+                        match self.hir_lazy_expr_control_flow_region[initial_value] {
+                            HasControlFlow::True => {
+                                todo!();
+                            }
+                            HasControlFlow::False => {
+                                return None;
+                            }
+                        }
                     }
                     HirLazyPatternData::Unit(_) => todo!(),
                     HirLazyPatternData::Tuple { path: _, fields: _ } => todo!(),
