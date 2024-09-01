@@ -173,7 +173,7 @@ where
                                     .stalk(&pedestal)
                                     .value_presentation_control_flow_result()
                                 {
-                                    Ok(value_presentation_control_flow) => {
+                                    Ok(Some(value_presentation_control_flow)) => {
                                         match value_presentation_control_flow {
                                             KiControlFlow::Continue(value) => {
                                                 self.render_value(value, ui)
@@ -205,6 +205,7 @@ where
                                             }
                                         }
                                     }
+                                    Ok(None) => (),
                                     Err(_) => todo!(),
                                 }
                             }

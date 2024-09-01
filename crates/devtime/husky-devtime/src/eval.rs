@@ -7,27 +7,23 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         &self,
         trace: Trace,
         pedestal: &Devsoul::Pedestal,
-    ) -> DevsoulStaticVarResult<Devsoul, DevsoulKiControlFlow<Devsoul>> {
+    ) -> DevsoulStaticVarResult<Devsoul, Option<DevsoulKiControlFlow<Devsoul>>> {
         self.runtime
             .with_pedestal(pedestal, |_| self.eval_trace(trace))
     }
 
     /// assuming that vars have been set up properly
-    pub fn eval_trace(&self, trace: Trace) -> DevsoulKiControlFlow<Devsoul> {
+    pub fn eval_trace(&self, trace: Trace) -> Option<DevsoulKiControlFlow<Devsoul>> {
         let db = self.db();
         match trace.data(db) {
-            TraceData::Submodule(_) => KiControlFlow::Continue(().into()),
-            TraceData::Val(data) => self.runtime.eval_ki_repr(data.ki_repr(db)),
-            TraceData::StaticVar(data) => self.runtime.eval_ki_repr(data.ki_repr(db)),
-            TraceData::LazyCallInput(data) => self.runtime.eval_ki_repr(data.ki_repr(db)),
-            TraceData::LazyCall(data) => self.runtime.eval_ki_repr(data.ki_repr(db)),
-            TraceData::LazyExpr(data) => self
-                .runtime
-                .eval_ki_repr(data.ki_repr(trace, db).expect("why this could be none")),
+            TraceData::Submodule(_) => None,
+            TraceData::Val(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(db))),
+            TraceData::StaticVar(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(db))),
+            TraceData::LazyCallInput(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(db))),
+            TraceData::LazyCall(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(db))),
+            TraceData::LazyExpr(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(trace, db)?)),
             TraceData::LazyPattern(_) => todo!(),
-            TraceData::LazyStmt(data) => self
-                .runtime
-                .eval_ki_repr(data.ki_repr(trace, db).expect("why this could be none")),
+            TraceData::LazyStmt(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(trace, db)?)),
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(_) => todo!(),
             TraceData::EagerExpr(_) => todo!(),
@@ -48,7 +44,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         use husky_value_interface::IsValue;
 
         let trace_id = trace.into();
-        match self.eval_trace(trace) {
+        match self.eval_trace(trace)? {
             KiControlFlow::Continue(value) => {
                 Some(trace_visual_cache.visual(trace_id, pedestal, || {
                     let visual = value.visualize(visual_synchrotron);

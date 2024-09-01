@@ -10,14 +10,15 @@ pub type JsonValue = serde_json::Value;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceStalk<VarId: IsVarId> {
-    value_presentation_control_flow_result: StaticVarResult<VarId, ValuePresentationKiControlFlow>,
+    value_presentation_control_flow_result:
+        StaticVarResult<VarId, Option<ValuePresentationKiControlFlow>>,
 }
 
 impl<VarId: IsVarId> TraceStalk<VarId> {
     pub fn new(
         value_presentation_control_flow_result: StaticVarResult<
             VarId,
-            ValuePresentationKiControlFlow,
+            Option<ValuePresentationKiControlFlow>,
         >,
     ) -> Self {
         Self {
@@ -29,7 +30,7 @@ impl<VarId: IsVarId> TraceStalk<VarId> {
 impl<VarId: IsVarId> TraceStalk<VarId> {
     pub fn value_presentation_control_flow_result(
         &self,
-    ) -> &StaticVarResult<VarId, ValuePresentationKiControlFlow> {
+    ) -> &StaticVarResult<VarId, Option<ValuePresentationKiControlFlow>> {
         &self.value_presentation_control_flow_result
     }
 }
