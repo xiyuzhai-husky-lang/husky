@@ -8,8 +8,6 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         trace: Trace,
         pedestal: &Devsoul::Pedestal,
     ) -> DevsoulStaticVarResult<Devsoul, Option<DevsoulKiControlFlow<Devsoul>>> {
-        use husky_print_utils::p;
-        p!(pedestal);
         self.runtime
             .with_pedestal(pedestal, |_| self.eval_trace(trace))
     }
