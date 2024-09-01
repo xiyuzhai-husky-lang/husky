@@ -378,7 +378,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -5666,7 +5668,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -6093,7 +6097,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -6467,7 +6473,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -9237,7 +9245,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -9729,7 +9739,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -9924,7 +9936,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -20028,7 +20042,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -22185,7 +22201,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -22590,7 +22608,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -24189,7 +24209,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -24254,7 +24276,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -27155,7 +27179,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -31993,7 +32019,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -33754,7 +33782,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -38050,7 +38080,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -38477,7 +38509,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -38851,7 +38885,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -41175,7 +41211,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -41667,7 +41705,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -41862,7 +41902,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -44070,7 +44112,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -48964,7 +49008,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -49369,7 +49415,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -50759,7 +50807,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -50824,7 +50874,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -57755,7 +57807,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
@@ -62510,7 +62564,9 @@
                 },
             ),
         },
-        [],
+        [
+            ItemPath(`mnist::INPUT`),
+        ],
     ),
     (
         Trace {
