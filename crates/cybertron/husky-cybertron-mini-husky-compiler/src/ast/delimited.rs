@@ -503,6 +503,7 @@ fn new_ast_by_delimited_item(
             PreAst::Opr(_) | PreAst::RightDelimiter(_) => return None,
             PreAst::Ast(_) => match nearest_left2.second() {
                 Some((_, snd)) => match snd {
+                    PreAst::Keyword(_) if separator == Separator::Semicolon => None,
                     PreAst::Keyword(_) | PreAst::LeftDelimiter(_) | PreAst::Separator(_) => {
                         Some(AstData::SeparatedItem {
                             content: Some(idx),
