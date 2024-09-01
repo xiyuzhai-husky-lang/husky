@@ -1,4 +1,5 @@
 use husky_value_interface::IsValue;
+use serde::{Deserialize, Serialize};
 
 use crate::*;
 
@@ -67,7 +68,7 @@ where
 }
 
 /// this is a mild error, sometimes intentionally triggered
-#[derive(Debug)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub enum StaticVarError<VarId> {
     ReplaceLocked {
         locked_path: ItemPathIdInterface,

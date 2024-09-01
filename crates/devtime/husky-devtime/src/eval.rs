@@ -3,6 +3,16 @@ use husky_devsoul::helpers::DevsoulKiControlFlow;
 use husky_trace::trace::TraceData;
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
+    pub fn eval_trace_at_pedestal(
+        &self,
+        trace: Trace,
+        pedestal: &Devsoul::Pedestal,
+    ) -> DevsoulStaticVarResult<Devsoul, DevsoulKiControlFlow<Devsoul>> {
+        self.runtime
+            .with_pedestal(pedestal, |_| self.eval_trace(trace))
+    }
+
+    /// assuming that vars have been set up properly
     pub fn eval_trace(&self, trace: Trace) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
         match trace.data(db) {
@@ -15,7 +25,9 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
                 .runtime
                 .eval_ki_repr(data.ki_repr(trace, db).expect("why this could be none")),
             TraceData::LazyPattern(_) => todo!(),
-            TraceData::LazyStmt(_) => todo!(),
+            TraceData::LazyStmt(data) => self
+                .runtime
+                .eval_ki_repr(data.ki_repr(trace, db).expect("why this could be none")),
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(_) => todo!(),
             TraceData::EagerExpr(_) => todo!(),

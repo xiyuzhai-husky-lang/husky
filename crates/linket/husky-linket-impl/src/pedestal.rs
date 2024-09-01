@@ -27,6 +27,8 @@ pub trait IsPedestal:
 
     fn exclude<V: IsStaticVar<Self::VarId>>(self) -> Self;
 
+    fn var_ids<'a>(&'a self) -> impl Iterator<Item = (ItemPathIdInterface, Self::VarId)> + 'a;
+
     /// a closed point in algebraic geometry is a minimal prime point locally
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool;
 }
