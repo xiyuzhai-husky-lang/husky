@@ -26,9 +26,23 @@ pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
         panic!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
+    fn index_owned(self, index: usize) -> ExceptedValue {
         panic!(
-            "type `{}` doesn't support indexing",
+            "type `{}` doesn't support indexing owned",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn index_ref<'a>(&'a self, index: usize) -> ExceptedValue {
+        panic!(
+            "type `{}` doesn't support indexing ref",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn index_leash(&'static self, index: usize) -> ExceptedValue {
+        panic!(
+            "type `{}` doesn't support indexing leash",
             std::any::type_name::<Self>()
         )
     }
@@ -90,10 +104,12 @@ pub trait StaticDyn:
 
     fn is_none_dyn(&self) -> bool;
 
-    fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn;
+    fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue;
+    fn index_ref_dyn<'a>(&'a self, index: usize) -> ExceptedValue;
+    fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue;
 
+    // todo: unwrap owned
     fn unwrap_ref_dyn<'a>(&'a self) -> ExceptedValue;
-
     fn unwrap_leash_dyn(&'static self) -> ExceptedValue;
 
     fn try_copy_dyn(&self) -> Option<Value>;
@@ -123,8 +139,16 @@ where
         self.is_none()
     }
 
-    fn index_ref_dyn<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
+    fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue {
+        self.index_owned(index)
+    }
+
+    fn index_ref_dyn<'a>(&'a self, index: usize) -> ExceptedValue {
         self.index_ref(index)
+    }
+
+    fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue {
+        self.index_leash(index)
     }
 
     fn unwrap_ref_dyn<'a>(&'a self) -> ExceptedValue {
@@ -168,8 +192,12 @@ where
         todo!()
     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> &'a dyn StaticDyn {
-        &self[index]
+    fn index_ref<'a>(&'a self, index: usize) -> ExceptedValue {
+        Ok(Value::from_ref(&self[index]))
+    }
+
+    fn index_leash(&'static self, index: usize) -> ExceptedValue {
+        Ok(Value::from_leash(&self[index]))
     }
 
     fn serialize_to_value(&self) -> serde_json::Value {

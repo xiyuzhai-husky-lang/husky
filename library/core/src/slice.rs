@@ -43,6 +43,24 @@ where
         todo!()
     }
 
+    fn index_owned(self: Self, index: usize) -> __ExceptedValue {
+        Ok(Leash(self.index_i32(index.try_into().unwrap())).into_value())
+    }
+
+    fn index_ref<'a>(&'a self, index: usize) -> __ExceptedValue {
+        panic!(
+            "type `{}` doesn't support indexing ref",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn index_leash(&'static self, index: usize) -> __ExceptedValue {
+        panic!(
+            "type `{}` doesn't support indexing leash",
+            std::any::type_name::<Self>()
+        )
+    }
+
     fn serialize_to_value(&self) -> __JsonValue {
         todo!("CyclicSlice serialize_to_value")
     }

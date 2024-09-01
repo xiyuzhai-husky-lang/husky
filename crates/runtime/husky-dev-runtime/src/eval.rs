@@ -310,7 +310,16 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
                     unreachable!()
                 };
                 let index = self.eval_ki_repr(index)?.to_usize();
-                KiControlFlow::Continue(self_argument.index(index))
+                self_argument
+                    .index(index)
+                    .map_err(|exception| {
+                        TrackedException::new(
+                            exception,
+                            ExceptionSource::Ki(ki_repr.into()),
+                            self.pedestal(ki_repr),
+                        )
+                    })
+                    .into()
             }
         };
         result
