@@ -173,9 +173,12 @@ where
                                     .stalk(&pedestal)
                                     .value_presentation_control_flow_result()
                                 {
-                                    Ok(value_presentation_control_flow) => {
+                                    Ok(Some(value_presentation_control_flow)) => {
                                         match value_presentation_control_flow {
                                             KiControlFlow::Continue(value) => {
+                                                ui.label(
+                                                    RichText::new("=").color(::egui::Color32::GRAY),
+                                                );
                                                 self.render_value(value, ui)
                                             }
                                             KiControlFlow::LoopContinue => {
@@ -205,6 +208,7 @@ where
                                             }
                                         }
                                     }
+                                    Ok(None) => (),
                                     Err(_) => todo!(),
                                 }
                             }
