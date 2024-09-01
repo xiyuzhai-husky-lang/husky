@@ -608,17 +608,17 @@ where
                 ref elif_branches,
                 ref else_branch,
             } => {
-                let mut deps =
-                    self.stmt_value_static_mut_deps_table[if_branch.stmts.last().unwrap()].clone();
+                let mut deps = SemStaticMutDeps::default();
+                let mut t = |condition: Option<SemCondition>, stmts: SemStmtIdxRange| {
+                    condition.map(|condition| deps.merge(&self.calc_condition_value(condition)));
+                    deps.merge(&self.calc_stmt_value(stmts.last().unwrap()));
+                };
+                t(Some(if_branch.condition), if_branch.stmts);
                 for elif_branch in elif_branches {
-                    deps.merge(
-                        &self.stmt_value_static_mut_deps_table[elif_branch.stmts.last().unwrap()],
-                    );
+                    t(Some(elif_branch.condition), elif_branch.stmts)
                 }
                 if let Some(else_branch) = else_branch {
-                    deps.merge(
-                        &self.stmt_value_static_mut_deps_table[else_branch.stmts.last().unwrap()],
-                    );
+                    t(None, else_branch.stmts)
                 }
                 deps
             }
@@ -730,6 +730,8 @@ where
             } => {
                 let mut deps = SemControlFlowStaticMutDeps::default();
                 let mut t = |condition: Option<SemCondition>, stmts| {
+                    condition
+                        .map(|condition| deps.merge(&self.calc_condition_control_flow(condition)));
                     let condition_value_deps =
                         condition.map(|condition| self.calc_condition_value(condition));
                     self.calc_stmts_control_flow(condition_value_deps, stmts, &mut deps);
@@ -755,8 +757,8 @@ where
                     let mut condition_value_deps =
                         self.expr_value_static_mut_deps_table[match_opd].clone();
                     if let Some(condition) = case_branch.condition() {
+                        deps.merge(&self.calc_condition_control_flow(condition));
                         condition_value_deps.merge(&self.calc_condition_value(condition));
-                        condition_value_deps.merge(&self.calc_condition_control_flow(condition));
                     }
                     self.calc_stmts_control_flow(
                         Some(condition_value_deps),
