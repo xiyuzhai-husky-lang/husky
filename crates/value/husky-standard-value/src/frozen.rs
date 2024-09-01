@@ -20,14 +20,14 @@ pub trait Frozen: std::fmt::Debug + Clone + RefUnwindSafe + UnwindSafe + 'static
     fn revive(&self) -> (Option<Self::Stand>, Self::Static);
 }
 
-pub trait SnapshotDyn: std::fmt::Debug {
+pub trait FrozenDyn: std::fmt::Debug {
     /// returns a owned type and the stand it needed
     fn revive_dyn(&self) -> (Option<ValueStand>, Box<dyn StaticDyn>);
     fn revive_ref_dyn(self: Arc<Self>) -> (ValueStand, *const dyn StaticDyn);
     fn revive_mut_dyn(&self) -> (ValueStand, *mut dyn StaticDyn);
 }
 
-impl<T> SnapshotDyn for T
+impl<T> FrozenDyn for T
 where
     T: Frozen,
 {
@@ -114,7 +114,7 @@ where
 
 pub enum ValueStand {
     Box(Box<dyn std::any::Any>),
-    Arc(Arc<dyn SnapshotDyn>),
+    Arc(Arc<dyn FrozenDyn>),
 }
 
 pub type ValueStands = SmallVec<[ValueStand; 8]>;

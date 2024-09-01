@@ -143,6 +143,12 @@ impl IsValue for Value {
             Value::StringLiteral(_) => todo!(),
         }
     }
+
+    type FrozenValue = Self;
+
+    fn freeze(&self) -> Self::FrozenValue {
+        todo!()
+    }
 }
 
 impl PartialEq for Value {

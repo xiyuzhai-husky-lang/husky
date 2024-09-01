@@ -92,3 +92,19 @@ impl<C1, C2: FromIterator<C1>, B, E> std::iter::FromIterator<VmControlFlow<C1, B
         }
     }
 }
+
+impl<Value, E> VmControlFlow<Value, Value, E>
+where
+    Value: IsValue,
+    E: Clone,
+{
+    pub fn freeze(&self) -> VmControlFlow<Value::FrozenValue, Value::FrozenValue, E> {
+        match self {
+            VmControlFlow::Continue(v) => VmControlFlow::Continue(v.freeze()),
+            VmControlFlow::LoopContinue => todo!(),
+            VmControlFlow::LoopExit(_) => todo!(),
+            VmControlFlow::Return(_) => todo!(),
+            VmControlFlow::Throw(e) => VmControlFlow::Throw(e.clone()),
+        }
+    }
+}
