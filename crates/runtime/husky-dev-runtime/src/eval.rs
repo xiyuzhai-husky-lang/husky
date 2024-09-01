@@ -90,8 +90,6 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
 
     pub fn eval_ki_repr(&self, ki_repr: KiRepr) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.comptime.db();
-        use husky_print_utils::p;
-        p!(ki_repr.opn(db), ki_repr.var_deps(db));
         if self.config.needs_caching(ki_repr.caching_class(db)) {
             self.get_or_try_init_ki_value(ki_repr, || self.eval_ki_repr_aux(ki_repr))
         } else {
