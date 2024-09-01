@@ -14,7 +14,10 @@ use crate::{
 use figure::TraceFigureKey;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
-use husky_linket_impl::{pedestal::IsPedestalFull, static_var::StaticVarResult};
+use husky_linket_impl::{
+    pedestal::{IsPedestal, IsPedestalFull},
+    static_var::StaticVarResult,
+};
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
@@ -428,7 +431,7 @@ pub trait IsTracetime: Send + 'static + Sized {
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
-    ) -> TraceStalk;
+    ) -> TraceStalk<<<Self::TraceProtocol as IsTraceProtocol>::Pedestal as IsPedestal>::VarId>;
 
     fn calc_figure(
         &self,

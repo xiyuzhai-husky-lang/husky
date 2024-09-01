@@ -46,6 +46,10 @@ pub(crate) fn replace_input_id(input_id: MnistInputId) -> Option<MnistInputId> {
     __INPUT_ID.replace(Some(input_id))
 }
 
+pub(crate) fn set_input_id(input_id: Option<MnistInputId>) {
+    __INPUT_ID.set(input_id)
+}
+
 pub(crate) fn input_ids() -> impl Iterator<Item = MnistInputId> {
     (0..60000).into_iter().map(MnistInputId::from_index)
 }

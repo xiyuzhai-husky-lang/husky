@@ -8,6 +8,7 @@ use std::{
     ops::{FromResidual, Try},
     panic::panic_any,
 };
+use vm_control_flow::VmControlFlow;
 
 #[derive(Debug, PartialEq, Eq, Clone, Serialize, Deserialize)]
 pub enum KiControlFlow<C, B, E> {
@@ -176,5 +177,17 @@ impl<C1, B, E> KiControlFlow<C1, B, E> {
             KiControlFlow::Undefined => KiControlFlow::Undefined,
             KiControlFlow::Throw(e) => KiControlFlow::Throw(e),
         }
+    }
+}
+
+impl<C, B, E> From<VmControlFlow<C, B, E>> for KiControlFlow<C, B, E> {
+    fn from(value: VmControlFlow<C, B, E>) -> Self {
+        todo!()
+    }
+}
+
+impl<C, B, E> From<Option<VmControlFlow<C, B, E>>> for KiControlFlow<C, B, E> {
+    fn from(value: Option<VmControlFlow<C, B, E>>) -> Self {
+        todo!()
     }
 }

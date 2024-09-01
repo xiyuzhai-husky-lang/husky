@@ -85,22 +85,22 @@ fn infer_scope_step(
 
 #[test]
 fn infer_scopes_works() {
-    fn t(input: &str, n: usize, expect: Expect) {
-        let (token, (pre_asts, asts)) =
+    fn t(input: &str, (n, m): (usize, usize), expect: Expect) {
+        let (tokens, (pre_asts, asts)) =
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
-        let scopes = infer_scopes(asts, n);
-        expect.assert_debug_eq(&show_asts_mapped_values(token, pre_asts, asts, scopes));
+        let scopes = infer_scopes(asts, m);
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, scopes));
     }
     t(
         "",
-        1,
+        (1, 1),
         expect![[r#"
         []
     "#]],
     );
     t(
         "()",
-        1,
+        (1, 1),
         expect![[r#"
             [
                 `(`: `(`,
@@ -110,7 +110,7 @@ fn infer_scopes_works() {
     );
     t(
         "{}",
-        1,
+        (1, 1),
         expect![[r#"
             [
                 `{`: `{`,
@@ -120,7 +120,7 @@ fn infer_scopes_works() {
     );
     t(
         "{x}",
-        2,
+        (2, 2),
         expect![[r#"
             [
                 `{`: `{`,
@@ -131,21 +131,21 @@ fn infer_scopes_works() {
     );
     t(
         "{ x { y } }",
-        1,
+        (3, 1),
         expect![[r#"
             [
-                `{`: `{` ✓,
-                `x`: "x" → `::`,
-                `{`: "x { y }" ✓ → `::`,
+                `{`: `{`,
+                `x`: "x",
+                `{`: "x { y }" → `::5`,
                 `y`: "y",
-                `}`: "{ y }" → `::4`,
-                `}`: `}` ✓,
+                `}`: "{ y }",
+                `}`: "{ x { y } }" ✓ → `::5`,
             ]
         "#]],
     );
     t(
         "{ x { y } }",
-        3,
+        (3, 3),
         expect![[r#"
             [
                 `{`: `{`,
