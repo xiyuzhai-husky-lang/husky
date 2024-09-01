@@ -16,7 +16,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     pub fn eval_trace(&self, trace: Trace) -> Option<DevsoulKiControlFlow<Devsoul>> {
         let db = self.db();
         match trace.data(db) {
-            TraceData::Submodule(_) => Some(KiControlFlow::Continue(().into())),
+            TraceData::Submodule(_) => None,
             TraceData::Val(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(db))),
             TraceData::StaticVar(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(db))),
             TraceData::LazyCallInput(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(db))),
