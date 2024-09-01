@@ -781,7 +781,44 @@ impl std::ops::Neg for Value {
     type Output = Self;
 
     fn neg(self) -> Self::Output {
-        todo!()
+        match self {
+            Value::Uninit => todo!(),
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(i) => Value::I8(-i),
+            Value::I16(i) => Value::I16(-i),
+            Value::I32(i) => Value::I32(-i),
+            Value::I64(i) => Value::I64(-i),
+            Value::I128(i) => Value::I128(-i),
+            Value::ISize(i) => Value::ISize(-i),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(f) => Value::F32(-f),
+            Value::F64(f) => Value::F64(-f),
+            Value::StringLiteral(_) => todo!(),
+            Value::Owned(_) => todo!(),
+            Value::Leash(_) => todo!(),
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+            Value::EnumUnit { index, presenter } => todo!(),
+        }
     }
 }
 
