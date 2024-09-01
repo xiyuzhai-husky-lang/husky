@@ -1,6 +1,7 @@
 pub mod owned;
 
 use self::owned::*;
+use crate::exception::Excepted;
 use crate::{
     frozen::{ValueStand, ValueStands},
     r#static::{Static, StaticDyn},
@@ -363,7 +364,7 @@ impl IsValue for Value {
         }
     }
 
-    fn index(self, index: usize) -> Self {
+    fn index(self, index: usize) -> Excepted<Self> {
         match self {
             Value::Uninit => todo!(),
             Value::Invalid => todo!(),
@@ -392,8 +393,8 @@ impl IsValue for Value {
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(_) => todo!(),
-            Value::Leash(slf) => Value::Leash(slf.index_ref_dyn(index)),
+            Value::Owned(slf) => slf.index_owned_dyn(index),
+            Value::Leash(slf) => slf.index_leash_dyn(index),
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),

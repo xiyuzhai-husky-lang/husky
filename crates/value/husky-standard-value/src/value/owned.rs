@@ -12,6 +12,10 @@ impl std::ops::Deref for OwnedValue {
 }
 
 impl OwnedValue {
+    pub(super) fn index_owned_dyn(self, index: usize) -> ExceptedValue {
+        self.0.index_owned_dyn(index)
+    }
+
     pub(super) fn upcast_from_owned<T>(t: T) -> Self
     where
         T: Static,

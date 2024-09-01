@@ -90,7 +90,7 @@ impl IsValue for Value {
         todo!()
     }
 
-    fn index(self, index: usize) -> Self {
+    fn index(self, index: usize) -> ExceptedValue {
         todo!()
     }
 
