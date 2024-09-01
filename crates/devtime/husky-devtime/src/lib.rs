@@ -100,13 +100,11 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         pedestal: &<Self::TraceProtocol as IsTraceProtocol>::Pedestal,
         value_presenter_cache: &mut ValuePresenterCache,
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
-    ) -> husky_trace_protocol::stalk::TraceStalk {
+    ) -> TraceStalk {
         use husky_linket_impl::pedestal::IsPedestal;
         let db = self.runtime.db();
         let var_deps = trace.var_deps(db);
-        if !pedestal.is_closed(var_deps) {
-            return TraceStalk::None;
-        }
+        assert!(pedestal.is_closed(var_deps));
         if let Some(ki_repr) = trace.ki_repr(db) {
             TraceStalk::Ki(
                 self.runtime

@@ -135,7 +135,7 @@ impl __IsStaticVar<__VarId> for INPUT {
     ) -> __StaticVarResult<impl FnOnce() + 'static> {
         let old = replace_input_id(id.into());
         Ok(move || {
-            old.map(replace_input_id);
+            set_input_id(old);
         })
     }
 
