@@ -11,9 +11,7 @@ mod tests;
 pub mod ugly;
 pub mod val;
 
-pub use husky_standard_value::{
-    frozen::SlushValues, value_conversion, FromValue, IntoValue, Value,
-};
+pub use husky_standard_value::{slush::SlushValues, value_conversion, FromValue, IntoValue, Value};
 
 use self::pedestal::StandardPedestal;
 use self::static_var::StandardVarId;

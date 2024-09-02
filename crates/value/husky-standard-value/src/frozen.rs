@@ -10,6 +10,7 @@ mod vec;
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
+use slush::SlushValue;
 use smallvec::SmallVec;
 
 use super::*;
@@ -88,13 +89,6 @@ where
 //         (None, *self)
 //     }
 // }
-
-pub enum SlushValue {
-    Box(Box<dyn std::any::Any>),
-    Arc(Arc<dyn FrozenDyn>),
-}
-
-pub type SlushValues = SmallVec<[SlushValue; 8]>;
 
 macro_rules! impl_frozen_for_primitive_ty {
     ($primitive_ty: ty) => {

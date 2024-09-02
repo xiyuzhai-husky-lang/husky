@@ -37,6 +37,7 @@ pub mod frozen;
 #[cfg(feature = "helpers")]
 mod helpers;
 // mod regular;
+pub mod slush;
 mod thawed;
 #[cfg(feature = "ugly")]
 pub mod ugly;

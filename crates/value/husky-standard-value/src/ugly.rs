@@ -3,7 +3,7 @@ pub use crate::{
         Excepted as __Excepted, ExceptedValue as __ExceptedValue, Exception as __Exception,
     },
     frozen::Frozen as __Frozen,
-    frozen::SlushValues as __SlushValues,
+    slush::SlushValues as __SlushValues,
     thawed::{Thawed as __Thawed, ThawedDyn as __ThawedDyn},
     Boiled as __Boiled, FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value,
 };

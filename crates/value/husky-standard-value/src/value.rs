@@ -3,7 +3,7 @@ pub mod owned;
 use self::owned::*;
 use crate::exception::Excepted;
 use crate::{
-    frozen::{SlushValue, SlushValues},
+    slush::{SlushValue, SlushValues},
     thawed::{Thawed, ThawedDyn},
     *,
 };
