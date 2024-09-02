@@ -139,7 +139,7 @@ fn calc_symbol_defns_works() {
         "1",
         expect![[r#"
             [
-                `1`: "1" ✓,
+                #0 `1`: "1" ✓,
             ]
         "#]],
     );
@@ -147,10 +147,10 @@ fn calc_symbol_defns_works() {
         "struct A {}",
         expect![[r#"
             [
-                `struct`: "struct A {}" ✓ → SymbolDefn { symbol: Symbol { ident: `A`, source: #0, data: Item { kind: Struct } }, scope: Some(`::`) },
-                `A`: "A",
-                `{`: `{`,
-                `}`: "{}",
+                #0 `struct`: "struct A {}" ✓ → SymbolDefn { symbol: Symbol { ident: `A`, source: #0, data: Item { kind: Struct } }, scope: Some(`::`) },
+                #1 `A`: "A",
+                #2 `{`: `{`,
+                #3 `}`: "{}",
             ]
         "#]],
     );
@@ -158,10 +158,10 @@ fn calc_symbol_defns_works() {
         "enum B {}",
         expect![[r#"
             [
-                `enum`: "enum B {}" ✓ → SymbolDefn { symbol: Symbol { ident: `B`, source: #0, data: Item { kind: Enum } }, scope: Some(`::`) },
-                `B`: "B",
-                `{`: `{`,
-                `}`: "{}",
+                #0 `enum`: "enum B {}" ✓ → SymbolDefn { symbol: Symbol { ident: `B`, source: #0, data: Item { kind: Enum } }, scope: Some(`::`) },
+                #1 `B`: "B",
+                #2 `{`: `{`,
+                #3 `}`: "{}",
             ]
         "#]],
     );
@@ -169,12 +169,12 @@ fn calc_symbol_defns_works() {
         "fn f() {}",
         expect![[r#"
             [
-                `fn`: "fn f() {}" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
-                `f`: "f",
-                `(`: `(`,
-                `)`: "()",
-                `{`: "() {}",
-                `}`: "{}",
+                #0 `fn`: "fn f() {}" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `)`: "()",
+                #4 `{`: "() {}",
+                #5 `}`: "{}",
             ]
         "#]],
     );
@@ -182,16 +182,16 @@ fn calc_symbol_defns_works() {
         "fn f() { let x = 1 }",
         expect![[r#"
             [
-                `fn`: "fn f() { let x = 1 }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
-                `f`: "f",
-                `(`: `(`,
-                `)`: "()",
-                `{`: "() { let x = 1 }",
-                `let`: "let x = 1",
-                `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::9`) },
-                `=`: "x = 1",
-                `1`: "1",
-                `}`: "{ let x = 1 }",
+                #0 `fn`: "fn f() { let x = 1 }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `)`: "()",
+                #4 `{`: "() { let x = 1 }",
+                #5 `let`: "let x = 1",
+                #6 `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::9`) },
+                #7 `=`: "x = 1",
+                #8 `1`: "1",
+                #9 `}`: "{ let x = 1 }",
             ]
         "#]],
     );
@@ -199,17 +199,17 @@ fn calc_symbol_defns_works() {
         "fn f() { let x = 1; }",
         expect![[r#"
             [
-                `fn`: "fn f() { let x = 1;  }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
-                `f`: "f",
-                `(`: `(`,
-                `)`: "()",
-                `{`: "() { let x = 1;  }",
-                `let`: "let x = 1",
-                `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::10`) },
-                `=`: "x = 1",
-                `1`: "1",
-                `;`: "let x = 1; ",
-                `}`: "{ let x = 1;  }",
+                #0 `fn`: "fn f() { let x = 1;  }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `)`: "()",
+                #4 `{`: "() { let x = 1;  }",
+                #5 `let`: "let x = 1",
+                #6 `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::10`) },
+                #7 `=`: "x = 1",
+                #8 `1`: "1",
+                #9 `;`: "let x = 1; ",
+                #10 `}`: "{ let x = 1;  }",
             ]
         "#]],
     );
@@ -232,17 +232,17 @@ fn calc_symbol_defns_works1() {
         "fn f() { let x = 1; }",
         expect![[r#"
             [
-                `fn`: "fn f() { let x = 1;  }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
-                `f`: "f",
-                `(`: `(`,
-                `)`: "()",
-                `{`: "() { let x = 1;  }",
-                `let`: "let x = 1",
-                `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::10`) },
-                `=`: "x = 1",
-                `1`: "1",
-                `;`: "let x = 1; ",
-                `}`: "{ let x = 1;  }",
+                #0 `fn`: "fn f() { let x = 1;  }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `)`: "()",
+                #4 `{`: "() { let x = 1;  }",
+                #5 `let`: "let x = 1",
+                #6 `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::10`) },
+                #7 `=`: "x = 1",
+                #8 `1`: "1",
+                #9 `;`: "let x = 1; ",
+                #10 `}`: "{ let x = 1;  }",
             ]
         "#]],
     );
