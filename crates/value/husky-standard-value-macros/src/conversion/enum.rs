@@ -68,7 +68,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
                 type Slush = ();
 
-                fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
+                fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
                     todo!()
                 }
             }
@@ -142,7 +142,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
                 type Slush = ();
 
-                fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
+                fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
                     todo!()
                 }
             }

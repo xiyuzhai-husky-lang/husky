@@ -63,7 +63,7 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
 
             type Slush = ();
 
-            fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
+            fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
                 todo!()
             }
         }
