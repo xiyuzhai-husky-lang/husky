@@ -70,3 +70,15 @@ macro_rules! impl_apply_enumerated {
 }
 
 for_all_non_unit_tuple_tys! {numbered impl_apply_enumerated}
+
+impl<T> Seq<T>
+where
+    T: Send + Sync + Copy + Eq + 'static,
+{
+    pub fn pair<S>(self, other: Seq<S>) -> Seq<(T, S)>
+    where
+        S: Send + Sync + Copy + Eq + 'static,
+    {
+        (|t, s| (t, s)).apply(self, other)
+    }
+}

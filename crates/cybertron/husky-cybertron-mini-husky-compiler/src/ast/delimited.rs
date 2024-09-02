@@ -353,7 +353,7 @@ fn reduce_pre_asts_by_delimited_item(
     allocated_asts: Seq<Option<Ast>>,
 ) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
     let pre_asts_nearest_left2 = pre_asts.nearest_left2();
-    let new_asts = new_ast_by_delimited_item.apply(pre_asts_nearest_left2, pre_asts);
+    let new_asts = new_ast_by_separated_item.apply(pre_asts_nearest_left2, pre_asts);
     let (pre_asts, new_parents) =
         (|idx, pre_ast, new_ast, new_ast_nearest_right| -> (Option<PreAst>, Option<Idx>) {
             if let Some(new_ast) = new_ast {
@@ -440,7 +440,7 @@ fn reduce_pre_asts_by_delimited_item_works() {
         seq![None],
         seq![Some(PreAst::Ast(AstData::SeparatedItem {
             content: None,
-            separator: Separator::Comma
+            separator: Separator::Comma,
         }))],
         seq![Some(Ast {
             parent: None,
@@ -485,7 +485,7 @@ fn reduce_pre_asts_by_delimited_item_works() {
     );
 }
 
-fn new_ast_by_delimited_item(
+fn new_ast_by_separated_item(
     nearest_left2: Option2<(Idx, PreAst)>,
     pre_ast: Option<PreAst>,
 ) -> Option<AstData> {
@@ -501,6 +501,22 @@ fn new_ast_by_delimited_item(
                 })
             }
             PreAst::Opr(_) | PreAst::RightDelimiter(_) => return None,
+            PreAst::Ast(AstData::SeparatedItem {
+                content,
+                separator: separator1,
+            }) => match (separator, separator1) {
+                (Separator::Semicolon, Separator::Comma) => Some(AstData::SeparatedItem {
+                    content: Some(idx),
+                    separator,
+                }),
+                (Separator::Comma, _) | (Separator::Semicolon, Separator::Semicolon) => {
+                    Some(AstData::SeparatedItem {
+                        content: None,
+                        separator,
+                    })
+                }
+            },
+
             PreAst::Ast(_) => match nearest_left2.second() {
                 Some((_, snd)) => match snd {
                     PreAst::Keyword(_) if separator == Separator::Semicolon => None,
@@ -510,6 +526,16 @@ fn new_ast_by_delimited_item(
                             separator,
                         })
                     }
+                    PreAst::Ast(
+                        AstData::SeparatedItem { .. }
+                        | AstData::LetInit { .. }
+                        | AstData::Return { .. }
+                        | AstData::Assert { .. }
+                        | AstData::Defn { .. },
+                    ) => Some(AstData::SeparatedItem {
+                        content: Some(idx),
+                        separator,
+                    }),
                     PreAst::Opr(_) | PreAst::RightDelimiter(_) | PreAst::Ast(_) => None,
                 },
                 None => Some(AstData::SeparatedItem {
@@ -533,7 +559,7 @@ fn new_ast_by_delimited_item_works() {
         new_asts_expected: Seq<Option<AstData>>,
     ) {
         let pre_asts_nearest_left2 = pre_asts.nearest_left2();
-        let new_asts = new_ast_by_delimited_item.apply(pre_asts_nearest_left2, pre_asts);
+        let new_asts = new_ast_by_separated_item.apply(pre_asts_nearest_left2, pre_asts);
         assert_eq!(new_asts, new_asts_expected);
     }
 
@@ -932,3 +958,5 @@ fn reduce_n_times_for_delimited_works3() {
         "#]],
     );
 }
+
+pub fn count() {}

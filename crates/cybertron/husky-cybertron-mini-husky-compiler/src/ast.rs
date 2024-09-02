@@ -4,6 +4,7 @@ pub mod defn;
 pub mod delimited;
 pub mod helpers;
 pub mod opr;
+pub mod rank;
 pub mod reduce;
 pub mod show;
 pub mod stmt;
