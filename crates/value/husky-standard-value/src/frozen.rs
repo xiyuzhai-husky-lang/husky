@@ -9,14 +9,13 @@ mod tuple;
 pub mod value;
 mod vec;
 
+use super::*;
+use crate::thawed::{Thawed, ThawedDyn};
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
 use slush::SlushValue;
 use smallvec::SmallVec;
-
-use super::*;
-use crate::thawed::{Thawed, ThawedDyn};
 
 pub trait Frozen:
     std::fmt::Debug + Clone + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
