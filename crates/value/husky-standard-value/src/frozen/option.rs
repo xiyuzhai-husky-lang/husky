@@ -8,11 +8,11 @@ where
 
     type Slush = T::Slush;
 
-    fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
+    fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
         // (None,self.as_ref().map(|t|t.revive()))
         match self {
             Some(slf) => {
-                let (stand, revived) = slf.revive();
+                let (stand, revived) = slf.thaw();
                 (stand, Some(revived))
             }
             None => (None, None),

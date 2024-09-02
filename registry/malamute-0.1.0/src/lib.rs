@@ -79,7 +79,7 @@ where
 {
     type Thawed = Class<Label>;
     type Slush = ();
-    fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
+    fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
     }
 }
