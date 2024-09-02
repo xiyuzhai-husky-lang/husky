@@ -13,6 +13,14 @@ impl<T, const U: usize> Default for BoundedVec<T, U> {
     }
 }
 
+impl<T, const U: usize> std::ops::Index<usize> for BoundedVec<T, U> {
+    type Output = T;
+
+    fn index(&self, index: usize) -> &Self::Output {
+        self.data[index].as_ref().unwrap()
+    }
+}
+
 impl<T, const U: usize> IntoIterator for BoundedVec<T, U> {
     type Item = T;
     type IntoIter = impl Iterator<Item = T>;
@@ -57,6 +65,10 @@ impl<T: Copy, const U: usize> BoundedVec<T, U> {
 
     pub fn is_empty(self) -> bool {
         self.len == 0
+    }
+
+    pub fn len(self) -> usize {
+        self.len
     }
 }
 
