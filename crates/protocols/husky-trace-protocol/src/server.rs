@@ -70,7 +70,9 @@ impl TracePlotInfos {
     ) -> Self {
         let mut data: SmallVec<[(OrderedSmallVecSet<TraceId, 2>, PlotClass); 4]> = smallvec![];
         for trace_id in traces {
-            let plot_class = trace_plot_classes[&trace_id];
+            let plot_class = *trace_plot_classes
+                .get(&trace_id)
+                .unwrap_or(&PlotClass::Void);
             match plot_class {
                 PlotClass::Void => (),
                 PlotClass::Graphics2D | PlotClass::Graphics3D => {
