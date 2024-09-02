@@ -1,9 +1,11 @@
+mod leash;
 pub mod r#mut;
 mod option;
 mod primitive;
 pub mod r#ref;
 mod ritchie;
 mod str;
+mod tuple;
 pub mod value;
 mod vec;
 
@@ -63,84 +65,3 @@ where
         // (SlushValue::Box(Box::new(slf)), slf_mut)
     }
 }
-
-impl<T> Frozen for Vec<T>
-where
-    T: Frozen,
-{
-    type Thawed = Vec<T::Thawed>;
-
-    type Slush = Vec<T::Slush>;
-
-    fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
-        todo!()
-    }
-}
-
-// impl<T> Frozen for &'static T
-// where
-//     T: Thawed + Send + Sync,
-// {
-//     type Thawed = Self;
-
-//     type Slush = ();
-
-//     fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
-//         (None, *self)
-//     }
-// }
-
-macro_rules! impl_frozen_for_primitive_ty {
-    ($primitive_ty: ty) => {
-        impl Frozen for $primitive_ty {
-            type Thawed = Self;
-            type Slush = ();
-
-            fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
-                (None, *self)
-            }
-        }
-    };
-}
-
-for_all_primitive_tys!(impl_frozen_for_primitive_ty);
-
-macro_rules! impl_frozen_for_ritchie_ty {
-    (
-        [$($input:ident),*], $output:ident
-    ) => {
-        impl<$($input,)* $output>  Frozen for fn($($input,)*) -> $output
-        where
-            $($input: Thawed, )*
-            $output: Thawed, {
-            type Thawed = Self;
-            type Slush = ();
-
-            fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
-                (None, *self)
-            }
-        }
-    };
-}
-
-for_all_ritchie_tys!(impl_frozen_for_ritchie_ty);
-
-macro_rules! impl_frozen_for_tuple_ty {
-    (
-        $($field:ident),*
-    ) => {
-        impl<$($field,)*> Frozen for ($($field,)*)
-        where
-            $($field: Frozen,)*
-        {
-            type Thawed = ($(<$field as Frozen>::Thawed,)*);
-            type Slush = ($(<$field as Frozen>::Slush,)*);
-
-            fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
-                todo!()
-            }
-        }
-    };
-}
-
-for_all_non_unit_tuple_tys!(impl_frozen_for_tuple_ty);
