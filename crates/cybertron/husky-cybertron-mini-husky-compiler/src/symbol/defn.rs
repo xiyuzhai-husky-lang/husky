@@ -13,9 +13,12 @@ pub struct SymbolDefn {
     pub scope: Option<Scope>,
 }
 
-pub fn calc_symbol_defns(asts: Seq<Option<Ast>>, n: usize) -> Seq<Option<SymbolDefn>> {
+pub fn calc_symbol_defns(
+    asts: Seq<Option<Ast>>,
+    scopes: Seq<Option<Scope>>,
+    n: usize,
+) -> Seq<Option<SymbolDefn>> {
     let roles = populate_roles_n_times(asts, n);
-    let scopes = infer_scopes(asts, n);
     calc_symbol_defn.apply_enumerated(asts, roles, scopes)
 }
 
@@ -127,7 +130,8 @@ fn calc_symbol_defns_works() {
     fn t(input: &str, expect: Expect) {
         let (tokens, pre_asts, asts) =
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
-        let symbol_defns = calc_symbol_defns(asts, 10);
+        let scopes = infer_scopes(asts, 10);
+        let symbol_defns = calc_symbol_defns(asts, scopes, 10);
         expect.assert_debug_eq(&show_asts_mapped_values(
             tokens,
             pre_asts,
@@ -195,39 +199,6 @@ fn calc_symbol_defns_works() {
             ]
         "#]],
     );
-    t(
-        "fn f() { let x = 1; }",
-        expect![[r#"
-            [
-                #0 `fn`: "fn f() { let x = 1;  }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
-                #1 `f`: "f",
-                #2 `(`: `(`,
-                #3 `)`: "()",
-                #4 `{`: "() { let x = 1;  }",
-                #5 `let`: "let x = 1",
-                #6 `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::10`) },
-                #7 `=`: "x = 1",
-                #8 `1`: "1",
-                #9 `;`: "let x = 1; ",
-                #10 `}`: "{ let x = 1;  }",
-            ]
-        "#]],
-    );
-}
-
-#[test]
-fn calc_symbol_defns_works1() {
-    fn t(input: &str, expect: Expect) {
-        let (tokens, pre_asts, asts) =
-            calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
-        let symbol_defns = calc_symbol_defns(asts, 10);
-        expect.assert_debug_eq(&show_asts_mapped_values(
-            tokens,
-            pre_asts,
-            asts,
-            symbol_defns,
-        ))
-    }
     t(
         "fn f() { let x = 1; }",
         expect![[r#"

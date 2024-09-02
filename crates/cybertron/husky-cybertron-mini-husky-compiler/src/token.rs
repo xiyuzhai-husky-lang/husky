@@ -136,7 +136,7 @@ impl<'a> Iterator for Tokenizer<'a> {
 impl<'a> Tokenizer<'a> {
     fn next_aux(&mut self) -> Option<Token> {
         match self.chars.next()? {
-            ' ' => self.next(),
+            ' ' | '\n' | '\t' => self.next(),
             '+' => match self.chars.peek() {
                 Some('+') => {
                     self.chars.next();
@@ -194,7 +194,7 @@ impl<'a> Tokenizer<'a> {
             }
             c if c.is_alphabetic() || c == '_' => Some(self.next_keyword_or_ident(c)),
             c if c.is_numeric() => Some(self.next_numeric_literal(c)),
-            c => todo!(),
+            c => todo!("c = `{c}`"),
         }
     }
 

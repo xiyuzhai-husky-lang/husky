@@ -45,6 +45,21 @@ impl Scope {
     }
 }
 
+impl Scope {
+    pub fn contains(self, other: Self) -> bool {
+        let len = self.enclosing_blocks.len();
+        if len > other.enclosing_blocks.len() {
+            return false;
+        }
+        for i in 0..len {
+            if self.enclosing_blocks[i] != other.enclosing_blocks[i] {
+                return false;
+            }
+        }
+        true
+    }
+}
+
 pub fn infer_scopes(asts: Seq<Option<Ast>>, n: usize) -> Seq<Option<Scope>> {
     let mut scopes = initial_scope.apply_enumerated(asts);
     for _ in 0..n {
