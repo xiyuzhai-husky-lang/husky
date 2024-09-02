@@ -4790,6 +4790,7 @@ dependencies = [
  "husky-visual-protocol",
  "husky-vm",
  "husky-wild-utils",
+ "rustc-hash 2.0.0",
  "salsa",
  "serde",
  "serde-impl",

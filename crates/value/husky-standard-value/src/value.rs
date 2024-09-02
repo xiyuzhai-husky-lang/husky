@@ -3,8 +3,8 @@ pub mod owned;
 use self::owned::*;
 use crate::exception::Excepted;
 use crate::{
-    frozen::{ValueStand, ValueStands},
-    r#static::{Static, StaticDyn},
+    frozen::{SlushValue, SlushValues},
+    thawed::{Thawed, ThawedDyn},
     *,
 };
 use frozen::value::FrozenValue;
@@ -62,15 +62,15 @@ pub enum Value {
     Owned(OwnedValue),
     // ad hoc
     /// `~T`
-    Leash(&'static dyn StaticDyn),
+    Leash(&'static dyn ThawedDyn),
     /// `&T` for T Sized
-    Ref(*const dyn StaticDyn),
+    Ref(*const dyn ThawedDyn),
     /// `&mut T` for T Sized
-    Mut(*mut dyn StaticDyn),
-    OptionBox(Option<Box<dyn StaticDyn>>),
-    OptionLeash(Option<&'static dyn StaticDyn>),
-    OptionSizedRef(Option<*const dyn StaticDyn>),
-    OptionSizedMut(Option<*mut dyn StaticDyn>),
+    Mut(*mut dyn ThawedDyn),
+    OptionBox(Option<Box<dyn ThawedDyn>>),
+    OptionLeash(Option<&'static dyn ThawedDyn>),
+    OptionSizedRef(Option<*const dyn ThawedDyn>),
+    OptionSizedMut(Option<*mut dyn ThawedDyn>),
     EnumUnit {
         index: usize,
         presenter: EnumUnitValuePresenter,
@@ -106,7 +106,7 @@ impl From<std::convert::Infallible> for Value {
 impl Value {
     pub fn from_owned<T>(t: T) -> Self
     where
-        T: Static,
+        T: Thawed,
     {
         Value::Owned(OwnedValue::upcast_from_owned(t))
     }
@@ -130,9 +130,9 @@ impl Value {
         todo!()
     }
 
-    pub fn into_ref<'a, T>(self, value_stands: Option<&mut ValueStands>) -> &'a T
+    pub fn into_ref<'a, T>(self, value_stands: Option<&mut SlushValues>) -> &'a T
     where
-        T: WeakStatic,
+        T: Boiled,
     {
         match self {
             Value::Uninit => todo!(),
@@ -168,12 +168,11 @@ impl Value {
                 let t = unsafe { std::mem::transmute(t) };
                 value_stands
                     .unwrap()
-                    .push(ValueStand::Box(slf.into_inner()));
+                    .push(SlushValue::Box(slf.into_inner()));
                 t
             }
             Value::Leash(slf) => {
-                let slf: &<T as WeakStatic>::Static = ((slf as &dyn StaticDyn)
-                    as &dyn std::any::Any)
+                let slf: &<T as Boiled>::Thawed = ((slf as &dyn ThawedDyn) as &dyn std::any::Any)
                     .downcast_ref()
                     .expect("type id is correct");
                 unsafe { std::mem::transmute(slf) }
@@ -190,7 +189,7 @@ impl Value {
 
     pub fn from_leash<T>(t: &'static T) -> Self
     where
-        T: Static,
+        T: Thawed,
     {
         Value::Leash(t)
     }

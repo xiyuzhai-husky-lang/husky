@@ -12,7 +12,7 @@ pub mod ugly;
 pub mod val;
 
 pub use husky_standard_value::{
-    frozen::ValueStands, value_conversion, FromValue, IntoValue, Value,
+    frozen::SlushValues, value_conversion, FromValue, IntoValue, Value,
 };
 
 use self::pedestal::StandardPedestal;

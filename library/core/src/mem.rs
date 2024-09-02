@@ -1,14 +1,16 @@
+use std::panic::{RefUnwindSafe, UnwindSafe};
+
 use crate::*;
 use serde::Serialize;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct Leash<T>(pub &'static T)
 where
-    T: ?Sized + 'static;
+    T: ?Sized + Send + Sync + 'static;
 
 impl<T> Serialize for Leash<T>
 where
-    T: Serialize + ?Sized + 'static,
+    T: Serialize + ?Sized + Send + Sync + 'static,
 {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where
@@ -18,15 +20,21 @@ where
     }
 }
 
-impl<T> Clone for Leash<T> {
+impl<T> Clone for Leash<T>
+where
+    T: ?Sized + Send + Sync + 'static,
+{
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
 
-impl<T> Copy for Leash<T> {}
+impl<T> Copy for Leash<T> where T: ?Sized + Send + Sync + 'static {}
 
-impl<T> std::hash::Hash for Leash<T> {
+impl<T> std::hash::Hash for Leash<T>
+where
+    T: ?Sized + Send + Sync + 'static,
+{
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         (self.0 as *const T).hash(state);
     }
@@ -34,7 +42,7 @@ impl<T> std::hash::Hash for Leash<T> {
 
 impl<T> Leash<T>
 where
-    T: ?Sized + 'static,
+    T: ?Sized + Send + Sync + 'static,
 {
     pub fn new(t: &'static T) -> Self {
         Self(t)
@@ -43,7 +51,7 @@ where
 
 impl<T> Leash<T>
 where
-    T: ?Sized + 'static,
+    T: ?Sized + Send + Sync + 'static,
 {
     pub fn deleash(self) -> &'static T {
         self.0
@@ -53,7 +61,7 @@ where
 // ad hoc, should use Leash<[T]>
 impl<T> Leash<Vec<T>>
 where
-    T: 'static,
+    T: Send + Sync + 'static,
 {
     pub fn collect_leashes(self) -> Vec<Leash<T>> {
         self.0.iter().map(Leash).collect()
@@ -62,16 +70,16 @@ where
 
 impl<T> Leash<[T]>
 where
-    T: 'static,
+    T: Send + Sync + 'static,
 {
     pub fn collect_leashes(self) -> Vec<Leash<T>> {
         self.0.iter().map(Leash).collect()
     }
 }
 
-impl<T> __Static for Leash<T>
+impl<T> __Thawed for Leash<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + ?Sized + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     type Frozen = Self;
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -97,35 +105,35 @@ where
 
 impl<T> __Frozen for Leash<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + ?Sized + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type Static = Self;
-    type Stand = ();
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+    type Thawed = Self;
+    type Slush = ();
+    fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
     }
 }
-impl<T> __WeakStatic for Leash<T>
+impl<T> __Boiled for Leash<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + ?Sized + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type Static = Self;
-    unsafe fn into_static(self) -> Self::Static {
+    type Thawed = Self;
+    unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }
 }
 impl<T> __FromValue for Leash<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    fn from_value_aux(_value: __Value, _: Option<&mut __ValueStands>) -> Self {
+    fn from_value_aux(_value: __Value, _: Option<&mut __SlushValues>) -> Self {
         Leash(_value.into_leash())
     }
 }
 
 impl<T> __IntoValue for Leash<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     fn into_value(self) -> __Value {
         __Value::from_leash(self.deleash())
@@ -134,16 +142,16 @@ where
 
 impl<T> __FromValue for Leash<[T]>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    fn from_value_aux(value: __Value, value_stands: Option<&mut __ValueStands>) -> Self {
+    fn from_value_aux(value: __Value, value_stands: Option<&mut __SlushValues>) -> Self {
         todo!()
     }
 }
 
 impl<T> __IntoValue for Leash<[T]>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     fn into_value(self) -> __Value {
         todo!()

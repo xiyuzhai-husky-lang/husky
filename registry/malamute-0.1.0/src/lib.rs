@@ -1,6 +1,8 @@
 #![allow(warnings, non_snake_case)]
 mod narrow_down_;
 
+use std::panic::{RefUnwindSafe, UnwindSafe};
+
 pub use self::narrow_down_::*;
 
 use ad_hoc_devsoul_dependency::{ugly::*, *};
@@ -12,18 +14,34 @@ pub enum Class<Label> {
     Known(Label),
     Unknown,
 }
-impl<Label> __WeakStatic for Class<Label>
+impl<Label> __Boiled for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
+    Label: __Boiled<Thawed = Label>
+        + __Thawed
+        + __Serialize
+        + Copy
+        + Send
+        + Sync
+        + UnwindSafe
+        + RefUnwindSafe
+        + 'static,
 {
-    type Static = Class<<Label as __WeakStatic>::Static>;
-    unsafe fn into_static(self) -> Self::Static {
+    type Thawed = Class<<Label as __Boiled>::Thawed>;
+    unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }
 }
-impl<Label> __Static for Class<Label>
+impl<Label> __Thawed for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
+    Label: __Boiled<Thawed = Label>
+        + __Thawed
+        + __Serialize
+        + Copy
+        + Send
+        + Sync
+        + UnwindSafe
+        + RefUnwindSafe
+        + 'static,
 {
     type Frozen = Class<Label>;
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -49,25 +67,41 @@ where
 
 impl<Label> __Frozen for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
+    Label: __Boiled<Thawed = Label>
+        + __Thawed
+        + __Serialize
+        + Copy
+        + Send
+        + Sync
+        + UnwindSafe
+        + RefUnwindSafe
+        + 'static,
 {
-    type Static = Class<Label>;
-    type Stand = ();
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+    type Thawed = Class<Label>;
+    type Slush = ();
+    fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
     }
 }
 impl<Label> __FromValue for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + Copy,
+    Label: __Boiled<Thawed = Label> + __Thawed + Copy,
 {
-    fn from_value_aux(value: __Value, _: Option<&mut __ValueStands>) -> Self {
+    fn from_value_aux(value: __Value, _: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
     }
 }
 impl<Label> __IntoValue for Class<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static + __Serialize + Copy,
+    Label: __Boiled<Thawed = Label>
+        + __Thawed
+        + __Serialize
+        + Copy
+        + Send
+        + Sync
+        + UnwindSafe
+        + RefUnwindSafe
+        + 'static,
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)

@@ -3,10 +3,9 @@ pub use crate::{
         Excepted as __Excepted, ExceptedValue as __ExceptedValue, Exception as __Exception,
     },
     frozen::Frozen as __Frozen,
-    frozen::ValueStands as __ValueStands,
-    r#static::{Static as __Static, StaticDyn as __StaticDyn},
-    FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value,
-    WeakStatic as __WeakStatic,
+    frozen::SlushValues as __SlushValues,
+    thawed::{Thawed as __Thawed, ThawedDyn as __ThawedDyn},
+    Boiled as __Boiled, FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value,
 };
 pub use husky_value_protocol::ugly::*;
 pub use husky_visual_protocol::ugly::*;

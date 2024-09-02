@@ -1,3 +1,4 @@
+//! Devtime doesn't cache values across hot-reloads, as contrary to runtimes.
 #![feature(result_flattening)]
 #![feature(try_trait_v2)]
 pub mod eval;
@@ -42,6 +43,8 @@ use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{CompositeVisual, Visual},
 };
+use husky_vm::history::VmHistory;
+use rustc_hash::FxHashMap;
 use salsa::DebugWithDb;
 use smallvec::{SmallVec, ToSmallVec};
 use std::{path::Path, pin::Pin};
@@ -49,6 +52,10 @@ use vec_like::SmallVecSet;
 
 pub struct Devtime<Devsoul: IsDevsoul> {
     runtime: Pin<Box<DevRuntime<Devsoul>>>,
+    // cache histories of eager traces
+    // when hot reload, reset this
+    eager_trace_history_cache:
+        FxHashMap<(TraceId, Devsoul::Pedestal), VmHistory<Devsoul::LinketImpl>>,
 }
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
@@ -58,6 +65,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     ) -> VfsResult<Self> {
         Ok(Self {
             runtime: DevRuntime::new(target_crate, runtime_config)?,
+            eager_trace_history_cache: Default::default(),
         })
     }
 

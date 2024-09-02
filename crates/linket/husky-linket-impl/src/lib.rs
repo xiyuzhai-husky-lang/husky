@@ -103,7 +103,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                 #[allow(unused_variables)]
                 let mut arguments = arguments.iter();
                 #[allow(unused_variables)]
-                let value_stands = &mut ValueStands::default();
+                let value_stands = &mut SlushValues::default();
                 ki_catch_unwind!(
                     self.1,
                     $({
@@ -236,7 +236,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 ) = arguments[1] else {
                     unreachable!("expect runtime constants, but got {:?} instead", arguments[1])
                 };
-                let value_stands = &mut ValueStands::default();
+                let value_stands = &mut SlushValues::default();
                 let mut runtime_constants = runtime_constants.iter();
                 ki_catch_unwind2!(
                     self.1,
