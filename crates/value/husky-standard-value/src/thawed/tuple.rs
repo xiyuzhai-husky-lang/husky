@@ -1,14 +1,14 @@
 use super::*;
 
-macro_rules! impl_thawed_for_ritchie_ty {
+macro_rules! impl_thawed_for_non_unit_tuple_ty {
     (
-        [$($input:ident),*], $output:ident
+        $($field:ident),*
     ) => {
-        impl<$($input,)* $output> Thawed for fn($($input,)*) -> $output
+        impl<$($field,)*> Thawed for ($($field,)*)
         where
-            $($input: Thawed, )*
-            $output: Thawed, {
-            type Frozen = Self;
+            $($field: Thawed,)*
+        {
+            type Frozen = ($(<$field as Thawed>::Frozen,)*);
 
             fn is_copyable() -> bool {
                 todo!()
@@ -19,18 +19,18 @@ macro_rules! impl_thawed_for_ritchie_ty {
             }
 
             unsafe fn freeze(&self) -> Self::Frozen {
-                *self
+                todo!()
             }
 
             fn serialize_to_value(&self) -> serde_json::Value {
-                todo!("impl_thawed_for_ritchie_ty serialize_to_value")
+                todo!("impl_thawed_for_non_unit_tuple_ty serialize_to_value")
             }
 
             fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-                Visual::Void
+                todo!()
             }
         }
     };
 }
 
-for_all_ritchie_tys!(impl_thawed_for_ritchie_ty);
+for_all_non_unit_tuple_tys!(impl_thawed_for_non_unit_tuple_ty);
