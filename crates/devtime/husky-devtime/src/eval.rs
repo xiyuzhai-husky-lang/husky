@@ -44,6 +44,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         use husky_value_interface::IsValue;
 
         let trace_id = trace.into();
+        // TODO panic if `self.eval_trace(trace)` is `None`
         match self.eval_trace(trace)? {
             KiControlFlow::Continue(value) => {
                 Some(trace_visual_cache.visual(trace_id, pedestal, || {
