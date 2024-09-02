@@ -1,4 +1,4 @@
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct BoundedVec<T, const U: usize> {
     len: usize,
     data: [Option<T>; U],
