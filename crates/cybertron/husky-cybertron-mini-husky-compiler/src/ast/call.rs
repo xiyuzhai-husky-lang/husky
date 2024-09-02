@@ -34,6 +34,14 @@ fn new_call_ast(
     let (caller, PreAst::Ast(caller_ast)) = pre_ast_nearest_left2.first()? else {
         return None;
     };
+    match caller_ast {
+        AstData::SeparatedItem { .. }
+        | AstData::LetInit { .. }
+        | AstData::Return { .. }
+        | AstData::Assert { .. }
+        | AstData::Defn { .. } => return None,
+        _ => (),
+    }
     let (
         delimited_arguments,
         PreAst::Ast(AstData::Delimited {
@@ -75,6 +83,13 @@ fn new_call_ast(
             },
             PreAst::LeftDelimiter(_) => (),
             PreAst::RightDelimiter(_) => return None,
+            PreAst::Ast(
+                AstData::SeparatedItem { .. }
+                | AstData::LetInit { .. }
+                | AstData::Return { .. }
+                | AstData::Assert { .. }
+                | AstData::Defn { .. },
+            ) => (),
             PreAst::Ast(snd_ast) => {
                 if let AstData::Ident(_) = snd_ast
                     && left_delimiter == LCURL

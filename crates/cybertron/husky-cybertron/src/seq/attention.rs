@@ -60,6 +60,33 @@ where
         )
     }
 
+    pub fn first_filtered_by_attention_enumerated<Q, K>(
+        self,
+        qs: Seq<Q>,
+        ks: Seq<K>,
+        f: impl Fn(Q, K) -> bool,
+    ) -> Seq<Option<(Idx, T)>>
+    where
+        Q: Any + Send + Sync + Copy,
+        K: Any + Send + Sync + Copy,
+    {
+        let slf = &self.data();
+        let len = slf.len();
+        let qs = qs.data();
+        let ks = ks.data();
+        Seq::new(
+            (0..len)
+                .into_iter()
+                .map(|i| {
+                    (0..len)
+                        .into_iter()
+                        .filter_map(|j| f(qs[i], ks[j]).then_some((idx!(j), slf[j])))
+                        .next()
+                })
+                .collect(),
+        )
+    }
+
     pub fn index(self, indices: Seq<Option<Idx>>) -> Seq<Option<T>> {
         let slf = self.data();
         let indices = indices.data();
