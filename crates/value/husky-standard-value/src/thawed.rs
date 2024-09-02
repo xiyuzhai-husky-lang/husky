@@ -1,14 +1,22 @@
+pub mod r#mut;
+pub mod option;
+pub mod primitive;
+pub mod r#ref;
+mod ritchie;
+mod str;
+pub mod vec;
+
 use super::*;
-use crate::frozen::{mut_frozen::MutFrozen, Frozen, FrozenDyn};
+use crate::frozen::{r#mut::FrozenMut, Frozen, FrozenDyn};
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
 use husky_value_protocol::presentation::ValuePresentation;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
-/// Stand is the static version of a type
-pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
-    type Frozen: Frozen<Static = Self>;
+/// Slush is the static version of a type
+pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
+    type Frozen: Frozen<Thawed = Self>;
     unsafe fn freeze(&self) -> Self::Frozen;
 
     fn is_copyable() -> bool;
@@ -66,34 +74,34 @@ pub trait Static: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
-impl<T> Static for *mut T
-where
-    T: Static,
-{
-    type Frozen = MutFrozen<T>;
+// impl<T> Thawed for *mut T
+// where
+//     T: Thawed,
+// {
+//     type Frozen = FrozenMut<T>;
 
-    fn is_copyable() -> bool {
-        false
-    }
+//     fn is_copyable() -> bool {
+//         false
+//     }
 
-    fn try_copy(&self) -> Option<Value> {
-        None
-    }
+//     fn try_copy(&self) -> Option<Value> {
+//         None
+//     }
 
-    unsafe fn freeze(&self) -> Self::Frozen {
-        MutFrozen::new(*self)
-    }
+//     unsafe fn freeze(&self) -> Self::Frozen {
+//         FrozenMut::new(*self)
+//     }
 
-    fn serialize_to_value(&self) -> serde_json::Value {
-        todo!()
-    }
+//     fn serialize_to_value(&self) -> serde_json::Value {
+//         todo!()
+//     }
 
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
-    }
-}
+//     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+//         todo!()
+//     }
+// }
 
-pub trait StaticDyn:
+pub trait ThawedDyn:
     std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + 'static
 {
     unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn>;
@@ -119,9 +127,9 @@ pub trait StaticDyn:
     fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
-impl<T> StaticDyn for T
+impl<T> ThawedDyn for T
 where
-    T: Static,
+    T: Thawed,
 {
     unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn> {
         Arc::new(self.freeze())
@@ -174,130 +182,36 @@ where
     }
 }
 
-impl<T> Static for Vec<T>
-where
-    T: Static,
-{
-    type Frozen = Vec<T::Frozen>;
+// impl<T> Thawed for &'static T
+// where
+//     T: Thawed,
+// {
+//     type Frozen = T::Frozen;
 
-    fn is_copyable() -> bool {
-        false
-    }
+//     fn is_copyable() -> bool {
+//         true
+//     }
 
-    fn try_copy(&self) -> Option<Value> {
-        todo!()
-    }
+//     fn try_copy(&self) -> Option<Value> {
+//         Some(Value::from_ref(self))
+//     }
 
-    unsafe fn freeze(&self) -> Self::Frozen {
-        todo!()
-    }
+//     unsafe fn freeze(&self) -> Self::Frozen {
+//         todo!()
+//     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> ExceptedValue {
-        Ok(Value::from_ref(&self[index]))
-    }
+//     fn serialize_to_value(&self) -> serde_json::Value {
+//         todo!()
+//     }
 
-    fn index_leash(&'static self, index: usize) -> ExceptedValue {
-        Ok(Value::from_leash(&self[index]))
-    }
+//     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+//         todo!()
+//     }
+// }
 
-    fn serialize_to_value(&self) -> serde_json::Value {
-        todo!()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        let elements = self
-            .iter()
-            .map(|t| t.visualize_or_void(visual_synchrotron))
-            .collect();
-        Visual::new_group_visual(elements, visual_synchrotron)
-    }
-}
-
-impl<T> Static for &'static T
-where
-    T: Static,
-{
-    type Frozen = Self;
-
-    fn is_copyable() -> bool {
-        true
-    }
-
-    fn try_copy(&self) -> Option<Value> {
-        Some(Value::from_ref(self))
-    }
-
-    unsafe fn freeze(&self) -> Self::Frozen {
-        todo!()
-    }
-
-    fn serialize_to_value(&self) -> serde_json::Value {
-        todo!()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
-    }
-}
-
-impl<T> Static for Option<T>
-where
-    T: Static,
-{
-    type Frozen = Option<T::Frozen>;
-
-    fn is_copyable() -> bool {
-        T::is_copyable()
-    }
-
-    fn try_copy(&self) -> Option<Value> {
-        if !Self::is_copyable() {
-            return None;
-        }
-        self.as_ref().map(|v| v.try_copy().unwrap())
-    }
-
-    fn is_some(&self) -> bool {
-        self.is_some()
-    }
-    fn is_none(&self) -> bool {
-        self.is_none()
-    }
-
-    fn unwrap_ref<'a>(&'a self) -> ExceptedValue {
-        let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
-        Ok(match slf.try_copy() {
-            Some(_) => todo!(),
-            None => todo!(),
-        })
-    }
-
-    fn unwrap_leash(&'static self) -> ExceptedValue {
-        let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
-        Ok(match slf.try_copy() {
-            Some(slf) => slf,
-            None => Value::from_leash(slf),
-        })
-    }
-
-    unsafe fn freeze(&self) -> Self::Frozen {
-        todo!()
-    }
-
-    fn serialize_to_value(&self) -> serde_json::Value {
-        self.as_ref()
-            .map(|slf| slf.serialize_to_value())
-            .unwrap_or_default()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
-    }
-}
-
-macro_rules! impl_static_for_primitive_ty {
+macro_rules! impl_thawed_for_primitive_ty {
     ($primitive_ty: ty) => {
-        impl Static for $primitive_ty {
+        impl Thawed for $primitive_ty {
             type Frozen = Self;
 
             fn is_copyable() -> bool {
@@ -323,40 +237,40 @@ macro_rules! impl_static_for_primitive_ty {
     };
 }
 
-for_all_primitive_tys!(impl_static_for_primitive_ty);
+for_all_primitive_tys!(impl_thawed_for_primitive_ty);
 
-impl Static for &'static str {
-    type Frozen = Self;
+// impl Thawed for &'static str {
+//     type Frozen = Self;
 
-    fn is_copyable() -> bool {
-        todo!()
-    }
+//     fn is_copyable() -> bool {
+//         todo!()
+//     }
 
-    fn try_copy(&self) -> Option<Value> {
-        todo!()
-    }
+//     fn try_copy(&self) -> Option<Value> {
+//         todo!()
+//     }
 
-    unsafe fn freeze(&self) -> Self::Frozen {
-        todo!()
-    }
+//     unsafe fn freeze(&self) -> Self::Frozen {
+//         todo!()
+//     }
 
-    fn serialize_to_value(&self) -> serde_json::Value {
-        todo!("&'static str serialize_to_value")
-    }
+//     fn serialize_to_value(&self) -> serde_json::Value {
+//         todo!("&'static str serialize_to_value")
+//     }
 
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
-    }
-}
+//     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+//         todo!()
+//     }
+// }
 
-macro_rules! impl_static_for_ritchie_ty {
+macro_rules! impl_thawed_for_ritchie_ty {
     (
         [$($input:ident),*], $output:ident
     ) => {
-        impl<$($input,)* $output> Static for fn($($input,)*) -> $output
+        impl<$($input,)* $output> Thawed for fn($($input,)*) -> $output
         where
-            $($input: Static, )*
-            $output: Static, {
+            $($input: Thawed, )*
+            $output: Thawed, {
             type Frozen = Self;
 
             fn is_copyable() -> bool {
@@ -372,7 +286,7 @@ macro_rules! impl_static_for_ritchie_ty {
             }
 
             fn serialize_to_value(&self) -> serde_json::Value {
-                todo!("impl_static_for_ritchie_ty serialize_to_value")
+                todo!("impl_thawed_for_ritchie_ty serialize_to_value")
             }
 
             fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
@@ -382,17 +296,17 @@ macro_rules! impl_static_for_ritchie_ty {
     };
 }
 
-for_all_ritchie_tys!(impl_static_for_ritchie_ty);
+for_all_ritchie_tys!(impl_thawed_for_ritchie_ty);
 
-macro_rules! impl_static_for_non_unit_tuple_ty {
+macro_rules! impl_thawed_for_non_unit_tuple_ty {
     (
         $($field:ident),*
     ) => {
-        impl<$($field,)*> Static for ($($field,)*)
+        impl<$($field,)*> Thawed for ($($field,)*)
         where
-            $($field: Static,)*
+            $($field: Thawed,)*
         {
-            type Frozen = ($(<$field as Static>::Frozen,)*);
+            type Frozen = ($(<$field as Thawed>::Frozen,)*);
 
             fn is_copyable() -> bool {
                 todo!()
@@ -407,7 +321,7 @@ macro_rules! impl_static_for_non_unit_tuple_ty {
             }
 
             fn serialize_to_value(&self) -> serde_json::Value {
-                todo!("impl_static_for_non_unit_tuple_ty serialize_to_value")
+                todo!("impl_thawed_for_non_unit_tuple_ty serialize_to_value")
             }
 
             fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
@@ -417,4 +331,4 @@ macro_rules! impl_static_for_non_unit_tuple_ty {
     };
 }
 
-for_all_non_unit_tuple_tys!(impl_static_for_non_unit_tuple_ty);
+for_all_non_unit_tuple_tys!(impl_thawed_for_non_unit_tuple_ty);

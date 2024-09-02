@@ -15,21 +15,21 @@ pub fn value_conversion(_args: TokenStream, input: TokenStream) -> TokenStream {
     }
 }
 
-fn impl_weak_static_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+fn impl_boiled_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
     generics
         .params
         .iter()
         .map(|param| match param {
             syn::GenericParam::Lifetime(_param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
-                #param: __WeakStatic<Static = #param> + __Static + __Serialize
+                #param: __Boiled<Thawed = #param> + __Thawed + __Serialize
             },
             syn::GenericParam::Const(_) => quote! {},
         })
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_weak_static_assoc_ty_static(
+fn impl_boiled_assoc_ty_static(
     ident: &Ident,
     generics: &syn::Generics,
 ) -> proc_macro2::TokenStream {
@@ -40,7 +40,7 @@ fn impl_weak_static_assoc_ty_static(
             generics.params.iter().filter_map(|param| match param {
                 syn::GenericParam::Type(param) => {
                     let ident = &param.ident;
-                    Some(quote! { <#ident as __WeakStatic>::Static })
+                    Some(quote! { <#ident as __Boiled>::Thawed })
                 }
                 syn::GenericParam::Lifetime(_param) => None,
                 syn::GenericParam::Const(param) => {
@@ -53,7 +53,7 @@ fn impl_weak_static_assoc_ty_static(
     }
 }
 
-fn impl_static_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+fn impl_thawed_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
     generics
         .params
         .iter()
@@ -62,14 +62,14 @@ fn impl_static_generic_constraints(generics: &syn::Generics) -> proc_macro2::Tok
                 #param: 'static,
             },
             syn::GenericParam::Type(param) => quote! {
-                #param: __Static + __Serialize
+                #param: __Thawed + __Serialize
             },
             syn::GenericParam::Const(_) => quote! {},
         })
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_static_assoc_ty_frozen(
+fn impl_thawed_assoc_ty_frozen(
     ident: &Ident,
     generics: &syn::Generics,
 ) -> proc_macro2::TokenStream {
@@ -80,7 +80,7 @@ fn impl_static_assoc_ty_frozen(
             generics.params.iter().filter_map(|param| match param {
                 syn::GenericParam::Type(param) => {
                     let ident = &param.ident;
-                    Some(quote! { <#ident as __Static>::Frozen })
+                    Some(quote! { <#ident as __Thawed>::Frozen })
                 }
                 syn::GenericParam::Lifetime(_param) => None,
                 syn::GenericParam::Const(param) => {
@@ -120,7 +120,7 @@ fn impl_frozen_assoc_ty_static(
             generics.params.iter().filter_map(|param| match param {
                 syn::GenericParam::Type(param) => {
                     let ident = &param.ident;
-                    Some(quote! { <#ident as __Frozen>::Static })
+                    Some(quote! { <#ident as __Frozen>::Thawed })
                 }
                 syn::GenericParam::Lifetime(_param) => None,
                 syn::GenericParam::Const(param) => {
@@ -141,7 +141,7 @@ fn impl_from_value_generic_constraints(generics: &syn::Generics) -> proc_macro2:
             syn::GenericParam::Lifetime(_param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
                 // ad hoc
-                #param: __WeakStatic<Static = #param> + __Static
+                #param: __Boiled<Thawed = #param> + __Thawed
             },
             syn::GenericParam::Const(_) => quote! {},
         })
@@ -156,7 +156,7 @@ fn impl_into_value_generic_constraints(generics: &syn::Generics) -> proc_macro2:
             syn::GenericParam::Lifetime(_param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
                 // ad hoc
-                #param: __WeakStatic<Static = #param> + __Static
+                #param: __Boiled<Thawed = #param> + __Thawed
             },
             syn::GenericParam::Const(_) => quote! {},
         })

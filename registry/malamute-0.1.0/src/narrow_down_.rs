@@ -11,9 +11,9 @@ pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 impl<Task: IsMlTask<__VarId>, Label> narrow_down<Task, Label>
 where
     Label: IsLabel
-        + __WeakStatic<Static = Label>
-        + __Static<Frozen = Label>
-        + __Frozen<Static = Label>
+        + __Boiled<Thawed = Label>
+        + __Thawed<Frozen = Label>
+        + __Frozen<Thawed = Label>
         + __Serialize,
 {
     pub fn gn_ki_wrapper(
@@ -41,21 +41,21 @@ pub struct NarrowDownInternal<Label> {
     label0: Label,
     flag_ranges: SmallVec<[Option<FlagRange>; 4]>,
 }
-impl<Label> __WeakStatic for NarrowDownInternal<Label>
+impl<Label> __Boiled for NarrowDownInternal<Label>
 where
-    Label: __WeakStatic<Static = Label>
-        + __Static<Frozen = Label>
-        + __Frozen<Static = Label>
+    Label: __Boiled<Thawed = Label>
+        + __Thawed<Frozen = Label>
+        + __Frozen<Thawed = Label>
         + __Serialize,
 {
-    type Static = NarrowDownInternal<Label>;
-    unsafe fn into_static(self) -> Self::Static {
+    type Thawed = NarrowDownInternal<Label>;
+    unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }
 }
-impl<Label> __Static for NarrowDownInternal<Label>
+impl<Label> __Thawed for NarrowDownInternal<Label>
 where
-    Label: __Static<Frozen = Label> + __Frozen<Static = Label> + __Serialize,
+    Label: __Thawed<Frozen = Label> + __Frozen<Thawed = Label> + __Serialize,
 {
     type Frozen = NarrowDownInternal<Label>;
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -81,29 +81,29 @@ where
 }
 impl<Label> __Frozen for NarrowDownInternal<Label>
 where
-    Label: __Frozen<Static = Label> + __Static<Frozen = Label> + __Serialize,
+    Label: __Frozen<Thawed = Label> + __Thawed<Frozen = Label> + __Serialize,
 {
-    type Static = NarrowDownInternal<<Label as __Frozen>::Static>;
+    type Thawed = NarrowDownInternal<<Label as __Frozen>::Thawed>;
 
-    type Stand = ();
+    type Slush = ();
 
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+    fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
     }
 }
 impl<Label> __FromValue for NarrowDownInternal<Label>
 where
-    Label: __WeakStatic<Static = Label> + __Static,
+    Label: __Boiled<Thawed = Label> + __Thawed,
 {
-    fn from_value_aux(value: __Value, _value_stands: Option<&mut __ValueStands>) -> Self {
+    fn from_value_aux(value: __Value, _value_stands: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
     }
 }
 impl<Label> __IntoValue for NarrowDownInternal<Label>
 where
-    Label: __WeakStatic<Static = Label>
-        + __Static<Frozen = Label>
-        + __Frozen<Static = Label>
+    Label: __Boiled<Thawed = Label>
+        + __Thawed<Frozen = Label>
+        + __Frozen<Thawed = Label>
         + __Serialize,
 {
     fn into_value(self) -> __Value {

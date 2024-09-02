@@ -112,6 +112,7 @@ pub trait IsValue:
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 
     ///# vm
-    type FrozenValue;
+    type FrozenValue: Send + Sync;
+
     fn freeze(&self) -> Self::FrozenValue;
 }

@@ -3303,6 +3303,7 @@
             "husky-visual-protocol",
             "husky-vm",
             "husky-wild-utils",
+            "rustc-hash",
             "salsa",
             "serde",
             "serde-impl",

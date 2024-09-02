@@ -1,3 +1,5 @@
+use std::panic::{RefUnwindSafe, UnwindSafe};
+
 use crate::*;
 
 // #[husky_standard_value::value_conversion]
@@ -14,7 +16,7 @@ where
 
 impl<T> Visualize for CyclicSliceLeashed<T>
 where
-    T: Visualize,
+    T: Visualize + __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     fn visualize(&self, visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
         let elements = self
@@ -25,9 +27,9 @@ where
     }
 }
 
-impl<T> __Static for CyclicSliceLeashed<T>
+impl<T> __Thawed for CyclicSliceLeashed<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     type Frozen = Self;
 
@@ -72,34 +74,34 @@ where
 
 impl<T> __Frozen for CyclicSliceLeashed<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type Static = Self;
-    type Stand = ();
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
+    type Thawed = Self;
+    type Slush = ();
+    fn revive(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
     }
 }
-impl<T> __WeakStatic for CyclicSliceLeashed<T>
+impl<T> __Boiled for CyclicSliceLeashed<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    type Static = Self;
-    unsafe fn into_static(self) -> Self::Static {
+    type Thawed = Self;
+    unsafe fn into_thawed(self) -> Self::Thawed {
         self
     }
 }
 impl<T> __FromValue for CyclicSliceLeashed<T>
 where
-    T: __Static,
+    T: __Thawed,
 {
-    fn from_value_aux(value: __Value, _: Option<&mut __ValueStands>) -> Self {
+    fn from_value_aux(value: __Value, _: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
     }
 }
 impl<T> __IntoValue for CyclicSliceLeashed<T>
 where
-    T: __Static,
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
@@ -118,7 +120,10 @@ impl<T> Clone for CyclicSliceLeashed<T> {
 
 impl<T> Copy for CyclicSliceLeashed<T> {}
 
-impl<T> CyclicSliceLeashed<T> {
+impl<T> CyclicSliceLeashed<T>
+where
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+{
     pub fn new(slice: &'static [T], start: i32, end: i32) -> Self {
         Self { start, end, slice }
     }
@@ -168,7 +173,10 @@ impl<T> CyclicSliceLeashed<T> {
     }
 }
 
-impl<T> std::ops::Index<usize> for CyclicSliceLeashed<T> {
+impl<T> std::ops::Index<usize> for CyclicSliceLeashed<T>
+where
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+{
     type Output = T;
 
     fn index(&self, index: usize) -> &Self::Output {
