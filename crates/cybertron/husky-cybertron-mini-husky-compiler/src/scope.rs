@@ -11,7 +11,7 @@ use token::delimiter::{LCURL, RCURL};
 
 const D: usize = 8usize;
 
-#[derive(Default, Clone, Copy)]
+#[derive(Default, Clone, Copy, PartialEq, Eq)]
 pub struct Scope {
     enclosing_blocks: BoundedVec<Idx, D>,
 }
@@ -86,7 +86,7 @@ fn infer_scope_step(
 #[test]
 fn infer_scopes_works() {
     fn t(input: &str, (n, m): (usize, usize), expect: Expect) {
-        let (tokens, (pre_asts, asts)) =
+        let (tokens, pre_asts, asts) =
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
         let scopes = infer_scopes(asts, m);
         expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, scopes));
