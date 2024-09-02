@@ -353,7 +353,7 @@ fn reduce_pre_asts_by_delimited_item(
     allocated_asts: Seq<Option<Ast>>,
 ) -> (Seq<Option<PreAst>>, Seq<Option<Ast>>) {
     let pre_asts_nearest_left2 = pre_asts.nearest_left2();
-    let new_asts = new_ast_by_delimited_item.apply(pre_asts_nearest_left2, pre_asts);
+    let new_asts = new_ast_by_separated_item.apply(pre_asts_nearest_left2, pre_asts);
     let (pre_asts, new_parents) =
         (|idx, pre_ast, new_ast, new_ast_nearest_right| -> (Option<PreAst>, Option<Idx>) {
             if let Some(new_ast) = new_ast {
@@ -440,7 +440,7 @@ fn reduce_pre_asts_by_delimited_item_works() {
         seq![None],
         seq![Some(PreAst::Ast(AstData::SeparatedItem {
             content: None,
-            separator: Separator::Comma
+            separator: Separator::Comma,
         }))],
         seq![Some(Ast {
             parent: None,
@@ -485,7 +485,7 @@ fn reduce_pre_asts_by_delimited_item_works() {
     );
 }
 
-fn new_ast_by_delimited_item(
+fn new_ast_by_separated_item(
     nearest_left2: Option2<(Idx, PreAst)>,
     pre_ast: Option<PreAst>,
 ) -> Option<AstData> {
@@ -501,14 +501,41 @@ fn new_ast_by_delimited_item(
                 })
             }
             PreAst::Opr(_) | PreAst::RightDelimiter(_) => return None,
+            PreAst::Ast(AstData::SeparatedItem {
+                content,
+                separator: separator1,
+            }) => match (separator, separator1) {
+                (Separator::Semicolon, Separator::Comma) => Some(AstData::SeparatedItem {
+                    content: Some(idx),
+                    separator,
+                }),
+                (Separator::Comma, _) | (Separator::Semicolon, Separator::Semicolon) => {
+                    Some(AstData::SeparatedItem {
+                        content: None,
+                        separator,
+                    })
+                }
+            },
+
             PreAst::Ast(_) => match nearest_left2.second() {
                 Some((_, snd)) => match snd {
+                    PreAst::Keyword(_) if separator == Separator::Semicolon => None,
                     PreAst::Keyword(_) | PreAst::LeftDelimiter(_) | PreAst::Separator(_) => {
                         Some(AstData::SeparatedItem {
                             content: Some(idx),
                             separator,
                         })
                     }
+                    PreAst::Ast(
+                        AstData::SeparatedItem { .. }
+                        | AstData::LetInit { .. }
+                        | AstData::Return { .. }
+                        | AstData::Assert { .. }
+                        | AstData::Defn { .. },
+                    ) => Some(AstData::SeparatedItem {
+                        content: Some(idx),
+                        separator,
+                    }),
                     PreAst::Opr(_) | PreAst::RightDelimiter(_) | PreAst::Ast(_) => None,
                 },
                 None => Some(AstData::SeparatedItem {
@@ -532,7 +559,7 @@ fn new_ast_by_delimited_item_works() {
         new_asts_expected: Seq<Option<AstData>>,
     ) {
         let pre_asts_nearest_left2 = pre_asts.nearest_left2();
-        let new_asts = new_ast_by_delimited_item.apply(pre_asts_nearest_left2, pre_asts);
+        let new_asts = new_ast_by_separated_item.apply(pre_asts_nearest_left2, pre_asts);
         assert_eq!(new_asts, new_asts_expected);
     }
 
@@ -630,8 +657,8 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(`,
-                `)`: "()" ✓,
+                #0 `(`: `(`,
+                #1 `)`: "()" ✓,
             ]
         "#]],
     );
@@ -640,9 +667,9 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(`,
-                `,`: ", ",
-                `)`: "(, )" ✓,
+                #0 `(`: `(`,
+                #1 `,`: ", ",
+                #2 `)`: "(, )" ✓,
             ]
         "#]],
     );
@@ -651,10 +678,10 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(`,
-                `,`: ", ",
-                `,`: ", ",
-                `)`: "(, , )" ✓,
+                #0 `(`: `(`,
+                #1 `,`: ", ",
+                #2 `,`: ", ",
+                #3 `)`: "(, , )" ✓,
             ]
         "#]],
     );
@@ -663,9 +690,9 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(`,
-                `1`: "1",
-                `)`: "(1)" ✓,
+                #0 `(`: `(`,
+                #1 `1`: "1",
+                #2 `)`: "(1)" ✓,
             ]
         "#]],
     );
@@ -674,10 +701,10 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(`,
-                `1`: "1",
-                `,`: "1, ",
-                `)`: "(1, )" ✓,
+                #0 `(`: `(`,
+                #1 `1`: "1",
+                #2 `,`: "1, ",
+                #3 `)`: "(1, )" ✓,
             ]
         "#]],
     );
@@ -686,11 +713,11 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(`,
-                `1`: "1",
-                `,`: "1, ",
-                `,`: ", ",
-                `)`: "(1, , )" ✓,
+                #0 `(`: `(`,
+                #1 `1`: "1",
+                #2 `,`: "1, ",
+                #3 `,`: ", ",
+                #4 `)`: "(1, , )" ✓,
             ]
         "#]],
     );
@@ -699,11 +726,11 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(`,
-                `1`: "1",
-                `,`: "1, ",
-                `1`: "1",
-                `)`: "(1, 1)" ✓,
+                #0 `(`: `(`,
+                #1 `1`: "1",
+                #2 `,`: "1, ",
+                #3 `1`: "1",
+                #4 `)`: "(1, 1)" ✓,
             ]
         "#]],
     );
@@ -712,15 +739,15 @@ fn reduce_n_times_for_delimited_works1() {
         1,
         expect![[r#"
             [
-                `(`: `(` ✓,
-                `(`: `(`,
-                `1`: "1",
-                `,`: "1, ",
-                `1`: "1",
-                `)`: "(1, 1)" ✓,
-                `,`: `,` ✓,
-                `1`: "1" ✓,
-                `)`: `)` ✓,
+                #0 `(`: `(` ✓,
+                #1 `(`: `(`,
+                #2 `1`: "1",
+                #3 `,`: "1, ",
+                #4 `1`: "1",
+                #5 `)`: "(1, 1)" ✓,
+                #6 `,`: `,` ✓,
+                #7 `1`: "1" ✓,
+                #8 `)`: `)` ✓,
             ]
         "#]],
     );
@@ -733,8 +760,8 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `}`: "{}" ✓,
+                #0 `{`: `{`,
+                #1 `}`: "{}" ✓,
             ]
         "#]],
     );
@@ -743,9 +770,9 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `,`: ", ",
-                `}`: "{ ,  }" ✓,
+                #0 `{`: `{`,
+                #1 `,`: ", ",
+                #2 `}`: "{ ,  }" ✓,
             ]
         "#]],
     );
@@ -754,10 +781,10 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `,`: ", ",
-                `,`: ", ",
-                `}`: "{ , ,  }" ✓,
+                #0 `{`: `{`,
+                #1 `,`: ", ",
+                #2 `,`: ", ",
+                #3 `}`: "{ , ,  }" ✓,
             ]
         "#]],
     );
@@ -766,9 +793,9 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `}`: "{ 1 }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `}`: "{ 1 }" ✓,
             ]
         "#]],
     );
@@ -777,10 +804,10 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `,`: "1, ",
-                `}`: "{ 1,  }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `,`: "1, ",
+                #3 `}`: "{ 1,  }" ✓,
             ]
         "#]],
     );
@@ -789,11 +816,11 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `,`: "1, ",
-                `,`: ", ",
-                `}`: "{ 1, ,  }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `,`: "1, ",
+                #3 `,`: ", ",
+                #4 `}`: "{ 1, ,  }" ✓,
             ]
         "#]],
     );
@@ -802,11 +829,11 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `,`: "1, ",
-                `1`: "1",
-                `}`: "{ 1, 1 }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `,`: "1, ",
+                #3 `1`: "1",
+                #4 `}`: "{ 1, 1 }" ✓,
             ]
         "#]],
     );
@@ -815,15 +842,15 @@ fn reduce_n_times_for_delimited_works2() {
         1,
         expect![[r#"
             [
-                `{`: `{` ✓,
-                `{`: `{`,
-                `1`: "1",
-                `,`: "1, ",
-                `1`: "1",
-                `}`: "{ 1, 1 }" ✓,
-                `,`: `,` ✓,
-                `1`: "1" ✓,
-                `}`: `}` ✓,
+                #0 `{`: `{` ✓,
+                #1 `{`: `{`,
+                #2 `1`: "1",
+                #3 `,`: "1, ",
+                #4 `1`: "1",
+                #5 `}`: "{ 1, 1 }" ✓,
+                #6 `,`: `,` ✓,
+                #7 `1`: "1" ✓,
+                #8 `}`: `}` ✓,
             ]
         "#]],
     );
@@ -836,8 +863,8 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `}`: "{}" ✓,
+                #0 `{`: `{`,
+                #1 `}`: "{}" ✓,
             ]
         "#]],
     );
@@ -846,9 +873,9 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `;`: "; ",
-                `}`: "{ ;  }" ✓,
+                #0 `{`: `{`,
+                #1 `;`: "; ",
+                #2 `}`: "{ ;  }" ✓,
             ]
         "#]],
     );
@@ -857,10 +884,10 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `;`: "; ",
-                `;`: "; ",
-                `}`: "{ ; ;  }" ✓,
+                #0 `{`: `{`,
+                #1 `;`: "; ",
+                #2 `;`: "; ",
+                #3 `}`: "{ ; ;  }" ✓,
             ]
         "#]],
     );
@@ -869,9 +896,9 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `}`: "{ 1 }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `}`: "{ 1 }" ✓,
             ]
         "#]],
     );
@@ -880,10 +907,10 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `;`: "1; ",
-                `}`: "{ 1;  }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `;`: "1; ",
+                #3 `}`: "{ 1;  }" ✓,
             ]
         "#]],
     );
@@ -892,11 +919,11 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `;`: "1; ",
-                `;`: "; ",
-                `}`: "{ 1; ;  }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `;`: "1; ",
+                #3 `;`: "; ",
+                #4 `}`: "{ 1; ;  }" ✓,
             ]
         "#]],
     );
@@ -905,11 +932,11 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{`,
-                `1`: "1",
-                `;`: "1; ",
-                `1`: "1",
-                `}`: "{ 1; 1 }" ✓,
+                #0 `{`: `{`,
+                #1 `1`: "1",
+                #2 `;`: "1; ",
+                #3 `1`: "1",
+                #4 `}`: "{ 1; 1 }" ✓,
             ]
         "#]],
     );
@@ -918,16 +945,18 @@ fn reduce_n_times_for_delimited_works3() {
         1,
         expect![[r#"
             [
-                `{`: `{` ✓,
-                `{`: `{`,
-                `1`: "1",
-                `;`: "1; ",
-                `1`: "1",
-                `}`: "{ 1; 1 }" ✓,
-                `;`: `;` ✓,
-                `1`: "1" ✓,
-                `}`: `}` ✓,
+                #0 `{`: `{` ✓,
+                #1 `{`: `{`,
+                #2 `1`: "1",
+                #3 `;`: "1; ",
+                #4 `1`: "1",
+                #5 `}`: "{ 1; 1 }" ✓,
+                #6 `;`: `;` ✓,
+                #7 `1`: "1" ✓,
+                #8 `}`: `}` ✓,
             ]
         "#]],
     );
 }
+
+pub fn count() {}

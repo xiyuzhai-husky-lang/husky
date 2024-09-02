@@ -11,7 +11,7 @@ use token::delimiter::{LCURL, RCURL};
 
 const D: usize = 8usize;
 
-#[derive(Default, Clone, Copy)]
+#[derive(Default, Clone, Copy, PartialEq, Eq)]
 pub struct Scope {
     enclosing_blocks: BoundedVec<Idx, D>,
 }
@@ -42,6 +42,21 @@ impl Scope {
             },
             _ => parent_scope,
         }
+    }
+}
+
+impl Scope {
+    pub fn contains(self, other: Self) -> bool {
+        let len = self.enclosing_blocks.len();
+        if len > other.enclosing_blocks.len() {
+            return false;
+        }
+        for i in 0..len {
+            if self.enclosing_blocks[i] != other.enclosing_blocks[i] {
+                return false;
+            }
+        }
+        true
     }
 }
 
@@ -86,7 +101,7 @@ fn infer_scope_step(
 #[test]
 fn infer_scopes_works() {
     fn t(input: &str, (n, m): (usize, usize), expect: Expect) {
-        let (tokens, (pre_asts, asts)) =
+        let (tokens, pre_asts, asts) =
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
         let scopes = infer_scopes(asts, m);
         expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, scopes));
@@ -103,8 +118,8 @@ fn infer_scopes_works() {
         (1, 1),
         expect![[r#"
             [
-                `(`: `(`,
-                `)`: "()" ✓ → `::`,
+                #0 `(`: `(`,
+                #1 `)`: "()" ✓ → `::`,
             ]
         "#]],
     );
@@ -113,8 +128,8 @@ fn infer_scopes_works() {
         (1, 1),
         expect![[r#"
             [
-                `{`: `{`,
-                `}`: "{}" ✓ → `::1`,
+                #0 `{`: `{`,
+                #1 `}`: "{}" ✓ → `::1`,
             ]
         "#]],
     );
@@ -123,9 +138,9 @@ fn infer_scopes_works() {
         (2, 2),
         expect![[r#"
             [
-                `{`: `{`,
-                `x`: "x" → `::2`,
-                `}`: "{ x }" ✓ → `::2`,
+                #0 `{`: `{`,
+                #1 `x`: "x" → `::2`,
+                #2 `}`: "{ x }" ✓ → `::2`,
             ]
         "#]],
     );
@@ -134,12 +149,12 @@ fn infer_scopes_works() {
         (3, 1),
         expect![[r#"
             [
-                `{`: `{`,
-                `x`: "x",
-                `{`: "x { y }" → `::5`,
-                `y`: "y",
-                `}`: "{ y }",
-                `}`: "{ x { y } }" ✓ → `::5`,
+                #0 `{`: `{`,
+                #1 `x`: "x",
+                #2 `{`: "x { y }" → `::5`,
+                #3 `y`: "y",
+                #4 `}`: "{ y }",
+                #5 `}`: "{ x { y } }" ✓ → `::5`,
             ]
         "#]],
     );
@@ -148,12 +163,12 @@ fn infer_scopes_works() {
         (3, 3),
         expect![[r#"
             [
-                `{`: `{`,
-                `x`: "x" → `::5`,
-                `{`: "x { y }" → `::5`,
-                `y`: "y" → `::5::4`,
-                `}`: "{ y }" → `::5::4`,
-                `}`: "{ x { y } }" ✓ → `::5`,
+                #0 `{`: `{`,
+                #1 `x`: "x" → `::5`,
+                #2 `{`: "x { y }" → `::5`,
+                #3 `y`: "y" → `::5::4`,
+                #4 `}`: "{ y }" → `::5::4`,
+                #5 `}`: "{ x { y } }" ✓ → `::5`,
             ]
         "#]],
     );

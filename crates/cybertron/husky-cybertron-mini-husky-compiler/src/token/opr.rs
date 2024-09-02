@@ -76,6 +76,7 @@ pub enum BinaryOpr {
     ScopeResolution,
     TypeIs,
     LightArrow,
+    Vertical,
 }
 
 impl std::fmt::Debug for BinaryOpr {
@@ -94,6 +95,7 @@ impl BinaryOpr {
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             BinaryOpr::TypeIs => Precedence::TypeIs,
             BinaryOpr::LightArrow => todo!(),
+            BinaryOpr::Vertical => todo!(),
         }
     }
 }
@@ -111,6 +113,7 @@ impl BinaryOpr {
             BinaryOpr::ScopeResolution => "::",
             BinaryOpr::TypeIs => ":",
             BinaryOpr::LightArrow => "->",
+            BinaryOpr::Vertical => todo!(),
         }
     }
 
@@ -126,6 +129,7 @@ impl BinaryOpr {
             BinaryOpr::ScopeResolution => "::",
             BinaryOpr::TypeIs => ":",
             BinaryOpr::LightArrow => "->",
+            BinaryOpr::Vertical => todo!(),
         }
     }
 }

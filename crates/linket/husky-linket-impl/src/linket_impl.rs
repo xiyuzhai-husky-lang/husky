@@ -65,6 +65,8 @@ pub type LinketImplTrackedException<LinketImpl> = TrackedException<
     <LinketImpl as IsLinketImpl>::Pedestal,
 >;
 
+pub type LinketImplFrozenValue<LinketImpl> =
+    <<LinketImpl as IsLinketImpl>::Value as IsValue>::FrozenValue;
 pub type LinketImplTrackedExceptedValue<LinketImpl> =
     Result<<LinketImpl as IsLinketImpl>::Value, LinketImplTrackedException<LinketImpl>>;
 

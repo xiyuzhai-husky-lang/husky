@@ -34,6 +34,14 @@ fn new_call_ast(
     let (caller, PreAst::Ast(caller_ast)) = pre_ast_nearest_left2.first()? else {
         return None;
     };
+    match caller_ast {
+        AstData::SeparatedItem { .. }
+        | AstData::LetInit { .. }
+        | AstData::Return { .. }
+        | AstData::Assert { .. }
+        | AstData::Defn { .. } => return None,
+        _ => (),
+    }
     let (
         delimited_arguments,
         PreAst::Ast(AstData::Delimited {
@@ -75,6 +83,13 @@ fn new_call_ast(
             },
             PreAst::LeftDelimiter(_) => (),
             PreAst::RightDelimiter(_) => return None,
+            PreAst::Ast(
+                AstData::SeparatedItem { .. }
+                | AstData::LetInit { .. }
+                | AstData::Return { .. }
+                | AstData::Assert { .. }
+                | AstData::Defn { .. },
+            ) => (),
             PreAst::Ast(snd_ast) => {
                 if let AstData::Ident(_) = snd_ast
                     && left_delimiter == LCURL
@@ -152,9 +167,9 @@ fn reduce_n_times_for_call_works1() {
         2,
         expect![[r#"
             [
-                `f`: "f",
-                `(`: "f()" ✓,
-                `)`: "()",
+                #0 `f`: "f",
+                #1 `(`: "f()" ✓,
+                #2 `)`: "()",
             ]
         "#]],
     );
@@ -163,11 +178,11 @@ fn reduce_n_times_for_call_works1() {
         2,
         expect![[r#"
             [
-                `f`: "f",
-                `(`: "f()",
-                `)`: "()",
-                `(`: "f()()" ✓,
-                `)`: "()",
+                #0 `f`: "f",
+                #1 `(`: "f()",
+                #2 `)`: "()",
+                #3 `(`: "f()()" ✓,
+                #4 `)`: "()",
             ]
         "#]],
     );
@@ -176,11 +191,11 @@ fn reduce_n_times_for_call_works1() {
         2,
         expect![[r#"
             [
-                `f`: "f",
-                `(`: "f()",
-                `)`: "()",
-                `+`: "f() + 1" ✓,
-                `1`: "1",
+                #0 `f`: "f",
+                #1 `(`: "f()",
+                #2 `)`: "()",
+                #3 `+`: "f() + 1" ✓,
+                #4 `1`: "1",
             ]
         "#]],
     );
@@ -189,9 +204,9 @@ fn reduce_n_times_for_call_works1() {
         2,
         expect![[r#"
             [
-                `A`: "A",
-                `{`: "A {}" ✓,
-                `}`: "{}",
+                #0 `A`: "A",
+                #1 `{`: "A {}" ✓,
+                #2 `}`: "{}",
             ]
         "#]],
     );

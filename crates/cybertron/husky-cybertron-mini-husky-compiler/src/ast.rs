@@ -4,6 +4,7 @@ pub mod defn;
 pub mod delimited;
 pub mod helpers;
 pub mod opr;
+pub mod rank;
 pub mod reduce;
 pub mod show;
 pub mod stmt;
@@ -246,17 +247,16 @@ fn calc_pre_ast_initial_seq_works() {
 }
 
 pub fn calc_asts_from_input(input: &str, n: usize) -> Seq<Option<Ast>> {
-    calc_asts_from_input_together_with_tokens_and_pre_asts(input, n)
-        .1
-         .1
+    calc_asts_from_input_together_with_tokens_and_pre_asts(input, n).2
 }
 
 pub fn calc_asts_from_input_together_with_tokens_and_pre_asts(
     input: &str,
     n: usize,
-) -> (Seq<Token>, (Seq<Option<PreAst>>, Seq<Option<Ast>>)) {
+) -> (Seq<Token>, Seq<Option<PreAst>>, Seq<Option<Ast>>) {
     let tokens = tokenize(input);
     let pre_asts = calc_pre_ast_initial_seq(tokens);
     let allocated_asts: Seq<Option<Ast>> = tokens.map(|token| token.into());
-    (tokens, reduce_n_times(pre_asts, allocated_asts, n))
+    let (pre_asts, asts) = reduce_n_times(pre_asts, allocated_asts, n);
+    (tokens, pre_asts, asts)
 }

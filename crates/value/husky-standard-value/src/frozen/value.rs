@@ -40,15 +40,15 @@ pub enum FrozenValue {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
-    Box(Arc<dyn SnapshotDyn>),
+    Box(Arc<dyn FrozenDyn>),
     Leash(&'static dyn StaticDyn),
-    SizedRef(Arc<dyn SnapshotDyn>),
-    SizedRefMut(Arc<dyn SnapshotDyn>),
-    OptionBox(Option<Arc<dyn SnapshotDyn>>),
+    SizedRef(Arc<dyn FrozenDyn>),
+    SizedRefMut(Arc<dyn FrozenDyn>),
+    OptionBox(Option<Arc<dyn FrozenDyn>>),
     OptionLeash(Option<&'static dyn StaticDyn>),
-    OptionSizedRef(Option<Arc<dyn SnapshotDyn>>),
-    OptionSizedRefMut(Option<Arc<dyn SnapshotDyn>>),
-    Intrinsic(Arc<dyn SnapshotDyn>),
+    OptionSizedRef(Option<Arc<dyn FrozenDyn>>),
+    OptionSizedRefMut(Option<Arc<dyn FrozenDyn>>),
+    Intrinsic(Arc<dyn FrozenDyn>),
 }
 
 impl Value {

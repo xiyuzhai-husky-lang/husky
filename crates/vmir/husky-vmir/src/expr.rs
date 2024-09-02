@@ -12,7 +12,7 @@ use husky_literal_value::LiteralValue;
 use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_value_interface::vm_control_flow::VmControlFlow;
-use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
+use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::derive_debug_with_db]
@@ -69,6 +69,7 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
 }
 
 pub type VmirExprArena<LinketImpl> = Arena<VmirExprData<LinketImpl>>;
+pub type VmirExprMap<LinketImpl, T> = ArenaMap<VmirExprData<LinketImpl>, T>;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -425,7 +426,6 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
 }
 
 impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
-    #[inline(always)]
     pub fn eval<'comptime>(
         self,
         coercion: impl Into<Option<VmirCoercion>>,
@@ -444,7 +444,6 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
         })
     }
 
-    #[inline(always)]
     fn eval_aux<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
