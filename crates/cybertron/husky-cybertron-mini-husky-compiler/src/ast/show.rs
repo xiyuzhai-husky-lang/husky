@@ -13,6 +13,7 @@ pub fn show_asts(
     let mut outs: Vec<AstOut> = (0..len)
         .into_iter()
         .map(|i| AstOut {
+            idx: idx!(i),
             token: tokens[i],
             pre_ast_is_some: pre_asts.data()[i].is_some(),
             ast: "".into(),
@@ -25,6 +26,7 @@ pub fn show_asts(
 }
 
 pub struct AstOut {
+    idx: Idx,
     token: Token,
     pre_ast_is_some: bool,
     ast: String,
@@ -36,13 +38,15 @@ impl std::fmt::Debug for AstOut {
             true => {
                 if self.ast.is_empty() {
                     f.write_fmt(format_args!(
-                        "`{}`: `{}` ✓",
+                        "{:?} `{}`: `{}` ✓",
+                        self.idx,
                         self.token.repr_short(),
                         self.token.repr_short()
                     ))
                 } else {
                     f.write_fmt(format_args!(
-                        "`{}`: \"{}\" ✓",
+                        "{:?} `{}`: \"{}\" ✓",
+                        self.idx,
                         self.token.repr_short(),
                         self.ast
                     ))
@@ -51,13 +55,15 @@ impl std::fmt::Debug for AstOut {
             false => {
                 if self.ast.is_empty() {
                     f.write_fmt(format_args!(
-                        "`{}`: `{}`",
+                        "{:?} `{}`: `{}`",
+                        self.idx,
                         self.token.repr_short(),
                         self.token.repr_short()
                     ))
                 } else {
                     f.write_fmt(format_args!(
-                        "`{}`: \"{}\"",
+                        "{:?} `{}`: \"{}\"",
+                        self.idx,
                         self.token.repr_short(),
                         self.ast
                     ))
@@ -210,7 +216,7 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
 fn show_asts_works() {
     expect![[r#"
         [
-            `hello`: "hello",
+            #0 `hello`: "hello",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -223,8 +229,8 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            `+`: "+hello",
-            `hello`: "hello",
+            #0 `+`: "+hello",
+            #1 `hello`: "hello",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -246,9 +252,9 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            `1`: "1",
-            `+`: "1 + 1",
-            `1`: "1",
+            #0 `1`: "1",
+            #1 `+`: "1 + 1",
+            #2 `1`: "1",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -279,11 +285,11 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            `(`: `(`,
-            `1`: "1",
-            `,`: "1, ",
-            `1`: "1",
-            `)`: "(1, 1)",
+            #0 `(`: `(`,
+            #1 `1`: "1",
+            #2 `,`: "1, ",
+            #3 `1`: "1",
+            #4 `)`: "(1, 1)",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -336,7 +342,8 @@ where
     let outs = show_asts(tokens, pre_asts, asts);
     outs.into_iter()
         .zip(mapped.data())
-        .map(|(ast_out, mapped)| AstOutMappedValue {
+        .enumerate()
+        .map(|(i, (ast_out, mapped))| AstOutMappedValue {
             ast_out,
             mapped_value: match mapped {
                 Some(mapped) => Some(format!("{:?}", mapped)),

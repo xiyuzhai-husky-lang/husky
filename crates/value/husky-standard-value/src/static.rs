@@ -1,5 +1,5 @@
 use super::*;
-use crate::frozen::{mut_frozen::MutFrozen, Frozen, SnapshotDyn};
+use crate::frozen::{mut_frozen::MutFrozen, Frozen, FrozenDyn};
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
@@ -96,7 +96,7 @@ where
 pub trait StaticDyn:
     std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + 'static
 {
-    unsafe fn snapshot(&self) -> Arc<dyn SnapshotDyn>;
+    unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn>;
 
     fn type_name_dyn(&self) -> &'static str;
 
@@ -123,7 +123,7 @@ impl<T> StaticDyn for T
 where
     T: Static,
 {
-    unsafe fn snapshot(&self) -> Arc<dyn SnapshotDyn> {
+    unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn> {
         Arc::new(self.freeze())
     }
 

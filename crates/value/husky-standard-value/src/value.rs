@@ -7,6 +7,7 @@ use crate::{
     r#static::{Static, StaticDyn},
     *,
 };
+use frozen::value::FrozenValue;
 use husky_decl_macro_utils::*;
 #[cfg(feature = "constant")]
 use husky_term_prelude::literal::StringLiteralTokenData;
@@ -537,6 +538,12 @@ impl IsValue for Value {
             Value::OptionSizedMut(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
         }
+    }
+
+    type FrozenValue = FrozenValue;
+
+    fn freeze(&self) -> Self::FrozenValue {
+        todo!()
     }
 }
 

@@ -10,16 +10,18 @@ pub mod static_var;
 pub mod ugly;
 pub mod var_id;
 
-pub type LinketImplVmControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =
-    VmControlFlow<C, <LinketImpl as IsLinketImpl>::Value, <LinketImpl as IsLinketImpl>::Exception>;
-
 use crate::pedestal::IsPedestalFull;
 use eval_context::{DevEvalContext, IsDevRuntimeDyn};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiArgumentReprInterface;
 use husky_value_interface::vm_control_flow::VmControlFlow;
 use husky_wild_utils::arb_ref;
-use linket_impl::{IsLinketImpl, LinketImplKiControlFlow};
+use linket_impl::{IsLinketImpl, LinketImplFrozenValue, LinketImplKiControlFlow};
+
+pub type LinketImplVmControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =
+    VmControlFlow<C, <LinketImpl as IsLinketImpl>::Value, <LinketImpl as IsLinketImpl>::Exception>;
+pub type LinketImplVmControlFlowFrozen<LinketImpl, C = LinketImplFrozenValue<LinketImpl>> =
+    VmControlFlow<C, LinketImplFrozenValue<LinketImpl>, <LinketImpl as IsLinketImpl>::Exception>;
 
 pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
     type FnOutput;
