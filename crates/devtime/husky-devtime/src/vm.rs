@@ -10,7 +10,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         pedestal: Devsoul::Pedestal,
     ) -> DevsoulKiControlFlow<Devsoul> {
         let db = self.db();
-        let history = self.eager_trace_history(biological_parent, pedestal);
+        let history = self.trace_history(biological_parent, pedestal);
         todo!()
     }
 }

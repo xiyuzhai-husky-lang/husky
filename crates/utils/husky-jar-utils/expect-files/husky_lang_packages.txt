@@ -3125,6 +3125,7 @@
             "husky-sem-expr",
             "husky-value-interface",
             "husky-vmir",
+            "rustc-hash",
             "salsa",
             "husky-ast",
             "husky-corgi-config",

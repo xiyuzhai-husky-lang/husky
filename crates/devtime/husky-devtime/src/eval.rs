@@ -33,11 +33,18 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(data) => {
                 // think about it
+                // Some(self.eager_expr_trace_value(data.biological_parent(), pedestal.clone()))
+                todo!()
+            }
+            TraceData::EagerExpr(data) => {
+                // think about it
                 Some(self.eager_expr_trace_value(data.biological_parent(), pedestal.clone()))
             }
-            TraceData::EagerExpr(_) => todo!(),
             TraceData::EagerPattern(_) => todo!(),
-            TraceData::EagerStmt(_) => todo!(),
+            TraceData::EagerStmt(data) => {
+                // think about it
+                Some(self.eager_expr_trace_value(data.biological_parent(), pedestal.clone()))
+            }
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
