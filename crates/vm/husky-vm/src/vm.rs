@@ -64,7 +64,6 @@ where
             .place_registry(db)
             .expect("has vmir_region implies that this is some");
         let mut place_values = vec![];
-
         for _ in place_values.len()..place_registry.len() {
             place_values.push(<Linktime::LinketImpl as IsLinketImpl>::Value::new_uninit())
         }
