@@ -2778,6 +2778,7 @@
         dependencies: [
             "husky-linket",
             "husky-linket-impl",
+            "husky-value-interface",
             "husky-vfs",
             "salsa",
         ],
@@ -3124,6 +3125,7 @@
             "husky-sem-expr",
             "husky-value-interface",
             "husky-vmir",
+            "rustc-hash",
             "salsa",
             "husky-ast",
             "husky-corgi-config",
@@ -3303,6 +3305,7 @@
             "husky-visual-protocol",
             "husky-vm",
             "husky-wild-utils",
+            "rustc-hash",
             "salsa",
             "serde",
             "serde-impl",

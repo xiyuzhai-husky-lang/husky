@@ -1,7 +1,10 @@
 use crate::*;
+use std::panic::{RefUnwindSafe, UnwindSafe};
 
-pub trait __VecX {
-    type Element;
+pub trait __VecX:
+    __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static
+{
+    type Element: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static;
 
     fn ilen(&self) -> i32;
 
@@ -22,7 +25,10 @@ pub trait __VecX {
     ) -> CyclicSliceLeashed<Self::Element>;
 }
 
-impl<T> __VecX for Vec<T> {
+impl<T> __VecX for Vec<T>
+where
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+{
     type Element = T;
 
     fn ilen(&self) -> i32 {

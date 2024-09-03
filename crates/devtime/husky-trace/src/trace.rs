@@ -330,7 +330,7 @@ impl TraceData {
             TraceData::LazyPattern(slf) => slf.view_lines(db),
             TraceData::LazyStmt(slf) => slf.view_lines(trace_id, db),
             TraceData::EagerCallInput(slf) => slf.view_lines(db),
-            TraceData::EagerCall(slf) => slf.view_lines(db),
+            TraceData::EagerCall(slf) => slf.calc_view_lines(db),
             TraceData::EagerExpr(slf) => slf.view_lines(db),
             TraceData::EagerPattern(slf) => slf.view_lines(db),
             TraceData::EagerStmt(slf) => slf.view_lines(trace_id, db),

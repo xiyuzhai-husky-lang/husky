@@ -39,11 +39,11 @@ impl std::fmt::Display for ImplFp {
 
         let arg_types_decl = (0..self.nargs)
             .into_iter()
-            .map(|i| -> String { format!("A{i}: __StaticInfo, ") })
+            .map(|i| -> String { format!("A{i}: __ThawedInfo, ") })
             .join("");
         let static_arg_types_decl = (0..self.nargs)
             .into_iter()
-            .map(|i| -> String { format!("A{i}: __StaticInfo, ") })
+            .map(|i| -> String { format!("A{i}: __ThawedInfo, ") })
             .join("");
         let arg_types = (0..self.nargs)
             .into_iter()
@@ -58,7 +58,7 @@ impl std::fmt::Display for ImplFp {
             .map(|i| -> String {
                 format!(
                     r#"
-        <A{i} as __StaticInfo>::__StaticSelf, "#
+        <A{i} as __ThawedInfo>::__ThawedSelf, "#
                 )
             })
             .join("");
@@ -68,23 +68,23 @@ impl std::fmt::Display for ImplFp {
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<{static_arg_types_decl}Output: __StaticInfo> __StaticInfo for fn({arg_types}
+impl<{static_arg_types_decl}Output: __ThawedInfo> __ThawedInfo for fn({arg_types}
 ) -> Output {{
-    type __StaticSelf = fn({static_arg_types_with_comma}
-    ) -> <Output as __StaticInfo>::__StaticSelf;
+    type __ThawedSelf = fn({static_arg_types_with_comma}
+    ) -> <Output as __ThawedInfo>::__ThawedSelf;
 
-    fn __static_typename() -> std::borrow::Cow<'static, str> {{
+    fn __Thawed_typename() -> std::borrow::Cow<'static, str> {{
         todo!()
     }}
 
-    unsafe fn __transmute_static(self) -> Self::__StaticSelf {{
+    unsafe fn __transmute_static(self) -> Self::__ThawedSelf {{
         todo!()
     }}
 }}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<{arg_types_decl}Output: __StaticInfo> const ThinFp
+impl<{arg_types_decl}Output: __ThawedInfo> const ThinFp
     for fn({arg_types}) -> Output {{
     fn __to_void_pointer(self) -> *const c_void {{
         self as *const c_void
@@ -93,7 +93,7 @@ impl<{arg_types_decl}Output: __StaticInfo> const ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<{arg_types_decl}Output: __StaticInfo> const __BaseThinFp
+impl<{arg_types_decl}Output: __ThawedInfo> const __BaseThinFp
     for fn({arg_types}) -> Output {{
     type __CtxThinFp = fn(
         {static_arg_types_with_comma}&dyn __EvalContext
@@ -104,25 +104,25 @@ impl<{arg_types_decl}Output: __StaticInfo> const __BaseThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<{static_arg_types_decl}Output: __StaticInfo> __StaticInfo
+impl<{static_arg_types_decl}Output: __ThawedInfo> __ThawedInfo
     for fn(
         {arg_types_with_comma}&dyn __EvalContext
     ) -> Output {{
-    type __StaticSelf = fn({static_arg_types_with_comma}
-    ) -> <Output as __StaticInfo>::__StaticSelf;
+    type __ThawedSelf = fn({static_arg_types_with_comma}
+    ) -> <Output as __ThawedInfo>::__ThawedSelf;
 
-    fn __static_typename() -> std::borrow::Cow<'static, str> {{
+    fn __Thawed_typename() -> std::borrow::Cow<'static, str> {{
         todo!()
     }}
 
-    unsafe fn __transmute_static(self) -> Self::__StaticSelf {{
+    unsafe fn __transmute_static(self) -> Self::__ThawedSelf {{
         todo!()
     }}
 }}
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<{arg_types_decl}Output: __StaticInfo> const ThinFp
+impl<{arg_types_decl}Output: __ThawedInfo> const ThinFp
     for fn(
         {arg_types_with_comma}&dyn __EvalContext
     ) -> Output {{
@@ -133,7 +133,7 @@ impl<{arg_types_decl}Output: __StaticInfo> const ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<{arg_types_decl}Output: __StaticInfo> const __CtxThinFp
+impl<{arg_types_decl}Output: __ThawedInfo> const __CtxThinFp
     for fn(
         {arg_types_with_comma}&dyn __EvalContext
     ) -> Output {{}}

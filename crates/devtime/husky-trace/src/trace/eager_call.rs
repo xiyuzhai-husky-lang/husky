@@ -44,7 +44,11 @@ impl Trace {
 }
 
 impl EagerCallTraceData {
-    pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
+    pub fn biological_parent(&self) -> Trace {
+        self.biological_parent
+    }
+
+    pub fn calc_view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let callee_path = self.callee_path;
         TraceViewLines::new(
             callee_path.module_path(db),

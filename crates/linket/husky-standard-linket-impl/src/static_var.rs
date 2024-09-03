@@ -110,7 +110,7 @@ fn static_var_linket_impl_works() {
         fn try_set_var_id_aux(
             id: __VarId,
             locked: &[ItemPathIdInterface],
-        ) -> __StaticVarResult<impl FnOnce() + 'static> {
+        ) -> __ThawedVarResult<impl FnOnce() + 'static> {
             todo!();
             Ok(|| todo!())
         }

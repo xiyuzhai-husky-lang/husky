@@ -8,9 +8,11 @@ salsa.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 smallvec.workspace = true
+dashmap.workspace = true
 # abstractions
 vec-like.workspace = true
-serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
+serde-impl = { workspace = true, features = ["json"] }
+# serde-impl = { path = "../../abstractions/serde-impl", features = ["json"] }
 # comptime
 husky-dev-comptime.workspace = true
 # devsoul

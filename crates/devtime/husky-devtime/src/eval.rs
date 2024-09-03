@@ -9,11 +9,17 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         pedestal: &Devsoul::Pedestal,
     ) -> DevsoulStaticVarResult<Devsoul, Option<DevsoulKiControlFlow<Devsoul>>> {
         self.runtime
-            .with_pedestal(pedestal, |_| self.eval_trace(trace))
+            .with_pedestal(pedestal, |_| self.eval_trace(trace, pedestal))
     }
 
-    /// assuming that vars have been set up properly
-    pub fn eval_trace(&self, trace: Trace) -> Option<DevsoulKiControlFlow<Devsoul>> {
+    /// assuming that vars have been set up in the binary side properly
+    ///
+    /// returns None means the trace doesn't have an interesting value
+    pub fn eval_trace(
+        &self,
+        trace: Trace,
+        pedestal: &Devsoul::Pedestal,
+    ) -> Option<DevsoulKiControlFlow<Devsoul>> {
         let db = self.db();
         match trace.data(db) {
             TraceData::Submodule(_) => None,
@@ -25,10 +31,20 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
             TraceData::LazyPattern(_) => todo!(),
             TraceData::LazyStmt(data) => Some(self.runtime.eval_ki_repr(data.ki_repr(trace, db)?)),
             TraceData::EagerCallInput(_) => todo!(),
-            TraceData::EagerCall(_) => todo!(),
-            TraceData::EagerExpr(_) => todo!(),
+            TraceData::EagerCall(data) => {
+                // think about it
+                // Some(self.eager_expr_trace_value(data.biological_parent(), pedestal.clone()))
+                todo!()
+            }
+            TraceData::EagerExpr(data) => {
+                // think about it
+                Some(self.eager_expr_trace_value(data.biological_parent(), pedestal.clone()))
+            }
             TraceData::EagerPattern(_) => todo!(),
-            TraceData::EagerStmt(_) => todo!(),
+            TraceData::EagerStmt(data) => {
+                // think about it
+                Some(self.eager_expr_trace_value(data.biological_parent(), pedestal.clone()))
+            }
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
@@ -44,7 +60,8 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         use husky_value_interface::IsValue;
 
         let trace_id = trace.into();
-        match self.eval_trace(trace)? {
+        // TODO panic if `self.eval_trace(trace)` is `None`
+        match self.eval_trace(trace, &pedestal)? {
             KiControlFlow::Continue(value) => {
                 Some(trace_visual_cache.visual(trace_id, pedestal, || {
                     let visual = value.visualize(visual_synchrotron);
