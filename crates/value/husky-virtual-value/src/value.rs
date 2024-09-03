@@ -154,6 +154,8 @@ impl IsValue for Value {
     }
 
     type SlushValue = SlushValue;
+
+    type ThawedValue = Self;
 }
 
 impl PartialEq for Value {

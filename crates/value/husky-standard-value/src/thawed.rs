@@ -17,7 +17,7 @@ use crate::{
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_value_interface::{vm_control_flow::VmControlFlow, IsThawedValue};
 use husky_value_macros::thawed_value_ty;
 use husky_value_protocol::presentation::{EnumUnitValuePresenter, ValuePresentation};
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
@@ -213,6 +213,10 @@ pub enum ThawedValue {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
+}
+
+impl IsThawedValue for ThawedValue {
+    type Value = Value;
 }
 
 impl ThawedValue {
