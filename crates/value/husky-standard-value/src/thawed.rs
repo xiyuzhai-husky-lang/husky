@@ -217,6 +217,10 @@ pub enum ThawedValue {
 
 impl IsThawedValue for ThawedValue {
     type Value = Value;
+
+    fn r#move(&mut self) -> Self {
+        std::mem::replace(self, ThawedValue::Moved)
+    }
 }
 
 impl ThawedValue {

@@ -75,7 +75,6 @@ pub trait IsValue:
 {
     type Exception: IsException;
 
-    fn new_uninit() -> Self;
     // the followings are methods that should be implemented.
     // they are commented out because they would probably be done in a way outside of rust trait system
     // fn from_owned<T>(t: T) -> Self;
@@ -96,7 +95,6 @@ pub trait IsValue:
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;
     fn to_usize(self) -> usize;
-    fn r#move(&mut self) -> Self;
     /// should unreachable if not an option
     fn is_none(self) -> bool;
     /// should unreachable if not an option
@@ -122,6 +120,8 @@ pub trait IsValue:
 
 pub trait IsThawedValue: 'static {
     type Value: IsValue;
+
+    fn r#move(&mut self) -> Self;
 }
 
 pub trait IsFrozenValue: Send + Sync + 'static {

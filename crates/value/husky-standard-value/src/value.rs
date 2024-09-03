@@ -32,9 +32,6 @@ pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 #[derive(Debug)]
 #[repr(u8)]
 pub enum Value {
-    Uninit,
-    Invalid,
-    Moved,
     Unit(()),
     Bool(bool),
     Char(char),
@@ -66,8 +63,6 @@ pub enum Value {
     Leash(&'static dyn ThawedDyn),
     OptionBox(Option<Box<dyn ThawedDyn>>),
     OptionLeash(Option<&'static dyn ThawedDyn>),
-    OptionSizedRef(Option<*const dyn ThawedDyn>),
-    OptionSizedMut(Option<*mut dyn ThawedDyn>),
     EnumUnit {
         index: usize,
         presenter: EnumUnitValuePresenter,
@@ -131,9 +126,6 @@ impl Value {
         T: Boiled,
     {
         match self {
-            Value::Uninit => todo!(),
-            Value::Invalid => todo!(),
-            Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
@@ -175,8 +167,6 @@ impl Value {
             }
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
-            Value::OptionSizedRef(_) => todo!(),
-            Value::OptionSizedMut(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
         }
     }
@@ -228,19 +218,12 @@ impl Value {
 impl IsValue for Value {
     type Exception = Exception;
 
-    fn new_uninit() -> Self {
-        Value::Uninit
-    }
-
     fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
         Value::EnumUnit { index, presenter }
     }
 
     fn share(&'static self) -> Self {
         match *self {
-            Value::Uninit => Value::Uninit,
-            Value::Invalid => Value::Invalid,
-            Value::Moved => Value::Moved,
             Value::Unit(slf) => Value::Unit(slf),
             Value::Bool(slf) => Value::Bool(slf),
             Value::Char(slf) => Value::Char(slf),
@@ -269,8 +252,6 @@ impl IsValue for Value {
             Value::Leash(slf) => Value::Leash(slf),
             Value::OptionBox(ref slf) => Value::OptionLeash(slf.as_ref().map(|v| &**v)), // Clone the boxed option
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
-            Value::OptionSizedRef(slf) => unreachable!("not expecting temporary ref for sharing"),
-            Value::OptionSizedMut(slf) => unreachable!("not expecting temporary mut for sharing"),
             Value::EnumUnit { index, presenter } => Value::EnumUnit { index, presenter },
         }
     }
@@ -301,16 +282,10 @@ impl IsValue for Value {
         }
     }
 
-    fn r#move(&mut self) -> Self {
-        std::mem::replace(self, Value::Moved)
-    }
-
     fn is_none(self) -> bool {
         match self {
             Value::OptionBox(opt) => opt.is_none(),
             Value::OptionLeash(opt) => opt.is_none(),
-            Value::OptionSizedRef(opt) => opt.is_none(),
-            Value::OptionSizedMut(opt) => opt.is_none(),
             Value::Leash(opt) => opt.is_none_dyn(),
             _ => {
                 unreachable!()
@@ -322,8 +297,6 @@ impl IsValue for Value {
         match self {
             Value::OptionBox(opt) => opt.is_some(),
             Value::OptionLeash(opt) => opt.is_some(),
-            Value::OptionSizedRef(opt) => opt.is_some(),
-            Value::OptionSizedMut(opt) => opt.is_some(),
             Value::Leash(opt) => opt.is_some_dyn(),
             _ => unreachable!(),
         }
@@ -356,9 +329,6 @@ impl IsValue for Value {
 
     fn index(self, index: usize) -> Excepted<Self> {
         match self {
-            Value::Uninit => todo!(),
-            Value::Invalid => todo!(),
-            Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
@@ -387,8 +357,6 @@ impl IsValue for Value {
             Value::Leash(slf) => slf.index_leash_dyn(index),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
-            Value::OptionSizedRef(_) => todo!(),
-            Value::OptionSizedMut(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
         }
     }
@@ -399,9 +367,6 @@ impl IsValue for Value {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> ValuePresentation {
         match *self {
-            Value::Uninit => todo!(),
-            Value::Invalid => unreachable!(),
-            Value::Moved => unreachable!(),
             Value::Unit(_) => ValuePresentation::Unit(()),
             Value::Bool(b) => ValuePresentation::Bool(b),
             Value::Char(c) => ValuePresentation::Char(c),
@@ -430,8 +395,6 @@ impl IsValue for Value {
             Value::Leash(value) => value.present_dyn(),
             Value::OptionBox(ref value) => todo!(),
             Value::OptionLeash(_) => todo!(),
-            Value::OptionSizedRef(_) => todo!(),
-            Value::OptionSizedMut(_) => todo!(),
             Value::EnumUnit { index, presenter } => {
                 presenter(index, cache, value_presentation_synchrotron)
             }
@@ -441,9 +404,6 @@ impl IsValue for Value {
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         use husky_visual_protocol::visualize::Visualize;
         match *self {
-            Value::Uninit => todo!(),
-            Value::Invalid => unreachable!(),
-            Value::Moved => unreachable!(),
             Value::Unit(_) => Visual::Void,
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
@@ -472,8 +432,6 @@ impl IsValue for Value {
             Value::Leash(value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
-            Value::OptionSizedRef(_) => todo!(),
-            Value::OptionSizedMut(_) => todo!(),
             Value::EnumUnit { .. } => Visual::Void,
         }
     }
@@ -484,9 +442,6 @@ impl IsValue for Value {
 
     fn unwrap(self) -> ExceptedValue {
         match self {
-            Value::Uninit => todo!(),
-            Value::Invalid => todo!(),
-            Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
@@ -515,8 +470,6 @@ impl IsValue for Value {
             Value::Leash(slf) => slf.unwrap_leash_dyn(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
-            Value::OptionSizedRef(_) => todo!(),
-            Value::OptionSizedMut(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
         }
     }
@@ -525,9 +478,6 @@ impl IsValue for Value {
 
     fn freeze(&self) -> Self::FrozenValue {
         match *self {
-            Value::Uninit => todo!(),
-            Value::Moved => FrozenValue::Moved,
-            Value::Invalid => FrozenValue::Invalid,
             Value::Unit(_) => FrozenValue::Unit(()),
             Value::Bool(val) => FrozenValue::Bool(val),
             Value::Char(val) => FrozenValue::Char(val),
@@ -557,8 +507,6 @@ impl IsValue for Value {
             Value::Leash(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
-            Value::OptionSizedRef(_) => todo!(),
-            Value::OptionSizedMut(_) => todo!(),
         }
     }
 
@@ -598,8 +546,6 @@ impl PartialEq for Value {
             (Self::Leash(l0), Self::Leash(r0)) => todo!(),
             (Self::OptionBox(l0), Self::OptionBox(r0)) => todo!(),
             (Self::OptionLeash(l0), Self::OptionLeash(r0)) => todo!(),
-            (Self::OptionSizedRef(l0), Self::OptionSizedRef(r0)) => todo!(),
-            (Self::OptionSizedMut(l0), Self::OptionSizedMut(r0)) => todo!(),
             (Self::EnumUnit { index: l0, .. }, Self::EnumUnit { index: r0, .. }) => l0 == r0,
             _ => unreachable!(),
         }
@@ -632,8 +578,6 @@ impl PartialOrd for Value {
             (Leash(l0), Leash(r0)) => todo!(),
             (OptionBox(l0), OptionBox(r0)) => todo!(),
             (OptionLeash(l0), OptionLeash(r0)) => todo!(),
-            (OptionSizedRef(l0), OptionSizedRef(r0)) => todo!(),
-            (OptionSizedMut(l0), OptionSizedMut(r0)) => todo!(),
             (EnumUnit { index: l0, .. }, EnumUnit { index: r0, .. }) => todo!(),
             _ => unreachable!(),
         }
@@ -805,9 +749,6 @@ impl std::ops::Neg for Value {
 
     fn neg(self) -> Self::Output {
         match self {
-            Value::Uninit => todo!(),
-            Value::Invalid => todo!(),
-            Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
@@ -836,8 +777,6 @@ impl std::ops::Neg for Value {
             Value::Leash(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
-            Value::OptionSizedRef(_) => todo!(),
-            Value::OptionSizedMut(_) => todo!(),
             Value::EnumUnit { index, presenter } => todo!(),
         }
     }
