@@ -1,6 +1,7 @@
-use show::{show_asts, show_asts_mapped_values};
-
-use super::*;
+use crate::{
+    show::{show_asts, show_asts_mapped_values},
+    *,
+};
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]
 pub struct Rank(u8);
