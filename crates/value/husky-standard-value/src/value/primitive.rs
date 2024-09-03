@@ -2,19 +2,13 @@ use super::*;
 
 macro_rules! impl_thawed_for_primitive_ty {
     ($primitive_ty: ty) => {
-        impl Thawed for $primitive_ty {
-            type Frozen = Self;
-
+        impl Immortal for $primitive_ty {
             fn is_copyable() -> bool {
                 true
             }
 
-            fn try_copy(&self) -> Option<ThawedValue> {
+            fn try_copy(&self) -> Option<Value> {
                 Some((*self).into())
-            }
-
-            unsafe fn freeze(&self) -> Self::Frozen {
-                *self
             }
 
             fn serialize_to_value(&self) -> serde_json::Value {
@@ -30,16 +24,16 @@ macro_rules! impl_thawed_for_primitive_ty {
 
 for_all_primitive_tys!(impl_thawed_for_primitive_ty);
 
-impl From<()> for ThawedValue {
+impl From<()> for Value {
     fn from(value: ()) -> Self {
-        ThawedValue::Unit(())
+        Value::Unit(())
     }
 }
 
-impl Into<()> for ThawedValue {
+impl Into<()> for Value {
     fn into(self) -> () {
         match self {
-            ThawedValue::Unit(()) => (),
+            Value::Unit(()) => (),
             _ => {
                 println!("self = {:?}", self);
                 unreachable!()
@@ -48,241 +42,241 @@ impl Into<()> for ThawedValue {
     }
 }
 
-impl From<bool> for ThawedValue {
+impl From<bool> for Value {
     fn from(value: bool) -> Self {
-        ThawedValue::Bool(value)
+        Value::Bool(value)
     }
 }
 
-impl Into<bool> for ThawedValue {
+impl Into<bool> for Value {
     fn into(self) -> bool {
         match self {
-            ThawedValue::Bool(value) => value,
+            Value::Bool(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<u8> for ThawedValue {
+impl From<u8> for Value {
     fn from(value: u8) -> Self {
-        ThawedValue::U8(value)
+        Value::U8(value)
     }
 }
 
-impl Into<u8> for ThawedValue {
+impl Into<u8> for Value {
     fn into(self) -> u8 {
         match self {
-            ThawedValue::U8(value) => value,
+            Value::U8(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<u16> for ThawedValue {
+impl From<u16> for Value {
     fn from(value: u16) -> Self {
-        ThawedValue::U16(value)
+        Value::U16(value)
     }
 }
 
-impl Into<u16> for ThawedValue {
+impl Into<u16> for Value {
     fn into(self) -> u16 {
         match self {
-            ThawedValue::U16(value) => value,
+            Value::U16(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<u32> for ThawedValue {
+impl From<u32> for Value {
     fn from(value: u32) -> Self {
-        ThawedValue::U32(value)
+        Value::U32(value)
     }
 }
 
-impl Into<u32> for ThawedValue {
+impl Into<u32> for Value {
     fn into(self) -> u32 {
         match self {
-            ThawedValue::U32(value) => value,
+            Value::U32(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<u64> for ThawedValue {
+impl From<u64> for Value {
     fn from(value: u64) -> Self {
-        ThawedValue::U64(value)
+        Value::U64(value)
     }
 }
 
-impl Into<u64> for ThawedValue {
+impl Into<u64> for Value {
     fn into(self) -> u64 {
         match self {
-            ThawedValue::U64(value) => value,
+            Value::U64(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<u128> for ThawedValue {
+impl From<u128> for Value {
     fn from(value: u128) -> Self {
-        ThawedValue::U128(value)
+        Value::U128(value)
     }
 }
 
-impl Into<u128> for ThawedValue {
+impl Into<u128> for Value {
     fn into(self) -> u128 {
         match self {
-            ThawedValue::U128(value) => value,
+            Value::U128(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<usize> for ThawedValue {
+impl From<usize> for Value {
     fn from(value: usize) -> Self {
-        ThawedValue::USize(value)
+        Value::USize(value)
     }
 }
 
-impl Into<usize> for ThawedValue {
+impl Into<usize> for Value {
     fn into(self) -> usize {
         match self {
-            ThawedValue::USize(value) => value,
+            Value::USize(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<i8> for ThawedValue {
+impl From<i8> for Value {
     fn from(value: i8) -> Self {
-        ThawedValue::I8(value)
+        Value::I8(value)
     }
 }
 
-impl Into<i8> for ThawedValue {
+impl Into<i8> for Value {
     fn into(self) -> i8 {
         match self {
-            ThawedValue::I8(value) => value,
+            Value::I8(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<i16> for ThawedValue {
+impl From<i16> for Value {
     fn from(value: i16) -> Self {
-        ThawedValue::I16(value)
+        Value::I16(value)
     }
 }
 
-impl Into<i16> for ThawedValue {
+impl Into<i16> for Value {
     fn into(self) -> i16 {
         match self {
-            ThawedValue::I16(value) => value,
+            Value::I16(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<i32> for ThawedValue {
+impl From<i32> for Value {
     fn from(value: i32) -> Self {
-        ThawedValue::I32(value)
+        Value::I32(value)
     }
 }
 
-impl Into<i32> for ThawedValue {
+impl Into<i32> for Value {
     fn into(self) -> i32 {
         match self {
-            ThawedValue::I32(value) => value,
+            Value::I32(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<i64> for ThawedValue {
+impl From<i64> for Value {
     fn from(value: i64) -> Self {
-        ThawedValue::I64(value)
+        Value::I64(value)
     }
 }
 
-impl Into<i64> for ThawedValue {
+impl Into<i64> for Value {
     fn into(self) -> i64 {
         match self {
-            ThawedValue::I64(value) => value,
+            Value::I64(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<i128> for ThawedValue {
+impl From<i128> for Value {
     fn from(value: i128) -> Self {
-        ThawedValue::I128(value)
+        Value::I128(value)
     }
 }
 
-impl Into<i128> for ThawedValue {
+impl Into<i128> for Value {
     fn into(self) -> i128 {
         match self {
-            ThawedValue::I128(value) => value,
+            Value::I128(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<isize> for ThawedValue {
+impl From<isize> for Value {
     fn from(value: isize) -> Self {
-        ThawedValue::ISize(value)
+        Value::ISize(value)
     }
 }
 
-impl Into<isize> for ThawedValue {
+impl Into<isize> for Value {
     fn into(self) -> isize {
         match self {
-            ThawedValue::ISize(value) => value,
+            Value::ISize(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<f32> for ThawedValue {
+impl From<f32> for Value {
     fn from(value: f32) -> Self {
-        ThawedValue::F32(value)
+        Value::F32(value)
     }
 }
 
-impl Into<f32> for ThawedValue {
+impl Into<f32> for Value {
     fn into(self) -> f32 {
         match self {
-            ThawedValue::F32(value) => value,
+            Value::F32(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<f64> for ThawedValue {
+impl From<f64> for Value {
     fn from(value: f64) -> Self {
-        ThawedValue::F64(value)
+        Value::F64(value)
     }
 }
 
-impl Into<f64> for ThawedValue {
+impl Into<f64> for Value {
     fn into(self) -> f64 {
         match self {
-            ThawedValue::F64(value) => value,
+            Value::F64(value) => value,
             _ => unreachable!(),
         }
     }
 }
 
-impl From<char> for ThawedValue {
+impl From<char> for Value {
     fn from(value: char) -> Self {
-        ThawedValue::Char(value)
+        Value::Char(value)
     }
 }
 
-impl Into<char> for ThawedValue {
+impl Into<char> for Value {
     fn into(self) -> char {
         match self {
-            ThawedValue::Char(value) => value,
+            Value::Char(value) => value,
             _ => unreachable!(),
         }
     }

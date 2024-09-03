@@ -1,4 +1,6 @@
 pub mod owned;
+mod primitive;
+mod vec;
 
 use self::owned::*;
 use crate::exception::Excepted;
@@ -60,13 +62,114 @@ pub enum Value {
     Owned(OwnedValue),
     // ad hoc
     /// `~T`
-    Leash(&'static dyn ThawedDyn),
-    OptionBox(Option<Box<dyn ThawedDyn>>),
-    OptionLeash(Option<&'static dyn ThawedDyn>),
+    Leash(&'static dyn ImmortalDyn),
+    OptionBox(Option<Box<dyn ImmortalDyn>>),
+    OptionLeash(Option<&'static dyn ImmortalDyn>),
     EnumUnit {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
+}
+
+pub trait Immortal:
+    Sized + std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+{
+    fn is_copyable() -> bool;
+
+    /// copy if the type is copyable
+    ///
+    /// note that it should always be either some or none for a fixed type
+    fn try_copy(&self) -> Option<Value>;
+
+    fn is_some(&self) -> bool {
+        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
+    }
+
+    fn is_none(&self) -> bool {
+        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
+    }
+
+    fn index_owned(self, index: usize) -> ExceptedValue {
+        panic!(
+            "type `{}` doesn't support indexing owned",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn index_ref<'a>(&'a self, index: usize) -> ExceptedValue {
+        panic!(
+            "type `{}` doesn't support indexing ref",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn index_leash(&'static self, index: usize) -> ExceptedValue {
+        panic!(
+            "type `{}` doesn't support indexing leash",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn unwrap_leash(&'static self) -> ExceptedValue {
+        panic!(
+            "type `{}` doesn't support unwrap",
+            std::any::type_name::<Self>()
+        )
+    }
+
+    fn serialize_to_value(&self) -> serde_json::Value;
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
+}
+pub trait ImmortalDyn:
+    std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+{
+    fn is_some_dyn(&self) -> bool;
+
+    fn is_none_dyn(&self) -> bool;
+    fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue;
+    fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue;
+    fn try_copy_dyn(&self) -> Option<Value>;
+    fn unwrap_leash_dyn(&'static self) -> ExceptedValue;
+    fn present_dyn(&self) -> ValuePresentation;
+    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
+}
+
+impl<T> ImmortalDyn for T
+where
+    T: Immortal,
+{
+    fn try_copy_dyn(&self) -> Option<Value> {
+        todo!()
+    }
+
+    fn unwrap_leash_dyn(&'static self) -> ExceptedValue {
+        todo!()
+    }
+
+    fn is_some_dyn(&self) -> bool {
+        todo!()
+    }
+
+    fn is_none_dyn(&self) -> bool {
+        todo!()
+    }
+
+    fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue {
+        todo!()
+    }
+
+    fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue {
+        todo!()
+    }
+
+    fn present_dyn(&self) -> ValuePresentation {
+        todo!()
+    }
+
+    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+        todo!()
+    }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -96,7 +199,7 @@ impl From<std::convert::Infallible> for Value {
 impl Value {
     pub fn from_owned<T>(t: T) -> Self
     where
-        T: Thawed,
+        T: ImmortalDyn,
     {
         Value::Owned(OwnedValue::upcast_from_owned(t))
     }
@@ -116,64 +219,9 @@ impl Value {
         }
     }
 
-    pub fn from_ref<'a, T>(t: &'a T) -> Self {
-        todo!()
-    }
-
-    #[deprecated(note = "Value is going to be Send Sync, eternal")]
-    pub fn into_ref<'a, T>(self, slush_values: Option<&mut SlushValues>) -> &'a T
-    where
-        T: Boiled,
-    {
-        match self {
-            Value::Unit(_) => todo!(),
-            Value::Bool(_) => todo!(),
-            Value::Char(_) => todo!(),
-            Value::I8(_) => todo!(),
-            Value::I16(_) => todo!(),
-            Value::I32(_) => todo!(),
-            Value::I64(_) => todo!(),
-            Value::I128(_) => todo!(),
-            Value::ISize(_) => todo!(),
-            Value::U8(_) => todo!(),
-            Value::U16(_) => todo!(),
-            Value::U32(_) => todo!(),
-            Value::U64(_) => todo!(),
-            Value::U128(_) => todo!(),
-            Value::USize(_) => todo!(),
-            Value::R8(_) => todo!(),
-            Value::R16(_) => todo!(),
-            Value::R32(_) => todo!(),
-            Value::R64(_) => todo!(),
-            Value::R128(_) => todo!(),
-            Value::RSize(_) => todo!(),
-            Value::F32(_) => todo!(),
-            Value::F64(_) => todo!(),
-            Value::StringLiteral(_) => todo!(),
-            Value::Owned(slf) => {
-                // todo: make the whole function unsafe
-                let t: &T = slf.downcast_as_ref();
-                let t = unsafe { std::mem::transmute(t) };
-                slush_values
-                    .unwrap()
-                    .push(SlushValue::Box(slf.into_inner()));
-                t
-            }
-            Value::Leash(slf) => {
-                let slf: &<T as Boiled>::Thawed = ((slf as &dyn ThawedDyn) as &dyn std::any::Any)
-                    .downcast_ref()
-                    .expect("type id is correct");
-                unsafe { std::mem::transmute(slf) }
-            }
-            Value::OptionBox(_) => todo!(),
-            Value::OptionLeash(_) => todo!(),
-            Value::EnumUnit { .. } => todo!(),
-        }
-    }
-
     pub fn from_leash<T>(t: &'static T) -> Self
     where
-        T: Thawed,
+        T: ImmortalDyn,
     {
         Value::Leash(t)
     }
@@ -184,30 +232,6 @@ impl Value {
             Value::Leash(slf) => (slf as &dyn std::any::Any).downcast_ref().unwrap(),
             _ => unreachable!(),
         }
-    }
-
-    pub fn from_mut<'a, T>(t: &'a mut T) -> Self {
-        todo!()
-    }
-
-    pub fn into_mut<'a, T>(self) -> &'a mut T {
-        todo!()
-    }
-
-    pub fn from_option_ref<'a, T>(t: Option<&'a T>) -> Self {
-        todo!()
-    }
-
-    pub fn into_option_ref<'a, T>(self) -> Option<&'a T> {
-        todo!()
-    }
-
-    pub fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self {
-        todo!()
-    }
-
-    pub fn into_option_mut<'a, T>(self) -> Option<&'a mut T> {
-        todo!()
     }
 
     pub fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
@@ -851,263 +875,5 @@ impl std::ops::Sub for Value {
 impl std::ops::SubAssign for Value {
     fn sub_assign(&mut self, rhs: Self) {
         todo!()
-    }
-}
-
-impl From<()> for Value {
-    fn from(value: ()) -> Self {
-        Value::Unit(())
-    }
-}
-
-impl Into<()> for Value {
-    fn into(self) -> () {
-        match self {
-            Value::Unit(()) => (),
-            _ => {
-                println!("self = {:?}", self);
-                unreachable!()
-            }
-        }
-    }
-}
-
-impl From<bool> for Value {
-    fn from(value: bool) -> Self {
-        Value::Bool(value)
-    }
-}
-
-impl Into<bool> for Value {
-    fn into(self) -> bool {
-        match self {
-            Value::Bool(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<u8> for Value {
-    fn from(value: u8) -> Self {
-        Value::U8(value)
-    }
-}
-
-impl Into<u8> for Value {
-    fn into(self) -> u8 {
-        match self {
-            Value::U8(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<u16> for Value {
-    fn from(value: u16) -> Self {
-        Value::U16(value)
-    }
-}
-
-impl Into<u16> for Value {
-    fn into(self) -> u16 {
-        match self {
-            Value::U16(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<u32> for Value {
-    fn from(value: u32) -> Self {
-        Value::U32(value)
-    }
-}
-
-impl Into<u32> for Value {
-    fn into(self) -> u32 {
-        match self {
-            Value::U32(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<u64> for Value {
-    fn from(value: u64) -> Self {
-        Value::U64(value)
-    }
-}
-
-impl Into<u64> for Value {
-    fn into(self) -> u64 {
-        match self {
-            Value::U64(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<u128> for Value {
-    fn from(value: u128) -> Self {
-        Value::U128(value)
-    }
-}
-
-impl Into<u128> for Value {
-    fn into(self) -> u128 {
-        match self {
-            Value::U128(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<usize> for Value {
-    fn from(value: usize) -> Self {
-        Value::USize(value)
-    }
-}
-
-impl Into<usize> for Value {
-    fn into(self) -> usize {
-        match self {
-            Value::USize(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<i8> for Value {
-    fn from(value: i8) -> Self {
-        Value::I8(value)
-    }
-}
-
-impl Into<i8> for Value {
-    fn into(self) -> i8 {
-        match self {
-            Value::I8(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<i16> for Value {
-    fn from(value: i16) -> Self {
-        Value::I16(value)
-    }
-}
-
-impl Into<i16> for Value {
-    fn into(self) -> i16 {
-        match self {
-            Value::I16(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<i32> for Value {
-    fn from(value: i32) -> Self {
-        Value::I32(value)
-    }
-}
-
-impl Into<i32> for Value {
-    fn into(self) -> i32 {
-        match self {
-            Value::I32(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<i64> for Value {
-    fn from(value: i64) -> Self {
-        Value::I64(value)
-    }
-}
-
-impl Into<i64> for Value {
-    fn into(self) -> i64 {
-        match self {
-            Value::I64(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<i128> for Value {
-    fn from(value: i128) -> Self {
-        Value::I128(value)
-    }
-}
-
-impl Into<i128> for Value {
-    fn into(self) -> i128 {
-        match self {
-            Value::I128(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<isize> for Value {
-    fn from(value: isize) -> Self {
-        Value::ISize(value)
-    }
-}
-
-impl Into<isize> for Value {
-    fn into(self) -> isize {
-        match self {
-            Value::ISize(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<f32> for Value {
-    fn from(value: f32) -> Self {
-        Value::F32(value)
-    }
-}
-
-impl Into<f32> for Value {
-    fn into(self) -> f32 {
-        match self {
-            Value::F32(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<f64> for Value {
-    fn from(value: f64) -> Self {
-        Value::F64(value)
-    }
-}
-
-impl Into<f64> for Value {
-    fn into(self) -> f64 {
-        match self {
-            Value::F64(value) => value,
-            _ => unreachable!(),
-        }
-    }
-}
-
-impl From<char> for Value {
-    fn from(value: char) -> Self {
-        Value::Char(value)
-    }
-}
-
-impl Into<char> for Value {
-    fn into(self) -> char {
-        match self {
-            Value::Char(value) => value,
-            _ => unreachable!(),
-        }
     }
 }

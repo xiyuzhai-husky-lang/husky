@@ -2,6 +2,8 @@
 #![feature(try_trait_v2_residual)]
 pub mod exception;
 pub mod ki_control_flow;
+#[cfg(feature = "ugly")]
+pub mod ugly;
 pub mod vm_control_flow;
 
 use exception::IsException;
@@ -118,10 +120,29 @@ pub trait IsValue:
     type SlushValue;
 }
 
-pub trait IsThawedValue: 'static {
+pub trait IsThawedValue: Sized + 'static {
     type Value: IsValue;
 
     fn r#move(&mut self) -> Self;
+    fn from_str_literal(str_value: Arc<str>) -> Self;
+    fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self;
+    fn to_bool(self) -> bool;
+    fn to_usize(self) -> usize;
+    /// should unreachable if not an option
+    fn is_none(self) -> bool;
+    /// should unreachable if not an option
+    fn is_some(self) -> bool;
+    fn index(self, index: usize) -> Result<Self, <Self::Value as IsValue>::Exception>;
+    fn unwrap(self) -> Result<Self, <Self::Value as IsValue>::Exception>;
+    fn present(
+        &self,
+        value_presenter_cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
+    ) -> ValuePresentation;
+
+    fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
+
+    fn freeze(&self) -> <Self::Value as IsValue>::FrozenValue;
 }
 
 pub trait IsFrozenValue: Send + Sync + 'static {

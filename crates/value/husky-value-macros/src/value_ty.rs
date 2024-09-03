@@ -32,6 +32,7 @@ pub(crate) fn value_ty(
         }
     };
     let value_ty = self_ty(ident, generics);
+    let value_trai = syn::Ident::new("Immortal", ident.span());
     let from_value_trai = syn::Ident::new("FromValue", ident.span());
     let into_value_trai = syn::Ident::new("IntoValue", ident.span());
     let primitive_ty_value_conversions = [
@@ -113,36 +114,6 @@ pub(crate) fn value_ty(
             }
         }
 
-        // repeat the above code with type u8 replaced by u8~u128,usize, i8~i128,isze
-
-
-        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp __T where __T: Boiled {
-            fn from_value_aux(value: #value_ty, slush_values: Option<&mut SlushValues>) -> Self {
-                value.into_ref(slush_values)
-            }
-        }
-
-        impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp __T where __T: Boiled {
-            fn into_value(self) -> #value_ty {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp __T")
-            }
-        }
-
-        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut __T where __T: Boiled {
-            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut __T")
-            }
-        }
-
-        impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp mut __T where __T: Boiled {
-            fn into_value(self) -> #value_ty {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp mut __T")
-            }
-        }
-
         impl #generics_with_t #from_value_trai for Option<__T> where __T: Boiled {
             fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
@@ -190,37 +161,9 @@ pub(crate) fn value_ty(
             }
         }
 
-        impl #generics_with_t #into_value_trai for Vec<__T> where __T: Thawed {
+        impl #generics_with_t #into_value_trai for Vec<__T> where __T: #value_trai {
             fn into_value(self) -> #value_ty {
                 #value_ty::from_owned(self)
-            }
-        }
-
-        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp [__T] where __T: Boiled {
-            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp [__T]")
-            }
-        }
-
-        impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp [__T] where __T: Boiled {
-            fn into_value(self) -> #value_ty {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp [__T]")
-            }
-        }
-
-        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut [__T] where __T: Boiled {
-            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut [__T]")
-            }
-        }
-
-        impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp mut [__T] where __T: Boiled {
-            fn into_value(self) -> #value_ty {
-                println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t #into_value_trai for &'__temp mut [__T]")
             }
         }
 
