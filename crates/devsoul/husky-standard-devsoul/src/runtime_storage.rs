@@ -39,9 +39,6 @@ pub struct StandardDevRuntimeStorage {
     >,
 }
 
-// TODO ad hoc
-unsafe impl Send for StandardDevRuntimeStorage {}
-
 // ad hoc
 type ValVersionStamp = ();
 

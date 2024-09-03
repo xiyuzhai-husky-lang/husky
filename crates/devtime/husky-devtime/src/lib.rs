@@ -69,9 +69,6 @@ pub struct Devtime<Devsoul: IsDevsoul> {
     >,
 }
 
-// TODO ad hoc
-unsafe impl<Devsoul: IsDevsoul> Send for Devtime<Devsoul> {}
-
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     pub fn new(
         target_crate: &Path,
