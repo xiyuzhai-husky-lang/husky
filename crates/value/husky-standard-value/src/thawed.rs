@@ -8,6 +8,8 @@ mod str;
 mod tuple;
 pub mod vec;
 
+use std::{cmp::Ordering, convert::Infallible};
+
 use super::*;
 use crate::{
     exception::Excepted,
@@ -15,6 +17,7 @@ use crate::{
     slush::{SlushValue, SlushValues},
     *,
 };
+use frozen::FrozenValue;
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
@@ -270,7 +273,46 @@ impl IsThawedValue for ThawedValue {
     }
 
     fn freeze(&self) -> <Self::Value as husky_value::IsValue>::FrozenValue {
-        todo!()
+        match *self {
+            ThawedValue::Uninit => todo!(),
+            ThawedValue::Invalid => todo!(),
+            ThawedValue::Moved => todo!(),
+            ThawedValue::Unit(_) => FrozenValue::Unit(()),
+            ThawedValue::Bool(val) => FrozenValue::Bool(val),
+            ThawedValue::Char(val) => FrozenValue::Char(val),
+            ThawedValue::I8(val) => FrozenValue::I8(val),
+            ThawedValue::I16(val) => FrozenValue::I16(val),
+            ThawedValue::I32(val) => FrozenValue::I32(val),
+            ThawedValue::I64(val) => FrozenValue::I64(val),
+            ThawedValue::I128(val) => FrozenValue::I128(val),
+            ThawedValue::ISize(val) => FrozenValue::ISize(val),
+            ThawedValue::U8(val) => FrozenValue::U8(val),
+            ThawedValue::U16(val) => FrozenValue::U16(val),
+            ThawedValue::U32(val) => FrozenValue::U32(val),
+            ThawedValue::U64(val) => FrozenValue::U64(val),
+            ThawedValue::U128(val) => FrozenValue::U128(val),
+            ThawedValue::USize(val) => FrozenValue::USize(val),
+            ThawedValue::R8(val) => FrozenValue::R8(val),
+            ThawedValue::R16(val) => FrozenValue::R16(val),
+            ThawedValue::R32(val) => FrozenValue::R32(val),
+            ThawedValue::R64(val) => FrozenValue::R64(val),
+            ThawedValue::R128(val) => FrozenValue::R128(val),
+            ThawedValue::RSize(val) => FrozenValue::RSize(val),
+            ThawedValue::F32(val) => FrozenValue::F32(val),
+            ThawedValue::F64(val) => FrozenValue::F64(val),
+            ThawedValue::StringLiteral(id) => FrozenValue::StringLiteral(id),
+            ThawedValue::EnumUnit { index, presenter } => {
+                FrozenValue::EnumUsize { index, presenter }
+            }
+            ThawedValue::Owned(ref slf) => todo!(),
+            ThawedValue::Leash(_) => todo!(),
+            ThawedValue::Ref(_) => todo!(),
+            ThawedValue::Mut(_) => todo!(),
+            ThawedValue::OptionBox(_) => todo!(),
+            ThawedValue::OptionLeash(_) => todo!(),
+            ThawedValue::OptionSizedRef(_) => todo!(),
+            ThawedValue::OptionSizedMut(_) => todo!(),
+        }
     }
 }
 
@@ -356,6 +398,280 @@ impl ThawedValue {
     }
 }
 
+impl PartialEq for ThawedValue {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Unit(l0), Self::Unit(r0)) => l0 == r0,
+            (Self::Bool(l0), Self::Bool(r0)) => l0 == r0,
+            (Self::Char(l0), Self::Char(r0)) => l0 == r0,
+            (Self::I8(l0), Self::I8(r0)) => l0 == r0,
+            (Self::I16(l0), Self::I16(r0)) => l0 == r0,
+            (Self::I32(l0), Self::I32(r0)) => l0 == r0,
+            (Self::I64(l0), Self::I64(r0)) => l0 == r0,
+            (Self::I128(l0), Self::I128(r0)) => l0 == r0,
+            (Self::ISize(l0), Self::ISize(r0)) => l0 == r0,
+            (Self::U8(l0), Self::U8(r0)) => l0 == r0,
+            (Self::U16(l0), Self::U16(r0)) => l0 == r0,
+            (Self::U32(l0), Self::U32(r0)) => l0 == r0,
+            (Self::U64(l0), Self::U64(r0)) => l0 == r0,
+            (Self::U128(l0), Self::U128(r0)) => l0 == r0,
+            (Self::USize(l0), Self::USize(r0)) => l0 == r0,
+            (Self::R8(l0), Self::R8(r0)) => l0 == r0,
+            (Self::R16(l0), Self::R16(r0)) => l0 == r0,
+            (Self::R32(l0), Self::R32(r0)) => l0 == r0,
+            (Self::R64(l0), Self::R64(r0)) => l0 == r0,
+            (Self::R128(l0), Self::R128(r0)) => l0 == r0,
+            (Self::RSize(l0), Self::RSize(r0)) => l0 == r0,
+            (Self::F32(l0), Self::F32(r0)) => l0 == r0,
+            (Self::F64(l0), Self::F64(r0)) => l0 == r0,
+            (Self::StringLiteral(l0), Self::StringLiteral(r0)) => todo!(),
+            (Self::Owned(l0), Self::Owned(r0)) => todo!(),
+            (Self::Leash(l0), Self::Leash(r0)) => todo!(),
+            (Self::OptionBox(l0), Self::OptionBox(r0)) => todo!(),
+            (Self::OptionLeash(l0), Self::OptionLeash(r0)) => todo!(),
+            (Self::EnumUnit { index: l0, .. }, Self::EnumUnit { index: r0, .. }) => l0 == r0,
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl PartialOrd for ThawedValue {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        use ThawedValue::*;
+        match (self, other) {
+            (Unit(_), Unit(_)) => Some(Ordering::Equal),
+            (Bool(b1), Bool(b2)) => b1.partial_cmp(b2),
+            (Char(c1), Char(c2)) => c1.partial_cmp(c2),
+            (I8(i1), I8(i2)) => i1.partial_cmp(i2),
+            (I16(i1), I16(i2)) => i1.partial_cmp(i2),
+            (I32(i1), I32(i2)) => i1.partial_cmp(i2),
+            (I64(i1), I64(i2)) => i1.partial_cmp(i2),
+            (I128(i1), I128(i2)) => i1.partial_cmp(i2),
+            (ISize(i1), ISize(i2)) => i1.partial_cmp(i2),
+            (U8(u1), U8(u2)) => u1.partial_cmp(u2),
+            (U16(u1), U16(u2)) => u1.partial_cmp(u2),
+            (U32(u1), U32(u2)) => u1.partial_cmp(u2),
+            (U64(u1), U64(u2)) => u1.partial_cmp(u2),
+            (U128(u1), U128(u2)) => u1.partial_cmp(u2),
+            (USize(u1), USize(u2)) => u1.partial_cmp(u2),
+            (F32(f1), F32(f2)) => f1.partial_cmp(f2),
+            (F64(f1), F64(f2)) => f1.partial_cmp(f2),
+            (StringLiteral(l0), StringLiteral(r0)) => todo!(),
+            (ThawedValue::Owned(l0), ThawedValue::Owned(r0)) => todo!(),
+            (Leash(l0), Leash(r0)) => todo!(),
+            (OptionBox(l0), OptionBox(r0)) => todo!(),
+            (OptionLeash(l0), OptionLeash(r0)) => todo!(),
+            (EnumUnit { index: l0, .. }, EnumUnit { index: r0, .. }) => todo!(),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::Add<ThawedValue> for ThawedValue {
+    type Output = Self;
+
+    fn add(self, rhs: ThawedValue) -> Self::Output {
+        match (self, rhs) {
+            (ThawedValue::I8(a), ThawedValue::I8(b)) => ThawedValue::I8(a + b),
+            (ThawedValue::I16(a), ThawedValue::I16(b)) => ThawedValue::I16(a + b),
+            (ThawedValue::I32(a), ThawedValue::I32(b)) => ThawedValue::I32(a + b),
+            (ThawedValue::I64(a), ThawedValue::I64(b)) => ThawedValue::I64(a + b),
+            (ThawedValue::I128(a), ThawedValue::I128(b)) => ThawedValue::I128(a + b),
+            (ThawedValue::ISize(a), ThawedValue::ISize(b)) => ThawedValue::ISize(a + b),
+            (ThawedValue::U8(a), ThawedValue::U8(b)) => ThawedValue::U8(a + b),
+            (ThawedValue::U16(a), ThawedValue::U16(b)) => ThawedValue::U16(a + b),
+            (ThawedValue::U32(a), ThawedValue::U32(b)) => ThawedValue::U32(a + b),
+            (ThawedValue::U64(a), ThawedValue::U64(b)) => ThawedValue::U64(a + b),
+            (ThawedValue::U128(a), ThawedValue::U128(b)) => ThawedValue::U128(a + b),
+            (ThawedValue::USize(a), ThawedValue::USize(b)) => ThawedValue::USize(a + b),
+            (ThawedValue::R8(a), ThawedValue::R8(b)) => ThawedValue::R8(a + b),
+            (ThawedValue::R16(a), ThawedValue::R16(b)) => ThawedValue::R16(a + b),
+            (ThawedValue::R32(a), ThawedValue::R32(b)) => ThawedValue::R32(a + b),
+            (ThawedValue::R64(a), ThawedValue::R64(b)) => ThawedValue::R64(a + b),
+            (ThawedValue::R128(a), ThawedValue::R128(b)) => ThawedValue::R128(a + b),
+            (ThawedValue::RSize(a), ThawedValue::RSize(b)) => ThawedValue::RSize(a + b),
+            (ThawedValue::F32(a), ThawedValue::F32(b)) => ThawedValue::F32(a + b),
+            (ThawedValue::F64(a), ThawedValue::F64(b)) => ThawedValue::F64(a + b),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::AddAssign<ThawedValue> for ThawedValue {
+    fn add_assign(&mut self, rhs: ThawedValue) {
+        todo!()
+    }
+}
+
+impl std::ops::BitAnd for ThawedValue {
+    type Output = Self;
+
+    fn bitand(self, rhs: Self) -> Self::Output {
+        match (self, rhs) {
+            (ThawedValue::R8(a), ThawedValue::R8(b)) => ThawedValue::R8(a & b),
+            (ThawedValue::R16(a), ThawedValue::R16(b)) => ThawedValue::R16(a & b),
+            (ThawedValue::R32(a), ThawedValue::R32(b)) => ThawedValue::R32(a & b),
+            (ThawedValue::R64(a), ThawedValue::R64(b)) => ThawedValue::R64(a & b),
+            (ThawedValue::R128(a), ThawedValue::R128(b)) => ThawedValue::R128(a & b),
+            (ThawedValue::RSize(a), ThawedValue::RSize(b)) => ThawedValue::RSize(a & b),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::BitAndAssign for ThawedValue {
+    fn bitand_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::BitOr for ThawedValue {
+    type Output = Self;
+
+    fn bitor(self, rhs: Self) -> Self::Output {
+        match (self, rhs) {
+            (ThawedValue::R8(a), ThawedValue::R8(b)) => ThawedValue::R8(a | b),
+            (ThawedValue::R16(a), ThawedValue::R16(b)) => ThawedValue::R16(a | b),
+            (ThawedValue::R32(a), ThawedValue::R32(b)) => ThawedValue::R32(a | b),
+            (ThawedValue::R64(a), ThawedValue::R64(b)) => ThawedValue::R64(a | b),
+            (ThawedValue::R128(a), ThawedValue::R128(b)) => ThawedValue::R128(a | b),
+            (ThawedValue::RSize(a), ThawedValue::RSize(b)) => ThawedValue::RSize(a | b),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::BitOrAssign for ThawedValue {
+    fn bitor_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::BitXor for ThawedValue {
+    type Output = Self;
+
+    fn bitxor(self, rhs: Self) -> Self::Output {
+        todo!()
+    }
+}
+
+impl std::ops::BitXorAssign for ThawedValue {
+    fn bitxor_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::Div for ThawedValue {
+    type Output = Self;
+
+    fn div(self, rhs: Self) -> Self::Output {
+        match (self, rhs) {
+            (ThawedValue::I8(a), ThawedValue::I8(b)) => ThawedValue::I8(a / b),
+            (ThawedValue::I16(a), ThawedValue::I16(b)) => ThawedValue::I16(a / b),
+            (ThawedValue::I32(a), ThawedValue::I32(b)) => ThawedValue::I32(a / b),
+            (ThawedValue::I64(a), ThawedValue::I64(b)) => ThawedValue::I64(a / b),
+            (ThawedValue::I128(a), ThawedValue::I128(b)) => ThawedValue::I128(a / b),
+            (ThawedValue::ISize(a), ThawedValue::ISize(b)) => ThawedValue::ISize(a / b),
+            (ThawedValue::U8(a), ThawedValue::U8(b)) => ThawedValue::U8(a / b),
+            (ThawedValue::U16(a), ThawedValue::U16(b)) => ThawedValue::U16(a / b),
+            (ThawedValue::U32(a), ThawedValue::U32(b)) => ThawedValue::U32(a / b),
+            (ThawedValue::U64(a), ThawedValue::U64(b)) => ThawedValue::U64(a / b),
+            (ThawedValue::U128(a), ThawedValue::U128(b)) => ThawedValue::U128(a / b),
+            (ThawedValue::USize(a), ThawedValue::USize(b)) => ThawedValue::USize(a / b),
+            (ThawedValue::R8(a), ThawedValue::R8(b)) => ThawedValue::R8(a / b),
+            (ThawedValue::R16(a), ThawedValue::R16(b)) => ThawedValue::R16(a / b),
+            (ThawedValue::R32(a), ThawedValue::R32(b)) => ThawedValue::R32(a / b),
+            (ThawedValue::R64(a), ThawedValue::R64(b)) => ThawedValue::R64(a / b),
+            (ThawedValue::R128(a), ThawedValue::R128(b)) => ThawedValue::R128(a / b),
+            (ThawedValue::RSize(a), ThawedValue::RSize(b)) => ThawedValue::RSize(a / b),
+            (ThawedValue::F32(a), ThawedValue::F32(b)) => ThawedValue::F32(a / b),
+            (ThawedValue::F64(a), ThawedValue::F64(b)) => ThawedValue::F64(a / b),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::Mul for ThawedValue {
+    type Output = Self;
+
+    fn mul(self, rhs: Self) -> Self::Output {
+        match (self, rhs) {
+            (ThawedValue::I8(a), ThawedValue::I8(b)) => ThawedValue::I8(a * b),
+            (ThawedValue::I16(a), ThawedValue::I16(b)) => ThawedValue::I16(a * b),
+            (ThawedValue::I32(a), ThawedValue::I32(b)) => ThawedValue::I32(a * b),
+            (ThawedValue::I64(a), ThawedValue::I64(b)) => ThawedValue::I64(a * b),
+            (ThawedValue::I128(a), ThawedValue::I128(b)) => ThawedValue::I128(a * b),
+            (ThawedValue::ISize(a), ThawedValue::ISize(b)) => ThawedValue::ISize(a * b),
+            (ThawedValue::U8(a), ThawedValue::U8(b)) => ThawedValue::U8(a * b),
+            (ThawedValue::U16(a), ThawedValue::U16(b)) => ThawedValue::U16(a * b),
+            (ThawedValue::U32(a), ThawedValue::U32(b)) => ThawedValue::U32(a * b),
+            (ThawedValue::U64(a), ThawedValue::U64(b)) => ThawedValue::U64(a * b),
+            (ThawedValue::U128(a), ThawedValue::U128(b)) => ThawedValue::U128(a * b),
+            (ThawedValue::USize(a), ThawedValue::USize(b)) => ThawedValue::USize(a * b),
+            (ThawedValue::R8(a), ThawedValue::R8(b)) => ThawedValue::R8(a * b),
+            (ThawedValue::R16(a), ThawedValue::R16(b)) => ThawedValue::R16(a * b),
+            (ThawedValue::R32(a), ThawedValue::R32(b)) => ThawedValue::R32(a * b),
+            (ThawedValue::R64(a), ThawedValue::R64(b)) => ThawedValue::R64(a * b),
+            (ThawedValue::R128(a), ThawedValue::R128(b)) => ThawedValue::R128(a * b),
+            (ThawedValue::RSize(a), ThawedValue::RSize(b)) => ThawedValue::RSize(a * b),
+            (ThawedValue::F32(a), ThawedValue::F32(b)) => ThawedValue::F32(a * b),
+            (ThawedValue::F64(a), ThawedValue::F64(b)) => ThawedValue::F64(a * b),
+            _ => unreachable!(),
+        }
+    }
+}
+
+impl std::ops::MulAssign for ThawedValue {
+    fn mul_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl std::ops::Neg for ThawedValue {
+    type Output = Self;
+
+    fn neg(self) -> Self::Output {
+        match self {
+            ThawedValue::Uninit => todo!(),
+            ThawedValue::Invalid => todo!(),
+            ThawedValue::Moved => todo!(),
+            ThawedValue::Unit(_) => todo!(),
+            ThawedValue::Bool(_) => todo!(),
+            ThawedValue::Char(_) => todo!(),
+            ThawedValue::I8(i) => ThawedValue::I8(-i),
+            ThawedValue::I16(i) => ThawedValue::I16(-i),
+            ThawedValue::I32(i) => ThawedValue::I32(-i),
+            ThawedValue::I64(i) => ThawedValue::I64(-i),
+            ThawedValue::I128(i) => ThawedValue::I128(-i),
+            ThawedValue::ISize(i) => ThawedValue::ISize(-i),
+            ThawedValue::U8(_) => todo!(),
+            ThawedValue::U16(_) => todo!(),
+            ThawedValue::U32(_) => todo!(),
+            ThawedValue::U64(_) => todo!(),
+            ThawedValue::U128(_) => todo!(),
+            ThawedValue::USize(_) => todo!(),
+            ThawedValue::R8(_) => todo!(),
+            ThawedValue::R16(_) => todo!(),
+            ThawedValue::R32(_) => todo!(),
+            ThawedValue::R64(_) => todo!(),
+            ThawedValue::R128(_) => todo!(),
+            ThawedValue::RSize(_) => todo!(),
+            ThawedValue::F32(f) => ThawedValue::F32(-f),
+            ThawedValue::F64(f) => ThawedValue::F64(-f),
+            ThawedValue::StringLiteral(_) => todo!(),
+            ThawedValue::Owned(_) => todo!(),
+            ThawedValue::Leash(_) => todo!(),
+            ThawedValue::Ref(_) => todo!(),
+            ThawedValue::Mut(_) => todo!(),
+            ThawedValue::OptionBox(_) => todo!(),
+            ThawedValue::OptionLeash(_) => todo!(),
+            ThawedValue::OptionSizedRef(_) => todo!(),
+            ThawedValue::OptionSizedMut(_) => todo!(),
+            ThawedValue::EnumUnit { index, presenter } => todo!(),
+        }
+    }
+}
+
 impl std::ops::Not for ThawedValue {
     type Output = Self;
 
@@ -424,6 +740,12 @@ impl std::ops::Sub for ThawedValue {
 
 impl std::ops::SubAssign for ThawedValue {
     fn sub_assign(&mut self, rhs: Self) {
+        todo!()
+    }
+}
+
+impl From<Infallible> for ThawedValue {
+    fn from(value: Infallible) -> Self {
         todo!()
     }
 }

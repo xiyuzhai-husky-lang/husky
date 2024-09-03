@@ -1,4 +1,4 @@
-use husky_value::IsValue;
+use husky_value::{IsThawedValue, IsValue};
 use ordered_float::OrderedFloat;
 use std::sync::Arc;
 
@@ -79,6 +79,34 @@ impl LiteralValue {
             LiteralValue::F32(_) => todo!(),
             LiteralValue::F64(_) => todo!(),
             LiteralValue::String(ref str_value) => Value::from_str_literal(str_value.clone()),
+        }
+    }
+
+    pub fn into_thawed_value<ThawedValue: IsThawedValue>(&self) -> ThawedValue {
+        match *self {
+            LiteralValue::Unit(_) => todo!(),
+            LiteralValue::Bool(_) => todo!(),
+            LiteralValue::I8(_) => todo!(),
+            LiteralValue::I16(_) => todo!(),
+            LiteralValue::I32(i) => i.into(),
+            LiteralValue::I64(_) => todo!(),
+            LiteralValue::I128(_) => todo!(),
+            LiteralValue::ISize(_) => todo!(),
+            LiteralValue::U8(_) => todo!(),
+            LiteralValue::U16(_) => todo!(),
+            LiteralValue::U32(_) => todo!(),
+            LiteralValue::U64(_) => todo!(),
+            LiteralValue::U128(_) => todo!(),
+            LiteralValue::USize(_) => todo!(),
+            LiteralValue::R8(_) => todo!(),
+            LiteralValue::R16(_) => todo!(),
+            LiteralValue::R32(_) => todo!(),
+            LiteralValue::R64(_) => todo!(),
+            LiteralValue::R128(_) => todo!(),
+            LiteralValue::RSize(_) => todo!(),
+            LiteralValue::F32(_) => todo!(),
+            LiteralValue::F64(_) => todo!(),
+            LiteralValue::String(ref str_value) => ThawedValue::from_str_literal(str_value.clone()),
         }
     }
 }

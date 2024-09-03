@@ -117,12 +117,69 @@ pub trait IsValue:
     type ThawedValue: IsThawedValue<Value = Self>;
     type FrozenValue: IsFrozenValue<Value = Self>;
 
-    fn freeze(&self) -> Self::FrozenValue;
-
     type SlushValue;
 }
 
-pub trait IsThawedValue: Sized + 'static {
+pub trait IsThawedValue:
+    Sized
+    + PartialEq
+    + PartialOrd
+    + std::ops::Add<Self, Output = Self>
+    + std::ops::AddAssign<Self>
+    + std::ops::BitAnd<Self, Output = Self>
+    + std::ops::BitAndAssign<Self>
+    + std::ops::BitOr<Self, Output = Self>
+    + std::ops::BitOrAssign<Self>
+    + std::ops::BitXor<Self, Output = Self>
+    + std::ops::BitXorAssign<Self>
+    + std::ops::Div<Self, Output = Self>
+    + std::ops::Mul<Self, Output = Self>
+    + std::ops::MulAssign<Self>
+    + std::ops::Neg<Output = Self>
+    + std::ops::Not<Output = Self>
+    + std::ops::Shl<Self, Output = Self>
+    + std::ops::ShlAssign<Self>
+    + std::ops::Shr<Self, Output = Self>
+    + std::ops::ShrAssign<Self>
+    + std::ops::Sub<Self, Output = Self>
+    + std::ops::SubAssign<Self>
+    + From<()>
+    + Into<()>
+    + From<bool>
+    + Into<bool>
+    + From<u8>
+    + Into<u8>
+    + From<u16>
+    + Into<u16>
+    + From<u32>
+    + Into<u32>
+    + From<u64>
+    + Into<u64>
+    + From<u128>
+    + Into<u128>
+    + From<usize>
+    + Into<usize>
+    + From<i8>
+    + Into<i8>
+    + From<i16>
+    + Into<i16>
+    + From<i32>
+    + Into<i32>
+    + From<i64>
+    + Into<i64>
+    + From<i128>
+    + Into<i128>
+    + From<isize>
+    + Into<isize>
+    + From<f32>
+    + Into<f32>
+    + From<f64>
+    + Into<f64>
+    + From<char>
+    + Into<char>
+    + From<std::convert::Infallible>
+    + 'static
+{
     type Value: IsValue;
 
     fn r#move(&mut self) -> Self;
@@ -150,5 +207,10 @@ pub trait IsThawedValue: Sized + 'static {
 pub trait IsFrozenValue: Send + Sync + 'static {
     type Value: IsValue;
 
-    fn thaw(&self) -> (<Self::Value as IsValue>::SlushValue, Self::Value);
+    fn thaw(
+        &self,
+    ) -> (
+        <Self::Value as IsValue>::SlushValue,
+        <Self::Value as IsValue>::ThawedValue,
+    );
 }

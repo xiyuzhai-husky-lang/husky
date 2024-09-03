@@ -1,4 +1,4 @@
-use crate::LinketImplVmControlFlow;
+use crate::LinketImplVmControlFlowThawed;
 use crate::{exception::TrackedException, *};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
@@ -30,7 +30,7 @@ pub trait IsLinketImpl: Send + Sync + Copy + 'static {
         self,
         arguments: Vec<VmArgumentValue<Self>>,
         db: &dyn std::any::Any,
-    ) -> LinketImplVmControlFlow<Self>;
+    ) -> LinketImplVmControlFlowThawed<Self>;
 
     fn enum_index_value_presenter(self) -> EnumUnitValuePresenter;
 
@@ -65,6 +65,8 @@ pub type LinketImplTrackedException<LinketImpl> = TrackedException<
     <LinketImpl as IsLinketImpl>::Pedestal,
 >;
 
+pub type LinketImplThawedValue<LinketImpl> =
+    <<LinketImpl as IsLinketImpl>::Value as IsValue>::ThawedValue;
 pub type LinketImplFrozenValue<LinketImpl> =
     <<LinketImpl as IsLinketImpl>::Value as IsValue>::FrozenValue;
 pub type LinketImplTrackedExceptedValue<LinketImpl> =
@@ -74,6 +76,6 @@ pub type LinketImplTrackedExcepted<LinketImpl, T> =
     Result<T, LinketImplTrackedException<LinketImpl>>;
 
 pub enum VmArgumentValue<LinketImpl: IsLinketImpl> {
-    Simple(LinketImpl::Value),
-    Variadic(Vec<LinketImpl::Value>),
+    Simple(LinketImplThawedValue<LinketImpl>),
+    Variadic(Vec<LinketImplThawedValue<LinketImpl>>),
 }

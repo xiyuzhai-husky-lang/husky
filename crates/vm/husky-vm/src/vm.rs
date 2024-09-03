@@ -1,9 +1,10 @@
 use crate::snapshot::VmSnapshotKey;
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
-use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlow};
+use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlowThawed};
 use husky_linktime::{
     helpers::{
-        LinktimeSlushValue, LinktimeValue, LinktimeVmControlFlow, LinktimeVmControlFlowFrozen,
+        LinktimeSlushValue, LinktimeThawedValue, LinktimeValue, LinktimeVmControlFlow,
+        LinktimeVmControlFlowFrozen,
     },
     IsLinktime,
 };
@@ -25,7 +26,7 @@ use crate::{
 
 pub(crate) struct Vm<'a, Linktime: IsLinktime, VmirStorage: IsVmirStorage<Linktime::LinketImpl>> {
     place_slush_values: Vec<LinktimeSlushValue<Linktime>>,
-    pub(crate) place_values: Vec<LinktimeValue<Linktime>>,
+    pub(crate) place_thawed_values: Vec<LinktimeThawedValue<Linktime>>,
     mode: VmMode,
     expr_records: VmirExprMap<Linktime::LinketImpl, VmRecord<Linktime::LinketImpl>>,
     stmt_records: VmirStmtMap<Linktime::LinketImpl, VmRecord<Linktime::LinketImpl>>,
@@ -71,7 +72,7 @@ where
         Self {
             mode,
             place_slush_values: vec![],
-            place_values,
+            place_thawed_values: place_values,
             expr_records: VmirExprMap::new(vmir_region.vmir_expr_arena()),
             stmt_records: VmirStmtMap::new(vmir_region.vmir_stmt_arena()),
             snapshots: Default::default(),
@@ -92,15 +93,15 @@ where
         vmir_storage: &'a VmirStorage, // used to access others
     ) -> Self {
         let mut place_slush_values: Vec<LinktimeSlushValue<Linktime>> = vec![];
-        let mut place_values: Vec<LinktimeValue<Linktime>> = vec![];
+        let mut place_thawed_values: Vec<LinktimeThawedValue<Linktime>> = vec![];
         for place_frozen_value in snapshot.place_frozen_values() {
-            let (slush_value, value) = place_frozen_value.thaw();
+            let (slush_value, thawed_value) = place_frozen_value.thaw();
             place_slush_values.push(slush_value);
-            place_values.push(value);
+            place_thawed_values.push(thawed_value);
         }
         Self {
             place_slush_values,
-            place_values,
+            place_thawed_values,
             mode,
             expr_records: VmirExprMap::new(vmir_region.vmir_expr_arena()),
             stmt_records: VmirStmtMap::new(vmir_region.vmir_stmt_arena()),
@@ -164,8 +165,8 @@ where
     pub(crate) fn record_expr(
         &mut self,
         expr: VmirExprIdx<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlow<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlow<Linktime::LinketImpl> {
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
         let cf = f(self);
         let frozen_value = cf.freeze();
         self.set_expr_record(expr, frozen_value);
@@ -175,8 +176,8 @@ where
     pub(crate) fn record_stmt(
         &mut self,
         stmt: VmirStmtIdx<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlow<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlow<Linktime::LinketImpl> {
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
         let cf = f(self);
         let frozen_value = cf.freeze();
         self.set_stmt_record(stmt, frozen_value);

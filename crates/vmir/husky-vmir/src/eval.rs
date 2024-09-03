@@ -4,7 +4,10 @@ use crate::{
     stmt::{VmirStmtArena, VmirStmtIdx, VmirStmtIdxRange},
 };
 use husky_linket::template_argument::qual::LinQual;
-use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlow};
+use husky_linket_impl::{
+    linket_impl::{IsLinketImpl, LinketImplThawedValue},
+    LinketImplVmControlFlowThawed,
+};
 use husky_place::place::idx::PlaceIdx;
 
 pub trait EvalVmir<'comptime, LinketImpl: IsLinketImpl> {
@@ -21,32 +24,36 @@ pub trait EvalVmir<'comptime, LinketImpl: IsLinketImpl> {
     fn eval_expr(
         &mut self,
         expr: VmirExprIdx<LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlow<LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl>;
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl>;
 
     /// wrap the inner expression evaluation process, which exclude evalution of subexpressions
     fn eval_expr_itself(
         &mut self,
         expr: VmirExprIdx<LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlow<LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl>;
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl>;
 
     /// wrap the statements evaluation process
     fn eval_stmts(
         &mut self,
         stmts: VmirStmtIdxRange<LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlow<LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl>;
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl>;
 
     /// wrap the statement evaluation process
     fn eval_stmt(
         &mut self,
         stmt: VmirStmtIdx<LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlow<LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl>;
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl>;
 
     /// access place
-    fn access_place(&mut self, place_idx: PlaceIdx, qual: LinQual) -> LinketImpl::Value;
+    fn access_place(
+        &mut self,
+        place_idx: PlaceIdx,
+        qual: LinQual,
+    ) -> LinketImplThawedValue<LinketImpl>;
 
-    fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImpl::Value);
+    fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>);
 }
