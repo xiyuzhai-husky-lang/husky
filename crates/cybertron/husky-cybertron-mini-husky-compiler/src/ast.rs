@@ -88,6 +88,7 @@ pub enum AstData {
     Call {
         /// Index of the caller (e.g., function or array)
         caller: Idx,
+        caller_ident: Option<Ident>,
         /// The left delimiter of the call (e.g., `(`, `[`)
         left_delimiter: LeftDelimiter,
         /// The right delimiter of the call (e.g., `)`, `]`)
