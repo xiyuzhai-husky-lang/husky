@@ -15,6 +15,20 @@ pub fn value_conversion(_args: TokenStream, input: TokenStream) -> TokenStream {
     }
 }
 
+fn impl_immortal_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+    generics
+        .params
+        .iter()
+        .map(|param| match param {
+            syn::GenericParam::Lifetime(_param) => quote! {},
+            syn::GenericParam::Type(param) => quote! {
+                #param: __Immortal + __Serialize
+            },
+            syn::GenericParam::Const(_) => quote! {},
+        })
+        .collect::<proc_macro2::TokenStream>()
+}
+
 fn impl_boiled_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
     generics
         .params
@@ -29,10 +43,7 @@ fn impl_boiled_generic_constraints(generics: &syn::Generics) -> proc_macro2::Tok
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_boiled_assoc_ty_static(
-    ident: &Ident,
-    generics: &syn::Generics,
-) -> proc_macro2::TokenStream {
+fn impl_boiled_assoc_thawed(ident: &Ident, generics: &syn::Generics) -> proc_macro2::TokenStream {
     if generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -69,10 +80,7 @@ fn impl_thawed_generic_constraints(generics: &syn::Generics) -> proc_macro2::Tok
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_thawed_assoc_ty_frozen(
-    ident: &Ident,
-    generics: &syn::Generics,
-) -> proc_macro2::TokenStream {
+fn impl_thawed_assoc_frozen(ident: &Ident, generics: &syn::Generics) -> proc_macro2::TokenStream {
     if generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -109,10 +117,7 @@ fn impl_frozen_generic_constraints(generics: &syn::Generics) -> proc_macro2::Tok
         .collect::<proc_macro2::TokenStream>()
 }
 
-fn impl_frozen_assoc_ty_static(
-    ident: &Ident,
-    generics: &syn::Generics,
-) -> proc_macro2::TokenStream {
+fn impl_frozen_assoc_thawed(ident: &Ident, generics: &syn::Generics) -> proc_macro2::TokenStream {
     if generics.params.is_empty() {
         quote! { #ident }
     } else {
@@ -141,7 +146,7 @@ fn impl_from_value_generic_constraints(generics: &syn::Generics) -> proc_macro2:
             syn::GenericParam::Lifetime(_param) => quote! {},
             syn::GenericParam::Type(param) => quote! {
                 // ad hoc
-                #param: __Boiled<Thawed = #param> + __Thawed
+                #param: __Immortal
             },
             syn::GenericParam::Const(_) => quote! {},
         })
@@ -149,6 +154,40 @@ fn impl_from_value_generic_constraints(generics: &syn::Generics) -> proc_macro2:
 }
 
 fn impl_into_value_generic_constraints(generics: &syn::Generics) -> proc_macro2::TokenStream {
+    generics
+        .params
+        .iter()
+        .map(|param| match param {
+            syn::GenericParam::Lifetime(_param) => quote! {},
+            syn::GenericParam::Type(param) => quote! {
+                // ad hoc
+                #param: __Immortal
+            },
+            syn::GenericParam::Const(_) => quote! {},
+        })
+        .collect::<proc_macro2::TokenStream>()
+}
+
+fn impl_from_thawed_value_generic_constraints(
+    generics: &syn::Generics,
+) -> proc_macro2::TokenStream {
+    generics
+        .params
+        .iter()
+        .map(|param| match param {
+            syn::GenericParam::Lifetime(_param) => quote! {},
+            syn::GenericParam::Type(param) => quote! {
+                // ad hoc
+                #param: __Boiled<Thawed = #param> + __Thawed
+            },
+            syn::GenericParam::Const(_) => quote! {},
+        })
+        .collect::<proc_macro2::TokenStream>()
+}
+
+fn impl_into_thawed_value_generic_constraints(
+    generics: &syn::Generics,
+) -> proc_macro2::TokenStream {
     generics
         .params
         .iter()

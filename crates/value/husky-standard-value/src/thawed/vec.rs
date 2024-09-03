@@ -10,7 +10,7 @@ where
         false
     }
 
-    fn try_copy(&self) -> Option<Value> {
+    fn try_copy(&self) -> Option<ThawedValue> {
         todo!()
     }
 
@@ -18,12 +18,12 @@ where
         todo!()
     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> ExceptedValue {
-        Ok(Value::from_ref(&self[index]))
+    fn index_ref<'a>(&'a self, index: usize) -> ExceptedThawedValue {
+        Ok(ThawedValue::from_ref(&self[index]))
     }
 
-    fn index_leash(&'static self, index: usize) -> ExceptedValue {
-        Ok(Value::from_leash(&self[index]))
+    fn index_leash(&'static self, index: usize) -> ExceptedThawedValue {
+        Ok(ThawedValue::from_leash(&self[index]))
     }
 
     fn serialize_to_value(&self) -> serde_json::Value {

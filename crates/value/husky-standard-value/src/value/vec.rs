@@ -1,18 +1,15 @@
 use super::*;
 
-impl Thawed for &'static str {
-    type Frozen = Self;
-
-    unsafe fn freeze(&self) -> Self::Frozen {
-        todo!()
-    }
-
+impl<T> Immortal for Vec<T>
+where
+    T: Immortal,
+{
     fn is_copyable() -> bool {
-        todo!()
+        false
     }
 
-    fn try_copy(&self) -> Option<ThawedValue> {
-        todo!()
+    fn try_copy(&self) -> Option<Value> {
+        None
     }
 
     fn serialize_to_value(&self) -> serde_json::Value {
