@@ -112,11 +112,16 @@ pub trait IsValue:
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 
     ///# vm
+    type ThawedValue: IsThawedValue<Value = Self>;
     type FrozenValue: IsFrozenValue<Value = Self>;
 
     fn freeze(&self) -> Self::FrozenValue;
 
     type SlushValue;
+}
+
+pub trait IsThawedValue: 'static {
+    type Value: IsValue;
 }
 
 pub trait IsFrozenValue: Send + Sync + 'static {

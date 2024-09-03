@@ -23,6 +23,7 @@ use husky_visual_protocol::{
     visual::{primitive::PrimitiveVisual, Visual},
 };
 use std::cmp::Ordering;
+use thawed::ThawedValue;
 
 pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 
@@ -582,6 +583,8 @@ impl IsValue for Value {
     }
 
     type SlushValue = SlushValue;
+
+    type ThawedValue = ThawedValue;
 }
 
 impl PartialEq for Value {
