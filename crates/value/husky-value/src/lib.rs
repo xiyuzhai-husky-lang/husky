@@ -73,6 +73,8 @@ pub trait IsValue:
     + From<char>
     + Into<char>
     + From<std::convert::Infallible>
+    + Send
+    + Sync
     + 'static
 {
     type Exception: IsException;
