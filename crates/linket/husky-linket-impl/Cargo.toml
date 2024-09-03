@@ -14,7 +14,7 @@ husky-ki-repr-interface.workspace = true
 # protocols
 husky-value-protocol.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
 husky-wild-utils.workspace = true
@@ -27,5 +27,5 @@ husky-core.workspace = true
 ugly = [
     "husky-item-path-interface/ugly",
     "husky-value-protocol/ugly",
-    "husky-value-interface/ugly"
+    "husky-value/ugly"
 ]

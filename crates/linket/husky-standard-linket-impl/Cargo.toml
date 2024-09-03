@@ -26,7 +26,7 @@ husky-linket-impl.workspace = true
 # protocols
 husky-value-protocol.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true
 husky-standard-value.workspace = true
 # utils
 husky-decl-macro-utils.workspace = true
@@ -43,6 +43,6 @@ ugly = [
     "husky-devsoul-interface/ugly",
     "husky-item-path-interface/ugly",
     "husky-value-protocol/ugly",
-    "husky-value-interface/ugly",
+    "husky-value/ugly",
     "husky-standard-value/ugly"
 ]

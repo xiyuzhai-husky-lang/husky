@@ -14,7 +14,7 @@ use crate::pedestal::IsPedestalFull;
 use eval_context::{DevEvalContext, IsDevRuntimeDyn};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiArgumentReprInterface;
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_value::vm_control_flow::VmControlFlow;
 use husky_wild_utils::arb_ref;
 use linket_impl::{IsLinketImpl, LinketImplFrozenValue, LinketImplKiControlFlow};
 

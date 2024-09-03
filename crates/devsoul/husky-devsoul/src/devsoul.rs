@@ -17,7 +17,7 @@ use husky_trace_protocol::{
     server::TraceVisualCache,
     trace_id::TraceId,
 };
-use husky_value_interface::ki_control_flow::KiControlFlow;
+use husky_value::ki_control_flow::KiControlFlow;
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use std::{cell::Cell, convert::Infallible, thread::LocalKey};
 

@@ -8,7 +8,7 @@ use husky_linket_impl::{
     linket_impl::{LinketImplKiControlFlow, VmArgumentValue},
     LinketImplVmControlFlow,
 };
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_value::vm_control_flow::VmControlFlow;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use husky_virtual_value::{exception::Exception, value::Value};
 

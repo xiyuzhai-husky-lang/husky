@@ -8,7 +8,7 @@ use husky_linktime::{
     IsLinktime,
 };
 use husky_place::{place::idx::PlaceIdx, PlaceRegistry};
-use husky_value_interface::IsFrozenValue;
+use husky_value::IsFrozenValue;
 use husky_vmir::{
     eval::EvalVmir,
     expr::{VmirExprIdx, VmirExprMap},
@@ -58,7 +58,7 @@ where
         linktime: &'a Linktime,
         vmir_storage: &'a VmirStorage, // used to access others
     ) -> Self {
-        use husky_value_interface::IsValue;
+        use husky_value::IsValue;
 
         let place_registry = linket
             .place_registry(db)

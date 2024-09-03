@@ -2,7 +2,7 @@ use crate::IsLinktime;
 use husky_linket_impl::{
     linket_impl::IsLinketImpl, LinketImplVmControlFlow, LinketImplVmControlFlowFrozen,
 };
-use husky_value_interface::IsValue;
+use husky_value::IsValue;
 
 pub type LinktimeValue<Linktime> = <<Linktime as IsLinktime>::LinketImpl as IsLinketImpl>::Value;
 pub type LinktimeSlushValue<Linktime> =

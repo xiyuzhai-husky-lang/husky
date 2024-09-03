@@ -19,7 +19,7 @@ use self::jar::VmirJar as Jar;
 use self::tests::*;
 use husky_linket_impl::linket_impl::IsLinketImpl;
 use husky_linktime::IsLinktime;
-use husky_value_interface::IsValue;
+use husky_value::IsValue;
 
 pub(crate) trait ToVmir<LinketImpl: IsLinketImpl>: Copy {
     type Output;

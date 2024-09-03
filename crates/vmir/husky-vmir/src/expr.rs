@@ -11,7 +11,7 @@ use husky_linket_impl::{linket_impl::VmArgumentValue, LinketImplVmControlFlow};
 use husky_literal_value::LiteralValue;
 use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_value::vm_control_flow::VmControlFlow;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
 

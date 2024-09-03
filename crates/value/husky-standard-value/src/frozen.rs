@@ -13,7 +13,7 @@ use crate::thawed::{Thawed, ThawedDyn};
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
-use husky_value_interface::IsFrozenValue;
+use husky_value::IsFrozenValue;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use slush::SlushValue;
 use smallvec::SmallVec;
