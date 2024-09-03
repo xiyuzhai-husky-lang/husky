@@ -1,7 +1,9 @@
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
 use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlow};
 use husky_linktime::{
-    helpers::{LinktimeValue, LinktimeVmControlFlow, LinktimeVmControlFlowFrozen},
+    helpers::{
+        LinktimeSlushValue, LinktimeValue, LinktimeVmControlFlow, LinktimeVmControlFlowFrozen,
+    },
     IsLinktime,
 };
 use husky_place::{place::idx::PlaceIdx, PlaceRegistry};
@@ -16,6 +18,7 @@ use husky_vmir::{
 use crate::history::{VmHistory, VmRecord};
 
 pub(crate) struct Vm<'a, Linktime: IsLinktime, VmirStorage: IsVmirStorage<Linktime::LinketImpl>> {
+    place_slush_values: Vec<LinktimeSlushValue<Linktime>>,
     pub(crate) place_values: Vec<LinktimeValue<Linktime>>,
     mode: VmMode,
     expr_records: VmirExprMap<Linktime::LinketImpl, VmRecord<Linktime::LinketImpl>>,
@@ -60,6 +63,7 @@ where
         }
         Self {
             mode,
+            place_slush_values: vec![],
             place_values,
             expr_records: VmirExprMap::new(vmir_region.vmir_expr_arena()),
             stmt_records: VmirStmtMap::new(vmir_region.vmir_stmt_arena()),

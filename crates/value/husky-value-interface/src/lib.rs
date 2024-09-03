@@ -115,4 +115,6 @@ pub trait IsValue:
     type FrozenValue: Send + Sync;
 
     fn freeze(&self) -> Self::FrozenValue;
+
+    type SlushValue;
 }

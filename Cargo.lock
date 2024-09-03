@@ -5768,6 +5768,7 @@ version = "0.1.0"
 dependencies = [
  "husky-linket",
  "husky-linket-impl",
+ "husky-value-interface",
  "husky-vfs",
  "salsa",
 ]

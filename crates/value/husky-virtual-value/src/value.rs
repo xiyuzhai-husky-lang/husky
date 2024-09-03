@@ -11,7 +11,10 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
 use std::{cmp::Ordering, sync::Arc};
 
-use crate::exception::{ExceptedValue, Exception};
+use crate::{
+    exception::{ExceptedValue, Exception},
+    slush::SlushValue,
+};
 
 #[derive(Debug)]
 pub enum Value {
@@ -149,6 +152,8 @@ impl IsValue for Value {
     fn freeze(&self) -> Self::FrozenValue {
         todo!()
     }
+
+    type SlushValue = SlushValue;
 }
 
 impl PartialEq for Value {
