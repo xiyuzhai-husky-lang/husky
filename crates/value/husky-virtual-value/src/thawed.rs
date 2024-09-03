@@ -1,5 +1,10 @@
 use crate::*;
-use husky_value::IsThawedValue;
+use husky_value::{IsThawedValue, IsValue};
+use husky_value_protocol::presentation::ValuePresentation;
+use husky_value_protocol::presentation::{
+    synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresenterCache,
+};
+use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 use value::Value;
 
 impl IsThawedValue for Value {
@@ -13,10 +18,7 @@ impl IsThawedValue for Value {
         todo!()
     }
 
-    fn from_enum_index(
-        index: usize,
-        presenter: husky_value_protocol::presentation::EnumUnitValuePresenter,
-    ) -> Self {
+    fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
         todo!()
     }
 
@@ -36,30 +38,27 @@ impl IsThawedValue for Value {
         todo!()
     }
 
-    fn index(self, index: usize) -> Result<Self, <Self::Value as husky_value::IsValue>::Exception> {
+    fn index(self, index: usize) -> Result<Self, <Self::Value as IsValue>::Exception> {
         todo!()
     }
 
-    fn unwrap(self) -> Result<Self, <Self::Value as husky_value::IsValue>::Exception> {
+    fn unwrap(self) -> Result<Self, <Self::Value as IsValue>::Exception> {
         todo!()
     }
 
     fn present(
         &self,
-        value_presenter_cache: &mut husky_value_protocol::presentation::ValuePresenterCache,
-        value_presentation_synchrotron: &mut husky_value_protocol::presentation::synchrotron::ValuePresentationSynchrotron,
-    ) -> husky_value_protocol::ugly::__ValuePresentation {
+        value_presenter_cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
+    ) -> ValuePresentation {
         todo!()
     }
 
-    fn visualize(
-        &self,
-        visual_synchrotron: &mut husky_visual_protocol::ugly::__VisualSynchrotron,
-    ) -> husky_visual_protocol::visual::Visual {
+    fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
 
-    fn freeze(&self) -> <Self::Value as husky_value::IsValue>::FrozenValue {
+    fn freeze(&self) -> <Self::Value as IsValue>::FrozenValue {
         todo!()
     }
 }

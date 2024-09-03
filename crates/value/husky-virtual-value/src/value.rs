@@ -2,6 +2,10 @@ mod r#enum;
 mod list;
 mod r#struct;
 
+use crate::{
+    exception::{ExceptedValue, Exception},
+    slush::SlushValue,
+};
 use husky_value::IsValue;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
@@ -10,11 +14,6 @@ use husky_value_protocol::presentation::{
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
 use std::{cmp::Ordering, sync::Arc};
-
-use crate::{
-    exception::{ExceptedValue, Exception},
-    slush::SlushValue,
-};
 
 #[derive(Debug)]
 pub enum Value {
