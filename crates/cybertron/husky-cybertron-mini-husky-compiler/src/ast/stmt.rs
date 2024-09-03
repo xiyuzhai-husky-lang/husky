@@ -49,6 +49,7 @@ fn new_stmt_ast(
             let (pattern, initial_value) = match ast {
                 AstData::Binary {
                     lopd,
+                    lopd_ident,
                     opr: BinaryOpr::Assign,
                     ropd,
                 } => (lopd, Some(ropd)),

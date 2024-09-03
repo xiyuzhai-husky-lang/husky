@@ -91,7 +91,12 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
             calc_ast_repr(tokens, asts, opd, outs);
             format!("{}{}", opr.repr_short(), outs[opd.index()].ast)
         }
-        AstData::Binary { lopd, opr, ropd } => {
+        AstData::Binary {
+            lopd,
+            opr,
+            ropd,
+            lopd_ident,
+        } => {
             calc_ast_repr(tokens, asts, lopd, outs);
             calc_ast_repr(tokens, asts, ropd, outs);
             format!(
@@ -279,7 +284,8 @@ fn show_asts_works() {
                 data: AstData::Binary {
                     lopd: idx!(0),
                     opr: BinaryOpr::Add,
-                    ropd: idx!(2)
+                    ropd: idx!(2),
+                    lopd_ident: None
                 }
             }),
             Some(Ast {

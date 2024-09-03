@@ -54,6 +54,7 @@ pub enum AstData {
     Binary {
         /// Index of the left operand
         lopd: Idx,
+        lopd_ident: Option<Ident>,
         /// Operator in the binary expression (e.g., `+`, `*`)
         opr: BinaryOpr,
         /// Index of the right operand

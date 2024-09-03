@@ -98,6 +98,7 @@ fn populate_role(
                 lopd,
                 opr: BinaryOpr::Assign,
                 ropd,
+                lopd_ident,
             } if lopd == pattern => Some(Role::LetInit { pattern }),
             _ => None,
         },
@@ -106,7 +107,12 @@ fn populate_role(
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => None,
             AstData::Prefix { opr, opd } => todo!(),
-            AstData::Binary { lopd, opr, ropd } => todo!(),
+            AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            } => todo!(),
             AstData::Suffix { opd, opr } => todo!(),
             AstData::Delimited {
                 left_delimiter_idx,
@@ -136,7 +142,12 @@ fn populate_role(
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => None,
             AstData::Prefix { opr, opd } => todo!(),
-            AstData::Binary { lopd, opr, ropd } => todo!(),
+            AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            } => todo!(),
             AstData::Suffix { opd, opr } => todo!(),
             AstData::Delimited {
                 left_delimiter_idx,
@@ -165,7 +176,12 @@ fn populate_role(
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => todo!(),
             AstData::Prefix { opr, opd } => todo!(),
-            AstData::Binary { lopd, opr, ropd } => todo!(),
+            AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            } => todo!(),
             AstData::Suffix { opd, opr } => todo!(),
             AstData::Delimited {
                 left_delimiter_idx,
@@ -198,7 +214,12 @@ fn populate_role(
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => todo!(),
             AstData::Prefix { opr, opd } => todo!(),
-            AstData::Binary { lopd, opr, ropd } => {
+            AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            } => {
                 if opr == BinaryOpr::TypeIs {
                     Some(Role::FnDefnCallFormParameter {
                         fn_ident,
@@ -238,7 +259,12 @@ fn populate_role(
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => todo!(),
             AstData::Prefix { opr, opd } => todo!(),
-            AstData::Binary { lopd, opr, ropd } => {
+            AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            } => {
                 assert_eq!(opr, BinaryOpr::TypeIs);
                 Some(Role::StructField {
                     ty_ident,
