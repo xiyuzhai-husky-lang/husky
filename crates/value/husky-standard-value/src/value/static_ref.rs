@@ -1,19 +1,15 @@
 use super::*;
 
-impl<T> Immortal for Vec<T>
+impl<T> Immortal for &'static T
 where
-    T: Immortal,
+    T: ?Sized + std::fmt::Debug + Sync + RefUnwindSafe,
 {
     fn is_copyable() -> bool {
-        false
+        todo!()
     }
 
     fn try_copy(&self) -> Option<Value> {
-        None
-    }
-
-    fn index_leash(&'static self, index: usize) -> ExceptedValue {
-        Ok(Value::from_leash(&self[index]))
+        todo!()
     }
 
     fn serialize_to_value(&self) -> serde_json::Value {

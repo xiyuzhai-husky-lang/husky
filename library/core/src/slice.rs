@@ -29,7 +29,7 @@ where
 
 impl<T> __Immortal for CyclicSliceLeashed<T>
 where
-    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+    T: __Immortal + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     fn is_copyable() -> bool {
         todo!()
@@ -37,6 +37,10 @@ where
 
     fn try_copy(&self) -> Option<__Value> {
         todo!()
+    }
+
+    fn index_owned(self: Self, index: usize) -> __ExceptedValue {
+        Ok(Leash(self.index_i32(index.try_into().unwrap())).into_value())
     }
 
     fn serialize_to_value(&self) -> __JsonValue {
@@ -115,7 +119,7 @@ where
 
 impl<T> __FromValue for CyclicSliceLeashed<T>
 where
-    T: __Thawed,
+    T: __Immortal,
 {
     fn from_value_aux(value: __Value, _: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
@@ -123,7 +127,7 @@ where
 }
 impl<T> __IntoValue for CyclicSliceLeashed<T>
 where
-    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+    T: __Immortal + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
@@ -162,7 +166,7 @@ impl<T> Copy for CyclicSliceLeashed<T> {}
 
 impl<T> CyclicSliceLeashed<T>
 where
-    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+    T: std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     pub fn new(slice: &'static [T], start: i32, end: i32) -> Self {
         Self { start, end, slice }

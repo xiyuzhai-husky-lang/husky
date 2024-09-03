@@ -77,6 +77,27 @@ where
     }
 }
 
+impl<T> __Immortal for Leash<T>
+where
+    T: __Immortal + std::fmt::Debug + ?Sized + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+{
+    fn is_copyable() -> bool {
+        true
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        Some((*self).into_value())
+    }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
+        todo!()
+    }
+}
+
 impl<T> __Thawed for Leash<T>
 where
     T: __Thawed + std::fmt::Debug + ?Sized + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
