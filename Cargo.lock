@@ -7357,6 +7357,7 @@ dependencies = [
  "husky-vfs",
  "husky-virtual-linktime",
  "husky-vmir",
+ "rustc-hash 2.0.0",
  "salsa",
 ]
 

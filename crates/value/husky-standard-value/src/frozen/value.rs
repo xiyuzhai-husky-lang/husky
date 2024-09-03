@@ -1,4 +1,5 @@
 use super::*;
+use husky_value_interface::IsFrozenValue;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 
 /// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
@@ -49,4 +50,12 @@ pub enum FrozenValue {
     OptionSizedRef(Option<Arc<dyn FrozenDyn>>),
     OptionSizedRefMut(Option<Arc<dyn FrozenDyn>>),
     Intrinsic(Arc<dyn FrozenDyn>),
+}
+
+impl IsFrozenValue for FrozenValue {
+    type Value = Value;
+
+    fn thaw(&self) -> (SlushValue, Value) {
+        todo!()
+    }
 }

@@ -1,5 +1,6 @@
 pub mod eval;
 pub mod history;
+pub mod snapshot;
 #[cfg(test)]
 mod tests;
 pub mod vm;
