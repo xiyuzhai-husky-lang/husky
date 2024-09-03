@@ -16,10 +16,12 @@ use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiArgumentReprInterface;
 use husky_value::vm_control_flow::VmControlFlow;
 use husky_wild_utils::arb_ref;
-use linket_impl::{IsLinketImpl, LinketImplFrozenValue, LinketImplKiControlFlow};
+use linket_impl::{
+    IsLinketImpl, LinketImplFrozenValue, LinketImplKiControlFlow, LinketImplThawedValue,
+};
 
-pub type LinketImplVmControlFlow<LinketImpl, C = <LinketImpl as IsLinketImpl>::Value> =
-    VmControlFlow<C, <LinketImpl as IsLinketImpl>::Value, <LinketImpl as IsLinketImpl>::Exception>;
+pub type LinketImplVmControlFlowThawed<LinketImpl, C = LinketImplThawedValue<LinketImpl>> =
+    VmControlFlow<C, LinketImplThawedValue<LinketImpl>, <LinketImpl as IsLinketImpl>::Exception>;
 pub type LinketImplVmControlFlowFrozen<LinketImpl, C = LinketImplFrozenValue<LinketImpl>> =
     VmControlFlow<C, LinketImplFrozenValue<LinketImpl>, <LinketImpl as IsLinketImpl>::Exception>;
 

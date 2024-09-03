@@ -17,6 +17,7 @@ use husky_value::IsFrozenValue;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use slush::SlushValue;
 use smallvec::SmallVec;
+use thawed::ThawedValue;
 
 pub trait Frozen:
     std::fmt::Debug + Clone + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
@@ -119,7 +120,7 @@ pub enum FrozenValue {
 impl IsFrozenValue for FrozenValue {
     type Value = Value;
 
-    fn thaw(&self) -> (SlushValue, Value) {
+    fn thaw(&self) -> (SlushValue, ThawedValue) {
         todo!()
     }
 }

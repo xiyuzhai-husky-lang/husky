@@ -134,10 +134,6 @@ impl IsValue for Value {
 
     type FrozenValue = Self;
 
-    fn freeze(&self) -> Self::FrozenValue {
-        todo!()
-    }
-
     type SlushValue = SlushValue;
 
     type ThawedValue = Self;
