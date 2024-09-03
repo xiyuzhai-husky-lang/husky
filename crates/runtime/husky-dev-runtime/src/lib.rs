@@ -131,9 +131,9 @@ where
 }
 
 impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsoul> {
-    type StaticSelf = Self;
+    type ThawedSelf = Self;
 
-    unsafe fn cast_to_static_self_static_ref(&self) -> &'static Self::StaticSelf {
+    unsafe fn cast_to_thawed_self_static_ref(&self) -> &'static Self::ThawedSelf {
         &*(unsafe { self as *const _ })
     }
 

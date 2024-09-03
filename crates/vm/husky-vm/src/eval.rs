@@ -16,7 +16,7 @@ where
     Linktime: IsLinktime<LinketImpl = LinketImpl>,
 {
     let vmir_region = vmir_storage.linket_vmir_region(linket, db, linktime)?;
-    let mut vm = vm::Vm::new(
+    let mut vm = vm::Vm::new_fresh(
         linket,
         arguments,
         mode,

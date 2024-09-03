@@ -1,18 +1,22 @@
+//! Devtime doesn't cache values across hot-reloads, as contrary to runtimes.
 #![feature(result_flattening)]
 #![feature(try_trait_v2)]
 pub mod eval;
 mod state;
 #[cfg(test)]
 mod tests;
+mod vm;
 
 pub use husky_trace_protocol::server::IsTracetime;
 
+use dashmap::DashMap;
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::{
     devsoul::IsDevsoul,
     helpers::{
-        DevsoulCaryatid, DevsoulChart, DevsoulFigure, DevsoulStaticVarResult, DevsoulTraceStalk,
+        DevsoulCaryatid, DevsoulChart, DevsoulFigure, DevsoulKiControlFlow, DevsoulStaticVarResult,
+        DevsoulTraceStalk, DevsoulVmControlFlowFrozen,
     },
 };
 use husky_entity_path::path::ItemPathId;
@@ -42,14 +46,31 @@ use husky_visual_protocol::{
     synchrotron::VisualSynchrotron,
     visual::{CompositeVisual, Visual},
 };
+use husky_vm::history::VmHistory;
 use salsa::DebugWithDb;
 use smallvec::{SmallVec, ToSmallVec};
-use std::{path::Path, pin::Pin};
+use std::{path::Path, pin::Pin, sync::Arc};
 use vec_like::SmallVecSet;
 
+// TODO move this to a separator module
 pub struct Devtime<Devsoul: IsDevsoul> {
     runtime: Pin<Box<DevRuntime<Devsoul>>>,
+    // cache histories of eager traces
+    // when hot reload, reset this
+    // TODO benchmark this
+    eager_trace_cache: DashMap<
+        (Trace, Devsoul::Pedestal),
+        Option<
+            Arc<(
+                DevsoulVmControlFlowFrozen<Devsoul>,
+                VmHistory<Devsoul::LinketImpl>,
+            )>,
+        >,
+    >,
 }
+
+// TODO ad hoc
+unsafe impl<Devsoul: IsDevsoul> Send for Devtime<Devsoul> {}
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     pub fn new(
@@ -58,6 +79,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     ) -> VfsResult<Self> {
         Ok(Self {
             runtime: DevRuntime::new(target_crate, runtime_config)?,
+            eager_trace_cache: Default::default(),
         })
     }
 

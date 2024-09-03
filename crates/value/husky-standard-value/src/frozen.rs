@@ -1,175 +1,66 @@
-pub mod mut_frozen;
+mod leash;
+pub mod r#mut;
+mod option;
+mod primitive;
+pub mod r#ref;
+mod ritchie;
+mod str;
+mod tuple;
 pub mod value;
+mod vec;
 
+use super::*;
+use crate::thawed::{Thawed, ThawedDyn};
 use husky_decl_macro_utils::{
     for_all_non_unit_tuple_tys, for_all_primitive_tys, for_all_ritchie_tys,
 };
+use slush::SlushValue;
 use smallvec::SmallVec;
 
-use super::*;
-use crate::r#static::{Static, StaticDyn};
-
-pub trait Frozen: std::fmt::Debug + Clone + RefUnwindSafe + UnwindSafe + 'static {
-    type Static: Static;
-    type Stand: std::any::Any;
+pub trait Frozen:
+    std::fmt::Debug + Clone + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+{
+    type Thawed: Thawed;
+    type Slush: std::any::Any;
 
     /// this function gives back the value snapshoted,
     /// together with a stand so that the value is valid if the stand is not dropped.
     ///
-    /// Returns None if Stand is trivial to save a call of `Box::new`.
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static);
+    /// Returns None if Slush is trivial to save a call of `Box::new`.
+    fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed);
 }
 
-pub trait FrozenDyn: std::fmt::Debug {
+pub trait FrozenDyn: std::fmt::Debug + Send + Sync {
     /// returns a owned type and the stand it needed
-    fn revive_dyn(&self) -> (Option<ValueStand>, Box<dyn StaticDyn>);
-    fn revive_ref_dyn(self: Arc<Self>) -> (ValueStand, *const dyn StaticDyn);
-    fn revive_mut_dyn(&self) -> (ValueStand, *mut dyn StaticDyn);
+    fn thaw_dyn(&self) -> (Option<SlushValue>, Box<dyn ThawedDyn>);
+    fn thaw_ref_dyn(self: Arc<Self>) -> (SlushValue, *const dyn ThawedDyn);
+    fn thaw_mut_dyn(&self) -> (SlushValue, *mut dyn ThawedDyn);
 }
 
 impl<T> FrozenDyn for T
 where
     T: Frozen,
 {
-    fn revive_dyn(&self) -> (Option<ValueStand>, Box<dyn StaticDyn>) {
-        let (stand, static_self) = self.revive();
+    fn thaw_dyn(&self) -> (Option<SlushValue>, Box<dyn ThawedDyn>) {
+        let (stand, thawed_self) = self.thaw();
         (
-            stand.map(|stand| ValueStand::Box(Box::<T::Stand>::new(stand))),
-            Box::<T::Static>::new(static_self),
+            stand.map(|stand| SlushValue::Box(Box::<T::Slush>::new(stand))),
+            Box::<T::Thawed>::new(thawed_self),
         )
     }
 
-    fn revive_ref_dyn(self: Arc<Self>) -> (ValueStand, *const dyn StaticDyn) {
+    fn thaw_ref_dyn(self: Arc<Self>) -> (SlushValue, *const dyn ThawedDyn) {
         todo!()
-        // let slf: *const <Self as Frozen>::Static =
+        // let slf: *const <Self as Frozen>::Thawed =
         //     unsafe { std::mem::transmute(&*self as *const Self) };
-        // (ValueStand::Arc(self), slf)
+        // (SlushValue::Arc(self), slf)
     }
 
-    fn revive_mut_dyn(&self) -> (ValueStand, *mut dyn StaticDyn) {
+    fn thaw_mut_dyn(&self) -> (SlushValue, *mut dyn ThawedDyn) {
         todo!()
         // let mut slf = self.clone();
-        // let slf_mut: *mut <Self as Frozen>::Static =
+        // let slf_mut: *mut <Self as Frozen>::Thawed =
         //     unsafe { std::mem::transmute(&mut slf as *mut Self) };
-        // (ValueStand::Box(Box::new(slf)), slf_mut)
+        // (SlushValue::Box(Box::new(slf)), slf_mut)
     }
 }
-
-impl<T> Frozen for Vec<T>
-where
-    T: Frozen,
-{
-    type Static = Vec<T::Static>;
-
-    type Stand = Vec<T::Stand>;
-
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-        todo!()
-    }
-}
-
-impl<T> Frozen for &'static T
-where
-    T: Static,
-{
-    type Static = Self;
-
-    type Stand = ();
-
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-        (None, *self)
-    }
-}
-
-// maybe impl Frozen for &'static T where T: ?Sized
-impl Frozen for &'static str {
-    type Static = Self;
-
-    type Stand = ();
-
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-        todo!()
-    }
-}
-
-impl<T> Frozen for Option<T>
-where
-    T: Frozen,
-{
-    type Static = Option<T::Static>;
-
-    type Stand = T::Stand;
-
-    fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-        // (None,self.as_ref().map(|t|t.revive()))
-        match self {
-            Some(slf) => {
-                let (stand, revived) = slf.revive();
-                (stand, Some(revived))
-            }
-            None => (None, None),
-        }
-    }
-}
-
-pub enum ValueStand {
-    Box(Box<dyn std::any::Any>),
-    Arc(Arc<dyn FrozenDyn>),
-}
-
-pub type ValueStands = SmallVec<[ValueStand; 8]>;
-
-macro_rules! impl_frozen_for_primitive_ty {
-    ($primitive_ty: ty) => {
-        impl Frozen for $primitive_ty {
-            type Static = Self;
-            type Stand = ();
-
-            fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-                (None, *self)
-            }
-        }
-    };
-}
-
-for_all_primitive_tys!(impl_frozen_for_primitive_ty);
-
-macro_rules! impl_frozen_for_ritchie_ty {
-    (
-        [$($input:ident),*], $output:ident
-    ) => {
-        impl<$($input,)* $output>  Frozen for fn($($input,)*) -> $output
-        where
-            $($input: Static, )*
-            $output: Static, {
-            type Static = Self;
-            type Stand = ();
-
-            fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-                (None, *self)
-            }
-        }
-    };
-}
-
-for_all_ritchie_tys!(impl_frozen_for_ritchie_ty);
-
-macro_rules! impl_frozen_for_tuple_ty {
-    (
-        $($field:ident),*
-    ) => {
-        impl<$($field,)*> Frozen for ($($field,)*)
-        where
-            $($field: Frozen,)*
-        {
-            type Static = ($(<$field as Frozen>::Static,)*);
-            type Stand = ($(<$field as Frozen>::Stand,)*);
-
-            fn revive(&self) -> (Option<Self::Stand>, Self::Static) {
-                todo!()
-            }
-        }
-    };
-}
-
-for_all_non_unit_tuple_tys!(impl_frozen_for_tuple_ty);

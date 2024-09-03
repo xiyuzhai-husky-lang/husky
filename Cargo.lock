@@ -4756,6 +4756,7 @@ dependencies = [
 name = "husky-devtime"
 version = "0.1.0"
 dependencies = [
+ "dashmap 6.0.1",
  "husky-ast",
  "husky-check-utils",
  "husky-coword",
@@ -5767,6 +5768,7 @@ version = "0.1.0"
 dependencies = [
  "husky-linket",
  "husky-linket-impl",
+ "husky-value-interface",
  "husky-vfs",
  "salsa",
 ]
@@ -7355,6 +7357,7 @@ dependencies = [
  "husky-vfs",
  "husky-virtual-linktime",
  "husky-vmir",
+ "rustc-hash 2.0.0",
  "salsa",
 ]
 

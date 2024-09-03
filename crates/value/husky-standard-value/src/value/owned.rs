@@ -1,10 +1,10 @@
 use super::*;
 
 #[derive(Debug)]
-pub struct OwnedValue(Box<dyn StaticDyn>);
+pub struct OwnedValue(Box<dyn ThawedDyn>);
 
 impl std::ops::Deref for OwnedValue {
-    type Target = dyn StaticDyn;
+    type Target = dyn ThawedDyn;
 
     fn deref(&self) -> &Self::Target {
         &*self.0
@@ -18,7 +18,7 @@ impl OwnedValue {
 
     pub(super) fn upcast_from_owned<T>(t: T) -> Self
     where
-        T: Static,
+        T: Thawed,
     {
         Self(Box::<T>::new(t))
     }
@@ -32,22 +32,22 @@ impl OwnedValue {
 
     pub(super) fn downcast_as_ref<T>(&self) -> &T
     where
-        T: WeakStatic,
+        T: Boiled,
     {
         unsafe {
             std::mem::transmute(
-                ((&*self.0 as &dyn StaticDyn) as &dyn std::any::Any)
-                    .downcast_ref::<T::Static>()
+                ((&*self.0 as &dyn ThawedDyn) as &dyn std::any::Any)
+                    .downcast_ref::<T::Thawed>()
                     .unwrap(),
             )
         }
     }
 
-    pub(super) fn into_inner(self) -> Box<dyn StaticDyn> {
+    pub(super) fn into_inner(self) -> Box<dyn ThawedDyn> {
         self.0
     }
 
-    pub(super) fn as_ref(&self) -> &dyn StaticDyn {
+    pub(super) fn as_ref(&self) -> &dyn ThawedDyn {
         &*self.0
     }
 }

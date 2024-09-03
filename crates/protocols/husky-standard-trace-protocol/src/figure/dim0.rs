@@ -158,7 +158,6 @@ impl StandardFigureDim0 {
         cache: &mut ui::visual::cache::VisualUiCache<Ui>,
         ui: &mut Ui,
     ) {
-        // ad hoc
         for plot in &self.plots {
             plot.ui(visual_synchrotron, cache, ui)
         }

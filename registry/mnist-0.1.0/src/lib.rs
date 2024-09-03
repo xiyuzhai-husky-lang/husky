@@ -132,7 +132,7 @@ impl __IsStaticVar<__VarId> for INPUT {
     fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
-    ) -> __StaticVarResult<impl FnOnce() + 'static> {
+    ) -> __ThawedVarResult<impl FnOnce() + 'static> {
         let old = replace_input_id(id.into());
         Ok(move || {
             set_input_id(old);
@@ -183,7 +183,7 @@ impl __IsStaticVar<__VarId> for TASK {
     fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
-    ) -> __StaticVarResult<Box<dyn FnOnce()>> {
+    ) -> __ThawedVarResult<Box<dyn FnOnce()>> {
         todo!()
     }
 

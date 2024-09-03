@@ -3,8 +3,8 @@ pub mod owned;
 use self::owned::*;
 use crate::exception::Excepted;
 use crate::{
-    frozen::{ValueStand, ValueStands},
-    r#static::{Static, StaticDyn},
+    slush::{SlushValue, SlushValues},
+    thawed::{Thawed, ThawedDyn},
     *,
 };
 use frozen::value::FrozenValue;
@@ -62,22 +62,20 @@ pub enum Value {
     Owned(OwnedValue),
     // ad hoc
     /// `~T`
-    Leash(&'static dyn StaticDyn),
+    Leash(&'static dyn ThawedDyn),
     /// `&T` for T Sized
-    Ref(*const dyn StaticDyn),
+    Ref(*const dyn ThawedDyn),
     /// `&mut T` for T Sized
-    Mut(*mut dyn StaticDyn),
-    OptionBox(Option<Box<dyn StaticDyn>>),
-    OptionLeash(Option<&'static dyn StaticDyn>),
-    OptionSizedRef(Option<*const dyn StaticDyn>),
-    OptionSizedMut(Option<*mut dyn StaticDyn>),
+    Mut(*mut dyn ThawedDyn),
+    OptionBox(Option<Box<dyn ThawedDyn>>),
+    OptionLeash(Option<&'static dyn ThawedDyn>),
+    OptionSizedRef(Option<*const dyn ThawedDyn>),
+    OptionSizedMut(Option<*mut dyn ThawedDyn>),
     EnumUnit {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
 }
-
-unsafe impl Send for Value {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct StringLiteralId(NonZeroU32);
@@ -106,7 +104,7 @@ impl From<std::convert::Infallible> for Value {
 impl Value {
     pub fn from_owned<T>(t: T) -> Self
     where
-        T: Static,
+        T: Thawed,
     {
         Value::Owned(OwnedValue::upcast_from_owned(t))
     }
@@ -130,9 +128,9 @@ impl Value {
         todo!()
     }
 
-    pub fn into_ref<'a, T>(self, value_stands: Option<&mut ValueStands>) -> &'a T
+    pub fn into_ref<'a, T>(self, value_stands: Option<&mut SlushValues>) -> &'a T
     where
-        T: WeakStatic,
+        T: Boiled,
     {
         match self {
             Value::Uninit => todo!(),
@@ -168,12 +166,11 @@ impl Value {
                 let t = unsafe { std::mem::transmute(t) };
                 value_stands
                     .unwrap()
-                    .push(ValueStand::Box(slf.into_inner()));
+                    .push(SlushValue::Box(slf.into_inner()));
                 t
             }
             Value::Leash(slf) => {
-                let slf: &<T as WeakStatic>::Static = ((slf as &dyn StaticDyn)
-                    as &dyn std::any::Any)
+                let slf: &<T as Boiled>::Thawed = ((slf as &dyn ThawedDyn) as &dyn std::any::Any)
                     .downcast_ref()
                     .expect("type id is correct");
                 unsafe { std::mem::transmute(slf) }
@@ -190,7 +187,7 @@ impl Value {
 
     pub fn from_leash<T>(t: &'static T) -> Self
     where
-        T: Static,
+        T: Thawed,
     {
         Value::Leash(t)
     }
@@ -543,8 +540,47 @@ impl IsValue for Value {
     type FrozenValue = FrozenValue;
 
     fn freeze(&self) -> Self::FrozenValue {
-        todo!()
+        match *self {
+            Value::Uninit => todo!(),
+            Value::Moved => FrozenValue::Moved,
+            Value::Invalid => FrozenValue::Invalid,
+            Value::Unit(_) => FrozenValue::Unit(()),
+            Value::Bool(val) => FrozenValue::Bool(val),
+            Value::Char(val) => FrozenValue::Char(val),
+            Value::I8(val) => FrozenValue::I8(val),
+            Value::I16(val) => FrozenValue::I16(val),
+            Value::I32(val) => FrozenValue::I32(val),
+            Value::I64(val) => FrozenValue::I64(val),
+            Value::I128(val) => FrozenValue::I128(val),
+            Value::ISize(val) => FrozenValue::ISize(val),
+            Value::U8(val) => FrozenValue::U8(val),
+            Value::U16(val) => FrozenValue::U16(val),
+            Value::U32(val) => FrozenValue::U32(val),
+            Value::U64(val) => FrozenValue::U64(val),
+            Value::U128(val) => FrozenValue::U128(val),
+            Value::USize(val) => FrozenValue::USize(val),
+            Value::R8(val) => FrozenValue::R8(val),
+            Value::R16(val) => FrozenValue::R16(val),
+            Value::R32(val) => FrozenValue::R32(val),
+            Value::R64(val) => FrozenValue::R64(val),
+            Value::R128(val) => FrozenValue::R128(val),
+            Value::RSize(val) => FrozenValue::RSize(val),
+            Value::F32(val) => FrozenValue::F32(val),
+            Value::F64(val) => FrozenValue::F64(val),
+            Value::StringLiteral(id) => FrozenValue::StringLiteral(id),
+            Value::EnumUnit { index, presenter } => FrozenValue::EnumUsize { index, presenter },
+            Value::Owned(ref slf) => todo!(),
+            Value::Leash(_) => todo!(),
+            Value::Ref(_) => todo!(),
+            Value::Mut(_) => todo!(),
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::OptionSizedRef(_) => todo!(),
+            Value::OptionSizedMut(_) => todo!(),
+        }
     }
+
+    type SlushValue = SlushValue;
 }
 
 impl PartialEq for Value {
