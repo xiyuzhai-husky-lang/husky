@@ -7,7 +7,7 @@ use crate::{
     thawed::{Thawed, ThawedDyn},
     *,
 };
-use frozen::value::FrozenValue;
+use frozen::FrozenValue;
 use husky_decl_macro_utils::*;
 #[cfg(feature = "constant")]
 use husky_term_prelude::literal::StringLiteralTokenData;
@@ -128,7 +128,8 @@ impl Value {
         todo!()
     }
 
-    pub fn into_ref<'a, T>(self, value_stands: Option<&mut SlushValues>) -> &'a T
+    #[deprecated(note = "Value is going to be Send Sync, eternal")]
+    pub fn into_ref<'a, T>(self, slush_values: Option<&mut SlushValues>) -> &'a T
     where
         T: Boiled,
     {
@@ -164,7 +165,7 @@ impl Value {
                 // todo: make the whole function unsafe
                 let t: &T = slf.downcast_as_ref();
                 let t = unsafe { std::mem::transmute(t) };
-                value_stands
+                slush_values
                     .unwrap()
                     .push(SlushValue::Box(slf.into_inner()));
                 t

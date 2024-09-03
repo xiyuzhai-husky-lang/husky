@@ -74,7 +74,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             }
 
             impl #generics __FromValue for #self_ty {
-                fn from_value_aux(value: __Value, _value_stands: Option<&mut __SlushValues>) -> Self {
+                fn from_value_aux(value: __Value, _slush_values: Option<&mut __SlushValues>) -> Self {
                     let __Value::EnumUnit { index, .. } = value else {
                         unreachable!()
                     };

@@ -103,7 +103,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                 #[allow(unused_variables)]
                 let mut arguments = arguments.iter();
                 #[allow(unused_variables)]
-                let value_stands = &mut SlushValues::default();
+                let slush_values = &mut SlushValues::default();
                 ki_catch_unwind!(
                     self.1,
                     $({
@@ -112,7 +112,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                             KiArgumentReprInterface::Simple(ki_repr_interface) => {
                                 <$input as FromValue>::from_value_temp(
                                     ctx.eval_ki_repr_interface(ki_repr_interface)?,
-                                    (value_stands)
+                                    (slush_values)
                                 )
                             },
                             KiArgumentReprInterface::Keyed(argument) => todo!("KiArgumentReprInterface::Keyed(argument)"),
@@ -121,7 +121,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                                     ki_repr_interfaces.iter().map(
                                         |&ki_repr_interface| ctx.eval_ki_repr_interface(ki_repr_interface)
                                     ),
-                                    Some(value_stands)
+                                    Some(slush_values)
                                 )?
                             },
                             KiArgumentReprInterface::Branch { .. } => unreachable!(),
@@ -236,7 +236,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 ) = arguments[1] else {
                     unreachable!("expect runtime constants, but got {:?} instead", arguments[1])
                 };
-                let value_stands = &mut SlushValues::default();
+                let slush_values = &mut SlushValues::default();
                 let mut runtime_constants = runtime_constants.iter();
                 ki_catch_unwind2!(
                     self.1,
@@ -246,13 +246,13 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                     },
                     <Target as FromValue>::from_value_temp(
                         ctx.eval_ki_repr_interface(target)?,
-                        value_stands
+                        slush_values
                     ),
                     ($(<$runtime_constant as FromValue>::from_value_temp(
                         ctx.eval_val_runtime_constant(
                             *runtime_constants.next().expect("missing runtime constant")
                         ),
-                        value_stands
+                        slush_values
                     ),)*)
                 )
             }
