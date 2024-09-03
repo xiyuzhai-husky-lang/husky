@@ -1,4 +1,5 @@
 pub mod exception;
+pub mod frozen;
 pub mod slush;
 pub mod value;
 
