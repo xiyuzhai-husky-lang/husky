@@ -34,14 +34,15 @@ fn new_call_ast(
     let (caller, PreAst::Ast(caller_ast)) = pre_ast_nearest_left2.first()? else {
         return None;
     };
-    match caller_ast {
+    let caller_ident = match caller_ast {
         AstData::SeparatedItem { .. }
         | AstData::LetInit { .. }
         | AstData::Return { .. }
         | AstData::Assert { .. }
         | AstData::Defn { .. } => return None,
-        _ => (),
-    }
+        AstData::Ident(ident) => Some(ident),
+        _ => None,
+    };
     let (
         delimited_arguments,
         PreAst::Ast(AstData::Delimited {
@@ -118,6 +119,7 @@ fn new_call_ast(
     }
     Some(AstData::Call {
         caller,
+        caller_ident,
         delimited_arguments,
         left_delimiter,
         right_delimiter,
