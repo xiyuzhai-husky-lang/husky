@@ -33,6 +33,8 @@ pub(crate) fn thawed_value_ty(
         }
     };
     let thawed_value_ty = self_ty(ident, generics);
+    let from_thawed_value_trai = syn::Ident::new("FromThawedValue", ident.span());
+    let into_thawed_value_trai = syn::Ident::new("IntoThawedValue", ident.span());
     let primitive_ty_thawed_value_conversions = [
         "()", "bool", "u8", "u16", "u32", "u64", "u128", "usize", "i8", "i16", "i32", "i64",
         "i128", "isize", "f32", "f64",
@@ -41,13 +43,13 @@ pub(crate) fn thawed_value_ty(
     .map(|ty_str| {
         let ty: proc_macro2::TokenStream = ty_str.parse().unwrap();
         quote! {
-            impl FromThawedValue for #ty {
+            impl #from_thawed_value_trai for #ty {
                 fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                     value.into()
                 }
             }
 
-            impl IntoThawedValue for #ty {
+            impl #into_thawed_value_trai for #ty {
                 fn into_thawed_value(self) -> #thawed_value_ty {
                     self.into()
                 }
@@ -58,7 +60,7 @@ pub(crate) fn thawed_value_ty(
     quote! {
         #item
 
-        pub trait FromThawedValue: Sized {
+        pub trait #from_thawed_value_trai: Sized {
             /// `slush_values` is needed for keeping memory valid when coersing owned ty into ref or ref mut
             fn from_thawed_value_aux(value: #thawed_value_ty, slush_values: Option<&mut SlushValues>) -> Self;
 
@@ -88,25 +90,25 @@ pub(crate) fn thawed_value_ty(
             }
         }
 
-        impl FromThawedValue for #thawed_value_ty {
+        impl #from_thawed_value_trai for #thawed_value_ty {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 value
             }
         }
 
-        pub trait IntoThawedValue: Sized {
+        pub trait #into_thawed_value_trai: Sized {
             fn into_thawed_value(self) -> #thawed_value_ty;
         }
 
         #primitive_ty_thawed_value_conversions
 
-        impl FromThawedValue for &'static str {
+        impl #from_thawed_value_trai for &'static str {
             fn from_thawed_value_aux(value: #thawed_value_ty, slush_values: Option<&mut SlushValues>) -> Self {
                 todo!()
             }
         }
 
-        impl IntoThawedValue for &'static str {
+        impl #into_thawed_value_trai for &'static str {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 todo!()
             }
@@ -115,37 +117,37 @@ pub(crate) fn thawed_value_ty(
         // repeat the above code with type u8 replaced by u8~u128,usize, i8~i128,isze
 
 
-        impl #generics_with_temp_lifetime_and_t FromThawedValue for &'__temp __T where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp __T where __T: Boiled {
             fn from_thawed_value_aux(value: #thawed_value_ty, slush_values: Option<&mut SlushValues>) -> Self {
                 value.into_ref(slush_values)
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp __T where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp __T where __T: Boiled {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp __T")
+                todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp __T")
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t FromThawedValue for &'__temp mut __T where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut __T where __T: Boiled {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t FromThawedValue for &'__temp mut __T")
+                todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut __T")
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp mut __T where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut __T where __T: Boiled {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp mut __T")
+                todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut __T")
             }
         }
 
-        impl #generics_with_t FromThawedValue for Option<__T> where __T: Boiled {
+        impl #generics_with_t #from_thawed_value_trai for Option<__T> where __T: Boiled {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_t FromThawedValue for Option<__T>")
+                todo!("impl #generics_with_t #from_thawed_value_trai for Option<__T>")
             }
 
             /// this is useful for keyed argument,
@@ -155,17 +157,17 @@ pub(crate) fn thawed_value_ty(
             }
         }
 
-        impl #generics_with_t IntoThawedValue for Option<__T> where __T: Boiled {
+        impl #generics_with_t #into_thawed_value_trai for Option<__T> where __T: Boiled {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_t IntoThawedValue for Option<__T>")
+                todo!("impl #generics_with_t #into_thawed_value_trai for Option<__T>")
             }
         }
 
-        impl #generics_with_t FromThawedValue for Vec<__T> where __T: FromThawedValue {
+        impl #generics_with_t #from_thawed_value_trai for Vec<__T> where __T: #from_thawed_value_trai {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_t FromThawedValue for Vec<__T>")
+                todo!("impl #generics_with_t #from_thawed_value_trai for Vec<__T>")
             }
 
             /// this is useful for variadic argument,
@@ -189,57 +191,57 @@ pub(crate) fn thawed_value_ty(
             }
         }
 
-        impl #generics_with_t IntoThawedValue for Vec<__T> where __T: Thawed {
+        impl #generics_with_t #into_thawed_value_trai for Vec<__T> where __T: Thawed {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 #thawed_value_ty::from_owned(self)
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t FromThawedValue for &'__temp [__T] where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp [__T] where __T: Boiled {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t FromThawedValue for &'__temp [__T]")
+                todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp [__T]")
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp [__T] where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp [__T] where __T: Boiled {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp [__T]")
+                todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp [__T]")
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t FromThawedValue for &'__temp mut [__T] where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut [__T] where __T: Boiled {
             fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t FromThawedValue for &'__temp mut [__T]")
+                todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut [__T]")
             }
         }
 
-        impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp mut [__T] where __T: Boiled {
+        impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut [__T] where __T: Boiled {
             fn into_thawed_value(self) -> #thawed_value_ty {
                 println!("__T typename = {}", std::any::type_name::<__T>());
-                todo!("impl #generics_with_temp_lifetime_and_t IntoThawedValue for &'__temp mut [__T]")
+                todo!("impl #generics_with_temp_lifetime_and_t #into_thawed_value_trai for &'__temp mut [__T]")
             }
         }
 
-        impl<C, B> IntoThawedValue for std::ops::ControlFlow<B, C> {
+        impl<C, B> #into_thawed_value_trai for std::ops::ControlFlow<B, C> {
             fn into_thawed_value(self) -> #thawed_value_ty {
-                todo!("impl<C, B> IntoThawedValue for std::ops::ControlFlow<B, C>")
+                todo!("impl<C, B> #into_thawed_value_trai for std::ops::ControlFlow<B, C>")
             }
         }
 
         macro_rules! impl_ritchie_fn_thawed_value_conversion {
             ([$($input: ident),*], $output: ident) => {
-                impl<$($input,)* $output> FromThawedValue for fn($($input,)*) -> $output {
+                impl<$($input,)* $output> #from_thawed_value_trai for fn($($input,)*) -> $output {
                     fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-                        todo!("impl_ritchie_fn_thawed_value_conversion FromThawedValue")
+                        todo!("impl_ritchie_fn_thawed_value_conversion #from_thawed_value_trai")
                     }
                 }
 
-                impl<$($input,)* $output> IntoThawedValue for fn($($input,)*) -> $output {
+                impl<$($input,)* $output> #into_thawed_value_trai for fn($($input,)*) -> $output {
                     fn into_thawed_value(self) -> #thawed_value_ty {
-                        todo!("impl_ritchie_fn_thawed_value_conversion IntoThawedValue")
+                        todo!("impl_ritchie_fn_thawed_value_conversion #into_thawed_value_trai")
                     }
                 }
             };
@@ -249,15 +251,15 @@ pub(crate) fn thawed_value_ty(
 
         macro_rules! impl_non_unit_tuple_thawed_value_conversion {
             ($($field: ident),*) => {
-                impl<$($field,)*> FromThawedValue for ($($field,)*) {
+                impl<$($field,)*> #from_thawed_value_trai for ($($field,)*) {
                     fn from_thawed_value_aux(value: #thawed_value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
-                        todo!("impl_ritchie_fn_thawed_value_conversion FromThawedValue")
+                        todo!("impl_ritchie_fn_thawed_value_conversion #from_thawed_value_trai")
                     }
                 }
 
-                impl<$($field,)*> IntoThawedValue for ($($field,)*) {
+                impl<$($field,)*> #into_thawed_value_trai for ($($field,)*) {
                     fn into_thawed_value(self) -> #thawed_value_ty {
-                        todo!("impl_ritchie_fn_thawed_value_conversion IntoThawedValue")
+                        todo!("impl_ritchie_fn_thawed_value_conversion #into_thawed_value_trai")
                     }
                 }
             };
