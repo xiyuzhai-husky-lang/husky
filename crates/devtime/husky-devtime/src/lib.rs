@@ -5,6 +5,7 @@ pub mod eval;
 mod state;
 #[cfg(test)]
 mod tests;
+mod vm;
 
 pub use husky_trace_protocol::server::IsTracetime;
 
@@ -55,7 +56,7 @@ pub struct Devtime<Devsoul: IsDevsoul> {
     // cache histories of eager traces
     // when hot reload, reset this
     eager_trace_history_cache:
-        FxHashMap<(TraceId, Devsoul::Pedestal), VmHistory<Devsoul::LinketImpl>>,
+        FxHashMap<(Trace, Devsoul::Pedestal), VmHistory<Devsoul::LinketImpl>>,
 }
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
