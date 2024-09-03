@@ -2778,6 +2778,7 @@
         dependencies: [
             "husky-linket",
             "husky-linket-impl",
+            "husky-value-interface",
             "husky-vfs",
             "salsa",
         ],
