@@ -43,6 +43,8 @@ fn calc_symbol_defn(
             Role::FnDefnCallFormParameters(_) => todo!(),
             Role::FnDefnCallFormBody(_) => todo!(),
             Role::StructFields(_) => todo!(),
+            Role::FnDefnCallFormParameter { fn_ident, rank, ty } => todo!(),
+            Role::FnDefnCallFormParameterType { fn_ident, rank } => todo!(),
         },
         AstData::Defn {
             keyword,
