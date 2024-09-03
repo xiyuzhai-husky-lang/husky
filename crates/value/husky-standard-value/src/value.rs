@@ -77,8 +77,6 @@ pub enum Value {
     },
 }
 
-unsafe impl Send for Value {}
-
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct StringLiteralId(NonZeroU32);
 

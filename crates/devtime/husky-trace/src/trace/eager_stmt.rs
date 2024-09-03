@@ -471,6 +471,10 @@ impl EagerStmtTraceData {
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         self.biological_parent.var_deps_expansion(db)
     }
+
+    pub fn biological_parent(&self) -> Trace {
+        self.biological_parent
+    }
 }
 
 struct EagerStmtAssocTraceRegistry<'a> {

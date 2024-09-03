@@ -12,7 +12,7 @@ use std::num::Saturating;
 pub type LinketImplStaticVarResult<LinketImpl, R> =
     StaticVarResult<<<LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::VarId, R>;
 
-pub trait IsLinketImpl: Send + Copy + 'static {
+pub trait IsLinketImpl: Send + Sync + Copy + 'static {
     type Pedestal: IsPedestalFull;
     type Value: IsValue<Exception = Self::Exception>;
     type Exception: IsException;
