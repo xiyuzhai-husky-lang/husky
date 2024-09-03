@@ -42,7 +42,7 @@ pub(crate) fn value_ty(
         let ty: proc_macro2::TokenStream = ty_str.parse().unwrap();
         quote! {
             impl FromValue for #ty {
-                fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+                fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                     value.into()
                 }
             }
@@ -59,8 +59,8 @@ pub(crate) fn value_ty(
         #item
 
         pub trait FromValue: Sized {
-            /// `value_stands` is needed for keeping memory valid when coersing owned ty into ref or ref mut
-            fn from_value_aux(value: #value_ty, value_stands: Option<&mut SlushValues>) -> Self;
+            /// `slush_values` is needed for keeping memory valid when coersing owned ty into ref or ref mut
+            fn from_value_aux(value: #value_ty, slush_values: Option<&mut SlushValues>) -> Self;
 
             /// final
             fn from_value_static(value: #value_ty) -> Self {
@@ -68,8 +68,8 @@ pub(crate) fn value_ty(
             }
 
             /// final
-            fn from_value_temp(value: #value_ty, value_stands: &mut SlushValues) -> Self {
-                Self::from_value_aux(value, Some(value_stands))
+            fn from_value_temp(value: #value_ty, slush_values: &mut SlushValues) -> Self {
+                Self::from_value_aux(value, Some(slush_values))
             }
 
             /// this is useful for keyed argument,
@@ -81,15 +81,15 @@ pub(crate) fn value_ty(
             /// this is useful for variadic argument,
             // only implement this for Vec, SmallVec
             fn from_variadic_values<E>(
-                values: impl Iterator<Item = KiControlFlow<Value, Value, E>>,
-                value_stands: Option<&mut SlushValues>,
-            ) -> KiControlFlow<Self, Value, E> {
+                values: impl Iterator<Item = KiControlFlow<#value_ty, #value_ty, E>>,
+                slush_values: Option<&mut SlushValues>,
+            ) -> KiControlFlow<Self, #value_ty, E> {
                 panic!("can't be constructed from value iter")
             }
         }
 
         impl FromValue for #value_ty {
-            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 value
             }
         }
@@ -101,7 +101,7 @@ pub(crate) fn value_ty(
         #primitive_ty_value_conversions
 
         impl FromValue for &'static str {
-            fn from_value_aux(value: #value_ty, value_stands: Option<&mut SlushValues>) -> Self {
+            fn from_value_aux(value: #value_ty, slush_values: Option<&mut SlushValues>) -> Self {
                 todo!()
             }
         }
@@ -116,8 +116,8 @@ pub(crate) fn value_ty(
 
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp __T where __T: Boiled {
-            fn from_value_aux(value: #value_ty, value_stands: Option<&mut SlushValues>) -> Self {
-                value.into_ref(value_stands)
+            fn from_value_aux(value: #value_ty, slush_values: Option<&mut SlushValues>) -> Self {
+                value.into_ref(slush_values)
             }
         }
 
@@ -129,7 +129,7 @@ pub(crate) fn value_ty(
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut __T where __T: Boiled {
-            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut __T")
             }
@@ -143,7 +143,7 @@ pub(crate) fn value_ty(
         }
 
         impl #generics_with_t FromValue for Option<__T> where __T: Boiled {
-            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t FromValue for Option<__T>")
             }
@@ -163,7 +163,7 @@ pub(crate) fn value_ty(
         }
 
         impl #generics_with_t FromValue for Vec<__T> where __T: FromValue {
-            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_t FromValue for Vec<__T>")
             }
@@ -171,13 +171,13 @@ pub(crate) fn value_ty(
             /// this is useful for variadic argument,
             // only implement this for Vec, SmallVec
             fn from_variadic_values<E>(
-                values: impl Iterator<Item = KiControlFlow<Value, Value, E>>,
-                value_stands: Option<&mut SlushValues>,
-            ) -> KiControlFlow<Self, Value, E> {
-                match value_stands {
-                    Some(value_stands) => values.map(
+                values: impl Iterator<Item = KiControlFlow<#value_ty, #value_ty, E>>,
+                slush_values: Option<&mut SlushValues>,
+            ) -> KiControlFlow<Self, #value_ty, E> {
+                match slush_values {
+                    Some(slush_values) => values.map(
                         |ki_control_flow| ki_control_flow.map(
-                            |v|__T::from_value_temp(v, value_stands)
+                            |v|__T::from_value_temp(v, slush_values)
                         )
                     ).collect(),
                     None => values.map(
@@ -196,7 +196,7 @@ pub(crate) fn value_ty(
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp [__T] where __T: Boiled {
-            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp [__T]")
             }
@@ -210,7 +210,7 @@ pub(crate) fn value_ty(
         }
 
         impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut [__T] where __T: Boiled {
-            fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                 println!("__T typename = {}", std::any::type_name::<__T>());
                 todo!("impl #generics_with_temp_lifetime_and_t FromValue for &'__temp mut [__T]")
             }
@@ -232,7 +232,7 @@ pub(crate) fn value_ty(
         macro_rules! impl_ritchie_fn_value_conversion {
             ([$($input: ident),*], $output: ident) => {
                 impl<$($input,)* $output> FromValue for fn($($input,)*) -> $output {
-                    fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+                    fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                         todo!("impl_ritchie_fn_value_conversion FromValue")
                     }
                 }
@@ -250,7 +250,7 @@ pub(crate) fn value_ty(
         macro_rules! impl_non_unit_tuple_value_conversion {
             ($($field: ident),*) => {
                 impl<$($field,)*> FromValue for ($($field,)*) {
-                    fn from_value_aux(value: #value_ty, _value_stands: Option<&mut SlushValues>) -> Self {
+                    fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
                         todo!("impl_ritchie_fn_value_conversion FromValue")
                     }
                 }

@@ -95,7 +95,7 @@ impl<Label> __FromValue for NarrowDownInternal<Label>
 where
     Label: __Boiled<Thawed = Label> + __Thawed,
 {
-    fn from_value_aux(value: __Value, _value_stands: Option<&mut __SlushValues>) -> Self {
+    fn from_value_aux(value: __Value, _slush_values: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
     }
 }
