@@ -23,7 +23,7 @@ where
     }
 
     fn try_copy(&self) -> Option<__Value> {
-        todo!()
+        Some((*self).into_value())
     }
 
     fn serialize_to_value(&self) -> __JsonValue {

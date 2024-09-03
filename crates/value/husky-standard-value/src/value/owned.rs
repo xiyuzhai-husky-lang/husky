@@ -18,7 +18,7 @@ impl OwnedValue {
 
     pub(super) fn upcast_from_owned<T>(t: T) -> Self
     where
-        T: ImmortalDyn,
+        T: Immortal,
     {
         Self(Box::<T>::new(t))
     }
@@ -28,6 +28,19 @@ impl OwnedValue {
         T: 'static,
     {
         *((self.0 as Box<dyn std::any::Any>).downcast().unwrap())
+    }
+
+    pub(super) fn downcast_as_ref<T>(&self) -> &T
+    where
+        T: Immortal,
+    {
+        unsafe {
+            std::mem::transmute(
+                ((&*self.0 as &dyn ImmortalDyn) as &dyn std::any::Any)
+                    .downcast_ref::<T>()
+                    .unwrap(),
+            )
+        }
     }
 
     pub(super) fn downcast_as_leash<T>(&self) -> &T

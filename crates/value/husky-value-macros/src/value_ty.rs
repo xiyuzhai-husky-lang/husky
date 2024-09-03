@@ -208,6 +208,34 @@ pub(crate) fn value_ty(
         }
 
         for_all_non_unit_tuple_tys! { impl_non_unit_tuple_value_conversion }
+
+        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp __T where __T: #value_trai {
+            fn from_value_aux(value: #value_ty, slush_values: Option<&mut SlushValues>) -> Self {
+                value.into_ref(slush_values)
+            }
+        }
+
+        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut __T where __T: #from_value_trai {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
+                println!("__T typename = {}", std::any::type_name::<__T>());
+                todo!("impl #generics_with_t #from_value_trai for &'temp mut __T")
+            }
+        }
+
+        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp [__T] where __T: #value_trai {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
+                println!("__T typename = {}", std::any::type_name::<__T>());
+                todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp [__T]")
+            }
+        }
+
+        // TODO ad hoc
+        impl #generics_with_temp_lifetime_and_t #from_value_trai for &'__temp mut [__T] where __T: #value_trai {
+            fn from_value_aux(value: #value_ty, _slush_values: Option<&mut SlushValues>) -> Self {
+                println!("__T typename = {}", std::any::type_name::<__T>());
+                todo!("impl #generics_with_temp_lifetime_and_t #from_thawed_value_trai for &'__temp mut [__T]")
+            }
+        }
     }
     .into()
 }

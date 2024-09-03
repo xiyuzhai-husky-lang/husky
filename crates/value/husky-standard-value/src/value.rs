@@ -1,5 +1,9 @@
+mod option;
 pub mod owned;
 mod primitive;
+mod ritchie;
+mod static_ref;
+mod tuple;
 mod vec;
 
 use self::owned::*;
@@ -121,6 +125,7 @@ pub trait Immortal:
 
     fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
+
 pub trait ImmortalDyn:
     std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
 {
@@ -140,27 +145,27 @@ where
     T: Immortal,
 {
     fn try_copy_dyn(&self) -> Option<Value> {
-        todo!()
+        self.try_copy()
     }
 
     fn unwrap_leash_dyn(&'static self) -> ExceptedValue {
-        todo!()
+        self.unwrap_leash()
     }
 
     fn is_some_dyn(&self) -> bool {
-        todo!()
+        self.is_some()
     }
 
     fn is_none_dyn(&self) -> bool {
-        todo!()
+        self.is_none()
     }
 
     fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue {
-        todo!()
+        (*self).index_owned(index)
     }
 
     fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue {
-        todo!()
+        self.index_leash(index)
     }
 
     fn present_dyn(&self) -> ValuePresentation {
@@ -199,7 +204,7 @@ impl From<std::convert::Infallible> for Value {
 impl Value {
     pub fn from_owned<T>(t: T) -> Self
     where
-        T: ImmortalDyn,
+        T: Immortal,
     {
         Value::Owned(OwnedValue::upcast_from_owned(t))
     }
@@ -236,6 +241,56 @@ impl Value {
 
     pub fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
         Value::EnumUnit { index, presenter }
+    }
+
+    pub fn into_ref<'a, T>(self, slush_values: Option<&mut SlushValues>) -> &'a T
+    where
+        T: Immortal,
+    {
+        match self {
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(_) => todo!(),
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+            Value::Owned(slf) => {
+                // todo: make the whole function unsafe
+                let t: &T = slf.downcast_as_ref();
+                let t = unsafe { std::mem::transmute(t) };
+                slush_values
+                    .unwrap()
+                    .push(SlushValue::Box(slf.into_inner()));
+                t
+            }
+            Value::Leash(slf) => {
+                let slf: &T = ((slf as &dyn ImmortalDyn) as &dyn std::any::Any)
+                    .downcast_ref()
+                    .expect("type id is correct");
+                unsafe { std::mem::transmute(slf) }
+            }
+            Value::OptionBox(_) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::EnumUnit { .. } => todo!(),
+        }
     }
 }
 
@@ -415,7 +470,7 @@ impl IsValue for Value {
             Value::F32(f) => ValuePresentation::F32(f.into()),
             Value::F64(f) => ValuePresentation::F64(f.into()),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(ref value) => value.present_dyn(),
+            Value::Owned(ref value) => (**value).present_dyn(),
             Value::Leash(value) => value.present_dyn(),
             Value::OptionBox(ref value) => todo!(),
             Value::OptionLeash(_) => todo!(),
@@ -452,7 +507,7 @@ impl IsValue for Value {
             Value::F32(f) => f.visualize(visual_synchrotron),
             Value::F64(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
-            Value::Owned(ref value) => value.visualize_or_void_dyn(visual_synchrotron),
+            Value::Owned(ref value) => (**value).visualize_or_void_dyn(visual_synchrotron),
             Value::Leash(value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),

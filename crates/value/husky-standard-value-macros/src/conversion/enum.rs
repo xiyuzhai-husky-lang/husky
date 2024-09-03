@@ -150,6 +150,25 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             #[serde(crate = "self::serde")]
             #item
 
+            impl #generics __Immortal for #self_ty where #impl_boiled_generic_constraints {
+                fn is_copyable() -> bool {
+                    todo!()
+                }
+
+                fn try_copy(&self) -> Option<__Value> {
+                    todo!()
+                }
+
+                fn serialize_to_value(&self) -> __JsonValue {
+                    __to_json_value(self).unwrap()
+                }
+
+                fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+                    // ad hoc
+                    __Visual::Void
+                }
+            }
+
             impl #generics __Boiled for #self_ty where #impl_boiled_generic_constraints {
                 type Thawed = #impl_boiled_assoc_ty_static;
 
@@ -213,7 +232,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
             }
 
             impl #generics __IntoThawedValue for #self_ty where #impl_into_thawed_value_generic_constraints {
-                fn into_value(self) -> __ThawedValue {
+                fn into_thawed_value(self) -> __ThawedValue {
                     __ThawedValue::from_owned(self)
                 }
             }
