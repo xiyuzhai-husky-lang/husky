@@ -35,4 +35,4 @@ husky-trace-protocol.workspace = true
 husky-standard-trace-protocol.workspace = true
 husky-visual-protocol.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true

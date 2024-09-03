@@ -5,7 +5,7 @@ use std::{
 
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
-use husky_value_interface::ki_control_flow::KiControlFlow;
+use husky_value::ki_control_flow::KiControlFlow;
 
 use crate::linket_impl::{
     IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue,

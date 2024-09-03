@@ -14,7 +14,7 @@ macro_rules! impl_thawed_for_ritchie_ty {
                 todo!()
             }
 
-            fn try_copy(&self) -> Option<Value> {
+            fn try_copy(&self) -> Option<ThawedValue> {
                 todo!()
             }
 

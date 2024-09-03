@@ -128,8 +128,6 @@ macro_rules! enum_variant_discriminator_linket_impl {
                         $variant_path
                     )
                 }
-                Value::Ref(owner) => todo!("enum_props_variant_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("enum_props_variant_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }
@@ -154,8 +152,6 @@ macro_rules! enum_variant_discriminator_linket_impl {
                         $variant_path { .. }
                     )
                 }
-                Value::Ref(owner) => todo!("enum_props_variant_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("enum_props_variant_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }
@@ -177,8 +173,6 @@ macro_rules! enum_variant_discriminator_linket_impl {
                         $variant_path(..)
                     )
                 }
-                Value::Ref(owner) => todo!("enum_tuple_variant_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("enum_tuple_variant_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }
@@ -239,8 +233,6 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     class_specific_leashed_field_into_value!($class $field)
                 }
-                Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }
@@ -266,8 +258,6 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     class_specific_leashed_field_into_value!($class v0)
                 }
-                Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }
@@ -293,8 +283,6 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     class_specific_leashed_field_into_value!($class v1)
                 }
-                Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }
@@ -321,8 +309,6 @@ macro_rules! enum_variant_field_linket_impl {
                     };
                     class_specific_leashed_field_into_value!($class v2)
                 }
-                Value::Ref(owner) => todo!("enum_variant_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("enum_variant_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }

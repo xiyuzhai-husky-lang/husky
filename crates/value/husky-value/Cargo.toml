@@ -1,5 +1,5 @@
 [package]
-name = "husky-value-interface"
+name = "husky-value"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

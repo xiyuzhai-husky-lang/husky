@@ -9,7 +9,7 @@ pub mod vm;
 use self::tests::*;
 use husky_linket::linket::Linket;
 use husky_linket::template_argument::qual::LinQual;
-use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlow};
+use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlowThawed};
 use husky_linktime::IsLinktime;
 use husky_place::place::idx::PlaceIdx;
 use husky_place::PlaceRegistry;

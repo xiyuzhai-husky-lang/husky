@@ -37,7 +37,7 @@ use husky_trace_protocol::{
     var_id::VarIdPresentation,
     windlass::Windlass,
 };
-use husky_value_interface::ki_control_flow::KiControlFlow;
+use husky_value::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, ValuePresenterCache,
 };
@@ -68,9 +68,6 @@ pub struct Devtime<Devsoul: IsDevsoul> {
         >,
     >,
 }
-
-// TODO ad hoc
-unsafe impl<Devsoul: IsDevsoul> Send for Devtime<Devsoul> {}
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
     pub fn new(

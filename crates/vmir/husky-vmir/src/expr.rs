@@ -7,11 +7,11 @@ use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArg
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
-use husky_linket_impl::{linket_impl::VmArgumentValue, LinketImplVmControlFlow};
+use husky_linket_impl::{linket_impl::VmArgumentValue, LinketImplVmControlFlowThawed};
 use husky_literal_value::LiteralValue;
 use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_value::vm_control_flow::VmControlFlow;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
 
@@ -430,7 +430,7 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
         self,
         coercion: impl Into<Option<VmirCoercion>>,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl> {
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         let value = ctx.eval_expr(self, |ctx| self.eval_aux(ctx))?;
         VmControlFlow::Continue(match coercion.into() {
             Some(coercion) => match coercion {
@@ -447,11 +447,11 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
     fn eval_aux<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl> {
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         use VmControlFlow::*;
 
         match *self.entry(ctx.vmir_expr_arena()) {
-            VmirExprData::Literal { ref value } => Continue(value.into_value()),
+            VmirExprData::Literal { ref value } => Continue(value.into_thawed_value()),
             VmirExprData::Variable { place_idx, qual } => {
                 Continue(ctx.access_place(place_idx, qual))
             }
@@ -502,7 +502,10 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 let arguments = arguments
                     .iter()
                     .map(
-                        |arg| -> LinketImplVmControlFlow<LinketImpl, VmArgumentValue<LinketImpl>> {
+                        |arg| -> LinketImplVmControlFlowThawed<
+                            LinketImpl,
+                            VmArgumentValue<LinketImpl>,
+                        > {
                             match arg {
                                 VmirArgument::SelfValue { expr } => todo!(),
                                 VmirArgument::Simple { expr, coercion } => todo!(),

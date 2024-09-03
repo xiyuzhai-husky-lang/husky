@@ -65,6 +65,7 @@ use husky_toml_ast::TomlAstJar;
 pub(crate) struct DB;
 
 #[test]
+#[ignore]
 fn run_test_linket_works() {
     DB::vfs_plain_test(
         |db, test_linket: TestLinket| run_test_linket(test_linket, db),

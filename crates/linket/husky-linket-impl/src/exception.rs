@@ -1,6 +1,6 @@
 use crate::{pedestal::IsPedestal, *};
 use husky_ki_repr_interface::KiReprInterface;
-use husky_value_interface::{exception::IsException, ki_control_flow::KiControlFlow};
+use husky_value::{exception::IsException, ki_control_flow::KiControlFlow};
 use serde::Serialize;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
