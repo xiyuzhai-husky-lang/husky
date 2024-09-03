@@ -3274,6 +3274,7 @@
         name: "husky-devtime",
         relative_path: "crates/devtime/husky-devtime",
         dependencies: [
+            "dashmap",
             "husky-ast",
             "husky-check-utils",
             "husky-coword",
@@ -3305,7 +3306,6 @@
             "husky-visual-protocol",
             "husky-vm",
             "husky-wild-utils",
-            "rustc-hash",
             "salsa",
             "serde",
             "serde-impl",
