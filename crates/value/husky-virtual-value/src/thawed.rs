@@ -1,5 +1,5 @@
 use crate::*;
-use husky_value_interface::IsThawedValue;
+use husky_value::IsThawedValue;
 use value::Value;
 
 impl IsThawedValue for Value {

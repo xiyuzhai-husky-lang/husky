@@ -1,6 +1,6 @@
 use super::*;
 use egui::{Frame, Separator};
-use husky_value_interface::ki_control_flow::KiControlFlow;
+use husky_value::ki_control_flow::KiControlFlow;
 
 impl<'a, TraceProtocol, Settings> TraceDocView<'a, TraceProtocol, Settings>
 where

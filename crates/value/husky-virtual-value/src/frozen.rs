@@ -1,5 +1,5 @@
 use crate::*;
-use husky_value_interface::IsFrozenValue;
+use husky_value::IsFrozenValue;
 use value::Value;
 
 impl IsFrozenValue for Value {

@@ -2,7 +2,7 @@ use crate::LinketImplVmControlFlow;
 use crate::{exception::TrackedException, *};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
-use husky_value_interface::{exception::IsException, ki_control_flow::KiControlFlow, IsValue};
+use husky_value::{exception::IsException, ki_control_flow::KiControlFlow, IsValue};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use pedestal::{IsPedestal, IsPedestalFull};
 use serde::Serialize;

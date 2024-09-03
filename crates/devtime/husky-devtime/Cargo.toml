@@ -55,7 +55,7 @@ husky-print-utils.workspace = true
 husky-sync-utils.workspace = true
 husky-wild-utils.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true
 # vm
 husky-vm.workspace = true
 

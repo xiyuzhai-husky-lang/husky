@@ -16,7 +16,7 @@ use crate::{
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
 use husky_linket_impl::LinketImplVmControlFlow;
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_value::vm_control_flow::VmControlFlow;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]

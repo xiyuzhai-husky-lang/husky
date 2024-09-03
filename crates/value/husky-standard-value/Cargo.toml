@@ -22,7 +22,7 @@ husky-decl-macro-utils.workspace = true
 husky-wild-utils.workspace = true
 husky-print-utils.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true
 husky-value-macros.workspace = true
 husky-literal-value.workspace = true
 # vm
@@ -32,4 +32,4 @@ husky-standard-value-macros.workspace = true
 constant = ["salsa", "dep:husky-term-prelude", "dep:husky-hir-prelude"]
 helpers = []
 vm_support = ["helpers"]
-ugly = ["husky-value-protocol/ugly", "husky-value-interface/ugly"]
+ugly = ["husky-value-protocol/ugly", "husky-value/ugly"]

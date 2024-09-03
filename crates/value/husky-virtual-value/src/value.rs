@@ -2,7 +2,7 @@ mod r#enum;
 mod list;
 mod r#struct;
 
-use husky_value_interface::IsValue;
+use husky_value::IsValue;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
     ValuePresenterCache,

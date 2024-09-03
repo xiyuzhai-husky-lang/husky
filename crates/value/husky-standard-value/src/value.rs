@@ -11,8 +11,8 @@ use frozen::FrozenValue;
 use husky_decl_macro_utils::*;
 #[cfg(feature = "constant")]
 use husky_term_prelude::literal::StringLiteralTokenData;
-use husky_value_interface::ki_control_flow::KiControlFlow;
-use husky_value_interface::IsValue;
+use husky_value::ki_control_flow::KiControlFlow;
+use husky_value::IsValue;
 use husky_value_macros::value_ty;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
