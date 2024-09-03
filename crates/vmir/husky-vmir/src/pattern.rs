@@ -6,6 +6,7 @@ use self::{
 };
 use crate::*;
 use husky_hir_eager_expr::{HirEagerPatternData, HirEagerPatternIdx};
+use husky_linket_impl::linket_impl::LinketImplThawedValue;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -47,7 +48,7 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerPatternIdx {
 impl<'comptime, LinketImpl: IsLinketImpl> VmirPattern<LinketImpl> {
     pub(crate) fn take_value(
         self,
-        value: LinketImpl::Value,
+        value: LinketImplThawedValue<LinketImpl>,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
     ) {
         match self.destructive_pattern {

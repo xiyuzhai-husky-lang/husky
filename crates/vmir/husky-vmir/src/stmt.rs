@@ -15,8 +15,8 @@ use crate::{
 };
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
-use husky_linket_impl::LinketImplVmControlFlow;
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_linket_impl::{linket_impl::LinketImplThawedValue, LinketImplVmControlFlowThawed};
+use husky_value::{vm_control_flow::VmControlFlow, IsThawedValue};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
 #[salsa::derive_debug_with_db]
@@ -271,14 +271,14 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdxRange<LinketImpl> {
     pub fn eval<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl> {
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         ctx.eval_stmts(self, |ctx| self.eval_aux(ctx))
     }
 
     pub fn eval_aux<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl> {
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         let (non_lasts, last) = self.split_last();
         last.eval(ctx)
     }
@@ -288,14 +288,14 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
     pub fn eval<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl> {
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         ctx.eval_stmt(self, |ctx| self.eval_aux(ctx))
     }
 
     pub fn eval_aux<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> LinketImplVmControlFlow<LinketImpl> {
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         use VmControlFlow::*;
 
         match *self.entry(ctx.vmir_stmt_arena()) {
@@ -351,7 +351,7 @@ impl<LinketImpl: IsLinketImpl> VmirCondition<LinketImpl> {
     fn eval<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> VmControlFlow<bool, LinketImpl::Value, LinketImpl::Exception> {
+    ) -> VmControlFlow<bool, LinketImplThawedValue<LinketImpl>, LinketImpl::Exception> {
         match self {
             VmirCondition::Be { opd, pattern } => todo!(),
             VmirCondition::Other { opd, conversion } => opd.eval(None, ctx).map(|v| v.to_bool()),

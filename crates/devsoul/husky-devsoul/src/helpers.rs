@@ -4,7 +4,7 @@ use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedException},
     pedestal::{IsPedestal, JointPedestal},
     static_var::StaticVarResult,
-    LinketImplVmControlFlow, LinketImplVmControlFlowFrozen,
+    LinketImplVmControlFlowFrozen, LinketImplVmControlFlowThawed,
 };
 use husky_trace_protocol::{
     anchor::Anchor,
@@ -30,7 +30,7 @@ pub type DevsoulStaticVarResult<Devsoul, T> = StaticVarResult<DevsoulVarId<Devso
 pub type DevsoulKiControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
     LinketImplKiControlFlow<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulVmControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
-    LinketImplVmControlFlow<<Devsoul as IsDevsoul>::LinketImpl, C>;
+    LinketImplVmControlFlowThawed<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulVmControlFlowFrozen<Devsoul, C = DevsoulValue<Devsoul>> =
     LinketImplVmControlFlowFrozen<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulAnchor<Devsoul> = Anchor<<DevsoulPedestal<Devsoul> as IsPedestal>::VarId>;

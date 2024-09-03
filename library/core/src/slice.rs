@@ -27,6 +27,31 @@ where
     }
 }
 
+impl<T> __Immortal for CyclicSliceLeashed<T>
+where
+    T: __Immortal + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+{
+    fn is_copyable() -> bool {
+        todo!()
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        todo!()
+    }
+
+    fn index_owned(self: Self, index: usize) -> __ExceptedValue {
+        Ok(Leash(self.index_i32(index.try_into().unwrap())).into_value())
+    }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
+        todo!()
+    }
+}
+
 impl<T> __Thawed for CyclicSliceLeashed<T>
 where
     T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
@@ -37,7 +62,7 @@ where
         todo!()
     }
 
-    fn try_copy(&self) -> Option<__Value> {
+    fn try_copy(&self) -> Option<__ThawedValue> {
         todo!()
     }
 
@@ -45,18 +70,18 @@ where
         todo!()
     }
 
-    fn index_owned(self: Self, index: usize) -> __ExceptedValue {
-        Ok(Leash(self.index_i32(index.try_into().unwrap())).into_value())
+    fn index_owned(self: Self, index: usize) -> __ExceptedThawedValue {
+        Ok(Leash(self.index_i32(index.try_into().unwrap())).into_thawed_value())
     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> __ExceptedValue {
+    fn index_ref<'a>(&'a self, index: usize) -> __ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support indexing ref",
             std::any::type_name::<Self>()
         )
     }
 
-    fn index_leash(&'static self, index: usize) -> __ExceptedValue {
+    fn index_leash(&'static self, index: usize) -> __ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support indexing leash",
             std::any::type_name::<Self>()
@@ -91,9 +116,10 @@ where
         self
     }
 }
+
 impl<T> __FromValue for CyclicSliceLeashed<T>
 where
-    T: __Thawed,
+    T: __Immortal,
 {
     fn from_value_aux(value: __Value, _: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
@@ -101,10 +127,28 @@ where
 }
 impl<T> __IntoValue for CyclicSliceLeashed<T>
 where
-    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+    T: __Immortal + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
+    }
+}
+
+impl<T> __FromThawedValue for CyclicSliceLeashed<T>
+where
+    T: __Thawed,
+{
+    fn from_thawed_value_aux(value: __ThawedValue, _: Option<&mut __SlushValues>) -> Self {
+        value.into_owned()
+    }
+}
+
+impl<T> __IntoThawedValue for CyclicSliceLeashed<T>
+where
+    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+{
+    fn into_thawed_value(self) -> __ThawedValue {
+        __ThawedValue::from_owned(self)
     }
 }
 
@@ -122,7 +166,7 @@ impl<T> Copy for CyclicSliceLeashed<T> {}
 
 impl<T> CyclicSliceLeashed<T>
 where
-    T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+    T: std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     pub fn new(slice: &'static [T], start: i32, end: i32) -> Self {
         Self { start, end, slice }

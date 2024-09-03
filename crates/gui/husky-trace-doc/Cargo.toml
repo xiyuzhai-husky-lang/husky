@@ -29,7 +29,7 @@ husky-trace-protocol = { workspace = true, features = ["client"] }
 # utils
 husky-print-utils.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true
 
 [dev-dependencies]
 tokio.workspace = true

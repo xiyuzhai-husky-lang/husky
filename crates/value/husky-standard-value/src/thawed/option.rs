@@ -10,7 +10,7 @@ where
         T::is_copyable()
     }
 
-    fn try_copy(&self) -> Option<Value> {
+    fn try_copy(&self) -> Option<ThawedValue> {
         if !Self::is_copyable() {
             return None;
         }
@@ -24,7 +24,7 @@ where
         self.is_none()
     }
 
-    fn unwrap_ref<'a>(&'a self) -> ExceptedValue {
+    fn unwrap_ref<'a>(&'a self) -> ExceptedThawedValue {
         let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
         Ok(match slf.try_copy() {
             Some(_) => todo!(),
@@ -32,11 +32,11 @@ where
         })
     }
 
-    fn unwrap_leash(&'static self) -> ExceptedValue {
+    fn unwrap_leash(&'static self) -> ExceptedThawedValue {
         let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
         Ok(match slf.try_copy() {
             Some(slf) => slf,
-            None => Value::from_leash(slf),
+            None => ThawedValue::from_leash(slf),
         })
     }
 

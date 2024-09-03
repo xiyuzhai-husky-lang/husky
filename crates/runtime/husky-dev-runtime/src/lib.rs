@@ -31,7 +31,7 @@ use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue},
     pedestal::IsPedestal,
 };
-use husky_value_interface::ki_control_flow::KiControlFlow;
+use husky_value::ki_control_flow::KiControlFlow;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
 use husky_wild_utils::arb_ref;
 use std::{
@@ -217,7 +217,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
         &self,
         val_runtime_constant: KiRuntimeConstantInterface,
     ) -> DevsoulValue<Devsoul> {
-        use husky_value_interface::IsValue;
+        use husky_value::IsValue;
 
         let db = self.db();
         let val_runtime_constant: KiRuntimeConstant =

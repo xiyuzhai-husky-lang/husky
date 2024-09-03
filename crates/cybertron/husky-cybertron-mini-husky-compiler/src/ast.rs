@@ -4,9 +4,7 @@ pub mod defn;
 pub mod delimited;
 pub mod helpers;
 pub mod opr;
-pub mod rank;
 pub mod reduce;
-pub mod show;
 pub mod stmt;
 mod utils;
 
@@ -90,6 +88,7 @@ pub enum AstData {
     Call {
         /// Index of the caller (e.g., function or array)
         caller: Idx,
+        caller_ident: Option<Ident>,
         /// The left delimiter of the call (e.g., `(`, `[`)
         left_delimiter: LeftDelimiter,
         /// The right delimiter of the call (e.g., `)`, `]`)

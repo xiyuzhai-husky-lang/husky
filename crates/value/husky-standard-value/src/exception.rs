@@ -1,5 +1,5 @@
 use crate::Value;
-use husky_value_interface::exception::IsException;
+use husky_value::exception::IsException;
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
 

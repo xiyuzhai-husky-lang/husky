@@ -30,10 +30,10 @@ use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, VmArgumentValue},
     pedestal::{IsPedestal, IsPedestalFull},
     static_var::StaticVarResult,
-    LinketImplVmControlFlow, *,
+    LinketImplVmControlFlowThawed, *,
 };
 use husky_standard_value::exception::Exception;
-use husky_value_interface::ki_control_flow::KiControlFlow;
+use husky_value::ki_control_flow::KiControlFlow;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use linket_impl::{
     LinketImplStaticVarResult, LinketImplTrackedExcepted, LinketImplTrackedExceptedValue,
@@ -189,7 +189,7 @@ impl IsLinketImpl for StandardLinketImpl {
         self,
         arguments: Vec<VmArgumentValue<Self>>,
         db: &dyn std::any::Any,
-    ) -> LinketImplVmControlFlow<Self> {
+    ) -> LinketImplVmControlFlowThawed<Self> {
         todo!()
     }
 

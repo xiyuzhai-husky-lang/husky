@@ -2,7 +2,11 @@ mod r#enum;
 mod list;
 mod r#struct;
 
-use husky_value_interface::IsValue;
+use crate::{
+    exception::{ExceptedValue, Exception},
+    slush::SlushValue,
+};
+use husky_value::IsValue;
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
     ValuePresenterCache,
@@ -11,16 +15,8 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
 use std::{cmp::Ordering, sync::Arc};
 
-use crate::{
-    exception::{ExceptedValue, Exception},
-    slush::SlushValue,
-};
-
 #[derive(Debug)]
 pub enum Value {
-    Uninit,
-    Invalid,
-    Moved,
     Unit(()),
     Bool(bool),
     Char(char),
@@ -61,10 +57,6 @@ impl From<std::convert::Infallible> for Value {
 impl IsValue for Value {
     type Exception = Exception;
 
-    fn new_uninit() -> Self {
-        Value::Uninit
-    }
-
     fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
         todo!()
     }
@@ -78,10 +70,6 @@ impl IsValue for Value {
     }
 
     fn to_usize(self) -> usize {
-        todo!()
-    }
-
-    fn r#move(&mut self) -> Self {
         todo!()
     }
 
@@ -115,9 +103,6 @@ impl IsValue for Value {
 
     fn unwrap(self) -> ExceptedValue {
         match self {
-            Value::Uninit => todo!(),
-            Value::Invalid => todo!(),
-            Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),
@@ -149,11 +134,9 @@ impl IsValue for Value {
 
     type FrozenValue = Self;
 
-    fn freeze(&self) -> Self::FrozenValue {
-        todo!()
-    }
-
     type SlushValue = SlushValue;
+
+    type ThawedValue = Self;
 }
 
 impl PartialEq for Value {
@@ -380,9 +363,6 @@ impl std::ops::Neg for Value {
 
     fn neg(self) -> Self::Output {
         match self {
-            Value::Uninit => todo!(),
-            Value::Invalid => todo!(),
-            Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
             Value::Bool(_) => todo!(),
             Value::Char(_) => todo!(),

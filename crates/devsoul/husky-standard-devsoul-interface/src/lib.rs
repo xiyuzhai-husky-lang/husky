@@ -46,13 +46,13 @@ unsafe fn unset_dev_eval_context() {
 
 pub fn eval_ki_repr_interface<T>(
     ki_repr: KiReprInterface,
-    value_stands: Option<&mut SlushValues>,
+    slush_values: Option<&mut SlushValues>,
 ) -> StandardKiControlFlow<T>
 where
     T: FromValue + 'static,
 {
     let value = dev_eval_context().eval_ki_repr_interface(ki_repr)?;
-    StandardKiControlFlow::Continue(<T as FromValue>::from_value_aux(value, value_stands))
+    StandardKiControlFlow::Continue(<T as FromValue>::from_value_aux(value, slush_values))
 }
 
 pub fn eval_ki_domain_repr_interface(

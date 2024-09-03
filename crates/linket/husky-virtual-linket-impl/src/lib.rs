@@ -6,9 +6,9 @@ use husky_linket_impl::{eval_context::DevEvalContext, linket_impl::IsLinketImpl}
 use husky_linket_impl::{linket_impl::LinketImplStaticVarResult, pedestal::IsPedestal};
 use husky_linket_impl::{
     linket_impl::{LinketImplKiControlFlow, VmArgumentValue},
-    LinketImplVmControlFlow,
+    LinketImplVmControlFlowThawed,
 };
-use husky_value_interface::vm_control_flow::VmControlFlow;
+use husky_value::vm_control_flow::VmControlFlow;
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use husky_virtual_value::{exception::Exception, value::Value};
 
@@ -51,7 +51,7 @@ impl IsLinketImpl for VirtualLinketImpl {
         self,
         mut arguments: Vec<VmArgumentValue<Self>>,
         db: &dyn std::any::Any,
-    ) -> LinketImplVmControlFlow<Self> {
+    ) -> LinketImplVmControlFlowThawed<Self> {
         use VmControlFlow::Continue;
 
         let db: &::salsa::Db = db.downcast_ref().unwrap();

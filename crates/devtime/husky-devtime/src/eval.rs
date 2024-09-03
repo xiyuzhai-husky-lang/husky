@@ -57,7 +57,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         visual_synchrotron: &mut VisualSynchrotron,
         trace_visual_cache: &mut TraceVisualCache<Devsoul::Pedestal>,
     ) -> Option<Visual> {
-        use husky_value_interface::IsValue;
+        use husky_value::IsValue;
 
         let trace_id = trace.into();
         // TODO panic if `self.eval_trace(trace)` is `None`

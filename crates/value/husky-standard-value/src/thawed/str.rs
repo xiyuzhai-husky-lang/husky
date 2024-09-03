@@ -11,7 +11,7 @@ impl Thawed for &'static str {
         todo!()
     }
 
-    fn try_copy(&self) -> Option<Value> {
+    fn try_copy(&self) -> Option<ThawedValue> {
         todo!()
     }
 

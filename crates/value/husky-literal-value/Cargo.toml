@@ -14,7 +14,7 @@ keywords.workspace = true
 [dependencies]
 ordered-float.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true
 
 [lints]
 workspace = true

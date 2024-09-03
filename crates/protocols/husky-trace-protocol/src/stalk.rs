@@ -1,5 +1,5 @@
 use husky_linket_impl::{static_var::StaticVarResult, var_id::IsVarId};
-use husky_value_interface::{
+use husky_value::{
     ki_control_flow::ValuePresentationKiControlFlow,
     vm_control_flow::ValuePresentationVmControlFlow,
 };

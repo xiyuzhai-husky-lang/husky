@@ -29,4 +29,4 @@ husky-trace-protocol = { workspace = true, features = ["server"] }
 # devsoul
 husky-devsoul-interface.workspace = true
 # value
-husky-value-interface.workspace = true
+husky-value.workspace = true

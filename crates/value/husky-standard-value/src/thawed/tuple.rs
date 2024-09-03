@@ -14,7 +14,7 @@ macro_rules! impl_thawed_for_non_unit_tuple_ty {
                 todo!()
             }
 
-            fn try_copy(&self) -> Option<Value> {
+            fn try_copy(&self) -> Option<ThawedValue> {
                 todo!()
             }
 

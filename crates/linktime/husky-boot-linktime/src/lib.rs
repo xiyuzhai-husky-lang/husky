@@ -26,9 +26,6 @@ where
     }
 }
 
-// ad hoc
-unsafe impl<LinketImpl> Send for BootLinkTime<LinketImpl> where LinketImpl: IsLinketImpl {}
-
 impl<LinketImpl> IsLinktime for BootLinkTime<LinketImpl>
 where
     LinketImpl: IsLinketImpl<Pedestal = ()>,

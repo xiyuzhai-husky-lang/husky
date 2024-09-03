@@ -293,7 +293,7 @@ dependencies = [
  "husky-devsoul-interface-macros",
  "husky-item-path-interface",
  "husky-linket-impl",
- "husky-value-interface",
+ "husky-value",
  "husky-value-protocol",
  "husky-visual-protocol",
  "once_cell",
@@ -338,7 +338,7 @@ dependencies = [
  "husky-decl-macro-utils",
  "husky-item-path-interface",
  "husky-ki-repr-interface",
- "husky-value-interface",
+ "husky-value",
  "husky-value-protocol",
  "husky-wild-utils",
  "serde",
@@ -350,7 +350,7 @@ dependencies = [
 name = "husky-literal-value"
 version = "0.1.0"
 dependencies = [
- "husky-value-interface",
+ "husky-value",
  "ordered-float",
 ]
 
@@ -436,7 +436,7 @@ dependencies = [
  "husky-ki-repr-interface",
  "husky-linket-impl",
  "husky-standard-value",
- "husky-value-interface",
+ "husky-value",
  "husky-value-protocol",
  "serde",
  "vec-like",
@@ -450,7 +450,7 @@ dependencies = [
  "husky-literal-value",
  "husky-print-utils",
  "husky-standard-value-macros",
- "husky-value-interface",
+ "husky-value",
  "husky-value-macros",
  "husky-value-protocol",
  "husky-visual-protocol",
@@ -478,7 +478,7 @@ name = "husky-unicode-symbols"
 version = "0.1.0"
 
 [[package]]
-name = "husky-value-interface"
+name = "husky-value"
 version = "0.1.0"
 dependencies = [
  "husky-value-protocol",

@@ -12,7 +12,7 @@ use husky_ki_repr_interface::KiArgumentReprInterface;
 use husky_linket_impl::exception::{ExceptionSource, TrackedException};
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_term_prelude::literal::Literal;
-use husky_value_interface::{ki_control_flow::KiControlFlow, IsValue};
+use husky_value::{ki_control_flow::KiControlFlow, IsValue};
 #[cfg(test)]
 use tests::runtime_test_lock;
 

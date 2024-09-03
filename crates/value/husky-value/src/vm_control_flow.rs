@@ -93,12 +93,18 @@ impl<C1, C2: FromIterator<C1>, B, E> std::iter::FromIterator<VmControlFlow<C1, B
     }
 }
 
-impl<Value, E> VmControlFlow<Value, Value, E>
+impl<ThawedValue, E> VmControlFlow<ThawedValue, ThawedValue, E>
 where
-    Value: IsValue,
+    ThawedValue: IsThawedValue,
     E: Clone,
 {
-    pub fn freeze(&self) -> VmControlFlow<Value::FrozenValue, Value::FrozenValue, E> {
+    pub fn freeze(
+        &self,
+    ) -> VmControlFlow<
+        <ThawedValue::Value as IsValue>::FrozenValue,
+        <ThawedValue::Value as IsValue>::FrozenValue,
+        E,
+    > {
         match self {
             VmControlFlow::Continue(v) => VmControlFlow::Continue(v.freeze()),
             VmControlFlow::LoopContinue => todo!(),

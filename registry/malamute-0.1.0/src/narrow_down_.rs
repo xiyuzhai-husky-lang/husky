@@ -11,6 +11,7 @@ pub struct narrow_down<Task, Label>(std::marker::PhantomData<(Task, Label)>);
 impl<Task: IsMlTask<__VarId>, Label> narrow_down<Task, Label>
 where
     Label: IsLabel
+        + __Immortal
         + __Boiled<Thawed = Label>
         + __Thawed<Frozen = Label>
         + __Frozen<Thawed = Label>
@@ -41,6 +42,32 @@ pub struct NarrowDownInternal<Label> {
     label0: Label,
     flag_ranges: SmallVec<[Option<FlagRange>; 4]>,
 }
+
+impl<Label> __Immortal for NarrowDownInternal<Label>
+where
+    Label: __Immortal
+        + __Boiled<Thawed = Label>
+        + __Thawed<Frozen = Label>
+        + __Frozen<Thawed = Label>
+        + __Serialize,
+{
+    fn is_copyable() -> bool {
+        todo!()
+    }
+
+    fn try_copy(&self) -> Option<__Value> {
+        todo!()
+    }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!()
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+        todo!()
+    }
+}
+
 impl<Label> __Boiled for NarrowDownInternal<Label>
 where
     Label: __Boiled<Thawed = Label>
@@ -75,7 +102,7 @@ where
         false
     }
 
-    fn try_copy(&self) -> Option<__Value> {
+    fn try_copy(&self) -> Option<__ThawedValue> {
         None
     }
 }
@@ -95,13 +122,14 @@ impl<Label> __FromValue for NarrowDownInternal<Label>
 where
     Label: __Boiled<Thawed = Label> + __Thawed,
 {
-    fn from_value_aux(value: __Value, _value_stands: Option<&mut __SlushValues>) -> Self {
+    fn from_value_aux(value: __Value, _slush_values: Option<&mut __SlushValues>) -> Self {
         value.into_owned()
     }
 }
 impl<Label> __IntoValue for NarrowDownInternal<Label>
 where
-    Label: __Boiled<Thawed = Label>
+    Label: __Immortal
+        + __Boiled<Thawed = Label>
         + __Thawed<Frozen = Label>
         + __Frozen<Thawed = Label>
         + __Serialize,
