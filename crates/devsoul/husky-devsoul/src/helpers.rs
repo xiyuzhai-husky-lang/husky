@@ -4,6 +4,7 @@ use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedException},
     pedestal::{IsPedestal, JointPedestal},
     static_var::StaticVarResult,
+    LinketImplVmControlFlow,
 };
 use husky_trace_protocol::{
     anchor::Anchor,
@@ -28,6 +29,8 @@ pub type DevsoulValueResult<Devsoul> = LinketImplKiControlFlow<<Devsoul as IsDev
 pub type DevsoulStaticVarResult<Devsoul, T> = StaticVarResult<DevsoulVarId<Devsoul>, T>;
 pub type DevsoulKiControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
     LinketImplKiControlFlow<<Devsoul as IsDevsoul>::LinketImpl, C>;
+pub type DevsoulVmControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
+    LinketImplVmControlFlow<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulAnchor<Devsoul> = Anchor<<DevsoulPedestal<Devsoul> as IsPedestal>::VarId>;
 pub type DevsoulTraceStalk<Devsoul> = TraceStalk<DevsoulVarId<Devsoul>>;
 pub type DevsoulCaryatid<Devsoul> =
