@@ -40,8 +40,6 @@ macro_rules! struct_field_linket_impl {
                             .unwrap()
                             .$field
                 ),
-                Value::Ref(owner) => todo!("struct_field_wrapper Ref"),
-                Value::Mut(owner) => todo!("struct_field_wrapper Mut"),
                 _ => unreachable!(),
             }
         }

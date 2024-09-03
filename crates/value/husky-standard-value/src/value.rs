@@ -64,10 +64,6 @@ pub enum Value {
     // ad hoc
     /// `~T`
     Leash(&'static dyn ThawedDyn),
-    /// `&T` for T Sized
-    Ref(*const dyn ThawedDyn),
-    /// `&mut T` for T Sized
-    Mut(*mut dyn ThawedDyn),
     OptionBox(Option<Box<dyn ThawedDyn>>),
     OptionLeash(Option<&'static dyn ThawedDyn>),
     OptionSizedRef(Option<*const dyn ThawedDyn>),
@@ -177,8 +173,6 @@ impl Value {
                     .expect("type id is correct");
                 unsafe { std::mem::transmute(slf) }
             }
-            Value::Ref(_) => todo!(),
-            Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
@@ -273,8 +267,6 @@ impl IsValue for Value {
             Value::StringLiteral(slf) => Value::StringLiteral(slf),
             Value::Owned(ref slf) => Value::Leash(slf.as_ref()), // Clone the boxed value
             Value::Leash(slf) => Value::Leash(slf),
-            Value::Ref(slf) => unreachable!(),
-            Value::Mut(slf) => unreachable!(),
             Value::OptionBox(ref slf) => Value::OptionLeash(slf.as_ref().map(|v| &**v)), // Clone the boxed option
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
             Value::OptionSizedRef(slf) => unreachable!("not expecting temporary ref for sharing"),
@@ -357,8 +349,6 @@ impl IsValue for Value {
             Value::R64(slf) => slf as usize,
             Value::R128(slf) => slf as usize,
             Value::RSize(slf) => slf as usize,
-            Value::Ref(_) => todo!(),
-            Value::Mut(_) => todo!(),
             Value::EnumUnit { .. } => todo!(),
             _ => unreachable!(),
         }
@@ -395,8 +385,6 @@ impl IsValue for Value {
             Value::StringLiteral(_) => todo!(),
             Value::Owned(slf) => slf.index_owned_dyn(index),
             Value::Leash(slf) => slf.index_leash_dyn(index),
-            Value::Ref(_) => todo!(),
-            Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
@@ -440,8 +428,6 @@ impl IsValue for Value {
             Value::StringLiteral(_) => todo!(),
             Value::Owned(ref value) => value.present_dyn(),
             Value::Leash(value) => value.present_dyn(),
-            Value::Ref(value) => unsafe { (*value).present_dyn() },
-            Value::Mut(value) => unsafe { (*value).present_dyn() },
             Value::OptionBox(ref value) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
@@ -484,8 +470,6 @@ impl IsValue for Value {
             Value::StringLiteral(_) => todo!(),
             Value::Owned(ref value) => value.visualize_or_void_dyn(visual_synchrotron),
             Value::Leash(value) => value.visualize_or_void_dyn(visual_synchrotron),
-            Value::Ref(_) => todo!(),
-            Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
@@ -529,8 +513,6 @@ impl IsValue for Value {
             Value::StringLiteral(_) => todo!(),
             Value::Owned(_) => todo!(),
             Value::Leash(slf) => slf.unwrap_leash_dyn(),
-            Value::Ref(_) => todo!(),
-            Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
@@ -573,8 +555,6 @@ impl IsValue for Value {
             Value::EnumUnit { index, presenter } => FrozenValue::EnumUsize { index, presenter },
             Value::Owned(ref slf) => todo!(),
             Value::Leash(_) => todo!(),
-            Value::Ref(_) => todo!(),
-            Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
@@ -616,8 +596,6 @@ impl PartialEq for Value {
             (Self::StringLiteral(l0), Self::StringLiteral(r0)) => todo!(),
             (Self::Owned(l0), Self::Owned(r0)) => todo!(),
             (Self::Leash(l0), Self::Leash(r0)) => todo!(),
-            (Self::Ref(l0), Self::Ref(r0)) => todo!(),
-            (Self::Mut(l0), Self::Mut(r0)) => todo!(),
             (Self::OptionBox(l0), Self::OptionBox(r0)) => todo!(),
             (Self::OptionLeash(l0), Self::OptionLeash(r0)) => todo!(),
             (Self::OptionSizedRef(l0), Self::OptionSizedRef(r0)) => todo!(),
@@ -652,8 +630,6 @@ impl PartialOrd for Value {
             (StringLiteral(l0), StringLiteral(r0)) => todo!(),
             (Value::Owned(l0), Value::Owned(r0)) => todo!(),
             (Leash(l0), Leash(r0)) => todo!(),
-            (Ref(l0), Ref(r0)) => todo!(),
-            (Mut(l0), Mut(r0)) => todo!(),
             (OptionBox(l0), OptionBox(r0)) => todo!(),
             (OptionLeash(l0), OptionLeash(r0)) => todo!(),
             (OptionSizedRef(l0), OptionSizedRef(r0)) => todo!(),
@@ -858,8 +834,6 @@ impl std::ops::Neg for Value {
             Value::StringLiteral(_) => todo!(),
             Value::Owned(_) => todo!(),
             Value::Leash(_) => todo!(),
-            Value::Ref(_) => todo!(),
-            Value::Mut(_) => todo!(),
             Value::OptionBox(_) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
