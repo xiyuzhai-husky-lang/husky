@@ -15,12 +15,13 @@ impl std::fmt::Debug for Opr {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Precedence {
+    Assign,
+    TypeIs,
     EqNe,
     AddOrSub,
     MulOrDiv,
     Prefix,
     Suffix,
-    TypeIs,
     ScopeResolution,
 }
 
@@ -91,7 +92,7 @@ impl BinaryOpr {
             BinaryOpr::Eq | BinaryOpr::Ne => Precedence::EqNe,
             BinaryOpr::Add | BinaryOpr::Sub => Precedence::AddOrSub,
             BinaryOpr::Mul | BinaryOpr::Div => Precedence::MulOrDiv,
-            BinaryOpr::Assign => todo!(),
+            BinaryOpr::Assign => Precedence::Assign,
             BinaryOpr::ScopeResolution => Precedence::ScopeResolution,
             BinaryOpr::TypeIs => Precedence::TypeIs,
             BinaryOpr::LightArrow => todo!(),

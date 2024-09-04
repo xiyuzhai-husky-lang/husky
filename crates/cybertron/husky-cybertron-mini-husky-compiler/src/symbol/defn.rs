@@ -68,6 +68,9 @@ fn calc_symbol_defn(
                 pattern,
                 initial_value,
             } => todo!(),
+            Role::LetInitTypedVariables { variables, ty } => todo!(),
+            Role::LetStmtVariablesType => todo!(),
+            Role::LetStmtVariables => todo!(),
         },
         AstData::Defn {
             keyword,

@@ -34,7 +34,6 @@ pub(super) fn calc_ty_signatures(
 }
 
 fn calc_ty_signature(role: Option<Role>, ty_term: Option<Type>) -> Option<TypeSignature> {
-    let ty = ty_term?;
     let key = match role? {
         Role::FnParameterType { fn_ident, rank } => {
             TypeSignatureKey::FnParameter { fn_ident, rank }
@@ -47,8 +46,18 @@ fn calc_ty_signature(role: Option<Role>, ty_term: Option<Type>) -> Option<TypeSi
             field_ident,
         },
         Role::FnOutputType { fn_ident } => TypeSignatureKey::FnOutput { fn_ident },
+        Role::FnParameters {
+            fn_ident,
+            has_return_ty: false,
+        } => {
+            let key = TypeSignatureKey::FnOutput { fn_ident };
+            let ty = Type::new_ident(Ident::new("unit"));
+            return Some(TypeSignature { key, ty });
+        }
         _ => return None,
     };
+    // put it here!
+    let ty = ty_term?;
     Some(TypeSignature { key, ty })
 }
 

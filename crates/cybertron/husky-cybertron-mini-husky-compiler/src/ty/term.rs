@@ -94,6 +94,7 @@ fn is_ty_role(role: Role) -> bool {
         Role::FnParameterType { .. }
         | Role::FnOutputType { .. }
         | Role::StructFieldType { .. }
+        | Role::LetStmtVariablesType
         | Role::TypeArgument => true,
         _ => false,
     }
