@@ -44,12 +44,9 @@ fn find_argument_ty_terms(
 }
 
 fn delimited_arguments_idx(ast: Option<Ast>, role: Option<Role>) -> Option<Idx> {
-    match role? {
-        Role::FnDefnCallFormParameterType { .. } => (),
-        Role::StructFieldType { .. } => (),
-        Role::TypeArgument => (),
-        _ => return None,
-    }
+    if !is_ty_role(role?) {
+        return None;
+    };
     match ast?.data {
         AstData::Call {
             caller,
@@ -67,12 +64,9 @@ fn calc_ty_term_step(
     role: Option<Role>,
     argument_ty_term: Option<Type>,
 ) -> Option<Type> {
-    match role? {
-        Role::FnDefnCallFormParameterType { .. } => (),
-        Role::StructFieldType { .. } => (),
-        Role::TypeArgument => (),
-        _ => return None,
-    }
+    if !is_ty_role(role?) {
+        return None;
+    };
     match ast?.data {
         AstData::Ident(ident) => Some(Type::new_rec0(ident)),
         AstData::Call {
@@ -92,6 +86,16 @@ fn calc_ty_term_step(
             ..
         } => argument_ty_term,
         _ => None,
+    }
+}
+
+fn is_ty_role(role: Role) -> bool {
+    match role {
+        Role::FnParameterType { .. }
+        | Role::FnOutputType { .. }
+        | Role::StructFieldType { .. }
+        | Role::TypeArgument => true,
+        _ => false,
     }
 }
 
