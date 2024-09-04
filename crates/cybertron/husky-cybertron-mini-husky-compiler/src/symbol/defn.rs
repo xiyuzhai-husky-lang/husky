@@ -15,7 +15,7 @@ pub fn calc_symbol_defns(
     scopes: Seq<Option<Scope>>,
     n: usize,
 ) -> Seq<Option<SymbolDefn>> {
-    let roles = populate_roles_n_times(asts, n);
+    let roles = calc_roles(asts, n);
     calc_symbol_defn.apply_enumerated(asts, roles, scopes)
 }
 
@@ -46,14 +46,16 @@ fn calc_symbol_defn(
             Role::FnDefnCallFormParameter { fn_ident, rank, ty } => todo!(),
             Role::FnDefnCallFormParameterType { fn_ident, rank } => todo!(),
             Role::StructField {
-                field_ident_idx,
+                field_ident,
                 ty_idx,
                 ty_ident,
             } => todo!(),
             Role::StructFieldType {
                 ty_ident,
-                field_ident_idx,
+                field_ident,
             } => todo!(),
+            Role::TypeArgument => todo!(),
+            Role::TypeArguments => todo!(),
         },
         AstData::Defn {
             keyword,
@@ -81,12 +83,7 @@ fn calc_symbol_defns_works() {
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
         let scopes = infer_scopes(asts, 10);
         let symbol_defns = calc_symbol_defns(asts, scopes, 10);
-        expect.assert_debug_eq(&show_asts_mapped_values(
-            tokens,
-            pre_asts,
-            asts,
-            symbol_defns,
-        ))
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, symbol_defns))
     }
     t(
         "1",

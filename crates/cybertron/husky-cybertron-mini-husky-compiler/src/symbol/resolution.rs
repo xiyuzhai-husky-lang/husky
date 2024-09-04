@@ -69,12 +69,7 @@ fn calc_symbol_resoluion_works() {
         let (tokens, pre_asts, asts) =
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
         let symbol_resolutions = calc_symbol_resolutions(asts, 10);
-        expect.assert_debug_eq(&show_asts_mapped_values(
-            tokens,
-            pre_asts,
-            asts,
-            symbol_resolutions,
-        ))
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, symbol_resolutions))
     }
     t(
         "1",
@@ -117,11 +112,11 @@ fn f() {
 }"#,
         expect![[r#"
             [
-                #0 `fn`: `fn` ✓,
+                #0 `fn`: `fn`,
                 #1 `f`: "f" ✓ → Err(NotResolved),
                 #2 `(`: `(`,
                 #3 `)`: "()" ✓,
-                #4 `{`: `{` ✓,
+                #4 `{`: `{`,
                 #5 `{`: `{`,
                 #6 `let`: "let x = 1",
                 #7 `x`: "x" → Ok(Symbol { ident: `x`, source: #7, data: Variable }),
@@ -133,11 +128,11 @@ fn f() {
                 #13 `y`: "y" → Ok(Symbol { ident: `y`, source: #13, data: Variable }),
                 #14 `=`: "y = x",
                 #15 `x`: "x" → Err(NotResolved),
-                #16 `;`: `;` ✓,
+                #16 `;`: `;`,
                 #17 `g`: "g" → Err(NotResolved),
                 #18 `(`: "g()" ✓,
                 #19 `)`: "()",
-                #20 `}`: `}` ✓,
+                #20 `}`: `}`,
             ]
         "#]],
     );
