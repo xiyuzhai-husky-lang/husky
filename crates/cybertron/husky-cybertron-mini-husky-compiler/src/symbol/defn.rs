@@ -40,11 +40,11 @@ fn calc_symbol_defn(
             Role::EnumDefn(_) => todo!(),
             Role::FnDefn(_) => todo!(),
             Role::FnDefnCallForm(_) => todo!(),
-            Role::FnDefnCallFormParameters(_) => todo!(),
+            Role::FnParameters { .. } => todo!(),
             Role::FnDefnCallFormBody(_) => todo!(),
             Role::StructFields(_) => todo!(),
-            Role::FnDefnCallFormParameter { fn_ident, rank, ty } => todo!(),
-            Role::FnDefnCallFormParameterType { fn_ident, rank } => todo!(),
+            Role::FnParameter { fn_ident, rank, ty } => todo!(),
+            Role::FnParameterType { fn_ident, rank } => todo!(),
             Role::StructField {
                 field_ident,
                 ty_idx,
@@ -57,6 +57,13 @@ fn calc_symbol_defn(
             Role::TypeArgument => todo!(),
             Role::TypeArguments => todo!(),
             Role::StructFieldSeparated(_) => todo!(),
+            Role::FnParametersAndReturnType {
+                fn_ident,
+                parameters,
+                return_ty,
+            } => todo!(),
+            Role::FnOutputType { fn_ident } => todo!(),
+            Role::FnParameterSeparated { fn_ident, rank } => todo!(),
         },
         AstData::Defn {
             keyword,

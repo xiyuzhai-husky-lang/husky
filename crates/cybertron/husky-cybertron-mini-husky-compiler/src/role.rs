@@ -12,17 +12,32 @@ pub enum Role {
     EnumDefn(Ident),
     FnDefn(Ident),
     FnDefnCallForm(Ident),
-    FnDefnCallFormParameters(Ident),
+    FnParameters {
+        fn_ident: Ident,
+        has_return_ty: bool,
+    },
+    FnParametersAndReturnType {
+        fn_ident: Ident,
+        parameters: Idx,
+        return_ty: Idx,
+    },
     FnDefnCallFormBody(Ident),
     StructFields(Ident),
-    FnDefnCallFormParameter {
+    FnParameter {
         fn_ident: Ident,
         rank: Rank,
         ty: Idx,
     },
-    FnDefnCallFormParameterType {
+    FnParameterSeparated {
         fn_ident: Ident,
         rank: Rank,
+    },
+    FnParameterType {
+        fn_ident: Ident,
+        rank: Rank,
+    },
+    FnOutputType {
+        fn_ident: Ident,
     },
     StructField {
         ty_ident: Ident,
@@ -175,7 +190,7 @@ fn populate_role(
                 content,
             } => todo!(),
         },
-        Role::FnDefnCallForm(ident) => match ast.data {
+        Role::FnDefnCallForm(fn_ident) => match ast.data {
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => todo!(),
             AstData::Prefix { opr, opd } => todo!(),
@@ -184,16 +199,29 @@ fn populate_role(
                 opr,
                 ropd,
                 lopd_ident,
-            } => todo!(),
+            } => {
+                if opr == BinaryOpr::LightArrow {
+                    Some(Role::FnParametersAndReturnType {
+                        fn_ident,
+                        parameters: lopd,
+                        return_ty: ropd,
+                    })
+                } else {
+                    unreachable!()
+                }
+            }
             AstData::Suffix { opd, opr } => todo!(),
             AstData::Delimited {
                 left_delimiter_idx,
                 left_delimiter,
                 right_delimiter,
             } => match left_delimiter.delimiter() {
-                Delimiter::Parenthesis => Some(Role::FnDefnCallFormParameters(ident)),
+                Delimiter::Parenthesis => Some(Role::FnParameters {
+                    fn_ident,
+                    has_return_ty: false,
+                }),
                 Delimiter::Box => todo!(),
-                Delimiter::Curly => Some(Role::FnDefnCallFormBody(ident)),
+                Delimiter::Curly => Some(Role::FnDefnCallFormBody(fn_ident)),
             },
             AstData::SeparatedItem { content, separator } => todo!(),
             AstData::Call { .. } => todo!(),
@@ -213,10 +241,7 @@ fn populate_role(
                 content,
             } => todo!(),
         },
-        Role::FnDefnCallFormParameters(fn_ident) => match ast.data {
-            AstData::Literal(_) => todo!(),
-            AstData::Ident(_) => todo!(),
-            AstData::Prefix { opr, opd } => todo!(),
+        Role::FnParameters { fn_ident, .. } => match ast.data {
             AstData::Binary {
                 lopd,
                 opr,
@@ -224,38 +249,20 @@ fn populate_role(
                 lopd_ident,
             } => {
                 if opr == BinaryOpr::TypeIs {
-                    Some(Role::FnDefnCallFormParameter {
+                    Some(Role::FnParameter {
                         fn_ident,
                         rank: rank.unwrap(),
                         ty: ropd,
                     })
                 } else {
-                    todo!()
+                    unreachable!()
                 }
             }
-            AstData::Suffix { opd, opr } => todo!(),
-            AstData::Delimited {
-                left_delimiter_idx,
-                left_delimiter,
-                right_delimiter,
-            } => todo!(),
-            AstData::SeparatedItem { content, separator } => todo!(),
-            AstData::Call { .. } => todo!(),
-            AstData::LetInit {
-                expr,
-                pattern,
-                initial_value,
-            } => todo!(),
-            AstData::Return { result } => todo!(),
-            AstData::Assert { condition } => todo!(),
-            AstData::If { condition, body } => todo!(),
-            AstData::Else { if_stmt, body } => todo!(),
-            AstData::Defn {
-                keyword,
-                ident_idx,
-                ident,
-                content,
-            } => todo!(),
+            AstData::SeparatedItem { .. } => Some(Role::FnParameterSeparated {
+                fn_ident,
+                rank: rank.unwrap(),
+            }),
+            _ => unreachable!(),
         },
         Role::FnDefnCallFormBody(_) => None,
         Role::StructFields(ty_ident) => match ast.data {
@@ -277,6 +284,46 @@ fn populate_role(
             }
             _ => None,
         },
+        Role::FnParameter { fn_ident, rank, ty } => {
+            if idx == ty {
+                Some(Role::FnParameterType { fn_ident, rank })
+            } else {
+                None
+            }
+        }
+        Role::FnParameterSeparated { fn_ident, rank } => match ast.data {
+            AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            } => {
+                if opr == BinaryOpr::TypeIs {
+                    Some(Role::FnParameter {
+                        fn_ident,
+                        rank,
+                        ty: ropd,
+                    })
+                } else {
+                    unreachable!()
+                }
+            }
+            _ => unreachable!(),
+        },
+        Role::StructField {
+            ty_ident,
+            field_ident,
+            ty_idx,
+        } => {
+            if idx == ty_idx {
+                Some(Role::StructFieldType {
+                    ty_ident,
+                    field_ident,
+                })
+            } else {
+                None
+            }
+        }
         Role::StructFieldSeparated(ty_ident) => match ast.data {
             AstData::Binary {
                 lopd,
@@ -293,36 +340,16 @@ fn populate_role(
             }
             _ => unreachable!(),
         },
-        Role::FnDefnCallFormParameter { fn_ident, rank, ty } => {
-            if idx == ty {
-                Some(Role::FnDefnCallFormParameterType { fn_ident, rank })
-            } else {
-                None
+        Role::FnParameterType { .. } | Role::StructFieldType { .. } | Role::TypeArgument => {
+            match ast.data {
+                AstData::Delimited {
+                    left_delimiter_idx,
+                    left_delimiter,
+                    right_delimiter,
+                } => Some(Role::TypeArguments),
+                _ => None,
             }
         }
-        Role::FnDefnCallFormParameterType { fn_ident, rank } => todo!(),
-        Role::StructField {
-            ty_ident,
-            field_ident,
-            ty_idx,
-        } => {
-            if idx == ty_idx {
-                Some(Role::StructFieldType {
-                    ty_ident,
-                    field_ident,
-                })
-            } else {
-                None
-            }
-        }
-        Role::StructFieldType { .. } | Role::TypeArgument => match ast.data {
-            AstData::Delimited {
-                left_delimiter_idx,
-                left_delimiter,
-                right_delimiter,
-            } => Some(Role::TypeArguments),
-            _ => None,
-        },
         Role::TypeArguments => match ast.data {
             AstData::Ident(_) => Some(Role::TypeArgument),
             AstData::Delimited {
@@ -340,6 +367,23 @@ fn populate_role(
             } => todo!(),
             _ => None,
         },
+        Role::FnParametersAndReturnType {
+            fn_ident,
+            parameters,
+            return_ty,
+        } => {
+            if idx == parameters {
+                Some(Role::FnParameters {
+                    fn_ident,
+                    has_return_ty: true,
+                })
+            } else if idx == return_ty {
+                Some(Role::FnOutputType { fn_ident })
+            } else {
+                unreachable!()
+            }
+        }
+        Role::FnOutputType { fn_ident } => todo!(),
     }
 }
 
@@ -413,11 +457,32 @@ fn calc_roles_works() {
                 #1 `f`: "f",
                 #2 `(`: `(`,
                 #3 `x`: "x",
-                #4 `:`: "x : i32" → FnDefnCallFormParameter { fn_ident: `f`, rank: Rank(0), ty: #5 },
-                #5 `i32`: "i32" → FnDefnCallFormParameterType { fn_ident: `f`, rank: Rank(0) },
-                #6 `)`: "(x : i32)" → FnDefnCallFormParameters(`f`),
+                #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5 },
+                #5 `i32`: "i32" → FnParameterType { fn_ident: `f`, rank: Rank(0) },
+                #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: false },
                 #7 `{`: "(x : i32) {}" → FnDefnCallForm(`f`),
                 #8 `}`: "{}" → FnDefnCallFormBody(`f`),
+            ]
+        "#]],
+    );
+    t(
+        "fn f(x: i32) -> i32 { return 1; }",
+        expect![[r#"
+            [
+                #0 `fn`: "fn f(x : i32) -> i32 { return 1;  }" ✓ → FnDefn(`f`),
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `x`: "x",
+                #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5 },
+                #5 `i32`: "i32" → FnParameterType { fn_ident: `f`, rank: Rank(0) },
+                #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: true },
+                #7 `->`: "(x : i32) -> i32" → FnParametersAndReturnType { fn_ident: `f`, parameters: #6, return_ty: #8 },
+                #8 `i32`: "i32" → FnOutputType { fn_ident: `f` },
+                #9 `{`: "(x : i32) -> i32 { return 1;  }" → FnDefnCallForm(`f`),
+                #10 `return`: "return 1",
+                #11 `1`: "1",
+                #12 `;`: "return 1; ",
+                #13 `}`: "{ return 1;  }" → FnDefnCallFormBody(`f`),
             ]
         "#]],
     );

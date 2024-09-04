@@ -36,7 +36,7 @@ fn calc_ty_expectations(
                             caller_ident,
                             rank: rank0,
                         },
-                        signature::TypeSignatureKey::CallArgument {
+                        signature::TypeSignatureKey::FnParameter {
                             fn_ident,
                             rank: rank1,
                         },
