@@ -56,6 +56,7 @@ fn calc_symbol_defn(
             } => todo!(),
             Role::TypeArgument => todo!(),
             Role::TypeArguments => todo!(),
+            Role::StructFieldSeparated(_) => todo!(),
         },
         AstData::Defn {
             keyword,

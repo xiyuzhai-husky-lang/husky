@@ -61,38 +61,35 @@ fn t(input: &str, expect: Expect) {
     let ranks = calc_ranks(asts);
     let ty_terms = calc_ty_terms(asts, roles, 10);
     let ty_signatures = calc_ty_signatures(asts, roles, ty_terms);
-    p!(show_asts_mapped_values(tokens, asts, roles));
-    p!(show_asts_mapped_values(tokens, asts, ty_terms));
-    todo!();
     expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ty_signatures));
 }
 
 #[test]
 fn ty_signatures_works() {
-    // t(
-    //     "",
-    //     expect![[r#"
-    //     []
-    // "#]],
-    // );
+    t(
+        "",
+        expect![[r#"
+        []
+    "#]],
+    );
     t(
         "struct A { x: i32, y: Vec[i32] }",
         expect![[r#"
             [
-                #0 `struct`: `struct`,
-                #1 `A`: "A" ✓,
+                #0 `struct`: "struct A { x : i32, y : Vec[i32] }" ✓,
+                #1 `A`: "A",
                 #2 `{`: `{`,
                 #3 `x`: "x",
                 #4 `:`: "x : i32",
-                #5 `i32`: "i32",
-                #6 `,`: "x : i32, " ✓,
-                #7 `y`: "y" ✓,
-                #8 `:`: `:`,
+                #5 `i32`: "i32" → TypeSignature { key: Field { ty_ident: `A`, field_ident: `x` }, ty: `i32` },
+                #6 `,`: "x : i32, ",
+                #7 `y`: "y",
+                #8 `:`: "y : Vec[i32]",
                 #9 `Vec`: "Vec",
-                #10 `[`: "Vec[i32]" ✓,
+                #10 `[`: "Vec[i32]" → TypeSignature { key: Field { ty_ident: `A`, field_ident: `y` }, ty: `Vec[i32]` },
                 #11 `i32`: "i32",
                 #12 `]`: "[i32]",
-                #13 `}`: `}`,
+                #13 `}`: "{ x : i32, y : Vec[i32] }",
             ]
         "#]],
     );

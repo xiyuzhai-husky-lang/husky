@@ -35,6 +35,7 @@ pub enum Role {
     },
     TypeArgument,
     TypeArguments,
+    StructFieldSeparated(Ident),
 }
 
 impl Ast {
@@ -258,9 +259,6 @@ fn populate_role(
         },
         Role::FnDefnCallFormBody(_) => None,
         Role::StructFields(ty_ident) => match ast.data {
-            AstData::Literal(_) => todo!(),
-            AstData::Ident(_) => todo!(),
-            AstData::Prefix { opr, opd } => todo!(),
             AstData::Binary {
                 lopd,
                 opr,
@@ -274,35 +272,26 @@ fn populate_role(
                     ty_idx: ropd,
                 })
             }
-            AstData::Suffix { opd, opr } => todo!(),
-            AstData::Delimited {
-                left_delimiter_idx,
-                left_delimiter,
-                right_delimiter,
-            } => todo!(),
-            AstData::SeparatedItem { content, separator } => todo!(),
-            AstData::Call {
-                caller,
-                caller_ident,
-                left_delimiter,
-                right_delimiter,
-                delimited_arguments,
-            } => todo!(),
-            AstData::LetInit {
-                expr,
-                pattern,
-                initial_value,
-            } => todo!(),
-            AstData::Return { result } => todo!(),
-            AstData::Assert { condition } => todo!(),
-            AstData::If { condition, body } => todo!(),
-            AstData::Else { if_stmt, body } => todo!(),
-            AstData::Defn {
-                keyword,
-                ident_idx,
-                ident,
-                content,
-            } => todo!(),
+            AstData::SeparatedItem { content, separator } => {
+                Some(Role::StructFieldSeparated(ty_ident))
+            }
+            _ => None,
+        },
+        Role::StructFieldSeparated(ty_ident) => match ast.data {
+            AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            } => {
+                assert_eq!(opr, BinaryOpr::TypeIs);
+                Some(Role::StructField {
+                    ty_ident,
+                    field_ident: lopd_ident.unwrap(),
+                    ty_idx: ropd,
+                })
+            }
+            _ => unreachable!(),
         },
         Role::FnDefnCallFormParameter { fn_ident, rank, ty } => {
             if idx == ty {
@@ -399,20 +388,20 @@ fn calc_roles_works() {
         "struct A { x: i32, y: Vec[i32] }",
         expect![[r#"
             [
-                #0 `struct`: `struct`,
-                #1 `A`: "A" ✓,
+                #0 `struct`: "struct A { x : i32, y : Vec[i32] }" ✓ → StructDefn(`A`),
+                #1 `A`: "A",
                 #2 `{`: `{`,
                 #3 `x`: "x",
-                #4 `:`: "x : i32",
-                #5 `i32`: "i32",
-                #6 `,`: "x : i32, " ✓,
-                #7 `y`: "y" ✓,
-                #8 `:`: `:`,
+                #4 `:`: "x : i32" → StructField { ty_ident: `A`, field_ident: `x`, ty_idx: #5 },
+                #5 `i32`: "i32" → StructFieldType { ty_ident: `A`, field_ident: `x` },
+                #6 `,`: "x : i32, " → StructFieldSeparated(`A`),
+                #7 `y`: "y",
+                #8 `:`: "y : Vec[i32]" → StructField { ty_ident: `A`, field_ident: `y`, ty_idx: #10 },
                 #9 `Vec`: "Vec",
-                #10 `[`: "Vec[i32]" ✓,
-                #11 `i32`: "i32",
-                #12 `]`: "[i32]",
-                #13 `}`: `}`,
+                #10 `[`: "Vec[i32]" → StructFieldType { ty_ident: `A`, field_ident: `y` },
+                #11 `i32`: "i32" → TypeArgument,
+                #12 `]`: "[i32]" → TypeArguments,
+                #13 `}`: "{ x : i32, y : Vec[i32] }" → StructFields(`A`),
             ]
         "#]],
     );
