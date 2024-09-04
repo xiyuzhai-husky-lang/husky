@@ -13,6 +13,10 @@ pub enum Role {
         initial_value: Idx,
     },
     LetInitIdent,
+    LetInitTypedVariables {
+        variables: Idx,
+        ty: Idx,
+    },
     StructDefn(Ident),
     EnumDefn(Ident),
     FnDefn(Ident),
@@ -56,6 +60,8 @@ pub enum Role {
     TypeArgument,
     TypeArguments,
     StructFieldSeparated(Ident),
+    LetStmtVariablesType,
+    LetStmtVariables,
 }
 
 impl Ast {
@@ -100,10 +106,10 @@ fn calc_roles_step(
     roles: Seq<Option<Role>>,
     ranks: Seq<Option<Rank>>,
 ) -> Seq<Option<Role>> {
-    populate_role.apply_enumerated(asts, parent_roles, roles, ranks)
+    calc_role_step.apply_enumerated(asts, parent_roles, roles, ranks)
 }
 
-fn populate_role(
+fn calc_role_step(
     idx: Idx,
     ast: Option<Ast>,
     parent_role: Option<Role>,
@@ -137,11 +143,25 @@ fn populate_role(
         Role::LetInitInner {
             pattern,
             initial_value,
-        } => match ast.data {
-            AstData::Ident(ident) if idx == pattern => Some(Role::LetInitIdent),
-            _ if idx == pattern => todo!("ast.data = {:?}", ast.data),
-            _ => None,
-        },
+        } => {
+            if idx == pattern {
+                match ast.data {
+                    AstData::Ident(ident) => Some(Role::LetInitIdent),
+                    AstData::Binary {
+                        lopd,
+                        lopd_ident,
+                        opr,
+                        ropd,
+                    } => Some(Role::LetInitTypedVariables {
+                        variables: lopd,
+                        ty: ropd,
+                    }),
+                    _ => todo!(),
+                }
+            } else {
+                None
+            }
+        }
         Role::LetInitIdent => todo!(),
         Role::StructDefn(ident) => match ast.data {
             AstData::Literal(_) => todo!(),
@@ -406,6 +426,17 @@ fn populate_role(
             }
         }
         Role::FnOutputType { fn_ident } => todo!(),
+        Role::LetInitTypedVariables { variables, ty } => {
+            if idx == variables {
+                Some(Role::LetStmtVariables)
+            } else if idx == ty {
+                Some(Role::LetStmtVariablesType)
+            } else {
+                unreachable!()
+            }
+        }
+        Role::LetStmtVariablesType => todo!(),
+        Role::LetStmtVariables => todo!(),
     }
 }
 
