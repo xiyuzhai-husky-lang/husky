@@ -6,6 +6,11 @@ use ident::Ident;
 pub enum Role {
     LetInit {
         pattern: Idx,
+        initial_value: Option<Idx>,
+    },
+    LetInitInner {
+        pattern: Idx,
+        initial_value: Idx,
     },
     LetInitIdent,
     StructDefn(Ident),
@@ -21,7 +26,7 @@ pub enum Role {
         parameters: Idx,
         return_ty: Idx,
     },
-    FnDefnCallFormBody(Ident),
+    FnBody(Ident),
     StructFields(Ident),
     FnParameter {
         fn_ident: Ident,
@@ -60,7 +65,10 @@ impl Ast {
                 expr,
                 pattern,
                 initial_value,
-            } => Some(Role::LetInit { pattern }),
+            } => Some(Role::LetInit {
+                pattern,
+                initial_value,
+            }),
             AstData::Defn {
                 keyword,
                 ident_idx,
@@ -110,14 +118,28 @@ fn populate_role(
         return Some(role);
     }
     match parent_role? {
-        Role::LetInit { pattern } => match ast.data {
+        Role::LetInit {
+            pattern,
+            initial_value,
+        } => match ast.data {
             AstData::Ident(ident) if idx == pattern => Some(Role::LetInitIdent),
             AstData::Binary {
                 lopd,
                 opr: BinaryOpr::Assign,
                 ropd,
                 lopd_ident,
-            } if lopd == pattern => Some(Role::LetInit { pattern }),
+            } if lopd == pattern => Some(Role::LetInitInner {
+                pattern,
+                initial_value: ropd,
+            }),
+            _ => None,
+        },
+        Role::LetInitInner {
+            pattern,
+            initial_value,
+        } => match ast.data {
+            AstData::Ident(ident) if idx == pattern => Some(Role::LetInitIdent),
+            _ if idx == pattern => todo!("ast.data = {:?}", ast.data),
             _ => None,
         },
         Role::LetInitIdent => todo!(),
@@ -221,7 +243,7 @@ fn populate_role(
                     has_return_ty: false,
                 }),
                 Delimiter::Box => todo!(),
-                Delimiter::Curly => Some(Role::FnDefnCallFormBody(fn_ident)),
+                Delimiter::Curly => Some(Role::FnBody(fn_ident)),
             },
             AstData::SeparatedItem { content, separator } => todo!(),
             AstData::Call { .. } => todo!(),
@@ -264,7 +286,7 @@ fn populate_role(
             }),
             _ => unreachable!(),
         },
-        Role::FnDefnCallFormBody(_) => None,
+        Role::FnBody(_) => None,
         Role::StructFields(ty_ident) => match ast.data {
             AstData::Binary {
                 lopd,
@@ -461,7 +483,7 @@ fn calc_roles_works() {
                 #5 `i32`: "i32" → FnParameterType { fn_ident: `f`, rank: Rank(0) },
                 #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: false },
                 #7 `{`: "(x : i32) {}" → FnDefnCallForm(`f`),
-                #8 `}`: "{}" → FnDefnCallFormBody(`f`),
+                #8 `}`: "{}" → FnBody(`f`),
             ]
         "#]],
     );
@@ -482,7 +504,7 @@ fn calc_roles_works() {
                 #10 `return`: "return 1",
                 #11 `1`: "1",
                 #12 `;`: "return 1; ",
-                #13 `}`: "{ return 1;  }" → FnDefnCallFormBody(`f`),
+                #13 `}`: "{ return 1;  }" → FnBody(`f`),
             ]
         "#]],
     );

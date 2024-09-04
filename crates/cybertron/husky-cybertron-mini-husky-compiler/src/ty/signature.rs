@@ -4,8 +4,8 @@ use husky_cybertron::seq::Seq;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TypeSignature {
-    key: TypeSignatureKey,
-    ty: Type,
+    pub key: TypeSignatureKey,
+    pub ty: Type,
 }
 
 impl TypeSignature {

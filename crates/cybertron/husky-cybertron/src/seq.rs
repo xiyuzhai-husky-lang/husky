@@ -2,7 +2,9 @@ pub mod any;
 pub mod apply;
 pub mod attention;
 pub mod idx;
+mod option;
 
+use crate::seq::apply::*;
 use crate::*;
 use husky_fmt_utils::compact::FmtCompact;
 use husky_wild_utils::arb_ref;
