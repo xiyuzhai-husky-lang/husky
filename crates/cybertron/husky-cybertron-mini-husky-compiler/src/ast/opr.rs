@@ -523,6 +523,13 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => (), // actually this will be a syntax error
                     },
+                    PreAst::Ast(
+                        AstData::SeparatedItem { .. }
+                        | AstData::LetInit { .. }
+                        | AstData::Return { .. }
+                        | AstData::Assert { .. }
+                        | AstData::Defn { .. },
+                    ) => (),
                     PreAst::Ast(_) => {
                         if opr != BinaryOpr::LightArrow {
                             return None;
@@ -590,6 +597,13 @@ pub(crate) fn new_opr_ast(
                     },
                     PreAst::LeftDelimiter(_) => (),
                     PreAst::RightDelimiter(_) => return None,
+                    PreAst::Ast(
+                        AstData::SeparatedItem { .. }
+                        | AstData::LetInit { .. }
+                        | AstData::Return { .. }
+                        | AstData::Assert { .. }
+                        | AstData::Defn { .. },
+                    ) => (),
                     PreAst::Ast(_) => return None,
                     PreAst::Separator(_) => (),
                 }
