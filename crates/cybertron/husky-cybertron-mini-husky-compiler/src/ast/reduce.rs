@@ -41,7 +41,7 @@ pub(super) fn t(input: &str, n: usize, expect: Expect) {
     let pre_asts = calc_pre_ast_initial_seq(tokens);
     let allocated_asts: Seq<Option<Ast>> = tokens.map(|token| token.into());
     let (pre_asts, asts) = reduce_n_times(pre_asts, allocated_asts, n);
-    expect.assert_debug_eq(&show_asts(tokens, pre_asts, asts));
+    expect.assert_debug_eq(&show_asts(tokens, asts));
 }
 
 #[test]

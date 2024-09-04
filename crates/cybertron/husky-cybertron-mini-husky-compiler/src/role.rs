@@ -26,13 +26,15 @@ pub enum Role {
     },
     StructField {
         ty_ident: Ident,
-        field_ident_idx: Idx,
+        field_ident: Ident,
         ty_idx: Idx,
     },
     StructFieldType {
         ty_ident: Ident,
-        field_ident_idx: Idx,
+        field_ident: Ident,
     },
+    TypeArgument,
+    TypeArguments,
 }
 
 impl Ast {
@@ -58,17 +60,17 @@ impl Ast {
     }
 }
 
-pub fn populate_roles_n_times(asts: Seq<Option<Ast>>, n: usize) -> Seq<Option<Role>> {
+pub fn calc_roles(asts: Seq<Option<Ast>>, n: usize) -> Seq<Option<Role>> {
     let mut roles: Seq<Option<Role>> = asts.map(|ast| ast?.role());
     let ranks = calc_ranks(asts);
     for _ in 0..n {
         let parent_roles = parent_queries(asts, roles);
-        roles = populate_roles(asts, parent_roles, roles, ranks);
+        roles = calc_roles_step(asts, parent_roles, roles, ranks);
     }
     roles
 }
 
-fn populate_roles(
+fn calc_roles_step(
     asts: Seq<Option<Ast>>,
     parent_roles: Seq<Option<Role>>,
     roles: Seq<Option<Role>>,
@@ -268,7 +270,7 @@ fn populate_role(
                 assert_eq!(opr, BinaryOpr::TypeIs);
                 Some(Role::StructField {
                     ty_ident,
-                    field_ident_idx: lopd,
+                    field_ident: lopd_ident.unwrap(),
                     ty_idx: ropd,
                 })
             }
@@ -312,22 +314,43 @@ fn populate_role(
         Role::FnDefnCallFormParameterType { fn_ident, rank } => todo!(),
         Role::StructField {
             ty_ident,
-            field_ident_idx,
+            field_ident,
             ty_idx,
         } => {
             if idx == ty_idx {
                 Some(Role::StructFieldType {
                     ty_ident,
-                    field_ident_idx,
+                    field_ident,
                 })
             } else {
                 None
             }
         }
-        Role::StructFieldType {
-            ty_ident,
-            field_ident_idx,
-        } => todo!(),
+        Role::StructFieldType { .. } | Role::TypeArgument => match ast.data {
+            AstData::Delimited {
+                left_delimiter_idx,
+                left_delimiter,
+                right_delimiter,
+            } => Some(Role::TypeArguments),
+            _ => None,
+        },
+        Role::TypeArguments => match ast.data {
+            AstData::Ident(_) => Some(Role::TypeArgument),
+            AstData::Delimited {
+                left_delimiter_idx,
+                left_delimiter,
+                right_delimiter,
+            } => todo!(),
+            AstData::SeparatedItem { content, separator } => todo!(),
+            AstData::Call {
+                caller,
+                caller_ident,
+                left_delimiter,
+                right_delimiter,
+                delimited_arguments,
+            } => todo!(),
+            _ => None,
+        },
     }
 }
 
@@ -335,12 +358,12 @@ fn populate_role(
 fn t(input: &str, expect: Expect) {
     let (tokens, pre_asts, asts) =
         calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
-    let roles = populate_roles_n_times(asts, 10);
-    expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, roles))
+    let roles = calc_roles(asts, 10);
+    expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, roles))
 }
 
 #[test]
-fn populate_roles_n_times_works() {
+fn calc_roles_works() {
     t(
         "",
         expect![[r#"
@@ -355,6 +378,41 @@ fn populate_roles_n_times_works() {
                 #1 `A`: "A",
                 #2 `{`: `{`,
                 #3 `}`: "{}" → StructFields(`A`),
+            ]
+        "#]],
+    );
+    t(
+        "struct A { x: i32 }",
+        expect![[r#"
+            [
+                #0 `struct`: "struct A { x : i32 }" ✓ → StructDefn(`A`),
+                #1 `A`: "A",
+                #2 `{`: `{`,
+                #3 `x`: "x",
+                #4 `:`: "x : i32" → StructField { ty_ident: `A`, field_ident: `x`, ty_idx: #5 },
+                #5 `i32`: "i32" → StructFieldType { ty_ident: `A`, field_ident: `x` },
+                #6 `}`: "{ x : i32 }" → StructFields(`A`),
+            ]
+        "#]],
+    );
+    t(
+        "struct A { x: i32, y: Vec[i32] }",
+        expect![[r#"
+            [
+                #0 `struct`: `struct`,
+                #1 `A`: "A" ✓,
+                #2 `{`: `{`,
+                #3 `x`: "x",
+                #4 `:`: "x : i32",
+                #5 `i32`: "i32",
+                #6 `,`: "x : i32, " ✓,
+                #7 `y`: "y" ✓,
+                #8 `:`: `:`,
+                #9 `Vec`: "Vec",
+                #10 `[`: "Vec[i32]" ✓,
+                #11 `i32`: "i32",
+                #12 `]`: "[i32]",
+                #13 `}`: `}`,
             ]
         "#]],
     );
@@ -407,8 +465,8 @@ fn populate_roles_n_times_for_struct_works() {
                 #1 `A`: "A",
                 #2 `{`: `{`,
                 #3 `a`: "a",
-                #4 `:`: "a : i32" → StructField { ty_ident: `A`, field_ident_idx: #3, ty_idx: #5 },
-                #5 `i32`: "i32" → StructFieldType { ty_ident: `A`, field_ident_idx: #3 },
+                #4 `:`: "a : i32" → StructField { ty_ident: `A`, field_ident: `a`, ty_idx: #5 },
+                #5 `i32`: "i32" → StructFieldType { ty_ident: `A`, field_ident: `a` },
                 #6 `}`: "{ a : i32 }" → StructFields(`A`),
             ]
         "#]],

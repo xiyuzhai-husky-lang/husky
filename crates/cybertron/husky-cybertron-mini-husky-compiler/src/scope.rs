@@ -100,7 +100,7 @@ fn infer_scopes_works() {
         let (tokens, pre_asts, asts) =
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
         let scopes = infer_scopes(asts, m);
-        expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, scopes));
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, scopes));
     }
     t(
         "",
