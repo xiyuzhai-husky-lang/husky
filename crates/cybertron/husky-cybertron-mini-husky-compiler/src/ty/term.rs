@@ -68,7 +68,7 @@ fn calc_ty_term_step(
         return None;
     };
     match ast?.data {
-        AstData::Ident(ident) => Some(Type::new_rec0(ident)),
+        AstData::Ident(ident) => Some(Type::new_ident(ident)),
         AstData::Call {
             caller_ident: Some(caller_ident),
             left_delimiter: LBOX,

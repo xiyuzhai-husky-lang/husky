@@ -1,5 +1,5 @@
-pub mod checking;
 pub mod expectation;
+pub mod inference;
 pub mod signature;
 pub mod term;
 
@@ -240,7 +240,7 @@ impl Type {
         }
     }
 
-    pub fn new_rec0(ident: Ident) -> Type {
+    pub fn new_ident(ident: Ident) -> Type {
         Type::Rec0(TypeRec0(ident))
     }
 }

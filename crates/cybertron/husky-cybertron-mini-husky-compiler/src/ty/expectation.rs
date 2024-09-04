@@ -88,3 +88,6 @@ fn t(input: &str, expect: Expect) {
     let ty_expectations = calc_ty_expectations(asts, ranks, ty_signatures);
     expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ty_expectations));
 }
+
+#[test]
+fn calc_ty_expection_works() {}
