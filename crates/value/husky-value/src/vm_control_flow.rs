@@ -114,3 +114,34 @@ where
         }
     }
 }
+
+impl<FrozenValue, E> VmControlFlow<FrozenValue, FrozenValue, E>
+where
+    E: Clone + Send + Sync + 'static,
+    FrozenValue: IsFrozenValue,
+{
+    pub fn present(
+        &self,
+        value_presenter_cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
+    ) -> ValuePresentationVmControlFlow
+    where
+        E: std::fmt::Debug + Serialize,
+    {
+        match self {
+            VmControlFlow::Continue(value) => VmControlFlow::Continue(
+                value.present(value_presenter_cache, value_presentation_synchrotron),
+            ),
+            VmControlFlow::LoopContinue => VmControlFlow::LoopContinue,
+            VmControlFlow::LoopExit(value) => VmControlFlow::LoopExit(
+                value.present(value_presenter_cache, value_presentation_synchrotron),
+            ),
+            VmControlFlow::Return(value) => VmControlFlow::Return(
+                value.present(value_presenter_cache, value_presentation_synchrotron),
+            ),
+            VmControlFlow::Throw(e) => {
+                VmControlFlow::Throw(ValuePresentation::AdHoc(format! {"{e:?}"}))
+            }
+        }
+    }
+}

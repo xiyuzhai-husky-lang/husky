@@ -8,4 +8,12 @@ impl IsFrozenValue for Value {
     fn thaw(&self) -> ((), Value) {
         todo!()
     }
+
+    fn present(
+        &self,
+        value_presenter_cache: &mut husky_value_protocol::presentation::ValuePresenterCache,
+        value_presentation_synchrotron: &mut husky_value_protocol::presentation::synchrotron::ValuePresentationSynchrotron,
+    ) -> husky_value_protocol::ugly::__ValuePresentation {
+        todo!()
+    }
 }

@@ -4,11 +4,12 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
+dashmap.workspace = true
+either.workspace = true
 salsa.workspace = true
 serde.workspace = true
 serde_json.workspace = true
 smallvec.workspace = true
-dashmap.workspace = true
 # abstractions
 vec-like.workspace = true
 serde-impl = { workspace = true, features = ["json"] }

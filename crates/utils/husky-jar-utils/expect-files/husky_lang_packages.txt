@@ -3275,6 +3275,7 @@
         relative_path: "crates/devtime/husky-devtime",
         dependencies: [
             "dashmap",
+            "either",
             "husky-ast",
             "husky-check-utils",
             "husky-coword",
