@@ -112,6 +112,15 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         trace.var_deps(self.db()).to_smallvec()
     }
 
+    fn trace_history_var_deps(
+        &self,
+        trace: Self::Trace,
+    ) -> Option<SmallVec<[ItemPathIdInterface; 2]>> {
+        trace
+            .history_var_deps(self.db())
+            .map(|history_var_deps| history_var_deps.to_smallvec())
+    }
+
     fn trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
         trace.view_data(self.db())
     }

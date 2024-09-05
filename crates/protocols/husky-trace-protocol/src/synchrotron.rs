@@ -57,10 +57,13 @@ pub struct TraceSynchrotronStatus {
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
     pub(crate) fn new<Trace: IsTrace>(
         trace_bundles: &[TraceBundle<Trace>],
-        trace_var_deps_and_view_data: impl Fn(
+        f: impl Fn(
             Trace,
-        )
-            -> (SmallVec<[ItemPathIdInterface; 2]>, TraceViewData),
+        ) -> (
+            SmallVec<[ItemPathIdInterface; 2]>,
+            Option<SmallVec<[ItemPathIdInterface; 2]>>,
+            TraceViewData,
+        ),
     ) -> Self {
         let mut entries: FxHashMap<TraceId, TraceSynchrotronEntry<TraceProtocol>> =
             Default::default();
@@ -70,11 +73,11 @@ impl<TraceProtocol: IsTraceProtocol> TraceSynchrotron<TraceProtocol> {
             for &root_trace in trace_bundle.root_traces() {
                 let root_trace_id = root_trace.into();
                 root_trace_ids.push(root_trace_id);
-                let (var_deps, view_data) = trace_var_deps_and_view_data(root_trace);
+                let (var_deps, history_var_deps, view_data) = f(root_trace);
                 assert!(entries
                     .insert(
                         root_trace_id,
-                        TraceSynchrotronEntry::new(var_deps, view_data)
+                        TraceSynchrotronEntry::new(var_deps, history_var_deps, view_data)
                     )
                     .is_none())
             }
