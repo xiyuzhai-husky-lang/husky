@@ -468,6 +468,10 @@ impl EagerStmtTraceData {
             .clone()
     }
 
+    pub fn history_var_deps(&self, trace: Trace, db: &::salsa::Db) -> Option<TraceVarDeps> {
+        None
+    }
+
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         self.biological_parent.var_deps_expansion(db)
     }

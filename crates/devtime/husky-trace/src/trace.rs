@@ -211,6 +211,12 @@ impl Trace {
         trace_var_deps(db, self)
     }
 
+    pub fn history_var_deps(self, db: &::salsa::Db) -> Option<&[ItemPathIdInterface]> {
+        trace_history_var_deps(db, self)
+            .as_ref()
+            .map(|history_var_deps| history_var_deps as &[_])
+    }
+
     pub fn var_deps_expansion(self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         trace_var_deps_expansion(db, self)
     }
@@ -257,7 +263,7 @@ impl TraceData {
         }
     }
 
-    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         match self {
             TraceData::Submodule(slf) => slf.var_deps(trace, db),
             TraceData::Val(slf) => slf.var_deps(trace, db),
@@ -274,6 +280,20 @@ impl TraceData {
             TraceData::EagerStmt(slf) => slf.var_deps(trace, db),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
+        }
+    }
+
+    pub fn history_var_deps(&self, trace: Trace, db: &::salsa::Db) -> Option<TraceVarDeps> {
+        match self {
+            TraceData::Val(slf) => slf.history_var_deps(trace, db),
+            TraceData::EagerCallInput(slf) => slf.history_var_deps(trace, db),
+            TraceData::EagerCall(slf) => slf.history_var_deps(trace, db),
+            TraceData::EagerExpr(slf) => slf.history_var_deps(trace, db),
+            TraceData::EagerPattern(slf) => slf.history_var_deps(trace, db),
+            TraceData::EagerStmt(slf) => slf.history_var_deps(trace, db),
+            TraceData::Place(_) => todo!(),
+            TraceData::Script(_) => todo!(),
+            _ => None,
         }
     }
 
@@ -538,6 +558,11 @@ fn trace_ki_repr_works() {
 #[salsa::tracked(return_ref)]
 fn trace_var_deps(db: &::salsa::Db, trace: Trace) -> Vec<ItemPathIdInterface> {
     trace.data(db).var_deps(trace, db)
+}
+
+#[salsa::tracked(return_ref)]
+fn trace_history_var_deps(db: &::salsa::Db, trace: Trace) -> Option<Vec<ItemPathIdInterface>> {
+    trace.data(db).history_var_deps(trace, db)
 }
 
 #[salsa::tracked]
