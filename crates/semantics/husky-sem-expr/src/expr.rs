@@ -517,6 +517,16 @@ pub type SemExprIdxRange = ArenaIdxRange<SemExprEntry>;
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemExprMap<V>(ArenaMap<SemExprEntry, V>);
 
+impl<'a, V> IntoIterator for &'a SemExprMap<V> {
+    type Item = (SemExprIdx, &'a V);
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter().map(|(idx, v)| (SemExprIdx(idx), v))
+    }
+}
+
 impl<V> SemExprMap<V> {
     pub fn new(sem_expr_arena: SemExprArenaRef) -> SemExprMap<V> {
         Self(ArenaMap::new2(sem_expr_arena.0))

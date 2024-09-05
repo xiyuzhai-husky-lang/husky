@@ -189,8 +189,6 @@ pub(crate) fn item_sem_var_deps<'db>(
 
 #[test]
 fn item_sem_var_deps_works() {
-    use husky_entity_tree::node::ItemSynNodePath;
-
     DB::ast_rich_test_debug_with_db(
         item_sem_var_deps,
         &AstTestConfig::new(
