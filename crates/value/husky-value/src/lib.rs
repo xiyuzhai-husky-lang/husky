@@ -204,7 +204,7 @@ pub trait IsThawedValue:
     fn freeze(&self) -> <Self::Value as IsValue>::FrozenValue;
 }
 
-pub trait IsFrozenValue: Send + Sync + 'static {
+pub trait IsFrozenValue: Clone + Send + Sync + 'static {
     type Value: IsValue;
 
     fn thaw(
