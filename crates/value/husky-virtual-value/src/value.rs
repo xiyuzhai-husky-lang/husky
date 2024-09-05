@@ -15,7 +15,7 @@ use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
 use std::{cmp::Ordering, sync::Arc};
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Value {
     Unit(()),
     Bool(bool),
