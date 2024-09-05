@@ -36,3 +36,22 @@ pub fn item_defn_sem_var_deps_region(
     builder.calc_root();
     Some(builder.finish())
 }
+
+impl ItemDefnSemVarDepsRegion {
+    pub fn total_var_deps(self, db: &::salsa::Db) -> SemVarDeps {
+        let mut var_deps = SemVarDeps::default();
+        for (_, var_deps1) in self.expr_control_flow_var_deps_table(db) {
+            var_deps.merge(var_deps1)
+        }
+        for (_, var_deps1) in self.expr_value_var_deps_table(db) {
+            var_deps.merge(var_deps1)
+        }
+        for (_, var_deps1) in self.stmt_control_flow_var_deps_table(db) {
+            var_deps.merge(var_deps1)
+        }
+        for (_, var_deps1) in self.stmt_value_var_deps_table(db) {
+            var_deps.merge(var_deps1)
+        }
+        var_deps
+    }
+}
