@@ -213,4 +213,9 @@ pub trait IsFrozenValue: Send + Sync + 'static {
         <Self::Value as IsValue>::SlushValue,
         <Self::Value as IsValue>::ThawedValue,
     );
+    fn present(
+        &self,
+        value_presenter_cache: &mut ValuePresenterCache,
+        value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
+    ) -> ValuePresentation;
 }

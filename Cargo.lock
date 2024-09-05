@@ -4757,6 +4757,7 @@ name = "husky-devtime"
 version = "0.1.0"
 dependencies = [
  "dashmap 6.0.1",
+ "either",
  "husky-ast",
  "husky-check-utils",
  "husky-coword",

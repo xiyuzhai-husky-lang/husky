@@ -10,6 +10,7 @@ mod vm;
 pub use husky_trace_protocol::server::IsTracetime;
 
 use dashmap::DashMap;
+use either::*;
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::{
@@ -123,11 +124,20 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> DevsoulTraceStalk<Devsoul> {
         use husky_linket_impl::pedestal::IsPedestal;
+
         let db = self.runtime.db();
         let var_deps = trace.var_deps(db);
         assert!(pedestal.is_closed(var_deps));
-        TraceStalk::new(self.eval_trace_at_pedestal(trace, pedestal).map(|vpcf| {
-            vpcf.map(|vpcf| vpcf.present(value_presenter_cache, value_presentation_synchrotron))
+        TraceStalk::new(self.eval_trace_at_pedestal(trace, pedestal).map(|cf| {
+            cf.map(|cf| match cf {
+                Left(kcf) => kcf.present(value_presenter_cache, value_presentation_synchrotron),
+                Right(vcf) => match vcf {
+                    Some(vcf) => vcf
+                        .present(value_presenter_cache, value_presentation_synchrotron)
+                        .into(),
+                    None => KiControlFlow::Undefined,
+                },
+            })
         }))
     }
 
