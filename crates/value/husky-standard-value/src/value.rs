@@ -169,11 +169,13 @@ where
     }
 
     fn present_dyn(&self) -> ValuePresentation {
-        todo!()
+        // self.present()
+        // ad hoc
+        ValuePresentation::AdHoc(format!("{self:?}"))
     }
 
     fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
+        self.visualize_or_void(visual_synchrotron)
     }
 }
 
