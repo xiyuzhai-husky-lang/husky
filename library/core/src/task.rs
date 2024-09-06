@@ -22,7 +22,7 @@ impl __IsStaticVar<__VarId> for TASK {
     fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
-    ) -> __ThawedVarResult<impl FnOnce() + 'static> {
+    ) -> __StaticVarResult<impl FnOnce() + 'static> {
         todo!();
         Ok(|| todo!())
     }
@@ -33,7 +33,14 @@ impl __IsStaticVar<__VarId> for TASK {
         todo!()
     }
 
-    fn default_page_start(locked: &[__ItemPathIdInterface]) -> __ThawedVarResult<__VarId> {
+    fn default_page_start(locked: &[__ItemPathIdInterface]) -> __StaticVarResult<__VarId> {
         todo!()
+    }
+
+    fn try_set_default_var_id(
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<impl FnOnce() + 'static> {
+        todo!();
+        Ok(|| todo!())
     }
 }

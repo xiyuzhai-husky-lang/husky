@@ -13,4 +13,4 @@ use husky_linket_impl::static_var::StaticVarResult;
 pub use husky_linket_impl::ugly::*;
 pub use husky_standard_value::ugly::*;
 
-pub type __ThawedVarResult<T> = StaticVarResult<__VarId, T>;
+pub type __StaticVarResult<T> = StaticVarResult<__VarId, T>;
