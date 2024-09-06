@@ -7360,6 +7360,7 @@ dependencies = [
  "husky-vmir",
  "rustc-hash 2.0.0",
  "salsa",
+ "vec-like",
 ]
 
 [[package]]
