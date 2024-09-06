@@ -1,31 +1,35 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct EagerLoopGroupTracePath(TracePath);
+pub struct EagerLoopFrameTracePath(TracePath);
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+pub struct EagerLoopFrameTracePathData {}
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum EagerLoopGroupTraceBiologicalParent {
+pub enum EagerLoopFrameTraceBiologicalParent {
     Stmt,
     LoopGroup,
 }
 
-impl EagerLoopGroupTracePath {
+impl EagerLoopFrameTracePath {
     pub fn view_data(self, _db: &::salsa::Db) -> TraceViewData {
         todo!()
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct EagerLoopGroupTrace(Trace);
+pub struct EagerLoopFrameTrace(Trace);
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct EagerLoopGroupTraceData {
-    path: EagerLoopGroupTracePath,
-    biological_parent: EagerLoopGroupTraceBiologicalParent,
+pub struct EagerLoopFrameTraceData {
+    path: EagerLoopFrameTracePath,
+    biological_parent: EagerLoopFrameTraceBiologicalParent,
 }
 
-impl EagerLoopGroupTraceData {
+impl EagerLoopFrameTraceData {
     pub fn subtraces(self, _db: &::salsa::Db) -> &[Trace] {
         todo!()
     }

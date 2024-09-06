@@ -64,6 +64,10 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
             }
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
         }
     }
 
