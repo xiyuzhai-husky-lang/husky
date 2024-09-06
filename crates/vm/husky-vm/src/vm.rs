@@ -1,4 +1,4 @@
-use crate::snapshot::VmSnapshotKey;
+use crate::snapshot::{VmSnapshotKey, VmSnapshotsData};
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
 use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlowThawed};
 use husky_linktime::{
@@ -18,6 +18,7 @@ use husky_vmir::{
     storage::IsVmirStorage,
 };
 use rustc_hash::FxHashMap;
+use vec_like::ordered_vec_map::OrderedVecPairMap;
 
 use crate::{
     history::{VmHistory, VmRecord},
@@ -30,7 +31,7 @@ pub(crate) struct Vm<'a, Linktime: IsLinktime, VmirStorage: IsVmirStorage<Linkti
     mode: VmMode,
     expr_records: VmirExprMap<Linktime::LinketImpl, VmRecord<Linktime::LinketImpl>>,
     stmt_records: VmirStmtMap<Linktime::LinketImpl, VmRecord<Linktime::LinketImpl>>,
-    snapshots: FxHashMap<VmSnapshotKey, VmSnapshot<Linktime::LinketImpl>>,
+    snapshots: VmSnapshotsData<Linktime::LinketImpl>,
     pub(crate) vmir_region: &'a VmirRegion<Linktime::LinketImpl>,
     pub(crate) place_registry: &'a PlaceRegistry,
     pub(crate) db: &'a ::salsa::Db,
@@ -185,6 +186,6 @@ where
     }
 
     pub(crate) fn to_history(self) -> VmHistory<Linktime::LinketImpl> {
-        VmHistory::new(self.expr_records, self.stmt_records)
+        VmHistory::new(self.expr_records, self.stmt_records, self.snapshots)
     }
 }
