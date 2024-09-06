@@ -286,13 +286,7 @@ impl TraceData {
     pub fn history_var_deps(&self, trace: Trace, db: &::salsa::Db) -> Option<TraceVarDeps> {
         match self {
             TraceData::Val(slf) => slf.history_var_deps(trace, db),
-            TraceData::EagerCallInput(slf) => slf.history_var_deps(trace, db),
             TraceData::EagerCall(slf) => slf.history_var_deps(trace, db),
-            TraceData::EagerExpr(slf) => slf.history_var_deps(trace, db),
-            TraceData::EagerPattern(slf) => slf.history_var_deps(trace, db),
-            TraceData::EagerStmt(slf) => slf.history_var_deps(trace, db),
-            TraceData::Place(_) => todo!(),
-            TraceData::Script(_) => todo!(),
             _ => None,
         }
     }
