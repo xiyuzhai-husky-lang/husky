@@ -29,6 +29,8 @@ pub trait IsPedestal:
 
     fn var_ids<'a>(&'a self) -> impl Iterator<Item = (ItemPathIdInterface, Self::VarId)> + 'a;
 
+    fn insert(&mut self, item_path_id_interface: ItemPathIdInterface, var_id: Self::VarId);
+
     /// a closed point in algebraic geometry is a minimal prime point locally
     fn is_closed(&self, var_deps: &[ItemPathIdInterface]) -> bool;
 }

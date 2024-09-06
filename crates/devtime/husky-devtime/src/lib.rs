@@ -59,15 +59,7 @@ pub struct Devtime<Devsoul: IsDevsoul> {
     // cache histories of eager traces
     // when hot reload, reset this
     // TODO benchmark this
-    eager_trace_cache: DashMap<
-        (Trace, Devsoul::Pedestal),
-        Option<
-            Arc<(
-                DevsoulVmControlFlowFrozen<Devsoul>,
-                VmHistory<Devsoul::LinketImpl>,
-            )>,
-        >,
-    >,
+    eager_trace_cache: DashMap<(Trace, Devsoul::Pedestal), Arc<VmHistory<Devsoul::LinketImpl>>>,
 }
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {

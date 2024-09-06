@@ -24,34 +24,43 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         }
     }
 
-    fn trace_history_aux(&self, trace: Trace, pedestal: Devsoul::Pedestal) {
+    fn trace_history_aux(
+        &self,
+        trace: Trace,
+        pedestal: Devsoul::Pedestal,
+    ) -> Arc<VmHistory<Devsoul::LinketImpl>> {
         let db = self.db();
         match self.runtime.with_default_var_ids(
             trace.history_var_deps(db).unwrap().iter().copied(),
-            |_| todo!(),
-            |_| todo!(),
+            pedestal,
+            |pedestal, _| self.cache_trace_history(trace, pedestal),
         ) {
-            Ok(_) => todo!(),
+            Ok(history) => history,
             Err(_) => todo!(),
         }
     }
 
-    fn cache_trace_history(&self, trace: Trace, pedestal: Devsoul::Pedestal) {
-        let key = todo!();
-        let a = self
-            .eager_trace_cache
+    fn cache_trace_history(
+        &self,
+        trace: Trace,
+        pedestal: Devsoul::Pedestal,
+    ) -> Arc<VmHistory<Devsoul::LinketImpl>> {
+        let key = (trace, pedestal.clone());
+        self.eager_trace_cache
             .entry(key)
-            .or_insert_with(|| self.calc_trace_history(trace, pedestal).map(Arc::new));
+            .or_insert_with(|| Arc::new(self.calc_trace_history(trace, pedestal).1))
+            .value()
+            .clone()
     }
 
     fn calc_trace_history(
         &self,
         trace: Trace,
         pedestal: Devsoul::Pedestal,
-    ) -> Option<(
+    ) -> (
         DevsoulVmControlFlowFrozen<Devsoul>,
         VmHistory<Devsoul::LinketImpl>,
-    )> {
+    ) {
         let db = self.db();
         match trace.data(db) {
             TraceData::Val(_) => todo!(),
