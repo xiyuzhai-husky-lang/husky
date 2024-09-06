@@ -266,6 +266,10 @@ where
             TraceKind::EagerCallInput => todo!(),
             TraceKind::Value => todo!(),
             TraceKind::Repl => todo!(),
+            TraceKind::LazyLoopFrame => todo!(),
+            TraceKind::LazyLoopRange => todo!(),
+            TraceKind::EagerLoopFrame => todo!(),
+            TraceKind::EagerLoopRange => todo!(),
         }
     }
 
