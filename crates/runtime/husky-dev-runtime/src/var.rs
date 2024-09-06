@@ -82,34 +82,30 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
     pub fn with_default_var_ids<R>(
         &self,
         var_paths: impl IntoIterator<Item = ItemPathIdInterface>,
-        consume_defaults: impl FnMut((ItemPathIdInterface, DevsoulVarId<Devsoul>)),
-        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+        pedestal: Devsoul::Pedestal,
+        f: impl FnOnce(Devsoul::Pedestal, SmallVecSet<ItemPathIdInterface, 4>) -> R,
     ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
         let db = self.db();
-        self.with_default_var_ids_aux(
-            var_paths.into_iter(),
-            Default::default(),
-            consume_defaults,
-            f,
-        )
+        let locked = pedestal.var_ids().map(|(ipii, _)| ipii).collect();
+        self.with_default_var_ids_aux(var_paths.into_iter(), pedestal, locked, f)
     }
 
     fn with_default_var_ids_aux<R>(
         &self,
         mut var_paths: impl Iterator<Item = ItemPathIdInterface>,
+        mut pedestal: Devsoul::Pedestal,
         locked: SmallVecSet<ItemPathIdInterface, 4>,
-        mut consume_defaults: impl FnMut((ItemPathIdInterface, DevsoulVarId<Devsoul>)),
-        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+        f: impl FnOnce(Devsoul::Pedestal, SmallVecSet<ItemPathIdInterface, 4>) -> R,
     ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
         let db = self.db();
         match var_paths.next() {
             Some(var_path) => self
                 .with_default_var_id(var_path, &locked, |default_var_id, locked| {
-                    consume_defaults((var_path, default_var_id));
-                    self.with_default_var_ids_aux(var_paths, locked, consume_defaults, f)
+                    pedestal.insert(var_path, default_var_id);
+                    self.with_default_var_ids_aux(var_paths, pedestal, locked, f)
                 })
                 .flatten(),
-            None => Ok(f(locked)),
+            None => Ok(f(pedestal, locked)),
         }
     }
 

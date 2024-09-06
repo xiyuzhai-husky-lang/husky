@@ -33,6 +33,10 @@ impl IsPedestal for StandardPedestal {
     fn var_ids<'a>(&'a self) -> impl Iterator<Item = (ItemPathIdInterface, Self::VarId)> + 'a {
         self.var_ids.iter().copied()
     }
+
+    fn insert(&mut self, item_path_id_interface: ItemPathIdInterface, var_id: Self::VarId) {
+        todo!()
+    }
 }
 
 impl StandardPedestal {}
