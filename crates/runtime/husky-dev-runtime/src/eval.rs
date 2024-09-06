@@ -103,7 +103,14 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let ki_domain_repr = ki_repr.ki_domain_repr(db);
         let () = self.eval_ki_domain_repr(ki_domain_repr)?;
         let result: DevsoulKiControlFlow<Devsoul> = match ki_repr.opn(db) {
-            KiOpn::Return => todo!(),
+            KiOpn::Return => {
+                let arguments: &[_] = ki_repr.arguments(db);
+                debug_assert_eq!(arguments.len(), 1);
+                let KiArgumentRepr::Simple(result) = arguments[0] else {
+                    unreachable!()
+                };
+                KiControlFlow::Return(self.eval_ki_repr(result)?)
+            }
             KiOpn::Require => {
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
