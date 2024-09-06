@@ -8,9 +8,21 @@ pub struct TypeInference {
     ty: Type,
 }
 
-fn infer_tys(asts: Seq<Option<Ast>>, ty_signatures: Seq<Option<TypeSignature>>) {
+fn infer_tys(
+    asts: Seq<Option<Ast>>,
+    symbols: Seq<Option<Symbol>>,
+    roles: Seq<Option<Role>>,
+    ty_terms: Seq<Option<Type>>,
+    ty_signatures: Seq<Option<TypeSignature>>,
+    n: usize,
+) -> Seq<Option<TypeInference>> {
     let mut ty_inferences = infer_tys_initial(asts, ty_signatures);
-    todo!()
+    let mut ty_designations = calc_initial_ty_designations(roles, symbols, ty_inferences, ty_terms);
+    for _ in 0..n {
+        ty_inferences |= infer_tys_step();
+        ty_designations |= calc_ty_designations_step(roles, symbols, ty_inferences);
+    }
+    ty_inferences
 }
 
 fn infer_tys_initial(
@@ -20,7 +32,7 @@ fn infer_tys_initial(
     inference_literal_tys(asts).or(infer_fn_call_tys(asts, ty_signatures))
 }
 
-fn infer_tys_step() {
+fn infer_tys_step() -> Seq<Option<TypeInference>> {
     todo!()
 }
 
@@ -178,7 +190,7 @@ pub struct TypeDesignation {
     ty: Type,
 }
 
-fn calc_ty_designations(
+fn calc_initial_ty_designations(
     roles: Seq<Option<Role>>,
     symbols: Seq<Option<Symbol>>,
     ty_inferences: Seq<Option<TypeInference>>,
@@ -214,10 +226,10 @@ fn calc_ty_designations(
             _ => None,
         }))
         .map(Option::flatten);
-    calc_ty_designation.apply(symbols, ty_inferences, ty_terms)
+    calc_initial_ty_designation.apply(symbols, ty_inferences, ty_terms)
 }
 
-fn calc_ty_designation(
+fn calc_initial_ty_designation(
     symbol: Option<Symbol>,
     ty_inference: Option<TypeInference>,
     ty_term: Option<Type>,
@@ -225,6 +237,44 @@ fn calc_ty_designation(
     Some(TypeDesignation {
         symbol: symbol?,
         ty: ty_inference.map(|ti| ti.ty).or(ty_term)?,
+    })
+}
+
+fn calc_ty_designations_step(
+    roles: Seq<Option<Role>>,
+    symbols: Seq<Option<Symbol>>,
+    ty_inferences: Seq<Option<TypeInference>>,
+) -> Seq<Option<TypeDesignation>> {
+    let symbols = symbols
+        .index(roles.map(|role| match role? {
+            Role::LetInitInner {
+                pattern,
+                initial_value,
+            } => Some(pattern),
+            Role::FnParameter { fn_ident, rank, ty } => todo!(),
+            _ => None,
+        }))
+        .map(Option::flatten);
+    let ty_inferences = ty_inferences
+        .index(roles.map(|role| match role? {
+            Role::LetInitInner {
+                pattern,
+                initial_value,
+            } => Some(initial_value),
+            Role::FnParameter { fn_ident, rank, ty } => None,
+            _ => None,
+        }))
+        .map(Option::flatten);
+    calc_ty_designation_step.apply(symbols, ty_inferences)
+}
+
+fn calc_ty_designation_step(
+    symbol: Option<Symbol>,
+    ty_inference: Option<TypeInference>,
+) -> Option<TypeDesignation> {
+    Some(TypeDesignation {
+        symbol: symbol?,
+        ty: ty_inference?.ty,
     })
 }
 

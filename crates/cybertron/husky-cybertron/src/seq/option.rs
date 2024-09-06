@@ -8,3 +8,12 @@ where
         Option::or.apply(self, other)
     }
 }
+
+impl<T> std::ops::BitOrAssign for Seq<Option<T>>
+where
+    T: Copy + Any + Send + Sync,
+{
+    fn bitor_assign(&mut self, rhs: Self) {
+        *self = self.or(rhs)
+    }
+}
