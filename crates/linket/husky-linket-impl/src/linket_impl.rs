@@ -47,7 +47,7 @@ pub trait IsLinketImpl: Send + Sync + Copy + 'static {
     fn with_default_var_id<R>(
         self,
         locked: &[ItemPathIdInterface],
-        f: impl FnOnce() -> R,
+        f: impl FnOnce(<Self::Pedestal as IsPedestal>::VarId) -> R,
     ) -> LinketImplStaticVarResult<Self, R>;
     /// applies only for static var linkage
     fn page_var_ids<'a>(

@@ -39,8 +39,8 @@ impl __IsStaticVar<__VarId> for TASK {
 
     fn try_set_default_var_id(
         locked: &[__ItemPathIdInterface],
-    ) -> __StaticVarResult<impl FnOnce() + 'static> {
+    ) -> __StaticVarResult<(__VarId, impl FnOnce() + 'static)> {
         todo!();
-        Ok(|| todo!())
+        Ok((todo!(), || todo!()))
     }
 }

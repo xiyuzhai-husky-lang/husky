@@ -53,7 +53,7 @@ where
 
     fn try_set_default_var_id(
         locked: &[ItemPathIdInterface],
-    ) -> StaticVarResult<VarId, impl FnOnce() + 'static>;
+    ) -> StaticVarResult<VarId, (VarId, impl FnOnce() + 'static)>;
 
     fn with_var_id<R>(
         var_id: VarId,
