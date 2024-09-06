@@ -156,8 +156,9 @@ impl __IsStaticVar<__VarId> for INPUT {
 
     fn try_set_default_var_id(
         locked: &[__ItemPathIdInterface],
-    ) -> __StaticVarResult<impl FnOnce() + 'static> {
-        Self::try_set_var_id(0usize.into(), locked)
+    ) -> __StaticVarResult<(__VarId, impl FnOnce() + 'static)> {
+        let default = 0usize.into();
+        Ok((default, Self::try_set_var_id(default, locked)?))
     }
 }
 
@@ -205,8 +206,8 @@ impl __IsStaticVar<__VarId> for TASK {
 
     fn try_set_default_var_id(
         locked: &[__ItemPathIdInterface],
-    ) -> husky_linket_impl::static_var::StaticVarResult<__VarId, impl FnOnce() + 'static> {
+    ) -> __StaticVarResult<(__VarId, impl FnOnce() + 'static)> {
         todo!();
-        Ok(|| todo!())
+        Ok((todo!(), || todo!()))
     }
 }

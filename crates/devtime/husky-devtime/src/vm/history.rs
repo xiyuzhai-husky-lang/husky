@@ -24,6 +24,18 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         }
     }
 
+    fn trace_history_aux(&self, trace: Trace, pedestal: Devsoul::Pedestal) {
+        let db = self.db();
+        match self.runtime.with_default_var_ids(
+            trace.history_var_deps(db).unwrap().iter().copied(),
+            |_| todo!(),
+            |_| todo!(),
+        ) {
+            Ok(_) => todo!(),
+            Err(_) => todo!(),
+        }
+    }
+
     fn cache_trace_history(&self, trace: Trace, pedestal: Devsoul::Pedestal) {
         let key = todo!();
         let a = self
