@@ -9,7 +9,7 @@ macro_rules! impl_thawed_for_primitive_ty {
                 true
             }
 
-            fn try_copy(&self) -> Option<ThawedValue> {
+            fn try_copy_thawed(&self) -> Option<ThawedValue> {
                 Some((*self).into())
             }
 

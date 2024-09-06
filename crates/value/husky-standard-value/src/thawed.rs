@@ -4,7 +4,7 @@ pub mod owned;
 pub mod primitive;
 pub mod r#ref;
 mod ritchie;
-mod str;
+mod static_ref;
 mod tuple;
 pub mod vec;
 
@@ -37,7 +37,7 @@ pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
     /// copy if the type is copyable
     ///
     /// note that it should always be either some or none for a fixed type
-    fn try_copy(&self) -> Option<ThawedValue>;
+    fn try_copy_thawed(&self) -> Option<ThawedValue>;
 
     fn is_some(&self) -> bool {
         panic!("type `{}` is not an Option", std::any::type_name::<Self>())
@@ -47,35 +47,35 @@ pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
         panic!("type `{}` is not an Option", std::any::type_name::<Self>())
     }
 
-    fn index_owned(self, index: usize) -> ExceptedThawedValue {
+    fn index_owned_thawed(self, index: usize) -> ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support indexing owned",
             std::any::type_name::<Self>()
         )
     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> ExceptedThawedValue {
+    fn index_ref_thawed<'a>(&'a self, index: usize) -> ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support indexing ref",
             std::any::type_name::<Self>()
         )
     }
 
-    fn index_leash(&'static self, index: usize) -> ExceptedThawedValue {
+    fn index_leash_thawed(&'static self, index: usize) -> ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support indexing leash",
             std::any::type_name::<Self>()
         )
     }
 
-    fn unwrap_ref<'a>(&'a self) -> ExceptedThawedValue {
+    fn unwrap_ref_thawed<'a>(&'a self) -> ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support unwrap",
             std::any::type_name::<Self>()
         )
     }
 
-    fn unwrap_leash(&'static self) -> ExceptedThawedValue {
+    fn unwrap_leash_thawed(&'static self) -> ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support unwrap",
             std::any::type_name::<Self>()
@@ -98,15 +98,15 @@ pub trait ThawedDyn:
 
     fn is_none_dyn(&self) -> bool;
 
-    fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedThawedValue;
-    fn index_ref_dyn<'a>(&'a self, index: usize) -> ExceptedThawedValue;
-    fn index_leash_dyn(&'static self, index: usize) -> ExceptedThawedValue;
+    fn index_owned_thawed_dyn(self: Box<Self>, index: usize) -> ExceptedThawedValue;
+    fn index_ref_thawed_dyn<'a>(&'a self, index: usize) -> ExceptedThawedValue;
+    fn index_leash_thawed_dyn(&'static self, index: usize) -> ExceptedThawedValue;
 
     // todo: unwrap owned
-    fn unwrap_ref_dyn<'a>(&'a self) -> ExceptedThawedValue;
-    fn unwrap_leash_dyn(&'static self) -> ExceptedThawedValue;
+    fn unwrap_ref_thawed_dyn<'a>(&'a self) -> ExceptedThawedValue;
+    fn unwrap_leash_thawed_dyn(&'static self) -> ExceptedThawedValue;
 
-    fn try_copy_dyn(&self) -> Option<ThawedValue>;
+    fn try_copy_thawed_dyn(&self) -> Option<ThawedValue>;
 
     fn present_dyn(&self) -> ValuePresentation;
 
@@ -133,28 +133,28 @@ where
         self.is_none()
     }
 
-    fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedThawedValue {
-        self.index_owned(index)
+    fn index_owned_thawed_dyn(self: Box<Self>, index: usize) -> ExceptedThawedValue {
+        self.index_owned_thawed(index)
     }
 
-    fn index_ref_dyn<'a>(&'a self, index: usize) -> ExceptedThawedValue {
-        self.index_ref(index)
+    fn index_ref_thawed_dyn<'a>(&'a self, index: usize) -> ExceptedThawedValue {
+        self.index_ref_thawed(index)
     }
 
-    fn index_leash_dyn(&'static self, index: usize) -> ExceptedThawedValue {
-        self.index_leash(index)
+    fn index_leash_thawed_dyn(&'static self, index: usize) -> ExceptedThawedValue {
+        self.index_leash_thawed(index)
     }
 
-    fn unwrap_ref_dyn<'a>(&'a self) -> ExceptedThawedValue {
-        T::unwrap_ref(self)
+    fn unwrap_ref_thawed_dyn<'a>(&'a self) -> ExceptedThawedValue {
+        T::unwrap_ref_thawed(self)
     }
 
-    fn unwrap_leash_dyn(&'static self) -> ExceptedThawedValue {
-        T::unwrap_leash(self)
+    fn unwrap_leash_thawed_dyn(&'static self) -> ExceptedThawedValue {
+        T::unwrap_leash_thawed(self)
     }
 
-    fn try_copy_dyn(&self) -> Option<ThawedValue> {
-        self.try_copy()
+    fn try_copy_thawed_dyn(&self) -> Option<ThawedValue> {
+        self.try_copy_thawed()
     }
 
     fn present_dyn(&self) -> ValuePresentation {

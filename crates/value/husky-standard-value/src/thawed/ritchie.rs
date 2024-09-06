@@ -6,15 +6,15 @@ macro_rules! impl_thawed_for_ritchie_ty {
     ) => {
         impl<$($input,)* $output> Thawed for fn($($input,)*) -> $output
         where
-            $($input: Thawed, )*
-            $output: Thawed, {
+            $($input: 'static, )*
+            $output: 'static, {
             type Frozen = Self;
 
             fn is_copyable() -> bool {
                 todo!()
             }
 
-            fn try_copy(&self) -> Option<ThawedValue> {
+            fn try_copy_thawed(&self) -> Option<ThawedValue> {
                 todo!()
             }
 

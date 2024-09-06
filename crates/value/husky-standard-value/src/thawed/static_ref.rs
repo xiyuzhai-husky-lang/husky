@@ -1,6 +1,9 @@
 use super::*;
 
-impl Thawed for &'static str {
+impl<T> Thawed for &'static T
+where
+    T: ?Sized + std::fmt::Debug + Sync + RefUnwindSafe,
+{
     type Frozen = Self;
 
     unsafe fn freeze(&self) -> Self::Frozen {
@@ -11,7 +14,7 @@ impl Thawed for &'static str {
         todo!()
     }
 
-    fn try_copy(&self) -> Option<ThawedValue> {
+    fn try_copy_thawed(&self) -> Option<ThawedValue> {
         todo!()
     }
 
