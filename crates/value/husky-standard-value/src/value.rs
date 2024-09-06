@@ -76,22 +76,12 @@ pub enum Value {
 }
 
 pub trait Immortal:
-    Sized + std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+    Thawed + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
 {
-    fn is_copyable() -> bool;
-
     /// copy if the type is copyable
     ///
     /// note that it should always be either some or none for a fixed type
     fn try_copy(&self) -> Option<Value>;
-
-    fn is_some(&self) -> bool {
-        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
-    }
-
-    fn is_none(&self) -> bool {
-        panic!("type `{}` is not an Option", std::any::type_name::<Self>())
-    }
 
     fn index_owned(self, index: usize) -> ExceptedValue {
         panic!(
@@ -120,24 +110,15 @@ pub trait Immortal:
             std::any::type_name::<Self>()
         )
     }
-
-    fn serialize_to_value(&self) -> serde_json::Value;
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 pub trait ImmortalDyn:
-    std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+    ThawedDyn + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
 {
-    fn is_some_dyn(&self) -> bool;
-
-    fn is_none_dyn(&self) -> bool;
     fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue;
     fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue;
     fn try_copy_dyn(&self) -> Option<Value>;
     fn unwrap_leash_dyn(&'static self) -> ExceptedValue;
-    fn present_dyn(&self) -> ValuePresentation;
-    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 impl<T> ImmortalDyn for T
@@ -152,30 +133,12 @@ where
         self.unwrap_leash()
     }
 
-    fn is_some_dyn(&self) -> bool {
-        self.is_some()
-    }
-
-    fn is_none_dyn(&self) -> bool {
-        self.is_none()
-    }
-
     fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue {
         (*self).index_owned(index)
     }
 
     fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue {
         self.index_leash(index)
-    }
-
-    fn present_dyn(&self) -> ValuePresentation {
-        // self.present()
-        // ad hoc
-        ValuePresentation::AdHoc(format!("{self:?}"))
-    }
-
-    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        self.visualize_or_void(visual_synchrotron)
     }
 }
 

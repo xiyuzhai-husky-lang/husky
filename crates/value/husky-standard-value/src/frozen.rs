@@ -4,7 +4,7 @@ mod option;
 mod primitive;
 pub mod r#ref;
 mod ritchie;
-mod str;
+pub mod static_ref;
 mod tuple;
 mod vec;
 

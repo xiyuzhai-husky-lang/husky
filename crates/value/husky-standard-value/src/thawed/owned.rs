@@ -13,7 +13,7 @@ impl std::ops::Deref for OwnedThawedValue {
 
 impl OwnedThawedValue {
     pub(super) fn index_owned_dyn(self, index: usize) -> ExceptedThawedValue {
-        self.0.index_owned_dyn(index)
+        self.0.index_owned_thawed_dyn(index)
     }
 
     pub(super) fn upcast_from_owned<T>(t: T) -> Self
