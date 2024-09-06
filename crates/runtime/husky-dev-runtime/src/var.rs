@@ -59,6 +59,52 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         }
     }
 
+    pub fn with_default_var_id<R>(
+        &self,
+        item_path_id_interface: ItemPathIdInterface,
+        locked: &SmallVecSet<ItemPathIdInterface, 4>,
+        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+    ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
+        let db = self.db();
+        let mut locked1 = locked.clone();
+        locked1.insert_new(item_path_id_interface).unwrap();
+        let path_id: ItemPathId = item_path_id_interface.into();
+        let ItemPath::MajorItem(MajorItemPath::Form(major_form_path)) = path_id.item_path(db)
+        else {
+            todo!()
+        };
+        let linket_impl = self
+            .comptime
+            .linket_impl(Linket::new_var(major_form_path, db));
+        linket_impl.with_default_var_id(&locked, || f(locked1))
+    }
+
+    pub fn with_default_var_ids<R>(
+        &self,
+        var_paths: impl IntoIterator<Item = ItemPathIdInterface>,
+        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+    ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
+        let db = self.db();
+        self.with_default_var_ids_aux(var_paths.into_iter(), Default::default(), f)
+    }
+
+    fn with_default_var_ids_aux<R>(
+        &self,
+        mut var_paths: impl Iterator<Item = ItemPathIdInterface>,
+        locked: SmallVecSet<ItemPathIdInterface, 4>,
+        f: impl FnOnce(SmallVecSet<ItemPathIdInterface, 4>) -> R,
+    ) -> StaticVarResult<DevsoulVarId<Devsoul>, R> {
+        let db = self.db();
+        match var_paths.next() {
+            Some(var_path) => self
+                .with_default_var_id(var_path, &locked, |locked| {
+                    self.with_default_var_ids_aux(var_paths, locked, f)
+                })
+                .flatten(),
+            None => Ok(f(locked)),
+        }
+    }
+
     // todo: change to result
     pub fn with_var_anchors<R>(
         &self,
