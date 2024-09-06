@@ -81,7 +81,6 @@ impl EagerCallTraceData {
 
     pub fn history_var_deps(&self, trace: Trace, db: &::salsa::Db) -> Option<TraceVarDeps> {
         todo!()
-        // None
     }
 
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {
