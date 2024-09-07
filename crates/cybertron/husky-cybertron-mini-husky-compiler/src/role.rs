@@ -1,6 +1,7 @@
 use crate::*;
 use delimiter::Delimiter;
 use ident::Ident;
+use scope::Scope;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Role {
@@ -20,14 +21,19 @@ pub enum Role {
     StructDefn(Ident),
     EnumDefn(Ident),
     FnDefn(Ident),
-    FnDefnCallForm(Ident),
+    FnDefnCallForm {
+        fn_ident: Ident,
+        scope: Scope,
+    },
     FnParameters {
         fn_ident: Ident,
         has_return_ty: bool,
+        scope: Scope,
     },
     FnParametersAndReturnType {
         fn_ident: Ident,
         parameters: Idx,
+        scope: Scope,
         return_ty: Idx,
     },
     FnBody(Ident),
@@ -37,10 +43,13 @@ pub enum Role {
         rank: Rank,
         ty: Idx,
         fn_ident_idx: Idx,
+        scope: Scope,
     },
+    FnParameterIdent,
     FnParameterSeparated {
         fn_ident: Ident,
         rank: Rank,
+        scope: Scope,
     },
     FnParameterType {
         fn_ident: Ident,
@@ -91,12 +100,16 @@ impl Ast {
     }
 }
 
-pub fn calc_roles(asts: Seq<Option<Ast>>, n: usize) -> Seq<Option<Role>> {
+pub fn calc_roles(
+    asts: Seq<Option<Ast>>,
+    scopes: Seq<Option<Scope>>,
+    n: usize,
+) -> Seq<Option<Role>> {
     let mut roles: Seq<Option<Role>> = asts.map(|ast| ast?.role());
     let ranks = calc_ranks(asts);
     for _ in 0..n {
         let parent_roles = parent_queries(asts, roles);
-        roles = calc_roles_step(asts, parent_roles, roles, ranks);
+        roles = calc_roles_step(asts, parent_roles, roles, ranks, scopes);
     }
     roles
 }
@@ -106,8 +119,9 @@ fn calc_roles_step(
     parent_roles: Seq<Option<Role>>,
     roles: Seq<Option<Role>>,
     ranks: Seq<Option<Rank>>,
+    scopes: Seq<Option<Scope>>,
 ) -> Seq<Option<Role>> {
-    calc_role_step.apply_enumerated(asts, parent_roles, roles, ranks)
+    calc_role_step.apply_enumerated(asts, parent_roles, roles, ranks, scopes)
 }
 
 fn calc_role_step(
@@ -116,6 +130,7 @@ fn calc_role_step(
     parent_role: Option<Role>,
     role: Option<Role>,
     rank: Option<Rank>,
+    scope: Option<Scope>,
 ) -> Option<Role> {
     if let Some(role) = role {
         return Some(role);
@@ -164,6 +179,7 @@ fn calc_role_step(
             }
         }
         Role::LetInitIdent => todo!(),
+        Role::FnParameterIdent => todo!(),
         Role::StructDefn(ident) => match ast.data {
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => None,
@@ -199,7 +215,7 @@ fn calc_role_step(
             } => todo!(),
         },
         Role::EnumDefn(_) => None, // ad hoc
-        Role::FnDefn(ident) => match ast.data {
+        Role::FnDefn(fn_ident) => match ast.data {
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => None,
             AstData::Prefix { opr, opd } => todo!(),
@@ -216,7 +232,16 @@ fn calc_role_step(
                 right_delimiter,
             } => todo!(),
             AstData::SeparatedItem { content, separator } => todo!(),
-            AstData::Call { .. } => Some(Role::FnDefnCallForm(ident)),
+            AstData::Call {
+                delimited_arguments,
+                ..
+            } => Some(Role::FnDefnCallForm {
+                fn_ident,
+                scope: match scope {
+                    Some(scope) => scope.append(delimited_arguments),
+                    None => Scope::new(delimited_arguments),
+                },
+            }),
             AstData::LetInit {
                 expr,
                 pattern,
@@ -233,7 +258,7 @@ fn calc_role_step(
                 content,
             } => todo!(),
         },
-        Role::FnDefnCallForm(fn_ident) => match ast.data {
+        Role::FnDefnCallForm { fn_ident, scope } => match ast.data {
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => todo!(),
             AstData::Prefix { opr, opd } => todo!(),
@@ -248,6 +273,7 @@ fn calc_role_step(
                         fn_ident,
                         parameters: lopd,
                         return_ty: ropd,
+                        scope,
                     })
                 } else {
                     unreachable!()
@@ -262,6 +288,7 @@ fn calc_role_step(
                 Delimiter::Parenthesis => Some(Role::FnParameters {
                     fn_ident,
                     has_return_ty: false,
+                    scope,
                 }),
                 Delimiter::Box => todo!(),
                 Delimiter::Curly => Some(Role::FnBody(fn_ident)),
@@ -284,7 +311,9 @@ fn calc_role_step(
                 content,
             } => todo!(),
         },
-        Role::FnParameters { fn_ident, .. } => match ast.data {
+        Role::FnParameters {
+            fn_ident, scope, ..
+        } => match ast.data {
             AstData::Binary {
                 lopd,
                 opr,
@@ -297,6 +326,7 @@ fn calc_role_step(
                         fn_ident_idx: lopd,
                         rank: rank.unwrap(),
                         ty: ropd,
+                        scope,
                     })
                 } else {
                     unreachable!()
@@ -305,6 +335,7 @@ fn calc_role_step(
             AstData::SeparatedItem { .. } => Some(Role::FnParameterSeparated {
                 fn_ident,
                 rank: rank.unwrap(),
+                scope,
             }),
             _ => unreachable!(),
         },
@@ -329,15 +360,25 @@ fn calc_role_step(
             _ => None,
         },
         Role::FnParameter {
-            fn_ident, rank, ty, ..
+            fn_ident,
+            fn_ident_idx,
+            rank,
+            ty,
+            ..
         } => {
             if idx == ty {
                 Some(Role::FnParameterType { fn_ident, rank })
+            } else if idx == fn_ident_idx {
+                Some(Role::FnParameterIdent)
             } else {
                 None
             }
         }
-        Role::FnParameterSeparated { fn_ident, rank } => match ast.data {
+        Role::FnParameterSeparated {
+            fn_ident,
+            rank,
+            scope,
+        } => match ast.data {
             AstData::Binary {
                 lopd,
                 opr,
@@ -350,6 +391,7 @@ fn calc_role_step(
                         fn_ident_idx: lopd,
                         rank,
                         ty: ropd,
+                        scope,
                     })
                 } else {
                     unreachable!()
@@ -418,11 +460,13 @@ fn calc_role_step(
             fn_ident,
             parameters,
             return_ty,
+            scope,
         } => {
             if idx == parameters {
                 Some(Role::FnParameters {
                     fn_ident,
                     has_return_ty: true,
+                    scope,
                 })
             } else if idx == return_ty {
                 Some(Role::FnOutputType { fn_ident })
@@ -447,9 +491,12 @@ fn calc_role_step(
 
 #[cfg(test)]
 fn t(input: &str, expect: Expect) {
+    use scope::infer_scopes;
+
     let (tokens, pre_asts, asts) =
         calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
-    let roles = calc_roles(asts, 10);
+    let scopes = infer_scopes(asts, 10);
+    let roles = calc_roles(asts, scopes, 10);
     expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, roles))
 }
 
@@ -514,11 +561,11 @@ fn calc_roles_works() {
                 #0 `fn`: "fn f(x : i32) {}" ✓ → FnDefn(`f`),
                 #1 `f`: "f",
                 #2 `(`: `(`,
-                #3 `x`: "x",
-                #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5, fn_ident_idx: #3 },
+                #3 `x`: "x" → FnParameterIdent,
+                #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5, fn_ident_idx: #3, scope: `::8` },
                 #5 `i32`: "i32" → FnParameterType { fn_ident: `f`, rank: Rank(0) },
-                #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: false },
-                #7 `{`: "(x : i32) {}" → FnDefnCallForm(`f`),
+                #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: false, scope: `::8` },
+                #7 `{`: "(x : i32) {}" → FnDefnCallForm { fn_ident: `f`, scope: `::8` },
                 #8 `}`: "{}" → FnBody(`f`),
             ]
         "#]],
@@ -530,13 +577,13 @@ fn calc_roles_works() {
                 #0 `fn`: "fn f(x : i32) -> i32 { return 1;  }" ✓ → FnDefn(`f`),
                 #1 `f`: "f",
                 #2 `(`: `(`,
-                #3 `x`: "x",
-                #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5, fn_ident_idx: #3 },
+                #3 `x`: "x" → FnParameterIdent,
+                #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5, fn_ident_idx: #3, scope: `::13` },
                 #5 `i32`: "i32" → FnParameterType { fn_ident: `f`, rank: Rank(0) },
-                #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: true },
-                #7 `->`: "(x : i32) -> i32" → FnParametersAndReturnType { fn_ident: `f`, parameters: #6, return_ty: #8 },
+                #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: true, scope: `::13` },
+                #7 `->`: "(x : i32) -> i32" → FnParametersAndReturnType { fn_ident: `f`, parameters: #6, scope: `::13`, return_ty: #8 },
                 #8 `i32`: "i32" → FnOutputType { fn_ident: `f` },
-                #9 `{`: "(x : i32) -> i32 { return 1;  }" → FnDefnCallForm(`f`),
+                #9 `{`: "(x : i32) -> i32 { return 1;  }" → FnDefnCallForm { fn_ident: `f`, scope: `::13` },
                 #10 `return`: "return 1",
                 #11 `1`: "1",
                 #12 `;`: "return 1; ",

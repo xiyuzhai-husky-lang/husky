@@ -76,12 +76,14 @@ fn calc_ty_expectation_source(
 
 #[cfg(test)]
 fn t(input: &str, expect: Expect) {
+    use scope::infer_scopes;
     use signature::calc_ty_signatures;
     use term::calc_ty_terms;
 
     let (tokens, pre_asts, asts) =
         calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
-    let roles = calc_roles(asts, 10);
+    let scopes = infer_scopes(asts, 10);
+    let roles = calc_roles(asts, scopes, 10);
     let ranks = calc_ranks(asts);
     let ty_terms = calc_ty_terms(asts, roles, 10);
     let ty_signatures = calc_ty_signatures(asts, roles, ty_terms);

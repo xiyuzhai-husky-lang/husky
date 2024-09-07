@@ -13,6 +13,22 @@ impl<T, const U: usize> Default for BoundedVec<T, U> {
     }
 }
 
+impl<T: Copy, const U: usize, const N: usize> From<[T; N]> for BoundedVec<T, U> {
+    fn from(value: [T; N]) -> Self {
+        value.into_iter().collect()
+    }
+}
+
+impl<T: Copy, const U: usize> FromIterator<T> for BoundedVec<T, U> {
+    fn from_iter<Iter: IntoIterator<Item = T>>(iter: Iter) -> Self {
+        let mut slf = Self::default();
+        for element in iter {
+            slf.push(element)
+        }
+        slf
+    }
+}
+
 impl<T, const U: usize> std::ops::Index<usize> for BoundedVec<T, U> {
     type Output = T;
 
@@ -39,6 +55,12 @@ impl<T: Copy, const U: usize> BoundedVec<T, U> {
             len: self.len + 1,
             data,
         }
+    }
+
+    pub fn push(&mut self, t: T) {
+        assert!(self.len + 1 < U);
+        self.data[self.len] = Some(t);
+        self.len += 1;
     }
 
     pub fn iter(&self) -> impl Iterator<Item = &T> {

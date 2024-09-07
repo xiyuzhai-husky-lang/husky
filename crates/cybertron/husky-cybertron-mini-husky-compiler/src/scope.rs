@@ -39,6 +39,18 @@ impl Scope {
             _ => parent_scope,
         }
     }
+
+    pub fn new(idx: Idx) -> Self {
+        Self {
+            enclosing_blocks: todo!(),
+        }
+    }
+
+    pub fn append(self, idx: Idx) -> Self {
+        Self {
+            enclosing_blocks: self.enclosing_blocks.append(idx),
+        }
+    }
 }
 
 impl Scope {
