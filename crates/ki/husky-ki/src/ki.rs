@@ -5,7 +5,7 @@ use husky_linket::linket::Linket;
 use husky_term_prelude::literal::Literal;
 use smallvec::SmallVec;
 
-#[salsa::interned(jar = KiJar)]
+#[salsa::interned]
 pub struct Ki {
     pub domain: KiDomain,
     pub opn: KiOpn,
@@ -25,7 +25,7 @@ pub enum KiArgument {
     RuntimeConstants(SmallVec<[KiRuntimeConstant; 4]>),
 }
 
-#[salsa::interned(jar = KiJar)]
+#[salsa::interned]
 pub struct KiRuntimeConstant {
     pub data: KiRuntimeConstantData,
 }
@@ -84,7 +84,7 @@ pub enum KiOpn {
     Index,
 }
 
-#[salsa::interned(jar = KiJar)]
+#[salsa::interned]
 pub struct KiPattern {
     data: KiPatternData,
 }
