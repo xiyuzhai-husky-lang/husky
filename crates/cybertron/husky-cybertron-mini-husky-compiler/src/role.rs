@@ -5,16 +5,16 @@ use scope::Scope;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Role {
-    LetInit {
+    LetStmt {
         pattern: Idx,
         initial_value: Option<Idx>,
     },
-    LetInitInner {
+    LetStmtInner {
         pattern: Idx,
         initial_value: Idx,
     },
-    LetInitIdent,
-    LetInitTypedVariables {
+    LetStmtIdent,
+    LetStmtTypedVariables {
         variables: Idx,
         ty: Idx,
     },
@@ -81,7 +81,7 @@ impl Ast {
                 expr,
                 pattern,
                 initial_value,
-            } => Some(Role::LetInit {
+            } => Some(Role::LetStmt {
                 pattern,
                 initial_value,
             }),
@@ -140,35 +140,35 @@ fn calc_role_step(
         return Some(role);
     }
     match parent_role? {
-        Role::LetInit {
+        Role::LetStmt {
             pattern,
             initial_value,
         } => match ast.data {
-            AstData::Ident(ident) if idx == pattern => Some(Role::LetInitIdent),
+            AstData::Ident(ident) if idx == pattern => Some(Role::LetStmtIdent),
             AstData::Binary {
                 lopd,
                 opr: BinaryOpr::Assign,
                 ropd,
                 lopd_ident,
-            } if lopd == pattern => Some(Role::LetInitInner {
+            } if lopd == pattern => Some(Role::LetStmtInner {
                 pattern,
                 initial_value: ropd,
             }),
             _ => None,
         },
-        Role::LetInitInner {
+        Role::LetStmtInner {
             pattern,
             initial_value,
         } => {
             if idx == pattern {
                 match ast.data {
-                    AstData::Ident(ident) => Some(Role::LetInitIdent),
+                    AstData::Ident(ident) => Some(Role::LetStmtIdent),
                     AstData::Binary {
                         lopd,
                         lopd_ident,
                         opr,
                         ropd,
-                    } => Some(Role::LetInitTypedVariables {
+                    } => Some(Role::LetStmtTypedVariables {
                         variables: lopd,
                         ty: ropd,
                     }),
@@ -178,7 +178,7 @@ fn calc_role_step(
                 None
             }
         }
-        Role::LetInitIdent => todo!(),
+        Role::LetStmtIdent => todo!(),
         Role::FnParameterIdent => todo!(),
         Role::StructDefn(ident) => match ast.data {
             AstData::Literal(_) => todo!(),
@@ -475,7 +475,7 @@ fn calc_role_step(
             }
         }
         Role::FnOutputType { fn_ident } => todo!(),
-        Role::LetInitTypedVariables { variables, ty } => {
+        Role::LetStmtTypedVariables { variables, ty } => {
             if idx == variables {
                 Some(Role::LetStmtVariables)
             } else if idx == ty {

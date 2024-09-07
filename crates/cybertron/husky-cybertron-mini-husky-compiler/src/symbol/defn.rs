@@ -27,15 +27,17 @@ fn calc_symbol_defn(
 ) -> Option<SymbolDefn> {
     match ast?.data {
         AstData::Ident(ident) => match role? {
-            Role::LetInit { .. } => unreachable!(),
-            Role::LetInitIdent | Role::FnParameterIdent => Some(SymbolDefn {
-                symbol: Symbol {
-                    ident,
-                    source: idx,
-                    data: SymbolData::Variable,
-                },
-                scope,
-            }),
+            Role::LetStmt { .. } => unreachable!(),
+            Role::LetStmtVariables | Role::LetStmtIdent | Role::FnParameterIdent => {
+                Some(SymbolDefn {
+                    symbol: Symbol {
+                        ident,
+                        source: idx,
+                        data: SymbolData::Variable,
+                    },
+                    scope,
+                })
+            }
             _ => None,
         },
         AstData::Defn {
@@ -141,6 +143,26 @@ fn calc_symbol_defns_works() {
                 #8 `1`: "1",
                 #9 `;`: "let x = 1; ",
                 #10 `}`: "{ let x = 1;  }",
+            ]
+        "#]],
+    );
+    t(
+        "fn f() { let x: Int = 1; }",
+        expect![[r#"
+            [
+                #0 `fn`: "fn f() { let x : Int = 1;  }" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `)`: "()",
+                #4 `{`: "() { let x : Int = 1;  }",
+                #5 `let`: "let x : Int = 1",
+                #6 `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #6, data: Variable }, scope: Some(`::12`) },
+                #7 `:`: "x : Int",
+                #8 `Int`: "Int",
+                #9 `=`: "x : Int = 1",
+                #10 `1`: "1",
+                #11 `;`: "let x : Int = 1; ",
+                #12 `}`: "{ let x : Int = 1;  }",
             ]
         "#]],
     );

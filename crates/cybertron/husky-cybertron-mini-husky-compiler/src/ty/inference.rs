@@ -11,6 +11,7 @@ pub struct TypeInference {
 }
 
 fn infer_tys(
+    tokens: Seq<Token>,
     asts: Seq<Option<Ast>>,
     symbol_resolutions: Seq<Option<SymbolResolution>>,
     roles: Seq<Option<Role>>,
@@ -19,8 +20,14 @@ fn infer_tys(
     n: usize,
 ) -> Seq<Option<TypeInference>> {
     let mut ty_inferences = infer_tys_initial(asts, ty_signatures);
-    let mut ty_designations =
-        calc_initial_ty_designations(roles, symbol_resolutions, ty_inferences, ty_terms);
+    let mut ty_designations = calc_initial_ty_designations(
+        tokens,
+        asts,
+        roles,
+        symbol_resolutions,
+        ty_inferences,
+        ty_terms,
+    );
     for _ in 0..n {
         ty_inferences |= infer_tys_step(asts, symbol_resolutions, ty_inferences, ty_designations);
         ty_designations |= calc_ty_designations_step(roles, symbol_resolutions, ty_inferences);
@@ -307,13 +314,16 @@ fn calc_ty_inferences_works() {
         let ty_terms = calc_ty_terms(asts, roles, 10);
         let ty_signatures = calc_ty_signatures(asts, roles, ty_terms);
         let symbol_resolutions = calc_symbol_resolutions(asts, 10);
-        let ty_inferences_initial =
-            infer_tys(asts, symbol_resolutions, roles, ty_terms, ty_signatures, 10);
-        expect.assert_debug_eq(&show_asts_mapped_values(
+        let ty_inferences = infer_tys(
             tokens,
             asts,
-            ty_inferences_initial,
-        ));
+            symbol_resolutions,
+            roles,
+            ty_terms,
+            ty_signatures,
+            10,
+        );
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ty_inferences));
     }
     t(
         "",
@@ -339,22 +349,22 @@ fn calc_ty_inferences_works() {
                 #0 `fn`: "fn f(x : i32) { let y = x; let t : i32 = x + 1;  }" ✓,
                 #1 `f`: "f",
                 #2 `(`: `(`,
-                #3 `x`: "x",
+                #3 `x`: "x" → TypeInference { ty: `i32` },
                 #4 `:`: "x : i32",
                 #5 `i32`: "i32",
                 #6 `)`: "(x : i32)",
                 #7 `{`: "(x : i32) { let y = x; let t : i32 = x + 1;  }",
                 #8 `let`: "let y = x",
-                #9 `y`: "y",
+                #9 `y`: "y" → TypeInference { ty: `i32` },
                 #10 `=`: "y = x",
-                #11 `x`: "x",
+                #11 `x`: "x" → TypeInference { ty: `i32` },
                 #12 `;`: "let y = x; ",
                 #13 `let`: "let t : i32 = x + 1",
-                #14 `t`: "t",
+                #14 `t`: "t" → TypeInference { ty: `i32` },
                 #15 `:`: "t : i32",
                 #16 `i32`: "i32",
                 #17 `=`: "t : i32 = x + 1",
-                #18 `x`: "x",
+                #18 `x`: "x" → TypeInference { ty: `i32` },
                 #19 `+`: "x + 1",
                 #20 `1`: "1" → TypeInference { ty: `Int` },
                 #21 `;`: "let t : i32 = x + 1; ",
@@ -405,17 +415,20 @@ pub struct TypeDesignation {
 }
 
 fn calc_initial_ty_designations(
+    tokens: Seq<Token>,
+    asts: Seq<Option<Ast>>,
     roles: Seq<Option<Role>>,
     symbol_resolutions: Seq<Option<SymbolResolution>>,
     ty_inferences: Seq<Option<TypeInference>>,
     ty_terms: Seq<Option<Type>>,
 ) -> Seq<Option<TypeDesignation>> {
-    let symbol_resolutions = symbol_resolutions
+    let retrieved_symbol_resolutions = symbol_resolutions
         .index(roles.map(|role| match role? {
-            Role::LetInitInner {
+            Role::LetStmtInner {
                 pattern,
                 initial_value,
             } => Some(pattern), // ad hoc
+            Role::LetStmtTypedVariables { variables, ty } => Some(variables), // ad hoc
             Role::FnParameter {
                 fn_ident,
                 rank,
@@ -428,23 +441,25 @@ fn calc_initial_ty_designations(
         .map(Option::flatten);
     let ty_inferences = ty_inferences
         .index(roles.map(|role| match role? {
-            Role::LetInitInner {
+            Role::LetStmtInner {
                 pattern,
                 initial_value,
             } => Some(initial_value),
             _ => None,
         }))
         .map(Option::flatten);
-    let ty_terms = ty_terms
+    let retrieved_ty_terms = ty_terms
         .index(roles.map(|role| match role? {
-            Role::LetInitInner {
-                pattern,
-                initial_value,
-            } => Some(initial_value),
+            Role::LetStmtTypedVariables { variables, ty } => Some(ty),
+            Role::FnParameter { ty, .. } => Some(ty),
             _ => None,
         }))
         .map(Option::flatten);
-    calc_initial_ty_designation.apply(symbol_resolutions, ty_inferences, ty_terms)
+    calc_initial_ty_designation.apply(
+        retrieved_symbol_resolutions,
+        ty_inferences,
+        retrieved_ty_terms,
+    )
 }
 
 fn calc_initial_ty_designation(
@@ -467,9 +482,9 @@ fn calc_ty_designations_step(
     symbol_resolutions: Seq<Option<SymbolResolution>>,
     ty_inferences: Seq<Option<TypeInference>>,
 ) -> Seq<Option<TypeDesignation>> {
-    let symbol_resolutions = symbol_resolutions
+    let retrieved_symbol_resolutions = symbol_resolutions
         .index(roles.map(|role| match role? {
-            Role::LetInitInner {
+            Role::LetStmtInner {
                 pattern,
                 initial_value,
             } => Some(pattern),
@@ -479,7 +494,7 @@ fn calc_ty_designations_step(
         .map(Option::flatten);
     let ty_inferences = ty_inferences
         .index(roles.map(|role| match role? {
-            Role::LetInitInner {
+            Role::LetStmtInner {
                 pattern,
                 initial_value,
             } => Some(initial_value),
@@ -493,7 +508,7 @@ fn calc_ty_designations_step(
             _ => None,
         }))
         .map(Option::flatten);
-    calc_ty_designation_step.apply(symbol_resolutions, ty_inferences)
+    calc_ty_designation_step.apply(retrieved_symbol_resolutions, ty_inferences)
 }
 
 fn calc_ty_designation_step(
