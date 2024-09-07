@@ -102,9 +102,12 @@ fn is_ty_role(role: Role) -> bool {
 
 #[cfg(test)]
 fn t(input: &str, expect: Expect) {
+    use scope::infer_scopes;
+
     let (tokens, pre_asts, asts) =
         calc_asts_from_input_together_with_tokens_and_pre_asts(input, 10);
-    let roles = calc_roles(asts, 10);
+    let scopes = infer_scopes(asts, 10);
+    let roles = calc_roles(asts, scopes, 10);
     let ty_terms = calc_ty_terms(asts, roles, 10);
     expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ty_terms));
 }

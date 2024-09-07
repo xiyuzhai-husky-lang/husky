@@ -15,7 +15,7 @@ pub fn calc_symbol_defns(
     scopes: Seq<Option<Scope>>,
     n: usize,
 ) -> Seq<Option<SymbolDefn>> {
-    let roles = calc_roles(asts, n);
+    let roles = calc_roles(asts, scopes, n);
     calc_symbol_defn.apply_enumerated(asts, roles, scopes)
 }
 
@@ -28,7 +28,7 @@ fn calc_symbol_defn(
     match ast?.data {
         AstData::Ident(ident) => match role? {
             Role::LetInit { .. } => unreachable!(),
-            Role::LetInitIdent => Some(SymbolDefn {
+            Role::LetInitIdent | Role::FnParameterIdent => Some(SymbolDefn {
                 symbol: Symbol {
                     ident,
                     source: idx,
