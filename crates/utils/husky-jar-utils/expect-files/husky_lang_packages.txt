@@ -3127,6 +3127,7 @@
             "husky-vmir",
             "rustc-hash",
             "salsa",
+            "vec-like",
             "husky-ast",
             "husky-corgi-config",
             "husky-corgi-config-ast",

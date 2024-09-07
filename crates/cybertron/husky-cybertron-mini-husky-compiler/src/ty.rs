@@ -40,7 +40,7 @@ impl std::fmt::Debug for Type {
 }
 
 #[derive(PartialEq, Eq, Clone, Copy)]
-pub struct TypeRec0(Ident);
+pub struct TypeRec0(pub Ident);
 
 impl std::fmt::Debug for TypeRec0 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {

@@ -16,7 +16,7 @@ pub enum SymbolResolutionError {
     NotYetDeclared(Symbol),
 }
 
-fn calc_symbol_resolutions(asts: Seq<Option<Ast>>, n: usize) -> Seq<Option<SymbolResolution>> {
+pub fn calc_symbol_resolutions(asts: Seq<Option<Ast>>, n: usize) -> Seq<Option<SymbolResolution>> {
     let scopes = infer_scopes(asts, n);
     let symbol_defns = calc_symbol_defns(asts, scopes, n);
     let idents = asts.map(|ast| match ast?.data {
