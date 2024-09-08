@@ -45,7 +45,9 @@ pub enum Role {
         fn_ident_idx: Idx,
         scope: Scope,
     },
-    FnParameterIdent,
+    FnParameterIdent {
+        scope: Scope,
+    },
     FnParameterSeparated {
         fn_ident: Ident,
         rank: Rank,
@@ -179,7 +181,7 @@ fn calc_role_step(
             }
         }
         Role::LetStmtIdent => todo!(),
-        Role::FnParameterIdent => todo!(),
+        Role::FnParameterIdent { scope } => todo!(),
         Role::StructDefn(ident) => match ast.data {
             AstData::Literal(_) => todo!(),
             AstData::Ident(_) => None,
@@ -364,12 +366,13 @@ fn calc_role_step(
             fn_ident_idx,
             rank,
             ty,
+            scope,
             ..
         } => {
             if idx == ty {
                 Some(Role::FnParameterType { fn_ident, rank })
             } else if idx == fn_ident_idx {
-                Some(Role::FnParameterIdent)
+                Some(Role::FnParameterIdent { scope })
             } else {
                 None
             }
@@ -561,7 +564,7 @@ fn calc_roles_works() {
                 #0 `fn`: "fn f(x : i32) {}" ✓ → FnDefn(`f`),
                 #1 `f`: "f",
                 #2 `(`: `(`,
-                #3 `x`: "x" → FnParameterIdent,
+                #3 `x`: "x" → FnParameterIdent { scope: `::8` },
                 #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5, fn_ident_idx: #3, scope: `::8` },
                 #5 `i32`: "i32" → FnParameterType { fn_ident: `f`, rank: Rank(0) },
                 #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: false, scope: `::8` },
@@ -577,7 +580,7 @@ fn calc_roles_works() {
                 #0 `fn`: "fn f(x : i32) -> i32 { return 1;  }" ✓ → FnDefn(`f`),
                 #1 `f`: "f",
                 #2 `(`: `(`,
-                #3 `x`: "x" → FnParameterIdent,
+                #3 `x`: "x" → FnParameterIdent { scope: `::13` },
                 #4 `:`: "x : i32" → FnParameter { fn_ident: `f`, rank: Rank(0), ty: #5, fn_ident_idx: #3, scope: `::13` },
                 #5 `i32`: "i32" → FnParameterType { fn_ident: `f`, rank: Rank(0) },
                 #6 `)`: "(x : i32)" → FnParameters { fn_ident: `f`, has_return_ty: true, scope: `::13` },
