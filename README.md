@@ -20,3 +20,5 @@ Many of the above features are already seen in existing languages. However, they
 ## Timeline
 
 Husky is currently in the prototyping stage, focusing on AI research. It will transform into a stable language once AI technology is mature.
+
+I'm currently recuperating from hand pains. The focus is to deliver Husky for my own research first. The tutorials and documentations will wait for one or two years.
