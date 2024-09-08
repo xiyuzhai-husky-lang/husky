@@ -63,7 +63,7 @@ impl SubmoduleTraceData {
     }
 
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
-        vec![]
+        Default::default()
     }
 
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {

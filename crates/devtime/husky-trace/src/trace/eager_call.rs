@@ -76,7 +76,11 @@ impl EagerCallTraceData {
     }
 
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
-        self.biological_parent.var_deps(db).to_vec()
+        self.biological_parent.var_deps(db).into()
+    }
+
+    pub fn history_var_deps(&self, trace: Trace, db: &::salsa::Db) -> Option<TraceVarDeps> {
+        todo!()
     }
 
     pub fn var_deps_expansion(&self, db: &::salsa::Db) -> TraceVarDepsExpansion {

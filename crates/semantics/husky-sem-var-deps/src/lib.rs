@@ -6,6 +6,7 @@
 //! var includes both static var and compterm var, thus the name is var
 mod builder;
 mod graph_dynamics;
+pub mod helpers;
 pub mod jar;
 pub mod region;
 #[cfg(test)]

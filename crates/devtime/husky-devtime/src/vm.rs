@@ -8,7 +8,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         &self,
         biological_parent: Trace,
         pedestal: Devsoul::Pedestal,
-    ) -> DevsoulKiControlFlow<Devsoul> {
+    ) -> Option<DevsoulVmControlFlowFrozen<Devsoul>> {
         let db = self.db();
         let history = self.trace_history(biological_parent, pedestal);
         todo!()

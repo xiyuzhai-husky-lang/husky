@@ -132,7 +132,7 @@ impl __IsStaticVar<__VarId> for INPUT {
     fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
-    ) -> __ThawedVarResult<impl FnOnce() + 'static> {
+    ) -> __StaticVarResult<impl FnOnce() + 'static> {
         let old = replace_input_id(id.into());
         Ok(move || {
             set_input_id(old);
@@ -150,10 +150,15 @@ impl __IsStaticVar<__VarId> for INPUT {
         INPUT().into_value()
     }
 
-    fn default_page_start(
-        locked: &[__ItemPathIdInterface],
-    ) -> husky_linket_impl::static_var::StaticVarResult<__VarId, __VarId> {
+    fn default_page_start(locked: &[__ItemPathIdInterface]) -> __StaticVarResult<__VarId> {
         Ok(0u32.into())
+    }
+
+    fn try_set_default_var_id(
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<(__VarId, impl FnOnce() + 'static)> {
+        let default = 0usize.into();
+        Ok((default, Self::try_set_var_id(default, locked)?))
     }
 }
 
@@ -183,7 +188,7 @@ impl __IsStaticVar<__VarId> for TASK {
     fn try_set_var_id_aux(
         id: __VarId,
         locked: &[__ItemPathIdInterface],
-    ) -> __ThawedVarResult<Box<dyn FnOnce()>> {
+    ) -> __StaticVarResult<Box<dyn FnOnce()>> {
         todo!()
     }
 
@@ -197,5 +202,12 @@ impl __IsStaticVar<__VarId> for TASK {
         locked: &[__ItemPathIdInterface],
     ) -> husky_linket_impl::static_var::StaticVarResult<__VarId, __VarId> {
         todo!()
+    }
+
+    fn try_set_default_var_id(
+        locked: &[__ItemPathIdInterface],
+    ) -> __StaticVarResult<(__VarId, impl FnOnce() + 'static)> {
+        todo!();
+        Ok((todo!(), || todo!()))
     }
 }

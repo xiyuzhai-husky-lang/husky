@@ -6,11 +6,7 @@ use crate::{
     *,
 };
 
-pub fn show_asts(
-    tokens: Seq<Token>,
-    pre_asts: Seq<Option<PreAst>>,
-    asts: Seq<Option<Ast>>,
-) -> Vec<AstOut> {
+pub fn show_asts(tokens: Seq<Token>, asts: Seq<Option<Ast>>) -> Vec<AstOut> {
     let tokens = tokens.data();
     let asts = asts.data();
     let len = tokens.len();
@@ -20,7 +16,10 @@ pub fn show_asts(
         .map(|i| AstOut {
             idx: idx!(i),
             token: tokens[i],
-            pre_ast_is_some: pre_asts.data()[i].is_some(),
+            is_root: match asts[i] {
+                Some(ast) => ast.parent.is_none(),
+                None => false,
+            },
             ast: "".into(),
         })
         .collect();
@@ -33,13 +32,13 @@ pub fn show_asts(
 pub struct AstOut {
     idx: Idx,
     token: Token,
-    pre_ast_is_some: bool,
+    is_root: bool,
     ast: String,
 }
 
 impl std::fmt::Debug for AstOut {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self.pre_ast_is_some {
+        match self.is_root {
             true => {
                 if self.ast.is_empty() {
                     f.write_fmt(format_args!(
@@ -91,7 +90,12 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
             calc_ast_repr(tokens, asts, opd, outs);
             format!("{}{}", opr.repr_short(), outs[opd.index()].ast)
         }
-        AstData::Binary { lopd, opr, ropd } => {
+        AstData::Binary {
+            lopd,
+            opr,
+            ropd,
+            lopd_ident,
+        } => {
             calc_ast_repr(tokens, asts, lopd, outs);
             calc_ast_repr(tokens, asts, ropd, outs);
             format!(
@@ -221,12 +225,11 @@ fn calc_ast_repr(tokens: &[Token], asts: &[Option<Ast>], idx: Idx, outs: &mut Ve
 fn show_asts_works() {
     expect![[r#"
         [
-            #0 `hello`: "hello",
+            #0 `hello`: "hello" ✓,
         ]
     "#]]
     .assert_debug_eq(&show_asts(
         seq![Token::Ident(Ident::new("hello"))],
-        seq![None],
         seq![Some(Ast {
             parent: None,
             data: AstData::Ident(Ident::new("hello"))
@@ -234,13 +237,12 @@ fn show_asts_works() {
     ));
     expect![[r#"
         [
-            #0 `+`: "+hello",
+            #0 `+`: "+hello" ✓,
             #1 `hello`: "hello",
         ]
     "#]]
     .assert_debug_eq(&show_asts(
         seq![Token::Opr(Opr::PLUS), Token::Ident(Ident::new("hello"))],
-        seq![None, None],
         seq![
             Some(Ast {
                 parent: None,
@@ -258,7 +260,7 @@ fn show_asts_works() {
     expect![[r#"
         [
             #0 `1`: "1",
-            #1 `+`: "1 + 1",
+            #1 `+`: "1 + 1" ✓,
             #2 `1`: "1",
         ]
     "#]]
@@ -268,7 +270,6 @@ fn show_asts_works() {
             Token::Opr(Opr::ADD),
             Token::Literal(Literal::Int(1))
         ],
-        seq![None, None, None],
         seq![
             Some(Ast {
                 parent: Some(idx!(1)),
@@ -279,7 +280,8 @@ fn show_asts_works() {
                 data: AstData::Binary {
                     lopd: idx!(0),
                     opr: BinaryOpr::Add,
-                    ropd: idx!(2)
+                    ropd: idx!(2),
+                    lopd_ident: None
                 }
             }),
             Some(Ast {
@@ -294,7 +296,7 @@ fn show_asts_works() {
             #1 `1`: "1",
             #2 `,`: "1, ",
             #3 `1`: "1",
-            #4 `)`: "(1, 1)",
+            #4 `)`: "(1, 1)" ✓,
         ]
     "#]]
     .assert_debug_eq(&show_asts(
@@ -305,7 +307,6 @@ fn show_asts_works() {
             Token::Literal(Literal::Int(1)),
             Token::RightDelimiter(RPAR),
         ],
-        seq![None, None, None, None, None],
         seq![
             None,
             Some(Ast {
@@ -337,14 +338,13 @@ fn show_asts_works() {
 
 pub fn show_asts_mapped_values<T>(
     tokens: Seq<Token>,
-    pre_asts: Seq<Option<PreAst>>,
     asts: Seq<Option<Ast>>,
     mapped: Seq<Option<T>>,
 ) -> Vec<AstOutMappedValue>
 where
     T: std::fmt::Debug + Send + Sync + Copy + 'static,
 {
-    let outs = show_asts(tokens, pre_asts, asts);
+    let outs = show_asts(tokens, asts);
     outs.into_iter()
         .zip(mapped.data())
         .enumerate()

@@ -23,4 +23,8 @@ impl IsPedestal for VirtualPedestal {
     fn var_ids<'a>(&'a self) -> impl Iterator<Item = (ItemPathIdInterface, Self::VarId)> + 'a {
         [].into_iter()
     }
+
+    fn insert(&mut self, item_path_id_interface: ItemPathIdInterface, var_id: Self::VarId) {
+        todo!()
+    }
 }

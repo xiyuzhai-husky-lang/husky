@@ -5,6 +5,7 @@ use husky_sem_var_deps::{
     var_deps::{SemVarDep, SemVarDeps},
 };
 use husky_syn_expr::variable::VariableMap;
+use vec_like::SmallVecSet;
 
 #[salsa::tracked(constructor = new_inner)]
 pub struct TraceVarDepsExpansion {
@@ -18,7 +19,7 @@ pub struct TraceVarDepsExpansion {
     pub variable_var_deps_table: VariableMap<TraceVarDeps>,
 }
 
-pub type TraceVarDeps = Vec<ItemPathIdInterface>;
+pub type TraceVarDeps = SmallVecSet<ItemPathIdInterface, 2>;
 
 impl TraceVarDepsExpansion {
     pub(crate) fn new(region: ItemDefnSemVarDepsRegion, db: &::salsa::Db) -> Self {

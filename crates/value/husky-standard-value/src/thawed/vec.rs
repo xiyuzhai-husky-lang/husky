@@ -10,7 +10,7 @@ where
         false
     }
 
-    fn try_copy(&self) -> Option<ThawedValue> {
+    fn try_copy_thawed(&self) -> Option<ThawedValue> {
         todo!()
     }
 
@@ -18,11 +18,11 @@ where
         todo!()
     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> ExceptedThawedValue {
+    fn index_ref_thawed<'a>(&'a self, index: usize) -> ExceptedThawedValue {
         Ok(ThawedValue::from_ref(&self[index]))
     }
 
-    fn index_leash(&'static self, index: usize) -> ExceptedThawedValue {
+    fn index_leash_thawed(&'static self, index: usize) -> ExceptedThawedValue {
         Ok(ThawedValue::from_leash(&self[index]))
     }
 

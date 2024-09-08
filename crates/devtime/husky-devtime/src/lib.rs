@@ -10,6 +10,7 @@ mod vm;
 pub use husky_trace_protocol::server::IsTracetime;
 
 use dashmap::DashMap;
+use either::*;
 use husky_dev_comptime::DevComptimeTarget;
 use husky_dev_runtime::{DevRuntime, DevRuntimeConfig};
 use husky_devsoul::{
@@ -58,15 +59,7 @@ pub struct Devtime<Devsoul: IsDevsoul> {
     // cache histories of eager traces
     // when hot reload, reset this
     // TODO benchmark this
-    eager_trace_cache: DashMap<
-        (Trace, Devsoul::Pedestal),
-        Option<
-            Arc<(
-                DevsoulVmControlFlowFrozen<Devsoul>,
-                VmHistory<Devsoul::LinketImpl>,
-            )>,
-        >,
-    >,
+    eager_trace_cache: DashMap<(Trace, Devsoul::Pedestal), Arc<VmHistory<Devsoul::LinketImpl>>>,
 }
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
@@ -111,6 +104,15 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         trace.var_deps(self.db()).to_smallvec()
     }
 
+    fn trace_history_var_deps(
+        &self,
+        trace: Self::Trace,
+    ) -> Option<SmallVec<[ItemPathIdInterface; 2]>> {
+        trace
+            .history_var_deps(self.db())
+            .map(|history_var_deps| history_var_deps.to_smallvec())
+    }
+
     fn trace_view_data(&self, trace: Self::Trace) -> husky_trace_protocol::view::TraceViewData {
         trace.view_data(self.db())
     }
@@ -123,11 +125,20 @@ impl<Devsoul: IsDevsoul> IsTracetime for Devtime<Devsoul> {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> DevsoulTraceStalk<Devsoul> {
         use husky_linket_impl::pedestal::IsPedestal;
+
         let db = self.runtime.db();
         let var_deps = trace.var_deps(db);
         assert!(pedestal.is_closed(var_deps));
-        TraceStalk::new(self.eval_trace_at_pedestal(trace, pedestal).map(|vpcf| {
-            vpcf.map(|vpcf| vpcf.present(value_presenter_cache, value_presentation_synchrotron))
+        TraceStalk::new(self.eval_trace_at_pedestal(trace, pedestal).map(|cf| {
+            cf.map(|cf| match cf {
+                Left(kcf) => kcf.present(value_presenter_cache, value_presentation_synchrotron),
+                Right(vcf) => match vcf {
+                    Some(vcf) => vcf
+                        .present(value_presenter_cache, value_presentation_synchrotron)
+                        .into(),
+                    None => KiControlFlow::Undefined,
+                },
+            })
         }))
     }
 

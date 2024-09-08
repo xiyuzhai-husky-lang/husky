@@ -6,8 +6,8 @@ macro_rules! impl_frozen_for_ritchie_ty {
     ) => {
         impl<$($input,)* $output>  Frozen for fn($($input,)*) -> $output
         where
-            $($input: Thawed, )*
-            $output: Thawed, {
+            $($input: 'static, )*
+            $output: 'static, {
             type Thawed = Self;
             type Slush = ();
 

@@ -30,21 +30,8 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
         #item
 
         impl #generics __Immortal for #self_ty where #impl_immortal_generic_constraints {
-            fn is_copyable() -> bool {
-                todo!()
-            }
-
             fn try_copy(&self) -> Option<__Value> {
                 todo!()
-            }
-
-            fn serialize_to_value(&self) -> __JsonValue {
-                __to_json_value(self).unwrap()
-            }
-
-            fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-                // ad hoc
-                __Visual::Void
             }
         }
 
@@ -68,7 +55,7 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
                 todo!()
             }
 
-            fn try_copy(&self) -> Option<__ThawedValue> {
+            fn try_copy_thawed(&self) -> Option<__ThawedValue> {
                 todo!()
             }
 

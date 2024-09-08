@@ -163,4 +163,12 @@ impl IsLinketImpl for VirtualLinketImpl {
     ) -> LinketImplStaticVarResult<Self, <Self::Pedestal as IsPedestal>::VarId> {
         todo!()
     }
+
+    fn with_default_var_id<R>(
+        self,
+        locked: &[ItemPathIdInterface],
+        f: impl FnOnce(<Self::Pedestal as IsPedestal>::VarId) -> R,
+    ) -> LinketImplStaticVarResult<Self, R> {
+        todo!()
+    }
 }

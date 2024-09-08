@@ -3,6 +3,7 @@ mod append_only;
 pub mod error;
 pub mod ordered_small_vec_map;
 pub mod ordered_small_vec_set;
+pub mod ordered_vec_map;
 pub mod small_vec_map;
 pub mod small_vec_set;
 pub mod vec_map;

@@ -10,11 +10,11 @@ where
         T::is_copyable()
     }
 
-    fn try_copy(&self) -> Option<ThawedValue> {
+    fn try_copy_thawed(&self) -> Option<ThawedValue> {
         if !Self::is_copyable() {
             return None;
         }
-        self.as_ref().map(|v| v.try_copy().unwrap())
+        self.as_ref().map(|v| v.try_copy_thawed().unwrap())
     }
 
     fn is_some(&self) -> bool {
@@ -24,17 +24,17 @@ where
         self.is_none()
     }
 
-    fn unwrap_ref<'a>(&'a self) -> ExceptedThawedValue {
+    fn unwrap_ref_thawed<'a>(&'a self) -> ExceptedThawedValue {
         let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
-        Ok(match slf.try_copy() {
+        Ok(match slf.try_copy_thawed() {
             Some(_) => todo!(),
             None => todo!(),
         })
     }
 
-    fn unwrap_leash(&'static self) -> ExceptedThawedValue {
+    fn unwrap_leash_thawed(&'static self) -> ExceptedThawedValue {
         let slf = self.as_ref().ok_or(Exception::UnwrapNone)?;
-        Ok(match slf.try_copy() {
+        Ok(match slf.try_copy_thawed() {
             Some(slf) => slf,
             None => ThawedValue::from_leash(slf),
         })

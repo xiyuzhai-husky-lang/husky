@@ -20,7 +20,7 @@ where
         todo!()
     }
 
-    fn try_copy(&self) -> Option<ThawedValue> {
+    fn try_copy_thawed(&self) -> Option<ThawedValue> {
         todo!()
     }
 

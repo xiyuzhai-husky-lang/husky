@@ -74,6 +74,13 @@ macro_rules! static_var_linket_impl {
                 <$var_path as __IsStaticVar<__VarId>>::try_set_var_id(id, locked)
                     .map(|restore| -> Box<dyn FnOnce()> { Box::new(restore) })
             },
+            try_set_default_var_id: |locked| unsafe {
+                <$var_path as __IsStaticVar<__VarId>>::try_set_default_var_id(locked).map(
+                    |(default, restore)| -> (__VarId, Box<dyn FnOnce()>) {
+                        (default, Box::new(restore))
+                    },
+                )
+            },
             page_var_ids: |locked, page_start, page_limit| {
                 Box::new(<$var_path as __IsStaticVar<__VarId>>::page_var_ids(
                     locked, page_start, page_limit,
@@ -110,7 +117,7 @@ fn static_var_linket_impl_works() {
         fn try_set_var_id_aux(
             id: __VarId,
             locked: &[ItemPathIdInterface],
-        ) -> __ThawedVarResult<impl FnOnce() + 'static> {
+        ) -> __StaticVarResult<impl FnOnce() + 'static> {
             todo!();
             Ok(|| todo!())
         }
@@ -123,6 +130,13 @@ fn static_var_linket_impl_works() {
 
         fn default_page_start(locked: &[ItemPathIdInterface]) -> StaticVarResult<__VarId, __VarId> {
             todo!()
+        }
+
+        fn try_set_default_var_id(
+            locked: &[ItemPathIdInterface],
+        ) -> StaticVarResult<__VarId, (__VarId, impl FnOnce() + 'static)> {
+            todo!();
+            Ok((todo!(), || todo!()))
         }
     }
 
