@@ -16,22 +16,18 @@ pub enum Class<Label> {
 }
 impl<Label> __Immortal for Class<Label>
 where
-    Label: __Immortal + __Serialize + Copy + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+    Label: __Immortal
+        + __Boiled<Thawed = Label>
+        + __Serialize
+        + Copy
+        + Send
+        + Sync
+        + UnwindSafe
+        + RefUnwindSafe
+        + 'static,
 {
-    fn is_copyable() -> bool {
-        todo!()
-    }
-
     fn try_copy(&self) -> Option<__Value> {
         Some((*self).into_value())
-    }
-
-    fn serialize_to_value(&self) -> __JsonValue {
-        todo!()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-        todo!()
     }
 }
 
@@ -81,7 +77,7 @@ where
         true
     }
 
-    fn try_copy(&self) -> Option<__ThawedValue> {
+    fn try_copy_thawed(&self) -> Option<__ThawedValue> {
         Some((*self).into_thawed_value())
     }
 }
@@ -114,7 +110,15 @@ where
 }
 impl<Label> __IntoValue for Class<Label>
 where
-    Label: __Immortal + __Serialize + Copy + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
+    Label: __Immortal
+        + __Boiled<Thawed = Label>
+        + __Serialize
+        + Copy
+        + Send
+        + Sync
+        + UnwindSafe
+        + RefUnwindSafe
+        + 'static,
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)

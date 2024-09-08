@@ -51,19 +51,7 @@ where
         + __Frozen<Thawed = Label>
         + __Serialize,
 {
-    fn is_copyable() -> bool {
-        todo!()
-    }
-
     fn try_copy(&self) -> Option<__Value> {
-        todo!()
-    }
-
-    fn serialize_to_value(&self) -> __JsonValue {
-        todo!()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         todo!()
     }
 }
@@ -102,7 +90,7 @@ where
         false
     }
 
-    fn try_copy(&self) -> Option<__ThawedValue> {
+    fn try_copy_thawed(&self) -> Option<__ThawedValue> {
         None
     }
 }

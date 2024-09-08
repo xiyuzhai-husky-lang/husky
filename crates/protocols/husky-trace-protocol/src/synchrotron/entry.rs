@@ -9,6 +9,7 @@ use vec_like::SmallVecSet;
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
     var_deps: SmallVec<[ItemPathIdInterface; 2]>,
+    history_var_deps: Option<SmallVec<[ItemPathIdInterface; 2]>>,
     view_data: TraceViewData,
     /// None means not calculated
     subtrace_ids: Option<Vec<TraceId>>,
@@ -22,9 +23,14 @@ pub struct TraceSynchrotronEntry<TraceProtocol: IsTraceProtocol> {
 }
 
 impl<TraceProtocol: IsTraceProtocol> TraceSynchrotronEntry<TraceProtocol> {
-    pub fn new(var_deps: SmallVec<[ItemPathIdInterface; 2]>, view_data: TraceViewData) -> Self {
+    pub fn new(
+        var_deps: SmallVec<[ItemPathIdInterface; 2]>,
+        history_var_deps: Option<SmallVec<[ItemPathIdInterface; 2]>>,
+        view_data: TraceViewData,
+    ) -> Self {
         Self {
             var_deps,
+            history_var_deps,
             view_data,
             subtrace_ids: None,
             assoc_trace_ids_shown: Default::default(),

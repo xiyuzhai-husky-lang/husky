@@ -12,11 +12,14 @@ use husky_trace_protocol::{
     protocol::IsTraceProtocol,
     stalk::TraceStalk,
 };
+use husky_value::IsValue;
 use vec_like::{ordered_small_vec_map::OrderedSmallVecPairMap, SmallVecPairMap};
 
 pub type DevsoulPedestal<Devsoul> = <Devsoul as IsDevsoul>::Pedestal;
 pub type DevsoulJointPedestal<Devsoul> = JointPedestal<DevsoulVarId<Devsoul>>;
 pub type DevsoulValue<Devsoul> = <<Devsoul as IsDevsoul>::LinketImpl as IsLinketImpl>::Value;
+pub type DevsoulFrozenValue<Devsoul> =
+    <<<Devsoul as IsDevsoul>::LinketImpl as IsLinketImpl>::Value as IsValue>::FrozenValue;
 pub type DevsoulVarId<Devsoul> =
     <<<Devsoul as IsDevsoul>::LinketImpl as IsLinketImpl>::Pedestal as IsPedestal>::VarId;
 pub type DevsoulStaticVarMap<Devsoul> =
@@ -31,7 +34,7 @@ pub type DevsoulKiControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
     LinketImplKiControlFlow<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulVmControlFlow<Devsoul, C = DevsoulValue<Devsoul>> =
     LinketImplVmControlFlowThawed<<Devsoul as IsDevsoul>::LinketImpl, C>;
-pub type DevsoulVmControlFlowFrozen<Devsoul, C = DevsoulValue<Devsoul>> =
+pub type DevsoulVmControlFlowFrozen<Devsoul, C = DevsoulFrozenValue<Devsoul>> =
     LinketImplVmControlFlowFrozen<<Devsoul as IsDevsoul>::LinketImpl, C>;
 pub type DevsoulAnchor<Devsoul> = Anchor<<DevsoulPedestal<Devsoul> as IsPedestal>::VarId>;
 pub type DevsoulTraceStalk<Devsoul> = TraceStalk<DevsoulVarId<Devsoul>>;

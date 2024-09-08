@@ -4,6 +4,7 @@
 #![feature(if_let_guard)]
 #![feature(const_trait_impl)]
 #![allow(unused, warnings)]
+#![feature(impl_trait_in_assoc_type)]
 mod builder;
 mod error;
 pub mod expr;

@@ -181,13 +181,28 @@ impl<C1, B, E> KiControlFlow<C1, B, E> {
 }
 
 impl<C, B, E> From<VmControlFlow<C, B, E>> for KiControlFlow<C, B, E> {
-    fn from(value: VmControlFlow<C, B, E>) -> Self {
-        todo!()
+    fn from(vcf: VmControlFlow<C, B, E>) -> Self {
+        match vcf {
+            VmControlFlow::Continue(c) => KiControlFlow::Continue(c),
+            VmControlFlow::LoopContinue => KiControlFlow::LoopContinue,
+            VmControlFlow::LoopExit(b) => KiControlFlow::LoopExit(b),
+            VmControlFlow::Return(b) => KiControlFlow::Return(b),
+            VmControlFlow::Throw(e) => KiControlFlow::Throw(e),
+        }
     }
 }
 
 impl<C, B, E> From<Option<VmControlFlow<C, B, E>>> for KiControlFlow<C, B, E> {
-    fn from(value: Option<VmControlFlow<C, B, E>>) -> Self {
-        todo!()
+    fn from(vcf: Option<VmControlFlow<C, B, E>>) -> Self {
+        match vcf {
+            Some(vcf) => match vcf {
+                VmControlFlow::Continue(c) => KiControlFlow::Continue(c),
+                VmControlFlow::LoopContinue => KiControlFlow::LoopContinue,
+                VmControlFlow::LoopExit(b) => KiControlFlow::LoopExit(b),
+                VmControlFlow::Return(b) => KiControlFlow::Return(b),
+                VmControlFlow::Throw(e) => KiControlFlow::Throw(e),
+            },
+            None => KiControlFlow::Undefined,
+        }
     }
 }

@@ -31,24 +31,12 @@ impl<T> __Immortal for CyclicSliceLeashed<T>
 where
     T: __Immortal + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
-    fn is_copyable() -> bool {
-        todo!()
-    }
-
     fn try_copy(&self) -> Option<__Value> {
         todo!()
     }
 
     fn index_owned(self: Self, index: usize) -> __ExceptedValue {
         Ok(Leash(self.index_i32(index.try_into().unwrap())).into_value())
-    }
-
-    fn serialize_to_value(&self) -> __JsonValue {
-        todo!()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> Visual {
-        todo!()
     }
 }
 
@@ -62,7 +50,7 @@ where
         todo!()
     }
 
-    fn try_copy(&self) -> Option<__ThawedValue> {
+    fn try_copy_thawed(&self) -> Option<__ThawedValue> {
         todo!()
     }
 
@@ -70,18 +58,18 @@ where
         todo!()
     }
 
-    fn index_owned(self: Self, index: usize) -> __ExceptedThawedValue {
+    fn index_owned_thawed(self: Self, index: usize) -> __ExceptedThawedValue {
         Ok(Leash(self.index_i32(index.try_into().unwrap())).into_thawed_value())
     }
 
-    fn index_ref<'a>(&'a self, index: usize) -> __ExceptedThawedValue {
+    fn index_ref_thawed<'a>(&'a self, index: usize) -> __ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support indexing ref",
             std::any::type_name::<Self>()
         )
     }
 
-    fn index_leash(&'static self, index: usize) -> __ExceptedThawedValue {
+    fn index_leash_thawed(&'static self, index: usize) -> __ExceptedThawedValue {
         panic!(
             "type `{}` doesn't support indexing leash",
             std::any::type_name::<Self>()

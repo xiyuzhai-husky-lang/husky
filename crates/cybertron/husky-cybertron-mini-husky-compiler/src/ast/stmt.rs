@@ -49,6 +49,7 @@ fn new_stmt_ast(
             let (pattern, initial_value) = match ast {
                 AstData::Binary {
                     lopd,
+                    lopd_ident,
                     opr: BinaryOpr::Assign,
                     ropd,
                 } => (lopd, Some(ropd)),
@@ -280,7 +281,7 @@ fn reduce_n_times_for_if_else_stmt_works() {
                 #4 `{`: `{`,
                 #5 `3`: "3",
                 #6 `}`: "{ 3 }",
-                #7 `else`: `else` ✓,
+                #7 `else`: `else`,
                 #8 `{`: `{`,
                 #9 `4`: "4",
                 #10 `}`: "{ 4 }" ✓,
@@ -312,7 +313,7 @@ fn reduce_n_times_for_if_else_stmt_works() {
         expect![[r#"
             [
                 #0 `1`: "1" ✓,
-                #1 `+`: `+` ✓,
+                #1 `+`: `+`,
                 #2 `if`: "if 1 == 2 { 3 }",
                 #3 `1`: "1",
                 #4 `==`: "1 == 2",

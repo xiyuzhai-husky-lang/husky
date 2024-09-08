@@ -115,6 +115,11 @@ pub enum StandardLinketImpl {
             StandardVarId,
             locked: &[ItemPathIdInterface],
         ) -> StandardStaticVarResult<Box<dyn FnOnce() + 'static>>,
+        try_set_default_var_id:
+            unsafe fn(
+                locked: &[ItemPathIdInterface],
+            )
+                -> StandardStaticVarResult<(StandardVarId, Box<dyn FnOnce() + 'static>)>,
         get_value: fn() -> Value,
     },
     // todo: memo
@@ -243,17 +248,32 @@ impl IsLinketImpl for StandardLinketImpl {
         locked: &[ItemPathIdInterface],
         f: impl FnOnce() -> R,
     ) -> StaticVarResult<<Self::Pedestal as IsPedestal>::VarId, R> {
+        let StandardLinketImpl::StaticVar { try_set_var_id, .. } = self else {
+            unreachable!()
+        };
+        unsafe {
+            let restore = try_set_var_id(static_var_id, locked)?;
+            let r = f();
+            restore();
+            Ok(r)
+        }
+    }
+
+    fn with_default_var_id<R>(
+        self,
+        locked: &[ItemPathIdInterface],
+        f: impl FnOnce(<Self::Pedestal as IsPedestal>::VarId) -> R,
+    ) -> StaticVarResult<<Self::Pedestal as IsPedestal>::VarId, R> {
         let StandardLinketImpl::StaticVar {
-            get_var_id: get_id,
-            try_set_var_id: try_replace_id,
+            try_set_default_var_id,
             ..
         } = self
         else {
             unreachable!()
         };
         unsafe {
-            let restore = try_replace_id(static_var_id, locked)?;
-            let r = f();
+            let (default, restore) = try_set_default_var_id(locked)?;
+            let r = f(default);
             restore();
             Ok(r)
         }

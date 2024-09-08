@@ -46,6 +46,7 @@ fn reduce_asts_by_binary_opr_works1() {
                 lopd: idx!(0),
                 opr: BinaryOpr::Add,
                 ropd: idx!(2),
+                lopd_ident: None
             })),
             None
         ]
@@ -61,6 +62,7 @@ fn reduce_asts_by_binary_opr_works1() {
                 parent: None,
                 data: AstData::Binary {
                     lopd: idx!(0),
+                    lopd_ident: None,
                     opr: BinaryOpr::Add,
                     ropd: idx!(2)
                 }
@@ -217,22 +219,34 @@ fn reduce_asts_by_opr_works_as_expected() {
                     None,
                     Some(Ast { parent: None, data: Literal(`1`) }),
                 ],
-                "pre_asts1": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None],
+                "pre_asts1": [
+                    None,
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 }),
+                    None,
+                ],
                 "allocated_asts1": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
                 ],
-                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None],
+                "pre_asts2": [
+                    None,
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 }),
+                    None,
+                ],
                 "allocated_asts2": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
                 ],
-                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None],
+                "pre_asts3": [
+                    None,
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 }),
+                    None,
+                ],
                 "allocated_asts3": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
                 ],
             }
@@ -258,32 +272,44 @@ fn reduce_asts_by_opr_works_as_expected() {
                 ],
                 "pre_asts1": [
                     None,
-                    Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }),
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 }),
                     None,
                     Some(`+(add)`),
                     Some(Literal(`1`)),
                 ],
                 "allocated_asts1": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
                     None,
                     Some(Ast { parent: None, data: Literal(`1`) }),
                 ],
-                "pre_asts2": [None, None, None, Some(Binary { lopd: #1, opr: `+(add)`, ropd: #4 }), None],
+                "pre_asts2": [
+                    None,
+                    None,
+                    None,
+                    Some(Binary { lopd: #1, lopd_ident: None, opr: `+(add)`, ropd: #4 }),
+                    None,
+                ],
                 "allocated_asts2": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: Some(#3), data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: Some(#3), data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #1, opr: `+(add)`, ropd: #4 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #1, lopd_ident: None, opr: `+(add)`, ropd: #4 } }),
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
                 ],
-                "pre_asts3": [None, None, None, Some(Binary { lopd: #1, opr: `+(add)`, ropd: #4 }), None],
+                "pre_asts3": [
+                    None,
+                    None,
+                    None,
+                    Some(Binary { lopd: #1, lopd_ident: None, opr: `+(add)`, ropd: #4 }),
+                    None,
+                ],
                 "allocated_asts3": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: Some(#3), data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: Some(#3), data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #1, opr: `+(add)`, ropd: #4 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #1, lopd_ident: None, opr: `+(add)`, ropd: #4 } }),
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
                 ],
             }
@@ -312,30 +338,42 @@ fn reduce_asts_by_opr_works_as_expected() {
                     Some(Literal(`1`)),
                     Some(`+(add)`),
                     None,
-                    Some(Binary { lopd: #2, opr: `*`, ropd: #4 }),
+                    Some(Binary { lopd: #2, lopd_ident: None, opr: `*`, ropd: #4 }),
                     None,
                 ],
                 "allocated_asts1": [
                     Some(Ast { parent: None, data: Literal(`1`) }),
                     None,
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #2, opr: `*`, ropd: #4 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #2, lopd_ident: None, opr: `*`, ropd: #4 } }),
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
                 ],
-                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #3 }), None, None, None],
+                "pre_asts2": [
+                    None,
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #3 }),
+                    None,
+                    None,
+                    None,
+                ],
                 "allocated_asts2": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #3 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #3 } }),
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
-                    Some(Ast { parent: Some(#1), data: Binary { lopd: #2, opr: `*`, ropd: #4 } }),
+                    Some(Ast { parent: Some(#1), data: Binary { lopd: #2, lopd_ident: None, opr: `*`, ropd: #4 } }),
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
                 ],
-                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #3 }), None, None, None],
+                "pre_asts3": [
+                    None,
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #3 }),
+                    None,
+                    None,
+                    None,
+                ],
                 "allocated_asts3": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #3 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #3 } }),
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
-                    Some(Ast { parent: Some(#1), data: Binary { lopd: #2, opr: `*`, ropd: #4 } }),
+                    Some(Ast { parent: Some(#1), data: Binary { lopd: #2, lopd_ident: None, opr: `*`, ropd: #4 } }),
                     Some(Ast { parent: Some(#3), data: Literal(`1`) }),
                 ],
             }
@@ -388,17 +426,27 @@ fn reduce_asts_by_opr_works_as_expected() {
                     Some(Ast { parent: None, data: Prefix { opr: `-(minus)`, opd: #3 } }),
                     Some(Ast { parent: Some(#2), data: Literal(`1`) }),
                 ],
-                "pre_asts2": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None, None],
+                "pre_asts2": [
+                    None,
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 }),
+                    None,
+                    None,
+                ],
                 "allocated_asts2": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Prefix { opr: `-(minus)`, opd: #3 } }),
                     Some(Ast { parent: Some(#2), data: Literal(`1`) }),
                 ],
-                "pre_asts3": [None, Some(Binary { lopd: #0, opr: `+(add)`, ropd: #2 }), None, None],
+                "pre_asts3": [
+                    None,
+                    Some(Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 }),
+                    None,
+                    None,
+                ],
                 "allocated_asts3": [
                     Some(Ast { parent: Some(#1), data: Literal(`1`) }),
-                    Some(Ast { parent: None, data: Binary { lopd: #0, opr: `+(add)`, ropd: #2 } }),
+                    Some(Ast { parent: None, data: Binary { lopd: #0, lopd_ident: None, opr: `+(add)`, ropd: #2 } }),
                     Some(Ast { parent: Some(#1), data: Prefix { opr: `-(minus)`, opd: #3 } }),
                     Some(Ast { parent: Some(#2), data: Literal(`1`) }),
                 ],
@@ -448,8 +496,12 @@ pub(crate) fn new_opr_ast(
             Some(AstData::Prefix { opr, opd })
         }
         Opr::Binary(opr) => {
-            let Some((lopd, PreAst::Ast(_))) = nearest_left2.first() else {
+            let Some((lopd, PreAst::Ast(lopd_ast))) = nearest_left2.first() else {
                 return None;
+            };
+            let lopd_ident = match lopd_ast {
+                AstData::Ident(ident) => Some(ident),
+                _ => None,
             };
             let Some((ropd, PreAst::Ast(_))) = nearest_right2.first() else {
                 return None;
@@ -471,6 +523,13 @@ pub(crate) fn new_opr_ast(
                         }
                         Opr::Suffix(_) => (), // actually this will be a syntax error
                     },
+                    PreAst::Ast(
+                        AstData::SeparatedItem { .. }
+                        | AstData::LetInit { .. }
+                        | AstData::Return { .. }
+                        | AstData::Assert { .. }
+                        | AstData::Defn { .. },
+                    ) => (),
                     PreAst::Ast(_) => {
                         if opr != BinaryOpr::LightArrow {
                             return None;
@@ -508,7 +567,12 @@ pub(crate) fn new_opr_ast(
                     PreAst::Separator(_) => (),
                 }
             };
-            Some(AstData::Binary { lopd, opr, ropd })
+            Some(AstData::Binary {
+                lopd,
+                opr,
+                ropd,
+                lopd_ident,
+            })
         }
         Opr::Suffix(opr) => {
             let Some((opd, PreAst::Ast(_))) = nearest_left2.first() else {
@@ -533,6 +597,13 @@ pub(crate) fn new_opr_ast(
                     },
                     PreAst::LeftDelimiter(_) => (),
                     PreAst::RightDelimiter(_) => return None,
+                    PreAst::Ast(
+                        AstData::SeparatedItem { .. }
+                        | AstData::LetInit { .. }
+                        | AstData::Return { .. }
+                        | AstData::Assert { .. }
+                        | AstData::Defn { .. },
+                    ) => (),
                     PreAst::Ast(_) => return None,
                     PreAst::Separator(_) => (),
                 }
@@ -619,6 +690,7 @@ fn reduce_pre_ast_by_opr_right_works() {
                     lopd: idx!(0),
                     opr: BinaryOpr::Add,
                     ropd: idx!(2),
+                    lopd_ident: None
                 }
             )),
             Some(PreAst::Ast(AstData::Literal(Literal::Int(1)))),
@@ -656,7 +728,7 @@ fn reduce_n_times_for_opr_works1() {
         expect![[r#"
             [
                 #0 `1`: "1" ✓,
-                #1 `+`: `+` ✓,
+                #1 `+`: `+`,
                 #2 `2`: "2",
                 #3 `*`: "2 * 3" ✓,
                 #4 `3`: "3",

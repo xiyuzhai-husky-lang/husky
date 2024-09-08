@@ -4,7 +4,7 @@ mod option;
 mod primitive;
 pub mod r#ref;
 mod ritchie;
-mod str;
+pub mod static_ref;
 mod tuple;
 mod vec;
 
@@ -121,6 +121,14 @@ impl IsFrozenValue for FrozenValue {
     type Value = Value;
 
     fn thaw(&self) -> (SlushValue, ThawedValue) {
+        todo!()
+    }
+
+    fn present(
+        &self,
+        value_presenter_cache: &mut husky_value_protocol::presentation::ValuePresenterCache,
+        value_presentation_synchrotron: &mut husky_value_protocol::presentation::synchrotron::ValuePresentationSynchrotron,
+    ) -> husky_value_protocol::ugly::__ValuePresentation {
         todo!()
     }
 }

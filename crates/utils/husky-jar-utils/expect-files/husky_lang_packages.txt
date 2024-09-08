@@ -3127,6 +3127,7 @@
             "husky-vmir",
             "rustc-hash",
             "salsa",
+            "vec-like",
             "husky-ast",
             "husky-corgi-config",
             "husky-corgi-config-ast",
@@ -3275,6 +3276,7 @@
         relative_path: "crates/devtime/husky-devtime",
         dependencies: [
             "dashmap",
+            "either",
             "husky-ast",
             "husky-check-utils",
             "husky-coword",

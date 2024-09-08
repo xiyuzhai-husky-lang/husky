@@ -170,7 +170,8 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
         let trace_bundles = self.tracetime.trace_bundles();
         self.trace_synchrotron = Some(TraceSynchrotron::new(trace_bundles, |trace| {
             (
-                self.tracetime.trace_var_deps(trace).to_smallvec(),
+                self.tracetime.trace_var_deps(trace),
+                self.tracetime.trace_history_var_deps(trace),
                 self.tracetime.trace_view_data(trace).clone(),
             )
         }));
@@ -309,10 +310,14 @@ impl<Tracetime: IsTracetime> TraceServer<Tracetime> {
     fn cache_trace_if_new(&mut self, trace_id: TraceId) {
         if !self.trace_synchrotron().is_trace_cached(trace_id) {
             let var_deps = self.tracetime.trace_var_deps(trace_id.into());
+            let history_var_deps = self.tracetime.trace_history_var_deps(trace_id.into());
             let view_data = self.tracetime.trace_view_data(trace_id.into());
             self.trace_synchrotron_mut()
                 .take_action(TraceSynchrotronActionNewTrace::new(
-                    trace_id, var_deps, view_data,
+                    trace_id,
+                    var_deps,
+                    history_var_deps,
+                    view_data,
                 ))
         }
     }
@@ -414,6 +419,11 @@ pub trait IsTracetime: Send + 'static + Sized {
     fn subtraces(&self, trace: Self::Trace) -> &[Self::Trace];
 
     fn trace_var_deps(&self, trace: Self::Trace) -> SmallVec<[ItemPathIdInterface; 2]>;
+
+    fn trace_history_var_deps(
+        &self,
+        trace: Self::Trace,
+    ) -> Option<SmallVec<[ItemPathIdInterface; 2]>>;
 
     fn trace_view_data(&self, trace: Self::Trace) -> TraceViewData;
 

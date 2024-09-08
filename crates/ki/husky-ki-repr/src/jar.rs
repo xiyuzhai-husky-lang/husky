@@ -7,6 +7,7 @@ pub struct KiReprJar(
     crate::repr::val_ki_repr,
     crate::repr::static_var_item_ki_repr,
     crate::var_deps::ki_repr_var_deps,
+    crate::genki::GenkiRepr,
     KiReprExpansion,
     ki_repr_expansion,
 );

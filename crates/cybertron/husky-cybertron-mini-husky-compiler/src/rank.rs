@@ -62,7 +62,7 @@ fn calc_ranks_works() {
         let (tokens, pre_asts, asts) =
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
         let ranks = calc_ranks(asts);
-        expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, ranks));
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ranks));
     }
     t(
         "1",
@@ -151,7 +151,7 @@ fn calc_ranks1_works() {
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
         let ranks = calc_ranks1(asts, 10);
         assert_eq!(ranks, calc_ranks(asts), "input = {:?}", input);
-        expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, ranks));
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ranks));
     }
     t(
         "1",
@@ -274,7 +274,7 @@ fn calc_ranks2_works() {
             calc_asts_from_input_together_with_tokens_and_pre_asts(input, n);
         let ranks = calc_ranks1(asts, 10);
         assert_eq!(ranks, calc_ranks(asts), "input = {:?}", input);
-        expect.assert_debug_eq(&show_asts_mapped_values(tokens, pre_asts, asts, ranks));
+        expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ranks));
     }
     t(
         "fn f() {}",

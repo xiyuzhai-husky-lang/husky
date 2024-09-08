@@ -1,5 +1,6 @@
 #![feature(impl_trait_in_assoc_type)]
 pub mod expansion;
+pub mod genki;
 pub mod jar;
 pub mod repr;
 #[cfg(test)]

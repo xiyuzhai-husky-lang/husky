@@ -1,13 +1,15 @@
 pub mod eager_call;
 pub mod eager_call_input;
 pub mod eager_expr;
-pub mod eager_loop_group;
+pub mod eager_loop_frame;
+pub mod eager_loop_range;
 pub mod eager_pattern_expr;
 pub mod eager_stmt;
 pub mod lazy_call;
 pub mod lazy_call_input;
 pub mod lazy_expr;
-pub mod lazy_loop_group;
+pub mod lazy_loop_frame;
+pub mod lazy_loop_range;
 pub mod lazy_pattern_expr;
 pub mod lazy_stmt;
 pub mod place;
@@ -16,20 +18,12 @@ pub mod static_var;
 pub mod submodule;
 pub mod val;
 
-use self::eager_call::*;
-use self::eager_call_input::*;
-use self::eager_expr::*;
-use self::eager_pattern_expr::*;
-use self::eager_stmt::*;
-use self::lazy_call::*;
-use self::lazy_call_input::*;
-use self::lazy_expr::*;
-use self::lazy_pattern_expr::*;
-use self::lazy_stmt::*;
-use self::place::*;
-use self::script::*;
-use self::submodule::*;
-use self::val::*;
+use self::{
+    eager_call::*, eager_call_input::*, eager_expr::*, eager_loop_frame::*, eager_loop_range::*,
+    eager_pattern_expr::*, eager_stmt::*, lazy_call::*, lazy_call_input::*, lazy_expr::*,
+    lazy_loop_frame::*, lazy_loop_range::*, lazy_pattern_expr::*, lazy_stmt::*, place::*,
+    script::*, submodule::*, val::*,
+};
 use crate::{
     registry::trace_path::{TracePathDisambiguator, TracePathRegistry},
     *,
@@ -76,11 +70,15 @@ pub enum TracePathData {
     LazyExpr(LazyExprTracePathData),
     LazyPattern(LazyPatternTracePathData),
     LazyStmt(LazyStmtTracePathData),
+    LazyLoopFrame(LazyLoopFrameTracePathData),
+    LazyLoopRange(LazyLoopRangeTracePathData),
     EagerCallInput(EagerCallInputTracePathData),
     EagerCall(EagerCallTracePathData),
     EagerExpr(EagerExprTracePathData),
     EagerPattern(EagerPatternTracePathData),
     EagerStmt(EagerStmtTracePathData),
+    EagerLoopFrame(EagerLoopFrameTracePathData),
+    EagerLoopRange(EagerLoopRangeTracePathData),
     Place(PlaceTracePathData),
     Script(ScriptTracePathData),
 }
@@ -111,8 +109,8 @@ impl Into<TraceId> for Trace {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum TraceData {
     Submodule(SubmoduleTraceData),
     Val(ValTraceData),
@@ -122,11 +120,15 @@ pub enum TraceData {
     LazyExpr(LazyExprTraceData),
     LazyPattern(LazyPatternTraceData),
     LazyStmt(LazyStmtTraceData),
+    LazyLoopFrame(LazyLoopFrameTraceData),
+    LazyLoopRange(LazyLoopRangeTraceData),
     EagerCallInput(EagerCallInputTraceData),
     EagerCall(EagerCallTraceData),
     EagerExpr(EagerExprTraceData),
     EagerPattern(EagerPatternTraceData),
     EagerStmt(EagerStmtTraceData),
+    EagerLoopFrame(EagerLoopFrameTraceData),
+    EagerLoopRange(EagerLoopRangeTraceData),
     Place(PlaceTraceData),
     Script(ScriptTraceData),
 }
@@ -211,6 +213,12 @@ impl Trace {
         trace_var_deps(db, self)
     }
 
+    pub fn history_var_deps(self, db: &::salsa::Db) -> Option<&[ItemPathIdInterface]> {
+        trace_history_var_deps(db, self)
+            .as_ref()
+            .map(|history_var_deps| history_var_deps as &[_])
+    }
+
     pub fn var_deps_expansion(self, db: &::salsa::Db) -> TraceVarDepsExpansion {
         trace_var_deps_expansion(db, self)
     }
@@ -227,11 +235,15 @@ impl TraceData {
             TraceData::LazyExpr(_) => TraceKind::LazyExpr,
             TraceData::LazyPattern(_) => TraceKind::LazyPattern,
             TraceData::LazyStmt(_) => TraceKind::LazyStmt,
+            TraceData::LazyLoopFrame(_) => TraceKind::LazyLoopFrame,
+            TraceData::LazyLoopRange(_) => TraceKind::LazyLoopRange,
             TraceData::EagerCallInput(_) => TraceKind::EagerCallInput,
             TraceData::EagerCall(_) => TraceKind::EagerCall,
             TraceData::EagerExpr(_) => TraceKind::EagerExpr,
             TraceData::EagerPattern(_) => TraceKind::EagerPattern,
             TraceData::EagerStmt(_) => TraceKind::EagerStmt,
+            TraceData::EagerLoopFrame(_) => TraceKind::EagerLoopFrame,
+            TraceData::EagerLoopRange(_) => TraceKind::EagerLoopRange,
             TraceData::Place(_) => TraceKind::Value,
             TraceData::Script(_) => TraceKind::Repl,
         }
@@ -246,18 +258,22 @@ impl TraceData {
             TraceData::LazyCall(slf) => Some(slf.ki_repr(db)),
             TraceData::LazyCallInput(slf) => Some(slf.ki_repr(db)),
             TraceData::LazyStmt(slf) => slf.ki_repr(trace_id, db),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
             TraceData::Submodule(_) => None,
             TraceData::EagerExpr(_) => None,
             TraceData::EagerPattern(_) => None,
             TraceData::EagerCallInput(_) => None,
             TraceData::EagerCall(_) => None,
             TraceData::EagerStmt(_) => None,
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
     }
 
-    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> Vec<ItemPathIdInterface> {
+    pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         match self {
             TraceData::Submodule(slf) => slf.var_deps(trace, db),
             TraceData::Val(slf) => slf.var_deps(trace, db),
@@ -267,13 +283,27 @@ impl TraceData {
             TraceData::LazyExpr(slf) => slf.var_deps(trace, db),
             TraceData::LazyPattern(slf) => slf.var_deps(trace, db),
             TraceData::LazyStmt(slf) => slf.var_deps(trace, db),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
             TraceData::EagerCallInput(slf) => slf.var_deps(trace, db),
             TraceData::EagerCall(slf) => slf.var_deps(trace, db),
             TraceData::EagerExpr(slf) => slf.var_deps(trace, db),
             TraceData::EagerPattern(slf) => slf.var_deps(trace, db),
             TraceData::EagerStmt(slf) => slf.var_deps(trace, db),
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
+        }
+    }
+
+    pub fn history_var_deps(&self, trace: Trace, db: &::salsa::Db) -> Option<TraceVarDeps> {
+        match self {
+            TraceData::Val(slf) => slf.history_var_deps(trace, db),
+            TraceData::EagerCall(slf) => slf.history_var_deps(trace, db),
+            TraceData::EagerLoopFrame(slf) => todo!(),
+            TraceData::EagerLoopRange(slf) => todo!(),
+            _ => None,
         }
     }
 
@@ -287,11 +317,15 @@ impl TraceData {
             TraceData::LazyExpr(slf) => slf.var_deps_expansion(db),
             TraceData::LazyPattern(slf) => slf.var_deps_expansion(db),
             TraceData::LazyStmt(slf) => slf.var_deps_expansion(db),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
             TraceData::EagerCallInput(slf) => slf.var_deps_expansion(db),
             TraceData::EagerCall(slf) => slf.var_deps_expansion(db),
             TraceData::EagerExpr(slf) => slf.var_deps_expansion(db),
             TraceData::EagerPattern(slf) => slf.var_deps_expansion(db),
             TraceData::EagerStmt(slf) => slf.var_deps_expansion(db),
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
@@ -329,11 +363,15 @@ impl TraceData {
             TraceData::LazyExpr(slf) => slf.view_lines(db),
             TraceData::LazyPattern(slf) => slf.view_lines(db),
             TraceData::LazyStmt(slf) => slf.view_lines(trace_id, db),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
             TraceData::EagerCallInput(slf) => slf.view_lines(db),
             TraceData::EagerCall(slf) => slf.calc_view_lines(db),
             TraceData::EagerExpr(slf) => slf.view_lines(db),
             TraceData::EagerPattern(slf) => slf.view_lines(db),
             TraceData::EagerStmt(slf) => slf.view_lines(trace_id, db),
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
@@ -349,11 +387,15 @@ impl TraceData {
             TraceData::LazyExpr(slf) => slf.have_subtraces(db),
             TraceData::LazyPattern(slf) => slf.have_subtraces(),
             TraceData::LazyStmt(slf) => slf.have_subtraces(db),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
             TraceData::EagerCallInput(slf) => slf.have_subtraces(db),
             TraceData::EagerCall(slf) => slf.have_subtraces(db),
             TraceData::EagerExpr(slf) => slf.have_subtraces(db),
             TraceData::EagerPattern(slf) => slf.have_subtraces(db),
             TraceData::EagerStmt(slf) => slf.have_subtraces(db),
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
@@ -369,11 +411,15 @@ impl TraceData {
             TraceData::LazyExpr(slf) => slf.subtraces(trace_id, db),
             TraceData::LazyPattern(slf) => slf.subtraces(),
             TraceData::LazyStmt(slf) => slf.subtraces(trace_id, db),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
             TraceData::EagerCallInput(slf) => slf.subtraces(),
             TraceData::EagerCall(slf) => slf.subtraces(trace_id, db),
             TraceData::EagerExpr(slf) => slf.subtraces(trace_id, db),
             TraceData::EagerPattern(slf) => slf.subtraces(),
             TraceData::EagerStmt(slf) => slf.subtraces(trace_id, db),
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
@@ -389,11 +435,15 @@ impl TraceData {
             TraceData::LazyExpr(slf) => slf.ki_repr_expansion(db),
             TraceData::LazyPattern(slf) => slf.ki_repr_expansion(db),
             TraceData::LazyStmt(slf) => slf.ki_repr_expansion(db),
+            TraceData::LazyLoopFrame(_) => todo!(),
+            TraceData::LazyLoopRange(_) => todo!(),
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(_) => todo!(),
             TraceData::EagerExpr(_) => todo!(),
             TraceData::EagerPattern(_) => todo!(),
             TraceData::EagerStmt(_) => todo!(),
+            TraceData::EagerLoopFrame(_) => todo!(),
+            TraceData::EagerLoopRange(_) => todo!(),
             TraceData::Place(_) => todo!(),
             TraceData::Script(_) => todo!(),
         }
@@ -536,8 +586,13 @@ fn trace_ki_repr_works() {
 }
 
 #[salsa::tracked(return_ref)]
-fn trace_var_deps(db: &::salsa::Db, trace: Trace) -> Vec<ItemPathIdInterface> {
+fn trace_var_deps(db: &::salsa::Db, trace: Trace) -> TraceVarDeps {
     trace.data(db).var_deps(trace, db)
+}
+
+#[salsa::tracked(return_ref)]
+fn trace_history_var_deps(db: &::salsa::Db, trace: Trace) -> Option<TraceVarDeps> {
+    trace.data(db).history_var_deps(trace, db)
 }
 
 #[salsa::tracked]

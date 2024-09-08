@@ -298,6 +298,16 @@ impl<V> std::ops::Index<SemStmtIdx> for SemStmtMap<V> {
     }
 }
 
+impl<'a, V> IntoIterator for &'a SemStmtMap<V> {
+    type Item = (SemStmtIdx, &'a V);
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.iter().map(|(idx, v)| (SemStmtIdx(idx), v))
+    }
+}
+
 impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_branch<Expectation: ExpectFlyTerm>(
         &mut self,

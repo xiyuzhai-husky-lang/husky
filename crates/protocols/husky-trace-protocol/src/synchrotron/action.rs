@@ -180,6 +180,7 @@ where
 pub struct TraceSynchrotronActionNewTrace {
     trace_id: TraceId,
     var_deps: SmallVec<[ItemPathIdInterface; 2]>,
+    history_var_deps: Option<SmallVec<[ItemPathIdInterface; 2]>>,
     view_data: TraceViewData,
 }
 
@@ -187,11 +188,13 @@ impl TraceSynchrotronActionNewTrace {
     pub fn new(
         trace_id: TraceId,
         var_deps: SmallVec<[ItemPathIdInterface; 2]>,
+        history_var_deps: Option<SmallVec<[ItemPathIdInterface; 2]>>,
         view_data: TraceViewData,
     ) -> Self {
         Self {
             trace_id,
             var_deps,
+            history_var_deps,
             view_data,
         }
     }
@@ -208,7 +211,11 @@ where
             .entries
             .insert(
                 self.trace_id,
-                TraceSynchrotronEntry::new(self.var_deps.clone(), self.view_data.clone()),
+                TraceSynchrotronEntry::new(
+                    self.var_deps.clone(),
+                    self.history_var_deps.clone(),
+                    self.view_data.clone()
+                ),
             )
             .is_none())
     }
