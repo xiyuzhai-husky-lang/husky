@@ -28,16 +28,22 @@ fn calc_symbol_defn(
     match ast?.data {
         AstData::Ident(ident) => match role? {
             Role::LetStmt { .. } => unreachable!(),
-            Role::LetStmtVariables | Role::LetStmtIdent | Role::FnParameterIdent => {
-                Some(SymbolDefn {
-                    symbol: Symbol {
-                        ident,
-                        source: idx,
-                        data: SymbolData::Variable,
-                    },
-                    scope,
-                })
-            }
+            Role::LetStmtVariables | Role::LetStmtIdent => Some(SymbolDefn {
+                symbol: Symbol {
+                    ident,
+                    source: idx,
+                    data: SymbolData::Variable,
+                },
+                scope,
+            }),
+            Role::FnParameterIdent { scope } => Some(SymbolDefn {
+                symbol: Symbol {
+                    ident,
+                    source: idx,
+                    data: SymbolData::Variable,
+                },
+                scope: Some(scope),
+            }),
             _ => None,
         },
         AstData::Defn {
@@ -163,6 +169,37 @@ fn calc_symbol_defns_works() {
                 #10 `1`: "1",
                 #11 `;`: "let x : Int = 1; ",
                 #12 `}`: "{ let x : Int = 1;  }",
+            ]
+        "#]],
+    );
+    t(
+        "fn f(x: Float) {} fn g() { let x = 1; f(x) } ",
+        expect![[r#"
+            [
+                #0 `fn`: "fn f(x : Float) {}" ✓ → SymbolDefn { symbol: Symbol { ident: `f`, source: #0, data: Item { kind: Fn } }, scope: Some(`::`) },
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #3, data: Variable }, scope: Some(`::8`) },
+                #4 `:`: "x : Float",
+                #5 `Float`: "Float",
+                #6 `)`: "(x : Float)",
+                #7 `{`: "(x : Float) {}",
+                #8 `}`: "{}",
+                #9 `fn`: "fn g() { let x = 1; f(x) }" ✓ → SymbolDefn { symbol: Symbol { ident: `g`, source: #9, data: Item { kind: Fn } }, scope: Some(`::`) },
+                #10 `g`: "g",
+                #11 `(`: `(`,
+                #12 `)`: "()",
+                #13 `{`: "() { let x = 1; f(x) }",
+                #14 `let`: "let x = 1",
+                #15 `x`: "x" → SymbolDefn { symbol: Symbol { ident: `x`, source: #15, data: Variable }, scope: Some(`::23`) },
+                #16 `=`: "x = 1",
+                #17 `1`: "1",
+                #18 `;`: "let x = 1; ",
+                #19 `f`: "f",
+                #20 `(`: "f(x)",
+                #21 `x`: "x",
+                #22 `)`: "(x)",
+                #23 `}`: "{ let x = 1; f(x) }",
             ]
         "#]],
     );
