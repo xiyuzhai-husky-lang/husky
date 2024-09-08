@@ -1,3 +1,6 @@
+mod lock;
+
+use lock::RichTestLock;
 use salsa::DebugWithDb;
 
 use super::*;
@@ -9,6 +12,7 @@ where
     DB: VfsTestUtils,
     U: IsVfsTestUnit<M> + salsa::DebugWithDb,
 {
+    let lock = RichTestLock::new(config);
     // use this to detect conflicting paths
     let mut paths_used: HashMap<PathBuf, PathUsage<U>> = Default::default();
     for test_domain in config.test_domains() {
