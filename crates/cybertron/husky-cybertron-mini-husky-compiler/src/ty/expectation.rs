@@ -1,10 +1,10 @@
 use super::*;
-use signature::TypeSignature;
+use signature::{TypeSignature, TypeSignatureKey};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TypeExpectation {
-    ty: Type,
-    source: TypeExpectationSource,
+    pub ty: Type,
+    pub source: TypeExpectationSource,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -12,13 +12,16 @@ pub enum TypeExpectationSource {
     CallArgument { caller_ident: Ident, rank: Rank },
 }
 
-fn calc_ty_expectations(
+pub fn calc_ty_expectations(
     asts: Seq<Option<Ast>>,
     ranks: Seq<Option<Rank>>,
     ty_signatures: Seq<Option<TypeSignature>>,
 ) -> Seq<Option<TypeExpectation>> {
     let parent_asts = asts.index(asts.map(|ast| ast?.parent)).map(Option::flatten);
-    let ty_expectation_sources = calc_ty_expectation_source.apply(asts, ranks);
+    let grandparent_asts = asts
+        .index(parent_asts.map(|parent_ast| parent_ast?.parent))
+        .map(Option::flatten);
+    let ty_expectation_sources = calc_ty_expectation_source.apply(grandparent_asts, ranks);
     let retrieved_ty_signatures = ty_signatures
         .first_filtered_by_attention(
             ty_expectation_sources,
@@ -36,7 +39,7 @@ fn calc_ty_expectations(
                             caller_ident,
                             rank: rank0,
                         },
-                        signature::TypeSignatureKey::FnParameter {
+                        TypeSignatureKey::FnParameter {
                             fn_ident,
                             rank: rank1,
                         },
@@ -57,12 +60,12 @@ fn calc_ty_expectations(
 }
 
 fn calc_ty_expectation_source(
-    ast: Option<Ast>,
+    grandparent_ast: Option<Ast>,
     rank: Option<Rank>,
 ) -> Option<TypeExpectationSource> {
-    let ast = ast?;
+    let grandparent_ast = grandparent_ast?;
     let rank = rank?;
-    match ast.data {
+    match grandparent_ast.data {
         AstData::Call {
             caller,
             caller_ident: Some(caller_ident),
@@ -92,4 +95,73 @@ fn t(input: &str, expect: Expect) {
 }
 
 #[test]
-fn calc_ty_expection_works() {}
+fn calc_ty_expection_works() {
+    t(
+        "",
+        expect![[r#"
+        []
+    "#]],
+    );
+    t(
+        "fn f() {}",
+        expect![[r#"
+        [
+            #0 `fn`: "fn f() {}" ✓,
+            #1 `f`: "f",
+            #2 `(`: `(`,
+            #3 `)`: "()",
+            #4 `{`: "() {}",
+            #5 `}`: "{}",
+        ]
+    "#]],
+    );
+    t(
+        "fn f() { let x = 1; }",
+        expect![[r#"
+            [
+                #0 `fn`: "fn f() { let x = 1;  }" ✓,
+                #1 `f`: "f",
+                #2 `(`: `(`,
+                #3 `)`: "()",
+                #4 `{`: "() { let x = 1;  }",
+                #5 `let`: "let x = 1",
+                #6 `x`: "x",
+                #7 `=`: "x = 1",
+                #8 `1`: "1",
+                #9 `;`: "let x = 1; ",
+                #10 `}`: "{ let x = 1;  }",
+            ]
+        "#]],
+    );
+    t(
+        "fn g(x: Int) {} fn f() { let x = 1; g(x) }",
+        expect![[r#"
+            [
+                #0 `fn`: "fn g(x : Int) {}" ✓,
+                #1 `g`: "g",
+                #2 `(`: `(`,
+                #3 `x`: "x",
+                #4 `:`: "x : Int",
+                #5 `Int`: "Int",
+                #6 `)`: "(x : Int)",
+                #7 `{`: "(x : Int) {}",
+                #8 `}`: "{}",
+                #9 `fn`: "fn f() { let x = 1; g(x) }" ✓,
+                #10 `f`: "f",
+                #11 `(`: `(`,
+                #12 `)`: "()",
+                #13 `{`: "() { let x = 1; g(x) }",
+                #14 `let`: "let x = 1",
+                #15 `x`: "x",
+                #16 `=`: "x = 1",
+                #17 `1`: "1",
+                #18 `;`: "let x = 1; ",
+                #19 `g`: "g",
+                #20 `(`: "g(x)",
+                #21 `x`: "x" → TypeExpectation { ty: `Int`, source: CallArgument { caller_ident: `g`, rank: Rank(0) } },
+                #22 `)`: "(x)",
+                #23 `}`: "{ let x = 1; g(x) }",
+            ]
+        "#]],
+    );
+}

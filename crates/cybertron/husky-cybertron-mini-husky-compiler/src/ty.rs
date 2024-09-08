@@ -1,3 +1,4 @@
+pub mod error;
 pub mod expectation;
 pub mod inference;
 pub mod signature;

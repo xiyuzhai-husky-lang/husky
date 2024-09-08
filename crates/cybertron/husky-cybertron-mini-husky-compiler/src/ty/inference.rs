@@ -7,11 +7,10 @@ use term::calc_ty_terms;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct TypeInference {
-    ty: Type,
+    pub ty: Type,
 }
 
-fn infer_tys(
-    tokens: Seq<Token>,
+pub fn calc_ty_inferences(
     asts: Seq<Option<Ast>>,
     symbol_resolutions: Seq<Option<SymbolResolution>>,
     roles: Seq<Option<Role>>,
@@ -20,14 +19,8 @@ fn infer_tys(
     n: usize,
 ) -> Seq<Option<TypeInference>> {
     let mut ty_inferences = infer_tys_initial(asts, ty_signatures);
-    let mut ty_designations = calc_initial_ty_designations(
-        tokens,
-        asts,
-        roles,
-        symbol_resolutions,
-        ty_inferences,
-        ty_terms,
-    );
+    let mut ty_designations =
+        calc_initial_ty_designations(asts, roles, symbol_resolutions, ty_inferences, ty_terms);
     for _ in 0..n {
         ty_inferences |= infer_tys_step(asts, symbol_resolutions, ty_inferences, ty_designations);
         ty_designations |= calc_ty_designations_step(roles, symbol_resolutions, ty_inferences);
@@ -314,15 +307,8 @@ fn calc_ty_inferences_works() {
         let ty_terms = calc_ty_terms(asts, roles, 10);
         let ty_signatures = calc_ty_signatures(asts, roles, ty_terms);
         let symbol_resolutions = calc_symbol_resolutions(asts, 10);
-        let ty_inferences = infer_tys(
-            tokens,
-            asts,
-            symbol_resolutions,
-            roles,
-            ty_terms,
-            ty_signatures,
-            10,
-        );
+        let ty_inferences =
+            calc_ty_inferences(asts, symbol_resolutions, roles, ty_terms, ty_signatures, 10);
         expect.assert_debug_eq(&show_asts_mapped_values(tokens, asts, ty_inferences));
     }
     t(
@@ -415,7 +401,6 @@ pub struct TypeDesignation {
 }
 
 fn calc_initial_ty_designations(
-    tokens: Seq<Token>,
     asts: Seq<Option<Ast>>,
     roles: Seq<Option<Role>>,
     symbol_resolutions: Seq<Option<SymbolResolution>>,
