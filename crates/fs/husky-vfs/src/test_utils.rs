@@ -2,7 +2,7 @@ pub mod adversarial_test;
 pub mod config;
 pub mod domain;
 pub mod jar;
-mod rich_test;
+pub mod rich_test;
 pub mod unit;
 
 pub use self::adversarial_test::*;
@@ -14,6 +14,7 @@ pub use self::unit::*;
 use self::rich_test::*;
 use crate::*;
 use husky_path_utils::*;
+use lock::RichTestLock;
 use salsa::Db;
 use std::{collections::HashMap, path::PathBuf};
 
@@ -61,6 +62,7 @@ where
         U: IsVfsTestUnit<M> + ::salsa::DebugWithDb,
     {
         let mut paths_used: HashMap<PathBuf, PathUsage<U>> = Default::default();
+        let mut lock = RichTestLock::new(config);
         for test_suite in config.test_domains() {
             for path in collect_package_relative_dirs(&test_suite.src_base()).into_iter() {
                 let db = &mut *DB::default();
@@ -81,7 +83,7 @@ where
                             unit,
                             &f,
                             config,
-                            &mut paths_used,
+                            &mut lock,
                         )
                     }
                 }

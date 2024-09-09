@@ -1,9 +1,0 @@
-```rust
-Some(
-    [
-        "[",
-        "RawContour",
-        "[]RawContour",
-    ],
-)
-```

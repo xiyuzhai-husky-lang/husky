@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`core::ops::Add::Output`),
-        ],
-    ),
-)
-```

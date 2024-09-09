@@ -1,0 +1,7 @@
+## `ty`
+
+```rust
+SemStaticMutDeps(
+    [],
+)
+```

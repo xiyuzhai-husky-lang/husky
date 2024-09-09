@@ -1,9 +1,0 @@
-```rust
-Some(
-    [
-        "Vector2d",
-        "bool",
-        "f32",
-    ],
-)
-```

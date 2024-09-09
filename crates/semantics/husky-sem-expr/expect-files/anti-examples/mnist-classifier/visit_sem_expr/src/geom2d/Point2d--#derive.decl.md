@@ -1,9 +1,0 @@
-```rust
-Some(
-    [
-        "Debug",
-        "Clone",
-        "Visualize",
-    ],
-)
-```

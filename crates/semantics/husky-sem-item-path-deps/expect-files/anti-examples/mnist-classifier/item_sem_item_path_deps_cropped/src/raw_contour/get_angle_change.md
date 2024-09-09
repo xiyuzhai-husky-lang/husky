@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`mnist_classifier::raw_contour::Direction`),
-        ],
-    ),
-)
-```

@@ -7219,7 +7219,7 @@ name = "husky-vfs"
 version = "0.1.0"
 dependencies = [
  "crossbeam-channel",
- "dashmap 5.5.3",
+ "dashmap 6.0.1",
  "enum-class",
  "expect-test",
  "eyre",
@@ -7235,12 +7235,14 @@ dependencies = [
  "husky-text-protocol",
  "husky-toml-utils",
  "husky-vfs",
+ "indexmap 2.4.0",
  "indicatif",
  "lsp-types 0.95.0",
  "maybe-result",
  "notify-debouncer-mini",
  "pathdiff",
  "relative-path",
+ "rustc-hash 2.0.0",
  "salsa",
  "semver",
  "serde",

@@ -15,6 +15,7 @@ use husky_vfs::{
     path::{crate_path::CratePath, module_path::ModulePath, package_path::PackagePath},
     test_utils::*,
 };
+use rich_test::lock::ExpectUnitPath;
 
 impl IsVfsTestUnit<Jar> for ItemSynNodePath {
     fn collect_from_package_path_aux(
@@ -28,16 +29,6 @@ impl IsVfsTestUnit<Jar> for ItemSynNodePath {
             .copied()
     }
 
-    fn determine_expect_file_path(
-        self,
-        db: &salsa::Db,
-        package_expect_files_dir: &std::path::Path,
-        config: &VfsTestConfig,
-    ) -> std::path::PathBuf {
-        let stem = self.stem(package_expect_files_dir, config.test_name(), db);
-        stem.with_extension(config.expect_file_extension().str())
-    }
-
     fn determine_adversarial_path(
         self,
         db: &salsa::Db,
@@ -45,18 +36,30 @@ impl IsVfsTestUnit<Jar> for ItemSynNodePath {
         package_adversarials_dir: &std::path::Path,
         config: &VfsTestConfig,
     ) -> Option<std::path::PathBuf> {
-        let stem = self.stem(package_adversarials_dir, config.test_name(), db);
-        Some(stem.with_extension(format!(
-            "{}.{}",
-            adversarial_kind.as_str(),
-            config.adversarial_extension()
-        )))
+        todo!()
+        // let stem = self.section_name(package_adversarials_dir, config.test_name(), db);
+        // Some(stem.with_extension(format!(
+        //     "{}.{}",
+        //     adversarial_kind.as_str(),
+        //     config.adversarial_extension()
+        // )))
     }
 
     fn vfs_test_unit_downcast_as_module_path(
         self,
     ) -> Option<husky_vfs::path::module_path::ModulePath> {
         None
+    }
+
+    fn determine_expect_unit_path(
+        self,
+        db: &salsa::Db,
+        package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> ExpectUnitPath {
+        self.module_path(db)
+            .determine_expect_unit_path(db, package_expect_files_dir, config)
+            .with_section(self.section_name(db))
     }
 }
 
@@ -80,22 +83,22 @@ impl IsVfsTestUnit<Jar> for SynNodeRegionPath {
             )
     }
 
-    fn determine_expect_file_path(
+    fn determine_expect_unit_path(
         self,
         db: &salsa::Db,
         package_expect_files_dir: &husky_path_utils::Path,
         config: &VfsTestConfig,
-    ) -> husky_path_utils::PathBuf {
+    ) -> ExpectUnitPath {
         match self {
             SynNodeRegionPath::CrateDecl(crate_path) => {
-                crate_path.determine_expect_file_path(db, package_expect_files_dir, config)
+                crate_path.determine_expect_unit_path(db, package_expect_files_dir, config)
             }
             SynNodeRegionPath::ItemDecl(syn_node_path) => syn_node_path
-                .stem(package_expect_files_dir, config.test_name(), db)
-                .with_extension(format!("decl.{}", config.expect_file_extension().str())),
+                .determine_expect_unit_path(db, package_expect_files_dir, config)
+                .with_section_suffix("decl"),
             SynNodeRegionPath::ItemDefn(syn_node_path) => syn_node_path
-                .stem(package_expect_files_dir, config.test_name(), db)
-                .with_extension(format!("defn.{}", config.expect_file_extension().str())),
+                .determine_expect_unit_path(db, package_expect_files_dir, config)
+                .with_section_suffix("defn"),
         }
     }
 
@@ -106,32 +109,33 @@ impl IsVfsTestUnit<Jar> for SynNodeRegionPath {
         package_adversarials_dir: &husky_path_utils::Path,
         config: &VfsTestConfig,
     ) -> Option<husky_path_utils::PathBuf> {
-        match self {
-            SynNodeRegionPath::CrateDecl(crate_path) => crate_path.determine_adversarial_path(
-                db,
-                adversarial_kind,
-                package_adversarials_dir,
-                config,
-            ),
-            SynNodeRegionPath::ItemDecl(syn_node_path) => Some(
-                syn_node_path
-                    .stem(package_adversarials_dir, config.test_name(), db)
-                    .with_extension(format!(
-                        "decl.{}.{}",
-                        adversarial_kind.as_str(),
-                        config.adversarial_extension(),
-                    )),
-            ),
-            SynNodeRegionPath::ItemDefn(syn_node_path) => Some(
-                syn_node_path
-                    .stem(package_adversarials_dir, config.test_name(), db)
-                    .with_extension(format!(
-                        "defn.{}.{}",
-                        adversarial_kind.as_str(),
-                        config.adversarial_extension(),
-                    )),
-            ),
-        }
+        todo!()
+        // match self {
+        //     SynNodeRegionPath::CrateDecl(crate_path) => crate_path.determine_adversarial_path(
+        //         db,
+        //         adversarial_kind,
+        //         package_adversarials_dir,
+        //         config,
+        //     ),
+        //     SynNodeRegionPath::ItemDecl(syn_node_path) => Some(
+        //         syn_node_path
+        //             .section_name(package_adversarials_dir, config.test_name(), db)
+        //             .with_extension(format!(
+        //                 "decl.{}.{}",
+        //                 adversarial_kind.as_str(),
+        //                 config.adversarial_extension(),
+        //             )),
+        //     ),
+        //     SynNodeRegionPath::ItemDefn(syn_node_path) => Some(
+        //         syn_node_path
+        //             .section_name(package_adversarials_dir, config.test_name(), db)
+        //             .with_extension(format!(
+        //                 "defn.{}.{}",
+        //                 adversarial_kind.as_str(),
+        //                 config.adversarial_extension(),
+        //             )),
+        //     ),
+        // }
     }
 
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
@@ -148,14 +152,14 @@ impl IsVfsTestUnit<Jar> for ItemPath {
             .filter_map(|item_syn_node_path| item_syn_node_path.unambiguous_item_path(db))
     }
 
-    fn determine_expect_file_path(
+    fn determine_expect_unit_path(
         self,
         db: &salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
-    ) -> PathBuf {
+    ) -> ExpectUnitPath {
         self.syn_node_path(db)
-            .determine_expect_file_path(db, package_expect_files_dir, config)
+            .determine_expect_unit_path(db, package_expect_files_dir, config)
     }
 
     fn determine_adversarial_path(
@@ -186,14 +190,14 @@ impl IsVfsTestUnit<Jar> for ItemPathId {
         ItemPath::collect_from_package_path_aux(db, package_path).map(|item_path| *item_path)
     }
 
-    fn determine_expect_file_path(
+    fn determine_expect_unit_path(
         self,
         db: &salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
-    ) -> PathBuf {
+    ) -> ExpectUnitPath {
         self.item_path(db)
-            .determine_expect_file_path(db, package_expect_files_dir, config)
+            .determine_expect_unit_path(db, package_expect_files_dir, config)
     }
 
     fn determine_adversarial_path(
@@ -225,14 +229,15 @@ impl IsVfsTestUnit<Jar> for TypePath {
             .filter_map(|item_path| item_path.ty_path())
     }
 
-    fn determine_expect_file_path(
+    fn determine_expect_unit_path(
         self,
         db: &salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
-    ) -> PathBuf {
-        let slf: ItemPath = self.into();
-        slf.determine_expect_file_path(db, package_expect_files_dir, config)
+    ) -> ExpectUnitPath {
+        todo!()
+        // let slf: ItemPath = self.into();
+        // slf.determine_expect_unit_path(db, package_expect_files_dir, config)
     }
 
     fn determine_adversarial_path(

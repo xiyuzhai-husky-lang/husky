@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`quick_sort::quick_sort_aux`),
-        ],
-    ),
-)
-```
