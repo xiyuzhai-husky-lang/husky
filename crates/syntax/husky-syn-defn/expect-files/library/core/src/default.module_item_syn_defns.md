@@ -1,0 +1,12 @@
+```rust
+[
+    (
+        ItemPath(`core::default::Default`),
+        None,
+    ),
+    (
+        ItemPath(`core::default::Default::default`),
+        None,
+    ),
+]
+```

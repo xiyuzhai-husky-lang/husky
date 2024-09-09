@@ -1,0 +1,16 @@
+```rust
+[
+    (
+        ItemPath(`ml_task::IsMlTask`),
+        None,
+    ),
+    (
+        ItemPath(`ml_task::IsMlTask::Input`),
+        None,
+    ),
+    (
+        ItemPath(`ml_task::IsMlTask::INPUT`),
+        None,
+    ),
+]
+```

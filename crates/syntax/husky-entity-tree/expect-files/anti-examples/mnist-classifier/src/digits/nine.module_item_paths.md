@@ -1,0 +1,9 @@
+```rust
+[
+    ItemPath(`mnist_classifier::digits::nine::nine_match`),
+    ItemPath(`mnist_classifier::digits::nine::nine_match_refine`),
+    ItemPath(`mnist_classifier::digits::nine::is_nine`),
+    ItemPath(`mnist_classifier::digits::nine::downmost`),
+    ItemPath(`mnist_classifier::digits::nine::big_cc`),
+]
+```

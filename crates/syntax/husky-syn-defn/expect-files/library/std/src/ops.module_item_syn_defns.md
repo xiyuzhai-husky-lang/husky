@@ -1,0 +1,16 @@
+```rust
+[
+    (
+        ItemPath(`std::ops::Add`),
+        None,
+    ),
+    (
+        ItemPath(`std::ops::Add::Output`),
+        None,
+    ),
+    (
+        ItemPath(`std::ops::Add::add`),
+        None,
+    ),
+]
+```

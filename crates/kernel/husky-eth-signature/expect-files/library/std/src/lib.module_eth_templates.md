@@ -1,0 +1,28 @@
+```rust
+[
+    (
+        ItemPath(`std::prelude`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`std::prelude),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`std::logic`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`std::logic),
+            ),
+        ),
+    ),
+    (
+        ItemPath(`std::ops`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`std::ops),
+            ),
+        ),
+    ),
+]
+```

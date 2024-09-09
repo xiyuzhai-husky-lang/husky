@@ -1,3 +1,5 @@
+use lock::ExpectUnitPath;
+
 use super::*;
 use crate::jar::VfsDb;
 
@@ -19,12 +21,12 @@ pub trait IsVfsTestUnit<M>: Copy + std::fmt::Debug + salsa::DebugWithDb + Eq {
         db: &::salsa::Db,
         package_path: PackagePath,
     ) -> impl Iterator<Item = Self>;
-    fn determine_expect_file_path(
+    fn determine_expect_unit_path(
         self,
         db: &::salsa::Db,
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
-    ) -> PathBuf;
+    ) -> ExpectUnitPath;
 
     fn determine_adversarial_path(
         self,
@@ -45,17 +47,6 @@ impl IsVfsTestUnit<Jar> for PackagePath {
         [package_path].into_iter()
     }
 
-    fn determine_expect_file_path(
-        self,
-        _db: &::salsa::Db,
-        package_expect_files_dir: &Path,
-        config: &VfsTestConfig,
-    ) -> PathBuf {
-        package_expect_files_dir
-            .join(config.test_name())
-            .with_extension(config.expect_file_extension().str())
-    }
-
     fn determine_adversarial_path(
         self,
         _db: &::salsa::Db,
@@ -68,6 +59,19 @@ impl IsVfsTestUnit<Jar> for PackagePath {
 
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
         None
+    }
+
+    fn determine_expect_unit_path(
+        self,
+        db: &salsa::Db,
+        package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> ExpectUnitPath {
+        ExpectUnitPath::Single(
+            package_expect_files_dir
+                .join(config.test_name())
+                .with_extension(config.expect_file_extension().str()),
+        )
     }
 }
 
@@ -83,28 +87,6 @@ impl IsVfsTestUnit<Jar> for CratePath {
             .copied()
     }
 
-    fn determine_expect_file_path(
-        self,
-        db: &::salsa::Db,
-        package_expect_files_dir: &Path,
-        config: &VfsTestConfig,
-    ) -> PathBuf {
-        package_expect_files_dir.join(format!(
-            "{}/{}.{}",
-            config.test_name(),
-            match self.kind(db) {
-                CrateKind::Lib => format!("src/lib"),
-                CrateKind::Main => format!("src/main"),
-                CrateKind::Task => format!("task"),
-                CrateKind::Requirements => format!("requirements"),
-                CrateKind::Bin(_) => todo!(),
-                CrateKind::IntegratedTest(_) => todo!(),
-                CrateKind::Example => todo!(),
-            },
-            config.expect_file_extension().str()
-        ))
-    }
-
     fn determine_adversarial_path(
         self,
         _db: &::salsa::Db,
@@ -118,6 +100,28 @@ impl IsVfsTestUnit<Jar> for CratePath {
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
         None
     }
+
+    fn determine_expect_unit_path(
+        self,
+        db: &salsa::Db,
+        package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> ExpectUnitPath {
+        ExpectUnitPath::Single(package_expect_files_dir.join(format!(
+            "{}/{}.{}",
+            config.test_name(),
+            match self.kind(db) {
+                CrateKind::Lib => format!("src/lib"),
+                CrateKind::Main => format!("src/main"),
+                CrateKind::Task => format!("task"),
+                CrateKind::Requirements => format!("requirements"),
+                CrateKind::Bin(_) => todo!(),
+                CrateKind::IntegratedTest(_) => todo!(),
+                CrateKind::Example => todo!(),
+            },
+            config.expect_file_extension().str()
+        )))
+    }
 }
 
 impl IsVfsTestUnit<Jar> for ModulePath {
@@ -126,17 +130,6 @@ impl IsVfsTestUnit<Jar> for ModulePath {
         package_path: PackagePath,
     ) -> impl Iterator<Item = Self> {
         db.collect_probable_modules(package_path).into_iter()
-    }
-
-    fn determine_expect_file_path(
-        self,
-        db: &::salsa::Db,
-        package_expect_files_dir: &Path,
-        config: &VfsTestConfig,
-    ) -> PathBuf {
-        self.relative_stem(db)
-            .to_logical_path(package_expect_files_dir.join(config.test_name()))
-            .with_extension(config.expect_file_extension().str())
     }
 
     fn determine_adversarial_path(
@@ -159,5 +152,19 @@ impl IsVfsTestUnit<Jar> for ModulePath {
 
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
         Some(self)
+    }
+
+    fn determine_expect_unit_path(
+        self,
+        db: &salsa::Db,
+        package_expect_files_dir: &Path,
+        config: &VfsTestConfig,
+    ) -> ExpectUnitPath {
+        ExpectUnitPath::Single(
+            self.relative_stem(db)
+                .to_logical_path(package_expect_files_dir)
+                .with_extension(config.test_name())
+                .with_added_extension(config.expect_file_extension().str()),
+        )
     }
 }

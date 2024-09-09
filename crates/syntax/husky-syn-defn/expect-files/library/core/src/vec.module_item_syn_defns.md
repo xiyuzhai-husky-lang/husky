@@ -1,0 +1,48 @@
+```rust
+[
+    (
+        ItemPath(`core::vec::Vec`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec::#derive(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::ilen`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::push`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::first`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::last`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::pop`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::collect_leashes`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
+        None,
+    ),
+    (
+        ItemPath(`core::vec::Vec(0)::pop_with_largest_opt_f32`),
+        None,
+    ),
+]
+```

@@ -1,0 +1,41 @@
+```rust
+[
+    (
+        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+        [],
+    ),
+    (
+        TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+        [
+            (
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Up`),
+                Ok(
+                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Left`),
+                Ok(
+                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Down`),
+                Ok(
+                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist_classifier::raw_contour::Direction::Right`),
+                Ok(
+                    DecTerm(`mnist_classifier::raw_contour::Direction`),
+                ),
+            ),
+        ],
+    ),
+    (
+        TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
+        [],
+    ),
+]
+```

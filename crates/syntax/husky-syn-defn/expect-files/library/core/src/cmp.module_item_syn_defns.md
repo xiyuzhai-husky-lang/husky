@@ -1,0 +1,20 @@
+```rust
+[
+    (
+        ItemPath(`core::cmp::PartialEq`),
+        None,
+    ),
+    (
+        ItemPath(`core::cmp::Eq`),
+        None,
+    ),
+    (
+        ItemPath(`core::cmp::PartialOrd`),
+        None,
+    ),
+    (
+        ItemPath(`core::cmp::Ord`),
+        None,
+    ),
+]
+```

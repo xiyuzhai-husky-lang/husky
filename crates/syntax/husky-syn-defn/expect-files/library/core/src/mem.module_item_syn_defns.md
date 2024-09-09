@@ -1,0 +1,24 @@
+```rust
+[
+    (
+        ItemPath(`core::mem::Ref`),
+        None,
+    ),
+    (
+        ItemPath(`core::mem::RefMut`),
+        None,
+    ),
+    (
+        ItemPath(`core::mem::Leash`),
+        None,
+    ),
+    (
+        ItemPath(`core::mem::At`),
+        None,
+    ),
+    (
+        ItemPath(`core::mem::Leash as core::marker::Copy(0)`),
+        None,
+    ),
+]
+```

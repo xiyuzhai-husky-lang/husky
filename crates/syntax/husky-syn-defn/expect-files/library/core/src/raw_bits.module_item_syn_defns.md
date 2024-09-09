@@ -1,0 +1,36 @@
+```rust
+[
+    (
+        ItemPath(`core::raw_bits::r32`),
+        None,
+    ),
+    (
+        ItemPath(`core::raw_bits::r32::#derive(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::raw_bits::r32(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::raw_bits::r32(0)::last_bits`),
+        None,
+    ),
+    (
+        ItemPath(`core::raw_bits::r32(0)::ctz`),
+        None,
+    ),
+    (
+        ItemPath(`core::raw_bits::r32(0)::co`),
+        None,
+    ),
+    (
+        ItemPath(`core::raw_bits::r32(0)::span`),
+        None,
+    ),
+    (
+        ItemPath(`core::raw_bits::r32(0)::right_mass`),
+        None,
+    ),
+]
+```

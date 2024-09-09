@@ -1,0 +1,10 @@
+```rust
+[
+    ItemPath(`mnist_classifier::fermi::FermiMatchResult`),
+    ItemPath(`mnist_classifier::fermi::fermi_match`),
+    ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
+    ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::norm`),
+    ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`),
+    ItemPath(`mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`),
+]
+```

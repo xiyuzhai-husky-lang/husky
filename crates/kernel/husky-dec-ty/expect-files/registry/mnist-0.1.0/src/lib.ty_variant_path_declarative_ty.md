@@ -1,0 +1,77 @@
+```rust
+[
+    (
+        TypePath(`mnist::MnistLabel`, `Enum`),
+        [
+            (
+                TypeVariantPath(`mnist::MnistLabel::Zero`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::One`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Two`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Three`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Four`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Five`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Six`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Seven`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Eight`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+            (
+                TypeVariantPath(`mnist::MnistLabel::Nine`),
+                Ok(
+                    DecTerm(`mnist::MnistLabel`),
+                ),
+            ),
+        ],
+    ),
+    (
+        TypePath(`mnist::BinaryImage28`, `Extern`),
+        [],
+    ),
+    (
+        TypePath(`mnist::BinaryGrid28`, `Extern`),
+        [],
+    ),
+]
+```

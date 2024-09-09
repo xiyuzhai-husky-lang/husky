@@ -1,0 +1,9 @@
+```rust
+[
+    ItemPath(`core::frontend::IsFrontend`),
+    ItemPath(`core::frontend::Cv2dFrontend`),
+    ItemPath(`core::frontend::Cv3dFrontend`),
+    ItemPath(`core::frontend::NlpFrontend`),
+    ItemPath(`core::frontend::Rl2dFrontend`),
+]
+```

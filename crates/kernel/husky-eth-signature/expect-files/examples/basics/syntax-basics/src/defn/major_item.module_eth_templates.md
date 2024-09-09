@@ -1,0 +1,12 @@
+```rust
+[
+    (
+        ItemPath(`syntax_basics::defn::major_item::ty`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`syntax_basics::defn::major_item::ty),
+            ),
+        ),
+    ),
+]
+```

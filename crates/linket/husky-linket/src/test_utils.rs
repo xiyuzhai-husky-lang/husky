@@ -3,6 +3,7 @@ use husky_entity_path::path::major_item::{connection::MajorItemConnection, form:
 use husky_entity_tree::helpers::paths::module_test_paths;
 use husky_hir_decl::decl::HasHirDecl;
 use husky_vfs::{jar::VfsDb, test_utils::*};
+use rich_test::lock::ExpectUnitPath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -57,25 +58,26 @@ impl IsVfsTestUnit<Jar> for TestLinket {
             })
     }
 
-    fn determine_expect_file_path(
+    fn determine_expect_unit_path(
         self,
         db: &salsa::Db,
         package_expect_files_dir: &std::path::Path,
         config: &VfsTestConfig,
-    ) -> std::path::PathBuf {
-        let path = self.path;
-        let stem = path
-            .module_path(db)
-            .relative_stem(db)
-            .to_logical_path(package_expect_files_dir);
-        match path.data(db).connection() {
-            MajorItemConnection::Connected => stem.join(format!(
-                "{}.{}",
-                path.ident(db).data(db),
-                config.expect_file_extension().str()
-            )),
-            MajorItemConnection::Disconnected(_) => todo!(),
-        }
+    ) -> ExpectUnitPath {
+        todo!()
+        // let path = self.path;
+        // let stem = path
+        //     .module_path(db)
+        //     .relative_stem(db)
+        //     .to_logical_path(package_expect_files_dir);
+        // match path.data(db).connection() {
+        //     MajorItemConnection::Connected => stem.join(format!(
+        //         "{}.{}",
+        //         path.ident(db).data(db),
+        //         config.expect_file_extension().str()
+        //     )),
+        //     MajorItemConnection::Disconnected(_) => todo!(),
+        // }
     }
 
     fn determine_adversarial_path(
