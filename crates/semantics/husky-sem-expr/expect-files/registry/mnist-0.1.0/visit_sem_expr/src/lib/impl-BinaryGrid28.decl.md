@@ -1,7 +1,0 @@
-```rust
-Some(
-    [
-        "BinaryGrid28",
-    ],
-)
-```

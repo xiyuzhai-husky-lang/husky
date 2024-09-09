@@ -1,9 +1,0 @@
-```rust
-[
-    ItemPath(`mnist_classifier::digits::one::one_fermi_match`),
-    ItemPath(`mnist_classifier::digits::one::is_one`),
-    ItemPath(`mnist_classifier::digits::one::upmost`),
-    ItemPath(`mnist_classifier::digits::one::downmost`),
-    ItemPath(`mnist_classifier::digits::one::hat`),
-]
-```

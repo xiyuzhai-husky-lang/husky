@@ -1,9 +1,0 @@
-```rust
-Some(
-    [
-        "LineSegmentSketch",
-        "i32",
-        "bool",
-    ],
-)
-```

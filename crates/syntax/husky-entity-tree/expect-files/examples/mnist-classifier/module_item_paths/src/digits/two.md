@@ -1,9 +1,0 @@
-```rust
-[
-    ItemPath(`mnist_classifier::digits::two::two_match`),
-    ItemPath(`mnist_classifier::digits::two::left_cc_pattern`),
-    ItemPath(`mnist_classifier::digits::two::right_cc_pattern`),
-    ItemPath(`mnist_classifier::digits::two::down_cc_pattern`),
-    ItemPath(`mnist_classifier::digits::two::is_two`),
-]
-```

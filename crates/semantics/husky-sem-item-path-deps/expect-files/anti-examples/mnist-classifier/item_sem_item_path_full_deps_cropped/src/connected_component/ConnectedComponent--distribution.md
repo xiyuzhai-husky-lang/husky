@@ -1,8 +1,0 @@
-```rust
-[
-    ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::distribution`),
-    ItemPath(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
-    ItemPath(`core::raw_bits::r32(0)::co`),
-    ItemPath(`core::num::i32`),
-]
-```

@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`mnist_classifier::geom2d::Vector2d(0)::norm`),
-        ],
-    ),
-)
-```

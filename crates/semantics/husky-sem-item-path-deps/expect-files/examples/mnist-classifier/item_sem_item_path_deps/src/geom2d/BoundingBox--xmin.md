@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`core::num::f32`),
-        ],
-    ),
-)
-```

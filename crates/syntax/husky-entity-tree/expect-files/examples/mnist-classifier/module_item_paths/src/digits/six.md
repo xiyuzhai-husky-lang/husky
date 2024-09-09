@@ -1,9 +1,0 @@
-```rust
-[
-    ItemPath(`mnist_classifier::digits::six::six_match`),
-    ItemPath(`mnist_classifier::digits::six::six_match_refined1`),
-    ItemPath(`mnist_classifier::digits::six::is_six`),
-    ItemPath(`mnist_classifier::digits::six::upmost`),
-    ItemPath(`mnist_classifier::digits::six::bottom1`),
-]
-```

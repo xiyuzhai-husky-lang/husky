@@ -38,7 +38,7 @@ impl RichTestLock {
             .cargo_manifest_dir()
             .join(config.test_name())
             .with_extension("rich-test-lock");
-        let lock_file = if std::env::var("UPDATE_EXPECT=1").is_ok() {
+        let lock_file = if std::env::var("UPDATE_EXPECT").is_ok() {
             Some(match std::fs::File::create_new(&lock_path) {
                 Ok(lock_file) => lock_file,
                 Err(e) => panic!(
@@ -66,7 +66,10 @@ impl std::ops::Drop for RichTestLock {
             ::expect_test::expect_file![path].assert_eq(&output)
         }
         if let Some(ref mut lock_file) = self.lock_file {
-            lock_file.write(b"").unwrap();
+            for (path, content) in &self.expect_file_contents {
+                lock_file.write(path.to_string_lossy().as_bytes()).unwrap();
+                lock_file.write(b"\n");
+            }
         }
     }
 }
