@@ -1,9 +1,0 @@
-```rust
-Some(
-    [
-        "[",
-        "ConcaveComponent",
-        "[]ConcaveComponent",
-    ],
-)
-```

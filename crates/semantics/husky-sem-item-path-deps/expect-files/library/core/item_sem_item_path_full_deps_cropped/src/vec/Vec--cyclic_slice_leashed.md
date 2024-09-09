@@ -1,7 +1,0 @@
-```rust
-[
-    ItemPath(`core::vec::Vec(0)::cyclic_slice_leashed`),
-    ItemPath(`core::num::i32`),
-    ItemPath(`core::slice::CyclicSlice`),
-]
-```

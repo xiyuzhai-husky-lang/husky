@@ -1,9 +1,0 @@
-```rust
-AstTokenIdxRangeSheet {
-    ast_token_idx_ranges: [
-        0..6,
-        6..12,
-        12..28,
-    ],
-}
-```

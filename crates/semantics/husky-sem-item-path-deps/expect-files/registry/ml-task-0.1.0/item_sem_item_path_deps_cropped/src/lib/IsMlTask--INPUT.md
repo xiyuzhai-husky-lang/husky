@@ -1,9 +1,0 @@
-```rust
-Some(
-    Ok(
-        [
-            ItemPath(`ml_task::IsMlTask::Input`),
-        ],
-    ),
-)
-```

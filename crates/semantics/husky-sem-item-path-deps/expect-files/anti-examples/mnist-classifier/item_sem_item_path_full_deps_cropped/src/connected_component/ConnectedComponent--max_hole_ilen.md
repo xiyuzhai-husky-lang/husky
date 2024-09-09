@@ -1,8 +1,0 @@
-```rust
-[
-    ItemPath(`mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`),
-    ItemPath(`core::num::f32`),
-    ItemPath(`core::vec::Vec(0)::ilen`),
-    ItemPath(`core::num::i32`),
-]
-```
