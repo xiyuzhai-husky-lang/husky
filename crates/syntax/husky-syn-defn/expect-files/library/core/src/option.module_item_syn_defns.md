@@ -1,0 +1,20 @@
+```rust
+[
+    (
+        ItemPath(`core::option::Option`),
+        None,
+    ),
+    (
+        ItemPath(`core::option::Option::#derive(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::option::Option::Some`),
+        None,
+    ),
+    (
+        ItemPath(`core::option::Option::None`),
+        None,
+    ),
+]
+```

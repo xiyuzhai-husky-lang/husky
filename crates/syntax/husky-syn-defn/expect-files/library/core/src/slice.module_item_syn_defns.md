@@ -1,0 +1,60 @@
+```rust
+[
+    (
+        ItemPath(`core::slice::Slice`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice::#derive(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::Slice(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::Slice(0)::len`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::Slice(0)::swap`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice as core::ops::IntIndex(0)`),
+        None,
+    ),
+    (
+        ItemPath(`<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice(0)`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice(0)::ilen`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice(0)::start`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice(0)::end`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice(0)::first`),
+        None,
+    ),
+    (
+        ItemPath(`core::slice::CyclicSlice(0)::last`),
+        None,
+    ),
+]
+```

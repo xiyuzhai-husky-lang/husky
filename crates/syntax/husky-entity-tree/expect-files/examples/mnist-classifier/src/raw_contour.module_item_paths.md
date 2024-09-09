@@ -1,0 +1,28 @@
+```rust
+[
+    ItemPath(`mnist_classifier::raw_contour::RawContour`),
+    ItemPath(`mnist_classifier::raw_contour::Direction`),
+    ItemPath(`mnist_classifier::raw_contour::Direction::#derive(0)`),
+    ItemPath(`mnist_classifier::raw_contour::Direction::Up`),
+    ItemPath(`mnist_classifier::raw_contour::Direction::Left`),
+    ItemPath(`mnist_classifier::raw_contour::Direction::Down`),
+    ItemPath(`mnist_classifier::raw_contour::Direction::Right`),
+    ItemPath(`mnist_classifier::raw_contour::get_pixel_pair`),
+    ItemPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`),
+    ItemPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`),
+    ItemPath(`mnist_classifier::raw_contour::get_inward_direction`),
+    ItemPath(`mnist_classifier::raw_contour::get_angle_change`),
+    ItemPath(`mnist_classifier::raw_contour::get_outward_direction`),
+    ItemPath(`mnist_classifier::raw_contour::StreakCache`),
+    ItemPath(`mnist_classifier::raw_contour::get_concave_middle_point`),
+    ItemPath(`mnist_classifier::raw_contour::find_raw_contours`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)`),
+    ItemPath(`<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour(0)`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour(0)::bounding_box`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour(0)::contour_len`),
+    ItemPath(`mnist_classifier::raw_contour::RawContour(0)::displacement`),
+]
+```

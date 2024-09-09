@@ -1,0 +1,27 @@
+```rust
+[
+    ItemPath(`malamute::Class`),
+    ItemPath(`malamute::Class::#derive(0)`),
+    ItemPath(`malamute::Class::Known`),
+    ItemPath(`malamute::Class::Unknown`),
+    ItemPath(`malamute::OneVsAll`),
+    ItemPath(`malamute::OneVsAll::#derive(0)`),
+    ItemPath(`malamute::OneVsAll::Yes`),
+    ItemPath(`malamute::OneVsAll::No`),
+    ItemPath(`malamute::OneVsAllResult`),
+    ItemPath(`malamute::OneVsAllResult::#derive(0)`),
+    ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
+    ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
+    ItemPath(`malamute::OneVsAllResult::Unconfident`),
+    ItemPath(`malamute::narrow_down`),
+    ItemPath(`malamute::narrow_down::#dep(0)`),
+    ItemPath(`malamute::OneVsAll as core::default::Default(0)`),
+    ItemPath(`<malamute::OneVsAll as core::default::Default(0)>::default`),
+    ItemPath(`malamute::Class as core::ops::Unveil(0)`),
+    ItemPath(`<malamute::Class as core::ops::Unveil(0)>::Output`),
+    ItemPath(`<malamute::Class as core::ops::Unveil(0)>::unveil`),
+    ItemPath(`malamute::OneVsAll as core::ops::Unveil(0)`),
+    ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::Output`),
+    ItemPath(`<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`),
+]
+```

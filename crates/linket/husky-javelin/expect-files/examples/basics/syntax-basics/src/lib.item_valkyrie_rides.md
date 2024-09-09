@@ -1,0 +1,20 @@
+```rust
+[
+    (
+        ItemPath(`syntax_basics::ast`),
+        None,
+    ),
+    (
+        ItemPath(`syntax_basics::uses`),
+        None,
+    ),
+    (
+        ItemPath(`syntax_basics::defn`),
+        None,
+    ),
+    (
+        ItemPath(`syntax_basics::expr`),
+        None,
+    ),
+]
+```

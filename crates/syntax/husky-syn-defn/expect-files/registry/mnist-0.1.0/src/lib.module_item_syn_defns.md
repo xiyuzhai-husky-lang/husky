@@ -1,0 +1,116 @@
+```rust
+[
+    (
+        ItemPath(`mnist::task`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Zero`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::One`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Two`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Three`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Four`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Five`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Six`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Seven`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Eight`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::MnistLabel::Nine`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryImage28`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryImage28::#derive(0)`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryGrid28`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::INPUT`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryImage28 as core::visual::Visualize(0)`),
+        None,
+    ),
+    (
+        ItemPath(`<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryImage28(0)`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryImage28(0)::new_zeros`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryImage28 as core::ops::IntIndex(0)`),
+        None,
+    ),
+    (
+        ItemPath(`<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryGrid28 as core::visual::Visualize(0)`),
+        None,
+    ),
+    (
+        ItemPath(`<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryGrid28(0)`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryGrid28(0)::new_zeros`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::BinaryGrid28 as core::ops::IntIndex(0)`),
+        None,
+    ),
+    (
+        ItemPath(`<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`),
+        None,
+    ),
+]
+```

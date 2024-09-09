@@ -1,0 +1,12 @@
+```rust
+[
+    (
+        ItemPath(`core::str::str`),
+        None,
+    ),
+    (
+        ItemPath(`core::str::StringLiteral`),
+        None,
+    ),
+]
+```

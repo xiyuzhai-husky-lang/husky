@@ -1,0 +1,25 @@
+```rust
+[
+    SubmodulePath(
+        ModulePath(`mnist_classifier::connected_component`),
+    ),
+    SubmodulePath(
+        ModulePath(`mnist_classifier::raw_contour`),
+    ),
+    SubmodulePath(
+        ModulePath(`mnist_classifier::geom2d`),
+    ),
+    SubmodulePath(
+        ModulePath(`mnist_classifier::line_segment_sketch`),
+    ),
+    SubmodulePath(
+        ModulePath(`mnist_classifier::fermi`),
+    ),
+    SubmodulePath(
+        ModulePath(`mnist_classifier::digits`),
+    ),
+    SubmodulePath(
+        ModulePath(`mnist_classifier::major`),
+    ),
+]
+```

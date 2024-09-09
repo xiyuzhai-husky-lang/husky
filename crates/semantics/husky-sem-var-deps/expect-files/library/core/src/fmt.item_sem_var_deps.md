@@ -1,0 +1,7 @@
+## `Debug`
+
+```rust
+SemVarDeps(
+    [],
+)
+```

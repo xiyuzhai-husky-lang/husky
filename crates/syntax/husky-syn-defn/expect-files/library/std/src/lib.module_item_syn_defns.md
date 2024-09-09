@@ -1,0 +1,16 @@
+```rust
+[
+    (
+        ItemPath(`std::prelude`),
+        None,
+    ),
+    (
+        ItemPath(`std::logic`),
+        None,
+    ),
+    (
+        ItemPath(`std::ops`),
+        None,
+    ),
+]
+```

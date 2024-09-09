@@ -1,0 +1,12 @@
+```rust
+[
+    (
+        ItemPath(`syntax_basics::ast::submodule_name`),
+        Ok(
+            ItemEthTemplate::Submodule(
+                SubmoduleItemPath(`syntax_basics::ast::submodule_name),
+            ),
+        ),
+    ),
+]
+```

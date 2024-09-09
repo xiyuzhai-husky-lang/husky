@@ -1,0 +1,12 @@
+```rust
+[
+    (
+        ItemPath(`mnist::Task`),
+        None,
+    ),
+    (
+        ItemPath(`mnist::TASK`),
+        None,
+    ),
+]
+```
