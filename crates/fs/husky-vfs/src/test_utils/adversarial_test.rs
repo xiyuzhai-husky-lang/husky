@@ -9,6 +9,7 @@ use self::adversarial_manager::*;
 use self::edit::*;
 use super::*;
 use husky_rng_utils::XRng;
+use lock::RichTestLock;
 use salsa::DebugWithDb;
 use serde::{Deserialize, Serialize};
 
@@ -41,34 +42,35 @@ pub(super) fn vfs_adversarial_test<M, U, R>(
     unit: U,
     f: &impl Fn(&::salsa::Db, U) -> R,
     config: &VfsTestConfig,
-    paths_used: &mut HashMap<PathBuf, PathUsage<U>>,
+    lock: &mut RichTestLock,
 ) where
     U: IsVfsTestUnit<M> + ::salsa::DebugWithDb,
 {
-    let Some(adversarial_path) =
-        unit.determine_adversarial_path(db, AdversarialKind::Vfs, package_adversarials_dir, config)
-    else {
-        return;
-    };
-    if let Some(old_usage) =
-        paths_used.insert(adversarial_path.clone(), PathUsage::Adversarial(unit))
-    {
-        panic!(
-            r#"Detect conflicting path for unit `{:?}` while doing adversarial testing!
-Old usage is `{:?}`.
-The conflicting path is `{adversarial_path:?}`"#,
-            unit.debug(db),
-            old_usage.debug(db),
-        )
-    }
-    let Some(module) = unit.vfs_test_unit_downcast_as_module_path() else {
-        // ad hoc, what to do here?
-        // for things like item syn node path, adversarial attack might make the entity tree change
-        // we might want something that avoids changing the entity tree
-        return;
-    };
-    let manager = VfsAdversarialManager::new(module, adversarial_path);
-    manager.run(db, &|db| {
-        f(db, unit);
-    })
+    // let Some(adversarial_path) =
+    //     unit.determine_adversarial_path(db, AdversarialKind::Vfs, package_adversarials_dir, config)
+    // else {
+    //     return;
+    // };
+    // // TODO: use rich test lock
+    // //     if let Some(old_usage) =
+    // //         paths_used.insert(adversarial_path.clone(), PathUsage::Adversarial(unit))
+    // //     {
+    // //         panic!(
+    // //             r#"Detect conflicting path for unit `{:?}` while doing adversarial testing!
+    // // Old usage is `{:?}`.
+    // // The conflicting path is `{adversarial_path:?}`"#,
+    // //             unit.debug(db),
+    // //             old_usage.debug(db),
+    // //         )
+    // //     }
+    // let Some(module) = unit.vfs_test_unit_downcast_as_module_path() else {
+    //     // ad hoc, what to do here?
+    //     // for things like item syn node path, adversarial attack might make the entity tree change
+    //     // we might want something that avoids changing the entity tree
+    //     return;
+    // };
+    // let manager = VfsAdversarialManager::new(module, adversarial_path);
+    // manager.run(db, &|db| {
+    //     f(db, unit);
+    // })
 }

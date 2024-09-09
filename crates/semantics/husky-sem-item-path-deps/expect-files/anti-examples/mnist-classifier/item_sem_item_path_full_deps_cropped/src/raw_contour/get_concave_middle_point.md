@@ -1,9 +1,0 @@
-```rust
-[
-    ItemPath(`mnist_classifier::raw_contour::get_concave_middle_point`),
-    ItemPath(`mnist_classifier::geom2d::Point2d`),
-    ItemPath(`core::vec::Vec(0)::ilen`),
-    ItemPath(`core::num::f32`),
-    ItemPath(`core::num::i32`),
-]
-```

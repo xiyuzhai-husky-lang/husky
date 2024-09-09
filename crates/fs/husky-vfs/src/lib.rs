@@ -2,6 +2,7 @@
 #![allow(incomplete_features)]
 #![feature(absolute_path)]
 #![feature(let_chains)]
+#![feature(path_add_extension)]
 mod cache;
 pub mod error;
 mod file;

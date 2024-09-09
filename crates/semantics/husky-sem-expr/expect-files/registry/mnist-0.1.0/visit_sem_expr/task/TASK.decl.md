@@ -1,9 +1,0 @@
-```rust
-Some(
-    [
-        "mnist::task::MnistTask",
-        "MnistTask::new",
-        "MnistTask::new()",
-    ],
-)
-```

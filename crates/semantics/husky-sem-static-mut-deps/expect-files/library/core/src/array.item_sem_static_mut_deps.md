@@ -1,0 +1,7 @@
+## `Array`
+
+```rust
+SemStaticMutDeps(
+    [],
+)
+```

@@ -1,7 +1,0 @@
-```rust
-[
-    ItemPath(`mnist::BinaryImage28::#derive(0)`),
-    ItemPath(`core::fmt::Debug`),
-    ItemPath(`core::clone::Clone`),
-]
-```

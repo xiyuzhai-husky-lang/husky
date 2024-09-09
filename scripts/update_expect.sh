@@ -8,6 +8,7 @@ MONITOR=HDMI-2
 
 # Define a cleanup function
 cleanup() {
+  scripts/clean_rich_test_locks.py
   # Reset screen brightness
   scripts/adjust_screen_brightness.sh 1.0 $MONITOR $DURATION &
 }
@@ -24,6 +25,8 @@ cargo fmt
 
 # update jar tree information
 UPDATE_EXPECT=1 cargo test -p husky-jar-utils
+
+scripts/clean_rich_test_locks.py
 
 # Check the Rust project, including tests
 cargo check --tests
