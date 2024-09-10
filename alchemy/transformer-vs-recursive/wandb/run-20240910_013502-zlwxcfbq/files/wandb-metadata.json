@@ -1,0 +1,108 @@
+{
+    "os": "Linux-6.5.0-41-generic-x86_64-with-glibc2.35",
+    "python": "3.10.14",
+    "heartbeatAt": "2024-09-10T08:35:02.616376",
+    "startedAt": "2024-09-10T08:35:02.237069",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/media/xiyuzhai/Repos/repos/husky/alchemy/transformer-vs-recursive/./play1.py",
+    "codePathLocal": "play1.py",
+    "codePath": "alchemy/transformer-vs-recursive/play1.py",
+    "git": {
+        "remote": "git@github.com:xiyuzhai/husky.git",
+        "commit": "5d2f199c02b62761a2ae06b1cb3e2ffc05704fd5"
+    },
+    "email": "dirac12345@gmail.com",
+    "root": "/media/xiyuzhai/Repos/repos/husky",
+    "host": "xiyuzhai-Alienware-m17-R2",
+    "username": "xiyuzhai",
+    "executable": "/home/xiyuzhai/anaconda3/bin/python3",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2969.4179999999997,
+        "min": 800.0,
+        "max": 4500.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3507.444,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3528.778,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 4101.265,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 800.0,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 4051.816,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 2286.941,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 3999.794,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 4017.957,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 4027.752,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 4022.527,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 4096.505,
+            "min": 800.0,
+            "max": 4500.0
+        },
+        {
+            "current": 4015.693,
+            "min": 800.0,
+            "max": 4500.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 467.8895797729492,
+            "used": 334.7476577758789
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 2070 with Max-Q Design",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 2070 with Max-Q Design",
+            "memory_total": 8589934592
+        }
+    ],
+    "memory": {
+        "total": 15.403060913085938
+    }
+}
