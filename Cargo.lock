@@ -4453,6 +4453,7 @@ dependencies = [
  "husky-cybertron",
  "husky-debug-utils",
  "husky-print-utils",
+ "husky-rng-utils",
  "husky-text-protocol",
  "husky-wild-utils",
  "indexmap 2.4.0",

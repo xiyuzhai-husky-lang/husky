@@ -17,6 +17,7 @@ impl XRng {
             rng: StdRng::seed_from_u64(seed),
         }
     }
+
     pub fn new_time_seeded() -> Self {
         let start = SystemTime::now();
         let since_the_epoch = start
