@@ -17,7 +17,6 @@ impl XRng {
             rng: StdRng::seed_from_u64(seed),
         }
     }
-
     pub fn new_time_seeded() -> Self {
         let start = SystemTime::now();
         let since_the_epoch = start
@@ -28,11 +27,19 @@ impl XRng {
         }
     }
 
-    pub fn randint<T>(&mut self, range: impl SampleRange<T>) -> Option<T>
+    pub fn try_randint<T>(&mut self, range: impl SampleRange<T>) -> Option<T>
     where
         T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd,
     {
         (!range.is_empty()).then(|| self.rng.gen_range(range))
+    }
+
+    pub fn randint<T>(&mut self, range: impl SampleRange<T>) -> T
+    where
+        T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd,
+    {
+        assert!(!range.is_empty());
+        self.rng.gen_range(range)
     }
 
     pub fn randidx(&mut self) -> usize {
