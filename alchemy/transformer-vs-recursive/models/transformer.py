@@ -22,5 +22,5 @@ class EncoderOnlyTransformer(nn.Module):
         return x
 
 
-eotf = EncoderOnlyTransformer(10, 10, 3, 2, 10, 100)
-print(eotf(torch.zeros(5, 10, 10)))
+device = "cuda:0"
+eotf = EncoderOnlyTransformer(10, 10, 3, 2, 10, 100).to(device)
