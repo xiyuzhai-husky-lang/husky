@@ -1,5 +1,5 @@
 run:
 	./main.py
 
-play1:
-	./play1.py
+linear_map:
+	python plays/trivial/linear_map.py
