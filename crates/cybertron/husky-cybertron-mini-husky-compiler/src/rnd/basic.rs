@@ -1,10 +1,11 @@
 use husky_rng_utils::XRng;
 
-pub fn rnd_codes(n: u64) -> String {
+pub fn rnd_codes(n: u64, max_fns: usize, error_rate: f64) -> String {
     let mut combined_result = String::new();
 
     for seed in 0..n {
-        let (code, errors) = rnd_code(seed, 0.1); // Example error_rate of 0.1
+        let (code, errors) = rnd_code(seed, error_rate, max_fns);
+
         let code_string = code.join(" ");
         let errors_string = errors
             .iter()
@@ -18,15 +19,15 @@ pub fn rnd_codes(n: u64) -> String {
     combined_result
 }
 
-pub fn rnd_code(seed: u64, error_rate: f64) -> (Vec<String>, Vec<usize>) {
+pub fn rnd_code(seed: u64, error_rate: f64, max_fns: usize) -> (Vec<String>, Vec<usize>) {
     let mut bcg = BasicCodeGenerator::new(seed, error_rate);
-    bcg.gen_fns(3);
+    bcg.gen_fns(max_fns);
     bcg.finish()
 }
 
 #[test]
 fn rnd_code_works() {
-    rnd_code(0, 0.1);
+    rnd_code(0, 0.1, 5);
 }
 
 struct BasicCodeGenerator {
@@ -140,8 +141,9 @@ impl BasicCodeGenerator {
         self.functions.push(Function { input_ty });
     }
 
-    fn gen_fns(&mut self, n: usize) {
-        for _ in 0..n {
+    fn gen_fns(&mut self, max_fns: usize) {
+        let num_fns = self.rng.rand_range(3..=max_fns.max(3));
+        for _ in 0..num_fns {
             self.gen_fn()
         }
     }

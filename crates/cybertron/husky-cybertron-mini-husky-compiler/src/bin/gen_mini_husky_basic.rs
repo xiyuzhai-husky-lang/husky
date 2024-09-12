@@ -7,16 +7,38 @@ fn main() {
     let dir = PathBuf::from("data/mini-husky/basic");
     assert!(dir.exists());
 
-    let n = 10; // Example value for n
-    let dataset_filename = dir.join(format!("dataset-{}.txt", n));
+    // Predefined sets of parameters
+    let params = vec![(10000, 10, 0.3), (50000, 15, 0.2), (100000, 20, 0.1)];
 
-    // Generate the random codes
-    let data = rnd_codes(n);
+    // Keep track of files we're going to write
+    let mut files_to_keep = Vec::new();
 
-    // Write to the file
-    let mut file = fs::File::create(&dataset_filename).expect("Unable to create file");
-    file.write_all(data.as_bytes())
-        .expect("Unable to write data");
+    for (n, max_fns, error_rate) in &params {
+        let dataset_filename = dir.join(format!(
+            "dataset-n{}-f{}-e{:.2}.txt",
+            n, max_fns, error_rate
+        ));
+        files_to_keep.push(dataset_filename.clone());
 
-    println!("Data written to {:?}", dataset_filename);
+        // Generate the random codes
+        let data = rnd_codes(*n, *max_fns, *error_rate);
+
+        // Write to the file
+        let mut file = fs::File::create(&dataset_filename).expect("Unable to create file");
+        file.write_all(data.as_bytes())
+            .expect("Unable to write data");
+
+        println!("Data written to {:?}", dataset_filename);
+    }
+
+    // Clear other files in the folder
+    for entry in fs::read_dir(&dir).expect("Unable to read directory") {
+        if let Ok(entry) = entry {
+            let path = entry.path();
+            if path.is_file() && !files_to_keep.contains(&path) {
+                fs::remove_file(&path).expect("Unable to remove file");
+                println!("Removed old file: {:?}", path);
+            }
+        }
+    }
 }
