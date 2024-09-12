@@ -16,7 +16,7 @@ impl VfsAdversarial {
     const NUMBER_OF_VARIANTS: u8 = 4;
 
     pub(super) fn new_rand(text: &str, rng: &mut XRng) -> Option<Self> {
-        let kind: u8 = rng.randint(0..VfsAdversarial::NUMBER_OF_VARIANTS);
+        let kind: u8 = rng.rand_range(0..VfsAdversarial::NUMBER_OF_VARIANTS);
         match kind {
             0 => Self::new_rand_insert_new_line(text, rng),
             1 => Self::new_rand_insert_space(text, rng),

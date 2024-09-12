@@ -80,7 +80,7 @@ pub fn generate2(rng: &mut XRng, length: usize, pieces: &[&str]) -> String {
 
     unsafe {
         for _ in 0..length {
-            result += pieces[rng.randint(0..pieces.len())];
+            result += pieces[rng.rand_range(0..pieces.len())];
         }
     }
 
