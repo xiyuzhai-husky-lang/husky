@@ -1,10 +1,10 @@
 use husky_rng_utils::XRng;
 
-pub fn rnd_code(seed: u64) -> String {
+pub fn rnd_code(seed: u64) -> (Vec<String>, Vec<usize>) {
     let mut bcg = BasicCodeGenerator::new(seed);
     bcg.gen_fns(3);
-    let code = bcg.finish();
-    todo!("code = {code}")
+    let (code, errors) = bcg.finish();
+    todo!("code = {:?}, errors = {:?}", code, errors);
 }
 
 #[test]
@@ -15,7 +15,8 @@ fn rnd_code_works() {
 struct BasicCodeGenerator {
     rng: XRng,
     functions: Vec<Function>,
-    result: String,
+    result: Vec<String>,
+    errors: Vec<usize>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -44,16 +45,23 @@ impl BasicCodeGenerator {
         Self {
             rng: XRng::new(seed),
             functions: Default::default(),
-            result: Default::default(),
+            result: Vec::new(),
+            errors: Vec::new(),
         }
     }
-}
 
-impl BasicCodeGenerator {
+    fn push_token(&mut self, token: impl Into<String>, has_ty_error: bool) {
+        let position = self.result.len();
+        self.result.push(token.into());
+        if has_ty_error {
+            self.errors.push(position);
+        }
+    }
+
     fn with_curly(&mut self, f: impl FnOnce(&mut Self)) {
-        self.result += "{ ";
+        self.push_token("{", false);
         f(self);
-        self.result += " }";
+        self.push_token("}", false);
     }
 
     fn gen_ty(&mut self) -> Type {
@@ -63,15 +71,21 @@ impl BasicCodeGenerator {
             2 => Type::Float,
             _ => unreachable!(),
         };
-        self.result += ty.repr();
+        self.push_token(ty.repr(), false);
         ty
     }
 
     fn gen_fn(&mut self) {
         let len = self.functions.len();
-        self.result += &format!("fn f{len}(a: ");
+        self.push_token("fn", false);
+        self.push_token(format!("f{len}"), false);
+        self.push_token("(", false);
+        self.push_token("a", false);
+        self.push_token(":", false);
         let input_ty = self.gen_ty();
-        self.result += &format!(") {{}}");
+        self.push_token(")", false);
+        self.push_token("{", false);
+        self.push_token("}", false);
         self.functions.push(Function { input_ty });
     }
 
@@ -81,7 +95,7 @@ impl BasicCodeGenerator {
         }
     }
 
-    fn finish(self) -> String {
-        self.result
+    fn finish(self) -> (Vec<String>, Vec<usize>) {
+        (self.result, self.errors)
     }
 }
