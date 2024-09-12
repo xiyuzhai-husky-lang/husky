@@ -1,15 +1,32 @@
 use husky_rng_utils::XRng;
 
-pub fn rnd_code(seed: u64) -> (Vec<String>, Vec<usize>) {
-    let mut bcg = BasicCodeGenerator::new(seed);
+pub fn rnd_codes(n: u64) -> String {
+    let mut combined_result = String::new();
+
+    for seed in 0..n {
+        let (code, errors) = rnd_code(seed, 0.1); // Example error_rate of 0.1
+        let code_string = code.join(" ");
+        let errors_string = errors
+            .iter()
+            .map(|e| e.to_string())
+            .collect::<Vec<String>>()
+            .join(" ");
+
+        combined_result.push_str(&format!("{}\n{}\n", code_string, errors_string));
+    }
+
+    combined_result
+}
+
+pub fn rnd_code(seed: u64, error_rate: f64) -> (Vec<String>, Vec<usize>) {
+    let mut bcg = BasicCodeGenerator::new(seed, error_rate);
     bcg.gen_fns(3);
-    let (code, errors) = bcg.finish();
-    todo!("code = {:?}, errors = {:?}", code, errors);
+    bcg.finish()
 }
 
 #[test]
 fn rnd_code_works() {
-    rnd_code(0);
+    rnd_code(0, 0.1);
 }
 
 struct BasicCodeGenerator {
@@ -17,6 +34,7 @@ struct BasicCodeGenerator {
     functions: Vec<Function>,
     result: Vec<String>,
     errors: Vec<usize>,
+    error_rate: f64,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -34,6 +52,14 @@ impl Type {
             Type::Float => "Float",
         }
     }
+
+    fn random_literal(self) -> &'static str {
+        match self {
+            Type::Bool => "true",
+            Type::Int => "1",
+            Type::Float => "1.1",
+        }
+    }
 }
 
 struct Function {
@@ -41,12 +67,13 @@ struct Function {
 }
 
 impl BasicCodeGenerator {
-    fn new(seed: u64) -> Self {
+    fn new(seed: u64, error_rate: f64) -> Self {
         Self {
             rng: XRng::new(seed),
             functions: Default::default(),
             result: Vec::new(),
             errors: Vec::new(),
+            error_rate,
         }
     }
 
@@ -65,7 +92,7 @@ impl BasicCodeGenerator {
     }
 
     fn gen_ty(&mut self) -> Type {
-        let ty = match self.rng.randint(0..3) {
+        let ty = match self.rng.rand_range(0..3) {
             0 => Type::Bool,
             1 => Type::Int,
             2 => Type::Float,
@@ -84,8 +111,32 @@ impl BasicCodeGenerator {
         self.push_token(":", false);
         let input_ty = self.gen_ty();
         self.push_token(")", false);
-        self.push_token("{", false);
-        self.push_token("}", false);
+        self.with_curly(|gen| {
+            if len > 0 {
+                // Generate a call to a previously defined function
+                let callee_index = gen.rng.rand_range(0..len);
+                let callee = &gen.functions[callee_index];
+
+                // Randomly decide if the call should have a type error
+                let has_ty_error = gen.rng.randf64() < gen.error_rate;
+                let arg_literal = if has_ty_error {
+                    // Pick a literal with a different type
+                    match callee.input_ty {
+                        Type::Bool => "1",     // Int instead of Bool
+                        Type::Int => "1.1",    // Float instead of Int
+                        Type::Float => "true", // Bool instead of Float
+                    }
+                } else {
+                    callee.input_ty.random_literal()
+                };
+
+                gen.push_token(format!("f{callee_index}"), false);
+                gen.push_token("(", false);
+                gen.push_token(arg_literal, has_ty_error);
+                gen.push_token(")", false);
+                gen.push_token(";", false);
+            }
+        });
         self.functions.push(Function { input_ty });
     }
 
