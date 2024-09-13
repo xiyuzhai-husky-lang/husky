@@ -30,7 +30,7 @@ class MiniHuskyDataset(Dataset):
                 lines = f.readlines()
                 return [
                     (
-                        self._parse_line(lines[i].strip())[0],
+                        lines[i].strip().split(),
                         [int(num) for num in lines[i + 1].strip().split()],
                     )
                     for i in range(0, len(lines), 2)
@@ -45,13 +45,6 @@ class MiniHuskyDataset(Dataset):
         for words, _ in self.data:
             word_counts.update(words)
         return ["<PAD>", "<UNK>"] + [word for word, _ in word_counts.most_common()]
-
-    def _parse_line(self, line: str) -> Tuple[List[str], List[int]]:
-        words = line.split()
-        return (
-            words,
-            [],
-        )  # Return empty list for numbers, will be filled in _load_dataset
 
     def get_dataset(self) -> List[Tuple[List[str], List[int]]]:
         return self.data
