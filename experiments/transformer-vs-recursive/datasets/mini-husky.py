@@ -1,9 +1,11 @@
 import os
 from typing import List, Tuple
 from pprint import pprint
+import torch
+from torch.utils.data import Dataset
 
 
-class MiniHuskyDataset:
+class MiniHuskyDataset(Dataset):
     def __init__(
         self,
         n: int,
@@ -45,13 +47,33 @@ class MiniHuskyDataset:
     def get_dataset(self) -> List[Tuple[List[str], List[int]]]:
         return self.data
 
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        words, labels = self.data[idx]
+        # Convert words to tensor of indices (you might need to implement tokenization)
+        word_indices = torch.tensor(
+            [self._word_to_index(word) for word in words], dtype=torch.long
+        )
+        labels = torch.tensor(labels, dtype=torch.long)
+        return word_indices, labels
+
+    def _word_to_index(self, word):
+        # Implement word to index conversion (you might want to create a vocabulary)
+        # This is a placeholder implementation
+        return hash(word) % 10000  # Using a simple hash function for demonstration
+
 
 # Example usage
 if __name__ == "__main__":
     # Load a specific dataset
     dataset = MiniHuskyDataset(100000, 20, 0.10)
-    data = dataset.get_dataset()
     print(f"Dataset with 100000 samples, max_fns=20, error_rate=0.10:")
     print("First 5 samples:")
-    pprint(data[:5], width=100, compact=True)
-    print(f"Total samples: {len(data)}")
+    for i in range(5):
+        word_indices, labels = dataset[i]
+        print(f"Sample {i + 1}:")
+        print(f"  Word indices: {word_indices}")
+        print(f"  Labels: {labels}")
+    print(f"Total samples: {len(dataset)}")
