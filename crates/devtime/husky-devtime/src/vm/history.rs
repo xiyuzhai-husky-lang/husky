@@ -29,15 +29,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         trace: Trace,
         pedestal: Devsoul::Pedestal,
     ) -> Arc<VmHistory<Devsoul::LinketImpl>> {
-        let db = self.db();
-        match self.runtime.with_default_var_ids(
-            trace.history_var_deps(db).unwrap().iter().copied(),
-            pedestal,
-            |pedestal, _| self.cache_trace_history(trace, pedestal),
-        ) {
-            Ok(history) => history,
-            Err(_) => todo!(),
-        }
+        self.cache_trace_history(trace, pedestal)
     }
 
     fn cache_trace_history(
@@ -62,6 +54,24 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         VmHistory<Devsoul::LinketImpl>,
     ) {
         let db = self.db();
+        self.runtime
+            .with_default_var_ids(
+                trace.history_var_deps(db).unwrap().iter().copied(),
+                pedestal.clone(),
+                |pedestal, _| self.calc_trace_history_aux(trace, pedestal, db),
+            )
+            .unwrap_or_else(|_| todo!("Handle error case"))
+    }
+
+    fn calc_trace_history_aux(
+        &self,
+        trace: Trace,
+        pedestal: Devsoul::Pedestal,
+        db: &::salsa::Db,
+    ) -> (
+        DevsoulVmControlFlowFrozen<Devsoul>,
+        VmHistory<Devsoul::LinketImpl>,
+    ) {
         match trace.data(db) {
             TraceData::Val(_) => todo!(),
             TraceData::StaticVar(_) => todo!(),
