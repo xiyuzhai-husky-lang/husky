@@ -3,6 +3,7 @@ from typing import List, Tuple
 from pprint import pprint
 import torch
 from torch.utils.data import Dataset
+from collections import Counter
 
 
 class MiniHuskyDataset(Dataset):
@@ -18,6 +19,8 @@ class MiniHuskyDataset(Dataset):
         self.max_fns = max_fns
         self.error_rate = error_rate
         self.data = self._load_dataset()
+        self.vocab = self._build_vocabulary()
+        self.word_to_index = {word: i for i, word in enumerate(self.vocab)}
 
     def _load_dataset(self) -> List[Tuple[List[str], List[int]]]:
         filename = f"dataset-n{self.n}-f{self.max_fns}-e{self.error_rate:.2f}.txt"
@@ -37,6 +40,12 @@ class MiniHuskyDataset(Dataset):
                 f"Dataset with n={self.n}, max_fns={self.max_fns}, error_rate={self.error_rate} not found"
             )
 
+    def _build_vocabulary(self):
+        word_counts = Counter()
+        for words, _ in self.data:
+            word_counts.update(words)
+        return ["<PAD>", "<UNK>"] + [word for word, _ in word_counts.most_common()]
+
     def _parse_line(self, line: str) -> Tuple[List[str], List[int]]:
         words = line.split()
         return (
@@ -52,7 +61,6 @@ class MiniHuskyDataset(Dataset):
 
     def __getitem__(self, idx):
         words, labels = self.data[idx]
-        # Convert words to tensor of indices (you might need to implement tokenization)
         word_indices = torch.tensor(
             [self._word_to_index(word) for word in words], dtype=torch.long
         )
@@ -60,9 +68,7 @@ class MiniHuskyDataset(Dataset):
         return word_indices, labels
 
     def _word_to_index(self, word):
-        # Implement word to index conversion (you might want to create a vocabulary)
-        # This is a placeholder implementation
-        return hash(word) % 10000  # Using a simple hash function for demonstration
+        return self.word_to_index.get(word, 1)  # 1 is the index for <UNK>
 
 
 # Example usage
@@ -77,3 +83,8 @@ if __name__ == "__main__":
         print(f"  Word indices: {word_indices}")
         print(f"  Labels: {labels}")
     print(f"Total samples: {len(dataset)}")
+
+    # Print vocabulary
+    print("\nVocabulary:")
+    pprint(dataset.vocab)
+    print(f"Vocabulary size: {len(dataset.vocab)}")
