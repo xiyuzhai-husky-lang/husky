@@ -5,7 +5,14 @@ from torch.utils.data import DataLoader
 
 
 def train_model(
-    model, dataloader, criterion, optimizer, num_epochs, device="cpu", log_wandb=True
+    model,
+    dataloader,
+    criterion,
+    optimizer,
+    num_epochs,
+    device,
+    log_wandb=True,
+    model_name=None,
 ):
     """
     Generic training function for models like Transformers, RNNs, etc.
@@ -18,6 +25,7 @@ def train_model(
         num_epochs (int): Number of epochs to train for.
         device (str): Device to train on ('cpu' or 'cuda').
         log_wandb (bool): Whether to log metrics to wandb.
+        model_name (str): Name of the model for logging purposes.
 
     Returns:
         None
@@ -34,7 +42,7 @@ def train_model(
             optimizer.zero_grad()
 
             # Forward pass
-            outputs = model(inputs)
+            outputs = model(inputs).squeeze(-1)
             loss = criterion(outputs, targets)
 
             # Backward pass and optimize
@@ -47,6 +55,9 @@ def train_model(
         avg_loss = total_loss / len(dataloader)
 
         if log_wandb:
-            wandb.log({"epoch": epoch + 1, "loss": avg_loss})
+            wandb.log(
+                {f"{model_name}_loss": avg_loss, f"{model_name}_accuracy": 0.0},
+                step=epoch,
+            )
 
         print(f"Epoch [{epoch + 1}/{num_epochs}], Loss: {avg_loss:.4f}")
