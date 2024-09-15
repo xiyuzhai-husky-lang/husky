@@ -1,25 +1,47 @@
 use husky_rng_utils::XRng;
+use serde::ser::{SerializeSeq, Serializer};
+use serde::{Deserialize, Serialize};
 
-pub fn rnd_codes(n: u64, max_fns: usize, error_rate: f64) -> String {
-    let mut combined_result = String::new();
+pub fn rnd_codes(n: u64, max_fns: usize, error_rate: f64) -> Vec<(Vec<String>, Vec<TokenInfo>)> {
+    let mut data = Vec::new();
 
     for seed in 0..n {
-        let (code, errors) = rnd_code(seed, error_rate, max_fns);
-
-        let code_string = code.join(" ");
-        let errors_string = errors
-            .iter()
-            .map(|e| e.to_string())
-            .collect::<Vec<String>>()
-            .join(" ");
-
-        combined_result.push_str(&format!("{}\n{}\n", code_string, errors_string));
+        data.push(rnd_code(seed, error_rate, max_fns));
     }
-
-    combined_result
+    data
 }
 
-pub fn rnd_code(seed: u64, error_rate: f64, max_fns: usize) -> (Vec<String>, Vec<usize>) {
+#[derive(Serialize, Clone, Copy)]
+pub struct TokenInfo {
+    #[serde(serialize_with = "serialize_option_ast_kind")]
+    ast_kind: Option<AstKind>,
+    #[serde(serialize_with = "serialize_option_symbol_resolution")]
+    symbol_resolution: Option<SymbolResolution>,
+    #[serde(serialize_with = "serialize_option_type_error")]
+    error: Option<TypeError>,
+}
+
+#[derive(Serialize, Clone, Copy)]
+pub enum AstKind {
+    FnEntityName = 1,
+    ParameterType = 2,
+    ParameterIdent = 3,
+    FnEntityUsage = 4,
+    CallLpar = 5,
+}
+
+#[derive(Serialize, Clone, Copy)]
+pub enum SymbolResolution {
+    Fn = 1,
+    Unresolved = 2,
+}
+
+#[derive(Serialize, Clone, Copy)]
+pub enum TypeError {
+    Expected = 1,
+}
+
+pub fn rnd_code(seed: u64, error_rate: f64, max_fns: usize) -> (Vec<String>, Vec<TokenInfo>) {
     let mut bcg = BasicCodeGenerator::new(seed, error_rate);
     bcg.gen_fns(max_fns);
     bcg.finish()
@@ -34,7 +56,7 @@ struct BasicCodeGenerator {
     rng: XRng,
     functions: Vec<Function>,
     result: Vec<String>,
-    errors: Vec<usize>,
+    token_infos: Vec<TokenInfo>,
     error_rate: f64,
 }
 
@@ -73,45 +95,57 @@ impl BasicCodeGenerator {
             rng: XRng::new(seed),
             functions: Default::default(),
             result: Vec::new(),
-            errors: Vec::new(),
+            token_infos: Vec::new(),
             error_rate,
         }
     }
 
-    fn push_token(&mut self, token: impl Into<String>, has_ty_error: bool) {
-        let position = self.result.len();
+    fn push_token(
+        &mut self,
+        token: impl Into<String>,
+        ast_kind: Option<AstKind>,
+        symbol_resolution: Option<SymbolResolution>,
+        error: Option<TypeError>,
+    ) {
         self.result.push(token.into());
-        if has_ty_error {
-            self.errors.push(position);
-        }
+        self.token_infos.push(TokenInfo {
+            ast_kind,
+            symbol_resolution,
+            error,
+        });
     }
 
     fn with_curly(&mut self, f: impl FnOnce(&mut Self)) {
-        self.push_token("{", false);
+        self.push_token("{", None, None, None);
         f(self);
-        self.push_token("}", false);
+        self.push_token("}", None, None, None);
     }
 
-    fn gen_ty(&mut self) -> Type {
+    fn gen_ty(&mut self, ast_kind: AstKind) -> Type {
         let ty = match self.rng.rand_range(0..3) {
             0 => Type::Bool,
             1 => Type::Int,
             2 => Type::Float,
             _ => unreachable!(),
         };
-        self.push_token(ty.repr(), false);
+        self.push_token(ty.repr(), Some(ast_kind), None, None);
         ty
     }
 
     fn gen_fn(&mut self) {
         let len = self.functions.len();
-        self.push_token("fn", false);
-        self.push_token(format!("f{len}"), false);
-        self.push_token("(", false);
-        self.push_token("a", false);
-        self.push_token(":", false);
-        let input_ty = self.gen_ty();
-        self.push_token(")", false);
+        self.push_token("fn", None, None, None);
+        self.push_token(
+            format!("f{len}"),
+            Some(AstKind::FnEntityName),
+            Some(SymbolResolution::Fn),
+            None,
+        );
+        self.push_token("(", None, None, None);
+        self.push_token("a", Some(AstKind::ParameterIdent), None, None);
+        self.push_token(":", None, None, None);
+        let input_ty = self.gen_ty(AstKind::ParameterType);
+        self.push_token(")", None, None, None);
         self.with_curly(|gen| {
             if len > 0 {
                 // Generate a call to a previously defined function
@@ -131,11 +165,25 @@ impl BasicCodeGenerator {
                     callee.input_ty.random_literal()
                 };
 
-                gen.push_token(format!("f{callee_index}"), false);
-                gen.push_token("(", false);
-                gen.push_token(arg_literal, has_ty_error);
-                gen.push_token(")", false);
-                gen.push_token(";", false);
+                gen.push_token(
+                    format!("f{callee_index}"),
+                    None,
+                    Some(SymbolResolution::Fn),
+                    None,
+                );
+                gen.push_token("(", None, None, None);
+                gen.push_token(
+                    arg_literal,
+                    None,
+                    None,
+                    if has_ty_error {
+                        Some(TypeError::Expected)
+                    } else {
+                        None
+                    },
+                );
+                gen.push_token(")", None, None, None); // Changed from Some(AstKind::Other)
+                gen.push_token(";", None, None, None); // Changed from Some(AstKind::Other)
             }
         });
         self.functions.push(Function { input_ty });
@@ -148,7 +196,43 @@ impl BasicCodeGenerator {
         }
     }
 
-    fn finish(self) -> (Vec<String>, Vec<usize>) {
-        (self.result, self.errors)
+    fn finish(self) -> (Vec<String>, Vec<TokenInfo>) {
+        (self.result, self.token_infos)
+    }
+}
+
+fn serialize_option_ast_kind<S>(value: &Option<AstKind>, serializer: S) -> Result<S::Ok, S::Error>
+where
+    S: Serializer,
+{
+    match value {
+        None => serializer.serialize_u8(0),
+        Some(kind) => serializer.serialize_u8(*kind as u8),
+    }
+}
+
+fn serialize_option_symbol_resolution<S>(
+    value: &Option<SymbolResolution>,
+    serializer: S,
+) -> Result<S::Ok, S::Error>
+where
+    S: Serializer,
+{
+    match value {
+        None => serializer.serialize_u8(0),
+        Some(resolution) => serializer.serialize_u8(*resolution as u8),
+    }
+}
+
+fn serialize_option_type_error<S>(
+    value: &Option<TypeError>,
+    serializer: S,
+) -> Result<S::Ok, S::Error>
+where
+    S: Serializer,
+{
+    match value {
+        None => serializer.serialize_u8(0),
+        Some(TypeError::Expected) => serializer.serialize_u8(1),
     }
 }

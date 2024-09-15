@@ -8,14 +8,14 @@ fn main() {
     assert!(dir.exists());
 
     // Predefined sets of parameters
-    let params = vec![(10000, 10, 0.3), (50000, 15, 0.2), (100000, 20, 0.1)];
+    let params = vec![(10000, 10, 0.5), (50000, 15, 0.5), (100000, 20, 0.5)];
 
     // Keep track of files we're going to write
     let mut files_to_keep = Vec::new();
 
     for (n, max_fns, error_rate) in &params {
         let dataset_filename = dir.join(format!(
-            "dataset-n{}-f{}-e{:.2}.txt",
+            "dataset-n{}-f{}-e{:.2}.msgpack",
             n, max_fns, error_rate
         ));
         files_to_keep.push(dataset_filename.clone());
@@ -25,7 +25,7 @@ fn main() {
 
         // Write to the file
         let mut file = fs::File::create(&dataset_filename).expect("Unable to create file");
-        file.write_all(data.as_bytes())
+        file.write_all(&rmp_serde::to_vec(&data).expect("Unable to serialize data"))
             .expect("Unable to write data");
 
         println!("Data written to {:?}", dataset_filename);
