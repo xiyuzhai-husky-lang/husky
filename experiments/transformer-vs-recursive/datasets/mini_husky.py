@@ -1,9 +1,10 @@
 import os
-from typing import List, Tuple
+from typing import List, Tuple, Optional, Dict
 from pprint import pprint
 import torch
 from torch.utils.data import Dataset
 from collections import Counter
+import msgpack
 
 
 class MiniHuskyDataset(Dataset):
@@ -22,43 +23,62 @@ class MiniHuskyDataset(Dataset):
         self.vocab = self._build_vocabulary()
         self.word_to_index = {word: i for i, word in enumerate(self.vocab)}
 
-    def _load_dataset(self) -> List[Tuple[List[str], List[int]]]:
-        filename_pattern = f"dataset-n{self.n}-f{self.max_fns}-e*.txt"
-        matching_files = [
-            f for f in os.listdir(self.data_dir) if f.startswith(filename_pattern[:-5])
+    def _load_dataset(self) -> List[Tuple[List[str], List[Dict[str, Optional[str]]]]]:
+        # Increase the tolerance for error rate matching
+        tolerance = 1.0e-2  # Changed from 1.0e-4 to 1.0e-2
+
+        for filename in os.listdir(self.data_dir):
+            if filename.startswith("dataset-") and filename.endswith(".msgpack"):
+                parts = filename[8:-8].split("-")
+                file_n = int(parts[0][1:])
+                file_max_fns = int(parts[1][1:])
+                file_error_rate = float(parts[2][1:])
+
+                if (
+                    file_n == self.n
+                    and file_max_fns == self.max_fns
+                    and abs(file_error_rate - self.error_rate) <= tolerance
+                ):
+
+                    filepath = os.path.join(self.data_dir, filename)
+                    print(
+                        f"Loading dataset from {filepath}"
+                    )  # Add this line for debugging
+                    with open(filepath, "rb") as f:
+                        return self._decode_rnd_codes(f.read())
+
+        # List all available msgpack files
+        all_msgpack_files = [
+            f for f in os.listdir(self.data_dir) if f.endswith(".msgpack")
         ]
-
-        error_rate_threshold = 1e-4  # Much smaller threshold as requested
-
-        close_enough_files = [
-            f
-            for f in matching_files
-            if abs(float(f.split("-e")[-1][:-4]) - self.error_rate)
-            <= error_rate_threshold
-        ]
-
-        if not close_enough_files:
-            raise ValueError(
-                f"Dataset with n={self.n}, max_fns={self.max_fns}, and error_rate "
-                f"within {error_rate_threshold:.1e} of {self.error_rate:.4f} not found"
-            )
-
-        # Choose the file with the closest error rate
-        closest_file = min(
-            close_enough_files,
-            key=lambda f: abs(float(f.split("-e")[-1][:-4]) - self.error_rate),
+        available_files = "\n".join(all_msgpack_files)
+        raise ValueError(
+            f"Dataset with n={self.n}, max_fns={self.max_fns}, and error_rate "
+            f"within {tolerance:.1e} of {self.error_rate:.4f} not found.\n\n"
+            f"Available files:\n{available_files}\n\n"
         )
-        file_path = os.path.join(self.data_dir, closest_file)
 
-        with open(file_path, "r") as f:
-            lines = f.readlines()
-            return [
-                (
-                    lines[i].strip().split(),
-                    [int(num) for num in lines[i + 1].strip().split()],
-                )
-                for i in range(0, len(lines), 2)
-            ]
+    def _decode_rnd_codes(
+        self, packed_data: bytes
+    ) -> List[Tuple[List[str], List[Dict[str, Optional[str]]]]]:
+        unpacked_data = msgpack.unpackb(packed_data, raw=False)
+
+        decoded_data = []
+        for code_pair in unpacked_data:
+            tokens, token_infos = code_pair
+
+            decoded_token_infos = []
+            for ast_kind, symbol_resolution, error in token_infos:
+                decoded_info = {
+                    "ast_kind": ast_kind,
+                    "symbol_resolution": symbol_resolution,
+                    "error": error,
+                }
+                decoded_token_infos.append(decoded_info)
+
+            decoded_data.append((tokens, decoded_token_infos))
+
+        return decoded_data
 
     def _build_vocabulary(self):
         word_counts = Counter()
@@ -66,23 +86,21 @@ class MiniHuskyDataset(Dataset):
             word_counts.update(words)
         return ["<PAD>", "<UNK>"] + [word for word, _ in word_counts.most_common()]
 
-    def get_dataset(self) -> List[Tuple[List[str], List[int]]]:
+    def get_dataset(self) -> List[Tuple[List[str], List[Dict[str, Optional[str]]]]]:
         return self.data
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, idx):
-        words, error_positions = self.data[idx]
+        words, token_infos = self.data[idx]
         word_indices = torch.tensor(
             [self._word_to_index(word) for word in words], dtype=torch.long
         )
-        error_tensor = torch.zeros(len(words), dtype=torch.float)
-        error_tensor[error_positions] = 1.0
-        return word_indices, error_tensor  # Only return word indices and error tensor
+        return word_indices, token_infos
 
     def get_words(self, idx):
-        return self.data[idx][0]  # Return only the words for the given index
+        return self.data[idx][0]
 
     def _word_to_index(self, word):
         return self.word_to_index.get(word, 1)  # 1 is the index for <UNK>
@@ -91,22 +109,18 @@ class MiniHuskyDataset(Dataset):
 # Example usage
 if __name__ == "__main__":
     # Load a specific dataset
-    dataset = MiniHuskyDataset(100000, 20, 0.10)
+    dataset = MiniHuskyDataset(100000, 20, 0.50)
     print(f"Dataset with 100000 samples, max_fns=20, error_rate=0.10:")
-    print("First sample with errors:")
+    print("First sample:")
 
-    for i in range(len(dataset)):
-        word_indices, error_tensor = dataset[i]
-        words = dataset.get_words(i)  # Get words using the new method
-        if error_tensor.sum() > 0:  # Find the first sample with errors
-            print(f"Sample {i + 1}:")
-            print(f"  Words: {' '.join(words)}")  # Print words in a single line
-            print(f"  Error tensor: {error_tensor.tolist()}")
-            print("  Words at error positions:")
-            error_positions = error_tensor.nonzero().squeeze().tolist()
-            for pos in error_positions:
-                print(f"    Position {pos}: '{words[pos]}'")
-            break  # Stop after finding the first sample with errors
+    word_indices, token_infos = dataset[0]
+    words = dataset.get_words(0)
+    print(f"Sample 1:")
+    print(f"  Words: {' '.join(words)}")
+    print(f"  Word indices: {word_indices.tolist()}")
+    print("  Token infos:")
+    for i, info in enumerate(token_infos):
+        print(f"    Token {i}: {info}")
 
     print(f"\nTotal samples: {len(dataset)}")
 
