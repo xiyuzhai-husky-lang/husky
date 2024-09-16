@@ -1,4 +1,0 @@
-(executable
- (public_name learn_ocaml)
- (name main)
- (libraries learn_ocaml))

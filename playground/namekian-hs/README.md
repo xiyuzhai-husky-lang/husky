@@ -1,1 +1,0 @@
-# logic-monad-hs
