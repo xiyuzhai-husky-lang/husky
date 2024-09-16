@@ -24,7 +24,7 @@ class SimpleRNN(nn.Module):
 # Configurations
 config = {
     "batch_size": 32,
-    "num_epochs": 10,
+    "num_epochs": 100,
     "learning_rate": 1e-3,
     "hidden_dim": 64,
     "d_model": 64,
@@ -33,15 +33,32 @@ config = {
 }
 
 # Load the dataset
-dataset = MiniHuskyDataset(100000, 20, 0.10)
+dataset = MiniHuskyDataset(100000, 20, 0.50)
+
+# Add this line near the top of the file, after loading the dataset
+output_dims = dataset.get_output_dims()  # Assuming this method exists
+output_dim = sum(output_dims)  # Sum up all the values in output_dims
 
 
 def custom_collate(batch):
     inputs, targets = zip(*batch)
     inputs = [torch.as_tensor(x) for x in inputs]  # Convert lists to tensors
     inputs_padded = pad_sequence(inputs, batch_first=True, padding_value=0)
-    targets_padded = pad_sequence(targets, batch_first=True, padding_value=0)
-    return inputs_padded, targets_padded
+
+    # Unpack the targets tuple
+    ast_kinds, symbol_resolutions, errors = zip(*targets)
+    ast_kinds_padded = pad_sequence(
+        [torch.as_tensor(t) for t in ast_kinds], batch_first=True, padding_value=-1
+    )
+    symbol_resolutions_padded = pad_sequence(
+        [torch.as_tensor(t) for t in symbol_resolutions],
+        batch_first=True,
+        padding_value=-1,
+    )
+    errors_padded = pad_sequence(
+        [torch.as_tensor(t) for t in errors], batch_first=True, padding_value=-1
+    )
+    return inputs_padded, (ast_kinds_padded, symbol_resolutions_padded, errors_padded)
 
 
 dataloader = DataLoader(
@@ -53,25 +70,28 @@ wandb.init(project="transformer-vs-rnn", config=config)
 
 # Set device to CUDA if available
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# device = "cpu"
 print(f"Using device: {device}")
 
 # Create models
 vocab_size = len(dataset.vocab)
 transformer = EncoderOnlyTransformer(
-    input_dim=vocab_size,
-    output_dim=1,
+    vocab_size=vocab_size,
+    output_dim=output_dim,  # Updated to use output_dims from dataset
     num_layers=config["num_layers"],
     num_heads=config["num_heads"],
     d_model=config["d_model"],
     max_seq_len=1000,
 ).to(device)
 
-rnn = SimpleRNN(input_dim=vocab_size, hidden_dim=config["hidden_dim"], output_dim=1).to(
-    device
-)
+rnn = SimpleRNN(
+    input_dim=vocab_size,
+    hidden_dim=config["hidden_dim"],
+    output_dim=output_dim,  # Updated to use output_dims from dataset
+).to(device)
 
 # Loss function and optimizers
-criterion = nn.BCEWithLogitsLoss()
+criterion = nn.CrossEntropyLoss()
 transformer_optimizer = optim.Adam(transformer.parameters(), lr=config["learning_rate"])
 rnn_optimizer = optim.Adam(rnn.parameters(), lr=config["learning_rate"])
 
@@ -86,6 +106,7 @@ train_model(
     device=device,  # Add this line
     log_wandb=True,
     model_name="Transformer",
+    output_dims=output_dims,  # Use the retrieved output_dims
 )
 
 print("Training RNN...")
@@ -98,6 +119,7 @@ train_model(
     device=device,  # Add this line
     log_wandb=True,
     model_name="RNN",
+    output_dims=output_dims,  # Use the retrieved output_dims
 )
 
 wandb.finish()

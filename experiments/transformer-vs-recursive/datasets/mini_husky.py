@@ -1,10 +1,20 @@
 import os
-from typing import List, Tuple, Optional, Dict
+from typing import List, Tuple, Optional, Dict, NamedTuple
 from pprint import pprint
 import torch
 from torch.utils.data import Dataset
 from collections import Counter
 import msgpack
+
+
+class DatasetStats(NamedTuple):
+    max_values: Dict[str, int]
+    ast_kind_dist: Counter
+    symbol_resolution_dist: Counter
+    error_dist: Counter
+    ast_kind_percent: Dict[int, float]
+    symbol_resolution_percent: Dict[int, float]
+    error_percent: Dict[int, float]
 
 
 class MiniHuskyDataset(Dataset):
@@ -19,13 +29,17 @@ class MiniHuskyDataset(Dataset):
         self.n = n
         self.max_fns = max_fns
         self.error_rate = error_rate
-        self.data = self._load_dataset()
+        self.data, self.stats = self._load_dataset()
+        self.max_values = self.stats.max_values  # Add this line
         self.vocab = self._build_vocabulary()
         self.word_to_index = {word: i for i, word in enumerate(self.vocab)}
 
-    def _load_dataset(self) -> List[Tuple[List[str], List[Dict[str, Optional[str]]]]]:
-        # Increase the tolerance for error rate matching
-        tolerance = 1.0e-2  # Changed from 1.0e-4 to 1.0e-2
+    def _load_dataset(
+        self,
+    ) -> Tuple[
+        List[Tuple[List[str], Tuple[List[int], List[int], List[int]]]], DatasetStats
+    ]:
+        tolerance = 1.0e-2
 
         for filename in os.listdir(self.data_dir):
             if filename.startswith("dataset-") and filename.endswith(".msgpack"):
@@ -41,13 +55,10 @@ class MiniHuskyDataset(Dataset):
                 ):
 
                     filepath = os.path.join(self.data_dir, filename)
-                    print(
-                        f"Loading dataset from {filepath}"
-                    )  # Add this line for debugging
+                    print(f"Load dataset from {filepath}")
                     with open(filepath, "rb") as f:
                         return self._decode_rnd_codes(f.read())
 
-        # List all available msgpack files
         all_msgpack_files = [
             f for f in os.listdir(self.data_dir) if f.endswith(".msgpack")
         ]
@@ -60,25 +71,61 @@ class MiniHuskyDataset(Dataset):
 
     def _decode_rnd_codes(
         self, packed_data: bytes
-    ) -> List[Tuple[List[str], List[Dict[str, Optional[str]]]]]:
+    ) -> Tuple[
+        List[Tuple[List[str], Tuple[List[int], List[int], List[int]]]], DatasetStats
+    ]:
         unpacked_data = msgpack.unpackb(packed_data, raw=False)
 
         decoded_data = []
+        max_values = {"ast_kind": 0, "symbol_resolution": 0, "error": 0}
+        ast_kind_dist = Counter()
+        symbol_resolution_dist = Counter()
+        error_dist = Counter()
+
         for code_pair in unpacked_data:
             tokens, token_infos = code_pair
 
-            decoded_token_infos = []
+            ast_kinds = []
+            symbol_resolutions = []
+            errors = []
             for ast_kind, symbol_resolution, error in token_infos:
-                decoded_info = {
-                    "ast_kind": ast_kind,
-                    "symbol_resolution": symbol_resolution,
-                    "error": error,
-                }
-                decoded_token_infos.append(decoded_info)
+                ast_kinds.append(ast_kind)
+                symbol_resolutions.append(symbol_resolution)
+                errors.append(error)
 
+                # Update max values and distributions
+                max_values["ast_kind"] = max(max_values["ast_kind"], ast_kind)
+                max_values["symbol_resolution"] = max(
+                    max_values["symbol_resolution"], symbol_resolution
+                )
+                max_values["error"] = max(max_values["error"], error)
+
+                ast_kind_dist[ast_kind] += 1
+                symbol_resolution_dist[symbol_resolution] += 1
+                error_dist[error] += 1
+
+            decoded_token_infos = (ast_kinds, symbol_resolutions, errors)
             decoded_data.append((tokens, decoded_token_infos))
 
-        return decoded_data
+        # Calculate percentages
+        total_tokens = sum(ast_kind_dist.values())
+        ast_kind_percent = {k: v / total_tokens * 100 for k, v in ast_kind_dist.items()}
+        symbol_resolution_percent = {
+            k: v / total_tokens * 100 for k, v in symbol_resolution_dist.items()
+        }
+        error_percent = {k: v / total_tokens * 100 for k, v in error_dist.items()}
+
+        stats = DatasetStats(
+            max_values=max_values,
+            ast_kind_dist=ast_kind_dist,
+            symbol_resolution_dist=symbol_resolution_dist,
+            error_dist=error_dist,
+            ast_kind_percent=ast_kind_percent,
+            symbol_resolution_percent=symbol_resolution_percent,
+            error_percent=error_percent,
+        )
+
+        return decoded_data, stats
 
     def _build_vocabulary(self):
         word_counts = Counter()
@@ -86,7 +133,9 @@ class MiniHuskyDataset(Dataset):
             word_counts.update(words)
         return ["<PAD>", "<UNK>"] + [word for word, _ in word_counts.most_common()]
 
-    def get_dataset(self) -> List[Tuple[List[str], List[Dict[str, Optional[str]]]]]:
+    def get_dataset(
+        self,
+    ) -> List[Tuple[List[str], Tuple[List[int], List[int], List[int]]]]:
         return self.data
 
     def __len__(self):
@@ -97,7 +146,12 @@ class MiniHuskyDataset(Dataset):
         word_indices = torch.tensor(
             [self._word_to_index(word) for word in words], dtype=torch.long
         )
-        return word_indices, token_infos
+        ast_kinds, symbol_resolutions, errors = token_infos
+        return word_indices, (
+            torch.tensor(ast_kinds, dtype=torch.long),
+            torch.tensor(symbol_resolutions, dtype=torch.long),
+            torch.tensor(errors, dtype=torch.long),
+        )
 
     def get_words(self, idx):
         return self.data[idx][0]
@@ -105,22 +159,35 @@ class MiniHuskyDataset(Dataset):
     def _word_to_index(self, word):
         return self.word_to_index.get(word, 1)  # 1 is the index for <UNK>
 
+    def get_max_values(self) -> Dict[str, int]:
+        return self.max_values
+
+    def get_stats(self) -> DatasetStats:
+        return self.stats
+
+    def get_output_dims(self):
+        return (
+            self.max_values["ast_kind"] + 1,
+            self.max_values["symbol_resolution"] + 1,
+            self.max_values["error"] + 1,
+        )
+
 
 # Example usage
 if __name__ == "__main__":
     # Load a specific dataset
     dataset = MiniHuskyDataset(100000, 20, 0.50)
-    print(f"Dataset with 100000 samples, max_fns=20, error_rate=0.10:")
-    print("First sample:")
+    print(f"Dataset with 100000 samples, max_fns=20, error_rate=0.50:")
 
-    word_indices, token_infos = dataset[0]
-    words = dataset.get_words(0)
-    print(f"Sample 1:")
-    print(f"  Words: {' '.join(words)}")
-    print(f"  Word indices: {word_indices.tolist()}")
-    print("  Token infos:")
-    for i, info in enumerate(token_infos):
-        print(f"    Token {i}: {info}")
+    # Print the output of __getitem__
+    print("\n__getitem__ example:")
+    idx = 0  # You can change this to any valid index
+    word_indices, (ast_kinds, symbol_resolutions, errors) = dataset[idx]
+    print(f"Sample {idx}:")
+    print(f"  Word indices: {word_indices}")
+    print(f"  AST kinds: {ast_kinds}")
+    print(f"  Symbol resolutions: {symbol_resolutions}")
+    print(f"  Errors: {errors}")
 
     print(f"\nTotal samples: {len(dataset)}")
 
@@ -128,3 +195,22 @@ if __name__ == "__main__":
     print("\nVocabulary:")
     pprint(dataset.vocab[:10])  # Print first 10 vocabulary items
     print(f"Vocabulary size: {len(dataset.vocab)}")
+
+    # Print maximum values
+    print("\nMaximum values:")
+    pprint(dataset.get_max_values())
+
+    # Print statistics
+    print("\nStatistics:")
+    stats = dataset.get_stats()
+
+    def format_stats(obj):
+        if isinstance(obj, dict):
+            return {k: format_stats(v) for k, v in obj.items()}
+        elif isinstance(obj, float):
+            return f"{obj:.2f}"
+        else:
+            return obj
+
+    formatted_stats = format_stats(stats._asdict())
+    pprint(formatted_stats, width=100)
