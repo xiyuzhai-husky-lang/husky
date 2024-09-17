@@ -25,7 +25,7 @@ class SimpleRNN(nn.Module):
 config = {
     "batch_size": 32,
     "num_epochs": 100,
-    "learning_rate": 1e-3,
+    "learning_rate": 1e-4,
     "hidden_dim": 64,
     "d_model": 256,
     "num_heads": 4,
