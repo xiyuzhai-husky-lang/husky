@@ -28,6 +28,18 @@ pub enum AstKind {
     ParameterIdent = 3,
     FnEntityUsage = 4,
     CallLpar = 5,
+    FnKeyword = 6,
+    LetKeyword = 7,
+    CallRpar = 8,
+    IntLiteral = 9,
+    FloatLiteral = 10,
+    BoolLiteral = 11,
+    ParametersLpar = 12,
+    ParametersRpar = 13,
+    FnBodyLcurl = 14,
+    FnBodyRcurl = 15,
+    ParameterTypeColon = 16,
+    StmtColon = 17,
 }
 
 #[derive(Serialize, Clone, Copy)]
@@ -115,10 +127,10 @@ impl BasicCodeGenerator {
         });
     }
 
-    fn with_curly(&mut self, f: impl FnOnce(&mut Self)) {
-        self.push_token("{", None, None, None);
+    fn with_curly(&mut self, lcurl_kind: AstKind, rcurl_kind: AstKind, f: impl FnOnce(&mut Self)) {
+        self.push_token("{", Some(lcurl_kind), None, None);
         f(self);
-        self.push_token("}", None, None, None);
+        self.push_token("}", Some(rcurl_kind), None, None);
     }
 
     fn gen_ty(&mut self, ast_kind: AstKind) -> Type {
@@ -134,19 +146,19 @@ impl BasicCodeGenerator {
 
     fn gen_fn(&mut self) {
         let len = self.functions.len();
-        self.push_token("fn", None, None, None);
+        self.push_token("fn", Some(AstKind::FnKeyword), None, None);
         self.push_token(
             format!("f{len}"),
             Some(AstKind::FnEntityName),
             Some(SymbolResolution::Fn),
             None,
         );
-        self.push_token("(", None, None, None);
+        self.push_token("(", Some(AstKind::ParametersLpar), None, None);
         self.push_token("a", Some(AstKind::ParameterIdent), None, None);
-        self.push_token(":", None, None, None);
+        self.push_token(":", Some(AstKind::ParameterTypeColon), None, None);
         let input_ty = self.gen_ty(AstKind::ParameterType);
-        self.push_token(")", None, None, None);
-        self.with_curly(|gen| {
+        self.push_token(")", Some(AstKind::ParametersRpar), None, None);
+        self.with_curly(AstKind::FnBodyLcurl, AstKind::FnBodyRcurl, |gen| {
             if len > 0 {
                 // Generate a call to a previously defined function
                 let callee_index = gen.rng.rand_range(0..len);
@@ -154,27 +166,30 @@ impl BasicCodeGenerator {
 
                 // Randomly decide if the call should have a type error
                 let has_ty_error = gen.rng.randf64() < gen.error_rate;
-                let arg_literal = if has_ty_error {
-                    // Pick a literal with a different type
+                let (arg_literal, literal_kind) = if has_ty_error {
                     match callee.input_ty {
-                        Type::Bool => "1",     // Int instead of Bool
-                        Type::Int => "1.1",    // Float instead of Int
-                        Type::Float => "true", // Bool instead of Float
+                        Type::Bool => ("1", AstKind::IntLiteral),
+                        Type::Int => ("1.1", AstKind::FloatLiteral),
+                        Type::Float => ("true", AstKind::BoolLiteral),
                     }
                 } else {
-                    callee.input_ty.random_literal()
+                    match callee.input_ty {
+                        Type::Bool => ("true", AstKind::BoolLiteral),
+                        Type::Int => ("1", AstKind::IntLiteral),
+                        Type::Float => ("1.1", AstKind::FloatLiteral),
+                    }
                 };
 
                 gen.push_token(
                     format!("f{callee_index}"),
-                    None,
+                    Some(AstKind::FnEntityUsage),
                     Some(SymbolResolution::Fn),
                     None,
                 );
-                gen.push_token("(", None, None, None);
+                gen.push_token("(", Some(AstKind::CallLpar), None, None);
                 gen.push_token(
                     arg_literal,
-                    None,
+                    Some(literal_kind),
                     None,
                     if has_ty_error {
                         Some(TypeError::Expected)
@@ -182,8 +197,8 @@ impl BasicCodeGenerator {
                         None
                     },
                 );
-                gen.push_token(")", None, None, None); // Changed from Some(AstKind::Other)
-                gen.push_token(";", None, None, None); // Changed from Some(AstKind::Other)
+                gen.push_token(")", Some(AstKind::CallRpar), None, None);
+                gen.push_token(";", Some(AstKind::StmtColon), None, None);
             }
         });
         self.functions.push(Function { input_ty });
