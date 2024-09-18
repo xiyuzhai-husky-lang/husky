@@ -138,7 +138,13 @@ def run_epoch(
 
             ast_mask = ast_targets != padding_value
             symbol_mask = symbol_targets != padding_value
+            assert torch.all(
+                ast_mask == symbol_mask
+            ), "ast_mask and symbol_mask are not identical"
             error_mask = error_targets != padding_value
+            assert torch.all(
+                ast_mask == error_mask
+            ), "ast_mask and error_mask are not identical"
 
             ast_loss = criterion(ast_outputs[ast_mask], ast_targets[ast_mask])
             symbol_loss = criterion(
@@ -154,29 +160,12 @@ def run_epoch(
 
         total_loss += combined_loss.item()
 
-        ast_acc = (
-            (
-                (ast_outputs.argmax(dim=1) == ast_targets)
-                & (ast_targets != padding_value)
-            )
-            .float()
-            .mean()
-        )
+        ast_acc = (ast_outputs.argmax(dim=1) == ast_targets)[ast_mask].float().mean()
         symbol_acc = (
-            (
-                (symbol_outputs.argmax(dim=1) == symbol_targets)
-                & (symbol_targets != padding_value)
-            )
-            .float()
-            .mean()
+            (symbol_outputs.argmax(dim=1) == symbol_targets)[symbol_mask].float().mean()
         )
         error_acc = (
-            (
-                (error_outputs.argmax(dim=1) == error_targets)
-                & (error_targets != padding_value)
-            )
-            .float()
-            .mean()
+            (error_outputs.argmax(dim=1) == error_targets)[error_mask].float().mean()
         )
 
         total_ast_acc += ast_acc.item()
