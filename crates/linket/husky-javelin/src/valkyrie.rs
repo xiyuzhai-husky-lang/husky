@@ -140,7 +140,10 @@ impl<'db> ValkyrieRidesBuilder<'db> {
             #[deprecated(note = "incomplete")]
             match *entry.data() {
                 HirEagerExprData::AssocRitchie { assoc_item_path: _ } => (), // ad hoc
-                HirEagerExprData::PrincipalEntityPath(path) => match path {
+                HirEagerExprData::PrincipalEntityPath {
+                    path,
+                    ref instantiation,
+                } => match path {
                     PrincipalEntityPath::Module(_) => unreachable!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
                         MajorItemPath::Type(_) => (),
