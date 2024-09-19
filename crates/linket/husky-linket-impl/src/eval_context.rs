@@ -13,7 +13,7 @@ use crate::linket_impl::{
 };
 
 pub struct DevEvalContext<LinketImpl: IsLinketImpl> {
-    runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>,
+    runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>,
 }
 
 pub struct DevEvalContextGuard {
@@ -59,7 +59,7 @@ impl<LinketImpl: IsLinketImpl> std::fmt::Debug for DevEvalContext<LinketImpl> {
         f.debug_struct("DevEvalContext")
             .field(
                 "runtime",
-                &(self.runtime as *const dyn IsDevRuntimeDyn<LinketImpl>),
+                &(self.runtime as *const dyn IsDevRuntimeInterfaceDyn<LinketImpl>),
             )
             .finish()
     }
@@ -78,7 +78,7 @@ impl<LinketImpl: IsLinketImpl> Clone for DevEvalContext<LinketImpl> {
 impl<LinketImpl: IsLinketImpl> Copy for DevEvalContext<LinketImpl> {}
 
 impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
-    pub fn new(runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) -> Self {
+    pub fn new(runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>) -> Self {
         Self { runtime }
     }
 
@@ -155,8 +155,8 @@ impl<LinketImpl: IsLinketImpl> DevEvalContext<LinketImpl> {
     }
 }
 
-pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
-    type ThawedSelf: IsDevRuntime<LinketImpl> + 'static;
+pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
+    type ThawedSelf: IsDevRuntimeInterface<LinketImpl> + 'static;
 
     unsafe fn cast_to_thawed_self_static_ref(&self) -> &'static Self::ThawedSelf;
 
@@ -215,7 +215,7 @@ pub trait IsDevRuntime<LinketImpl: IsLinketImpl> {
     ) -> LinketImplKiControlFlow<LinketImpl>;
 }
 
-pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
+pub trait IsDevRuntimeInterfaceDyn<LinketImpl: IsLinketImpl> {
     fn eval_eager_val_with_dyn(
         &self,
         item_path_id_interface: ItemPathIdInterface,
@@ -261,9 +261,9 @@ pub trait IsDevRuntimeDyn<LinketImpl: IsLinketImpl> {
     fn eval_ki_pedestal_dyn(&self, ki_repr_interface: KiReprInterface) -> LinketImpl::Pedestal;
 }
 
-impl<LinketImpl: IsLinketImpl, Runtime> IsDevRuntimeDyn<LinketImpl> for Runtime
+impl<LinketImpl: IsLinketImpl, Runtime> IsDevRuntimeInterfaceDyn<LinketImpl> for Runtime
 where
-    Runtime: IsDevRuntime<LinketImpl>,
+    Runtime: IsDevRuntimeInterface<LinketImpl>,
 {
     fn eval_eager_val_with_dyn(
         &self,

@@ -11,7 +11,7 @@ pub mod ugly;
 pub mod var_id;
 
 use crate::pedestal::IsPedestalFull;
-use eval_context::{DevEvalContext, IsDevRuntimeDyn};
+use eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn};
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiArgumentReprInterface;
 use husky_value::vm_control_flow::VmControlFlow;
