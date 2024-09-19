@@ -16,6 +16,9 @@ expect-test.workspace = true
 indexmap.workspace = true
 lazy_static.workspace = true
 ordered-float.workspace = true
+rmp-serde.workspace = true
+serde.workspace = true
+serde_json.workspace = true
 # abstractions
 enum-class.workspace = true
 shifted-unsigned-int.workspace = true
@@ -26,6 +29,7 @@ husky-text-protocol.workspace = true
 # utils
 husky-debug-utils.workspace = true
 husky-print-utils.workspace = true
+husky-rng-utils.workspace = true
 husky-wild-utils.workspace = true
 
 [lints]

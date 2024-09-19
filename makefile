@@ -150,3 +150,6 @@ chicago-typewriter:
 
 quick:
 	scripts/update_expect_quick.sh
+
+gen-mini-husky-basic:
+	cargo run --bin gen_mini_husky_basic
