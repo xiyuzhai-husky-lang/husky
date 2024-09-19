@@ -1,1 +1,4 @@
 **/target-rs/** linguist-vendored
+data/mini-husky/basic/dataset-n10000-f10-e0.50.msgpack filter=lfs diff=lfs merge=lfs -text
+data/mini-husky/basic/dataset-n50000-f15-e0.50.msgpack filter=lfs diff=lfs merge=lfs -text
+data/mini-husky/basic/dataset-n100000-f20-e0.50.msgpack filter=lfs diff=lfs merge=lfs -text

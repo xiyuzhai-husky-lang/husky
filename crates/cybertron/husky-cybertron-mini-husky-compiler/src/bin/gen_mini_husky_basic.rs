@@ -4,7 +4,7 @@ use std::io::Write;
 use std::path::PathBuf;
 
 fn main() {
-    let dir = PathBuf::from("experiments/transformer-vs-recursive/data/mini-husky/basic");
+    let dir = PathBuf::from("data/mini-husky/basic");
     assert!(dir.exists());
 
     // Predefined sets of parameters
@@ -35,7 +35,10 @@ fn main() {
     for entry in fs::read_dir(&dir).expect("Unable to read directory") {
         if let Ok(entry) = entry {
             let path = entry.path();
-            if path.is_file() && path.extension().unwrap_or_default() == "msgpack" && !files_to_keep.contains(&path) {
+            if path.is_file()
+                && path.extension().unwrap_or_default() == "msgpack"
+                && !files_to_keep.contains(&path)
+            {
                 fs::remove_file(&path).expect("Unable to remove file");
                 println!("Removed old file: {:?}", path);
             }
