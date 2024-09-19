@@ -4,7 +4,7 @@ use std::io::Write;
 use std::path::PathBuf;
 
 fn main() {
-    let dir = PathBuf::from("data/mini-husky/basic");
+    let dir = PathBuf::from("experiments/transformer-vs-recursive/data/mini-husky/basic");
     assert!(dir.exists());
 
     // Predefined sets of parameters
