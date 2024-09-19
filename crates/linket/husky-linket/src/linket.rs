@@ -275,7 +275,7 @@ impl Linket {
         )
     }
 
-    pub fn new_major_function_ritchie_item(
+    pub fn new_major_ritchie_item(
         path: MajorFormPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,

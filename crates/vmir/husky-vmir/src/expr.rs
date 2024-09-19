@@ -9,6 +9,7 @@ use husky_entity_path::path::{
     major_item::{form::MajorFormPath, MajorItemPath},
     PrincipalEntityPath,
 };
+use husky_hir_decl::decl::{HasHirDecl, TypeVariantHirDecl};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
@@ -68,13 +69,20 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
         opd: VmirExprIdx<LinketImpl>,
     },
     Index,
-    PrincipalEntityPath {
+    Val {
         linket_impl_or_val_path: Either<LinketImpl, MajorFormPath>,
+    },
+    UnitTypeVariant {
+        linket_impl: LinketImpl,
     },
     Unwrap {
         opd: VmirExprIdx<LinketImpl>,
     },
     ConstTemplateVariable,
+    RitchieItemPath,
+    StaticVar {
+        linket_impl: LinketImpl,
+    },
 }
 
 pub type VmirExprArena<LinketImpl> = Arena<VmirExprData<LinketImpl>>;
@@ -161,44 +169,68 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerExprData::Literal(lit) => VmirExprData::Literal {
                 value: lit.into_literal_value(self.db()),
             },
-            HirEagerExprData::PrincipalEntityPath(path) => {
-                let linket_or_val_path: Either<Linket, MajorFormPath> = match path {
-                    PrincipalEntityPath::Module(module_path) => {
-                        todo!()
-                    }
-                    PrincipalEntityPath::MajorItem(major_item_path) => match major_item_path {
-                        MajorItemPath::Type(ty_path) => todo!(),
-                        MajorItemPath::Trait(trai_path) => todo!(),
-                        MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
-                            MajorFormKind::Ritchie(ritchie_item_kind) => todo!(),
-                            MajorFormKind::TypeAlias => todo!(),
-                            MajorFormKind::TypeVar => todo!(),
-                            MajorFormKind::Val => match Linket::new_val(major_form_path, db) {
-                                Some(linket) => Left(linket),
-                                None => Right(major_form_path),
-                            },
-                            MajorFormKind::StaticMut => todo!(),
-                            MajorFormKind::StaticVar => todo!(),
-                            MajorFormKind::Compterm => todo!(),
-                            MajorFormKind::Conceptual => todo!(),
-                        },
-                    },
-                    PrincipalEntityPath::TypeVariant(type_variant_path) => {
-                        use husky_print_utils::p;
-                        use salsa::DebugWithDb;
-
-                        p!(type_variant_path.debug(db));
-                        todo!()
-                    }
-                };
-                let linket_impl_or_val_path = match linket_or_val_path {
-                    Left(linket) => Left(self.linket_impl(linket)),
-                    Right(ki_repr) => Right(ki_repr),
-                };
-                VmirExprData::PrincipalEntityPath {
-                    linket_impl_or_val_path,
+            HirEagerExprData::PrincipalEntityPath {
+                path,
+                ref instantiation,
+                ..
+            } => match path {
+                PrincipalEntityPath::Module(module_path) => {
+                    todo!()
                 }
-            }
+                PrincipalEntityPath::MajorItem(major_item_path) => match major_item_path {
+                    MajorItemPath::Type(ty_path) => todo!(),
+                    MajorItemPath::Trait(trai_path) => todo!(),
+                    MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
+                        MajorFormKind::Ritchie(ritchie_item_kind) => {
+                            use husky_print_utils::p;
+                            use salsa::DebugWithDb;
+                            p!(path.debug(db));
+                            VmirExprData::RitchieItemPath
+                        }
+                        MajorFormKind::TypeAlias => todo!(),
+                        MajorFormKind::TypeVar => todo!(),
+                        MajorFormKind::Val => {
+                            let linket_or_val_path: Either<Linket, MajorFormPath> =
+                                match Linket::new_val(major_form_path, db) {
+                                    Some(linket) => Left(linket),
+                                    None => Right(major_form_path),
+                                };
+                            let linket_impl_or_val_path = match linket_or_val_path {
+                                Left(linket) => Left(self.linket_impl(linket)),
+                                Right(ki_repr) => Right(ki_repr),
+                            };
+                            VmirExprData::Val {
+                                linket_impl_or_val_path,
+                            }
+                        }
+                        MajorFormKind::StaticMut => todo!(),
+                        MajorFormKind::StaticVar => VmirExprData::StaticVar {
+                            linket_impl: self.linket_impl(Linket::new_var(major_form_path, db)),
+                        },
+                        MajorFormKind::Compterm => todo!(),
+                        MajorFormKind::Conceptual => todo!(),
+                    },
+                },
+                PrincipalEntityPath::TypeVariant(type_variant_path) => {
+                    let hir_decl = type_variant_path.hir_decl(db).unwrap();
+                    match hir_decl {
+                        TypeVariantHirDecl::Props(enum_props_variant_hir_decl) => todo!(),
+                        TypeVariantHirDecl::Unit(enum_unit_type_variant_hir_decl) => {
+                            VmirExprData::UnitTypeVariant {
+                                linket_impl: self.linket_impl(
+                                    Linket::new_ty_variant_constructor_fn(
+                                        type_variant_path,
+                                        instantiation,
+                                        self.lin_instantiation(),
+                                        db,
+                                    ),
+                                ),
+                            }
+                        }
+                        TypeVariantHirDecl::Tuple(enum_tuple_variant_hir_decl) => todo!(),
+                    }
+                }
+            },
             HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
             HirEagerExprData::ComptimeVariable { ident } => VmirExprData::ConstTemplateVariable,
             HirEagerExprData::RuntimeVariable(_) => {
@@ -296,7 +328,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref instantiation,
                 ref arguments,
             } => {
-                let linket = Linket::new_major_function_ritchie_item(
+                let linket = Linket::new_major_ritchie_item(
                     path,
                     instantiation,
                     self.lin_instantiation(),
@@ -578,14 +610,20 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             VmirExprData::Unreachable => todo!(),
             VmirExprData::As { opd } => todo!(),
             VmirExprData::Index => todo!(),
-            VmirExprData::PrincipalEntityPath {
+            VmirExprData::Val {
                 linket_impl_or_val_path,
-            } => match linket_impl_or_val_path {
-                Left(linket_impl) => linket_impl.eval_vm(vec![], db),
-                Right(val_path) => ctx.eval_val(val_path),
-            },
+            } => {
+                todo!();
+                match linket_impl_or_val_path {
+                    Left(linket_impl) => linket_impl.eval_vm(vec![], db),
+                    Right(val_path) => ctx.eval_val(val_path),
+                }
+            }
+            VmirExprData::UnitTypeVariant { linket_impl } => todo!(),
             VmirExprData::Unwrap { opd } => todo!(),
             VmirExprData::ConstTemplateVariable => todo!(),
+            VmirExprData::RitchieItemPath => todo!(),
+            VmirExprData::StaticVar { linket_impl } => todo!(),
         }
     }
 }

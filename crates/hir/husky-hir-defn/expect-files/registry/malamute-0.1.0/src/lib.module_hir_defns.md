@@ -692,11 +692,19 @@
                                 expr_arena: Arena {
                                     data: [
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
+                                            data: HirEagerExprData::PrincipalEntityPath {
+                                                path: PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(`malamute::OneVsAll::No`),
                                                 ),
-                                            ),
+                                                instantiation: HirInstantiation {
+                                                    path: ItemPath(`malamute::OneVsAll::No`),
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
+                                                    variable_map: [],
+                                                    separator: None,
+                                                },
+                                            },
                                             base_ty: HirType::PathLeading(
                                                 HirTypePathLeading {
                                                     ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -2198,11 +2206,19 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
+                                            data: HirEagerExprData::PrincipalEntityPath {
+                                                path: PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(`malamute::OneVsAll::Yes`),
                                                 ),
-                                            ),
+                                                instantiation: HirInstantiation {
+                                                    path: ItemPath(`malamute::OneVsAll::Yes`),
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
+                                                    variable_map: [],
+                                                    separator: None,
+                                                },
+                                            },
                                             base_ty: HirType::PathLeading(
                                                 HirTypePathLeading {
                                                     ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -2354,11 +2370,19 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::TypeVariant(
+                                            data: HirEagerExprData::PrincipalEntityPath {
+                                                path: PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath(`malamute::OneVsAll::No`),
                                                 ),
-                                            ),
+                                                instantiation: HirInstantiation {
+                                                    path: ItemPath(`malamute::OneVsAll::No`),
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
+                                                    variable_map: [],
+                                                    separator: None,
+                                                },
+                                            },
                                             base_ty: HirType::PathLeading(
                                                 HirTypePathLeading {
                                                     ty_path: TypePath(`malamute::OneVsAll`, `Enum`),

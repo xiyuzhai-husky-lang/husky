@@ -100,7 +100,10 @@ impl HirEagerExprEntry {
 #[salsa::derive_debug_with_db]
 pub enum HirEagerExprData {
     Literal(Literal),
-    PrincipalEntityPath(PrincipalEntityPath),
+    PrincipalEntityPath {
+        path: PrincipalEntityPath,
+        instantiation: HirInstantiation,
+    },
     AssocRitchie {
         assoc_item_path: AssocItemPath,
     },
@@ -233,11 +236,15 @@ impl ToHirEager for SemExprIdx {
                 path,
                 ref instantiation,
                 ..
-            } => {
-                // ad hoc
-                todo!("ad instantiation");
-                HirEagerExprData::PrincipalEntityPath(path)
-            }
+            } => HirEagerExprData::PrincipalEntityPath {
+                path,
+                instantiation: HirInstantiation::from_fly(
+                    instantiation.as_ref().unwrap(),
+                    &place_contract_site,
+                    builder.db(),
+                    builder.terms(),
+                ),
+            },
             SemExprData::MajorItemPathAssocItem {
                 ref ontology_dispatch,
                 ..
