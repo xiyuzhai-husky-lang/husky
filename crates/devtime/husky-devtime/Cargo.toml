@@ -36,6 +36,7 @@ husky-ki-repr-interface.workspace = true
 # lex
 husky-text-protocol.workspace = true
 # linket
+husky-linket.workspace = true
 husky-linket-impl.workspace = true
 husky-standard-linket-impl.workspace = true
 # protocols
@@ -59,6 +60,8 @@ husky-wild-utils.workspace = true
 husky-value.workspace = true
 # vm
 husky-vm.workspace = true
+# vmir
+husky-vmir.workspace = true
 
 [dev-dependencies]
 tracing.workspace = true

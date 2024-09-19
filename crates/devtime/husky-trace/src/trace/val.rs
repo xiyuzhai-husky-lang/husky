@@ -128,4 +128,12 @@ impl ValTraceData {
             db,
         )
     }
+
+    pub fn path(&self) -> TracePath {
+        self.path
+    }
+
+    pub fn val_path(&self) -> MajorFormPath {
+        self.val_path
+    }
 }

@@ -115,6 +115,10 @@ impl<Devsoul: IsDevsoul> DevRuntime<Devsoul> {
         let linket_impl = self.comptime.linket_impl(linket);
         linket_impl.static_var_id()
     }
+
+    pub fn comptime(&self) -> &DevComptime<Devsoul> {
+        &self.comptime
+    }
 }
 
 impl<Devsoul: IsDevsoul> Default for DevRuntime<Devsoul>

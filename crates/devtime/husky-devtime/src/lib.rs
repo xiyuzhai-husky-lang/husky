@@ -48,6 +48,7 @@ use husky_visual_protocol::{
     visual::{CompositeVisual, Visual},
 };
 use husky_vm::history::VmHistory;
+use husky_vmir::storage::DevVmirStorage;
 use salsa::DebugWithDb;
 use smallvec::{SmallVec, ToSmallVec};
 use std::{path::Path, pin::Pin, sync::Arc};
@@ -60,6 +61,7 @@ pub struct Devtime<Devsoul: IsDevsoul> {
     // when hot reload, reset this
     // TODO benchmark this
     eager_trace_cache: DashMap<(Trace, Devsoul::Pedestal), Arc<VmHistory<Devsoul::LinketImpl>>>,
+    vmir_storage: DevVmirStorage<Devsoul::LinketImpl>,
 }
 
 impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
@@ -70,6 +72,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         Ok(Self {
             runtime: DevRuntime::new(target_crate, runtime_config)?,
             eager_trace_cache: Default::default(),
+            vmir_storage: Default::default(),
         })
     }
 
