@@ -35,7 +35,7 @@ fn main() {
     for entry in fs::read_dir(&dir).expect("Unable to read directory") {
         if let Ok(entry) = entry {
             let path = entry.path();
-            if path.is_file() && !files_to_keep.contains(&path) {
+            if path.is_file() && path.extension().unwrap_or_default() == "msgpack" && !files_to_keep.contains(&path) {
                 fs::remove_file(&path).expect("Unable to remove file");
                 println!("Removed old file: {:?}", path);
             }
