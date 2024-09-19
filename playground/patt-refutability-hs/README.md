@@ -1,1 +1,0 @@
-# patt-refutability-hs

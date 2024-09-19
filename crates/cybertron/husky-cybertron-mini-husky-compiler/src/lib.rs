@@ -2,6 +2,7 @@
 
 pub mod ast;
 pub mod rank;
+pub mod rnd;
 pub mod role;
 pub mod scope;
 pub mod show;

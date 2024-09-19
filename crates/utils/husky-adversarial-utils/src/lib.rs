@@ -65,7 +65,7 @@ pub fn generate(seed: u64, length: usize, pieces: &[&str]) -> String {
 
 pub fn new_rand_string2(rng: &mut XRng, max_length: usize, pieces: &[&str]) -> String {
     // Generate a random length between 1 and max_length (inclusive)
-    let Some(length) = rng.randint(1..(max_length + 1)) else {
+    let Some(length) = rng.try_randint(1..(max_length + 1)) else {
         return "".into();
     };
     generate2(rng, length, pieces)
@@ -80,9 +80,7 @@ pub fn generate2(rng: &mut XRng, length: usize, pieces: &[&str]) -> String {
 
     unsafe {
         for _ in 0..length {
-            result += pieces[rng
-                .randint(0..pieces.len())
-                .expect("already checked that !pieces.is_empty()")];
+            result += pieces[rng.rand_range(0..pieces.len())];
         }
     }
 

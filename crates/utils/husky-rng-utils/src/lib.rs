@@ -27,11 +27,23 @@ impl XRng {
         }
     }
 
-    pub fn randint<T>(&mut self, range: impl SampleRange<T>) -> Option<T>
+    pub fn try_randint<T>(&mut self, range: impl SampleRange<T>) -> Option<T>
     where
         T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd,
     {
         (!range.is_empty()).then(|| self.rng.gen_range(range))
+    }
+
+    pub fn rand_range<T>(&mut self, range: impl SampleRange<T>) -> T
+    where
+        T: rand::distributions::uniform::SampleUniform + std::cmp::PartialOrd,
+    {
+        assert!(!range.is_empty());
+        self.rng.gen_range(range)
+    }
+
+    pub fn randf64(&mut self) -> f64 {
+        self.rng.gen()
     }
 
     pub fn randidx(&mut self) -> usize {
