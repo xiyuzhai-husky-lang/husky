@@ -11,7 +11,7 @@ pub fn rnd_codes(n: u64, max_fns: usize, error_rate: f64) -> Vec<(Vec<String>, V
     data
 }
 
-#[derive(Serialize, Clone, Copy)]
+#[derive(Serialize, Clone, Copy, Debug)]
 pub struct TokenInfo {
     #[serde(serialize_with = "serialize_option_ast_kind")]
     ast_kind: Option<AstKind>,
@@ -21,7 +21,7 @@ pub struct TokenInfo {
     error: Option<TypeError>,
 }
 
-#[derive(Serialize, Clone, Copy)]
+#[derive(Serialize, Clone, Copy, Debug)]
 pub enum AstKind {
     FnEntityName = 1,
     ParameterType = 2,
@@ -42,13 +42,13 @@ pub enum AstKind {
     StmtColon = 17,
 }
 
-#[derive(Serialize, Clone, Copy)]
+#[derive(Serialize, Clone, Copy, Debug)]
 pub enum SymbolResolution {
     Fn = 1,
     Unresolved = 2,
 }
 
-#[derive(Serialize, Clone, Copy)]
+#[derive(Serialize, Clone, Copy, Debug)]
 pub enum TypeError {
     Expected = 1,
 }
@@ -61,7 +61,148 @@ pub fn rnd_code(seed: u64, error_rate: f64, max_fns: usize) -> (Vec<String>, Vec
 
 #[test]
 fn rnd_code_works() {
-    rnd_code(0, 0.1, 5);
+    use expect_test::{expect, Expect};
+
+    fn t(seed: u64, error_rate: f64, max_fns: usize, expect: Expect) {
+        let (tokens, token_infos) = rnd_code(seed, error_rate, max_fns);
+        let tokens_str = tokens.join(" ");
+        let token_infos_str = token_infos
+            .iter()
+            .map(|info| format!("{:?}", info))
+            .collect::<Vec<_>>()
+            .join("\n");
+        let result = format!(
+            "Tokens:\n{}\n\nToken Infos:\n{}",
+            tokens_str, token_infos_str
+        );
+        expect.assert_eq(&result);
+    }
+
+    t(0, 0.1, 5, expect![[r#"
+        Tokens:
+        fn f0 ( a : Int ) { } fn f1 ( a : Float ) { f0 ( 1 ) ; } fn f2 ( a : Bool ) { f1 ( 1.1 ) ; f0 ( 1 ) ; f0 ( 1 ) ; f1 ( 1.1 ) ; } fn f3 ( a : Bool ) { f0 ( 1 ) ; f1 ( 1.1 ) ; f2 ( 1 ) ; f0 ( 1 ) ; f2 ( 1 ) ; } fn f4 ( a : Float ) { f1 ( 1.1 ) ; f3 ( true ) ; f3 ( true ) ; f2 ( true ) ; f0 ( 1 ) ; }
+
+        Token Infos:
+        TokenInfo { ast_kind: Some(FnKeyword), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityName), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(ParametersLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterIdent), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterTypeColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterType), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParametersRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyLcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyRcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnKeyword), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityName), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(ParametersLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterIdent), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterTypeColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterType), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParametersRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyLcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyRcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnKeyword), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityName), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(ParametersLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterIdent), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterTypeColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterType), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParametersRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyLcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FloatLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FloatLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyRcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnKeyword), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityName), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(ParametersLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterIdent), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterTypeColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterType), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParametersRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyLcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FloatLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: Some(Expected) }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: Some(Expected) }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyRcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnKeyword), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityName), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(ParametersLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterIdent), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterTypeColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParameterType), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(ParametersRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyLcurl), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FloatLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(BoolLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(BoolLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(BoolLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnEntityUsage), symbol_resolution: Some(Fn), error: None }
+        TokenInfo { ast_kind: Some(CallLpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
+        TokenInfo { ast_kind: Some(FnBodyRcurl), symbol_resolution: None, error: None }"#]]);
 }
 
 struct BasicCodeGenerator {
@@ -70,6 +211,7 @@ struct BasicCodeGenerator {
     result: Vec<String>,
     token_infos: Vec<TokenInfo>,
     error_rate: f64,
+    max_calls_per_fn: usize,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -109,6 +251,7 @@ impl BasicCodeGenerator {
             result: Vec::new(),
             token_infos: Vec::new(),
             error_rate,
+            max_calls_per_fn: 5, // default value
         }
     }
 
@@ -160,48 +303,53 @@ impl BasicCodeGenerator {
         self.push_token(")", Some(AstKind::ParametersRpar), None, None);
         self.with_curly(AstKind::FnBodyLcurl, AstKind::FnBodyRcurl, |gen| {
             if len > 0 {
-                // Generate a call to a previously defined function
-                let callee_index = gen.rng.rand_range(0..len);
-                let callee = &gen.functions[callee_index];
-
-                // Randomly decide if the call should have a type error
-                let has_ty_error = gen.rng.randf64() < gen.error_rate;
-                let (arg_literal, literal_kind) = if has_ty_error {
-                    match callee.input_ty {
-                        Type::Bool => ("1", AstKind::IntLiteral),
-                        Type::Int => ("1.1", AstKind::FloatLiteral),
-                        Type::Float => ("true", AstKind::BoolLiteral),
-                    }
-                } else {
-                    match callee.input_ty {
-                        Type::Bool => ("true", AstKind::BoolLiteral),
-                        Type::Int => ("1", AstKind::IntLiteral),
-                        Type::Float => ("1.1", AstKind::FloatLiteral),
-                    }
-                };
-
-                gen.push_token(
-                    format!("f{callee_index}"),
-                    Some(AstKind::FnEntityUsage),
-                    Some(SymbolResolution::Fn),
-                    None,
-                );
-                gen.push_token("(", Some(AstKind::CallLpar), None, None);
-                gen.push_token(
-                    arg_literal,
-                    Some(literal_kind),
-                    None,
-                    if has_ty_error {
-                        Some(TypeError::Expected)
-                    } else {
-                        None
-                    },
-                );
-                gen.push_token(")", Some(AstKind::CallRpar), None, None);
-                gen.push_token(";", Some(AstKind::StmtColon), None, None);
+                let num_calls = gen.rng.rand_range(1..=gen.max_calls_per_fn);
+                for _ in 0..num_calls {
+                    gen.gen_fn_call(len);
+                }
             }
         });
         self.functions.push(Function { input_ty });
+    }
+
+    fn gen_fn_call(&mut self, len: usize) {
+        let callee_index = self.rng.rand_range(0..len);
+        let callee = &self.functions[callee_index];
+
+        let has_ty_error = self.rng.randf64() < self.error_rate;
+        let (arg_literal, literal_kind) = if has_ty_error {
+            match callee.input_ty {
+                Type::Bool => ("1", AstKind::IntLiteral),
+                Type::Int => ("1.1", AstKind::FloatLiteral),
+                Type::Float => ("true", AstKind::BoolLiteral),
+            }
+        } else {
+            match callee.input_ty {
+                Type::Bool => ("true", AstKind::BoolLiteral),
+                Type::Int => ("1", AstKind::IntLiteral),
+                Type::Float => ("1.1", AstKind::FloatLiteral),
+            }
+        };
+
+        self.push_token(
+            format!("f{callee_index}"),
+            Some(AstKind::FnEntityUsage),
+            Some(SymbolResolution::Fn),
+            None,
+        );
+        self.push_token("(", Some(AstKind::CallLpar), None, None);
+        self.push_token(
+            arg_literal,
+            Some(literal_kind),
+            None,
+            if has_ty_error {
+                Some(TypeError::Expected)
+            } else {
+                None
+            },
+        );
+        self.push_token(")", Some(AstKind::CallRpar), None, None);
+        self.push_token(";", Some(AstKind::StmtColon), None, None);
     }
 
     fn gen_fns(&mut self, max_fns: usize) {
