@@ -1,5 +1,5 @@
 use crate::{
-    eval_context::{DevEvalContext, DevEvalContextGuard, IsDevRuntimeDyn},
+    eval_context::{DevEvalContext, DevEvalContextGuard, IsDevRuntimeInterfaceDyn},
     linket_impl::IsLinketImpl,
 };
 use husky_item_path_interface::ItemPathIdInterface;
@@ -32,7 +32,7 @@ impl<LinketImpl: IsLinketImpl> LinketImpls<LinketImpl> {
     /// the `&mut self` reflects some change on the otherside
     pub unsafe fn try_set_dev_eval_context(
         &self,
-        runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>,
+        runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>,
     ) -> Result<DevEvalContextGuard, ()> {
         (self.try_set_dev_eval_context)(DevEvalContext::new(runtime))
     }

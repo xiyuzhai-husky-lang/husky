@@ -74,6 +74,8 @@ pub type LinketImplThawedValue<LinketImpl> =
     <<LinketImpl as IsLinketImpl>::Value as IsValue>::ThawedValue;
 pub type LinketImplFrozenValue<LinketImpl> =
     <<LinketImpl as IsLinketImpl>::Value as IsValue>::FrozenValue;
+pub type LinketImplSlushValue<LinketImpl> =
+    <<LinketImpl as IsLinketImpl>::Value as IsValue>::SlushValue;
 pub type LinketImplTrackedExceptedValue<LinketImpl> =
     Result<<LinketImpl as IsLinketImpl>::Value, LinketImplTrackedException<LinketImpl>>;
 

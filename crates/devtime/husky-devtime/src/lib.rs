@@ -24,7 +24,7 @@ use husky_entity_path::path::ItemPathId;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr::repr::KiRepr;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface};
-use husky_linket_impl::eval_context::IsDevRuntime;
+use husky_linket_impl::eval_context::IsDevRuntimeInterface;
 use husky_trace::{jar::TraceDb, trace::Trace};
 use husky_trace_protocol::{
     caryatid::IsCaryatid,

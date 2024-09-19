@@ -27,12 +27,13 @@ use husky_ki_repr::repr::KiRepr;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
 use husky_linket::linket::Linket;
 use husky_linket_impl::{
-    eval_context::{DevEvalContext, IsDevRuntime},
+    eval_context::{DevEvalContext, IsDevRuntimeInterface},
     linket_impl::{IsLinketImpl, LinketImplKiControlFlow, LinketImplTrackedExceptedValue},
     pedestal::IsPedestal,
 };
 use husky_value::ki_control_flow::KiControlFlow;
 use husky_vfs::{error::VfsResult, path::linktime_target_path::LinktimeTargetPath};
+use husky_vm::eval::IsDevRuntime;
 use husky_wild_utils::arb_ref;
 use std::{
     convert::Infallible,
@@ -134,7 +135,7 @@ where
     }
 }
 
-impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsoul> {
+impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRuntime<Devsoul> {
     type ThawedSelf = Self;
 
     unsafe fn cast_to_thawed_self_static_ref(&self) -> &'static Self::ThawedSelf {
@@ -293,5 +294,13 @@ impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsou
         let ki = ki_repr.ki(db);
         self.storage
             .get_or_try_init_generic_gn_value(ki, pedestal, f, db)
+    }
+}
+
+impl<Devsoul: IsDevsoul> IsDevRuntime<Devsoul::LinketImpl> for DevRuntime<Devsoul> {
+    type Linktime = Devsoul::Linktime;
+
+    fn linktime(&self) -> &Self::Linktime {
+        self.comptime().linktime()
     }
 }

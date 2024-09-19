@@ -56,7 +56,7 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
                     vec![],
                     VmMode::Record,
                     db,
-                    linktime,
+                    &*self.runtime,
                     &self.vmir_storage,
                 )
                 .unwrap();

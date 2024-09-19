@@ -3,6 +3,12 @@ use crate::{
     destroyer::VmirDestroyerIdxRange, eval::EvalVmir, pattern::VmirPattern, stmt::VmirStmtIdxRange,
     *,
 };
+use either::*;
+use husky_entity_kind::MajorFormKind;
+use husky_entity_path::path::{
+    major_item::{form::MajorFormPath, MajorItemPath},
+    PrincipalEntityPath,
+};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
@@ -13,6 +19,7 @@ use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_value::vm_control_flow::VmControlFlow;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use salsa::DebugWithDb;
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::derive_debug_with_db]
@@ -61,7 +68,9 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
         opd: VmirExprIdx<LinketImpl>,
     },
     Index,
-    PrincipalEntityPath,
+    PrincipalEntityPath {
+        linket_impl_or_val_path: Either<LinketImpl, MajorFormPath>,
+    },
     Unwrap {
         opd: VmirExprIdx<LinketImpl>,
     },
@@ -146,12 +155,50 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerExprIdx {
 
 impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinketImpl> {
+        let db = self.db();
         let entry = &self.hir_eager_expr_arena()[expr];
         match *entry.data() {
             HirEagerExprData::Literal(lit) => VmirExprData::Literal {
                 value: lit.into_literal_value(self.db()),
             },
-            HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
+            HirEagerExprData::PrincipalEntityPath(path) => {
+                let linket_or_val_path: Either<Linket, MajorFormPath> = match path {
+                    PrincipalEntityPath::Module(module_path) => {
+                        todo!()
+                    }
+                    PrincipalEntityPath::MajorItem(major_item_path) => match major_item_path {
+                        MajorItemPath::Type(ty_path) => todo!(),
+                        MajorItemPath::Trait(trai_path) => todo!(),
+                        MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
+                            MajorFormKind::Ritchie(ritchie_item_kind) => todo!(),
+                            MajorFormKind::TypeAlias => todo!(),
+                            MajorFormKind::TypeVar => todo!(),
+                            MajorFormKind::Val => match Linket::new_val(major_form_path, db) {
+                                Some(linket) => Left(linket),
+                                None => Right(major_form_path),
+                            },
+                            MajorFormKind::StaticMut => todo!(),
+                            MajorFormKind::StaticVar => todo!(),
+                            MajorFormKind::Compterm => todo!(),
+                            MajorFormKind::Conceptual => todo!(),
+                        },
+                    },
+                    PrincipalEntityPath::TypeVariant(type_variant_path) => {
+                        use husky_print_utils::p;
+                        use salsa::DebugWithDb;
+
+                        p!(type_variant_path.debug(db));
+                        todo!()
+                    }
+                };
+                let linket_impl_or_val_path = match linket_or_val_path {
+                    Left(linket) => Left(self.linket_impl(linket)),
+                    Right(ki_repr) => Right(ki_repr),
+                };
+                VmirExprData::PrincipalEntityPath {
+                    linket_impl_or_val_path,
+                }
+            }
             HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
             HirEagerExprData::ComptimeVariable { ident } => VmirExprData::ConstTemplateVariable,
             HirEagerExprData::RuntimeVariable(_) => {
@@ -450,6 +497,8 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
     ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         use VmControlFlow::*;
 
+        let db = ctx.db();
+
         match *self.entry(ctx.vmir_expr_arena()) {
             VmirExprData::Literal { ref value } => Continue(value.into_thawed_value()),
             VmirExprData::Variable { place_idx, qual } => {
@@ -529,7 +578,12 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             VmirExprData::Unreachable => todo!(),
             VmirExprData::As { opd } => todo!(),
             VmirExprData::Index => todo!(),
-            VmirExprData::PrincipalEntityPath => todo!(),
+            VmirExprData::PrincipalEntityPath {
+                linket_impl_or_val_path,
+            } => match linket_impl_or_val_path {
+                Left(linket_impl) => linket_impl.eval_vm(vec![], db),
+                Right(val_path) => ctx.eval_val(val_path),
+            },
             VmirExprData::Unwrap { opd } => todo!(),
             VmirExprData::ConstTemplateVariable => todo!(),
         }

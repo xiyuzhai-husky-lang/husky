@@ -229,8 +229,13 @@ impl ToHirEager for SemExprIdx {
                     _ => unreachable!(),
                 })
             }
-            SemExprData::PrincipalEntityPath { path, .. } => {
+            SemExprData::PrincipalEntityPath {
+                path,
+                ref instantiation,
+                ..
+            } => {
                 // ad hoc
+                todo!("ad instantiation");
                 HirEagerExprData::PrincipalEntityPath(path)
             }
             SemExprData::MajorItemPathAssocItem {

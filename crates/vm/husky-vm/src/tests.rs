@@ -64,34 +64,34 @@ use husky_toml_ast::TomlAstJar;
 #[derive(Default)]
 pub(crate) struct DB;
 
-#[test]
-#[ignore]
-fn run_test_linket_works() {
-    DB::vfs_plain_test(
-        |db, test_linket: TestLinket| run_test_linket(test_linket, db),
-        &VfsTestConfig::new(
-            "run_test_linket_works",
-            FileExtensionConfig::Markdown,
-            TestDomainsConfig::TOML,
-        ),
-    );
-}
+// #[test]
+// #[ignore]
+// fn run_test_linket_works() {
+//     DB::vfs_plain_test(
+//         |db, test_linket: TestLinket| run_test_linket(test_linket, db),
+//         &VfsTestConfig::new(
+//             "run_test_linket_works",
+//             FileExtensionConfig::Markdown,
+//             TestDomainsConfig::TOML,
+//         ),
+//     );
+// }
 
-#[cfg(test)]
-fn run_test_linket(test_linket: TestLinket, db: &::salsa::Db) {
-    use husky_virtual_linktime::VirtualLinktime;
-    use husky_vmir::storage::VirtualVmirStorage;
+// #[cfg(test)]
+// fn run_test_linket(test_linket: TestLinket, db: &::salsa::Db) {
+//     use husky_virtual_linktime::VirtualLinktime;
+//     use husky_vmir::storage::VirtualVmirStorage;
 
-    use crate::{eval::eval_linket_on_arguments, vm::VmMode};
+//     use crate::{eval::eval_linket_on_arguments, vm::VmMode};
 
-    let linktime = VirtualLinktime;
-    let vmir_storage = VirtualVmirStorage;
-    eval_linket_on_arguments(
-        *test_linket,
-        vec![],
-        VmMode::Quick,
-        db,
-        &linktime,
-        &vmir_storage,
-    );
-}
+//     let linktime = VirtualLinktime;
+//     let vmir_storage = VirtualVmirStorage;
+//     eval_linket_on_arguments(
+//         *test_linket,
+//         vec![],
+//         VmMode::Quick,
+//         db,
+//         &linktime,
+//         &vmir_storage,
+//     );
+// }
