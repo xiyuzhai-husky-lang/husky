@@ -66,7 +66,7 @@ impl<LinketImpl: IsLinketImpl> MonoLinketsLibrary<LinketImpl> {
         })
     }
 
-    pub fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+    pub fn init(&mut self, runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>) {
         assert!(self.dev_eval_context_guard.is_none());
         for _ in 0..60 {
             match unsafe { self.linket_impls.try_set_dev_eval_context(runtime) } {

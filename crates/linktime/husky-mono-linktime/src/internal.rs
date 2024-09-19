@@ -37,7 +37,7 @@ where
     }
 
     /// although nothing on this side is modified, we do have modification on the linket side.
-    pub(crate) fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+    pub(crate) fn init(&mut self, runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>) {
         self.current_library.init(runtime);
     }
 }

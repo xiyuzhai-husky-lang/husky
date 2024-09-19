@@ -1,15 +1,22 @@
 use crate::vm::{Vm, VmMode};
 use crate::*;
 use history::VmHistory;
+use husky_linket_impl::{eval_context::IsDevRuntimeInterface, linket_impl::LinketImplThawedValue};
 use husky_linktime::helpers::LinktimeThawedValue;
 use husky_vmir::stmt::{VmirStmtIdx, VmirStmtIdxRange};
 
-pub fn eval_linket_on_arguments<LinketImpl, Linktime>(
+// ad hoc place, where to move?
+pub trait IsDevRuntime<LinketImpl: IsLinketImpl>: IsDevRuntimeInterface<LinketImpl> {
+    type Linktime: IsLinktime<LinketImpl = LinketImpl>;
+    fn linktime(&self) -> &Self::Linktime;
+}
+
+pub fn eval_linket_on_arguments<LinketImpl, DevRuntime: IsDevRuntime<LinketImpl>>(
     linket: Linket,
     arguments: Vec<LinketImpl::Value>,
     mode: VmMode,
     db: &::salsa::Db,
-    linktime: &Linktime,
+    runtime: &DevRuntime,
     vmir_storage: &impl IsVmirStorage<LinketImpl>,
 ) -> Option<(
     LinketImplVmControlFlowThawed<LinketImpl>,
@@ -17,16 +24,15 @@ pub fn eval_linket_on_arguments<LinketImpl, Linktime>(
 )>
 where
     LinketImpl: IsLinketImpl,
-    Linktime: IsLinktime<LinketImpl = LinketImpl>,
 {
-    let vmir_region = vmir_storage.linket_vmir_region(linket, db, linktime)?;
+    let vmir_region = vmir_storage.linket_vmir_region(linket, db, runtime.linktime())?;
     let mut vm = vm::Vm::new_fresh(
         linket,
         arguments,
         mode,
         &vmir_region,
         db,
-        linktime,
+        runtime,
         vmir_storage,
     );
     let cf = vmir_region.root_expr().eval(None, &mut vm);
@@ -34,24 +40,26 @@ where
     Some((cf, history))
 }
 
-impl<'a, Linktime, VmirStorage> EvalVmir<'a, Linktime::LinketImpl> for Vm<'a, Linktime, VmirStorage>
+impl<'a, LinketImpl, Runtime, VmirStorage> EvalVmir<'a, LinketImpl>
+    for Vm<'a, LinketImpl, Runtime, VmirStorage>
 where
-    Linktime: IsLinktime,
-    VmirStorage: IsVmirStorage<Linktime::LinketImpl>,
+    LinketImpl: IsLinketImpl,
+    Runtime: IsDevRuntime<LinketImpl>,
+    VmirStorage: IsVmirStorage<LinketImpl>,
 {
     fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
 
-    fn vmir_region(&self) -> &'a VmirRegion<Linktime::LinketImpl> {
+    fn vmir_region(&self) -> &'a VmirRegion<LinketImpl> {
         self.vmir_region
     }
 
     fn eval_expr(
         &mut self,
-        expr: VmirExprIdx<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
+        expr: VmirExprIdx<LinketImpl>,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         match self.mode() {
             VmMode::Quick => f(self),
             VmMode::Record => {
@@ -64,9 +72,9 @@ where
 
     fn eval_expr_itself(
         &mut self,
-        expr: VmirExprIdx<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
+        expr: VmirExprIdx<LinketImpl>,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         match self.mode() {
             VmMode::Quick => f(self),
             VmMode::Record => self.record_expr(expr, f),
@@ -75,9 +83,9 @@ where
 
     fn eval_stmts(
         &mut self,
-        stmts: VmirStmtIdxRange<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
+        stmts: VmirStmtIdxRange<LinketImpl>,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         match self.mode() {
             VmMode::Quick => f(self),
             VmMode::Record => {
@@ -89,9 +97,9 @@ where
 
     fn eval_stmt(
         &mut self,
-        stmt: VmirStmtIdx<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
+        stmt: VmirStmtIdx<LinketImpl>,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         match self.mode() {
             VmMode::Quick => f(self),
             VmMode::Record => self.record_stmt(stmt, f),
@@ -102,7 +110,7 @@ where
         &mut self,
         place_idx: PlaceIdx,
         qual: LinQual,
-    ) -> LinktimeThawedValue<Linktime> {
+    ) -> LinketImplThawedValue<LinketImpl> {
         match qual {
             LinQual::Ref => todo!(),
             LinQual::RefMut => todo!(),
@@ -110,7 +118,14 @@ where
         }
     }
 
-    fn init_place(&mut self, place_idx: PlaceIdx, value: LinktimeThawedValue<Linktime>) {
+    fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>) {
         self.place_thawed_values[place_idx.index()] = value
+    }
+
+    fn eval_val(
+        &self,
+        major_form_path: husky_entity_path::path::major_item::form::MajorFormPath,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
+        todo!()
     }
 }
