@@ -116,9 +116,9 @@ fn transpile_hir_eager_expr_to_rust(
     let db = builder.db();
     match *data {
         HirEagerExprData::Literal(term_literal) => term_literal.transpile_to_rust(builder),
-        HirEagerExprData::PrincipalEntityPath(principal_entity_path) => {
-            principal_entity_path.transpile_to_rust(builder);
-            match principal_entity_path {
+        HirEagerExprData::PrincipalEntityPath { path, .. } => {
+            path.transpile_to_rust(builder);
+            match path {
                 PrincipalEntityPath::Module(_) => unreachable!(),
                 PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)) => match path.kind(db) {
                     MajorFormKind::Ritchie(_) => (),

@@ -55,13 +55,19 @@ impl<'a> HirDefnDepsBuilder<'a> {
         for entry in hir_eager_expr_region.expr_arena(db) {
             match *entry.data() {
                 HirEagerExprData::Literal(_) => (),
-                HirEagerExprData::PrincipalEntityPath(path) => match path {
-                    PrincipalEntityPath::Module(_) => unreachable!(),
-                    PrincipalEntityPath::MajorItem(path) => self.add_item_path(path),
-                    PrincipalEntityPath::TypeVariant(path) => {
-                        self.add_item_path(path.parent_ty_path(db))
+                HirEagerExprData::PrincipalEntityPath {
+                    path,
+                    ref instantiation,
+                } => {
+                    match path {
+                        PrincipalEntityPath::Module(_) => unreachable!(),
+                        PrincipalEntityPath::MajorItem(path) => self.add_item_path(path),
+                        PrincipalEntityPath::TypeVariant(path) => {
+                            self.add_item_path(path.parent_ty_path(db))
+                        }
                     }
-                },
+                    self.add_instantiation(instantiation);
+                }
                 HirEagerExprData::ComptimeVariable { .. } => (),
                 HirEagerExprData::RuntimeVariable(_) => (),
                 HirEagerExprData::Binary { .. } => (),
