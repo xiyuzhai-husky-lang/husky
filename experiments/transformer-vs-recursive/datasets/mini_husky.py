@@ -23,7 +23,7 @@ class MiniHuskyDataset(Dataset):
         n: int,
         max_fns: int,
         error_rate: float,
-        data_dir: str = "../../data/mini-husky/basic",
+        data_dir: str = "data/mini-husky/basic",
     ):
         self.data_dir = data_dir
         self.n = n
