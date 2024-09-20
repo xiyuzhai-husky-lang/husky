@@ -20,6 +20,7 @@ vec-like.workspace = true
 husky-devsoul-interface.workspace = true
 husky-devsoul.workspace = true
 # kernel
+husky-entity-path.workspace = true
 husky-place.workspace = true
 # linket
 husky-linket.workspace = true
@@ -47,7 +48,6 @@ husky-hir-defn.workspace = true
 husky-hir-prelude.workspace = true
 # kernel
 husky-coword.workspace = true
-husky-entity-path.workspace = true
 husky-eth-signature.workspace = true
 husky-term-prelude.workspace = true
 husky-dec-term.workspace = true

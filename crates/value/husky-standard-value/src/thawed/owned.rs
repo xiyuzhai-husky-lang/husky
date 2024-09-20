@@ -50,4 +50,8 @@ impl OwnedThawedValue {
     pub(super) fn as_ref(&self) -> &dyn ThawedDyn {
         &*self.0
     }
+
+    pub(super) fn freeze(&self) -> Arc<dyn FrozenDyn> {
+        self.0.freeze()
+    }
 }

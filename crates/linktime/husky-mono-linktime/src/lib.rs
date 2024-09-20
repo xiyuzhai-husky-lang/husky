@@ -6,7 +6,7 @@ use self::internal::MonoLinktimeInternal;
 #[cfg(test)]
 use self::tests::*;
 use husky_linket::linket::Linket;
-use husky_linket_impl::{eval_context::IsDevRuntimeDyn, linket_impl::IsLinketImpl};
+use husky_linket_impl::{eval_context::IsDevRuntimeInterfaceDyn, linket_impl::IsLinketImpl};
 use husky_linktime::IsLinktime;
 use husky_vfs::path::linktime_target_path::LinktimeTargetPath;
 use std::collections::HashMap;
@@ -42,7 +42,7 @@ where
         }
     }
 
-    fn init(&self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+    fn init(&self, runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>) {
         let mut internal = self.internal.write().unwrap();
         internal.init(runtime)
     }

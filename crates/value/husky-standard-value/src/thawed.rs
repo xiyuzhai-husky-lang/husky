@@ -30,7 +30,7 @@ use owned::OwnedThawedValue;
 /// Slush is the static version of a type
 pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type Frozen: Frozen<Thawed = Self>;
-    unsafe fn freeze(&self) -> Self::Frozen;
+    fn freeze(&self) -> Self::Frozen;
 
     fn is_copyable() -> bool;
 
@@ -81,16 +81,12 @@ pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
             std::any::type_name::<Self>()
         )
     }
-
-    fn serialize_to_value(&self) -> serde_json::Value;
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 pub trait ThawedDyn:
     std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + 'static
 {
-    unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn>;
+    fn freeze(&self) -> Arc<dyn FrozenDyn>;
 
     fn type_name_dyn(&self) -> &'static str;
 
@@ -107,17 +103,13 @@ pub trait ThawedDyn:
     fn unwrap_leash_thawed_dyn(&'static self) -> ExceptedThawedValue;
 
     fn try_copy_thawed_dyn(&self) -> Option<ThawedValue>;
-
-    fn present_dyn(&self) -> ValuePresentation;
-
-    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 impl<T> ThawedDyn for T
 where
     T: Thawed,
 {
-    unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn> {
+    fn freeze(&self) -> Arc<dyn FrozenDyn> {
         Arc::new(self.freeze())
     }
 
@@ -155,16 +147,6 @@ where
 
     fn try_copy_thawed_dyn(&self) -> Option<ThawedValue> {
         self.try_copy_thawed()
-    }
-
-    fn present_dyn(&self) -> ValuePresentation {
-        // self.present()
-        // ad hoc
-        ValuePresentation::AdHoc(format!("{self:?}"))
-    }
-
-    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        self.visualize_or_void(visual_synchrotron)
     }
 }
 
@@ -304,7 +286,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::EnumUnit { index, presenter } => {
                 FrozenValue::EnumUsize { index, presenter }
             }
-            ThawedValue::Owned(ref slf) => todo!(),
+            ThawedValue::Owned(ref slf) => FrozenValue::Owned(slf.freeze()),
             ThawedValue::Leash(_) => todo!(),
             ThawedValue::Ref(_) => todo!(),
             ThawedValue::Mut(_) => todo!(),

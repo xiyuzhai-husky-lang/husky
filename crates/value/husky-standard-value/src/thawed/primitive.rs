@@ -13,16 +13,8 @@ macro_rules! impl_thawed_for_primitive_ty {
                 Some((*self).into())
             }
 
-            unsafe fn freeze(&self) -> Self::Frozen {
+            fn freeze(&self) -> Self::Frozen {
                 *self
-            }
-
-            fn serialize_to_value(&self) -> serde_json::Value {
-                serde_json::to_value(self).unwrap()
-            }
-
-            fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-                todo!("")
             }
         }
     };

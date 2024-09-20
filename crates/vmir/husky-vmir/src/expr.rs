@@ -3,6 +3,13 @@ use crate::{
     destroyer::VmirDestroyerIdxRange, eval::EvalVmir, pattern::VmirPattern, stmt::VmirStmtIdxRange,
     *,
 };
+use either::*;
+use husky_entity_kind::MajorFormKind;
+use husky_entity_path::path::{
+    major_item::{form::MajorFormPath, MajorItemPath},
+    PrincipalEntityPath,
+};
+use husky_hir_decl::decl::{HasHirDecl, TypeVariantHirDecl};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_lifetime_utils::capture::Captures;
@@ -13,6 +20,7 @@ use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_value::vm_control_flow::VmControlFlow;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
+use salsa::DebugWithDb;
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::derive_debug_with_db]
@@ -61,19 +69,35 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
         opd: VmirExprIdx<LinketImpl>,
     },
     Index,
-    PrincipalEntityPath,
+    Val {
+        linket_impl_or_val_path: Either<LinketImpl, MajorFormPath>,
+    },
+    UnitTypeVariant {
+        linket_impl: LinketImpl,
+    },
     Unwrap {
         opd: VmirExprIdx<LinketImpl>,
     },
     ConstTemplateVariable,
+    RitchieItemPath,
+    StaticVar {
+        linket_impl: LinketImpl,
+    },
 }
 
 pub type VmirExprArena<LinketImpl> = Arena<VmirExprData<LinketImpl>>;
 pub type VmirExprMap<LinketImpl, T> = ArenaMap<VmirExprData<LinketImpl>, T>;
 
+// TODO clean up
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirExprIdx<LinketImpl: IsLinketImpl>(ArenaIdx<VmirExprData<LinketImpl>>);
+#[derive(PartialEq, Eq, Clone, Copy)]
+pub struct VmirExprIdx<LinketImpl: IsLinketImpl>(pub(crate) ArenaIdx<VmirExprData<LinketImpl>>);
+
+impl<LinketImpl: IsLinketImpl> std::fmt::Debug for VmirExprIdx<LinketImpl> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("VmirExprIdx").field(&self.0).finish()
+    }
+}
 
 impl<LinketImpl: IsLinketImpl> std::ops::Deref for VmirExprIdx<LinketImpl> {
     type Target = ArenaIdx<VmirExprData<LinketImpl>>;
@@ -85,16 +109,9 @@ impl<LinketImpl: IsLinketImpl> std::ops::Deref for VmirExprIdx<LinketImpl> {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirExprIdxRange<LinketImpl: IsLinketImpl>(ArenaIdxRange<VmirExprData<LinketImpl>>);
-
-impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
-    pub(crate) fn alloc_exprs(
-        &mut self,
-        exprs: Vec<VmirExprData<Linktime::LinketImpl>>,
-    ) -> VmirExprIdxRange<Linktime::LinketImpl> {
-        VmirExprIdxRange(self.alloc_exprs_aux(exprs))
-    }
-}
+pub struct VmirExprIdxRange<LinketImpl: IsLinketImpl>(
+    pub(crate) ArenaIdxRange<VmirExprData<LinketImpl>>,
+);
 
 impl<LinketImpl: IsLinketImpl> IntoIterator for VmirExprIdxRange<LinketImpl> {
     type Item = VmirExprIdx<LinketImpl>;
@@ -140,18 +157,80 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerExprIdx {
         builder: &mut VmirBuilder<Linktime>,
     ) -> Self::Output {
         let expr_data = builder.build_vmir_expr(self);
-        VmirExprIdx(builder.alloc_expr(expr_data))
+        builder.alloc_expr(self, expr_data)
     }
 }
 
 impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_vmir_expr(&mut self, expr: HirEagerExprIdx) -> VmirExprData<Linktime::LinketImpl> {
+        let db = self.db();
         let entry = &self.hir_eager_expr_arena()[expr];
         match *entry.data() {
             HirEagerExprData::Literal(lit) => VmirExprData::Literal {
                 value: lit.into_literal_value(self.db()),
             },
-            HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
+            HirEagerExprData::PrincipalEntityPath {
+                path,
+                ref instantiation,
+                ..
+            } => match path {
+                PrincipalEntityPath::Module(module_path) => {
+                    todo!()
+                }
+                PrincipalEntityPath::MajorItem(major_item_path) => match major_item_path {
+                    MajorItemPath::Type(ty_path) => todo!(),
+                    MajorItemPath::Trait(trai_path) => todo!(),
+                    MajorItemPath::Form(major_form_path) => match major_form_path.kind(db) {
+                        MajorFormKind::Ritchie(ritchie_item_kind) => {
+                            use husky_print_utils::p;
+                            use salsa::DebugWithDb;
+                            p!(path.debug(db));
+                            VmirExprData::RitchieItemPath
+                        }
+                        MajorFormKind::TypeAlias => todo!(),
+                        MajorFormKind::TypeVar => todo!(),
+                        MajorFormKind::Val => {
+                            let linket_or_val_path: Either<Linket, MajorFormPath> =
+                                match Linket::new_val(major_form_path, db) {
+                                    Some(linket) => Left(linket),
+                                    None => Right(major_form_path),
+                                };
+                            let linket_impl_or_val_path = match linket_or_val_path {
+                                Left(linket) => Left(self.linket_impl(linket)),
+                                Right(ki_repr) => Right(ki_repr),
+                            };
+                            VmirExprData::Val {
+                                linket_impl_or_val_path,
+                            }
+                        }
+                        MajorFormKind::StaticMut => todo!(),
+                        MajorFormKind::StaticVar => VmirExprData::StaticVar {
+                            linket_impl: self.linket_impl(Linket::new_var(major_form_path, db)),
+                        },
+                        MajorFormKind::Compterm => todo!(),
+                        MajorFormKind::Conceptual => todo!(),
+                    },
+                },
+                PrincipalEntityPath::TypeVariant(type_variant_path) => {
+                    let hir_decl = type_variant_path.hir_decl(db).unwrap();
+                    match hir_decl {
+                        TypeVariantHirDecl::Props(enum_props_variant_hir_decl) => todo!(),
+                        TypeVariantHirDecl::Unit(enum_unit_type_variant_hir_decl) => {
+                            VmirExprData::UnitTypeVariant {
+                                linket_impl: self.linket_impl(
+                                    Linket::new_ty_variant_constructor_fn(
+                                        type_variant_path,
+                                        instantiation,
+                                        self.lin_instantiation(),
+                                        db,
+                                    ),
+                                ),
+                            }
+                        }
+                        TypeVariantHirDecl::Tuple(enum_tuple_variant_hir_decl) => todo!(),
+                    }
+                }
+            },
             HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
             HirEagerExprData::ComptimeVariable { ident } => VmirExprData::ConstTemplateVariable,
             HirEagerExprData::RuntimeVariable(_) => {
@@ -249,7 +328,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref instantiation,
                 ref arguments,
             } => {
-                let linket = Linket::new_major_function_ritchie_item(
+                let linket = Linket::new_major_ritchie_item(
                     path,
                     instantiation,
                     self.lin_instantiation(),
@@ -364,20 +443,20 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref items,
             } => VmirExprData::Index,
             HirEagerExprData::NewList {
-                ref exprs,
+                exprs: ref hir_eager_exprs,
                 element_ty,
             } => {
                 let linket =
                     Linket::new_vec_constructor(element_ty, self.lin_instantiation(), self.db());
                 let linket_impl = self.linket_impl(linket);
-                let exprs = exprs
-                    .iter()
-                    .map(|&item| self.build_vmir_expr(item))
-                    .collect();
+                let mut exprs = Vec::new();
+                for &expr in hir_eager_exprs.iter() {
+                    exprs.push(self.build_vmir_expr(expr));
+                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments: smallvec![VmirArgument::Variadic {
-                        exprs: self.alloc_exprs(exprs),
+                        exprs: self.alloc_exprs(hir_eager_exprs, exprs),
                     }],
                 }
             }
@@ -449,6 +528,8 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
     ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         use VmControlFlow::*;
+
+        let db = ctx.db();
 
         match *self.entry(ctx.vmir_expr_arena()) {
             VmirExprData::Literal { ref value } => Continue(value.into_thawed_value()),
@@ -529,9 +610,21 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             VmirExprData::Unreachable => todo!(),
             VmirExprData::As { opd } => todo!(),
             VmirExprData::Index => todo!(),
-            VmirExprData::PrincipalEntityPath => todo!(),
+            VmirExprData::Val {
+                linket_impl_or_val_path,
+            } => {
+                todo!();
+                match linket_impl_or_val_path {
+                    Left(linket_impl) => linket_impl.eval_vm(vec![], db),
+                    Right(val_path) => ctx.eval_val(val_path),
+                }
+            }
+            // TODO optimize this
+            VmirExprData::UnitTypeVariant { linket_impl } => linket_impl.eval_vm(vec![], db),
             VmirExprData::Unwrap { opd } => todo!(),
             VmirExprData::ConstTemplateVariable => todo!(),
+            VmirExprData::RitchieItemPath => todo!(),
+            VmirExprData::StaticVar { linket_impl } => todo!(),
         }
     }
 }

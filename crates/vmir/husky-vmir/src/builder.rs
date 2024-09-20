@@ -1,6 +1,6 @@
 use crate::{
     destroyer::{VmirDestroyerArena, VmirDestroyerData, VmirDestroyerIdxRange},
-    expr::{VmirExprArena, VmirExprData},
+    expr::{VmirExprArena, VmirExprData, VmirExprIdx, VmirExprIdxRange},
     pattern::{
         destructive::{
             VmirDestructivePatternArena, VmirDestructivePatternData, VmirDestructivePatternIdx,
@@ -11,10 +11,12 @@ use crate::{
             VmirRestructivePatternIdxRange,
         },
     },
-    stmt::{VmirStmtArena, VmirStmtData},
+    region::VmirRegion,
+    stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdx},
 };
 use husky_hir_eager_expr::{
-    HirEagerExprArena, HirEagerExprIdx, HirEagerPatternArena, HirEagerStmtArena,
+    HirEagerExprArena, HirEagerExprIdx, HirEagerExprMap, HirEagerPatternArena, HirEagerStmtArena,
+    HirEagerStmtIdx, HirEagerStmtIdxRange, HirEagerStmtMap,
 };
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_linket::{instantiation::LinInstantiation, linket::Linket};
@@ -33,6 +35,8 @@ pub(crate) struct VmirBuilder<'comptime, Linktime: IsLinktime> {
     vmir_restructive_pattern_arena: VmirRestructivePatternArena<Linktime::LinketImpl>,
     vmir_destructive_pattern_arena: VmirDestructivePatternArena<Linktime::LinketImpl>,
     vmir_destroyer_arena: VmirDestroyerArena,
+    hir_eager_to_vmir_expr_map: HirEagerExprMap<VmirExprIdx<Linktime::LinketImpl>>,
+    hir_eager_to_vmir_stmt_map: HirEagerStmtMap<VmirStmtIdx<Linktime::LinketImpl>>,
 }
 
 /// # constructor
@@ -51,12 +55,14 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
         else {
             return None;
         };
+        let hir_eager_expr_arena = hir_eager_expr_region.expr_arena(db);
+        let hir_eager_stmt_arena = hir_eager_expr_region.stmt_arena(db);
         Some((
             body,
             Self {
                 db,
-                hir_eager_expr_arena: hir_eager_expr_region.expr_arena(db),
-                hir_eager_stmt_arena: hir_eager_expr_region.stmt_arena(db),
+                hir_eager_expr_arena,
+                hir_eager_stmt_arena,
                 hir_eager_pattern_arena: hir_eager_expr_region.pattern_arena(db),
                 instantiation,
                 linktime,
@@ -65,6 +71,8 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
                 vmir_restructive_pattern_arena: Default::default(),
                 vmir_destructive_pattern_arena: Default::default(),
                 vmir_destroyer_arena: Default::default(),
+                hir_eager_to_vmir_expr_map: HirEagerExprMap::new(hir_eager_expr_arena),
+                hir_eager_to_vmir_stmt_map: HirEagerStmtMap::new(hir_eager_stmt_arena),
             },
         ))
     }
@@ -101,23 +109,39 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
 impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
     pub(crate) fn alloc_expr(
         &mut self,
+        hir_eager_expr: HirEagerExprIdx,
         expr: VmirExprData<Linktime::LinketImpl>,
-    ) -> ArenaIdx<VmirExprData<Linktime::LinketImpl>> {
-        self.vmir_expr_arena.alloc_one(expr)
+    ) -> VmirExprIdx<Linktime::LinketImpl> {
+        let expr = self.vmir_expr_arena.alloc_one(expr);
+        self.hir_eager_to_vmir_expr_map
+            .insert_new(hir_eager_expr, VmirExprIdx(expr));
+        VmirExprIdx(expr)
     }
 
-    pub(crate) fn alloc_exprs_aux(
+    pub(crate) fn alloc_exprs(
         &mut self,
+        hir_eager_exprs: &[HirEagerExprIdx],
         exprs: Vec<VmirExprData<Linktime::LinketImpl>>,
-    ) -> ArenaIdxRange<VmirExprData<Linktime::LinketImpl>> {
-        self.vmir_expr_arena.alloc_batch(exprs)
+    ) -> VmirExprIdxRange<Linktime::LinketImpl> {
+        let exprs = self.vmir_expr_arena.alloc_batch(exprs);
+        for (hir_eager_expr, expr) in hir_eager_exprs.iter().copied().zip(exprs) {
+            self.hir_eager_to_vmir_expr_map
+                .insert_new(hir_eager_expr, VmirExprIdx(expr));
+        }
+        VmirExprIdxRange(exprs)
     }
 
     pub(crate) fn alloc_stmts(
         &mut self,
+        hir_eager_stmts: HirEagerStmtIdxRange,
         stmts: Vec<VmirStmtData<Linktime::LinketImpl>>,
     ) -> ArenaIdxRange<VmirStmtData<Linktime::LinketImpl>> {
-        self.vmir_stmt_arena.alloc_batch(stmts)
+        let stmts = self.vmir_stmt_arena.alloc_batch(stmts);
+        for (hir_eager_stmt, stmt) in hir_eager_stmts.into_iter().zip(stmts) {
+            self.hir_eager_to_vmir_stmt_map
+                .insert_new(hir_eager_stmt, VmirStmtIdx(stmt));
+        }
+        stmts
     }
 
     pub(crate) fn alloc_restructive_pattern(
@@ -157,10 +181,19 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
 
     pub(crate) fn finish(
         self,
-    ) -> (
-        VmirExprArena<Linktime::LinketImpl>,
-        VmirStmtArena<Linktime::LinketImpl>,
-    ) {
-        (self.vmir_expr_arena, self.vmir_stmt_arena)
+        linket: Linket,
+        root_expr: VmirExprIdx<Linktime::LinketImpl>,
+    ) -> VmirRegion<Linktime::LinketImpl> {
+        VmirRegion::new(
+            linket,
+            root_expr,
+            self.vmir_expr_arena,
+            self.vmir_stmt_arena,
+            self.vmir_restructive_pattern_arena,
+            self.vmir_destructive_pattern_arena,
+            self.vmir_destroyer_arena,
+            self.hir_eager_to_vmir_expr_map,
+            self.hir_eager_to_vmir_stmt_map,
+        )
     }
 }

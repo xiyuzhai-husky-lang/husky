@@ -54,7 +54,7 @@ where
         todo!()
     }
 
-    unsafe fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 
@@ -75,14 +75,6 @@ where
             std::any::type_name::<Self>()
         )
     }
-
-    fn serialize_to_value(&self) -> __JsonValue {
-        todo!("CyclicSlice serialize_to_value")
-    }
-
-    fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-        todo!()
-    }
 }
 
 impl<T> __Frozen for CyclicSliceLeashed<T>
@@ -94,7 +86,16 @@ where
     fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
     }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!("CyclicSlice serialize_to_value")
+    }
+
+    fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+        todo!()
+    }
 }
+
 impl<T> __Boiled for CyclicSliceLeashed<T>
 where
     T: __Thawed + std::fmt::Debug + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,

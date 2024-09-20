@@ -1835,15 +1835,23 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::MajorItem(
+                                            data: HirEagerExprData::PrincipalEntityPath {
+                                                path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
                                                         MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                             Fn,
                                                         )`),
                                                     ),
                                                 ),
-                                            ),
+                                                instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
+                                                    variable_map: [],
+                                                    separator: None,
+                                                },
+                                            },
                                             base_ty: HirType::Ritchie(
                                                 HirRitchieType {
                                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -2217,15 +2225,23 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::MajorItem(
+                                            data: HirEagerExprData::PrincipalEntityPath {
+                                                path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
                                                         MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                             Fn,
                                                         )`),
                                                     ),
                                                 ),
-                                            ),
+                                                instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
+                                                    variable_map: [],
+                                                    separator: None,
+                                                },
+                                            },
                                             base_ty: HirType::Ritchie(
                                                 HirRitchieType {
                                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -2775,15 +2791,23 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::PrincipalEntityPath(
-                                                PrincipalEntityPath::MajorItem(
+                                            data: HirEagerExprData::PrincipalEntityPath {
+                                                path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
                                                         MajorFormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                             Fn,
                                                         )`),
                                                     ),
                                                 ),
-                                            ),
+                                                instantiation: HirInstantiation {
+                                                    path: ItemPath(`mnist_classifier::connected_component::hole_tmpl`),
+                                                    context: HirTypeContext {
+                                                        comptime_var_overrides: [],
+                                                    },
+                                                    variable_map: [],
+                                                    separator: None,
+                                                },
+                                            },
                                             base_ty: HirType::Ritchie(
                                                 HirRitchieType {
                                                     ritchie_ty_kind: RitchieTypeKind::Item(

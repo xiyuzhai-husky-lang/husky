@@ -78,7 +78,11 @@ fn rnd_code_works() {
         expect.assert_eq(&result);
     }
 
-    t(0, 0.1, 5, expect![[r#"
+    t(
+        0,
+        0.1,
+        5,
+        expect![[r#"
         Tokens:
         fn f0 ( a : Int ) { } fn f1 ( a : Float ) { f0 ( 1 ) ; } fn f2 ( a : Bool ) { f1 ( 1.1 ) ; f0 ( 1 ) ; f0 ( 1 ) ; f1 ( 1.1 ) ; } fn f3 ( a : Bool ) { f0 ( 1 ) ; f1 ( 1.1 ) ; f2 ( 1 ) ; f0 ( 1 ) ; f2 ( 1 ) ; } fn f4 ( a : Float ) { f1 ( 1.1 ) ; f3 ( true ) ; f3 ( true ) ; f2 ( true ) ; f0 ( 1 ) ; }
 
@@ -202,7 +206,8 @@ fn rnd_code_works() {
         TokenInfo { ast_kind: Some(IntLiteral), symbol_resolution: None, error: None }
         TokenInfo { ast_kind: Some(CallRpar), symbol_resolution: None, error: None }
         TokenInfo { ast_kind: Some(StmtColon), symbol_resolution: None, error: None }
-        TokenInfo { ast_kind: Some(FnBodyRcurl), symbol_resolution: None, error: None }"#]]);
+        TokenInfo { ast_kind: Some(FnBodyRcurl), symbol_resolution: None, error: None }"#]],
+    );
 }
 
 struct BasicCodeGenerator {

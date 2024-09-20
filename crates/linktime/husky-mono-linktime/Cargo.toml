@@ -8,6 +8,7 @@ dashmap.workspace = true
 smallvec.workspace = true
 libloading.workspace = true
 fxhash.workspace = true
+similar.workspace = true
 # abstractions
 salsa.workspace = true
 version-stamp.workspace = true
