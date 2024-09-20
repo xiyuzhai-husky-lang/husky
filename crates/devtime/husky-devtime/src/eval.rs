@@ -51,14 +51,16 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
                 // think about it
                 Some(Right(self.eager_expr_trace_value(
                     data.biological_parent(),
+                    data.hir_eager_expr_idx(),
                     pedestal.clone(),
                 )))
             }
             TraceData::EagerPattern(_) => todo!(),
             TraceData::EagerStmt(data) => {
                 // think about it
-                Some(Right(self.eager_expr_trace_value(
+                Some(Right(self.eager_stmt_trace_value(
                     data.biological_parent(),
+                    data.hir_eager_stmt_idx,
                     pedestal.clone(),
                 )))
             }

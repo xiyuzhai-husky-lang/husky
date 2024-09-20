@@ -21,95 +21,10 @@
         Javelin {
             data: JavelinData::PathLeading {
                 path: JavPath::Type(
-                    TypePath(`malamute::OneVsAll`, `Enum`),
-                ),
-                instantiation: JavInstantiation {
-                    path: ItemPath(`malamute::OneVsAll::Yes`),
-                    context: JavTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavPath::Type(
-                    TypePath(`malamute::OneVsAll`, `Enum`),
-                ),
-                instantiation: JavInstantiation {
-                    path: ItemPath(`malamute::OneVsAll::No`),
-                    context: JavTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavPath::Type(
                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                 ),
                 instantiation: JavInstantiation {
                     path: ItemPath(`malamute::OneVsAllResult`),
-                    context: JavTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavPath::Type(
-                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                ),
-                instantiation: JavInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
-                    context: JavTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavPath::Type(
-                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                ),
-                instantiation: JavInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
-                    context: JavTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-    ),
-    AmazonJavelin(
-        Javelin {
-            data: JavelinData::PathLeading {
-                path: JavPath::Type(
-                    TypePath(`malamute::OneVsAllResult`, `Enum`),
-                ),
-                instantiation: JavInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::Unconfident`),
                     context: JavTypeContext {
                         comptime_var_overrides: [],
                     },

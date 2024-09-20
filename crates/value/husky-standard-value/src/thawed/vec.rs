@@ -14,7 +14,7 @@ where
         todo!()
     }
 
-     fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 

@@ -73,7 +73,7 @@ where
     Label: __Thawed<Frozen = Label> + __Frozen<Thawed = Label> + __Serialize,
 {
     type Frozen = NarrowDownInternal<Label>;
-     fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 

@@ -7,6 +7,7 @@ use std::fmt::Debug;
 #[salsa::deref_id]
 pub struct TypePath(ItemPathId);
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypePathData {
     module_path: ModulePath,
