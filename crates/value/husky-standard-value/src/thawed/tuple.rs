@@ -18,7 +18,7 @@ macro_rules! impl_thawed_for_non_unit_tuple_ty {
                 todo!()
             }
 
-            unsafe fn freeze(&self) -> Self::Frozen {
+             fn freeze(&self) -> Self::Frozen {
                 todo!()
             }
 

@@ -46,7 +46,7 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
         impl #generics __Thawed for #self_ty where #impl_thawed_generic_constraints {
             type Frozen = #impl_thawed_assoc_ty_frozen;
 
-            unsafe fn freeze(&self) -> Self::Frozen {
+             fn freeze(&self) -> Self::Frozen {
                 // FrozenMut::new(*self)
                 todo!()
             }

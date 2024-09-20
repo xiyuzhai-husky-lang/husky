@@ -12,7 +12,7 @@ where
 {
     type Frozen = FrozenRef<T::Frozen>;
 
-    unsafe fn freeze(&self) -> Self::Frozen {
+     fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 

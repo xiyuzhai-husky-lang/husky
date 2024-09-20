@@ -30,7 +30,7 @@ use owned::OwnedThawedValue;
 /// Slush is the static version of a type
 pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static {
     type Frozen: Frozen<Thawed = Self>;
-    unsafe fn freeze(&self) -> Self::Frozen;
+    fn freeze(&self) -> Self::Frozen;
 
     fn is_copyable() -> bool;
 
@@ -90,7 +90,7 @@ pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
 pub trait ThawedDyn:
     std::fmt::Debug + std::any::Any + RefUnwindSafe + UnwindSafe + 'static
 {
-    unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn>;
+    fn freeze(&self) -> Arc<dyn FrozenDyn>;
 
     fn type_name_dyn(&self) -> &'static str;
 
@@ -117,7 +117,7 @@ impl<T> ThawedDyn for T
 where
     T: Thawed,
 {
-    unsafe fn snapshot(&self) -> Arc<dyn FrozenDyn> {
+    fn freeze(&self) -> Arc<dyn FrozenDyn> {
         Arc::new(self.freeze())
     }
 
@@ -304,7 +304,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::EnumUnit { index, presenter } => {
                 FrozenValue::EnumUsize { index, presenter }
             }
-            ThawedValue::Owned(ref slf) => todo!(),
+            ThawedValue::Owned(ref slf) => FrozenValue::Owned(slf.freeze()),
             ThawedValue::Leash(_) => todo!(),
             ThawedValue::Ref(_) => todo!(),
             ThawedValue::Mut(_) => todo!(),
