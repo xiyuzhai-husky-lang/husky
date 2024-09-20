@@ -27,7 +27,9 @@ class SimpleRNN(nn.Module):
 
 # Configurations
 config = {
-    "batch_size": 32,
+    "batch_size": 1024,
+    "micro_batch_size": 32,
+    "rnn_micro_batch_size": 1024,
     "num_epochs": 100,
     "learning_rate": 1e-4,
     "hidden_dim": 64,
@@ -79,7 +81,7 @@ train_dataloader = DataLoader(
 )
 val_dataloader = DataLoader(
     val_dataset,
-    batch_size=config["batch_size"] * 4,
+    batch_size=config["batch_size"],
     shuffle=False,
     collate_fn=custom_collate,
 )
@@ -110,7 +112,7 @@ rnn = SimpleRNN(
 ).to(device)
 
 # Loss function and optimizers
-criterion = nn.CrossEntropyLoss()
+criterion = nn.CrossEntropyLoss(reduction="sum")
 transformer_optimizer = optim.Adam(transformer.parameters(), lr=config["learning_rate"])
 rnn_optimizer = optim.Adam(rnn.parameters(), lr=config["learning_rate"])
 
@@ -122,11 +124,12 @@ rnn_best_model = train_model(
     val_dataloader,
     criterion,
     rnn_optimizer,
-    config["num_epochs"],
     device=device,  # Add this line
     log_wandb=True,
     model_name="RNN",
     output_dims=output_dims,  # Use the retrieved output_dims
+    micro_batch_size=config["rnn_micro_batch_size"],
+    num_epochs=config["num_epochs"],
 )
 
 print("Training Transformer...")
@@ -136,11 +139,12 @@ transformer_best_model = train_model(
     val_dataloader,
     criterion,
     transformer_optimizer,
-    config["num_epochs"],
     device=device,  # Add this line
     log_wandb=True,
     model_name="Transformer",
     output_dims=output_dims,  # Use the retrieved output_dims
+    micro_batch_size=config["micro_batch_size"],
+    num_epochs=config["num_epochs"],
 )
 
 print("Evaluating RNN...")
@@ -150,6 +154,7 @@ eval_model(
     criterion=criterion,
     device=device,
     output_dims=output_dims,
+    micro_batch_size=config["rnn_micro_batch_size"] * 4,
 )
 
 print("Evaluating Transformer...")
@@ -159,6 +164,7 @@ eval_model(
     criterion=criterion,
     device=device,
     output_dims=output_dims,
+    micro_batch_size=config["micro_batch_size"] * 4,
 )
 
 wandb.finish()

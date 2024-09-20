@@ -14,6 +14,7 @@ def train_model(
     criterion,
     optimizer,
     num_epochs,
+    micro_batch_size,
     device,
     output_dims,
     log_wandb=True,
@@ -21,6 +22,7 @@ def train_model(
     padding_value=-1,
     patience=5,
     min_delta=0.001,
+    **kwargs
 ):
     ast_dim, symbol_dim, error_dim = output_dims
     model.to(device)
@@ -41,6 +43,7 @@ def train_model(
             output_dims,
             padding_value,
             is_training=True,
+            micro_batch_size=micro_batch_size,
         )
 
         # Validation phase
@@ -54,6 +57,7 @@ def train_model(
             output_dims,
             padding_value,
             is_training=False,
+            micro_batch_size=micro_batch_size,
         )
 
         # Early stopping check
@@ -87,9 +91,9 @@ def train_model(
             f"Train Error Acc: {train_error_acc:.4f}, Val Error Acc: {val_error_acc:.4f}"
         )
 
-        if epochs_without_improvement >= patience:
-            print(f"Early stopping triggered after {epoch + 1} epochs")
-            break
+        # if epochs_without_improvement >= patience:
+        #     print(f"Early stopping triggered after {epoch + 1} epochs")
+        #     break
 
     # Load the best model state
     if best_model_state is not None:
@@ -98,7 +102,7 @@ def train_model(
 
     return model
 
-def eval_model(model, val_dataloader, criterion, device, output_dims, padding_value=-1):
+def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size, padding_value=-1, **kwargs):
     model.eval()
     val_loss, val_ast_acc, val_symbol_acc, val_error_acc = run_epoch(
         model=model,
@@ -109,6 +113,7 @@ def eval_model(model, val_dataloader, criterion, device, output_dims, padding_va
         output_dims=output_dims,
         padding_value=padding_value,
         is_training=False,
+        micro_batch_size=micro_batch_size,
     )
     
     print(
@@ -127,6 +132,7 @@ def run_epoch(
     output_dims,
     padding_value,
     is_training,
+    micro_batch_size
 ):
     ast_dim, symbol_dim, error_dim = output_dims
     total_loss = 0.0
@@ -134,46 +140,66 @@ def run_epoch(
     total_symbol_acc = 0.0
     total_error_acc = 0.0
 
-    for batch_idx, (inputs, targets) in tqdm(enumerate(dataloader)):
-        inputs = inputs.to(device)
-        ast_targets, symbol_targets, error_targets = [t.to(device) for t in targets]
+    for batch_idx, (_inputs, _targets) in tqdm(enumerate(dataloader)):
+        _inputs = _inputs.to(device)
+        _ast_targets, _symbol_targets, _error_targets = [t.to(device) for t in _targets]
 
         if is_training:
             optimizer.zero_grad()
 
         with torch.set_grad_enabled(is_training):
-            outputs = model(inputs)
-            ast_outputs = outputs[:, :, :ast_dim]
-            symbol_outputs = outputs[:, :, ast_dim : ast_dim + symbol_dim]
-            error_outputs = outputs[
-                :, :, ast_dim + symbol_dim : ast_dim + symbol_dim + error_dim
-            ]
+            tot_ast_loss, tot_ast_cnt = 0.0, 0
+            tot_symbol_loss, tot_symbol_cnt = 0.0, 0
+            tot_error_loss, tot_error_cnt = 0.0, 0
+            for i in range(0, _inputs.shape[0], micro_batch_size):
+                outputs = model(_inputs[i:i + micro_batch_size])
+                ast_outputs = outputs[:, :, :ast_dim]
+                symbol_outputs = outputs[:, :, ast_dim : ast_dim + symbol_dim]
+                error_outputs = outputs[
+                    :, :, ast_dim + symbol_dim : ast_dim + symbol_dim + error_dim
+                ]
 
-            ast_outputs = ast_outputs.view(-1, ast_dim)
-            symbol_outputs = symbol_outputs.view(-1, symbol_dim)
-            error_outputs = error_outputs.view(-1, error_dim)
+                ast_outputs = ast_outputs.view(-1, ast_dim)
+                symbol_outputs = symbol_outputs.view(-1, symbol_dim)
+                error_outputs = error_outputs.view(-1, error_dim)
 
-            ast_targets = ast_targets.view(-1)
-            symbol_targets = symbol_targets.view(-1)
-            error_targets = error_targets.view(-1)
+                ast_targets = _ast_targets[i:i + micro_batch_size].view(-1)
+                symbol_targets = _symbol_targets[i:i + micro_batch_size].view(-1)
+                error_targets = _error_targets[i:i + micro_batch_size].view(-1)
 
-            ast_mask = ast_targets != padding_value
-            symbol_mask = symbol_targets != padding_value
-            assert torch.all(
-                ast_mask == symbol_mask
-            ), "ast_mask and symbol_mask are not identical"
-            error_mask = error_targets != padding_value
-            assert torch.all(
-                ast_mask == error_mask
-            ), "ast_mask and error_mask are not identical"
+                ast_mask = ast_targets != padding_value
+                symbol_mask = symbol_targets != padding_value
+                assert torch.all(
+                    ast_mask == symbol_mask
+                ), "ast_mask and symbol_mask are not identical"
+                error_mask = error_targets != padding_value
+                assert torch.all(
+                    ast_mask == error_mask
+                ), "ast_mask and error_mask are not identical"
 
-            ast_loss = criterion(ast_outputs[ast_mask], ast_targets[ast_mask])
-            symbol_loss = criterion(
-                symbol_outputs[symbol_mask], symbol_targets[symbol_mask]
-            )
-            error_loss = criterion(error_outputs[error_mask], error_targets[error_mask])
+                ast_loss = criterion(
+                    ast_outputs[ast_mask],
+                    ast_targets[ast_mask]
+                )
+                symbol_loss = criterion(
+                    symbol_outputs[symbol_mask],
+                    symbol_targets[symbol_mask]
+                )
+                error_loss = criterion(
+                    error_outputs[error_mask],
+                    error_targets[error_mask]
+                )
 
-            combined_loss = ast_loss + symbol_loss + error_loss
+                tot_ast_loss += ast_loss
+                tot_ast_cnt += ast_mask.sum()
+
+                tot_symbol_loss += symbol_loss
+                tot_symbol_cnt += symbol_mask.sum()
+
+                tot_error_loss += error_loss
+                tot_error_cnt += error_mask.sum()
+
+            combined_loss = tot_ast_loss / tot_ast_cnt + tot_symbol_loss / tot_symbol_cnt + tot_error_loss / tot_error_cnt
 
             if is_training:
                 combined_loss.backward()
