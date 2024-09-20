@@ -88,9 +88,16 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
 pub type VmirExprArena<LinketImpl> = Arena<VmirExprData<LinketImpl>>;
 pub type VmirExprMap<LinketImpl, T> = ArenaMap<VmirExprData<LinketImpl>, T>;
 
+// TODO clean up
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirExprIdx<LinketImpl: IsLinketImpl>(ArenaIdx<VmirExprData<LinketImpl>>);
+#[derive(PartialEq, Eq, Clone, Copy)]
+pub struct VmirExprIdx<LinketImpl: IsLinketImpl>(pub(crate) ArenaIdx<VmirExprData<LinketImpl>>);
+
+impl<LinketImpl: IsLinketImpl> std::fmt::Debug for VmirExprIdx<LinketImpl> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("VmirExprIdx").field(&self.0).finish()
+    }
+}
 
 impl<LinketImpl: IsLinketImpl> std::ops::Deref for VmirExprIdx<LinketImpl> {
     type Target = ArenaIdx<VmirExprData<LinketImpl>>;
@@ -102,16 +109,9 @@ impl<LinketImpl: IsLinketImpl> std::ops::Deref for VmirExprIdx<LinketImpl> {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirExprIdxRange<LinketImpl: IsLinketImpl>(ArenaIdxRange<VmirExprData<LinketImpl>>);
-
-impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
-    pub(crate) fn alloc_exprs(
-        &mut self,
-        exprs: Vec<VmirExprData<Linktime::LinketImpl>>,
-    ) -> VmirExprIdxRange<Linktime::LinketImpl> {
-        VmirExprIdxRange(self.alloc_exprs_aux(exprs))
-    }
-}
+pub struct VmirExprIdxRange<LinketImpl: IsLinketImpl>(
+    pub(crate) ArenaIdxRange<VmirExprData<LinketImpl>>,
+);
 
 impl<LinketImpl: IsLinketImpl> IntoIterator for VmirExprIdxRange<LinketImpl> {
     type Item = VmirExprIdx<LinketImpl>;
@@ -157,7 +157,7 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerExprIdx {
         builder: &mut VmirBuilder<Linktime>,
     ) -> Self::Output {
         let expr_data = builder.build_vmir_expr(self);
-        VmirExprIdx(builder.alloc_expr(expr_data))
+        builder.alloc_expr(self, expr_data)
     }
 }
 
@@ -443,20 +443,20 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 ref items,
             } => VmirExprData::Index,
             HirEagerExprData::NewList {
-                ref exprs,
+                exprs: ref hir_eager_exprs,
                 element_ty,
             } => {
                 let linket =
                     Linket::new_vec_constructor(element_ty, self.lin_instantiation(), self.db());
                 let linket_impl = self.linket_impl(linket);
-                let exprs = exprs
-                    .iter()
-                    .map(|&item| self.build_vmir_expr(item))
-                    .collect();
+                let mut exprs = Vec::new();
+                for &expr in hir_eager_exprs.iter() {
+                    exprs.push(self.build_vmir_expr(expr));
+                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments: smallvec![VmirArgument::Variadic {
-                        exprs: self.alloc_exprs(exprs),
+                        exprs: self.alloc_exprs(hir_eager_exprs, exprs),
                     }],
                 }
             }

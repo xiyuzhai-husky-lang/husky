@@ -762,6 +762,131 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -1080,6 +1205,63 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -1550,6 +1732,180 @@
                             ),
                             coercion: VmirCoercion::Trivial,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -2530,6 +2886,363 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                    VmirExprIdx(
+                        63,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                25,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                26,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                27,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                28,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                29,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -2635,6 +3348,35 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -3350,6 +4092,111 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -3666,6 +4513,101 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -3877,6 +4819,71 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -4043,6 +5050,65 @@
                             ),
                             coercion: VmirCoercion::Trivial,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -4527,6 +5593,193 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -4672,6 +5925,41 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -4815,6 +6103,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -5064,6 +6387,105 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -5309,6 +6731,105 @@
                             ),
                             coercion: VmirCoercion::Trivial,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -5665,6 +7186,50 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -5764,6 +7329,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -5881,6 +7484,50 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -6555,6 +8202,187 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Literal,
+                        Literal,
+                        Literal,
+                        Literal,
+                        Literal,
+                        Literal,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -6798,6 +8626,95 @@
                                 },
                             ],
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Literal,
+                        Literal,
+                        Literal,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -7771,6 +9688,268 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Literal,
+                        Literal,
+                        Literal,
+                        Literal,
+                        Literal,
+                        Literal,
+                        Literal,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                25,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                26,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                27,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -8218,6 +10397,101 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -11423,6 +13697,1116 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                    VmirExprIdx(
+                        63,
+                    ),
+                    VmirExprIdx(
+                        64,
+                    ),
+                    VmirExprIdx(
+                        65,
+                    ),
+                    VmirExprIdx(
+                        66,
+                    ),
+                    VmirExprIdx(
+                        67,
+                    ),
+                    VmirExprIdx(
+                        68,
+                    ),
+                    VmirExprIdx(
+                        69,
+                    ),
+                    VmirExprIdx(
+                        70,
+                    ),
+                    VmirExprIdx(
+                        71,
+                    ),
+                    VmirExprIdx(
+                        72,
+                    ),
+                    VmirExprIdx(
+                        73,
+                    ),
+                    VmirExprIdx(
+                        74,
+                    ),
+                    VmirExprIdx(
+                        75,
+                    ),
+                    VmirExprIdx(
+                        76,
+                    ),
+                    VmirExprIdx(
+                        77,
+                    ),
+                    VmirExprIdx(
+                        78,
+                    ),
+                    VmirExprIdx(
+                        79,
+                    ),
+                    VmirExprIdx(
+                        80,
+                    ),
+                    VmirExprIdx(
+                        81,
+                    ),
+                    VmirExprIdx(
+                        82,
+                    ),
+                    VmirExprIdx(
+                        83,
+                    ),
+                    VmirExprIdx(
+                        84,
+                    ),
+                    VmirExprIdx(
+                        85,
+                    ),
+                    VmirExprIdx(
+                        86,
+                    ),
+                    VmirExprIdx(
+                        87,
+                    ),
+                    VmirExprIdx(
+                        88,
+                    ),
+                    VmirExprIdx(
+                        89,
+                    ),
+                    VmirExprIdx(
+                        90,
+                    ),
+                    VmirExprIdx(
+                        91,
+                    ),
+                    VmirExprIdx(
+                        92,
+                    ),
+                    VmirExprIdx(
+                        93,
+                    ),
+                    VmirExprIdx(
+                        94,
+                    ),
+                    VmirExprIdx(
+                        95,
+                    ),
+                    VmirExprIdx(
+                        96,
+                    ),
+                    VmirExprIdx(
+                        97,
+                    ),
+                    VmirExprIdx(
+                        98,
+                    ),
+                    VmirExprIdx(
+                        99,
+                    ),
+                    VmirExprIdx(
+                        100,
+                    ),
+                    VmirExprIdx(
+                        101,
+                    ),
+                    VmirExprIdx(
+                        102,
+                    ),
+                    VmirExprIdx(
+                        103,
+                    ),
+                    VmirExprIdx(
+                        104,
+                    ),
+                    VmirExprIdx(
+                        105,
+                    ),
+                    VmirExprIdx(
+                        106,
+                    ),
+                    VmirExprIdx(
+                        107,
+                    ),
+                    VmirExprIdx(
+                        108,
+                    ),
+                    VmirExprIdx(
+                        109,
+                    ),
+                    VmirExprIdx(
+                        110,
+                    ),
+                    VmirExprIdx(
+                        111,
+                    ),
+                    VmirExprIdx(
+                        112,
+                    ),
+                    VmirExprIdx(
+                        113,
+                    ),
+                    VmirExprIdx(
+                        114,
+                    ),
+                    VmirExprIdx(
+                        115,
+                    ),
+                    VmirExprIdx(
+                        116,
+                    ),
+                    VmirExprIdx(
+                        117,
+                    ),
+                    VmirExprIdx(
+                        118,
+                    ),
+                    VmirExprIdx(
+                        119,
+                    ),
+                    VmirExprIdx(
+                        120,
+                    ),
+                    VmirExprIdx(
+                        121,
+                    ),
+                    VmirExprIdx(
+                        122,
+                    ),
+                    VmirExprIdx(
+                        123,
+                    ),
+                    VmirExprIdx(
+                        124,
+                    ),
+                    VmirExprIdx(
+                        125,
+                    ),
+                    VmirExprIdx(
+                        126,
+                    ),
+                    VmirExprIdx(
+                        127,
+                    ),
+                    VmirExprIdx(
+                        128,
+                    ),
+                    VmirExprIdx(
+                        129,
+                    ),
+                    VmirExprIdx(
+                        130,
+                    ),
+                    VmirExprIdx(
+                        131,
+                    ),
+                    VmirExprIdx(
+                        132,
+                    ),
+                    VmirExprIdx(
+                        133,
+                    ),
+                    VmirExprIdx(
+                        134,
+                    ),
+                    VmirExprIdx(
+                        135,
+                    ),
+                    VmirExprIdx(
+                        136,
+                    ),
+                    VmirExprIdx(
+                        137,
+                    ),
+                    VmirExprIdx(
+                        138,
+                    ),
+                    VmirExprIdx(
+                        139,
+                    ),
+                    VmirExprIdx(
+                        140,
+                    ),
+                    VmirExprIdx(
+                        141,
+                    ),
+                    VmirExprIdx(
+                        142,
+                    ),
+                    VmirExprIdx(
+                        143,
+                    ),
+                    VmirExprIdx(
+                        144,
+                    ),
+                    VmirExprIdx(
+                        145,
+                    ),
+                    VmirExprIdx(
+                        146,
+                    ),
+                    VmirExprIdx(
+                        147,
+                    ),
+                    VmirExprIdx(
+                        148,
+                    ),
+                    VmirExprIdx(
+                        149,
+                    ),
+                    VmirExprIdx(
+                        150,
+                    ),
+                    VmirExprIdx(
+                        151,
+                    ),
+                    VmirExprIdx(
+                        152,
+                    ),
+                    VmirExprIdx(
+                        153,
+                    ),
+                    VmirExprIdx(
+                        154,
+                    ),
+                    VmirExprIdx(
+                        155,
+                    ),
+                    VmirExprIdx(
+                        156,
+                    ),
+                    VmirExprIdx(
+                        157,
+                    ),
+                    VmirExprIdx(
+                        158,
+                    ),
+                    VmirExprIdx(
+                        159,
+                    ),
+                    VmirExprIdx(
+                        160,
+                    ),
+                    VmirExprIdx(
+                        161,
+                    ),
+                    VmirExprIdx(
+                        162,
+                    ),
+                    VmirExprIdx(
+                        163,
+                    ),
+                    VmirExprIdx(
+                        164,
+                    ),
+                    VmirExprIdx(
+                        165,
+                    ),
+                    VmirExprIdx(
+                        166,
+                    ),
+                    VmirExprIdx(
+                        167,
+                    ),
+                    VmirExprIdx(
+                        168,
+                    ),
+                    VmirExprIdx(
+                        169,
+                    ),
+                    VmirExprIdx(
+                        170,
+                    ),
+                    VmirExprIdx(
+                        171,
+                    ),
+                    VmirExprIdx(
+                        172,
+                    ),
+                    VmirExprIdx(
+                        173,
+                    ),
+                    VmirExprIdx(
+                        174,
+                    ),
+                    VmirExprIdx(
+                        175,
+                    ),
+                    VmirExprIdx(
+                        176,
+                    ),
+                    VmirExprIdx(
+                        177,
+                    ),
+                    VmirExprIdx(
+                        178,
+                    ),
+                    VmirExprIdx(
+                        179,
+                    ),
+                    VmirExprIdx(
+                        180,
+                    ),
+                    VmirExprIdx(
+                        181,
+                    ),
+                    VmirExprIdx(
+                        182,
+                    ),
+                    VmirExprIdx(
+                        183,
+                    ),
+                    VmirExprIdx(
+                        184,
+                    ),
+                    VmirExprIdx(
+                        185,
+                    ),
+                    VmirExprIdx(
+                        186,
+                    ),
+                    VmirExprIdx(
+                        187,
+                    ),
+                    VmirExprIdx(
+                        188,
+                    ),
+                    VmirExprIdx(
+                        189,
+                    ),
+                    VmirExprIdx(
+                        190,
+                    ),
+                    VmirExprIdx(
+                        191,
+                    ),
+                    VmirExprIdx(
+                        192,
+                    ),
+                    VmirExprIdx(
+                        193,
+                    ),
+                    VmirExprIdx(
+                        194,
+                    ),
+                    VmirExprIdx(
+                        195,
+                    ),
+                    VmirExprIdx(
+                        196,
+                    ),
+                    VmirExprIdx(
+                        197,
+                    ),
+                    VmirExprIdx(
+                        198,
+                    ),
+                    VmirExprIdx(
+                        199,
+                    ),
+                    VmirExprIdx(
+                        200,
+                    ),
+                    VmirExprIdx(
+                        201,
+                    ),
+                    VmirExprIdx(
+                        202,
+                    ),
+                    VmirExprIdx(
+                        203,
+                    ),
+                    VmirExprIdx(
+                        204,
+                    ),
+                    VmirExprIdx(
+                        205,
+                    ),
+                    VmirExprIdx(
+                        206,
+                    ),
+                    VmirExprIdx(
+                        207,
+                    ),
+                    VmirExprIdx(
+                        208,
+                    ),
+                    VmirExprIdx(
+                        209,
+                    ),
+                    VmirExprIdx(
+                        210,
+                    ),
+                    VmirExprIdx(
+                        211,
+                    ),
+                    VmirExprIdx(
+                        212,
+                    ),
+                    VmirExprIdx(
+                        213,
+                    ),
+                    VmirExprIdx(
+                        214,
+                    ),
+                    VmirExprIdx(
+                        215,
+                    ),
+                    VmirExprIdx(
+                        216,
+                    ),
+                    VmirExprIdx(
+                        217,
+                    ),
+                    VmirExprIdx(
+                        218,
+                    ),
+                    VmirExprIdx(
+                        219,
+                    ),
+                    VmirExprIdx(
+                        220,
+                    ),
+                    VmirExprIdx(
+                        221,
+                    ),
+                    VmirExprIdx(
+                        222,
+                    ),
+                    VmirExprIdx(
+                        223,
+                    ),
+                    VmirExprIdx(
+                        224,
+                    ),
+                    VmirExprIdx(
+                        225,
+                    ),
+                    VmirExprIdx(
+                        226,
+                    ),
+                    VmirExprIdx(
+                        227,
+                    ),
+                    VmirExprIdx(
+                        228,
+                    ),
+                    VmirExprIdx(
+                        229,
+                    ),
+                    VmirExprIdx(
+                        230,
+                    ),
+                    VmirExprIdx(
+                        231,
+                    ),
+                    VmirExprIdx(
+                        232,
+                    ),
+                    VmirExprIdx(
+                        233,
+                    ),
+                    VmirExprIdx(
+                        234,
+                    ),
+                    VmirExprIdx(
+                        235,
+                    ),
+                    VmirExprIdx(
+                        236,
+                    ),
+                    VmirExprIdx(
+                        237,
+                    ),
+                    VmirExprIdx(
+                        238,
+                    ),
+                    VmirExprIdx(
+                        239,
+                    ),
+                    VmirExprIdx(
+                        240,
+                    ),
+                    VmirExprIdx(
+                        241,
+                    ),
+                    VmirExprIdx(
+                        242,
+                    ),
+                    VmirExprIdx(
+                        243,
+                    ),
+                    VmirExprIdx(
+                        244,
+                    ),
+                    VmirExprIdx(
+                        245,
+                    ),
+                    VmirExprIdx(
+                        246,
+                    ),
+                    VmirExprIdx(
+                        247,
+                    ),
+                    VmirExprIdx(
+                        248,
+                    ),
+                    VmirExprIdx(
+                        249,
+                    ),
+                    VmirExprIdx(
+                        250,
+                    ),
+                    VmirExprIdx(
+                        251,
+                    ),
+                    VmirExprIdx(
+                        252,
+                    ),
+                    VmirExprIdx(
+                        253,
+                    ),
+                    VmirExprIdx(
+                        254,
+                    ),
+                    VmirExprIdx(
+                        255,
+                    ),
+                    VmirExprIdx(
+                        256,
+                    ),
+                    VmirExprIdx(
+                        257,
+                    ),
+                    VmirExprIdx(
+                        258,
+                    ),
+                    VmirExprIdx(
+                        259,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                25,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                26,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                27,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                28,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                29,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                30,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                31,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                32,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                33,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                34,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                35,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                36,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                37,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                38,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                39,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                40,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                41,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                42,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                43,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                44,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                45,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                46,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                47,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                48,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                49,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                50,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                51,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                52,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                53,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                54,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                55,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                56,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                57,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                58,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                59,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                60,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                61,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                62,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -11546,6 +14930,38 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -12351,6 +15767,207 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -12531,6 +16148,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -13200,6 +16855,177 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -13451,6 +17277,68 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -14028,6 +17916,56 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -14203,6 +18141,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -14468,6 +18444,62 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -14748,6 +18780,65 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -14906,6 +18997,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -15083,6 +19209,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -15348,6 +19512,62 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -15628,6 +19848,65 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -15873,6 +20152,62 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -16116,6 +20451,62 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -16610,6 +21001,135 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -16768,6 +21288,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -17409,6 +21964,199 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -17910,6 +22658,130 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -18140,6 +23012,67 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -18463,6 +23396,62 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -18784,6 +23773,62 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -18924,6 +23969,38 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -19068,6 +24145,38 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -19208,6 +24317,38 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -19352,6 +24493,38 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -19492,6 +24665,38 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -19636,6 +24841,38 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -19778,6 +25015,38 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -19918,6 +25187,38 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -20789,6 +26090,201 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -21497,6 +26993,201 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -23062,6 +28753,494 @@
                             ),
                             coercion: VmirCoercion::Trivial,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                    VmirExprIdx(
+                        63,
+                    ),
+                    VmirExprIdx(
+                        64,
+                    ),
+                    VmirExprIdx(
+                        65,
+                    ),
+                    VmirExprIdx(
+                        66,
+                    ),
+                    VmirExprIdx(
+                        67,
+                    ),
+                    VmirExprIdx(
+                        68,
+                    ),
+                    VmirExprIdx(
+                        69,
+                    ),
+                    VmirExprIdx(
+                        70,
+                    ),
+                    VmirExprIdx(
+                        71,
+                    ),
+                    VmirExprIdx(
+                        72,
+                    ),
+                    VmirExprIdx(
+                        73,
+                    ),
+                    VmirExprIdx(
+                        74,
+                    ),
+                    VmirExprIdx(
+                        75,
+                    ),
+                    VmirExprIdx(
+                        76,
+                    ),
+                    VmirExprIdx(
+                        77,
+                    ),
+                    VmirExprIdx(
+                        78,
+                    ),
+                    VmirExprIdx(
+                        79,
+                    ),
+                    VmirExprIdx(
+                        80,
+                    ),
+                    VmirExprIdx(
+                        81,
+                    ),
+                    VmirExprIdx(
+                        82,
+                    ),
+                    VmirExprIdx(
+                        83,
+                    ),
+                    VmirExprIdx(
+                        84,
+                    ),
+                    VmirExprIdx(
+                        85,
+                    ),
+                    VmirExprIdx(
+                        86,
+                    ),
+                    VmirExprIdx(
+                        87,
+                    ),
+                    VmirExprIdx(
+                        88,
+                    ),
+                    VmirExprIdx(
+                        89,
+                    ),
+                    VmirExprIdx(
+                        90,
+                    ),
+                    VmirExprIdx(
+                        91,
+                    ),
+                    VmirExprIdx(
+                        92,
+                    ),
+                    VmirExprIdx(
+                        93,
+                    ),
+                    VmirExprIdx(
+                        94,
+                    ),
+                    VmirExprIdx(
+                        95,
+                    ),
+                    VmirExprIdx(
+                        96,
+                    ),
+                    VmirExprIdx(
+                        97,
+                    ),
+                    VmirExprIdx(
+                        98,
+                    ),
+                    VmirExprIdx(
+                        99,
+                    ),
+                    VmirExprIdx(
+                        100,
+                    ),
+                    VmirExprIdx(
+                        101,
+                    ),
+                    VmirExprIdx(
+                        102,
+                    ),
+                    VmirExprIdx(
+                        103,
+                    ),
+                    VmirExprIdx(
+                        104,
+                    ),
+                    VmirExprIdx(
+                        105,
+                    ),
+                    VmirExprIdx(
+                        106,
+                    ),
+                    VmirExprIdx(
+                        107,
+                    ),
+                    VmirExprIdx(
+                        108,
+                    ),
+                    VmirExprIdx(
+                        109,
+                    ),
+                    VmirExprIdx(
+                        110,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                25,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                26,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                27,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -24803,6 +30982,541 @@
                                 },
                             ),
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                    VmirExprIdx(
+                        63,
+                    ),
+                    VmirExprIdx(
+                        64,
+                    ),
+                    VmirExprIdx(
+                        65,
+                    ),
+                    VmirExprIdx(
+                        66,
+                    ),
+                    VmirExprIdx(
+                        67,
+                    ),
+                    VmirExprIdx(
+                        68,
+                    ),
+                    VmirExprIdx(
+                        69,
+                    ),
+                    VmirExprIdx(
+                        70,
+                    ),
+                    VmirExprIdx(
+                        71,
+                    ),
+                    VmirExprIdx(
+                        72,
+                    ),
+                    VmirExprIdx(
+                        73,
+                    ),
+                    VmirExprIdx(
+                        74,
+                    ),
+                    VmirExprIdx(
+                        75,
+                    ),
+                    VmirExprIdx(
+                        76,
+                    ),
+                    VmirExprIdx(
+                        77,
+                    ),
+                    VmirExprIdx(
+                        78,
+                    ),
+                    VmirExprIdx(
+                        79,
+                    ),
+                    VmirExprIdx(
+                        80,
+                    ),
+                    VmirExprIdx(
+                        81,
+                    ),
+                    VmirExprIdx(
+                        82,
+                    ),
+                    VmirExprIdx(
+                        83,
+                    ),
+                    VmirExprIdx(
+                        84,
+                    ),
+                    VmirExprIdx(
+                        85,
+                    ),
+                    VmirExprIdx(
+                        86,
+                    ),
+                    VmirExprIdx(
+                        87,
+                    ),
+                    VmirExprIdx(
+                        88,
+                    ),
+                    VmirExprIdx(
+                        89,
+                    ),
+                    VmirExprIdx(
+                        90,
+                    ),
+                    VmirExprIdx(
+                        91,
+                    ),
+                    VmirExprIdx(
+                        92,
+                    ),
+                    VmirExprIdx(
+                        93,
+                    ),
+                    VmirExprIdx(
+                        94,
+                    ),
+                    VmirExprIdx(
+                        95,
+                    ),
+                    VmirExprIdx(
+                        96,
+                    ),
+                    VmirExprIdx(
+                        97,
+                    ),
+                    VmirExprIdx(
+                        98,
+                    ),
+                    VmirExprIdx(
+                        99,
+                    ),
+                    VmirExprIdx(
+                        100,
+                    ),
+                    VmirExprIdx(
+                        101,
+                    ),
+                    VmirExprIdx(
+                        102,
+                    ),
+                    VmirExprIdx(
+                        103,
+                    ),
+                    VmirExprIdx(
+                        104,
+                    ),
+                    VmirExprIdx(
+                        105,
+                    ),
+                    VmirExprIdx(
+                        106,
+                    ),
+                    VmirExprIdx(
+                        107,
+                    ),
+                    VmirExprIdx(
+                        108,
+                    ),
+                    VmirExprIdx(
+                        109,
+                    ),
+                    VmirExprIdx(
+                        110,
+                    ),
+                    VmirExprIdx(
+                        111,
+                    ),
+                    VmirExprIdx(
+                        112,
+                    ),
+                    VmirExprIdx(
+                        113,
+                    ),
+                    VmirExprIdx(
+                        114,
+                    ),
+                    VmirExprIdx(
+                        115,
+                    ),
+                    VmirExprIdx(
+                        116,
+                    ),
+                    VmirExprIdx(
+                        117,
+                    ),
+                    VmirExprIdx(
+                        118,
+                    ),
+                    VmirExprIdx(
+                        119,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                25,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                26,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                27,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                28,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                29,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                30,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                31,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -28666,6 +35380,761 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                    VmirExprIdx(
+                        63,
+                    ),
+                    VmirExprIdx(
+                        64,
+                    ),
+                    VmirExprIdx(
+                        65,
+                    ),
+                    VmirExprIdx(
+                        66,
+                    ),
+                    VmirExprIdx(
+                        67,
+                    ),
+                    VmirExprIdx(
+                        68,
+                    ),
+                    VmirExprIdx(
+                        69,
+                    ),
+                    VmirExprIdx(
+                        70,
+                    ),
+                    VmirExprIdx(
+                        71,
+                    ),
+                    VmirExprIdx(
+                        72,
+                    ),
+                    VmirExprIdx(
+                        73,
+                    ),
+                    VmirExprIdx(
+                        74,
+                    ),
+                    VmirExprIdx(
+                        75,
+                    ),
+                    VmirExprIdx(
+                        76,
+                    ),
+                    VmirExprIdx(
+                        77,
+                    ),
+                    VmirExprIdx(
+                        78,
+                    ),
+                    VmirExprIdx(
+                        79,
+                    ),
+                    VmirExprIdx(
+                        80,
+                    ),
+                    VmirExprIdx(
+                        81,
+                    ),
+                    VmirExprIdx(
+                        82,
+                    ),
+                    VmirExprIdx(
+                        83,
+                    ),
+                    VmirExprIdx(
+                        84,
+                    ),
+                    VmirExprIdx(
+                        85,
+                    ),
+                    VmirExprIdx(
+                        86,
+                    ),
+                    VmirExprIdx(
+                        87,
+                    ),
+                    VmirExprIdx(
+                        88,
+                    ),
+                    VmirExprIdx(
+                        89,
+                    ),
+                    VmirExprIdx(
+                        90,
+                    ),
+                    VmirExprIdx(
+                        91,
+                    ),
+                    VmirExprIdx(
+                        92,
+                    ),
+                    VmirExprIdx(
+                        93,
+                    ),
+                    VmirExprIdx(
+                        94,
+                    ),
+                    VmirExprIdx(
+                        95,
+                    ),
+                    VmirExprIdx(
+                        96,
+                    ),
+                    VmirExprIdx(
+                        97,
+                    ),
+                    VmirExprIdx(
+                        98,
+                    ),
+                    VmirExprIdx(
+                        99,
+                    ),
+                    VmirExprIdx(
+                        100,
+                    ),
+                    VmirExprIdx(
+                        101,
+                    ),
+                    VmirExprIdx(
+                        102,
+                    ),
+                    VmirExprIdx(
+                        103,
+                    ),
+                    VmirExprIdx(
+                        104,
+                    ),
+                    VmirExprIdx(
+                        105,
+                    ),
+                    VmirExprIdx(
+                        106,
+                    ),
+                    VmirExprIdx(
+                        107,
+                    ),
+                    VmirExprIdx(
+                        108,
+                    ),
+                    VmirExprIdx(
+                        109,
+                    ),
+                    VmirExprIdx(
+                        110,
+                    ),
+                    VmirExprIdx(
+                        111,
+                    ),
+                    VmirExprIdx(
+                        112,
+                    ),
+                    VmirExprIdx(
+                        113,
+                    ),
+                    VmirExprIdx(
+                        114,
+                    ),
+                    VmirExprIdx(
+                        115,
+                    ),
+                    VmirExprIdx(
+                        116,
+                    ),
+                    VmirExprIdx(
+                        117,
+                    ),
+                    VmirExprIdx(
+                        118,
+                    ),
+                    VmirExprIdx(
+                        119,
+                    ),
+                    VmirExprIdx(
+                        120,
+                    ),
+                    VmirExprIdx(
+                        121,
+                    ),
+                    VmirExprIdx(
+                        122,
+                    ),
+                    VmirExprIdx(
+                        123,
+                    ),
+                    VmirExprIdx(
+                        124,
+                    ),
+                    VmirExprIdx(
+                        125,
+                    ),
+                    VmirExprIdx(
+                        126,
+                    ),
+                    VmirExprIdx(
+                        127,
+                    ),
+                    VmirExprIdx(
+                        128,
+                    ),
+                    VmirExprIdx(
+                        129,
+                    ),
+                    VmirExprIdx(
+                        130,
+                    ),
+                    VmirExprIdx(
+                        131,
+                    ),
+                    VmirExprIdx(
+                        132,
+                    ),
+                    VmirExprIdx(
+                        133,
+                    ),
+                    VmirExprIdx(
+                        134,
+                    ),
+                    VmirExprIdx(
+                        135,
+                    ),
+                    VmirExprIdx(
+                        136,
+                    ),
+                    VmirExprIdx(
+                        137,
+                    ),
+                    VmirExprIdx(
+                        138,
+                    ),
+                    VmirExprIdx(
+                        139,
+                    ),
+                    VmirExprIdx(
+                        140,
+                    ),
+                    VmirExprIdx(
+                        141,
+                    ),
+                    VmirExprIdx(
+                        142,
+                    ),
+                    VmirExprIdx(
+                        143,
+                    ),
+                    VmirExprIdx(
+                        144,
+                    ),
+                    VmirExprIdx(
+                        145,
+                    ),
+                    VmirExprIdx(
+                        146,
+                    ),
+                    VmirExprIdx(
+                        147,
+                    ),
+                    VmirExprIdx(
+                        148,
+                    ),
+                    VmirExprIdx(
+                        149,
+                    ),
+                    VmirExprIdx(
+                        150,
+                    ),
+                    VmirExprIdx(
+                        151,
+                    ),
+                    VmirExprIdx(
+                        152,
+                    ),
+                    VmirExprIdx(
+                        153,
+                    ),
+                    VmirExprIdx(
+                        154,
+                    ),
+                    VmirExprIdx(
+                        155,
+                    ),
+                    VmirExprIdx(
+                        156,
+                    ),
+                    VmirExprIdx(
+                        157,
+                    ),
+                    VmirExprIdx(
+                        158,
+                    ),
+                    VmirExprIdx(
+                        159,
+                    ),
+                    VmirExprIdx(
+                        160,
+                    ),
+                    VmirExprIdx(
+                        161,
+                    ),
+                    VmirExprIdx(
+                        162,
+                    ),
+                    VmirExprIdx(
+                        163,
+                    ),
+                    VmirExprIdx(
+                        164,
+                    ),
+                    VmirExprIdx(
+                        165,
+                    ),
+                    VmirExprIdx(
+                        166,
+                    ),
+                    VmirExprIdx(
+                        167,
+                    ),
+                    VmirExprIdx(
+                        168,
+                    ),
+                    VmirExprIdx(
+                        169,
+                    ),
+                    VmirExprIdx(
+                        170,
+                    ),
+                    VmirExprIdx(
+                        171,
+                    ),
+                    VmirExprIdx(
+                        172,
+                    ),
+                    VmirExprIdx(
+                        173,
+                    ),
+                    VmirExprIdx(
+                        174,
+                    ),
+                    VmirExprIdx(
+                        175,
+                    ),
+                    VmirExprIdx(
+                        176,
+                    ),
+                    VmirExprIdx(
+                        177,
+                    ),
+                    VmirExprIdx(
+                        178,
+                    ),
+                    VmirExprIdx(
+                        179,
+                    ),
+                    VmirExprIdx(
+                        180,
+                    ),
+                    VmirExprIdx(
+                        181,
+                    ),
+                    VmirExprIdx(
+                        182,
+                    ),
+                    VmirExprIdx(
+                        183,
+                    ),
+                    VmirExprIdx(
+                        184,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                25,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                26,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                27,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                28,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                29,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                30,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                31,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                32,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                33,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                34,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                35,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                36,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -28922,6 +36391,67 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -29107,6 +36637,44 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -29212,6 +36780,35 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -30075,6 +37672,213 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -30229,6 +38033,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -31195,6 +39037,273 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -31304,6 +39413,35 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -31496,6 +39634,47 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -32031,6 +40210,143 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -32338,6 +40654,104 @@
                             ),
                             coercion: VmirCoercion::Trivial,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -33293,6 +41707,222 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -33505,6 +42135,47 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -33960,6 +42631,68 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -34209,6 +42942,47 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -34462,6 +43236,47 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -34610,6 +43425,38 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -34818,6 +43665,44 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -35022,6 +43907,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -36179,6 +45102,268 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -36431,6 +45616,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -37134,6 +46357,157 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -37641,6 +47015,90 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -37845,6 +47303,68 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -38047,6 +47567,68 @@
                             ),
                             coercion: VmirCoercion::Trivial,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -38286,6 +47868,71 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -38447,6 +48094,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -38653,6 +48335,70 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -38832,6 +48578,47 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -39053,6 +48840,63 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -39297,6 +49141,69 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -39611,6 +49518,92 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -39772,6 +49765,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -39936,6 +49964,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -40157,6 +50223,63 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -40853,6 +50976,161 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -41016,6 +51294,47 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -41936,6 +52255,274 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Some,
+                        Some,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -42240,6 +52827,72 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -42548,6 +53201,72 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -42854,6 +53573,72 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -43018,6 +53803,44 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -43150,6 +53973,38 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -43315,6 +54170,41 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -43476,6 +54366,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -44700,6 +55625,347 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Some,
+                        Some,
+                        Some,
+                        Some,
+                        Some,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                    VmirExprIdx(
+                        63,
+                    ),
+                    VmirExprIdx(
+                        64,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -44903,6 +56169,63 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -45237,6 +56560,86 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -45318,6 +56721,32 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -45481,6 +56910,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -45694,6 +57158,66 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -45856,6 +57380,44 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -46186,6 +57748,86 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -46575,6 +58217,111 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -47466,6 +59213,252 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Some,
+                        Some,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -47627,6 +59620,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -47901,6 +59929,84 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -48459,6 +60565,102 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -48622,6 +60824,41 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -48783,6 +61020,41 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -49979,6 +62251,329 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Some,
+                        Some,
+                        Some,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -50182,6 +62777,63 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -50516,6 +63168,86 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -50679,6 +63411,47 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -50886,6 +63659,63 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -51091,6 +63921,63 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -51294,6 +64181,63 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -52876,6 +65820,452 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [
+                        Some,
+                        Some,
+                        Some,
+                        Some,
+                        Some,
+                    ],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                    VmirExprIdx(
+                        15,
+                    ),
+                    VmirExprIdx(
+                        16,
+                    ),
+                    VmirExprIdx(
+                        17,
+                    ),
+                    VmirExprIdx(
+                        18,
+                    ),
+                    VmirExprIdx(
+                        19,
+                    ),
+                    VmirExprIdx(
+                        20,
+                    ),
+                    VmirExprIdx(
+                        21,
+                    ),
+                    VmirExprIdx(
+                        22,
+                    ),
+                    VmirExprIdx(
+                        23,
+                    ),
+                    VmirExprIdx(
+                        24,
+                    ),
+                    VmirExprIdx(
+                        25,
+                    ),
+                    VmirExprIdx(
+                        26,
+                    ),
+                    VmirExprIdx(
+                        27,
+                    ),
+                    VmirExprIdx(
+                        28,
+                    ),
+                    VmirExprIdx(
+                        29,
+                    ),
+                    VmirExprIdx(
+                        30,
+                    ),
+                    VmirExprIdx(
+                        31,
+                    ),
+                    VmirExprIdx(
+                        32,
+                    ),
+                    VmirExprIdx(
+                        33,
+                    ),
+                    VmirExprIdx(
+                        34,
+                    ),
+                    VmirExprIdx(
+                        35,
+                    ),
+                    VmirExprIdx(
+                        36,
+                    ),
+                    VmirExprIdx(
+                        37,
+                    ),
+                    VmirExprIdx(
+                        38,
+                    ),
+                    VmirExprIdx(
+                        39,
+                    ),
+                    VmirExprIdx(
+                        40,
+                    ),
+                    VmirExprIdx(
+                        41,
+                    ),
+                    VmirExprIdx(
+                        42,
+                    ),
+                    VmirExprIdx(
+                        43,
+                    ),
+                    VmirExprIdx(
+                        44,
+                    ),
+                    VmirExprIdx(
+                        45,
+                    ),
+                    VmirExprIdx(
+                        46,
+                    ),
+                    VmirExprIdx(
+                        47,
+                    ),
+                    VmirExprIdx(
+                        48,
+                    ),
+                    VmirExprIdx(
+                        49,
+                    ),
+                    VmirExprIdx(
+                        50,
+                    ),
+                    VmirExprIdx(
+                        51,
+                    ),
+                    VmirExprIdx(
+                        52,
+                    ),
+                    VmirExprIdx(
+                        53,
+                    ),
+                    VmirExprIdx(
+                        54,
+                    ),
+                    VmirExprIdx(
+                        55,
+                    ),
+                    VmirExprIdx(
+                        56,
+                    ),
+                    VmirExprIdx(
+                        57,
+                    ),
+                    VmirExprIdx(
+                        58,
+                    ),
+                    VmirExprIdx(
+                        59,
+                    ),
+                    VmirExprIdx(
+                        60,
+                    ),
+                    VmirExprIdx(
+                        61,
+                    ),
+                    VmirExprIdx(
+                        62,
+                    ),
+                    VmirExprIdx(
+                        63,
+                    ),
+                    VmirExprIdx(
+                        64,
+                    ),
+                    VmirExprIdx(
+                        65,
+                    ),
+                    VmirExprIdx(
+                        66,
+                    ),
+                    VmirExprIdx(
+                        67,
+                    ),
+                    VmirExprIdx(
+                        68,
+                    ),
+                    VmirExprIdx(
+                        69,
+                    ),
+                    VmirExprIdx(
+                        70,
+                    ),
+                    VmirExprIdx(
+                        71,
+                    ),
+                    VmirExprIdx(
+                        72,
+                    ),
+                    VmirExprIdx(
+                        73,
+                    ),
+                    VmirExprIdx(
+                        74,
+                    ),
+                    VmirExprIdx(
+                        75,
+                    ),
+                    VmirExprIdx(
+                        76,
+                    ),
+                    VmirExprIdx(
+                        77,
+                    ),
+                    VmirExprIdx(
+                        78,
+                    ),
+                    VmirExprIdx(
+                        79,
+                    ),
+                    VmirExprIdx(
+                        80,
+                    ),
+                    VmirExprIdx(
+                        81,
+                    ),
+                    VmirExprIdx(
+                        82,
+                    ),
+                    VmirExprIdx(
+                        83,
+                    ),
+                    VmirExprIdx(
+                        84,
+                    ),
+                    VmirExprIdx(
+                        85,
+                    ),
+                    VmirExprIdx(
+                        86,
+                    ),
+                    VmirExprIdx(
+                        87,
+                    ),
+                    VmirExprIdx(
+                        88,
+                    ),
+                    VmirExprIdx(
+                        89,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                8,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                9,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                10,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                11,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                12,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                13,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                14,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                15,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                16,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                17,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                18,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                19,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                20,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                21,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                22,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                23,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                24,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                25,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                26,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                27,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                28,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                29,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                30,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -52980,6 +66370,35 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -53223,6 +66642,106 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                    VmirExprIdx(
+                        10,
+                    ),
+                    VmirExprIdx(
+                        11,
+                    ),
+                    VmirExprIdx(
+                        12,
+                    ),
+                    VmirExprIdx(
+                        13,
+                    ),
+                    VmirExprIdx(
+                        14,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                4,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                5,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                6,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                7,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -53431,6 +66950,71 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                    VmirExprIdx(
+                        8,
+                    ),
+                    VmirExprIdx(
+                        9,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -53543,6 +67127,35 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -53604,6 +67217,32 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -53718,6 +67357,35 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -53828,6 +67496,35 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -54276,6 +67973,57 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -54716,6 +68464,57 @@
                                 },
                             ],
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
                     ],
                 },
             },
