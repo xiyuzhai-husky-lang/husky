@@ -20,14 +20,17 @@ VERBOSE = False
 
 
 def process_lock_file(lock_file_path: str) -> None:
+    flag = False
     """Process a single .rich-test-lock file to extract paths and store the parent directory."""
     with open(lock_file_path, "r", encoding="utf8") as lock_file:
         for line in lock_file:
+            flag = True
             covered_paths.add(line.strip())
 
-    # Add the parent directory of the lock file to the set of directories
-    parent_dir = os.path.dirname(lock_file_path)
-    dirs_with_lock_files.add(parent_dir)
+    if flag:
+        # Add the parent directory of the lock file to the set of directories
+        parent_dir = os.path.dirname(lock_file_path)
+        dirs_with_lock_files.add(parent_dir)
 
     # Delete the lock file after processing
     os.remove(lock_file_path)

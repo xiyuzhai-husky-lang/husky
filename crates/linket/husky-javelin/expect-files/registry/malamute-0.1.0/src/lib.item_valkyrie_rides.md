@@ -312,7 +312,7 @@
                             TypePath(`malamute::Class`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`malamute::Class::Known`),
+                            path: ItemPath(`malamute::Class`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -350,77 +350,7 @@
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`core::ops::ControlFlow::Break`),
-                            context: HirTypeContext {
-                                comptime_var_overrides: [],
-                            },
-                            variable_map: [
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Mono,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`malamute::Class`, `Enum`),
-                                                    template_arguments: [
-                                                        HirTemplateArgument::Type(
-                                                            HirType::Variable(
-                                                                HirTypeTemplateVariable::Type {
-                                                                    attrs: HirTemplateVariableAttrs {
-                                                                        class: Mono,
-                                                                    },
-                                                                    variance: None,
-                                                                    disambiguator: 0,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    ],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Mono,
-                                            },
-                                            variance: None,
-                                            disambiguator: 1,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                    template_arguments: [],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: None,
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        path: JavPath::Type(
-                            TypePath(`core::ops::ControlFlow`, `Enum`),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            path: ItemPath(`core::ops::ControlFlow::Continue`),
+                            path: ItemPath(`core::ops::ControlFlow`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },
@@ -530,65 +460,7 @@
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
-                            path: ItemPath(`core::ops::ControlFlow::Break`),
-                            context: HirTypeContext {
-                                comptime_var_overrides: [],
-                            },
-                            variable_map: [
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Mono,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                    template_arguments: [],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Mono,
-                                            },
-                                            variance: None,
-                                            disambiguator: 1,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                    template_arguments: [],
-                                                    always_copyable: true,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: None,
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        path: JavPath::Type(
-                            TypePath(`core::ops::ControlFlow`, `Enum`),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            path: ItemPath(`core::ops::ControlFlow::Continue`),
+                            path: ItemPath(`core::ops::ControlFlow`),
                             context: HirTypeContext {
                                 comptime_var_overrides: [],
                             },

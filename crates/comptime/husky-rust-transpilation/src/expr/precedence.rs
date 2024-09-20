@@ -113,7 +113,7 @@ impl RustPrecedence {
     pub(super) fn from_expr(data: &HirEagerExprData) -> RustPrecedence {
         match data {
             HirEagerExprData::Literal(_)
-            | HirEagerExprData::PrincipalEntityPath(_)
+            | HirEagerExprData::PrincipalEntityPath { .. }
             | HirEagerExprData::ComptimeVariable { .. }
             | HirEagerExprData::RuntimeVariable(_)
             | HirEagerExprData::NewTuple { .. }

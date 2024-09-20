@@ -77,6 +77,10 @@ impl Trace {
 }
 
 impl EagerExprTraceData {
+    pub fn hir_eager_expr_idx(&self) -> Option<HirEagerExprIdx> {
+        self.hir_eager_expr_idx
+    }
+
     pub fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sem_expr_region = self.sem_expr_region;
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
