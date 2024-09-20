@@ -63,6 +63,7 @@ impl ValkyrieRide {
                 ref hir_instantiation,
             } => {
                 debug_assert!(!hir_instantiation.is_univalent_for_javelin());
+                assert_eq!(hir_instantiation.path(), path.into());
                 let instantiation =
                     JavInstantiation::from_hir(hir_instantiation, jav_instantiation, db);
                 ValkyrieJavelin(Javelin::new(
@@ -140,7 +141,10 @@ impl<'db> ValkyrieRidesBuilder<'db> {
             #[deprecated(note = "incomplete")]
             match *entry.data() {
                 HirEagerExprData::AssocRitchie { assoc_item_path: _ } => (), // ad hoc
-                HirEagerExprData::PrincipalEntityPath(path) => match path {
+                HirEagerExprData::PrincipalEntityPath {
+                    path,
+                    ref instantiation,
+                } => match path {
                     PrincipalEntityPath::Module(_) => unreachable!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
                         MajorItemPath::Type(_) => (),
@@ -154,24 +158,30 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.into(), instantiation),
+                } => self.try_add_path_leading_ride(path.into(), instantiation.clone()),
                 HirEagerExprData::TypeVariantConstructorCall {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.parent_ty_path(db).into(), instantiation),
+                } => {
+                    let parent_ty_path = path.parent_ty_path(db);
+                    self.try_add_path_leading_ride(
+                        parent_ty_path.into(),
+                        instantiation.with_ty_path(parent_ty_path, db),
+                    )
+                }
                 HirEagerExprData::FunctionRitchieCall {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.into(), instantiation),
+                } => self.try_add_path_leading_ride(path.into(), instantiation.clone()),
                 HirEagerExprData::AssocFunctionRitchieCall {
                     path,
                     ref instantiation,
                     ..
                 } => {
                     if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
-                        self.try_add_path_leading_ride(javelin_path, instantiation)
+                        self.try_add_path_leading_ride(javelin_path, instantiation.clone())
                     }
                 }
                 HirEagerExprData::PropsStructField { .. } => (),
@@ -186,7 +196,7 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     ..
                 } => {
                     if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
-                        self.try_add_path_leading_ride(javelin_path, instantiation)
+                        self.try_add_path_leading_ride(javelin_path, instantiation.clone())
                     }
                 }
                 HirEagerExprData::NewTuple { items: _ } => (),
@@ -205,7 +215,7 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     if let Some(javelin_path) =
                         JavPath::try_from_item_path(unveil_assoc_fn_path.into(), db)
                     {
-                        self.try_add_path_leading_ride(javelin_path, instantiation)
+                        self.try_add_path_leading_ride(javelin_path, instantiation.clone())
                     } else {
                         todo!()
                     }
@@ -255,24 +265,27 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.into(), instantiation),
+                } => self.try_add_path_leading_ride(path.into(), instantiation.clone()),
                 HirLazyExprData::TypeVariantConstructorCall {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.parent_ty_path(db).into(), instantiation),
+                } => self.try_add_path_leading_ride(
+                    path.parent_ty_path(db).into(),
+                    instantiation.clone(),
+                ),
                 HirLazyExprData::FunctionRitchieItemCall {
                     path,
                     ref instantiation,
                     ..
-                } => self.try_add_path_leading_ride(path.into(), instantiation),
+                } => self.try_add_path_leading_ride(path.into(), instantiation.clone()),
                 HirLazyExprData::AssocFunctionRitchieCall {
                     path,
                     ref instantiation,
                     ..
                 } => {
                     if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
-                        self.try_add_path_leading_ride(javelin_path, instantiation)
+                        self.try_add_path_leading_ride(javelin_path, instantiation.clone())
                     }
                 }
                 HirLazyExprData::PropsStructField { .. } => (),
@@ -284,7 +297,7 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     ref instantiation,
                 } => {
                     if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
-                        self.try_add_path_leading_ride(javelin_path, instantiation)
+                        self.try_add_path_leading_ride(javelin_path, instantiation.clone())
                     }
                 }
                 HirLazyExprData::MethodRitchieCall {
@@ -293,7 +306,7 @@ impl<'db> ValkyrieRidesBuilder<'db> {
                     ..
                 } => {
                     if let Some(javelin_path) = JavPath::try_from_item_path(path.into(), db) {
-                        self.try_add_path_leading_ride(javelin_path, instantiation)
+                        self.try_add_path_leading_ride(javelin_path, instantiation.clone())
                     }
                 }
                 HirLazyExprData::NewTuple { items: _ } => (),
@@ -328,15 +341,12 @@ impl<'db> ValkyrieRidesBuilder<'db> {
         }
     }
 
-    fn try_add_path_leading_ride(
-        &mut self,
-        jav_path: JavPath,
-        hir_instantiation: &HirInstantiation,
-    ) {
+    fn try_add_path_leading_ride(&mut self, path: JavPath, hir_instantiation: HirInstantiation) {
+        assert_eq!(hir_instantiation.path(), path.into());
         if !hir_instantiation.is_univalent_for_javelin() {
             self.rides.insert_move(ValkyrieRide::PathLeading {
-                path: jav_path,
-                hir_instantiation: hir_instantiation.clone(),
+                path,
+                hir_instantiation,
             })
         }
     }

@@ -13,7 +13,7 @@ macro_rules! impl_thawed_for_primitive_ty {
                 Some((*self).into())
             }
 
-            unsafe fn freeze(&self) -> Self::Frozen {
+            fn freeze(&self) -> Self::Frozen {
                 *self
             }
 

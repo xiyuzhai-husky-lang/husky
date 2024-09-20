@@ -24,6 +24,18 @@ pub enum JavPath {
     Type(TypePath),
 }
 
+impl Into<ItemPath> for JavPath {
+    fn into(self) -> ItemPath {
+        match self {
+            JavPath::Form(slf) => slf.into(),
+            JavPath::TypeItem(slf) => slf.into(),
+            JavPath::TraitItem(slf) => slf.into(),
+            JavPath::TraitForTypeItem(slf) => slf.into(),
+            JavPath::Type(slf) => slf.into(),
+        }
+    }
+}
+
 impl std::ops::Deref for JavPath {
     type Target = ItemPathId;
 

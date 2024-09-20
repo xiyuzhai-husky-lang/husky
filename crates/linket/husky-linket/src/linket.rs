@@ -252,6 +252,7 @@ impl Linket {
             &instantiation,
             db,
         );
+        assert_eq!(hir_instantiation.path(), path.into());
         Self::new(
             db,
             LinketData::EnumVariantConstructor {
@@ -275,7 +276,7 @@ impl Linket {
         )
     }
 
-    pub fn new_major_function_ritchie_item(
+    pub fn new_major_ritchie_item(
         path: MajorFormPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
@@ -342,6 +343,7 @@ fn linkets_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallVe
             path,
             ref instantiation,
         } => {
+            assert_eq!(instantiation.path(), path.into());
             fn build(
                 instantiation: &JavInstantiation,
                 f: impl Fn(LinInstantiation) -> Linket,

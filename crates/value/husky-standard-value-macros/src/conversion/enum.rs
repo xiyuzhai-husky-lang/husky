@@ -59,7 +59,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                     todo!()
                 }
 
-                unsafe fn freeze(&self) -> Self::Frozen {
+                 fn freeze(&self) -> Self::Frozen {
                     // FrozenMut::new(*self)
                     todo!()
                 }
@@ -162,7 +162,7 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                     todo!()
                 }
 
-                unsafe fn freeze(&self) -> Self::Frozen {
+                 fn freeze(&self) -> Self::Frozen {
                     // FrozenMut::new(*self)
                     todo!()
                 }

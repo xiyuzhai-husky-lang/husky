@@ -166,6 +166,7 @@ sealed = "0.5"
 serde = { version = "1.0.209", features = ["derive"] }
 serde_json = { version = "1.0.127", features = ["preserve_order"] }
 serde_with = "3.9.0"
+similar = "2.6.0"
 # turn on "union" to guarantee the size of SmallVec is unaffected by dependencies
 smallvec = { version = "1.12", features = [
     "union",
