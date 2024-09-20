@@ -22,17 +22,27 @@ pub(super) fn enum_ty_linkets_emancipated_by_javelin(
     instantiation: &JavInstantiation,
     db: &::salsa::Db,
 ) -> SmallVec<[Linket; 4]> {
+    use husky_print_utils::p;
+    use salsa::DebugWithDb;
+
     let mut linkets: SmallVec<[Linket; 4]> = smallvec![];
     if enum_ty_has_only_unit_variants(db, path) {
         linkets.push(Linket::new_enum_index_presenter(path, db))
     }
+    assert_eq!(
+        instantiation.path(),
+        path.into(),
+        "Mismatch between instantiation path and type path: instantiation.path()={:?}, path={:?}",
+        instantiation.path().debug(db),
+        path.debug(db)
+    );
     for instantiation in LinInstantiation::from_jav(instantiation, db) {
         let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);
         for &(_, path) in path.ty_variant_paths(db) {
             use husky_print_utils::p;
             use salsa::DebugWithDb;
 
-            let instantiation = instantiation.new_ty_variant(path);
+            let instantiation = instantiation.with_ty_variant(path);
             let hir_decl = path.hir_decl(db).unwrap();
             linkets.push(Linket::new(
                 db,

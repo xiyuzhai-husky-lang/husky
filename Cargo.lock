@@ -4773,6 +4773,7 @@ dependencies = [
  "husky-entity-path",
  "husky-eth-signature",
  "husky-eth-term",
+ "husky-hir-eager-expr",
  "husky-item-path-interface",
  "husky-ki-repr",
  "husky-ki-repr-interface",

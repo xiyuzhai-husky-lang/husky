@@ -40,7 +40,7 @@ where
         })
     }
 
-     fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 
