@@ -523,7 +523,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 ..
             } => {
                 let opn = match path.kind(db).ritchie() {
-                    RitchieItemKind::Fn => KiOpn::Linket(Linket::new_major_function_ritchie_item(
+                    RitchieItemKind::Fn => KiOpn::Linket(Linket::new_major_ritchie_item(
                         path,
                         instantiation,
                         &self.lin_instantiation,
@@ -535,7 +535,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                         };
                         match hir_defn.body_with_hir_expr_region(db) {
                             Some((body, _)) => todo!(),
-                            None => KiOpn::Linket(Linket::new_major_function_ritchie_item(
+                            None => KiOpn::Linket(Linket::new_major_ritchie_item(
                                 path,
                                 instantiation,
                                 &self.lin_instantiation,

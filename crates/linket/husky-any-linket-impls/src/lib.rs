@@ -4,7 +4,7 @@ use husky_devsoul_interface::devsoul::IsDevsoulInterface;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_linket_impl::{eval_context::DevEvalContextGuard, linket_impls::LinketImpls};
 use husky_linket_impl::{
-    eval_context::{DevEvalContext, IsDevRuntimeDyn},
+    eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn},
     linket_impl::IsLinketImpl,
 };
 use std::any::Any;

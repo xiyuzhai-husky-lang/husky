@@ -13,6 +13,16 @@ pub struct Javelin {
 
 impl Javelin {
     pub(crate) fn new(db: &::salsa::Db, data: JavelinData) -> Self {
+        match data {
+            JavelinData::PathLeading {
+                path,
+                ref instantiation,
+            } => {
+                assert_eq!(instantiation.path(), path.into());
+            }
+            JavelinData::VecConstructor { element_ty } => (),
+            JavelinData::TypeDefault { ty } => (),
+        }
         Self::new_inner(db, data)
     }
 }

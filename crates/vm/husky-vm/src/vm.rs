@@ -1,5 +1,12 @@
+use std::sync::Arc;
+
 use crate::snapshot::{VmSnapshotKey, VmSnapshotsData};
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
+use husky_linket_impl::{
+    eval_context::IsDevRuntimeInterface,
+    linket_impl::{LinketImplSlushValue, LinketImplThawedValue},
+    LinketImplVmControlFlowFrozen,
+};
 use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlowThawed};
 use husky_linktime::{
     helpers::{
@@ -25,17 +32,23 @@ use crate::{
     snapshot::VmSnapshot,
 };
 
-pub(crate) struct Vm<'a, Linktime: IsLinktime, VmirStorage: IsVmirStorage<Linktime::LinketImpl>> {
-    place_slush_values: Vec<LinktimeSlushValue<Linktime>>,
-    pub(crate) place_thawed_values: Vec<LinktimeThawedValue<Linktime>>,
+pub(crate) struct Vm<
+    'a,
+    LinketImpl: IsLinketImpl,
+    DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+    VmirStorage: IsVmirStorage<LinketImpl>,
+> {
+    linket: Linket,
+    place_slush_values: Vec<LinketImplSlushValue<LinketImpl>>,
+    pub(crate) place_thawed_values: Vec<LinketImplThawedValue<LinketImpl>>,
     mode: VmMode,
-    expr_records: VmirExprMap<Linktime::LinketImpl, VmRecord<Linktime::LinketImpl>>,
-    stmt_records: VmirStmtMap<Linktime::LinketImpl, VmRecord<Linktime::LinketImpl>>,
-    snapshots: VmSnapshotsData<Linktime::LinketImpl>,
-    pub(crate) vmir_region: &'a VmirRegion<Linktime::LinketImpl>,
+    expr_records: VmirExprMap<LinketImpl, VmRecord<LinketImpl>>,
+    stmt_records: VmirStmtMap<LinketImpl, VmRecord<LinketImpl>>,
+    snapshots: VmSnapshotsData<LinketImpl>,
+    pub(crate) vmir_region: &'a VmirRegion<LinketImpl>,
     pub(crate) place_registry: &'a PlaceRegistry,
     pub(crate) db: &'a ::salsa::Db,
-    pub(crate) linktime: &'a Linktime,
+    pub(crate) runtime: &'a DevRuntime,
     // is this always useful?
     pub(crate) vmir_storage: &'a VmirStorage,
 }
@@ -46,18 +59,20 @@ pub enum VmMode {
     Record,
 }
 
-impl<'a, Linktime, VmirStorage> Vm<'a, Linktime, VmirStorage>
-where
-    Linktime: IsLinktime,
-    VmirStorage: IsVmirStorage<Linktime::LinketImpl>,
+impl<
+        'a,
+        LinketImpl: IsLinketImpl,
+        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        VmirStorage: IsVmirStorage<LinketImpl>,
+    > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
     pub(crate) fn new_fresh(
         linket: Linket,
-        arguments: Vec<<Linktime::LinketImpl as IsLinketImpl>::Value>,
+        arguments: Vec<<LinketImpl as IsLinketImpl>::Value>,
         mode: VmMode,
-        vmir_region: &'a VmirRegion<Linktime::LinketImpl>,
+        vmir_region: &'a VmirRegion<LinketImpl>,
         db: &'a ::salsa::Db,
-        linktime: &'a Linktime,
+        runtime: &'a DevRuntime,
         vmir_storage: &'a VmirStorage, // used to access others
     ) -> Self {
         use husky_value::IsValue;
@@ -68,9 +83,10 @@ where
         let mut place_values = vec![];
         for _ in place_values.len()..place_registry.len() {
             todo!()
-            // place_values.push(<Linktime::LinketImpl as IsLinketImpl>::Value::new_uninit())
+            // place_values.push(<LinketImpl as IsLinketImpl>::Value::new_uninit())
         }
         Self {
+            linket,
             mode,
             place_slush_values: vec![],
             place_thawed_values: place_values,
@@ -80,27 +96,28 @@ where
             vmir_region,
             place_registry,
             db,
-            linktime,
+            runtime,
             vmir_storage,
         }
     }
 
     pub(crate) fn from_snapshot(
-        snapshot: VmSnapshot<Linktime::LinketImpl>,
+        snapshot: VmSnapshot<LinketImpl>,
         mode: VmMode,
-        vmir_region: &'a VmirRegion<Linktime::LinketImpl>,
+        vmir_region: &'a VmirRegion<LinketImpl>,
         db: &'a ::salsa::Db,
-        linktime: &'a Linktime,
+        runtime: &'a DevRuntime,
         vmir_storage: &'a VmirStorage, // used to access others
     ) -> Self {
-        let mut place_slush_values: Vec<LinktimeSlushValue<Linktime>> = vec![];
-        let mut place_thawed_values: Vec<LinktimeThawedValue<Linktime>> = vec![];
+        let mut place_slush_values: Vec<LinketImplSlushValue<LinketImpl>> = vec![];
+        let mut place_thawed_values: Vec<LinketImplThawedValue<LinketImpl>> = vec![];
         for place_frozen_value in snapshot.place_frozen_values() {
             let (slush_value, thawed_value) = place_frozen_value.thaw();
             place_slush_values.push(slush_value);
             place_thawed_values.push(thawed_value);
         }
         Self {
+            linket: snapshot.linket(),
             place_slush_values,
             place_thawed_values,
             mode,
@@ -112,7 +129,7 @@ where
                 .place_registry(db)
                 .expect("has vmir_region implies that this is some"),
             db,
-            linktime,
+            runtime,
             vmir_storage,
             snapshots: Default::default(),
         }
@@ -121,10 +138,12 @@ where
 
 /// # getters
 ///
-impl<'a, Linktime, VmirStorage> Vm<'a, Linktime, VmirStorage>
-where
-    Linktime: IsLinktime,
-    VmirStorage: IsVmirStorage<Linktime::LinketImpl>,
+impl<
+        'a,
+        LinketImpl: IsLinketImpl,
+        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        VmirStorage: IsVmirStorage<LinketImpl>,
+    > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
     pub(crate) fn mode(&self) -> VmMode {
         self.mode
@@ -132,15 +151,17 @@ where
 }
 
 /// # setters
-impl<'a, Linktime, VmirStorage> Vm<'a, Linktime, VmirStorage>
-where
-    Linktime: IsLinktime,
-    VmirStorage: IsVmirStorage<Linktime::LinketImpl>,
+impl<
+        'a,
+        LinketImpl: IsLinketImpl,
+        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        VmirStorage: IsVmirStorage<LinketImpl>,
+    > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
     fn set_expr_record(
         &mut self,
-        expr: VmirExprIdx<Linktime::LinketImpl>,
-        control_flow: LinktimeVmControlFlowFrozen<Linktime>,
+        expr: VmirExprIdx<LinketImpl>,
+        control_flow: LinketImplVmControlFlowFrozen<LinketImpl>,
     ) {
         self.expr_records
             .insert_new(*expr, VmRecord::new(control_flow))
@@ -148,8 +169,8 @@ where
 
     fn set_stmt_record(
         &mut self,
-        stmt: VmirStmtIdx<Linktime::LinketImpl>,
-        control_flow: LinktimeVmControlFlowFrozen<Linktime>,
+        stmt: VmirStmtIdx<LinketImpl>,
+        control_flow: LinketImplVmControlFlowFrozen<LinketImpl>,
     ) {
         self.stmt_records
             .insert_new(*stmt, VmRecord::new(control_flow))
@@ -158,16 +179,18 @@ where
 
 /// # actions
 ///
-impl<'a, Linktime, VmirStorage> Vm<'a, Linktime, VmirStorage>
-where
-    Linktime: IsLinktime,
-    VmirStorage: IsVmirStorage<Linktime::LinketImpl>,
+impl<
+        'a,
+        LinketImpl: IsLinketImpl,
+        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        VmirStorage: IsVmirStorage<LinketImpl>,
+    > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
     pub(crate) fn record_expr(
         &mut self,
-        expr: VmirExprIdx<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
+        expr: VmirExprIdx<LinketImpl>,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         let cf = f(self);
         let frozen_value = cf.freeze();
         self.set_expr_record(expr, frozen_value);
@@ -176,16 +199,21 @@ where
 
     pub(crate) fn record_stmt(
         &mut self,
-        stmt: VmirStmtIdx<Linktime::LinketImpl>,
-        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl>,
-    ) -> LinketImplVmControlFlowThawed<Linktime::LinketImpl> {
+        stmt: VmirStmtIdx<LinketImpl>,
+        f: impl FnOnce(&mut Self) -> LinketImplVmControlFlowThawed<LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         let cf = f(self);
         let frozen_value = cf.freeze();
         self.set_stmt_record(stmt, frozen_value);
         cf
     }
 
-    pub(crate) fn to_history(self) -> VmHistory<Linktime::LinketImpl> {
-        VmHistory::new(self.expr_records, self.stmt_records, self.snapshots)
+    pub(crate) fn to_history(self) -> VmHistory<LinketImpl> {
+        VmHistory::new(
+            self.linket,
+            self.expr_records,
+            self.stmt_records,
+            self.snapshots,
+        )
     }
 }

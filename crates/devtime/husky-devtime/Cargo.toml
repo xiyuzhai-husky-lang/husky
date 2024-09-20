@@ -23,6 +23,8 @@ husky-devsoul-interface.workspace = true
 husky-trace.workspace = true
 # fs
 husky-vfs.workspace = true
+# hir
+husky-hir-eager-expr.workspace = true
 # kernel
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
@@ -36,6 +38,7 @@ husky-ki-repr-interface.workspace = true
 # lex
 husky-text-protocol.workspace = true
 # linket
+husky-linket.workspace = true
 husky-linket-impl.workspace = true
 husky-standard-linket-impl.workspace = true
 # protocols
@@ -59,6 +62,8 @@ husky-wild-utils.workspace = true
 husky-value.workspace = true
 # vm
 husky-vm.workspace = true
+# vmir
+husky-vmir.workspace = true
 
 [dev-dependencies]
 tracing.workspace = true

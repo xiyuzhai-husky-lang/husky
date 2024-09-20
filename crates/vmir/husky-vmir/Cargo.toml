@@ -22,6 +22,7 @@ version-stamp.workspace = true
 husky-hir-opr.workspace = true
 husky-hir-eager-expr.workspace = true
 husky-hir-expr.workspace = true
+husky-hir-decl.workspace = true
 husky-hir-defn.workspace = true
 # kernel
 husky-coword.workspace = true
@@ -64,7 +65,6 @@ husky-hir-ty.workspace = true
 husky-hir-eager-expr.workspace = true
 husky-hir-lazy-expr.workspace = true
 husky-hir-expr.workspace = true
-husky-hir-decl.workspace = true
 husky-hir-prelude.workspace = true
 # kernel
 husky-eth-signature.workspace = true

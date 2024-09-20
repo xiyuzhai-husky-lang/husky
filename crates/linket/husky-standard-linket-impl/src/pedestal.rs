@@ -35,7 +35,7 @@ impl IsPedestal for StandardPedestal {
     }
 
     fn insert(&mut self, item_path_id_interface: ItemPathIdInterface, var_id: Self::VarId) {
-        todo!()
+        self.var_ids.insert((item_path_id_interface, var_id));
     }
 }
 

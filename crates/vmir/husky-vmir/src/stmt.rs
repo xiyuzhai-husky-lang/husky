@@ -74,9 +74,16 @@ pub enum VmirStmtData<LinketImpl: IsLinketImpl> {
 pub type VmirStmtArena<LinketImpl> = Arena<VmirStmtData<LinketImpl>>;
 pub type VmirStmtMap<LinketImpl, T> = ArenaMap<VmirStmtData<LinketImpl>, T>;
 
+// TODO clean up
 #[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct VmirStmtIdx<LinketImpl: IsLinketImpl>(ArenaIdx<VmirStmtData<LinketImpl>>);
+#[derive(PartialEq, Eq, Clone, Copy)]
+pub struct VmirStmtIdx<LinketImpl: IsLinketImpl>(pub(crate) ArenaIdx<VmirStmtData<LinketImpl>>);
+
+impl<LinketImpl: IsLinketImpl> std::fmt::Debug for VmirStmtIdx<LinketImpl> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_tuple("VmirStmtIdx").field(&self.0).finish()
+    }
+}
 
 impl<LinketImpl: IsLinketImpl> std::ops::Deref for VmirStmtIdx<LinketImpl> {
     type Target = ArenaIdx<VmirStmtData<LinketImpl>>;
@@ -198,7 +205,7 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerStmtIdxRange {
                 },
             })
             .collect();
-        VmirStmtIdxRange(builder.alloc_stmts(stmts))
+        VmirStmtIdxRange(builder.alloc_stmts(self, stmts))
     }
 }
 

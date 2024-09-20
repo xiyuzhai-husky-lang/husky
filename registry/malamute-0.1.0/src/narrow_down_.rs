@@ -73,17 +73,8 @@ where
     Label: __Thawed<Frozen = Label> + __Frozen<Thawed = Label> + __Serialize,
 {
     type Frozen = NarrowDownInternal<Label>;
-    unsafe fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
-    }
-
-    fn serialize_to_value(&self) -> __JsonValue {
-        __to_json_value(self).unwrap()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-        // ad hoc
-        __Visual::Void
     }
 
     fn is_copyable() -> bool {
@@ -105,7 +96,17 @@ where
     fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
     }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        __to_json_value(self).unwrap()
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+        // ad hoc
+        __Visual::Void
+    }
 }
+
 impl<Label> __FromValue for NarrowDownInternal<Label>
 where
     Label: __Boiled<Thawed = Label> + __Thawed,

@@ -33,7 +33,8 @@ use husky_linket_impl::{
     LinketImplVmControlFlowThawed, *,
 };
 use husky_standard_value::exception::Exception;
-use husky_value::ki_control_flow::KiControlFlow;
+use husky_standard_value::thawed::ThawedValue;
+use husky_value::{ki_control_flow::KiControlFlow, vm_control_flow::VmControlFlow};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use linket_impl::{
     LinketImplStaticVarResult, LinketImplTrackedExcepted, LinketImplTrackedExceptedValue,
@@ -44,11 +45,10 @@ pub type StandardTrackedException = TrackedException<Exception, StandardPedestal
 pub type StandardTrackedExcepted<T> = Result<T, TrackedException<Exception, StandardPedestal>>;
 pub type StandardTrackedExceptedValue =
     Result<Value, TrackedException<Exception, StandardPedestal>>;
-
 pub type StandardKiControlFlow<C = Value, B = Value> =
     KiControlFlow<C, B, StandardTrackedException>;
-
 pub type StandardStaticVarResult<T> = StaticVarResult<StandardVarId, T>;
+pub type StandardVmArgumentValue = VmArgumentValue<StandardLinketImpl>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinketImpl {
@@ -74,7 +74,7 @@ pub enum StandardLinketImpl {
     // todo: this should be merged into RichieFn?
     EnumVariantConstructor {
         enum_variant_constructor_ki_wrapper: fn(&[KiArgumentReprInterface]) -> Value,
-        enum_variant_constructor_vm_wrapper: fn(Vec<Value>) -> Value,
+        enum_variant_constructor_vm_wrapper: fn(Vec<VmArgumentValue<Self>>) -> ThawedValue,
     },
     EnumVariantDestructor {
         enum_variant_destructor_wrapper: fn(Value) -> Vec<Value>,
@@ -195,7 +195,54 @@ impl IsLinketImpl for StandardLinketImpl {
         arguments: Vec<VmArgumentValue<Self>>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self> {
-        todo!()
+        match self {
+            StandardLinketImpl::RitchieFn {
+                fn_ki_wrapper,
+                fn_pointer,
+            } => todo!(),
+            StandardLinketImpl::RitchieUnveilFn {
+                fn_wrapper,
+                fn_pointer,
+            } => todo!(),
+            StandardLinketImpl::RitchieGn { gn_ki_wrapper } => todo!(),
+            StandardLinketImpl::EnumVariantConstructor {
+                enum_variant_constructor_vm_wrapper,
+                ..
+            } => VmControlFlow::Continue(enum_variant_constructor_vm_wrapper(arguments)),
+            StandardLinketImpl::EnumVariantDestructor {
+                enum_variant_destructor_wrapper,
+            } => todo!(),
+            StandardLinketImpl::EnumVariantDiscriminator {
+                enum_variant_discriminator_wrapper,
+            } => todo!(),
+            StandardLinketImpl::EnumVariantField {
+                enum_variant_field_wrapper,
+            } => todo!(),
+            StandardLinketImpl::EnumUnitValuePresenter { presenter } => todo!(),
+            StandardLinketImpl::StructDestructor {
+                struct_destructor_wrapper,
+            } => todo!(),
+            StandardLinketImpl::StructField {
+                struct_field_wrapper,
+            } => todo!(),
+            StandardLinketImpl::Val {
+                init_item_path_id_interface,
+                ki_wrapper,
+            } => todo!(),
+            StandardLinketImpl::Memo {
+                init_item_path_id_interface,
+                ki_wrapper,
+            } => todo!(),
+            StandardLinketImpl::StaticVar {
+                init_item_path_id_interface,
+                get_var_id,
+                page_var_ids,
+                default_page_start,
+                try_set_var_id,
+                try_set_default_var_id,
+                get_value,
+            } => todo!(),
+        }
     }
 
     fn enum_index_value_presenter(self) -> EnumUnitValuePresenter {

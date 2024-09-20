@@ -39,7 +39,7 @@ impl IsVmirStorage<VirtualLinketImpl> for VirtualVmirStorage {
 
 /// # standard
 
-pub struct StandardVmirStorage<LinketImpl: IsLinketImpl>(
+pub struct DevVmirStorage<LinketImpl: IsLinketImpl>(
     Arc<Mutex<StandardVmirStorageImpl<LinketImpl>>>,
 );
 
@@ -47,7 +47,15 @@ pub struct StandardVmirStorageImpl<LinketImpl: IsLinketImpl> {
     map: HashMap<Linket, (LinketVersionStamp, Arc<VmirRegion<LinketImpl>>)>,
 }
 
-impl<LinketImpl: IsLinketImpl> IsVmirStorage<LinketImpl> for StandardVmirStorage<LinketImpl> {
+impl<LinketImpl: IsLinketImpl> Default for DevVmirStorage<LinketImpl> {
+    fn default() -> Self {
+        Self(Arc::new(Mutex::new(StandardVmirStorageImpl {
+            map: HashMap::new(),
+        })))
+    }
+}
+
+impl<LinketImpl: IsLinketImpl> IsVmirStorage<LinketImpl> for DevVmirStorage<LinketImpl> {
     type VmirRegionWrapper<'a> = Arc<VmirRegion<LinketImpl>>;
 
     fn linket_vmir_region<'db, Linktime: IsLinktime<LinketImpl = LinketImpl>>(
