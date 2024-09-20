@@ -619,7 +619,8 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                     Right(val_path) => ctx.eval_val(val_path),
                 }
             }
-            VmirExprData::UnitTypeVariant { linket_impl } => todo!(),
+            // TODO optimize this
+            VmirExprData::UnitTypeVariant { linket_impl } => linket_impl.eval_vm(vec![], db),
             VmirExprData::Unwrap { opd } => todo!(),
             VmirExprData::ConstTemplateVariable => todo!(),
             VmirExprData::RitchieItemPath => todo!(),
