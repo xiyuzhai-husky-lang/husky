@@ -52,12 +52,13 @@ impl AmazonJavelin {
         if stats.self_ty + stats.tys + stats.constants > 0 {
             return None;
         }
+        let path = JavPath::try_from_item_path(path, db)?;
         Some(AmazonJavelin(Javelin::new(
             db,
             JavelinData::PathLeading {
-                path: JavPath::try_from_item_path(path, db)?,
+                path,
                 // ad hoc consider places
-                instantiation: JavInstantiation::new_amazon(path, db),
+                instantiation: JavInstantiation::new_amazon(path.into(), db),
             },
         )))
     }

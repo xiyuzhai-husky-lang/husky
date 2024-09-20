@@ -82,7 +82,7 @@ impl LinInstantiation {
         }
     }
 
-    pub(crate) fn new_ty_variant(&self, path: TypeVariantPath) -> Self {
+    pub(crate) fn with_ty_variant(&self, path: TypeVariantPath) -> Self {
         Self {
             path: path.into(),
             context: self.context.clone(),

@@ -91,7 +91,7 @@ where
     T: __Thawed + std::fmt::Debug + ?Sized + Send + Sync + UnwindSafe + RefUnwindSafe + 'static,
 {
     type Frozen = Self;
-     fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 
