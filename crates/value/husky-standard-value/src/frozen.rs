@@ -106,7 +106,7 @@ pub enum FrozenValue {
         index: usize,
         presenter: EnumUnitValuePresenter,
     },
-    Box(Arc<dyn FrozenDyn>),
+    Owned(Arc<dyn FrozenDyn>),
     Leash(&'static dyn FrozenDyn),
     SizedRef(Arc<dyn FrozenDyn>),
     SizedRefMut(Arc<dyn FrozenDyn>),

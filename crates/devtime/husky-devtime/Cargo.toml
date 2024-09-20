@@ -23,6 +23,8 @@ husky-devsoul-interface.workspace = true
 husky-trace.workspace = true
 # fs
 husky-vfs.workspace = true
+# hir
+husky-hir-eager-expr.workspace = true
 # kernel
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true

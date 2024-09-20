@@ -61,8 +61,8 @@ where
         + 'static,
 {
     type Frozen = Class<Label>;
-    unsafe fn freeze(&self) -> Self::Frozen {
-        todo!()
+    fn freeze(&self) -> Self::Frozen {
+        *self
     }
 
     fn serialize_to_value(&self) -> __JsonValue {
@@ -100,6 +100,7 @@ where
         todo!()
     }
 }
+
 impl<Label> __FromValue for Class<Label>
 where
     Label: __Boiled<Thawed = Label> + __Thawed + Copy,
@@ -108,6 +109,7 @@ where
         value.into_owned()
     }
 }
+
 impl<Label> __IntoValue for Class<Label>
 where
     Label: __Immortal
@@ -122,6 +124,32 @@ where
 {
     fn into_value(self) -> __Value {
         __Value::from_owned(self)
+    }
+}
+
+impl<Label> __FromThawedValue for Class<Label>
+where
+    Label: __Boiled<Thawed = Label> + __Thawed + Copy,
+{
+    fn from_thawed_value_aux(value: __ThawedValue, _: Option<&mut __SlushValues>) -> Self {
+        value.into_owned()
+    }
+}
+
+impl<Label> __IntoThawedValue for Class<Label>
+where
+    Label: __Immortal
+        + __Boiled<Thawed = Label>
+        + __Serialize
+        + Copy
+        + Send
+        + Sync
+        + UnwindSafe
+        + RefUnwindSafe
+        + 'static,
+{
+    fn into_thawed_value(self) -> __ThawedValue {
+        __ThawedValue::from_owned(self)
     }
 }
 

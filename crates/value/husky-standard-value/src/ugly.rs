@@ -9,8 +9,8 @@ pub use crate::{
         IntoThawedValue as __IntoThawedValue, Thawed as __Thawed, ThawedDyn as __ThawedDyn,
         ThawedValue as __ThawedValue,
     },
-    value::{Immortal as __Immortal, ImmortalDyn as __ImmortalDyn},
-    Boiled as __Boiled, FromValue as __FromValue, IntoValue as __IntoValue, Value as __Value,
+    value::{Immortal as __Immortal, ImmortalDyn as __ImmortalDyn, Value as __Value},
+    Boiled as __Boiled, FromValue as __FromValue, IntoValue as __IntoValue,
 };
 pub use husky_value::ugly::*;
 pub use husky_value_protocol::ugly::*;

@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use crate::snapshot::{VmSnapshotKey, VmSnapshotsData};
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
 use husky_linket_impl::{
@@ -36,6 +38,7 @@ pub(crate) struct Vm<
     DevRuntime: IsDevRuntimeInterface<LinketImpl>,
     VmirStorage: IsVmirStorage<LinketImpl>,
 > {
+    linket: Linket,
     place_slush_values: Vec<LinketImplSlushValue<LinketImpl>>,
     pub(crate) place_thawed_values: Vec<LinketImplThawedValue<LinketImpl>>,
     mode: VmMode,
@@ -83,6 +86,7 @@ impl<
             // place_values.push(<LinketImpl as IsLinketImpl>::Value::new_uninit())
         }
         Self {
+            linket,
             mode,
             place_slush_values: vec![],
             place_thawed_values: place_values,
@@ -113,6 +117,7 @@ impl<
             place_thawed_values.push(thawed_value);
         }
         Self {
+            linket: snapshot.linket(),
             place_slush_values,
             place_thawed_values,
             mode,
@@ -204,6 +209,11 @@ impl<
     }
 
     pub(crate) fn to_history(self) -> VmHistory<LinketImpl> {
-        VmHistory::new(self.expr_records, self.stmt_records, self.snapshots)
+        VmHistory::new(
+            self.linket,
+            self.expr_records,
+            self.stmt_records,
+            self.snapshots,
+        )
     }
 }
