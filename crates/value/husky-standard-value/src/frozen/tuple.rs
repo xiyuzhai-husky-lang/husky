@@ -14,6 +14,14 @@ macro_rules! impl_frozen_for_tuple_ty {
             fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
                 todo!()
             }
+
+            fn serialize_to_value(&self) -> serde_json::Value {
+                todo!("impl_thawed_for_non_unit_tuple_ty serialize_to_value")
+            }
+
+            fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
+                todo!()
+            }
         }
     };
 }

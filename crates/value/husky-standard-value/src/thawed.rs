@@ -81,10 +81,6 @@ pub trait Thawed: Sized + std::fmt::Debug + RefUnwindSafe + UnwindSafe + 'static
             std::any::type_name::<Self>()
         )
     }
-
-    fn serialize_to_value(&self) -> serde_json::Value;
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 pub trait ThawedDyn:
@@ -107,10 +103,6 @@ pub trait ThawedDyn:
     fn unwrap_leash_thawed_dyn(&'static self) -> ExceptedThawedValue;
 
     fn try_copy_thawed_dyn(&self) -> Option<ThawedValue>;
-
-    fn present_dyn(&self) -> ValuePresentation;
-
-    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 }
 
 impl<T> ThawedDyn for T
@@ -155,16 +147,6 @@ where
 
     fn try_copy_thawed_dyn(&self) -> Option<ThawedValue> {
         self.try_copy_thawed()
-    }
-
-    fn present_dyn(&self) -> ValuePresentation {
-        // self.present()
-        // ad hoc
-        ValuePresentation::AdHoc(format!("{self:?}"))
-    }
-
-    fn visualize_or_void_dyn(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        self.visualize_or_void(visual_synchrotron)
     }
 }
 
