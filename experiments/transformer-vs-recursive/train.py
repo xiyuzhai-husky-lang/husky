@@ -3,7 +3,9 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
+from tqdm import tqdm
 
+import pdb
 
 def train_model(
     model,
@@ -65,16 +67,16 @@ def train_model(
         if log_wandb:
             wandb.log(
                 {
-                    f"{model_name}_train_loss": train_loss,
-                    f"{model_name}_train_ast_accuracy": train_ast_acc,
-                    f"{model_name}_train_symbol_accuracy": train_symbol_acc,
-                    f"{model_name}_train_error_accuracy": train_error_acc,
-                    f"{model_name}_val_loss": val_loss,
-                    f"{model_name}_val_ast_accuracy": val_ast_acc,
-                    f"{model_name}_val_symbol_accuracy": val_symbol_acc,
-                    f"{model_name}_val_error_accuracy": val_error_acc,
-                },
-                step=epoch,
+                    f"train/{model_name}_loss": train_loss,
+                    f"train/{model_name}_ast_accuracy": train_ast_acc,
+                    f"train/{model_name}_symbol_accuracy": train_symbol_acc,
+                    f"train/{model_name}_error_accuracy": train_error_acc,
+                    f"val/{model_name}_loss": val_loss,
+                    f"val/{model_name}_ast_accuracy": val_ast_acc,
+                    f"val/{model_name}_symbol_accuracy": val_symbol_acc,
+                    f"val/{model_name}_error_accuracy": val_error_acc,
+                    "train/step": epoch,
+                }
             )
 
         print(
@@ -96,6 +98,25 @@ def train_model(
 
     return model
 
+def eval_model(model, val_dataloader, criterion, device, output_dims, padding_value=-1):
+    model.eval()
+    val_loss, val_ast_acc, val_symbol_acc, val_error_acc = run_epoch(
+        model=model,
+        dataloader=val_dataloader,
+        criterion=criterion,
+        optimizer=None,
+        device=device,
+        output_dims=output_dims,
+        padding_value=padding_value,
+        is_training=False,
+    )
+    
+    print(
+        f"Val Loss: {val_loss:.4f}, "
+        f"Val AST Acc: {val_ast_acc:.4f}, "
+        f"Val Symbol Acc: {val_symbol_acc:.4f}, "
+        f"Val Error Acc: {val_error_acc:.4f}"
+    )
 
 def run_epoch(
     model,
@@ -113,7 +134,7 @@ def run_epoch(
     total_symbol_acc = 0.0
     total_error_acc = 0.0
 
-    for batch_idx, (inputs, targets) in enumerate(dataloader):
+    for batch_idx, (inputs, targets) in tqdm(enumerate(dataloader)):
         inputs = inputs.to(device)
         ast_targets, symbol_targets, error_targets = [t.to(device) for t in targets]
 
