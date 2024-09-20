@@ -17,9 +17,13 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         let linket = history.linket();
         let linket_vmir_region =
             self.vmir_storage
-                .linket_vmir_region(linket, db, self.runtime.comptime().linktime());
-        let vmir_expr_idx: VmirExprIdx<_> = todo!();
-        Some(history[vmir_expr_idx].control_flow().clone())
+                .linket_vmir_region(linket, db, self.runtime.comptime().linktime())?;
+        Some(
+            history
+                .expr_record(linket_vmir_region[hir_eager_expr_idx?])?
+                .control_flow()
+                .clone(),
+        )
     }
 
     pub fn eager_stmt_trace_value(
@@ -34,7 +38,11 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         let linket_vmir_region =
             self.vmir_storage
                 .linket_vmir_region(linket, db, self.runtime.comptime().linktime())?;
-        let vmir_stmt_idx: VmirStmtIdx<_> = linket_vmir_region[hir_eager_stmt_idx?];
-        Some(history[vmir_stmt_idx].control_flow().clone())
+        Some(
+            history
+                .stmt_record(linket_vmir_region[hir_eager_stmt_idx?])?
+                .control_flow()
+                .clone(),
+        )
     }
 }

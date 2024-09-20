@@ -102,14 +102,6 @@ where
     fn try_copy_thawed(&self) -> Option<__ThawedValue> {
         Some((*self).into_thawed_value())
     }
-
-    fn serialize_to_value(&self) -> __JsonValue {
-        todo!("CyclicSlice serialize_to_value")
-    }
-
-    fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-        todo!()
-    }
 }
 
 impl<T> __Frozen for Leash<T>
@@ -119,6 +111,14 @@ where
     type Thawed = Self;
     type Slush = ();
     fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
+        todo!()
+    }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        todo!("CyclicSlice serialize_to_value")
+    }
+
+    fn visualize_or_void(&self, _visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
         todo!()
     }
 }
