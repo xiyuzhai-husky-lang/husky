@@ -1,5 +1,6 @@
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
+#[derive(Debug, PartialEq, Eq)]
 pub struct VmirDestroyerData {}
 
 pub type VmirDestroyerArena = Arena<VmirDestroyerData>;
