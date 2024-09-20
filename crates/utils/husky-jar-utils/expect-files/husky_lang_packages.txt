@@ -2900,6 +2900,7 @@
             "husky-vfs",
             "libloading",
             "salsa",
+            "similar",
             "smallvec",
             "vec-like",
             "version-stamp",

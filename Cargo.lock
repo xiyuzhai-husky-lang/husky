@@ -5925,6 +5925,7 @@ dependencies = [
  "husky-vfs",
  "libloading",
  "salsa",
+ "similar",
  "smallvec",
  "vec-like",
  "version-stamp",
@@ -10774,6 +10775,12 @@ checksum = "95890f873bec569a0362c235787f3aca6e1e887302ba4840839bcc6459c42da6"
 dependencies = [
  "quote",
 ]
+
+[[package]]
+name = "similar"
+version = "2.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1de1d4f81173b03af4c0cbed3c898f6bff5b870e4a7f5d6f4057d62a7a4b686e"
 
 [[package]]
 name = "simple-profile"

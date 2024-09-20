@@ -252,6 +252,7 @@ impl Linket {
             &instantiation,
             db,
         );
+        assert_eq!(hir_instantiation.path(), path.into());
         Self::new(
             db,
             LinketData::EnumVariantConstructor {
