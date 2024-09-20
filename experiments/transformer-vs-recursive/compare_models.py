@@ -1,24 +1,28 @@
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader, random_split
 import wandb
 from datasets.mini_husky import MiniHuskyDataset
+from models.rnn import RNNEncoder
 from models.transformer import EncoderOnlyTransformer
-from train import train_model
+from train import train_model, eval_model
 from torch.nn.utils.rnn import pad_sequence
 
+import pdb
 
 # Define a simple RNN model
 class SimpleRNN(nn.Module):
     def __init__(self, input_dim, hidden_dim, output_dim):
         super(SimpleRNN, self).__init__()
+        self.input_dim = input_dim
         self.rnn = nn.RNN(input_dim, hidden_dim, batch_first=True)
         self.fc = nn.Linear(hidden_dim, output_dim)
 
     def forward(self, x):
-        _, hidden = self.rnn(x)
-        return self.fc(hidden.squeeze(0))
+        output, _ = self.rnn(F.one_hot(x, num_classes=self.input_dim).float())
+        return self.fc(output)
 
 
 # Configurations
@@ -75,7 +79,7 @@ train_dataloader = DataLoader(
 )
 val_dataloader = DataLoader(
     val_dataset,
-    batch_size=config["batch_size"],
+    batch_size=config["batch_size"] * 4,
     shuffle=False,
     collate_fn=custom_collate,
 )
@@ -111,8 +115,22 @@ transformer_optimizer = optim.Adam(transformer.parameters(), lr=config["learning
 rnn_optimizer = optim.Adam(rnn.parameters(), lr=config["learning_rate"])
 
 # Train the models
+print("Training RNN...")
+rnn_best_model = train_model(
+    rnn,
+    train_dataloader,
+    val_dataloader,
+    criterion,
+    rnn_optimizer,
+    config["num_epochs"],
+    device=device,  # Add this line
+    log_wandb=True,
+    model_name="RNN",
+    output_dims=output_dims,  # Use the retrieved output_dims
+)
+
 print("Training Transformer...")
-train_model(
+transformer_best_model = train_model(
     transformer,
     train_dataloader,
     val_dataloader,
@@ -125,18 +143,22 @@ train_model(
     output_dims=output_dims,  # Use the retrieved output_dims
 )
 
-print("Training RNN...")
-train_model(
-    rnn,
-    train_dataloader,
-    val_dataloader,
-    criterion,
-    rnn_optimizer,
-    config["num_epochs"],
-    device=device,  # Add this line
-    log_wandb=True,
-    model_name="RNN",
-    output_dims=output_dims,  # Use the retrieved output_dims
+print("Evaluating RNN...")
+eval_model(
+    model=rnn_best_model,
+    val_dataloader=val_dataloader,
+    criterion=criterion,
+    device=device,
+    output_dims=output_dims,
+)
+
+print("Evaluating Transformer...")
+eval_model(
+    model=transformer_best_model,
+    val_dataloader=val_dataloader,
+    criterion=criterion,
+    device=device,
+    output_dims=output_dims,
 )
 
 wandb.finish()
