@@ -13,7 +13,7 @@ use crate::{
     thawed::{Thawed, ThawedDyn},
     *,
 };
-use frozen::FrozenValue;
+use frozen::{Frozen, FrozenDyn, FrozenValue};
 use husky_decl_macro_utils::*;
 #[cfg(feature = "constant")]
 use husky_term_prelude::literal::StringLiteralTokenData;
@@ -76,7 +76,7 @@ pub enum Value {
 }
 
 pub trait Immortal:
-    Thawed + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+    Thawed + Frozen + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
 {
     /// copy if the type is copyable
     ///
@@ -113,7 +113,7 @@ pub trait Immortal:
 }
 
 pub trait ImmortalDyn:
-    ThawedDyn + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
+    ThawedDyn + FrozenDyn + std::any::Any + RefUnwindSafe + UnwindSafe + Send + Sync + 'static
 {
     fn index_owned_dyn(self: Box<Self>, index: usize) -> ExceptedValue;
     fn index_leash_dyn(&'static self, index: usize) -> ExceptedValue;
