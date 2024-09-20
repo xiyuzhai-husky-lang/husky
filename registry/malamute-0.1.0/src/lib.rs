@@ -61,8 +61,8 @@ where
         + 'static,
 {
     type Frozen = Class<Label>;
-    unsafe fn freeze(&self) -> Self::Frozen {
-        todo!()
+    fn freeze(&self) -> Self::Frozen {
+        *self
     }
 
     fn serialize_to_value(&self) -> __JsonValue {
