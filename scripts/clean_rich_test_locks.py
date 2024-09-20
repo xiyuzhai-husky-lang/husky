@@ -15,20 +15,27 @@ from typing import Set
 covered_paths: Set[str] = set()
 dirs_with_lock_files: Set[str] = set()
 
+# Global variable to control printing
+VERBOSE = False
+
 
 def process_lock_file(lock_file_path: str) -> None:
+    flag = False
     """Process a single .rich-test-lock file to extract paths and store the parent directory."""
     with open(lock_file_path, "r", encoding="utf8") as lock_file:
         for line in lock_file:
+            flag = True
             covered_paths.add(line.strip())
 
-    # Add the parent directory of the lock file to the set of directories
-    parent_dir = os.path.dirname(lock_file_path)
-    dirs_with_lock_files.add(parent_dir)
+    if flag:
+        # Add the parent directory of the lock file to the set of directories
+        parent_dir = os.path.dirname(lock_file_path)
+        dirs_with_lock_files.add(parent_dir)
 
     # Delete the lock file after processing
     os.remove(lock_file_path)
-    print(f"Deleted lock file: {lock_file_path}")
+    if VERBOSE:
+        print(f"Deleted lock file: {lock_file_path}")
 
 
 def clean_directory(dir_path: str) -> None:
@@ -43,7 +50,8 @@ def clean_directory(dir_path: str) -> None:
                     file_path = os.path.join(root, file)
                     if os.path.abspath(file_path) not in covered_paths:
                         os.remove(file_path)
-                        print(f"Deleted file: {file_path}")
+                        if VERBOSE:
+                            print(f"Deleted file: {file_path}")
 
             # Remove empty directories
             for root, dirs, _files in os.walk(target_dir, topdown=False):
@@ -51,7 +59,8 @@ def clean_directory(dir_path: str) -> None:
                     dir_to_check = os.path.join(root, directory)
                     if not os.listdir(dir_to_check):
                         os.rmdir(dir_to_check)
-                        print(f"Deleted empty directory: {dir_to_check}")
+                        if VERBOSE:
+                            print(f"Deleted empty directory: {dir_to_check}")
 
 
 def main() -> None:

@@ -17,94 +17,6 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::Yes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::No`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::No`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumUnitToJsonValue {
-                ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::Yes`),
-                instantiation: LinInstantiation {
                     path: ItemPath(`malamute::OneVsAll::Yes`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
@@ -126,94 +38,6 @@
                 path: TypeVariantPath(`malamute::OneVsAll::Yes`),
                 instantiation: LinInstantiation {
                     path: ItemPath(`malamute::OneVsAll::Yes`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::No`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll::Yes`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::No`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll::Yes`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumUnitToJsonValue {
-                ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::Yes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll::No`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAll::Yes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAll::No`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
                     },
@@ -281,134 +105,6 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumUnitToJsonValue {
-                ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
-                instantiation: LinInstantiation {
                     path: ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
@@ -449,134 +145,6 @@
                 },
                 path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentYes`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumUnitToJsonValue {
-                ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
-                instantiation: LinInstantiation {
                     path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
@@ -598,134 +166,6 @@
                 path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
                 instantiation: LinInstantiation {
                     path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::Unconfident`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::ConfidentNo`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumUnitToJsonValue {
-                ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::Unconfident`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentYes`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::Unconfident`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::Unconfident`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                    template_arguments: [],
-                },
-                path: TypeVariantPath(`malamute::OneVsAllResult::ConfidentNo`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`malamute::OneVsAllResult::Unconfident`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
                     },
@@ -828,7 +268,27 @@
                 ),
                 vmir_expr_arena: Arena {
                     data: [
-                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::UnitTypeVariant {
+                            linket_impl: VirtualLinketImpl(
+                                Linket {
+                                    data: LinketData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            template_arguments: [],
+                                        },
+                                        path: TypeVariantPath(`malamute::OneVsAll::No`),
+                                        instantiation: LinInstantiation {
+                                            path: ItemPath(`malamute::OneVsAll::No`),
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
+                                            variable_resolutions: [],
+                                            separator: None,
+                                        },
+                                    },
+                                },
+                            ),
+                        },
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
@@ -852,6 +312,32 @@
                             ),
                             discarded: false,
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -913,7 +399,27 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::UnitTypeVariant {
+                            linket_impl: VirtualLinketImpl(
+                                Linket {
+                                    data: LinketData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            template_arguments: [],
+                                        },
+                                        path: TypeVariantPath(`malamute::OneVsAll::Yes`),
+                                        instantiation: LinInstantiation {
+                                            path: ItemPath(`malamute::OneVsAll::Yes`),
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
+                                            variable_resolutions: [],
+                                            separator: None,
+                                        },
+                                    },
+                                },
+                            ),
+                        },
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
@@ -1003,7 +509,27 @@
                                 },
                             ],
                         },
-                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::UnitTypeVariant {
+                            linket_impl: VirtualLinketImpl(
+                                Linket {
+                                    data: LinketData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            template_arguments: [],
+                                        },
+                                        path: TypeVariantPath(`malamute::OneVsAll::No`),
+                                        instantiation: LinInstantiation {
+                                            path: ItemPath(`malamute::OneVsAll::No`),
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
+                                            variable_resolutions: [],
+                                            separator: None,
+                                        },
+                                    },
+                                },
+                            ),
+                        },
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
@@ -1268,6 +794,65 @@
                                 },
                             ],
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
                     ],
                 },
             },
@@ -1325,7 +910,27 @@
                             place_idx: PlaceIdx(0),
                             qual: Ref,
                         },
-                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::UnitTypeVariant {
+                            linket_impl: VirtualLinketImpl(
+                                Linket {
+                                    data: LinketData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            template_arguments: [],
+                                        },
+                                        path: TypeVariantPath(`malamute::OneVsAll::Yes`),
+                                        instantiation: LinInstantiation {
+                                            path: ItemPath(`malamute::OneVsAll::Yes`),
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
+                                            variable_resolutions: [],
+                                            separator: None,
+                                        },
+                                    },
+                                },
+                            ),
+                        },
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
@@ -1415,7 +1020,27 @@
                                 },
                             ],
                         },
-                        VmirExprData::PrincipalEntityPath,
+                        VmirExprData::UnitTypeVariant {
+                            linket_impl: VirtualLinketImpl(
+                                Linket {
+                                    data: LinketData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            template_arguments: [],
+                                        },
+                                        path: TypeVariantPath(`malamute::OneVsAll::No`),
+                                        instantiation: LinInstantiation {
+                                            path: ItemPath(`malamute::OneVsAll::No`),
+                                            context: LinTypeContext {
+                                                comptime_var_overrides: [],
+                                            },
+                                            variable_resolutions: [],
+                                            separator: None,
+                                        },
+                                    },
+                                },
+                            ),
+                        },
                         VmirExprData::Linket {
                             linket_impl: VirtualLinketImpl(
                                 Linket {
@@ -1682,6 +1307,65 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -1711,612 +1395,6 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    template_arguments: [
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                    ],
-                },
-                path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDestructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    template_arguments: [
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                    ],
-                },
-                path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantField {
-                path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-                field_ty_leash_class: Copyable,
-                field: Tuple {
-                    index: 0,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    template_arguments: [
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                    ],
-                },
-                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDiscriminator {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    template_arguments: [
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                    ],
-                },
-                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantDestructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    template_arguments: [
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                    ],
-                },
-                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantField {
-                path: TypeVariantPath(`core::ops::ControlFlow::Break`),
-                instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Break`),
-                    context: LinTypeContext {
-                        comptime_var_overrides: [],
-                    },
-                    variable_resolutions: [
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 0,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                        (
-                            HirTemplateVariable::Type(
-                                HirTypeTemplateVariable::Type {
-                                    attrs: HirTemplateVariableAttrs {
-                                        class: Mono,
-                                    },
-                                    variance: None,
-                                    disambiguator: 1,
-                                },
-                            ),
-                            LinTermVariableResolution::Explicit(
-                                LinTemplateArgument::Type(
-                                    LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ],
-                    separator: None,
-                },
-                field_ty_leash_class: Other,
-                field: Tuple {
-                    index: 0,
-                },
-            },
-        },
-        None,
-    ),
-    (
-        Linket {
-            data: LinketData::EnumVariantConstructor {
-                self_ty: LinTypePathLeading {
-                    ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                    template_arguments: [
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                        LinTemplateArgument::Type(
-                            LinType::PathLeading(
-                                LinTypePathLeading {
-                                    ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                    template_arguments: [],
-                                },
-                            ),
-                        ),
-                    ],
-                },
-                path: TypeVariantPath(`core::ops::ControlFlow::Continue`),
-                instantiation: LinInstantiation {
                     path: ItemPath(`core::ops::ControlFlow::Continue`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
@@ -2620,7 +1698,7 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Continue`),
+                    path: ItemPath(`core::ops::ControlFlow::Break`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
                     },
@@ -2700,7 +1778,7 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Continue`),
+                    path: ItemPath(`core::ops::ControlFlow::Break`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
                     },
@@ -2780,7 +1858,7 @@
                 },
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Continue`),
+                    path: ItemPath(`core::ops::ControlFlow::Break`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
                     },
@@ -2839,7 +1917,7 @@
             data: LinketData::EnumVariantField {
                 path: TypeVariantPath(`core::ops::ControlFlow::Break`),
                 instantiation: LinInstantiation {
-                    path: ItemPath(`core::ops::ControlFlow::Continue`),
+                    path: ItemPath(`core::ops::ControlFlow::Break`),
                     context: LinTypeContext {
                         comptime_var_overrides: [],
                     },

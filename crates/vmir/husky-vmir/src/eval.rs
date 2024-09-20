@@ -3,6 +3,7 @@ use crate::{
     region::VmirRegion,
     stmt::{VmirStmtArena, VmirStmtIdx, VmirStmtIdxRange},
 };
+use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_linket::template_argument::qual::LinQual;
 use husky_linket_impl::{
     linket_impl::{IsLinketImpl, LinketImplThawedValue},
@@ -19,6 +20,9 @@ pub trait EvalVmir<'comptime, LinketImpl: IsLinketImpl> {
     fn vmir_stmt_arena(&self) -> &'comptime VmirStmtArena<LinketImpl> {
         self.vmir_region().vmir_stmt_arena()
     }
+
+    fn eval_val(&self, major_form_path: MajorFormPath)
+        -> LinketImplVmControlFlowThawed<LinketImpl>;
 
     /// wrap the expression evaluation process
     fn eval_expr(

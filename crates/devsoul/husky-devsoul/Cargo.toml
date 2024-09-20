@@ -10,6 +10,8 @@ enum-class.workspace = true
 salsa.workspace = true
 ui = { workspace = true, features = ["egui"] }
 vec-like.workspace = true
+# devsoul
+husky-devsoul-interface.workspace = true
 # fs
 husky-vfs.workspace = true
 # kernel
@@ -26,7 +28,5 @@ husky-linktime.workspace = true
 # protocols
 husky-visual-protocol.workspace = true
 husky-trace-protocol = { workspace = true, features = ["server"] }
-# devsoul
-husky-devsoul-interface.workspace = true
 # value
 husky-value.workspace = true

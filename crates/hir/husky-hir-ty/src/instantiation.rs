@@ -7,7 +7,7 @@ use husky_fly_term::{
     instantiation::{FlyInstantiation, FlyTermSymbolResolution},
     FlyTerms,
 };
-use path::ItemPath;
+use path::{major_item::ty::TypePath, ItemPath};
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 /// `HirInstantiation` maps each hir symbol to its hir resolution.
@@ -135,6 +135,22 @@ impl HirInstantiation {
             variable_map,
             separator,
             context: HirTypeContext::from_eth(eth_instantiation, db),
+        }
+    }
+
+    pub fn with_ty_path(&self, path: TypePath, db: &::salsa::Db) -> Self {
+        {
+            // verify
+            let ItemPath::TypeVariant(_, ty_variant_path) = self.path else {
+                unreachable!()
+            };
+            assert_eq!(ty_variant_path.parent_ty_path(db), path.into());
+        }
+        Self {
+            path: path.into(),
+            context: self.context.clone(),
+            variable_map: self.variable_map.clone(),
+            separator: self.separator,
         }
     }
 }

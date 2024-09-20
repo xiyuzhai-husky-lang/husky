@@ -341,3 +341,6 @@ TSWLatexianTemp*
 out
 
 .local
+
+## expect test lock
+*.rich-test-lock

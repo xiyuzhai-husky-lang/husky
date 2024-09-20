@@ -37,7 +37,7 @@ where
     }
 
     /// although nothing on this side is modified, we do have modification on the linket side.
-    pub(crate) fn init(&mut self, runtime: &'static dyn IsDevRuntimeDyn<LinketImpl>) {
+    pub(crate) fn init(&mut self, runtime: &'static dyn IsDevRuntimeInterfaceDyn<LinketImpl>) {
         self.current_library.init(runtime);
     }
 }
@@ -55,31 +55,33 @@ where
                 .iter()
                 .copied()
                 .filter(|linket| match linket.data(db) {
-                    LinketData::UnveilAssocRitchie {
+                    LinketData::EnumVariantConstructor {
+                        self_ty,
                         path,
                         instantiation,
-                    } => true,
+                    } if path.ident(db).data(db) == "Unknown" => true,
                     _ => false,
                 })
                 .collect();
-            // let old_linket: Linket = unsafe { std::mem::transmute(194u32) };
-            // let LinketData::UnveilAssocFunctionRitchie {
-            //     path: old_path,
-            //     instantiation: old_instantiation,
-            // } = old_linket.data(db)
-            // else {
-            //     unreachable!()
-            // };
-            // let LinketData::UnveilAssocFunctionRitchie {
-            //     path,
-            //     instantiation,
-            // } = linket.data(db)
-            // else {
-            //     unreachable!()
-            // };
+            {
+                use similar::ChangeTag;
+                let l0 = format!("{:#?}", linkets_filtered[0].data(db).debug(db));
+                let l1 = format!("{:#?}", linket.data(db).debug(db));
+                let diff = similar::TextDiff::from_lines(&l0, &l1);
+                println!("-----------------------------------------------");
+                for change in diff.iter_all_changes() {
+                    let sign = match change.tag() {
+                        ChangeTag::Delete => "-",
+                        ChangeTag::Insert => "+",
+                        ChangeTag::Equal => " ",
+                    };
+                    print!("{}{}", sign, change);
+                }
+                println!("-----------------------------------------------");
+            }
             p!(
-                linkets_filtered[0].data(db) == linket.data(db),
-                linkets_filtered[0].data(db).debug(db),
+                linkets_filtered.debug(db),
+                linkets_filtered[0] == linket,
                 linket.data(db).debug(db),
                 linket
             );

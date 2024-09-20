@@ -14,7 +14,7 @@ where
         todo!()
     }
 
-    unsafe fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 
@@ -24,17 +24,5 @@ where
 
     fn index_leash_thawed(&'static self, index: usize) -> ExceptedThawedValue {
         Ok(ThawedValue::from_leash(&self[index]))
-    }
-
-    fn serialize_to_value(&self) -> serde_json::Value {
-        todo!()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        let elements = self
-            .iter()
-            .map(|t| t.visualize_or_void(visual_synchrotron))
-            .collect();
-        Visual::new_group_visual(elements, visual_synchrotron)
     }
 }

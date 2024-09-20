@@ -12,7 +12,7 @@ where
 {
     type Frozen = FrozenRef<T::Frozen>;
 
-    unsafe fn freeze(&self) -> Self::Frozen {
+    fn freeze(&self) -> Self::Frozen {
         todo!()
     }
 
@@ -21,14 +21,6 @@ where
     }
 
     fn try_copy_thawed(&self) -> Option<ThawedValue> {
-        todo!()
-    }
-
-    fn serialize_to_value(&self) -> serde_json::Value {
-        todo!()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
     }
 }
