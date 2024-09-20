@@ -33,8 +33,8 @@ impl<Devsoul: IsDevsoul> Devtime<Devsoul> {
         let linket = history.linket();
         let linket_vmir_region =
             self.vmir_storage
-                .linket_vmir_region(linket, db, self.runtime.comptime().linktime());
-        let vmir_stmt_idx: VmirStmtIdx<_> = todo!();
+                .linket_vmir_region(linket, db, self.runtime.comptime().linktime())?;
+        let vmir_stmt_idx: VmirStmtIdx<_> = linket_vmir_region[hir_eager_stmt_idx?];
         Some(history[vmir_stmt_idx].control_flow().clone())
     }
 }

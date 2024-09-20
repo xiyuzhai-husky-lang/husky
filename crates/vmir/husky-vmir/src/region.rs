@@ -4,7 +4,7 @@ use crate::{
     *,
 };
 use destroyer::VmirDestroyerArena;
-use husky_hir_eager_expr::{HirEagerExprMap, HirEagerStmtMap};
+use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerExprMap, HirEagerStmtIdx, HirEagerStmtMap};
 use husky_linket::linket::Linket;
 use husky_virtual_linket_impl::VirtualLinketImpl;
 use husky_virtual_linktime::VirtualLinktime;
@@ -23,6 +23,22 @@ pub struct VmirRegion<LinketImpl: IsLinketImpl> {
     vmir_destroyer_arena: VmirDestroyerArena,
     hir_eager_to_vmir_expr_map: HirEagerExprMap<VmirExprIdx<LinketImpl>>,
     hir_eager_to_vmir_stmt_map: HirEagerStmtMap<VmirStmtIdx<LinketImpl>>,
+}
+
+impl<LinketImpl: IsLinketImpl> std::ops::Index<HirEagerExprIdx> for VmirRegion<LinketImpl> {
+    type Output = VmirExprIdx<LinketImpl>;
+
+    fn index(&self, expr: HirEagerExprIdx) -> &Self::Output {
+        &self.hir_eager_to_vmir_expr_map[expr]
+    }
+}
+
+impl<LinketImpl: IsLinketImpl> std::ops::Index<HirEagerStmtIdx> for VmirRegion<LinketImpl> {
+    type Output = VmirStmtIdx<LinketImpl>;
+
+    fn index(&self, stmt: HirEagerStmtIdx) -> &Self::Output {
+        &self.hir_eager_to_vmir_stmt_map[stmt]
+    }
 }
 
 pub type VirtualVmirRegion = VmirRegion<VirtualLinketImpl>;
