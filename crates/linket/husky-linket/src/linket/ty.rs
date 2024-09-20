@@ -29,7 +29,11 @@ pub(super) fn enum_ty_linkets_emancipated_by_javelin(
     for instantiation in LinInstantiation::from_jav(instantiation, db) {
         let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);
         for &(_, path) in path.ty_variant_paths(db) {
-            let hir_defn = path.hir_decl(db).unwrap();
+            use husky_print_utils::p;
+            use salsa::DebugWithDb;
+
+            let instantiation = instantiation.new_ty_variant(path);
+            let hir_decl = path.hir_decl(db).unwrap();
             linkets.push(Linket::new(
                 db,
                 LinketData::EnumVariantConstructor {
@@ -46,7 +50,7 @@ pub(super) fn enum_ty_linkets_emancipated_by_javelin(
                     instantiation: instantiation.clone(),
                 },
             ));
-            match hir_defn {
+            match hir_decl {
                 TypeVariantHirDecl::Props(hir_defn) => {
                     linkets.push(Linket::new(
                         db,

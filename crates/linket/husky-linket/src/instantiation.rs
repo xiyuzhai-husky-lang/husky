@@ -1,4 +1,4 @@
-use husky_entity_path::path::ItemPath;
+use husky_entity_path::path::{ty_variant::TypeVariantPath, ItemPath};
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
     HirTemplateVariable, HirTemplateVariableClass,
@@ -79,6 +79,15 @@ impl LinInstantiation {
             context: LinTypeContext::from_hir(hir_instantiation.context(), lin_instantiation, db),
             variable_resolutions,
             separator,
+        }
+    }
+
+    pub(crate) fn new_ty_variant(&self, path: TypeVariantPath) -> Self {
+        Self {
+            path: path.into(),
+            context: self.context.clone(),
+            variable_resolutions: self.variable_resolutions.clone(),
+            separator: self.separator,
         }
     }
 }
