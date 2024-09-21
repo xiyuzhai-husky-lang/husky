@@ -31,3 +31,16 @@ def custom_collate(batch):
         [torch.as_tensor(t) for t in errors], batch_first=True, padding_value=-1
     )
     return inputs_padded, (ast_kinds_padded, symbol_resolutions_padded, errors_padded)
+
+def linear_warmup_decay(total_iters, warmup_iters, min_lr, max_lr, **kwargs):
+    """
+    Creates a function that calculates the learning rate for each iteration based on the linear schedule with warmup.
+    """
+    def lr_lambda(current_iter):
+        if current_iter < warmup_iters:
+            # Linear warmup
+            return min_lr + (max_lr - min_lr) * (current_iter / warmup_iters)
+        else:
+            # Linear decay
+            return max_lr - (max_lr - min_lr) * ((current_iter - warmup_iters) / (total_iters - warmup_iters))
+    return lr_lambda

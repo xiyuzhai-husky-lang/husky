@@ -20,6 +20,7 @@ def train_model(
     log_wandb=True,
     patience=5,
     min_delta=0.001,
+    scheduler=None,
 ):
     ast_dim, symbol_dim, error_dim = output_dims
     model.to(device)
@@ -37,6 +38,7 @@ def train_model(
             dataloader=train_dataloader,
             criterion=criterion,
             optimizer=optimizer,
+            scheduler=scheduler,
             device=device,
             output_dims=output_dims,
             is_training=True,
@@ -70,15 +72,11 @@ def train_model(
         if log_wandb:
             wandb.log(
                 {
-                    # f"train/loss": train_loss,
-                    # f"train/ast_accuracy": train_ast_acc,
-                    # f"train/symbol_accuracy": train_symbol_acc,
-                    # f"train/error_accuracy": train_error_acc,
                     f"val/loss": val_loss,
                     f"val/ast_accuracy": val_ast_acc,
                     f"val/symbol_accuracy": val_symbol_acc,
                     f"val/error_accuracy": val_error_acc,
-                    "train/step": epoch,
+                    "train/step": (epoch + 1) * len(train_dataloader),
                 }
             )
 
@@ -104,6 +102,7 @@ def train_model(
 def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size):
     model.eval()
     val_loss, val_ast_acc, val_symbol_acc, val_error_acc = run_epoch(
+        epoch_idx=0,
         model=model,
         dataloader=val_dataloader,
         criterion=criterion,
@@ -112,6 +111,7 @@ def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batc
         output_dims=output_dims,
         is_training=False,
         micro_batch_size=micro_batch_size,
+        log_wandb=False,
     )
     
     print(
@@ -132,6 +132,7 @@ def run_epoch(
     is_training,
     micro_batch_size,
     log_wandb,
+    scheduler=None,
 ):
     ast_dim, symbol_dim, error_dim = output_dims
     total_loss = 0.0
@@ -140,6 +141,8 @@ def run_epoch(
     total_error_acc = 0.0
 
     for batch_idx, (_inputs, _targets) in tqdm(enumerate(dataloader)):
+        current_iter = epoch_idx * len(dataloader) + batch_idx
+
         _inputs = _inputs.to(device)
         _ast_targets, _symbol_targets, _error_targets = [t.to(device) for t in _targets]
 
@@ -198,12 +201,15 @@ def run_epoch(
                         f"train/ast_accuracy": combined_ast_acc.item(),
                         f"train/symbol_accuracy": combined_symbol_acc.item(),
                         f"train/error_accuracy": combined_error_acc.item(),
-                        "train/step": epoch_idx * len(dataloader) + batch_idx,
+                        f"train/learning_rate": optimizer.param_groups[0]["lr"],
+                        "train/step": current_iter,
                     }
                 )
 
             if is_training:
                 optimizer.step()
+                if scheduler is not None:
+                    scheduler.step(current_iter)
 
         total_loss += combined_loss.item()
         total_ast_acc += combined_ast_acc.item()

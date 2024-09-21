@@ -6,7 +6,7 @@ import wandb
 from datasets.mini_husky import MiniHuskyDataset
 from models.transformer import EncoderOnlyTransformer
 from train import train_model, eval_model
-from utils import set_seed, custom_collate
+from utils import set_seed, custom_collate, linear_warmup_decay
 
 import os
 import pdb
@@ -14,14 +14,16 @@ import pdb
 # Configurations
 config = {
     "seed": 42,
-    "batch_size": 1024,
+    "batch_size": 512,
     "micro_batch_size": 64,
-    "num_epochs": 100,
-    "learning_rate": 1e-4,
-    "hidden_dim": 64,
-    "d_model": 256,
+    "num_epochs": 4,
+    "min_lr": 1e-6,
+    "max_lr": 1e-4,
+    "warmup_iters": 990,
+    "hidden_dim": 32,
+    "d_model": 128,
     "num_heads": 4,
-    "num_layers": 12,
+    "num_layers": 8,
 }
 
 set_seed(config["seed"])
@@ -57,19 +59,18 @@ val_dataloader = DataLoader(
     collate_fn=custom_collate,
 )
 
-exp_name = f"transformer_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}"
+exp_name = f"transformer_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}_bs{config['batch_size']}"
 
 # Initialize wandb
 wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)
 
 # Set device to CUDA if available
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-# device = "cpu"
 print(f"Using device: {device}")
 
 # Create models
 vocab_size = len(dataset.vocab)
-transformer = EncoderOnlyTransformer(
+model = EncoderOnlyTransformer(
     vocab_size=vocab_size,
     output_dim=output_dim,  # Updated to use output_dims from dataset
     num_layers=config["num_layers"],
@@ -80,16 +81,24 @@ transformer = EncoderOnlyTransformer(
 
 # Loss function and optimizers
 criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
-transformer_optimizer = optim.Adam(transformer.parameters(), lr=config["learning_rate"])
+optimizer = optim.Adam(model.parameters(), lr=1)
+scheduler = torch.optim.lr_scheduler.LambdaLR(
+    optimizer,
+    lr_lambda=linear_warmup_decay(
+        total_iters=config["num_epochs"] * len(train_dataloader),
+        **config
+    )
+)
 
 # Train the models
 print("Training Transformer...")
-transformer_best_model = train_model(
-    model=transformer,
+best_model = train_model(
+    model=model,
     train_dataloader=train_dataloader,
     val_dataloader=val_dataloader,
     criterion=criterion,
-    optimizer=transformer_optimizer,
+    optimizer=optimizer,
+    scheduler=scheduler,
     num_epochs=config["num_epochs"],
     micro_batch_size=config["micro_batch_size"],
     device=device,  # Add this line
@@ -99,7 +108,7 @@ transformer_best_model = train_model(
 
 print("Evaluating Transformer...")
 eval_model(
-    model=transformer_best_model,
+    model=best_model,
     val_dataloader=val_dataloader,
     criterion=criterion,
     device=device,
