@@ -4261,7 +4261,6 @@ name = "husky-cli-utils"
 version = "0.1.0"
 dependencies = [
  "colored",
- "husky-screen-utils",
 ]
 
 [[package]]
