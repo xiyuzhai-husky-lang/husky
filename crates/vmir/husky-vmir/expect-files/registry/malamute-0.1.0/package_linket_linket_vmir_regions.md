@@ -314,6 +314,32 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -770,6 +796,65 @@
                         },
                     ],
                 },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
+                    ],
+                },
             },
         ),
     ),
@@ -1220,6 +1305,65 @@
                                 },
                             ],
                         },
+                    ],
+                },
+                vmir_restructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destructive_pattern_arena: Arena {
+                    data: [],
+                },
+                vmir_destroyer_arena: Arena {
+                    data: [],
+                },
+                hir_eager_to_vmir_expr_map: [
+                    VmirExprIdx(
+                        0,
+                    ),
+                    VmirExprIdx(
+                        1,
+                    ),
+                    VmirExprIdx(
+                        2,
+                    ),
+                    VmirExprIdx(
+                        3,
+                    ),
+                    VmirExprIdx(
+                        4,
+                    ),
+                    VmirExprIdx(
+                        5,
+                    ),
+                    VmirExprIdx(
+                        6,
+                    ),
+                    VmirExprIdx(
+                        7,
+                    ),
+                ],
+                hir_eager_to_vmir_stmt_map: ArenaMap {
+                    data: [
+                        Some(
+                            VmirStmtIdx(
+                                0,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                1,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                2,
+                            ),
+                        ),
+                        Some(
+                            VmirStmtIdx(
+                                3,
+                            ),
+                        ),
                     ],
                 },
             },

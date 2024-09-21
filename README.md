@@ -21,4 +21,6 @@ Many of the above features are already seen in existing languages. However, they
 
 Husky is currently in the prototyping stage, focusing on AI research. It will transform into a stable language once AI technology is mature.
 
-I'm currently recuperating from hand pains. The focus is to deliver Husky for my own research first. The tutorials and documentations will wait for one or two years.
+I'm currently recuperating from hand pains. The focus is to deliver Husky for my own research first. The tutorials and documentations will wait at least two years.
+
+In other words, for the next two years, there is no intention of publicly introducing the Husky programming language, although it's open source. There's going to sporadic pieces of tutorials and documentations here and there, but don't expect the full story to be revealed very soon.
