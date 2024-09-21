@@ -1,15 +1,11 @@
-import numpy as np
-import random
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader, random_split
 import wandb
 from datasets.mini_husky import MiniHuskyDataset
 from models.transformer import EncoderOnlyTransformer
 from train import train_model, eval_model
-from torch.nn.utils.rnn import pad_sequence
 from utils import set_seed, custom_collate
 
 import os
@@ -89,17 +85,16 @@ transformer_optimizer = optim.Adam(transformer.parameters(), lr=config["learning
 # Train the models
 print("Training Transformer...")
 transformer_best_model = train_model(
-    transformer,
-    train_dataloader,
-    val_dataloader,
-    criterion,
-    transformer_optimizer,
-    device=device,  # Add this line
-    log_wandb=True,
-    model_name="Transformer",
-    output_dims=output_dims,  # Use the retrieved output_dims
-    micro_batch_size=config["micro_batch_size"],
+    model=transformer,
+    train_dataloader=train_dataloader,
+    val_dataloader=val_dataloader,
+    criterion=criterion,
+    optimizer=transformer_optimizer,
     num_epochs=config["num_epochs"],
+    micro_batch_size=config["micro_batch_size"],
+    device=device,  # Add this line
+    output_dims=output_dims,  # Use the retrieved output_dims
+    log_wandb=True,
 )
 
 print("Evaluating Transformer...")
