@@ -15,14 +15,14 @@ import pdb
 # Configurations
 config = {
     "seed": 42,
-    "batch_size": 1024,
-    "micro_batch_size": 1024,
-    "num_epochs": 10,
+    "batch_size": 512,
+    "micro_batch_size": 512,
+    "num_epochs": 4,
     "learning_rate": 1e-4,
-    "hidden_dim": 64,
-    "d_model": 256,
+    "hidden_dim": 32,
+    "d_model": 128,
     "num_heads": 4,
-    "num_layers": 12,
+    "num_layers": 8,
 }
 
 set_seed(config["seed"])
@@ -58,7 +58,7 @@ val_dataloader = DataLoader(
     collate_fn=custom_collate,
 )
 
-exp_name = f"rnn_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}"
+exp_name = f"rnn_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}_bs{config['batch_size']}"
 
 # Initialize wandb
 wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)
