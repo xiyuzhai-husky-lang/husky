@@ -5,6 +5,7 @@ import torch
 from torch.utils.data import Dataset
 from collections import Counter
 import msgpack
+from tqdm import tqdm
 
 
 class DatasetStats(NamedTuple):
@@ -82,30 +83,47 @@ class MiniHuskyDataset(Dataset):
         symbol_resolution_dist = Counter()
         error_dist = Counter()
 
-        for code_pair in unpacked_data:
-            tokens, token_infos = code_pair
+        # for code_pair in tqdm(unpacked_data):
+        #     tokens, token_infos = code_pair
 
-            ast_kinds = []
-            symbol_resolutions = []
-            errors = []
-            for ast_kind, symbol_resolution, error in token_infos:
-                ast_kinds.append(ast_kind)
-                symbol_resolutions.append(symbol_resolution)
-                errors.append(error)
+        #     ast_kinds = []
+        #     symbol_resolutions = []
+        #     errors = []
+        #     for ast_kind, symbol_resolution, error in token_infos:
+        #         ast_kinds.append(ast_kind)
+        #         symbol_resolutions.append(symbol_resolution)
+        #         errors.append(error)
 
-                # Update max values and distributions
-                max_values["ast_kind"] = max(max_values["ast_kind"], ast_kind)
-                max_values["symbol_resolution"] = max(
-                    max_values["symbol_resolution"], symbol_resolution
-                )
-                max_values["error"] = max(max_values["error"], error)
+        #         # Update max values and distributions
+        #         max_values["ast_kind"] = max(max_values["ast_kind"], ast_kind)
+        #         max_values["symbol_resolution"] = max(
+        #             max_values["symbol_resolution"], symbol_resolution
+        #         )
+        #         max_values["error"] = max(max_values["error"], error)
 
-                ast_kind_dist[ast_kind] += 1
-                symbol_resolution_dist[symbol_resolution] += 1
-                error_dist[error] += 1
+        #         ast_kind_dist[ast_kind] += 1
+        #         symbol_resolution_dist[symbol_resolution] += 1
+        #         error_dist[error] += 1
 
-            decoded_token_infos = (ast_kinds, symbol_resolutions, errors)
-            decoded_data.append((tokens, decoded_token_infos))
+        #     decoded_token_infos = (ast_kinds, symbol_resolutions, errors)
+        #     decoded_data.append((tokens, decoded_token_infos))
+
+        for tokens, token_infos in tqdm(unpacked_data):
+            # Use list comprehension to unpack values efficiently
+            ast_kinds, symbol_resolutions, errors = zip(*token_infos)
+            
+            # Update max values
+            max_values["ast_kind"] = max(max_values["ast_kind"], max(ast_kinds))
+            max_values["symbol_resolution"] = max(max_values["symbol_resolution"], max(symbol_resolutions))
+            max_values["error"] = max(max_values["error"], max(errors))
+
+            # Bulk update the counters
+            ast_kind_dist.update(ast_kinds)
+            symbol_resolution_dist.update(symbol_resolutions)
+            error_dist.update(errors)
+
+            # Append the unpacked and decoded token infos
+            decoded_data.append((tokens, (list(ast_kinds), list(symbol_resolutions), list(errors))))
 
         # Calculate percentages
         total_tokens = sum(ast_kind_dist.values())
