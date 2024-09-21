@@ -19,7 +19,6 @@ def train_model(
     output_dims,
     log_wandb=True,
     model_name=None,
-    padding_value=-1,
     patience=5,
     min_delta=0.001,
     **kwargs
@@ -41,7 +40,6 @@ def train_model(
             optimizer,
             device,
             output_dims,
-            padding_value,
             is_training=True,
             micro_batch_size=micro_batch_size,
         )
@@ -55,7 +53,6 @@ def train_model(
             optimizer,
             device,
             output_dims,
-            padding_value,
             is_training=False,
             micro_batch_size=micro_batch_size,
         )
@@ -102,7 +99,7 @@ def train_model(
 
     return model
 
-def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size, padding_value=-1, **kwargs):
+def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size, **kwargs):
     model.eval()
     val_loss, val_ast_acc, val_symbol_acc, val_error_acc = run_epoch(
         model=model,
@@ -130,7 +127,6 @@ def run_epoch(
     optimizer,
     device,
     output_dims,
-    padding_value,
     is_training,
     micro_batch_size
 ):
@@ -148,9 +144,9 @@ def run_epoch(
             optimizer.zero_grad()
 
         with torch.set_grad_enabled(is_training):
-            tot_ast_loss, tot_ast_cnt = 0.0, 0
-            tot_symbol_loss, tot_symbol_cnt = 0.0, 0
-            tot_error_loss, tot_error_cnt = 0.0, 0
+            combined_loss = 0.0
+            combined_ast_acc, combined_symbol_acc, combined_error_acc = 0.0, 0.0, 0.0
+            cnt = 0
             for i in range(0, _inputs.shape[0], micro_batch_size):
                 outputs = model(_inputs[i:i + micro_batch_size])
                 ast_outputs = outputs[:, :, :ast_dim]
@@ -167,57 +163,38 @@ def run_epoch(
                 symbol_targets = _symbol_targets[i:i + micro_batch_size].view(-1)
                 error_targets = _error_targets[i:i + micro_batch_size].view(-1)
 
-                ast_mask = ast_targets != padding_value
-                symbol_mask = symbol_targets != padding_value
-                assert torch.all(
-                    ast_mask == symbol_mask
-                ), "ast_mask and symbol_mask are not identical"
-                error_mask = error_targets != padding_value
-                assert torch.all(
-                    ast_mask == error_mask
-                ), "ast_mask and error_mask are not identical"
+                ast_loss = criterion(ast_outputs, ast_targets)
+                symbol_loss = criterion(symbol_outputs, symbol_targets)
+                error_loss = criterion(error_outputs, error_targets)
 
-                ast_loss = criterion(
-                    ast_outputs[ast_mask],
-                    ast_targets[ast_mask]
-                )
-                symbol_loss = criterion(
-                    symbol_outputs[symbol_mask],
-                    symbol_targets[symbol_mask]
-                )
-                error_loss = criterion(
-                    error_outputs[error_mask],
-                    error_targets[error_mask]
-                )
+                micro_batch_loss = ast_loss + symbol_loss + error_loss
 
-                tot_ast_loss += ast_loss
-                tot_ast_cnt += ast_mask.sum()
+                if is_training:
+                    micro_batch_loss.backward()
+                combined_loss += micro_batch_loss.detach()
 
-                tot_symbol_loss += symbol_loss
-                tot_symbol_cnt += symbol_mask.sum()
+                mask = ast_targets != -1
+                ast_acc = (ast_outputs.detach().argmax(dim=1) == ast_targets)[mask].float().sum()
+                symbol_acc = (symbol_outputs.detach().argmax(dim=1) == symbol_targets)[mask].float().sum()
+                error_acc = (error_outputs.detach().argmax(dim=1) == error_targets)[mask].float().sum()
+                combined_ast_acc += ast_acc
+                combined_symbol_acc += symbol_acc
+                combined_error_acc += error_acc
 
-                tot_error_loss += error_loss
-                tot_error_cnt += error_mask.sum()
+                cnt += mask.sum()
 
-            combined_loss = tot_ast_loss / tot_ast_cnt + tot_symbol_loss / tot_symbol_cnt + tot_error_loss / tot_error_cnt
+            combined_loss /= cnt
+            combined_ast_acc /= cnt
+            combined_symbol_acc /= cnt
+            combined_error_acc /= cnt
 
             if is_training:
-                combined_loss.backward()
                 optimizer.step()
 
         total_loss += combined_loss.item()
-
-        ast_acc = (ast_outputs.argmax(dim=1) == ast_targets)[ast_mask].float().mean()
-        symbol_acc = (
-            (symbol_outputs.argmax(dim=1) == symbol_targets)[symbol_mask].float().mean()
-        )
-        error_acc = (
-            (error_outputs.argmax(dim=1) == error_targets)[error_mask].float().mean()
-        )
-
-        total_ast_acc += ast_acc.item()
-        total_symbol_acc += symbol_acc.item()
-        total_error_acc += error_acc.item()
+        total_ast_acc += combined_ast_acc.item()
+        total_symbol_acc += combined_symbol_acc.item()
+        total_error_acc += combined_error_acc.item()
 
     avg_loss = total_loss / len(dataloader)
     avg_ast_acc = total_ast_acc / len(dataloader)
