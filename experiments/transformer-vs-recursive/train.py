@@ -55,7 +55,7 @@ def train_model(
             device=device,
             output_dims=output_dims,
             is_training=False,
-            micro_batch_size=micro_batch_size,
+            micro_batch_size=micro_batch_size * 4,
             log_wandb=False,
         )
 
