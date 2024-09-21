@@ -84,16 +84,16 @@ rnn_optimizer = optim.Adam(rnn.parameters(), lr=config["learning_rate"])
 
 print("Training RNN...")
 rnn_best_model = train_model(
-    rnn,
-    train_dataloader,
-    val_dataloader,
-    criterion,
-    rnn_optimizer,
-    device=device,  # Add this line
-    log_wandb=True,
-    output_dims=output_dims,  # Use the retrieved output_dims
-    micro_batch_size=config["micro_batch_size"],
+    model=rnn,
+    train_dataloader=train_dataloader,
+    val_dataloader=val_dataloader,
+    criterion=criterion,
+    optimizer=rnn_optimizer,
     num_epochs=config["num_epochs"],
+    micro_batch_size=config["micro_batch_size"],
+    device=device,  # Add this line
+    output_dims=output_dims,  # Use the retrieved output_dims
+    log_wandb=True,
 )
 
 print("Evaluating RNN...")
