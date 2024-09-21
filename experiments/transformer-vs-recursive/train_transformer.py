@@ -1,3 +1,5 @@
+import numpy as np
+import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -24,11 +26,20 @@ class SimpleRNN(nn.Module):
         output, _ = self.rnn(F.one_hot(x, num_classes=self.input_dim).float())
         return self.fc(output)
 
+def set_seed(seed):
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.cuda.manual_seed(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    np.random.seed(seed)
+    random.seed(seed)
 
 # Configurations
 config = {
+    "seed": 42,
     "batch_size": 1024,
-    "micro_batch_size": 32,
+    "micro_batch_size": 64,
     "rnn_micro_batch_size": 1024,
     "num_epochs": 100,
     "learning_rate": 1e-4,
@@ -37,6 +48,8 @@ config = {
     "num_heads": 4,
     "num_layers": 12,
 }
+
+set_seed(config["seed"])
 
 # Load the dataset
 dataset = MiniHuskyDataset(100000, 20, 0.50)
@@ -112,26 +125,11 @@ rnn = SimpleRNN(
 ).to(device)
 
 # Loss function and optimizers
-criterion = nn.CrossEntropyLoss(reduction="sum")
+criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
 transformer_optimizer = optim.Adam(transformer.parameters(), lr=config["learning_rate"])
 rnn_optimizer = optim.Adam(rnn.parameters(), lr=config["learning_rate"])
 
 # Train the models
-print("Training RNN...")
-rnn_best_model = train_model(
-    rnn,
-    train_dataloader,
-    val_dataloader,
-    criterion,
-    rnn_optimizer,
-    device=device,  # Add this line
-    log_wandb=True,
-    model_name="RNN",
-    output_dims=output_dims,  # Use the retrieved output_dims
-    micro_batch_size=config["rnn_micro_batch_size"],
-    num_epochs=config["num_epochs"],
-)
-
 print("Training Transformer...")
 transformer_best_model = train_model(
     transformer,
@@ -147,14 +145,19 @@ transformer_best_model = train_model(
     num_epochs=config["num_epochs"],
 )
 
-print("Evaluating RNN...")
-eval_model(
-    model=rnn_best_model,
-    val_dataloader=val_dataloader,
-    criterion=criterion,
-    device=device,
-    output_dims=output_dims,
-    micro_batch_size=config["rnn_micro_batch_size"] * 4,
+print("Training RNN...")
+rnn_best_model = train_model(
+    rnn,
+    train_dataloader,
+    val_dataloader,
+    criterion,
+    rnn_optimizer,
+    device=device,  # Add this line
+    log_wandb=True,
+    model_name="RNN",
+    output_dims=output_dims,  # Use the retrieved output_dims
+    micro_batch_size=config["rnn_micro_batch_size"],
+    num_epochs=config["num_epochs"],
 )
 
 print("Evaluating Transformer...")
@@ -165,6 +168,16 @@ eval_model(
     device=device,
     output_dims=output_dims,
     micro_batch_size=config["micro_batch_size"] * 4,
+)
+
+print("Evaluating RNN...")
+eval_model(
+    model=rnn_best_model,
+    val_dataloader=val_dataloader,
+    criterion=criterion,
+    device=device,
+    output_dims=output_dims,
+    micro_batch_size=config["rnn_micro_batch_size"] * 4,
 )
 
 wandb.finish()
