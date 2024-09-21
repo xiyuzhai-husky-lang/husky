@@ -43,14 +43,4 @@ where
     fn freeze(&self) -> Self::Frozen {
         todo!()
     }
-
-    fn serialize_to_value(&self) -> serde_json::Value {
-        self.as_ref()
-            .map(|slf| slf.serialize_to_value())
-            .unwrap_or_default()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
-        todo!()
-    }
 }
