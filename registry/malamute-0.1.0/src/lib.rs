@@ -65,14 +65,6 @@ where
         *self
     }
 
-    fn serialize_to_value(&self) -> __JsonValue {
-        __to_json_value(self).unwrap()
-    }
-
-    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-        __Visual::Void
-    }
-
     fn is_copyable() -> bool {
         true
     }
@@ -98,6 +90,14 @@ where
     type Slush = ();
     fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
         todo!()
+    }
+
+    fn serialize_to_value(&self) -> __JsonValue {
+        __to_json_value(self).unwrap()
+    }
+
+    fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+        __Visual::Void
     }
 }
 

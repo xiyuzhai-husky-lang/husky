@@ -15,22 +15,6 @@ pub struct VmHistory<LinketImpl: IsLinketImpl> {
     snapshots: Mutex<VmSnapshots<LinketImpl>>,
 }
 
-impl<LinketImpl: IsLinketImpl> std::ops::Index<VmirExprIdx<LinketImpl>> for VmHistory<LinketImpl> {
-    type Output = VmRecord<LinketImpl>;
-
-    fn index(&self, expr: VmirExprIdx<LinketImpl>) -> &Self::Output {
-        &self.expr_control_flows[*expr]
-    }
-}
-
-impl<LinketImpl: IsLinketImpl> std::ops::Index<VmirStmtIdx<LinketImpl>> for VmHistory<LinketImpl> {
-    type Output = VmRecord<LinketImpl>;
-
-    fn index(&self, stmt: VmirStmtIdx<LinketImpl>) -> &Self::Output {
-        &self.stmt_control_flows[*stmt]
-    }
-}
-
 impl<LinketImpl> VmHistory<LinketImpl>
 where
     LinketImpl: IsLinketImpl,
@@ -48,9 +32,22 @@ where
             snapshots: Mutex::new(VmSnapshots::new(snapshots)),
         }
     }
+}
 
+impl<LinketImpl> VmHistory<LinketImpl>
+where
+    LinketImpl: IsLinketImpl,
+{
     pub fn linket(&self) -> Linket {
         self.linket
+    }
+
+    pub fn expr_record(&self, expr: VmirExprIdx<LinketImpl>) -> Option<&VmRecord<LinketImpl>> {
+        self.expr_control_flows.get(*expr)
+    }
+
+    pub fn stmt_record(&self, stmt: VmirStmtIdx<LinketImpl>) -> Option<&VmRecord<LinketImpl>> {
+        self.stmt_control_flows.get(*stmt)
     }
 }
 

@@ -63,15 +63,6 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                     // FrozenMut::new(*self)
                     todo!()
                 }
-
-                fn serialize_to_value(&self) -> __JsonValue {
-                    __to_json_value(self).unwrap()
-                }
-
-                fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-                    // ad hoc
-                    __Visual::Void
-                }
             }
 
             impl #generics __Frozen for #self_ty where #impl_frozen_generic_constraints {
@@ -81,6 +72,15 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
                 fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
                     todo!()
+                }
+
+                fn serialize_to_value(&self) -> __JsonValue {
+                    __to_json_value(self).unwrap()
+                }
+
+                fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+                    // ad hoc
+                    __Visual::Void
                 }
             }
 
@@ -166,15 +166,6 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
                     // FrozenMut::new(*self)
                     todo!()
                 }
-
-                fn serialize_to_value(&self) -> __JsonValue {
-                    __to_json_value(self).unwrap()
-                }
-
-                fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-                    // ad hoc
-                    __Visual::Void
-                }
             }
 
             impl #generics __Frozen for #self_ty where #impl_frozen_generic_constraints {
@@ -184,6 +175,15 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
                 fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
                     todo!()
+                }
+
+                fn serialize_to_value(&self) -> __JsonValue {
+                    __to_json_value(self).unwrap()
+                }
+
+                fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+                    // ad hoc
+                    __Visual::Void
                 }
             }
 

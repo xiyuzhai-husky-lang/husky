@@ -58,15 +58,6 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
             fn try_copy_thawed(&self) -> Option<__ThawedValue> {
                 todo!()
             }
-
-
-            fn serialize_to_value(&self) -> __JsonValue {
-                __to_json_value(self).unwrap()
-            }
-
-            fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
-                __VisualizeTest(self).visualize(visual_synchrotron)
-            }
         }
 
         impl #generics __Frozen for #self_ty where #impl_frozen_generic_constraints {
@@ -76,6 +67,14 @@ pub(super) fn struct_value_conversion(item: syn::ItemStruct) -> TokenStream {
 
             fn thaw(&self) -> (Option<Self::Slush>, Self::Thawed) {
                 todo!()
+            }
+
+            fn serialize_to_value(&self) -> __JsonValue {
+                __to_json_value(self).unwrap()
+            }
+
+            fn visualize_or_void(&self, visual_synchrotron: &mut __VisualSynchrotron) -> __Visual {
+                __VisualizeTest(self).visualize(visual_synchrotron)
             }
         }
 
