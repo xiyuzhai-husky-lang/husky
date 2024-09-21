@@ -7,40 +7,19 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, random_split
 import wandb
 from datasets.mini_husky import MiniHuskyDataset
-from models.rnn import RNNEncoder
 from models.transformer import EncoderOnlyTransformer
 from train import train_model, eval_model
 from torch.nn.utils.rnn import pad_sequence
+from utils import set_seed, custom_collate
 
+import os
 import pdb
-
-# Define a simple RNN model
-class SimpleRNN(nn.Module):
-    def __init__(self, input_dim, hidden_dim, output_dim):
-        super(SimpleRNN, self).__init__()
-        self.input_dim = input_dim
-        self.rnn = nn.RNN(input_dim, hidden_dim, batch_first=True)
-        self.fc = nn.Linear(hidden_dim, output_dim)
-
-    def forward(self, x):
-        output, _ = self.rnn(F.one_hot(x, num_classes=self.input_dim).float())
-        return self.fc(output)
-
-def set_seed(seed):
-    torch.manual_seed(seed)
-    torch.cuda.manual_seed_all(seed)
-    torch.cuda.manual_seed(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
-    np.random.seed(seed)
-    random.seed(seed)
 
 # Configurations
 config = {
     "seed": 42,
     "batch_size": 1024,
     "micro_batch_size": 64,
-    "rnn_micro_batch_size": 1024,
     "num_epochs": 100,
     "learning_rate": 1e-4,
     "hidden_dim": 64,
@@ -52,33 +31,16 @@ config = {
 set_seed(config["seed"])
 
 # Load the dataset
-dataset = MiniHuskyDataset(100000, 20, 0.50)
+dataset = MiniHuskyDataset(
+    n=1000000,
+    max_fns=20,
+    error_rate=0.50,
+    data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
+)
 
 # Add this line near the top of the file, after loading the dataset
 output_dims = dataset.get_output_dims()  # Assuming this method exists
 output_dim = sum(output_dims)  # Sum up all the values in output_dims
-
-
-def custom_collate(batch):
-    inputs, targets = zip(*batch)
-    inputs = [torch.as_tensor(x) for x in inputs]  # Convert lists to tensors
-    inputs_padded = pad_sequence(inputs, batch_first=True, padding_value=0)
-
-    # Unpack the targets tuple
-    ast_kinds, symbol_resolutions, errors = zip(*targets)
-    ast_kinds_padded = pad_sequence(
-        [torch.as_tensor(t) for t in ast_kinds], batch_first=True, padding_value=-1
-    )
-    symbol_resolutions_padded = pad_sequence(
-        [torch.as_tensor(t) for t in symbol_resolutions],
-        batch_first=True,
-        padding_value=-1,
-    )
-    errors_padded = pad_sequence(
-        [torch.as_tensor(t) for t in errors], batch_first=True, padding_value=-1
-    )
-    return inputs_padded, (ast_kinds_padded, symbol_resolutions_padded, errors_padded)
-
 
 # Split the dataset into train and validation sets
 train_size = int(0.8 * len(dataset))  # 80% for training
@@ -99,8 +61,10 @@ val_dataloader = DataLoader(
     collate_fn=custom_collate,
 )
 
+exp_name = f"transformer_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}"
+
 # Initialize wandb
-wandb.init(project="transformer-vs-rnn", config=config)
+wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)
 
 # Set device to CUDA if available
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -118,16 +82,9 @@ transformer = EncoderOnlyTransformer(
     max_seq_len=1000,
 ).to(device)
 
-rnn = SimpleRNN(
-    input_dim=vocab_size,
-    hidden_dim=config["hidden_dim"],
-    output_dim=output_dim,  # Updated to use output_dims from dataset
-).to(device)
-
 # Loss function and optimizers
 criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
 transformer_optimizer = optim.Adam(transformer.parameters(), lr=config["learning_rate"])
-rnn_optimizer = optim.Adam(rnn.parameters(), lr=config["learning_rate"])
 
 # Train the models
 print("Training Transformer...")
@@ -145,21 +102,6 @@ transformer_best_model = train_model(
     num_epochs=config["num_epochs"],
 )
 
-print("Training RNN...")
-rnn_best_model = train_model(
-    rnn,
-    train_dataloader,
-    val_dataloader,
-    criterion,
-    rnn_optimizer,
-    device=device,  # Add this line
-    log_wandb=True,
-    model_name="RNN",
-    output_dims=output_dims,  # Use the retrieved output_dims
-    micro_batch_size=config["rnn_micro_batch_size"],
-    num_epochs=config["num_epochs"],
-)
-
 print("Evaluating Transformer...")
 eval_model(
     model=transformer_best_model,
@@ -168,16 +110,6 @@ eval_model(
     device=device,
     output_dims=output_dims,
     micro_batch_size=config["micro_batch_size"] * 4,
-)
-
-print("Evaluating RNN...")
-eval_model(
-    model=rnn_best_model,
-    val_dataloader=val_dataloader,
-    criterion=criterion,
-    device=device,
-    output_dims=output_dims,
-    micro_batch_size=config["rnn_micro_batch_size"] * 4,
 )
 
 wandb.finish()

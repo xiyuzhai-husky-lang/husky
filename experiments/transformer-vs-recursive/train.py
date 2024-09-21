@@ -18,10 +18,8 @@ def train_model(
     device,
     output_dims,
     log_wandb=True,
-    model_name=None,
     patience=5,
     min_delta=0.001,
-    **kwargs
 ):
     ast_dim, symbol_dim, error_dim = output_dims
     model.to(device)
@@ -34,27 +32,31 @@ def train_model(
         # Training phase
         model.train()
         train_loss, train_ast_acc, train_symbol_acc, train_error_acc = run_epoch(
-            model,
-            train_dataloader,
-            criterion,
-            optimizer,
-            device,
-            output_dims,
+            epoch_idx=epoch,
+            model=model,
+            dataloader=train_dataloader,
+            criterion=criterion,
+            optimizer=optimizer,
+            device=device,
+            output_dims=output_dims,
             is_training=True,
             micro_batch_size=micro_batch_size,
+            log_wandb=log_wandb,
         )
 
         # Validation phase
         model.eval()
         val_loss, val_ast_acc, val_symbol_acc, val_error_acc = run_epoch(
-            model,
-            val_dataloader,
-            criterion,
-            optimizer,
-            device,
-            output_dims,
+            epoch_idx=epoch,
+            model=model,
+            dataloader=val_dataloader,
+            criterion=criterion,
+            optimizer=optimizer,
+            device=device,
+            output_dims=output_dims,
             is_training=False,
             micro_batch_size=micro_batch_size,
+            log_wandb=False,
         )
 
         # Early stopping check
@@ -68,14 +70,14 @@ def train_model(
         if log_wandb:
             wandb.log(
                 {
-                    f"train/{model_name}_loss": train_loss,
-                    f"train/{model_name}_ast_accuracy": train_ast_acc,
-                    f"train/{model_name}_symbol_accuracy": train_symbol_acc,
-                    f"train/{model_name}_error_accuracy": train_error_acc,
-                    f"val/{model_name}_loss": val_loss,
-                    f"val/{model_name}_ast_accuracy": val_ast_acc,
-                    f"val/{model_name}_symbol_accuracy": val_symbol_acc,
-                    f"val/{model_name}_error_accuracy": val_error_acc,
+                    # f"train/loss": train_loss,
+                    # f"train/ast_accuracy": train_ast_acc,
+                    # f"train/symbol_accuracy": train_symbol_acc,
+                    # f"train/error_accuracy": train_error_acc,
+                    f"val/loss": val_loss,
+                    f"val/ast_accuracy": val_ast_acc,
+                    f"val/symbol_accuracy": val_symbol_acc,
+                    f"val/error_accuracy": val_error_acc,
                     "train/step": epoch,
                 }
             )
@@ -99,7 +101,7 @@ def train_model(
 
     return model
 
-def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size, **kwargs):
+def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size):
     model.eval()
     val_loss, val_ast_acc, val_symbol_acc, val_error_acc = run_epoch(
         model=model,
@@ -108,19 +110,19 @@ def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batc
         optimizer=None,
         device=device,
         output_dims=output_dims,
-        padding_value=padding_value,
         is_training=False,
         micro_batch_size=micro_batch_size,
     )
     
     print(
-        f"Val Loss: {val_loss:.4f}, "
-        f"Val AST Acc: {val_ast_acc:.4f}, "
-        f"Val Symbol Acc: {val_symbol_acc:.4f}, "
-        f"Val Error Acc: {val_error_acc:.4f}"
+        f"Final Val Loss: {val_loss:.4f}, "
+        f"Final Val AST Acc: {val_ast_acc:.4f}, "
+        f"Final Val Symbol Acc: {val_symbol_acc:.4f}, "
+        f"Final Val Error Acc: {val_error_acc:.4f}"
     )
 
 def run_epoch(
+    epoch_idx,
     model,
     dataloader,
     criterion,
@@ -128,7 +130,8 @@ def run_epoch(
     device,
     output_dims,
     is_training,
-    micro_batch_size
+    micro_batch_size,
+    log_wandb,
 ):
     ast_dim, symbol_dim, error_dim = output_dims
     total_loss = 0.0
@@ -187,6 +190,17 @@ def run_epoch(
             combined_ast_acc /= cnt
             combined_symbol_acc /= cnt
             combined_error_acc /= cnt
+
+            if log_wandb and is_training:
+                wandb.log(
+                    {
+                        f"train/loss": combined_loss.item(),
+                        f"train/ast_accuracy": combined_ast_acc.item(),
+                        f"train/symbol_accuracy": combined_symbol_acc.item(),
+                        f"train/error_accuracy": combined_error_acc.item(),
+                        "train/step": epoch_idx * len(dataloader) + batch_idx,
+                    }
+                )
 
             if is_training:
                 optimizer.step()
