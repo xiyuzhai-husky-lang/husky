@@ -1,8 +1,18 @@
-use husky_cybertron_mini_husky_compiler::rnd::basic::rnd_codes;
+use husky_cybertron_mini_husky_compiler::rnd::basic::{rnd_codes, TokenInfo};
 use std::fs;
 use std::io::{self, Read, Write};
 use std::path::Path;
 use std::path::PathBuf;
+
+fn preview_data_strings(data: &Vec<(Vec<String>, Vec<TokenInfo>)>) {
+    'outer: for (strings, _tokens) in data {
+        for s in strings {
+            print!("{} ", s);
+        }
+        break 'outer;
+    }
+    println!();
+}
 
 fn main() {
     let dir = PathBuf::from("data/mini-husky/basic");
@@ -28,6 +38,8 @@ fn main() {
 
         // Generate the random codes
         let data = rnd_codes(*n, *max_fns, *error_rate);
+
+        preview_data_strings(&data);
 
         // Write to the file
         let mut file = fs::File::create(&dataset_filename).expect("Unable to create file");
