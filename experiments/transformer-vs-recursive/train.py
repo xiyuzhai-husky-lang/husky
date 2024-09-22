@@ -209,7 +209,7 @@ def run_epoch(
             if is_training:
                 optimizer.step()
                 if scheduler is not None:
-                    scheduler.step(current_iter)
+                    scheduler.step()
 
         total_loss += combined_loss.item()
         total_ast_acc += combined_ast_acc.item()
