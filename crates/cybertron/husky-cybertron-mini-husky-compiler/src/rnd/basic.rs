@@ -217,6 +217,10 @@ struct BasicCodeGenerator {
     token_infos: Vec<TokenInfo>,
     error_rate: f64,
     max_calls_per_fn: usize,
+    used_fn_idx: Vec<usize>,
+    int_literals: Vec<String>,
+    float_literals: Vec<String>,
+    bool_literals: Vec<String>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -250,6 +254,18 @@ struct Function {
 
 impl BasicCodeGenerator {
     fn new(seed: u64, error_rate: f64) -> Self {
+        let mut int_literals: Vec<String> = Vec::new();
+        for i in 0..99 {
+            int_literals.push(i.to_string());
+        }
+
+        let mut float_literals: Vec<String> = Vec::new();
+        for i in 0..99 {
+            float_literals.push(format!("{i}.1"));
+        }
+
+        let bool_literals = vec!["true".to_string(), "false".to_string()];
+
         Self {
             rng: XRng::new(seed),
             functions: Default::default(),
@@ -257,6 +273,10 @@ impl BasicCodeGenerator {
             token_infos: Vec::new(),
             error_rate,
             max_calls_per_fn: 5, // default value
+            used_fn_idx: Vec::new(),
+            int_literals,
+            float_literals,
+            bool_literals,
         }
     }
 
@@ -295,8 +315,15 @@ impl BasicCodeGenerator {
     fn gen_fn(&mut self) {
         let len = self.functions.len();
         self.push_token("fn", Some(AstKind::FnKeyword), None, None);
+
+        let mut fn_idx = self.rng.rand_range(0..100);
+        while self.used_fn_idx.contains(&fn_idx) {
+            fn_idx = self.rng.rand_range(0..100);
+        }
+        self.used_fn_idx.push(fn_idx);
+
         self.push_token(
-            format!("f{len}"),
+            format!("f{fn_idx}"),
             Some(AstKind::FnEntityName),
             Some(SymbolResolution::Fn),
             None,
@@ -320,24 +347,37 @@ impl BasicCodeGenerator {
     fn gen_fn_call(&mut self, len: usize) {
         let callee_index = self.rng.rand_range(0..len);
         let callee = &self.functions[callee_index];
+        let fn_name = &self.used_fn_idx[callee_index];
 
         let has_ty_error = self.rng.randf64() < self.error_rate;
-        let (arg_literal, literal_kind) = if has_ty_error {
-            match callee.input_ty {
-                Type::Bool => ("1", AstKind::IntLiteral),
-                Type::Int => ("1.1", AstKind::FloatLiteral),
-                Type::Float => ("true", AstKind::BoolLiteral),
-            }
+
+        let value_type = if has_ty_error {
+            let mut types = vec![Type::Bool, Type::Int, Type::Float];
+            types.retain(|&x| x != callee.input_ty);
+            types[self.rng.rand_range(0..types.len())].clone()
         } else {
-            match callee.input_ty {
-                Type::Bool => ("true", AstKind::BoolLiteral),
-                Type::Int => ("1", AstKind::IntLiteral),
-                Type::Float => ("1.1", AstKind::FloatLiteral),
+            callee.input_ty
+        };
+
+        let (arg_literal, literal_kind) = {
+            match value_type {
+                Type::Bool => (
+                    self.bool_literals[self.rng.rand_range(0..self.bool_literals.len())].clone(),
+                    AstKind::BoolLiteral,
+                ),
+                Type::Int => (
+                    self.int_literals[self.rng.rand_range(0..self.int_literals.len())].clone(),
+                    AstKind::IntLiteral,
+                ),
+                Type::Float => (
+                    self.float_literals[self.rng.rand_range(0..self.float_literals.len())].clone(),
+                    AstKind::FloatLiteral,
+                ),
             }
         };
 
         self.push_token(
-            format!("f{callee_index}"),
+            format!("f{fn_name}"),
             Some(AstKind::FnEntityUsage),
             Some(SymbolResolution::Fn),
             None,
