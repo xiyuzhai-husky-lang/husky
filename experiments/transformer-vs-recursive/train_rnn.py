@@ -19,10 +19,7 @@ config = {
     "micro_batch_size": 512,
     "num_epochs": 4,
     "learning_rate": 1e-4,
-    "hidden_dim": 32,
-    "d_model": 128,
-    "num_heads": 4,
-    "num_layers": 8,
+    "hidden_dim": 4,
 }
 
 set_seed(config["seed"])
@@ -58,7 +55,7 @@ val_dataloader = DataLoader(
     collate_fn=custom_collate,
 )
 
-exp_name = f"rnn_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}_bs{config['batch_size']}"
+exp_name = f"rnn_{config['hidden_dim']}_seed{config['seed']}_bs{config['batch_size']}"
 
 # Initialize wandb
 wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)

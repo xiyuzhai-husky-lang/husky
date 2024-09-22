@@ -20,10 +20,10 @@ config = {
     "min_lr": 1e-6,
     "max_lr": 1e-4,
     "warmup_iters": 990,
-    "hidden_dim": 32,
-    "d_model": 128,
+    "hidden_dim": 16,
+    "d_model": 64,
     "num_heads": 4,
-    "num_layers": 8,
+    "num_layers": 4,
 }
 
 set_seed(config["seed"])
