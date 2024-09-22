@@ -344,3 +344,5 @@ out
 
 ## expect test lock
 *.rich-test-lock
+
+data/mini-husky/basic/
