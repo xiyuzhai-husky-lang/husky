@@ -1,9 +1,7 @@
 use colored::Colorize;
-use husky_screen_utils::light_up_screen;
 use std::io::Write;
 
 pub fn ask_user_for_permission(question: impl std::fmt::Display) -> bool {
-    light_up_screen();
     loop {
         print!("{}? (y/n)", question.to_string().blue());
         let _ = std::io::stdout().flush();
