@@ -207,7 +207,13 @@ impl IsLinketImpl for StandardLinketImpl {
                 fn_ki_wrapper,
                 fn_pointer,
             } => todo!(),
-            StandardLinketImpl::RitchieUnveilFn { .. } => todo!(),
+            StandardLinketImpl::RitchieUnveilFn { fn_vm_wrapper, .. } => {
+                assert_eq!(arguments.len(), 2);
+                let mut args = arguments.into_iter();
+                let arg0 = args.next().unwrap();
+                let arg1 = args.next().unwrap();
+                fn_vm_wrapper([arg0, arg1])
+            }
             StandardLinketImpl::RitchieGn { gn_ki_wrapper } => todo!(),
             StandardLinketImpl::EnumVariantConstructor {
                 enum_variant_constructor_vm_wrapper,
