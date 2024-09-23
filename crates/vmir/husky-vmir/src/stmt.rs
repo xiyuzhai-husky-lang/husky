@@ -330,6 +330,12 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                 coercion,
                 discarded,
             } => {
+                use husky_print_utils::p;
+                match ctx.vmir_expr_arena()[*expr] {
+                    expr::VmirExprData::UnitTypeVariant { linket_impl } => (),
+                    expr::VmirExprData::Unwrap { opd } => todo!(),
+                    _ => todo!(),
+                }
                 let result = expr.eval(coercion, ctx)?;
                 match discarded {
                     true => Continue(().into()),
