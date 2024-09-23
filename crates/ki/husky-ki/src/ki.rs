@@ -22,11 +22,11 @@ pub enum KiArgument {
         condition: Option<Ki>,
         stmts: SmallVec<[Ki; 4]>,
     },
-    RuntimeConstants(SmallVec<[KiRuntimeConstant; 4]>),
+    RuntimeCompterms(SmallVec<[KiRuntimeCompterm; 4]>),
 }
 
 #[salsa::interned]
-pub struct KiRuntimeConstant {
+pub struct KiRuntimeCompterm {
     pub data: KiRuntimeConstantData,
 }
 
@@ -40,7 +40,7 @@ fn val_runtime_constants_works() {
     use husky_ki_repr_interface::KiRuntimeConstantInterface;
 
     assert_eq!(
-        std::mem::size_of::<KiRuntimeConstant>(),
+        std::mem::size_of::<KiRuntimeCompterm>(),
         std::mem::size_of::<KiRuntimeConstantInterface>(),
     )
 }

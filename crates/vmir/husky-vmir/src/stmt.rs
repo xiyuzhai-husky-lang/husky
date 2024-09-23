@@ -15,7 +15,10 @@ use crate::{
 };
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
-use husky_linket_impl::{linket_impl::LinketImplThawedValue, LinketImplVmControlFlowThawed};
+use husky_linket_impl::{
+    linket_impl::{LinketImplThawedValue, LinketImplTrackedException},
+    LinketImplVmControlFlowThawed,
+};
 use husky_value::{vm_control_flow::VmControlFlow, IsThawedValue};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
@@ -361,7 +364,11 @@ impl<LinketImpl: IsLinketImpl> VmirCondition<LinketImpl> {
     fn eval<'comptime>(
         self,
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
-    ) -> VmControlFlow<bool, LinketImplThawedValue<LinketImpl>, LinketImpl::Exception> {
+    ) -> VmControlFlow<
+        bool,
+        LinketImplThawedValue<LinketImpl>,
+        LinketImplTrackedException<LinketImpl>,
+    > {
         match self {
             VmirCondition::Be { opd, pattern } => todo!(),
             VmirCondition::Other { opd, conversion } => opd.eval(None, ctx).map(|v| v.to_bool()),
