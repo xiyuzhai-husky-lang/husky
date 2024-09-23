@@ -19,6 +19,8 @@ pub struct TokenInfo {
     symbol_resolution: Option<SymbolResolution>,
     #[serde(serialize_with = "serialize_option_type_error")]
     error: Option<TypeError>,
+    #[serde(serialize_with = "serialize_option_type")]
+    expected_type: Option<Type>,
 }
 
 #[derive(Serialize, Clone, Copy, Debug)]
@@ -238,14 +240,6 @@ impl Type {
             Type::Float => "Float",
         }
     }
-
-    fn random_literal(self) -> &'static str {
-        match self {
-            Type::Bool => "true",
-            Type::Int => "1",
-            Type::Float => "1.1",
-        }
-    }
 }
 
 struct Function {
@@ -286,53 +280,62 @@ impl BasicCodeGenerator {
         ast_kind: Option<AstKind>,
         symbol_resolution: Option<SymbolResolution>,
         error: Option<TypeError>,
+        expected_type: Option<Type>,
     ) {
         self.result.push(token.into());
         self.token_infos.push(TokenInfo {
             ast_kind,
             symbol_resolution,
             error,
+            expected_type,
         });
     }
 
     fn with_curly(&mut self, lcurl_kind: AstKind, rcurl_kind: AstKind, f: impl FnOnce(&mut Self)) {
-        self.push_token("{", Some(lcurl_kind), None, None);
+        self.push_token("{", Some(lcurl_kind), None, None, None);
         f(self);
-        self.push_token("}", Some(rcurl_kind), None, None);
-    }
-
-    fn gen_ty(&mut self, ast_kind: AstKind) -> Type {
-        let ty = match self.rng.rand_range(0..3) {
-            0 => Type::Bool,
-            1 => Type::Int,
-            2 => Type::Float,
-            _ => unreachable!(),
-        };
-        self.push_token(ty.repr(), Some(ast_kind), None, None);
-        ty
+        self.push_token("}", Some(rcurl_kind), None, None, None);
     }
 
     fn gen_fn(&mut self) {
         let len = self.functions.len();
-        self.push_token("fn", Some(AstKind::FnKeyword), None, None);
-
         let mut fn_idx = self.rng.rand_range(0..100);
         while self.used_fn_idx.contains(&fn_idx) {
             fn_idx = self.rng.rand_range(0..100);
         }
         self.used_fn_idx.push(fn_idx);
+        let input_ty = match self.rng.rand_range(0..3) {
+            0 => Type::Bool,
+            1 => Type::Int,
+            2 => Type::Float,
+            _ => unreachable!(),
+        };
 
+        self.push_token("fn", Some(AstKind::FnKeyword), None, None, None);
         self.push_token(
             format!("f{fn_idx}"),
             Some(AstKind::FnEntityName),
             Some(SymbolResolution::Fn),
             None,
+            None,
         );
-        self.push_token("(", Some(AstKind::ParametersLpar), None, None);
-        self.push_token("a", Some(AstKind::ParameterIdent), None, None);
-        self.push_token(":", Some(AstKind::ParameterTypeColon), None, None);
-        let input_ty = self.gen_ty(AstKind::ParameterType);
-        self.push_token(")", Some(AstKind::ParametersRpar), None, None);
+        self.push_token("(", Some(AstKind::ParametersLpar), None, None, None);
+        self.push_token(
+            "a",
+            Some(AstKind::ParameterIdent),
+            None,
+            None,
+            Some(input_ty),
+        );
+        self.push_token(":", Some(AstKind::ParameterTypeColon), None, None, None);
+        self.push_token(
+            input_ty.repr(),
+            Some(AstKind::ParameterType),
+            None,
+            None,
+            None,
+        );
+        self.push_token(")", Some(AstKind::ParametersRpar), None, None, None);
         self.with_curly(AstKind::FnBodyLcurl, AstKind::FnBodyRcurl, |gen| {
             if len > 0 {
                 let num_calls = gen.rng.rand_range(1..=gen.max_calls_per_fn);
@@ -347,16 +350,17 @@ impl BasicCodeGenerator {
     fn gen_fn_call(&mut self, len: usize) {
         let callee_index = self.rng.rand_range(0..len);
         let callee = &self.functions[callee_index];
-        let fn_name = &self.used_fn_idx[callee_index];
+        let fn_name = self.used_fn_idx[callee_index].clone();
+        let input_ty = self.functions[callee_index].input_ty.clone();
 
         let has_ty_error = self.rng.randf64() < self.error_rate;
 
         let value_type = if has_ty_error {
             let mut types = vec![Type::Bool, Type::Int, Type::Float];
-            types.retain(|&x| x != callee.input_ty);
+            types.retain(|&x| x != input_ty);
             types[self.rng.rand_range(0..types.len())].clone()
         } else {
-            callee.input_ty
+            input_ty
         };
 
         let (arg_literal, literal_kind) = {
@@ -381,8 +385,9 @@ impl BasicCodeGenerator {
             Some(AstKind::FnEntityUsage),
             Some(SymbolResolution::Fn),
             None,
+            None,
         );
-        self.push_token("(", Some(AstKind::CallLpar), None, None);
+        self.push_token("(", Some(AstKind::CallLpar), None, None, None);
         self.push_token(
             arg_literal,
             Some(literal_kind),
@@ -392,9 +397,10 @@ impl BasicCodeGenerator {
             } else {
                 None
             },
+            Some(input_ty),
         );
-        self.push_token(")", Some(AstKind::CallRpar), None, None);
-        self.push_token(";", Some(AstKind::StmtColon), None, None);
+        self.push_token(")", Some(AstKind::CallRpar), None, None, None);
+        self.push_token(";", Some(AstKind::StmtColon), None, None, None);
     }
 
     fn gen_fns(&mut self, max_fns: usize) {
@@ -442,5 +448,17 @@ where
     match value {
         None => serializer.serialize_u8(0),
         Some(TypeError::Expected) => serializer.serialize_u8(1),
+    }
+}
+
+fn serialize_option_type<S>(value: &Option<Type>, serializer: S) -> Result<S::Ok, S::Error>
+where
+    S: Serializer,
+{
+    match value {
+        None => serializer.serialize_u8(0),
+        Some(Type::Bool) => serializer.serialize_u8(1),
+        Some(Type::Int) => serializer.serialize_u8(2),
+        Some(Type::Float) => serializer.serialize_u8(3),
     }
 }
