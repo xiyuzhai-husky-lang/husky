@@ -287,6 +287,9 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdxRange<LinketImpl> {
         ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
     ) -> LinketImplVmControlFlowThawed<LinketImpl> {
         let (non_lasts, last) = self.split_last();
+        for non_last in non_lasts {
+            let () = non_last.eval(ctx)?.into();
+        }
         last.eval(ctx)
     }
 }
@@ -330,12 +333,6 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                 coercion,
                 discarded,
             } => {
-                use husky_print_utils::p;
-                match ctx.vmir_expr_arena()[*expr] {
-                    expr::VmirExprData::UnitTypeVariant { linket_impl } => (),
-                    expr::VmirExprData::Unwrap { opd } => todo!(),
-                    _ => todo!(),
-                }
                 let result = expr.eval(coercion, ctx)?;
                 match discarded {
                     true => Continue(().into()),
