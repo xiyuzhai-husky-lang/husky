@@ -7,15 +7,19 @@ from collections import Counter
 import msgpack
 from tqdm import tqdm
 
+import pdb
+
 
 class DatasetStats(NamedTuple):
     max_values: Dict[str, int]
     ast_kind_dist: Counter
     symbol_resolution_dist: Counter
     error_dist: Counter
+    expected_types_dist: Counter
     ast_kind_percent: Dict[int, float]
     symbol_resolution_percent: Dict[int, float]
     error_percent: Dict[int, float]
+    expected_types_percent: Dict[int, float]
 
 
 class MiniHuskyDataset(Dataset):
@@ -78,52 +82,30 @@ class MiniHuskyDataset(Dataset):
         unpacked_data = msgpack.unpackb(packed_data, raw=False)
 
         decoded_data = []
-        max_values = {"ast_kind": 0, "symbol_resolution": 0, "error": 0}
+        max_values = {"ast_kind": 0, "symbol_resolution": 0, "error": 0, "expected_type": 0}
         ast_kind_dist = Counter()
         symbol_resolution_dist = Counter()
         error_dist = Counter()
-
-        # for code_pair in tqdm(unpacked_data):
-        #     tokens, token_infos = code_pair
-
-        #     ast_kinds = []
-        #     symbol_resolutions = []
-        #     errors = []
-        #     for ast_kind, symbol_resolution, error in token_infos:
-        #         ast_kinds.append(ast_kind)
-        #         symbol_resolutions.append(symbol_resolution)
-        #         errors.append(error)
-
-        #         # Update max values and distributions
-        #         max_values["ast_kind"] = max(max_values["ast_kind"], ast_kind)
-        #         max_values["symbol_resolution"] = max(
-        #             max_values["symbol_resolution"], symbol_resolution
-        #         )
-        #         max_values["error"] = max(max_values["error"], error)
-
-        #         ast_kind_dist[ast_kind] += 1
-        #         symbol_resolution_dist[symbol_resolution] += 1
-        #         error_dist[error] += 1
-
-        #     decoded_token_infos = (ast_kinds, symbol_resolutions, errors)
-        #     decoded_data.append((tokens, decoded_token_infos))
+        expected_types_dist = Counter()
 
         for tokens, token_infos in tqdm(unpacked_data):
             # Use list comprehension to unpack values efficiently
-            ast_kinds, symbol_resolutions, errors = zip(*token_infos)
+            ast_kinds, symbol_resolutions, errors, expected_types = zip(*token_infos)
             
             # Update max values
             max_values["ast_kind"] = max(max_values["ast_kind"], max(ast_kinds))
             max_values["symbol_resolution"] = max(max_values["symbol_resolution"], max(symbol_resolutions))
             max_values["error"] = max(max_values["error"], max(errors))
+            max_values["expected_type"] = max(max_values["expected_type"], max(expected_types))
 
             # Bulk update the counters
             ast_kind_dist.update(ast_kinds)
             symbol_resolution_dist.update(symbol_resolutions)
             error_dist.update(errors)
+            expected_types_dist.update(expected_types)
 
             # Append the unpacked and decoded token infos
-            decoded_data.append((tokens, (list(ast_kinds), list(symbol_resolutions), list(errors))))
+            decoded_data.append((tokens, (list(ast_kinds), list(symbol_resolutions), list(errors), list(expected_types))))
 
         # Calculate percentages
         total_tokens = sum(ast_kind_dist.values())
@@ -132,15 +114,18 @@ class MiniHuskyDataset(Dataset):
             k: v / total_tokens * 100 for k, v in symbol_resolution_dist.items()
         }
         error_percent = {k: v / total_tokens * 100 for k, v in error_dist.items()}
+        expected_types_percent = {k: v / total_tokens * 100 for k, v in expected_types_dist.items()}
 
         stats = DatasetStats(
             max_values=max_values,
             ast_kind_dist=ast_kind_dist,
             symbol_resolution_dist=symbol_resolution_dist,
             error_dist=error_dist,
+            expected_types_dist=expected_types_dist,
             ast_kind_percent=ast_kind_percent,
             symbol_resolution_percent=symbol_resolution_percent,
             error_percent=error_percent,
+            expected_types_percent=expected_types_percent,
         )
 
         return decoded_data, stats
@@ -164,11 +149,12 @@ class MiniHuskyDataset(Dataset):
         word_indices = torch.tensor(
             [self._word_to_index(word) for word in words], dtype=torch.long
         )
-        ast_kinds, symbol_resolutions, errors = token_infos
+        ast_kinds, symbol_resolutions, errors, expected_type = token_infos
         return word_indices, (
             torch.tensor(ast_kinds, dtype=torch.long),
             torch.tensor(symbol_resolutions, dtype=torch.long),
             torch.tensor(errors, dtype=torch.long),
+            torch.tensor(expected_type, dtype=torch.long),
         )
 
     def get_words(self, idx):
@@ -188,30 +174,32 @@ class MiniHuskyDataset(Dataset):
             self.max_values["ast_kind"] + 1,
             self.max_values["symbol_resolution"] + 1,
             self.max_values["error"] + 1,
+            self.max_values["expected_type"] + 1,
         )
 
 
 # Example usage
 if __name__ == "__main__":
     # Load a specific dataset
-    dataset = MiniHuskyDataset(100000, 20, 0.50)
+    dataset = MiniHuskyDataset(100000, 20, 0.50, data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic"))
     print(f"Dataset with 100000 samples, max_fns=20, error_rate=0.50:")
 
     # Print the output of __getitem__
     print("\n__getitem__ example:")
     idx = 0  # You can change this to any valid index
-    word_indices, (ast_kinds, symbol_resolutions, errors) = dataset[idx]
+    word_indices, (ast_kinds, symbol_resolutions, errors, expected_types) = dataset[idx]
     print(f"Sample {idx}:")
     print(f"  Word indices: {word_indices}")
     print(f"  AST kinds: {ast_kinds}")
     print(f"  Symbol resolutions: {symbol_resolutions}")
     print(f"  Errors: {errors}")
+    print(f"  Expected types: {expected_types}")
 
     print(f"\nTotal samples: {len(dataset)}")
 
     # Print vocabulary
     print("\nVocabulary:")
-    pprint(dataset.vocab[:10])  # Print first 10 vocabulary items
+    pprint(dataset.vocab[:50])
     print(f"Vocabulary size: {len(dataset.vocab)}")
 
     # Print maximum values
