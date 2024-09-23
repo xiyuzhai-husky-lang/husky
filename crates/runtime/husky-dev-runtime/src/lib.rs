@@ -22,7 +22,7 @@ use husky_devsoul::{
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{major_item::MajorItemPath, ItemPath, ItemPathId};
 use husky_item_path_interface::ItemPathIdInterface;
-use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
+use husky_ki::{KiRuntimeCompterm, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_ki_repr_interface::{KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface};
 use husky_linket::linket::Linket;
@@ -225,7 +225,7 @@ impl<Devsoul: IsDevsoul> IsDevRuntimeInterface<Devsoul::LinketImpl> for DevRunti
         use husky_value::IsValue;
 
         let db = self.db();
-        let val_runtime_constant: KiRuntimeConstant =
+        let val_runtime_constant: KiRuntimeCompterm =
             unsafe { std::mem::transmute(val_runtime_constant) };
         match val_runtime_constant.data(db) {
             KiRuntimeConstantData::TypeVariantPath(path) => {

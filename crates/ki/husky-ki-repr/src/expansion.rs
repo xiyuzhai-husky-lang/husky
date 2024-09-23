@@ -19,7 +19,7 @@ use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
     HirConstant, HirTemplateArgument, HirTemplateVariable, HirTemplateVariableClass,
 };
-use husky_ki::{KiOpn, KiPatternData, KiRuntimeConstant, KiRuntimeConstantData};
+use husky_ki::{KiOpn, KiPatternData, KiRuntimeCompterm, KiRuntimeConstantData};
 use husky_linket::{instantiation::LinInstantiation, linket::Linket};
 use smallvec::{smallvec, SmallVec};
 
@@ -451,20 +451,17 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 unveil_assoc_fn_path,
                 ref instantiation,
             } => {
+                let db = self.db;
                 let opn = KiOpn::Linket(Linket::new_unveil_assoc_fn(
                     unveil_assoc_fn_path,
                     instantiation,
                     &self.lin_instantiation,
                     self.db,
                 ));
-                let mut arguments = smallvec![KiArgumentRepr::Simple(
-                    self.build_expr(ki_domain_repr_guard, opd_hir_expr_idx)
-                )];
-                let db = self.db;
-                arguments.push(KiArgumentRepr::RuntimeConstants(runtime_constants(
-                    instantiation,
-                    db,
-                )));
+                let arguments = smallvec![
+                    KiArgumentRepr::Simple(self.build_expr(ki_domain_repr_guard, opd_hir_expr_idx)),
+                    KiArgumentRepr::RuntimeConstants(runtime_compterms(instantiation, db,))
+                ];
                 (opn, arguments)
             }
             HirLazyExprData::Unwrap { opd_hir_expr_idx } => {
@@ -714,7 +711,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 )),
             }
         }
-        arguments.push(KiArgumentRepr::RuntimeConstants(runtime_constants(
+        arguments.push(KiArgumentRepr::RuntimeConstants(runtime_compterms(
             instantiation,
             db,
         )));
@@ -740,10 +737,10 @@ impl<'a> KiReprExpansionBuilder<'a> {
     }
 }
 
-fn runtime_constants(
+fn runtime_compterms(
     instantiation: &HirInstantiation,
     db: &salsa::Db,
-) -> SmallVec<[KiRuntimeConstant; 4]> {
+) -> SmallVec<[KiRuntimeCompterm; 4]> {
     instantiation
         .iter()
         .filter_map(|&(symbol, res)| match symbol {
@@ -777,7 +774,7 @@ fn runtime_constants(
                             HirConstant::R128(_) => todo!(),
                             HirConstant::RSize(_) => todo!(),
                             HirConstant::Symbol(_) => todo!(),
-                            HirConstant::TypeVariant(path) => KiRuntimeConstant::new(
+                            HirConstant::TypeVariant(path) => KiRuntimeCompterm::new(
                                 db,
                                 KiRuntimeConstantData::TypeVariantPath(path),
                             ),

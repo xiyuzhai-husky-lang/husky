@@ -10,6 +10,7 @@ pub mod static_var;
 pub mod ugly;
 pub mod var_id;
 
+use crate::linket_impl::LinketImplTrackedException;
 use crate::linket_impl::LinketImplVmControlFlow;
 use crate::pedestal::IsPedestalFull;
 use eval_context::{DevEvalContext, IsDevRuntimeInterfaceDyn};
@@ -23,9 +24,9 @@ use linket_impl::{
 };
 
 pub type LinketImplVmControlFlowThawed<LinketImpl, C = LinketImplThawedValue<LinketImpl>> =
-    VmControlFlow<C, LinketImplThawedValue<LinketImpl>, <LinketImpl as IsLinketImpl>::Exception>;
+    VmControlFlow<C, LinketImplThawedValue<LinketImpl>, LinketImplTrackedException<LinketImpl>>;
 pub type LinketImplVmControlFlowFrozen<LinketImpl, C = LinketImplFrozenValue<LinketImpl>> =
-    VmControlFlow<C, LinketImplFrozenValue<LinketImpl>, <LinketImpl as IsLinketImpl>::Exception>;
+    VmControlFlow<C, LinketImplFrozenValue<LinketImpl>, LinketImplTrackedException<LinketImpl>>;
 
 pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
     type FnOutput;

@@ -575,7 +575,11 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 })
             }
             VmirExprData::Suffix { opd, opr } => todo!(),
-            VmirExprData::Unveil { linket_impl, opd } => todo!(),
+            VmirExprData::Unveil { linket_impl, opd } => {
+                let opd = opd.eval(None, ctx)?;
+                let runtime_compterms = todo!();
+                linket_impl.eval_vm(vec![VmArgumentValue::Simple(opd), runtime_compterms], db)
+            }
             VmirExprData::Linket {
                 linket_impl,
                 ref arguments,
