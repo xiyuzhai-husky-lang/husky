@@ -3732,13 +3732,7 @@
         relative_path: "crates/utils/husky-cli-utils",
         dependencies: [
             "colored",
-            "husky-screen-utils",
         ],
-    },
-    PackageSummary {
-        name: "husky-screen-utils",
-        relative_path: "crates/utils/husky-screen-utils",
-        dependencies: [],
     },
     PackageSummary {
         name: "cargo-rewrite",
@@ -4044,6 +4038,11 @@
         dependencies: [
             "syn",
         ],
+    },
+    PackageSummary {
+        name: "husky-screen-utils",
+        relative_path: "crates/utils/husky-screen-utils",
+        dependencies: [],
     },
     PackageSummary {
         name: "husky-tracing-utils",

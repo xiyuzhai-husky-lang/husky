@@ -32,8 +32,10 @@ use husky_linket_impl::{
     static_var::StaticVarResult,
     LinketImplVmControlFlowThawed, *,
 };
-use husky_standard_value::exception::Exception;
-use husky_standard_value::thawed::ThawedValue;
+use husky_standard_value::{
+    exception::Exception,
+    thawed::{FromThawedValue, IntoThawedValue, ThawedValue},
+};
 use husky_value::{ki_control_flow::KiControlFlow, vm_control_flow::VmControlFlow};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use linket_impl::{
@@ -48,6 +50,8 @@ pub type StandardTrackedExceptedValue =
 pub type StandardKiControlFlow<C = Value, B = Value> =
     KiControlFlow<C, B, StandardTrackedException>;
 pub type StandardStaticVarResult<T> = StaticVarResult<StandardVarId, T>;
+pub type StandardVmControlFlow<C = ThawedValue, B = ThawedValue> =
+    VmControlFlow<C, B, StandardTrackedException>;
 pub type StandardVmArgumentValue = VmArgumentValue<StandardLinketImpl>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -60,7 +64,8 @@ pub enum StandardLinketImpl {
     },
     RitchieUnveilFn {
         /// it's the wrapper's responsibility to properly set ctx
-        fn_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
+        fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
+        fn_vm_wrapper: fn([StandardVmArgumentValue; 2]) -> StandardVmControlFlow,
         fn_pointer: fn(),
     },
     RitchieGn {
@@ -141,7 +146,9 @@ impl IsLinketImpl for StandardLinketImpl {
     ) -> StandardKiControlFlow {
         match self {
             StandardLinketImpl::RitchieFn { fn_ki_wrapper, .. } => fn_ki_wrapper(ki_argument_reprs),
-            StandardLinketImpl::RitchieUnveilFn { fn_wrapper, .. } => fn_wrapper(ki_argument_reprs),
+            StandardLinketImpl::RitchieUnveilFn { fn_ki_wrapper, .. } => {
+                fn_ki_wrapper(ki_argument_reprs)
+            }
             StandardLinketImpl::RitchieGn { gn_ki_wrapper } => {
                 let pedestal = ctx.eval_ki_pedestal(ki_repr_interface);
                 gn_ki_wrapper(
@@ -200,10 +207,7 @@ impl IsLinketImpl for StandardLinketImpl {
                 fn_ki_wrapper,
                 fn_pointer,
             } => todo!(),
-            StandardLinketImpl::RitchieUnveilFn {
-                fn_wrapper,
-                fn_pointer,
-            } => todo!(),
+            StandardLinketImpl::RitchieUnveilFn { .. } => todo!(),
             StandardLinketImpl::RitchieGn { gn_ki_wrapper } => todo!(),
             StandardLinketImpl::EnumVariantConstructor {
                 enum_variant_constructor_vm_wrapper,
