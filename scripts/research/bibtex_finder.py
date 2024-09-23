@@ -1,19 +1,14 @@
 #!/usr/bin/env python
 from scholarly import scholarly
 
+# Search for the paper on Google Scholar
+query = scholarly.search_pubs(
+    "A density-based algorithm for discovering clusters in large spatial databases with noise"
+)
 
-def get_bibtex_for_title(title):
-    # Search for the paper on Google Scholar
-    search_query = scholarly.search_pubs(title)
-    try:
-        paper = next(search_query)
-        # Fetch the BibTeX entry
-        bibtex = paper["bibtex"]  # Access the 'bibtex' value using the key
-        print(f"BibTeX for '{title}':\n{bibtex}")
-    except StopIteration:
-        print(f"No results found for '{title}'")
+# Get the first paper from the search results
+pub = next(query)
 
-
-# Example usage
-paper_title = "Attention is All You Need"
-get_bibtex_for_title(paper_title)
+# Retrieve and print the BibTeX entry
+bibtex_entry = scholarly.bibtex(pub)
+print(bibtex_entry)
