@@ -121,7 +121,8 @@ pub trait IsValue:
 }
 
 pub trait IsThawedValue:
-    Sized
+    std::fmt::Debug
+    + Sized
     + PartialEq
     + PartialOrd
     + std::ops::Add<Self, Output = Self>
