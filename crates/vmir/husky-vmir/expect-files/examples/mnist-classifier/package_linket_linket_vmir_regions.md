@@ -87,6 +87,19 @@
                             opd: VmirExprIdx(
                                 0,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 273,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Right(
@@ -141,6 +154,19 @@
                             opd: VmirExprIdx(
                                 2,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 278,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Right(
@@ -195,6 +221,19 @@
                             opd: VmirExprIdx(
                                 4,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 272,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Left(
@@ -263,6 +302,19 @@
                             opd: VmirExprIdx(
                                 6,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 279,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Left(
@@ -331,6 +383,19 @@
                             opd: VmirExprIdx(
                                 8,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 280,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Left(
@@ -399,6 +464,19 @@
                             opd: VmirExprIdx(
                                 10,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 275,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Left(
@@ -467,6 +545,19 @@
                             opd: VmirExprIdx(
                                 12,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 281,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Left(
@@ -535,6 +626,19 @@
                             opd: VmirExprIdx(
                                 14,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 277,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::Val {
                             linket_impl_or_val_path: Left(
@@ -603,6 +707,19 @@
                             opd: VmirExprIdx(
                                 16,
                             ),
+                            runtime_compterms: [
+                                KiRuntimeCompterm {
+                                    data: TypeVariantPath(
+                                        TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 274,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ],
                         },
                         VmirExprData::UnitTypeVariant {
                             linket_impl: VirtualLinketImpl(
