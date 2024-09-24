@@ -1,12 +1,18 @@
 use husky_rng_utils::XRng;
+use serde::de::value;
 use serde::ser::{SerializeSeq, Serializer};
 use serde::{Deserialize, Serialize};
 
-pub fn rnd_codes(n: u64, max_fns: usize, error_rate: f64) -> Vec<(Vec<String>, Vec<TokenInfo>)> {
+pub fn rnd_codes(
+    n: u64,
+    max_fns: usize,
+    use_var_rate: f64,
+    error_rate: f64,
+) -> Vec<(Vec<String>, Vec<TokenInfo>)> {
     let mut data = Vec::new();
 
     for seed in 0..n {
-        data.push(rnd_code(seed, error_rate, max_fns));
+        data.push(rnd_code(seed, max_fns, use_var_rate, error_rate));
     }
     data
 }
@@ -57,8 +63,13 @@ pub enum TypeError {
     Expected = 1,
 }
 
-pub fn rnd_code(seed: u64, error_rate: f64, max_fns: usize) -> (Vec<String>, Vec<TokenInfo>) {
-    let mut bcg = BasicCodeGenerator::new(seed, error_rate);
+pub fn rnd_code(
+    seed: u64,
+    max_fns: usize,
+    use_var_rate: f64,
+    error_rate: f64,
+) -> (Vec<String>, Vec<TokenInfo>) {
+    let mut bcg = BasicCodeGenerator::new(seed, use_var_rate, error_rate);
     bcg.gen_fns(max_fns);
     bcg.finish()
 }
@@ -67,8 +78,8 @@ pub fn rnd_code(seed: u64, error_rate: f64, max_fns: usize) -> (Vec<String>, Vec
 fn rnd_code_works() {
     use expect_test::{expect, Expect};
 
-    fn t(seed: u64, error_rate: f64, max_fns: usize, expect: Expect) {
-        let (tokens, token_infos) = rnd_code(seed, error_rate, max_fns);
+    fn t(seed: u64, max_fns: usize, use_var_rate: f64, error_rate: f64, expect: Expect) {
+        let (tokens, token_infos) = rnd_code(seed, max_fns, use_var_rate, error_rate);
         let tokens_str = tokens.join(" ");
         let token_infos_str = token_infos
             .iter()
@@ -84,8 +95,9 @@ fn rnd_code_works() {
 
     t(
         0,
-        0.1,
         5,
+        0.1,
+        0.1,
         expect![[r#"
         Tokens:
         fn f0 ( a : Int ) { } fn f1 ( a : Float ) { f0 ( 1 ) ; } fn f2 ( a : Bool ) { f1 ( 1.1 ) ; f0 ( 1 ) ; f0 ( 1 ) ; f1 ( 1.1 ) ; } fn f3 ( a : Bool ) { f0 ( 1 ) ; f1 ( 1.1 ) ; f2 ( 1 ) ; f0 ( 1 ) ; f2 ( 1 ) ; } fn f4 ( a : Float ) { f1 ( 1.1 ) ; f3 ( true ) ; f3 ( true ) ; f2 ( true ) ; f0 ( 1 ) ; }
@@ -219,12 +231,14 @@ struct BasicCodeGenerator {
     functions: Vec<Function>,
     result: Vec<String>,
     token_infos: Vec<TokenInfo>,
+    use_var_rate: f64,
     error_rate: f64,
     max_calls_per_fn: usize,
     used_fn_idx: Vec<usize>,
     int_literals: Vec<String>,
     float_literals: Vec<String>,
     bool_literals: Vec<String>,
+    var_name_literals: Vec<String>,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -245,11 +259,12 @@ impl Type {
 }
 
 struct Function {
+    name: String,
     input_ty: Type,
 }
 
 impl BasicCodeGenerator {
-    fn new(seed: u64, error_rate: f64) -> Self {
+    fn new(seed: u64, use_var_rate: f64, error_rate: f64) -> Self {
         let mut int_literals: Vec<String> = Vec::new();
         for i in 0..99 {
             int_literals.push(i.to_string());
@@ -262,17 +277,24 @@ impl BasicCodeGenerator {
 
         let bool_literals = vec!["true".to_string(), "false".to_string()];
 
+        let mut var_name_literals: Vec<String> = Vec::new();
+        for i in 0..26 {
+            var_name_literals.push(format!("{}", (b'a' + i) as char));
+        }
+
         Self {
             rng: XRng::new(seed),
             functions: Default::default(),
             result: Vec::new(),
             token_infos: Vec::new(),
+            use_var_rate,
             error_rate,
             max_calls_per_fn: 5, // default value
             used_fn_idx: Vec::new(),
             int_literals,
             float_literals,
             bool_literals,
+            var_name_literals,
         }
     }
 
@@ -306,16 +328,19 @@ impl BasicCodeGenerator {
             fn_idx = self.rng.rand_range(0..100);
         }
         self.used_fn_idx.push(fn_idx);
+        let fn_name = format!("f{fn_idx}");
         let input_ty = match self.rng.rand_range(0..3) {
             0 => Type::Bool,
             1 => Type::Int,
             2 => Type::Float,
             _ => unreachable!(),
         };
+        let var_name =
+            self.var_name_literals[self.rng.rand_range(0..self.var_name_literals.len())].clone();
 
         self.push_token("fn", Some(AstKind::FnKeyword), None, None, None);
         self.push_token(
-            format!("f{fn_idx}"),
+            fn_name.clone(),
             Some(AstKind::FnEntityName),
             Some(SymbolResolution::Fn),
             None,
@@ -323,7 +348,7 @@ impl BasicCodeGenerator {
         );
         self.push_token("(", Some(AstKind::ParametersLpar), None, None, None);
         self.push_token(
-            "a",
+            var_name.clone(),
             Some(AstKind::ParameterIdent),
             None,
             Some(input_ty),
@@ -342,48 +367,64 @@ impl BasicCodeGenerator {
             if len > 0 {
                 let num_calls = gen.rng.rand_range(1..=gen.max_calls_per_fn);
                 for _ in 0..num_calls {
-                    gen.gen_fn_call(len);
+                    gen.gen_fn_call(len, var_name.clone(), Some(input_ty));
                 }
             }
         });
-        self.functions.push(Function { input_ty });
+        self.functions.push(Function {
+            name: fn_name,
+            input_ty,
+        });
     }
 
-    fn gen_fn_call(&mut self, len: usize) {
+    fn gen_fn_call(&mut self, len: usize, var_name: String, var_type: Option<Type>) {
         let callee_index = self.rng.rand_range(0..len);
         let callee = &self.functions[callee_index];
-        let fn_name = self.used_fn_idx[callee_index].clone();
-        let expected_type = self.functions[callee_index].input_ty.clone();
+        let fn_name = callee.name.clone();
+        let expected_type = callee.input_ty.clone();
+        let mut value_type = expected_type.clone();
 
-        let has_ty_error = self.rng.randf64() < self.error_rate;
+        let mut arg_literal = String::new();
+        let mut literal_kind = AstKind::IntLiteral;
 
-        let value_type = if has_ty_error {
-            let mut types = vec![Type::Bool, Type::Int, Type::Float];
-            types.retain(|&x| x != expected_type);
-            types[self.rng.rand_range(0..types.len())].clone()
+        let use_var = self.rng.randf64() < self.use_var_rate;
+        if use_var {
+            arg_literal = var_name.clone();
+            literal_kind = AstKind::ParameterIdent;
+            value_type = var_type.unwrap();
         } else {
-            expected_type
-        };
+            let has_ty_error = self.rng.randf64() < self.error_rate;
 
-        let (arg_literal, literal_kind) = {
-            match value_type {
-                Type::Bool => (
-                    self.bool_literals[self.rng.rand_range(0..self.bool_literals.len())].clone(),
-                    AstKind::BoolLiteral,
-                ),
-                Type::Int => (
-                    self.int_literals[self.rng.rand_range(0..self.int_literals.len())].clone(),
-                    AstKind::IntLiteral,
-                ),
-                Type::Float => (
-                    self.float_literals[self.rng.rand_range(0..self.float_literals.len())].clone(),
-                    AstKind::FloatLiteral,
-                ),
-            }
-        };
+            value_type = if has_ty_error {
+                let mut types = vec![Type::Bool, Type::Int, Type::Float];
+                types.retain(|&x| x != expected_type);
+                types[self.rng.rand_range(0..types.len())].clone()
+            } else {
+                expected_type
+            };
+
+            (arg_literal, literal_kind) = {
+                match value_type {
+                    Type::Bool => (
+                        self.bool_literals[self.rng.rand_range(0..self.bool_literals.len())]
+                            .clone(),
+                        AstKind::BoolLiteral,
+                    ),
+                    Type::Int => (
+                        self.int_literals[self.rng.rand_range(0..self.int_literals.len())].clone(),
+                        AstKind::IntLiteral,
+                    ),
+                    Type::Float => (
+                        self.float_literals[self.rng.rand_range(0..self.float_literals.len())]
+                            .clone(),
+                        AstKind::FloatLiteral,
+                    ),
+                }
+            };
+        }
 
         self.push_token(
-            format!("f{fn_name}"),
+            fn_name,
             Some(AstKind::FnEntityUsage),
             Some(SymbolResolution::Fn),
             None,
