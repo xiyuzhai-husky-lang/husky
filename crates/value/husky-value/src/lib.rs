@@ -144,6 +144,7 @@ pub trait IsThawedValue:
     + std::ops::ShrAssign<Self>
     + std::ops::Sub<Self, Output = Self>
     + std::ops::SubAssign<Self>
+    + From<Self::Value>
     + From<()>
     + Into<()>
     + From<bool>

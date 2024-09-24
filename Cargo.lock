@@ -7405,6 +7405,8 @@ dependencies = [
  "husky-hir-prelude",
  "husky-hir-ty",
  "husky-javelin",
+ "husky-ki",
+ "husky-ki-repr",
  "husky-lifetime-utils",
  "husky-linket",
  "husky-linket-impl",

@@ -12,6 +12,8 @@ use husky_entity_path::path::{
 use husky_hir_decl::decl::{HasHirDecl, TypeVariantHirDecl};
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
+use husky_ki::KiRuntimeCompterm;
+use husky_ki_repr::expansion::ki_runtime_compterms_from_hir_instantiation;
 use husky_lifetime_utils::capture::Captures;
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
 use husky_linket_impl::{linket_impl::VmArgumentValue, LinketImplVmControlFlowThawed};
@@ -53,6 +55,7 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
     Unveil {
         linket_impl: LinketImpl,
         opd: VmirExprIdx<LinketImpl>,
+        runtime_compterms: SmallVec<[KiRuntimeCompterm; 4]>,
     },
     Linket {
         linket_impl: LinketImpl,
@@ -280,6 +283,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     self.db(),
                 )),
                 opd: opd.to_vmir(self),
+                runtime_compterms: ki_runtime_compterms_from_hir_instantiation(instantiation, db),
             },
             HirEagerExprData::Unwrap { opd } => VmirExprData::Unwrap {
                 opd: opd.to_vmir(self),
@@ -575,10 +579,21 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                 })
             }
             VmirExprData::Suffix { opd, opr } => todo!(),
-            VmirExprData::Unveil { linket_impl, opd } => {
+            VmirExprData::Unveil {
+                linket_impl,
+                opd,
+                ref runtime_compterms,
+            } => {
                 let opd = opd.eval(None, ctx)?;
-                let runtime_compterms = todo!();
-                linket_impl.eval_vm(vec![VmArgumentValue::Simple(opd), runtime_compterms], db)
+                linket_impl.eval_vm(
+                    vec![
+                        VmArgumentValue::Simple(opd),
+                        VmArgumentValue::RuntimeConstants(unsafe {
+                            std::mem::transmute(runtime_compterms as &[_])
+                        }),
+                    ],
+                    db,
+                )
             }
             VmirExprData::Linket {
                 linket_impl,
@@ -616,14 +631,10 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             VmirExprData::Index => todo!(),
             VmirExprData::Val {
                 linket_impl_or_val_path,
-            } => {
-                todo!();
-                match linket_impl_or_val_path {
-                    Left(linket_impl) => linket_impl.eval_vm(vec![], db),
-                    Right(val_path) => ctx.eval_val(val_path),
-                }
-            }
-            // TODO optimize this
+            } => match linket_impl_or_val_path {
+                Left(linket_impl) => linket_impl.eval_vm(vec![], db),
+                Right(val_path) => ctx.eval_val(val_path),
+            },
             VmirExprData::UnitTypeVariant { linket_impl } => linket_impl.eval_vm(vec![], db),
             VmirExprData::Unwrap { opd } => todo!(),
             VmirExprData::ConstTemplateVariable => todo!(),

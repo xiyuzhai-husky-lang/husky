@@ -4,7 +4,7 @@ use husky_term_prelude::literal::Literal;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirConstant {
+pub enum HirCompterm {
     Unit(()),
     Bool(bool),
     Char(char),
@@ -35,13 +35,13 @@ pub enum HirConstant {
     StaticLifetime,
 }
 
-impl From<TypeVariantPath> for HirConstant {
+impl From<TypeVariantPath> for HirCompterm {
     fn from(path: TypeVariantPath) -> Self {
-        HirConstant::TypeVariant(path)
+        HirCompterm::TypeVariant(path)
     }
 }
 
-impl HirConstant {
+impl HirCompterm {
     pub fn from_term(term_lit: Literal, db: &::salsa::Db) -> Self {
         match term_lit {
             Literal::Unit(()) => todo!(),
@@ -57,7 +57,7 @@ impl HirConstant {
             Literal::U32(_) => todo!(),
             Literal::U64(_) => todo!(),
             Literal::U128(_) => todo!(),
-            Literal::USize(val) => HirConstant::USize(val.value(db) as usize), // ad hoc
+            Literal::USize(val) => HirCompterm::USize(val.value(db) as usize), // ad hoc
             Literal::R8(_) => todo!(),
             Literal::R16(_) => todo!(),
             Literal::R32(_) => todo!(),
@@ -68,14 +68,14 @@ impl HirConstant {
             Literal::F32(_) => todo!(),
             Literal::F64(_) => todo!(),
             Literal::String(_) => todo!(),
-            Literal::StaticLifetime => HirConstant::StaticLifetime,
+            Literal::StaticLifetime => HirCompterm::StaticLifetime,
         }
     }
 }
 
-impl From<HirComptermTemplateVariable> for HirConstant {
+impl From<HirComptermTemplateVariable> for HirCompterm {
     fn from(symbol: HirComptermTemplateVariable) -> Self {
-        HirConstant::Symbol(symbol)
+        HirCompterm::Symbol(symbol)
     }
 }
 

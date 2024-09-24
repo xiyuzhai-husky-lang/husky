@@ -1,6 +1,7 @@
 use crate::LinketImplVmControlFlowThawed;
 use crate::{exception::TrackedException, *};
 use husky_item_path_interface::ItemPathIdInterface;
+use husky_ki_repr_interface::KiRuntimeComptermInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface};
 use husky_value::{exception::IsException, ki_control_flow::KiControlFlow, IsValue};
 use husky_value_protocol::presentation::EnumUnitValuePresenter;
@@ -86,14 +87,14 @@ pub type LinketImplTrackedExceptedValue<LinketImpl> =
 pub type LinketImplTrackedExcepted<LinketImpl, T> =
     Result<T, LinketImplTrackedException<LinketImpl>>;
 
-pub enum VmArgumentValue<LinketImpl: IsLinketImpl> {
+pub enum VmArgumentValue<'comptime, LinketImpl: IsLinketImpl> {
     Simple(LinketImplThawedValue<LinketImpl>),
     Keyed(Option<LinketImplThawedValue<LinketImpl>>),
     Variadic(Vec<LinketImplThawedValue<LinketImpl>>),
-    RuntimeConstants(SmallVec<[LinketImplThawedValue<LinketImpl>; 4]>),
+    RuntimeConstants(&'comptime [KiRuntimeComptermInterface]),
 }
 
-impl<LinketImpl: IsLinketImpl + Debug> Debug for VmArgumentValue<LinketImpl> {
+impl<'comptime, LinketImpl: IsLinketImpl + Debug> Debug for VmArgumentValue<'comptime, LinketImpl> {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         match self {
             VmArgumentValue::Simple(value) => f.debug_tuple("Simple").field(value).finish(),
