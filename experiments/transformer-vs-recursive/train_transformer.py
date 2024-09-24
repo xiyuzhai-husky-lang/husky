@@ -13,11 +13,13 @@ import pdb
 
 # Load the dataset
 dataset = MiniHuskyDataset(
-    n=100000,
+    n=10000,
     max_fns=100,
-    error_rate=0.10,
+    use_var_rate=0.2,
+    error_rate=0.2,
     data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
 )
+header = dataset.header
 vocab_size = len(dataset.vocab)
 output_dims = dataset.get_output_dims()
 output_dim = sum(output_dims)
@@ -83,6 +85,7 @@ def run(config):
     print("Training Transformer...")
     best_model = train_model(
         model=model,
+        header=header,
         train_dataloader=train_dataloader,
         val_dataloader=val_dataloader,
         criterion=criterion,
@@ -106,10 +109,10 @@ for hidden_dim in [64, 32, 16]:
                     "seed": 42,
                     "batch_size": 512,
                     "micro_batch_size": 64,
-                    "num_epochs": 10,
-                    "min_lr": 1e-6,
-                    "max_lr": 1e-4,
-                    "warmup_iters": 990,
+                    "num_epochs": 50,
+                    "min_lr": 2e-6,
+                    "max_lr": 2e-4,
+                    "warmup_iters": 99,
                     "hidden_dim": hidden_dim,
                     "d_model": d_model,
                     "num_heads": num_heads,
