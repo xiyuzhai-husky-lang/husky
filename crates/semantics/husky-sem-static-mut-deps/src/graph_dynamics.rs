@@ -1,4 +1,4 @@
-use crate::{builder::SemStaticMutDepsBuilder, static_mut_deps::SemStaticMutDeps, *};
+use crate::{builder::SemStaticMutDepsBuilder, static_mut_deps::SemValueStaticMutDeps, *};
 use ::graph_dynamics::{
     context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
     cycle_group::CycleGroupMap,
@@ -23,7 +23,7 @@ use propagate::{PropagationResult, PropagationResultRef};
 pub struct SemStaticMutDepsGraphDynamicsScheme {}
 
 impl IsGraphDynamicsScheme for SemStaticMutDepsGraphDynamicsScheme {
-    type Value = SemStaticMutDeps;
+    type Value = SemValueStaticMutDeps;
 
     const MAX_ITERATION: usize = 1000;
 }
@@ -60,15 +60,15 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
         item_sem_item_path_cycle_group_itd(self.db, *node)
     }
 
-    fn initial_value(self, node: ItemPath) -> SemStaticMutDeps {
+    fn initial_value(self, node: ItemPath) -> SemValueStaticMutDeps {
         item_sem_static_mut_deps_initial_value(self.db, *node).clone()
     }
 
     fn updated_value<'a>(
         self,
         node: ItemPath,
-        f: impl Fn(ItemPath) -> &'a SemStaticMutDeps,
-    ) -> SemStaticMutDeps {
+        f: impl Fn(ItemPath) -> &'a SemValueStaticMutDeps,
+    ) -> SemValueStaticMutDeps {
         let mut value = f(node).clone();
         let Some(mut builder) =
             SemStaticMutDepsBuilder::new(self.db, RegionPath::ItemDefn(node), f)
@@ -82,7 +82,7 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
     fn cycle_group_final_values(
         self,
         cycle_group_itd: SemItemPathDepsCyclceGroupItd,
-    ) -> PropagationResultRef<'db, &'db CycleGroupMap<Self::DepsScheme, SemStaticMutDeps>> {
+    ) -> PropagationResultRef<'db, &'db CycleGroupMap<Self::DepsScheme, SemValueStaticMutDeps>> {
         item_sem_static_mut_deps_cycle_group_final_values(self.db, cycle_group_itd).as_ref()
     }
 }
@@ -91,11 +91,11 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
 fn item_sem_static_mut_deps_initial_value(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
-) -> SemStaticMutDeps {
+) -> SemValueStaticMutDeps {
     use husky_entity_tree::node::attr::HasAttrPaths;
 
     let attr_paths = item_path_id.attr_paths(db);
-    let mut deps = SemStaticMutDeps::default();
+    let mut deps = SemValueStaticMutDeps::default();
     let item_path = item_path_id.item_path(db);
     match item_path {
         ItemPath::Submodule(_, _) => (),
@@ -168,7 +168,7 @@ fn item_sem_static_mut_deps_initial_value(
 fn item_sem_static_mut_deps_cycle_group_final_values(
     db: &::salsa::Db,
     cycle_group_itd: SemItemPathDepsCyclceGroupItd,
-) -> PropagationResult<CycleGroupMap<SemItemPathDepsGraphDepsScheme, SemStaticMutDeps>> {
+) -> PropagationResult<CycleGroupMap<SemItemPathDepsGraphDepsScheme, SemValueStaticMutDeps>> {
     let ctx = SemStaticMutDepsGraphDynamicsContext { db };
     let cycle_group = cycle_group_itd.cycle_group(db);
     ctx.calc_cycle_group_final_values(cycle_group)
@@ -177,7 +177,7 @@ fn item_sem_static_mut_deps_cycle_group_final_values(
 pub fn item_sem_static_mut_deps<'db>(
     db: &'db ::salsa::Db,
     item_path: ItemPath,
-) -> &'db SemStaticMutDeps {
+) -> &'db SemValueStaticMutDeps {
     let ctx = SemStaticMutDepsGraphDynamicsContext { db };
     ctx.final_value(item_path).unwrap()
 }

@@ -135,8 +135,8 @@ impl KiDomainRepr {
             KiDomainRepr::Omni => None,
             KiDomainRepr::ConditionSatisfied(ki_repr)
             | KiDomainRepr::ConditionNotSatisfied(ki_repr)
-            | KiDomainRepr::StmtNotReturned(ki_repr)
-            | KiDomainRepr::ExprNotReturned(ki_repr) => Some(ki_repr.var_deps(db)),
+            | KiDomainRepr::ControlNotTransferred(ki_repr)
+            | KiDomainRepr::ControlNotTransferred(ki_repr) => Some(ki_repr.var_deps(db)),
         }
     }
 }

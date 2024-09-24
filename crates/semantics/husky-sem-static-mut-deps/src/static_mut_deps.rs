@@ -1,11 +1,15 @@
+pub mod control_transfer;
+pub mod domain;
+pub mod value;
+
 use husky_entity_path::path::ItemPath;
 use vec_like::OrderedSmallVecSet;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct SemStaticMutDeps(OrderedSmallVecSet<ItemPath, 4>);
+pub struct SemValueStaticMutDeps(OrderedSmallVecSet<ItemPath, 4>);
 
-impl SemStaticMutDeps {
+impl SemValueStaticMutDeps {
     pub(crate) fn merge(&mut self, other: &[ItemPath]) {
         self.0.extend(other);
     }
@@ -23,27 +27,27 @@ impl SemStaticMutDeps {
     }
 }
 
-/// None indicates no control flow
+/// None indicates no control transfer
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct SemControlFlowStaticMutDeps(Option<OrderedSmallVecSet<ItemPath, 4>>);
+pub struct SemControlTransferStaticMutDeps(Option<OrderedSmallVecSet<ItemPath, 4>>);
 
 #[test]
 fn sem_control_flow_static_var_deps_default_works() {
     assert_eq!(
-        SemControlFlowStaticMutDeps::default(),
-        SemControlFlowStaticMutDeps(None)
+        SemControlTransferStaticMutDeps::default(),
+        SemControlTransferStaticMutDeps(None)
     );
 }
 
-impl SemControlFlowStaticMutDeps {
+impl SemControlTransferStaticMutDeps {
     /// a deps that represents a control flow that happens without any dependencies
     pub(crate) fn new_empty() -> Self {
         Self(Some(Default::default()))
     }
 }
 
-impl std::ops::Deref for SemControlFlowStaticMutDeps {
+impl std::ops::Deref for SemControlTransferStaticMutDeps {
     type Target = [ItemPath];
 
     fn deref(&self) -> &Self::Target {
@@ -54,7 +58,7 @@ impl std::ops::Deref for SemControlFlowStaticMutDeps {
     }
 }
 
-impl SemControlFlowStaticMutDeps {
+impl SemControlTransferStaticMutDeps {
     pub(crate) fn merge(&mut self, other: &Self) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),
@@ -68,14 +72,14 @@ impl SemControlFlowStaticMutDeps {
     /// use this when some control flow is caused by the value
     ///
     /// this will result in .0 always being Some
-    pub(crate) fn merge_with_value(&mut self, other: &SemStaticMutDeps) {
+    pub(crate) fn merge_with_value(&mut self, other: &SemValueStaticMutDeps) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),
             None => self.0 = Some(other.0.clone()),
         }
     }
 
-    pub(crate) fn compose_with_value(&mut self, other: &SemStaticMutDeps) {
+    pub(crate) fn compose_with_value(&mut self, other: &SemValueStaticMutDeps) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),
             None => (), // doing nothing because if the thing doesn't have a control flow, so does its conditional version
@@ -115,7 +119,7 @@ impl EffectiveMergeCounter {
     }
 }
 
-impl std::ops::Deref for SemStaticMutDeps {
+impl std::ops::Deref for SemValueStaticMutDeps {
     type Target = OrderedSmallVecSet<ItemPath, 4>;
 
     fn deref(&self) -> &Self::Target {
@@ -123,7 +127,7 @@ impl std::ops::Deref for SemStaticMutDeps {
     }
 }
 
-impl IntoIterator for &SemStaticMutDeps {
+impl IntoIterator for &SemValueStaticMutDeps {
     type Item = ItemPath;
 
     type IntoIter = impl Iterator<Item = Self::Item>;
