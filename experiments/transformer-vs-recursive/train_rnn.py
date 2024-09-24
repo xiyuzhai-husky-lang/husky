@@ -5,8 +5,8 @@ from torch.utils.data import DataLoader, random_split
 import wandb
 from datasets.mini_husky import MiniHuskyDataset
 from models.rnn import SimpleRNN
-from train import train_model, eval_model
-from utils import set_seed, custom_collate
+from train import train_model
+from utils import set_seed, custom_collate, Logger
 
 import os
 import pdb
@@ -18,6 +18,7 @@ dataset = MiniHuskyDataset(
     error_rate=0.10,
     data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
 )
+header = dataset.header
 vocab_size = len(dataset.vocab)
 output_dims = dataset.get_output_dims()
 output_dim = sum(output_dims)
@@ -45,8 +46,12 @@ def run(config):
 
     exp_name = f"rnn_{config['hidden_dim']}_seed{config['seed']}_bs{config['batch_size']}"
 
-    # Initialize wandb
-    wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)
+    logger = Logger(
+        exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
+        exp_name=exp_name,
+        log_wandb=True,
+        config=config
+    )
 
     # Set device to CUDA if available
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -67,6 +72,7 @@ def run(config):
     print("Training RNN...")
     best_model = train_model(
         model=model,
+        header=header,
         train_dataloader=train_dataloader,
         val_dataloader=val_dataloader,
         criterion=criterion,
@@ -75,17 +81,18 @@ def run(config):
         micro_batch_size=config["micro_batch_size"],
         device=device,
         output_dims=output_dims,
-        log_wandb=True,
+        logger=logger,
     )
 
-    wandb.finish()
+    logger.finish()
+    torch.save(best_model.state_dict(), os.path.join(logger.exp_path, "best_model.pth"))
 
-for hidden_dim in [4, 8, 16, 32, 64]:
+for hidden_dim in [64, 32, 16, 8, 4]:
     config = {
         "seed": 42,
         "batch_size": 512,
-        "micro_batch_size": 512,  # Assuming a change is needed here
-        "num_epochs": 10,
+        "micro_batch_size": 128,  # Assuming a change is needed here
+        "num_epochs": 20,
         "learning_rate": 1e-4,
         "hidden_dim": hidden_dim,
     }
