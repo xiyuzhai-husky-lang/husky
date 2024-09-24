@@ -1,7 +1,7 @@
 ## `nine_match`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## `nine_match_refine`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `is_nine`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `downmost`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `big_cc`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

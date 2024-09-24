@@ -1,7 +1,7 @@
 ## `open_one_match`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## `almost_closed`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `is_zero`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

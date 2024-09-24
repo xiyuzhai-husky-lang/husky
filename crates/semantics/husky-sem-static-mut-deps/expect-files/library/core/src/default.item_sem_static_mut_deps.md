@@ -1,7 +1,7 @@
 ## `Default`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## `Default::default`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

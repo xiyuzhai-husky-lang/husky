@@ -1,7 +1,7 @@
 ## `IsBackend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `MlBackend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

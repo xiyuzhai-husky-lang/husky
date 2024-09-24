@@ -1,7 +1,7 @@
 ## `ast`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `uses`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `defn`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `expr`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

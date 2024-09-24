@@ -1,7 +1,7 @@
 ## `IsTask`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `IsTask::Backend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `IsTask::Frontend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `Task`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`core::task::Task`),
@@ -37,7 +37,7 @@ SemVarDeps(
 ## `TASK`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`core::task::TASK`),

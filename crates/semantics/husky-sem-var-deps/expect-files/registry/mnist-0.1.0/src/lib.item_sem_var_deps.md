@@ -1,7 +1,7 @@
 ## `task`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `MnistLabel`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `MnistLabel::Zero`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `MnistLabel::One`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `MnistLabel::Two`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## `MnistLabel::Three`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemVarDeps(
 ## `MnistLabel::Four`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemVarDeps(
 ## `MnistLabel::Five`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemVarDeps(
 ## `MnistLabel::Six`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemVarDeps(
 ## `MnistLabel::Seven`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemVarDeps(
 ## `MnistLabel::Eight`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemVarDeps(
 ## `MnistLabel::Nine`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemVarDeps(
 ## `BinaryImage28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemVarDeps(
 ## ``BinaryImage28`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemVarDeps(
 ## `BinaryGrid28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemVarDeps(
 ## `INPUT`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -133,7 +133,7 @@ SemVarDeps(
 ## `impl Visualize for BinaryImage28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -141,7 +141,7 @@ SemVarDeps(
 ## `(BinaryImage28 as Visualize)::visualize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -149,7 +149,7 @@ SemVarDeps(
 ## `impl BinaryImage28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -157,7 +157,7 @@ SemVarDeps(
 ## `BinaryImage28::new_zeros`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -165,7 +165,7 @@ SemVarDeps(
 ## `impl IntIndex for BinaryImage28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -173,7 +173,7 @@ SemVarDeps(
 ## `(BinaryImage28 as IntIndex)::Output`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -181,7 +181,7 @@ SemVarDeps(
 ## `impl Visualize for BinaryGrid28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -189,7 +189,7 @@ SemVarDeps(
 ## `(BinaryGrid28 as Visualize)::visualize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -197,7 +197,7 @@ SemVarDeps(
 ## `impl BinaryGrid28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -205,7 +205,7 @@ SemVarDeps(
 ## `BinaryGrid28::new_zeros`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -213,7 +213,7 @@ SemVarDeps(
 ## `impl IntIndex for BinaryGrid28`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -221,7 +221,7 @@ SemVarDeps(
 ## `(BinaryGrid28 as IntIndex)::Output`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

@@ -1,7 +1,7 @@
 ## `IsTask`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## `IsTask::Backend`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `IsTask::Frontend`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `Task`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `TASK`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

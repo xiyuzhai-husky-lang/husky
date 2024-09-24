@@ -98,7 +98,7 @@ None
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )
@@ -120,7 +120,7 @@ None
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )
@@ -142,7 +142,7 @@ None
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )

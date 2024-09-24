@@ -464,7 +464,7 @@ impl EagerStmtTraceData {
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.biological_parent
             .var_deps_expansion(db)
-            .stmt_value_var_deps(self.sem_stmt_idx, db)
+            .stmt_control_flow_var_deps(self.sem_stmt_idx, db)
             .clone()
     }
 
