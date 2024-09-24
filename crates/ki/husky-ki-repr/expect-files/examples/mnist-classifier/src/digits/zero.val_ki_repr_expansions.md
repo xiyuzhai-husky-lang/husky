@@ -1986,7 +1986,7 @@
                             ),
                             RuntimeConstants(
                                 [
-                                    KiRuntimeConstant(
+                                    KiRuntimeCompterm(
                                         Id {
                                             value: 3,
                                         },
