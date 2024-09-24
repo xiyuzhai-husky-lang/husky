@@ -221,7 +221,7 @@ impl EagerExprTraceData {
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.biological_parent
             .var_deps_expansion(db)
-            .expr_value_var_deps_table(db)[self.sem_expr_idx]
+            .expr_control_flow_var_deps_table(db)[self.sem_expr_idx]
             .clone()
     }
 

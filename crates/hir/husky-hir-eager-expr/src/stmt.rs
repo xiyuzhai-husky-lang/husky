@@ -232,7 +232,7 @@ impl ToHirEager for SemCondition {
                 pattern: target.to_hir_eager(builder),
             },
             SemCondition::Other {
-                sem_expr_idx,
+                expr: sem_expr_idx,
                 conversion,
             } => HirEagerCondition::Other {
                 opd: sem_expr_idx.to_hir_eager(builder),

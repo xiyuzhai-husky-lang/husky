@@ -159,7 +159,7 @@ impl ToHirLazy for SemCondition {
                 pattern: target.to_hir_lazy(builder),
             },
             SemCondition::Other {
-                sem_expr_idx,
+                expr: sem_expr_idx,
                 conversion,
             } => HirLazyCondition::Other {
                 hir_lazy_expr_idx: sem_expr_idx.to_hir_lazy(builder),

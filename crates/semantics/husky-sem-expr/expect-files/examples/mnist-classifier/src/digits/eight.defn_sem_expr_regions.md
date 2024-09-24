@@ -1981,7 +1981,7 @@
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemExprIdx(
+                                        expr: SemExprIdx(
                                             17,
                                         ),
                                         conversion: None,
@@ -2056,7 +2056,7 @@
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemExprIdx(
+                                        expr: SemExprIdx(
                                             18,
                                         ),
                                         conversion: None,
@@ -4934,7 +4934,7 @@
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemExprIdx(
+                                        expr: SemExprIdx(
                                             17,
                                         ),
                                         conversion: None,
@@ -4960,7 +4960,7 @@
                                             ),
                                         },
                                         condition: Other {
-                                            sem_expr_idx: SemExprIdx(
+                                            expr: SemExprIdx(
                                                 4,
                                             ),
                                             conversion: None,

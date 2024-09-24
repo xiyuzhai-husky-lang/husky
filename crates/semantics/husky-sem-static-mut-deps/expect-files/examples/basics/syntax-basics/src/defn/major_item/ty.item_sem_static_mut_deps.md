@@ -1,7 +1,7 @@
 ## `enum_ty`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

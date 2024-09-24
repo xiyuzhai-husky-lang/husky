@@ -174,7 +174,7 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
     ) -> LinketImplKiControlFlow<LinketImpl>;
 
     /// the computation is done by the runtime
-    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
+    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control transfer
     fn eval_ki_repr_interface(
         &self,
         ki_repr: KiReprInterface,
@@ -186,7 +186,7 @@ pub trait IsDevRuntimeInterface<LinketImpl: IsLinketImpl> {
     ) -> KiControlFlow<(), Infallible, LinketImplTrackedException<LinketImpl>>;
 
     /// the computation is done by `f`
-    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control flow
+    /// returns `LinketImplKiControlFlow<LinketImpl>` because there is not guaranteed to be no control transfer
     fn eval_ki_repr_with(
         &self,
         ki_repr: KiReprInterface,
