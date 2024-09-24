@@ -532,6 +532,10 @@ impl<V> SemExprMap<V> {
         Self(ArenaMap::new2(sem_expr_arena.0))
     }
 
+    pub fn insert(&mut self, expr: SemExprIdx, v: V) -> Option<V> {
+        self.0.insert(expr.0, v)
+    }
+
     pub fn insert_new(&mut self, expr: SemExprIdx, v: V) {
         self.0.insert_new(expr.0, v)
     }

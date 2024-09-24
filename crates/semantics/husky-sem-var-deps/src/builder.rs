@@ -837,9 +837,7 @@ where
                 self.populate_into_current_variables(target.variables(), &deps);
                 deps
             }
-            SemCondition::Other {
-                sem_expr_idx: src, ..
-            } => self.expr_value_var_deps_table[src].clone(),
+            SemCondition::Other { expr: src, .. } => self.expr_value_var_deps_table[src].clone(),
         }
     }
 
@@ -849,9 +847,9 @@ where
     ) -> SemControlTransferVarDeps {
         match condition {
             SemCondition::Be { src, .. } => self.expr_control_transfer_var_deps_table[src].clone(),
-            SemCondition::Other {
-                sem_expr_idx: src, ..
-            } => self.expr_control_transfer_var_deps_table[src].clone(),
+            SemCondition::Other { expr: src, .. } => {
+                self.expr_control_transfer_var_deps_table[src].clone()
+            }
         }
     }
 
@@ -867,6 +865,12 @@ where
                 |deps0, deps| SemValueVarDeps::merge(deps0, &deps),
             )
         }
+    }
+
+    fn with_domain_guard_contained(&mut self, f: impl FnOnce(&mut Self)) {
+        let domain_guard = self.domain_guard.clone();
+        f(self);
+        self.domain_guard = domain_guard;
     }
 
     pub(crate) fn finish(self) -> ItemDefnSemVarDepsRegion {
@@ -899,8 +903,11 @@ where
     }
 
     fn visit_expr(&mut self, expr: SemExprIdx, f: impl FnOnce(&mut Self)) {
-        self.expr_domain_var_deps_table
-            .insert_new(expr, self.domain_guard.domain_var_deps());
+        self.expr_domain_var_deps_table.insert_new_or_merge(
+            expr,
+            self.domain_guard.domain_var_deps(),
+            |deps0, deps| deps0.merge_counted(&deps, &mut self.counter),
+        );
         f(self)
     }
 
@@ -915,10 +922,16 @@ where
             .insert_new_or_merge(expr, deps, |deps0, deps| {
                 deps0.merge_counted(&deps, &mut self.counter)
             });
-        self.domain_guard.extend(
-            &self.expr_value_var_deps_table[expr],
-            &self.expr_control_transfer_var_deps_table[expr],
+        self.expr_control_flow_var_deps_table.insert(
+            expr,
+            SemControlFlowVarDeps::new(
+                &self.expr_value_var_deps_table[expr],
+                &self.expr_control_transfer_var_deps_table[expr],
+                &self.expr_domain_var_deps_table[expr],
+            ),
         );
+        self.domain_guard
+            .extend(&self.expr_control_transfer_var_deps_table[expr]);
     }
 
     fn visit_closure_inner(
@@ -938,8 +951,11 @@ where
     }
 
     fn visit_stmt(&mut self, stmt: SemStmtIdx, f: impl FnOnce(&mut Self)) {
-        self.stmt_domain_var_deps_table
-            .insert_new(stmt, self.domain_guard.domain_var_deps());
+        self.stmt_domain_var_deps_table.insert_new_or_merge(
+            stmt,
+            self.domain_guard.domain_var_deps(),
+            |deps0, deps| deps0.merge_counted(&deps, &mut self.counter),
+        );
         f(self)
     }
 
@@ -965,10 +981,16 @@ where
             .insert_new_or_merge(stmt, deps, |deps0, deps| {
                 deps0.merge_counted(&deps, &mut self.counter)
             });
-        self.domain_guard.extend(
-            &self.stmt_value_var_deps_table[stmt],
-            &self.stmt_control_transfer_var_deps_table[stmt],
+        self.stmt_control_flow_var_deps_table.insert(
+            stmt,
+            SemControlFlowVarDeps::new(
+                &self.stmt_value_var_deps_table[stmt],
+                &self.stmt_control_transfer_var_deps_table[stmt],
+                &self.stmt_domain_var_deps_table[stmt],
+            ),
         );
+        self.domain_guard
+            .extend(&self.stmt_control_transfer_var_deps_table[stmt]);
     }
 
     fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self)) {
@@ -983,7 +1005,7 @@ where
     }
 
     fn visit_branches(&mut self, f: impl Fn(&mut Self)) {
-        f(self)
+        self.with_domain_guard_contained(f);
     }
 
     fn visit_branch(&mut self, f: impl Fn(&mut Self)) {
@@ -991,10 +1013,23 @@ where
     }
 
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self)) {
-        f(self)
+        f(self);
+        let condition_value_var_deps = match condition {
+            SemCondition::Be {
+                src,
+                contract,
+                be_regional_token_idx,
+                target,
+            } => &self.expr_value_var_deps_table[src],
+            SemCondition::Other { expr, conversion } => &self.expr_value_var_deps_table[expr],
+        };
     }
 
     fn visit_condition_inner(&mut self, condition: SemCondition) {
         ()
+    }
+
+    fn visit_branch_stmts(&mut self, f: impl Fn(&mut Self)) {
+        self.with_domain_guard_contained(f);
     }
 }
