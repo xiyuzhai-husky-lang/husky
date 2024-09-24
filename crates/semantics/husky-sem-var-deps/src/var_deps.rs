@@ -56,27 +56,27 @@ impl SemVarDeps {
     }
 }
 
-/// None indicates no control flow
+/// None indicates no control transfer
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct SemControlFlowVarDeps(Option<OrderedSmallVecSet<SemVarDep, 4>>);
+pub struct SemControlTransferVarDeps(Option<OrderedSmallVecSet<SemVarDep, 4>>);
 
 #[test]
 fn sem_control_flow_static_var_deps_default_works() {
     assert_eq!(
-        SemControlFlowVarDeps::default(),
-        SemControlFlowVarDeps(None)
+        SemControlTransferVarDeps::default(),
+        SemControlTransferVarDeps(None)
     );
 }
 
-impl SemControlFlowVarDeps {
+impl SemControlTransferVarDeps {
     /// a deps that represents a control flow that happens without any dependencies
     pub(crate) fn new_empty() -> Self {
         Self(Some(Default::default()))
     }
 }
 
-impl std::ops::Deref for SemControlFlowVarDeps {
+impl std::ops::Deref for SemControlTransferVarDeps {
     type Target = [SemVarDep];
 
     fn deref(&self) -> &Self::Target {
@@ -87,7 +87,7 @@ impl std::ops::Deref for SemControlFlowVarDeps {
     }
 }
 
-impl SemControlFlowVarDeps {
+impl SemControlTransferVarDeps {
     pub(crate) fn merge(&mut self, other: &Self) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),

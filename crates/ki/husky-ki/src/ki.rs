@@ -49,7 +49,7 @@ fn ki_runtime_compterms_works() {
 pub enum KiDomain {
     ConditionSatisfied(Ki),
     ConditionNotSatisfied(Ki),
-    StmtNotReturned(Ki),
+    ControlNotTransferred(Ki),
     Omni,
 }
 

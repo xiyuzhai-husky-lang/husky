@@ -9,7 +9,7 @@ pub mod static_mut_deps;
 mod tests;
 
 use self::jar::SemStaticMutDepsJar as Jar;
-use self::static_mut_deps::SemStaticMutDeps;
+use self::static_mut_deps::SemValueStaticMutDeps;
 #[cfg(test)]
 use self::tests::*;
 use husky_entity_path::path::ItemPath;
@@ -17,6 +17,6 @@ use husky_entity_path::path::ItemPath;
 pub fn item_sem_static_mut_deps<'db>(
     item_path: ItemPath,
     db: &'db ::salsa::Db,
-) -> &'db SemStaticMutDeps {
+) -> &'db SemValueStaticMutDeps {
     crate::graph_dynamics::item_sem_static_mut_deps(db, item_path)
 }
