@@ -209,7 +209,7 @@ pub enum SemExprData {
         ritchie_kind_regional_token_idx: RegionalTokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LparRegionalToken,
-        parameter_ty_items: SmallVec<[SemaCommaListItem; 4]>,
+        parameter_ty_items: SmallVec<[SemCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
         light_arrow_token: Option<LightArrowRegionalToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
@@ -229,7 +229,7 @@ pub enum SemExprData {
         ident_token: IdentRegionalToken,
         template_arguments: Option<SemaTemplateArgumentList>,
         lpar_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     MethodRitchieCall {
@@ -260,7 +260,7 @@ pub enum SemExprData {
     NewTuple {
         lpar_regional_token_idx: RegionalTokenIdx,
         /// guaranteed that items.len() > 0
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rpar_regional_token_idx: RegionalTokenIdx,
     },
     /// there are two cases
@@ -270,19 +270,19 @@ pub enum SemExprData {
     Index {
         self_argument: SemExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 2]>,
+        items: SmallVec<[SemCommaListItem; 2]>,
         rbox_regional_token_idx: RegionalTokenIdx,
         index_dynamic_dispatch: FlyIndexInstanceDispatch,
     },
     CompositionWithList {
         owner: SemExprIdx,
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     NewList {
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         element_ty: FlyTerm,
         // todo: disambiguate Vec, SmallList, Array, etc.
         rbox_regional_token_idx: RegionalTokenIdx,
@@ -293,7 +293,7 @@ pub enum SemExprData {
     BoxColonList {
         lbox_regional_token_idx: RegionalTokenIdx,
         colon_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     VecFunctor {
@@ -302,7 +302,7 @@ pub enum SemExprData {
     },
     ArrayFunctor {
         lbox_regional_token_idx: RegionalTokenIdx,
-        items: SmallVec<[SemaCommaListItem; 4]>,
+        items: SmallVec<[SemCommaListItem; 4]>,
         rbox_regional_token_idx: RegionalTokenIdx,
     },
     Block {
@@ -312,7 +312,7 @@ pub enum SemExprData {
     EmptyHtmxTag {
         empty_htmx_bra_idx: RegionalTokenIdx,
         function_ident: IdentRegionalToken,
-        arguments: IdentMap<SemaHtmxArgumentExpr>,
+        arguments: IdentMap<SemHtmxArgumentExpr>,
         empty_htmx_ket: EmptyHtmxKetRegionalToken,
     },
     Closure {
@@ -1685,7 +1685,7 @@ impl<'a> SemExprBuilder<'a> {
             } => {
                 let mut params: Vec<FlyRitchieParameter> = vec![];
                 for item in parameter_ty_items.clone() {
-                    match self.infer_expr_term(item.sem_expr_idx) {
+                    match self.infer_expr_term(item.expr) {
                         Some(ty_term) => params
                             .push(FlyRitchieSimpleParameter::new(Contract::Pure, ty_term).into()),
                         None => todo!("err"),
@@ -1716,7 +1716,7 @@ impl<'a> SemExprBuilder<'a> {
             } => match items.len() {
                 0 => unreachable!(),
                 1 => {
-                    let Some(size) = self.infer_expr_term(items[0].sem_expr_idx) else {
+                    let Some(size) = self.infer_expr_term(items[0].expr) else {
                         todo!()
                     };
                     FlyTerm::new_application(self, self.eth_term_menu().array_ty_ontology(), size)

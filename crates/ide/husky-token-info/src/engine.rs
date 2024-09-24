@@ -13,7 +13,7 @@ use husky_entity_tree::{
     symbol::ModuleSymbolContext,
 };
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
-use husky_sem_expr::{SemExprData, SemExprDb, SemExprIdx, SemExprRegionData, SemaHtmxArgumentExpr};
+use husky_sem_expr::{SemExprData, SemExprDb, SemExprIdx, SemExprRegionData, SemHtmxArgumentExpr};
 use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::*;
@@ -393,8 +393,8 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 );
                 for argument in arguments.iter() {
                     match argument {
-                        SemaHtmxArgumentExpr::Expanded { property_ident, .. }
-                        | SemaHtmxArgumentExpr::Shortened { property_ident, .. } => self.add(
+                        SemHtmxArgumentExpr::Expanded { property_ident, .. }
+                        | SemHtmxArgumentExpr::Shortened { property_ident, .. } => self.add(
                             property_ident.regional_token_idx(),
                             source,
                             TokenInfoData::HtmlPropertyIdent,

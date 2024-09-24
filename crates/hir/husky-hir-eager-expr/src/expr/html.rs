@@ -1,4 +1,4 @@
-use husky_sem_expr::SemaHtmxArgumentExpr;
+use husky_sem_expr::SemHtmxArgumentExpr;
 
 use super::*;
 
@@ -33,12 +33,12 @@ impl vec_like::AsVecMapEntry for HirEagerHtmlArgumentExpr {
     }
 }
 
-impl ToHirEager for SemaHtmxArgumentExpr {
+impl ToHirEager for SemHtmxArgumentExpr {
     type Output = HirEagerHtmlArgumentExpr;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         match self {
-            SemaHtmxArgumentExpr::Expanded {
+            SemHtmxArgumentExpr::Expanded {
                 property_ident,
                 argument: expr,
                 ..
@@ -46,7 +46,7 @@ impl ToHirEager for SemaHtmxArgumentExpr {
                 property_ident: property_ident.ident(),
                 expr: expr.to_hir_eager(builder),
             },
-            SemaHtmxArgumentExpr::Shortened { property_ident, .. } => HirEagerHtmlArgumentExpr {
+            SemHtmxArgumentExpr::Shortened { property_ident, .. } => HirEagerHtmlArgumentExpr {
                 property_ident: property_ident.ident(),
                 expr: todo!(),
             },

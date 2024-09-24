@@ -125,7 +125,7 @@ impl SemExprIdx {
                     ..
                 } => {
                     for item in parameter_ty_items {
-                        item.sem_expr_idx.simulate(visitor);
+                        item.expr.simulate(visitor);
                     }
                     if let Some(return_ty) = return_ty {
                         return_ty.simulate(visitor);
@@ -183,7 +183,7 @@ impl SemExprIdx {
                 SemExprData::VecFunctor { .. } => (),
                 SemExprData::ArrayFunctor { ref items, .. } => {
                     for item in items {
-                        item.sem_expr_idx.simulate(visitor);
+                        item.expr.simulate(visitor);
                     }
                 }
                 SemExprData::Block { stmts } => stmts.simulate(visitor),
@@ -196,14 +196,14 @@ impl SemExprIdx {
                     // ad hoc
                     for argument in arguments {
                         match argument {
-                            SemaHtmxArgumentExpr::Expanded {
+                            SemHtmxArgumentExpr::Expanded {
                                 property_ident,
                                 eq,
                                 lcurl,
                                 argument,
                                 rcurl,
                             } => argument.simulate(visitor),
-                            SemaHtmxArgumentExpr::Shortened {
+                            SemHtmxArgumentExpr::Shortened {
                                 lcurl,
                                 property_ident,
                                 rcurl,
@@ -237,29 +237,29 @@ impl SemExprIdx {
 }
 
 fn simulate_comma_list_items<'db>(
-    items: &[SemaCommaListItem],
+    items: &[SemCommaListItem],
     visitor: &mut impl VisitSemExpr<'db>,
 ) {
     for item in items {
-        item.sem_expr_idx.simulate(visitor);
+        item.expr.simulate(visitor);
     }
 }
 
 fn simulate_ritchie_parameter_argument_matches<'db>(
-    ritchie_parameter_argument_matches: &SmallVec<[SemaRitchieArgument; 4]>,
+    ritchie_parameter_argument_matches: &SmallVec<[SemRitchieArgument; 4]>,
     visitor: &mut impl VisitSemExpr<'db>,
 ) {
     for m in ritchie_parameter_argument_matches {
         match m {
-            SemaRitchieArgument::Simple(_, arg) => {
+            SemRitchieArgument::Simple(_, arg) => {
                 arg.argument_sem_expr_idx().simulate(visitor);
             }
-            SemaRitchieArgument::Variadic(_, items) => {
+            SemRitchieArgument::Variadic(_, items) => {
                 for item in items {
                     item.argument_expr_idx().simulate(visitor);
                 }
             }
-            SemaRitchieArgument::Keyed(_, arg) => match arg {
+            SemRitchieArgument::Keyed(_, arg) => match arg {
                 Some(arg) => arg.argument_expr_idx().simulate(visitor),
                 // ad hoc
                 None => (),
