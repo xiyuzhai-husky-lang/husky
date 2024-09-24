@@ -1,7 +1,7 @@
 ## `major_item`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

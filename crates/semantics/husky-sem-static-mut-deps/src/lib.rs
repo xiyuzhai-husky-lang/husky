@@ -9,7 +9,9 @@ pub mod static_mut_deps;
 mod tests;
 
 use self::jar::SemStaticMutDepsJar as Jar;
-use self::static_mut_deps::SemValueStaticMutDeps;
+use self::static_mut_deps::{
+    control_transfer::SemControlTransferStaticMutDeps, value::SemValueStaticMutDeps,
+};
 #[cfg(test)]
 use self::tests::*;
 use husky_entity_path::path::ItemPath;
