@@ -259,7 +259,7 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::Uninit => todo!(),
             ThawedValue::Invalid => todo!(),
             ThawedValue::Moved => todo!(),
-            ThawedValue::Unit(_) => FrozenValue::Unit(()),
+            ThawedValue::Unit(()) => FrozenValue::Unit(()),
             ThawedValue::Bool(val) => FrozenValue::Bool(val),
             ThawedValue::Char(val) => FrozenValue::Char(val),
             ThawedValue::I8(val) => FrozenValue::I8(val),
@@ -729,5 +729,41 @@ impl std::ops::SubAssign for ThawedValue {
 impl From<Infallible> for ThawedValue {
     fn from(value: Infallible) -> Self {
         todo!()
+    }
+}
+
+impl From<Value> for ThawedValue {
+    fn from(value: Value) -> Self {
+        match value {
+            Value::Unit(()) => ThawedValue::Unit(()),
+            Value::Bool(b) => ThawedValue::Bool(b),
+            Value::Char(c) => ThawedValue::Char(c),
+            Value::I8(i) => ThawedValue::I8(i),
+            Value::I16(i) => ThawedValue::I16(i),
+            Value::I32(i) => ThawedValue::I32(i),
+            Value::I64(i) => ThawedValue::I64(i),
+            Value::I128(i) => ThawedValue::I128(i),
+            Value::ISize(i) => ThawedValue::ISize(i),
+            Value::U8(u) => ThawedValue::U8(u),
+            Value::U16(u) => ThawedValue::U16(u),
+            Value::U32(u) => ThawedValue::U32(u),
+            Value::U64(u) => ThawedValue::U64(u),
+            Value::U128(u) => ThawedValue::U128(u),
+            Value::USize(u) => ThawedValue::USize(u),
+            Value::R8(r) => ThawedValue::R8(r),
+            Value::R16(r) => ThawedValue::R16(r),
+            Value::R32(r) => ThawedValue::R32(r),
+            Value::R64(r) => ThawedValue::R64(r),
+            Value::R128(r) => ThawedValue::R128(r),
+            Value::RSize(r) => ThawedValue::RSize(r),
+            Value::F32(f) => ThawedValue::F32(f),
+            Value::F64(f) => ThawedValue::F64(f),
+            Value::StringLiteral(id) => ThawedValue::StringLiteral(id),
+            Value::Owned(owned_value) => todo!(),
+            Value::Leash(_) => todo!(),
+            Value::OptionBox(immortal_dyn) => todo!(),
+            Value::OptionLeash(_) => todo!(),
+            Value::EnumUnit { index, presenter } => ThawedValue::EnumUnit { index, presenter },
+        }
     }
 }

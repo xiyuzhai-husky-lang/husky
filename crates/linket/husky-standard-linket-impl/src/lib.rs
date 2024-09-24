@@ -52,7 +52,7 @@ pub type StandardKiControlFlow<C = Value, B = Value> =
 pub type StandardStaticVarResult<T> = StaticVarResult<StandardVarId, T>;
 pub type StandardVmControlFlow<C = ThawedValue, B = ThawedValue> =
     VmControlFlow<C, B, StandardTrackedException>;
-pub type StandardVmArgumentValue = VmArgumentValue<StandardLinketImpl>;
+pub type StandardVmArgumentValue<'comptime> = VmArgumentValue<'comptime, StandardLinketImpl>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinketImpl {
@@ -238,7 +238,7 @@ impl IsLinketImpl for StandardLinketImpl {
             StandardLinketImpl::Val {
                 init_item_path_id_interface,
                 ki_wrapper,
-            } => todo!(),
+            } => ki_wrapper().into_vm().unwrap(), // ad hoc
             StandardLinketImpl::Memo {
                 init_item_path_id_interface,
                 ki_wrapper,

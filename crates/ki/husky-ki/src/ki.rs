@@ -27,21 +27,21 @@ pub enum KiArgument {
 
 #[salsa::interned]
 pub struct KiRuntimeCompterm {
-    pub data: KiRuntimeConstantData,
+    pub data: KiRuntimeComptermData,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum KiRuntimeConstantData {
+pub enum KiRuntimeComptermData {
     TypeVariantPath(TypeVariantPath),
 }
 
 #[test]
-fn val_runtime_constants_works() {
-    use husky_ki_repr_interface::KiRuntimeConstantInterface;
+fn ki_runtime_compterms_works() {
+    use husky_ki_repr_interface::KiRuntimeComptermInterface;
 
     assert_eq!(
         std::mem::size_of::<KiRuntimeCompterm>(),
-        std::mem::size_of::<KiRuntimeConstantInterface>(),
+        std::mem::size_of::<KiRuntimeComptermInterface>(),
     )
 }
 

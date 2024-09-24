@@ -224,7 +224,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
             F: Fn(Target, ($($runtime_constant,)*)) -> std::ops::ControlFlow<B, $output>,
             B: IntoValue + IntoThawedValue,
             Target: Send + FromValue + FromThawedValue,
-            $($runtime_constant: Send + FromValue + FromThawedValue,)*
+            $($runtime_constant: Send + FromValue,)*
             $output: Send,
         {
             type FnOutput = $output;
@@ -275,7 +275,7 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                         slush_values
                     ),
                     ($(<$runtime_constant as FromValue>::from_value_temp(
-                        ctx.eval_val_runtime_constant(
+                        ctx.eval_ki_runtime_compterm(
                             *runtime_constants.next().expect("missing runtime constant")
                         ),
                         slush_values
@@ -287,7 +287,6 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                 self,
                 arguments: [VmArgumentValue<LinketImpl>;2],
             ) -> StandardVmControlFlow<Self::FnOutput> {
-                todo!();
                 let ctx = DevsoulInterface::dev_eval_context();
                 let [arg0,arg1] =arguments;
                 let VmArgumentValue::Simple(target) = arg0 else {
@@ -310,8 +309,10 @@ macro_rules! impl_is_unveil_fn_linket_impl_source {
                         target,
                         slush_values
                     ),
-                    ($(<$runtime_constant as FromThawedValue>::from_thawed_value_temp(
-                        runtime_constants.next().expect("missing runtime constant"),
+                    ($(<$runtime_constant as FromValue>::from_value_temp(
+                        ctx.eval_ki_runtime_compterm(
+                            *runtime_constants.next().expect("missing runtime constant")
+                        ),
                         slush_values
                     ),)*)
                 )
