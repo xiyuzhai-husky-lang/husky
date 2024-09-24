@@ -21,12 +21,14 @@ class MiniHuskyDataset(Dataset):
         self,
         n: int,
         max_fns: int,
+        use_var_rate: float,
         error_rate: float,
         data_dir: str = "../../data/mini-husky/basic",
     ):
         self.data_dir = data_dir
         self.n = n
         self.max_fns = max_fns
+        self.use_var_rate = use_var_rate
         self.error_rate = error_rate
         self.header, self.data, self.stats = self._load_dataset()
         self.max_values = self.stats.max_values  # Add this line
@@ -43,13 +45,17 @@ class MiniHuskyDataset(Dataset):
         for filename in os.listdir(self.data_dir):
             if filename.startswith("dataset-") and filename.endswith(".msgpack"):
                 parts = filename[8:-8].split("-")
+                if len(parts) != 4:
+                    continue
                 file_n = int(parts[0][1:])
                 file_max_fns = int(parts[1][1:])
-                file_error_rate = float(parts[2][1:])
+                file_use_var_rate = float(parts[2][1:])
+                file_error_rate = float(parts[3][1:])
 
                 if (
                     file_n == self.n
                     and file_max_fns == self.max_fns
+                    and abs(file_use_var_rate - self.use_var_rate) <= tolerance
                     and abs(file_error_rate - self.error_rate) <= tolerance
                 ):
 
