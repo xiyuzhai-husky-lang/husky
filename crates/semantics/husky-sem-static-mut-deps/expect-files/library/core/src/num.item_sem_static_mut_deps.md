@@ -1,7 +1,7 @@
 ## `i8`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## ``i8`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `i16`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## ``i16`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `i32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemStaticMutDeps(
 ## ``i32`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemStaticMutDeps(
 ## `i64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemStaticMutDeps(
 ## ``i64`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemStaticMutDeps(
 ## `i128`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemStaticMutDeps(
 ## ``i128`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemStaticMutDeps(
 ## `isize`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemStaticMutDeps(
 ## ``isize`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemStaticMutDeps(
 ## `u8`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemStaticMutDeps(
 ## ``u8`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemStaticMutDeps(
 ## `u16`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemStaticMutDeps(
 ## ``u16`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -129,7 +129,7 @@ SemStaticMutDeps(
 ## `u32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -137,7 +137,7 @@ SemStaticMutDeps(
 ## ``u32`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -145,7 +145,7 @@ SemStaticMutDeps(
 ## `u64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -153,7 +153,7 @@ SemStaticMutDeps(
 ## ``u64`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -161,7 +161,7 @@ SemStaticMutDeps(
 ## `u128`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -169,7 +169,7 @@ SemStaticMutDeps(
 ## ``u128`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -177,7 +177,7 @@ SemStaticMutDeps(
 ## `usize`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -185,7 +185,7 @@ SemStaticMutDeps(
 ## ``usize`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -193,7 +193,7 @@ SemStaticMutDeps(
 ## `f32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -201,7 +201,7 @@ SemStaticMutDeps(
 ## ``f32`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -209,7 +209,7 @@ SemStaticMutDeps(
 ## `f64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -217,7 +217,7 @@ SemStaticMutDeps(
 ## ``f64`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -225,7 +225,7 @@ SemStaticMutDeps(
 ## `impl i8`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -233,7 +233,7 @@ SemStaticMutDeps(
 ## `i8::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -241,7 +241,7 @@ SemStaticMutDeps(
 ## `i8::max`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -249,7 +249,7 @@ SemStaticMutDeps(
 ## `impl Add for i8`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -257,7 +257,7 @@ SemStaticMutDeps(
 ## `(i8 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -265,7 +265,7 @@ SemStaticMutDeps(
 ## `impl i16`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -273,7 +273,7 @@ SemStaticMutDeps(
 ## `i16::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -281,7 +281,7 @@ SemStaticMutDeps(
 ## `i16::max`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -289,7 +289,7 @@ SemStaticMutDeps(
 ## `impl Add for i16`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -297,7 +297,7 @@ SemStaticMutDeps(
 ## `(i16 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -305,7 +305,7 @@ SemStaticMutDeps(
 ## `impl i32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -313,7 +313,7 @@ SemStaticMutDeps(
 ## `i32::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -321,7 +321,7 @@ SemStaticMutDeps(
 ## `i32::max`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -329,7 +329,7 @@ SemStaticMutDeps(
 ## `i32::min`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -337,7 +337,7 @@ SemStaticMutDeps(
 ## `impl Add for i32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -345,7 +345,7 @@ SemStaticMutDeps(
 ## `(i32 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -353,7 +353,7 @@ SemStaticMutDeps(
 ## `impl i64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -361,7 +361,7 @@ SemStaticMutDeps(
 ## `i64::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -369,7 +369,7 @@ SemStaticMutDeps(
 ## `impl Add for i64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -377,7 +377,7 @@ SemStaticMutDeps(
 ## `(i64 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -385,7 +385,7 @@ SemStaticMutDeps(
 ## `impl i128`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -393,7 +393,7 @@ SemStaticMutDeps(
 ## `i128::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -401,7 +401,7 @@ SemStaticMutDeps(
 ## `impl Add for i128`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -409,7 +409,7 @@ SemStaticMutDeps(
 ## `(i128 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -417,7 +417,7 @@ SemStaticMutDeps(
 ## `impl isize`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -425,7 +425,7 @@ SemStaticMutDeps(
 ## `isize::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -433,7 +433,7 @@ SemStaticMutDeps(
 ## `impl Add for isize`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -441,7 +441,7 @@ SemStaticMutDeps(
 ## `(isize as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -449,7 +449,7 @@ SemStaticMutDeps(
 ## `impl Add for u8`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -457,7 +457,7 @@ SemStaticMutDeps(
 ## `(u8 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -465,7 +465,7 @@ SemStaticMutDeps(
 ## `impl Add for u16`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -473,7 +473,7 @@ SemStaticMutDeps(
 ## `(u16 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -481,7 +481,7 @@ SemStaticMutDeps(
 ## `impl Add for u32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -489,7 +489,7 @@ SemStaticMutDeps(
 ## `(u32 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -497,7 +497,7 @@ SemStaticMutDeps(
 ## `impl Add for u64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -505,7 +505,7 @@ SemStaticMutDeps(
 ## `(u64 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -513,7 +513,7 @@ SemStaticMutDeps(
 ## `impl Add for u128`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -521,7 +521,7 @@ SemStaticMutDeps(
 ## `(u128 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -529,7 +529,7 @@ SemStaticMutDeps(
 ## `impl Add for usize`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -537,7 +537,7 @@ SemStaticMutDeps(
 ## `(usize as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -545,7 +545,7 @@ SemStaticMutDeps(
 ## `impl f32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -553,7 +553,7 @@ SemStaticMutDeps(
 ## `f32::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -561,7 +561,7 @@ SemStaticMutDeps(
 ## ``f32::abs`::#backprop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -569,7 +569,7 @@ SemStaticMutDeps(
 ## `f32::sqrt`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -577,7 +577,7 @@ SemStaticMutDeps(
 ## ``f32::sqrt`::#backprop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -585,7 +585,7 @@ SemStaticMutDeps(
 ## `f32::max`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -593,7 +593,7 @@ SemStaticMutDeps(
 ## ``f32::max`::#backprop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -601,7 +601,7 @@ SemStaticMutDeps(
 ## `f32::min`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -609,7 +609,7 @@ SemStaticMutDeps(
 ## ``f32::min`::#backprop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -617,7 +617,7 @@ SemStaticMutDeps(
 ## `f32::sgnx`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -625,7 +625,7 @@ SemStaticMutDeps(
 ## `f32::cos`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -633,7 +633,7 @@ SemStaticMutDeps(
 ## ``f32::cos`::#backprop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -641,7 +641,7 @@ SemStaticMutDeps(
 ## `f32::sin`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -649,7 +649,7 @@ SemStaticMutDeps(
 ## ``f32::sin`::#backprop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -657,7 +657,7 @@ SemStaticMutDeps(
 ## `f32::acos`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -665,7 +665,7 @@ SemStaticMutDeps(
 ## `impl Add for f32`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -673,7 +673,7 @@ SemStaticMutDeps(
 ## `(f32 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -681,7 +681,7 @@ SemStaticMutDeps(
 ## ``(f32 as Add)::add`::#backprop`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -689,7 +689,7 @@ SemStaticMutDeps(
 ## `impl f64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -697,7 +697,7 @@ SemStaticMutDeps(
 ## `f64::abs`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -705,7 +705,7 @@ SemStaticMutDeps(
 ## `f64::acos`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -713,7 +713,7 @@ SemStaticMutDeps(
 ## `impl Add for f64`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -721,7 +721,7 @@ SemStaticMutDeps(
 ## `(f64 as Add)::add`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

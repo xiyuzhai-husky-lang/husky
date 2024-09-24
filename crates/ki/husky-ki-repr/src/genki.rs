@@ -25,8 +25,7 @@ pub enum GenkiDomainRepr {
     /// those where the val repr of type bool is defined and equals false
     ConditionNotSatisfied(GenkiRepr),
     /// those where the val repr of type ControlFlow<(), _> is defined and equals Continue(())
-    StmtNotReturned(GenkiRepr),
-    ExprNotReturned(GenkiRepr),
+    ControlNotTransferred(GenkiRepr),
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

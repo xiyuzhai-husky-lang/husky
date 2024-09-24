@@ -6848,7 +6848,7 @@
                                             ),
                                         },
                                         condition: Other {
-                                            sem_expr_idx: SemExprIdx(
+                                            expr: SemExprIdx(
                                                 25,
                                             ),
                                             conversion: None,

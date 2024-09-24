@@ -145,8 +145,7 @@ pub enum KiDomainRepr {
     /// those where the val repr of type bool is defined and equals false
     ConditionNotSatisfied(KiRepr),
     /// those where the val repr of type ControlFlow<(), _> is defined and equals Continue(())
-    StmtNotReturned(KiRepr),
-    ExprNotReturned(KiRepr),
+    ControlNotTransferred(KiRepr),
 }
 
 #[test]
@@ -234,8 +233,9 @@ impl KiDomainRepr {
             KiDomainRepr::ConditionNotSatisfied(ki_repr) => {
                 KiDomain::ConditionNotSatisfied(ki_repr.ki(db))
             }
-            KiDomainRepr::StmtNotReturned(ki_repr) => KiDomain::StmtNotReturned(ki_repr.ki(db)),
-            KiDomainRepr::ExprNotReturned(_) => todo!(),
+            KiDomainRepr::ControlNotTransferred(ki_repr) => {
+                KiDomain::ControlNotTransferred(ki_repr.ki(db))
+            }
         }
     }
 }

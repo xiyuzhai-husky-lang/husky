@@ -1,7 +1,7 @@
 ## `Array`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

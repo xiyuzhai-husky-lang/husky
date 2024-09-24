@@ -2,7 +2,7 @@
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [
             SemVarDep::Item(
                 ItemPath(`mnist::INPUT`),
@@ -16,7 +16,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )
@@ -26,7 +26,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [
             SemVarDep::Item(
                 ItemPath(`mnist::INPUT`),
@@ -40,7 +40,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [
             SemVarDep::Item(
                 ItemPath(`mnist::INPUT`),
@@ -54,7 +54,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [
             SemVarDep::Item(
                 ItemPath(`mnist::INPUT`),
@@ -68,7 +68,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )
@@ -78,7 +78,7 @@ Some(
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )

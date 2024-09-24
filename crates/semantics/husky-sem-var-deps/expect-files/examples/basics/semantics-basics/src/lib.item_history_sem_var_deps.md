@@ -2,7 +2,7 @@
 
 ```rust
 Some(
-    SemVarDeps(
+    SemValueVarDeps(
         [],
     ),
 )

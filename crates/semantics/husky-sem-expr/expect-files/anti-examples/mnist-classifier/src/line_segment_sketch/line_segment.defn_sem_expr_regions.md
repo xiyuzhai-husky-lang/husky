@@ -3389,7 +3389,7 @@
                                             ),
                                         },
                                         condition: Other {
-                                            sem_expr_idx: SemExprIdx(
+                                            expr: SemExprIdx(
                                                 21,
                                             ),
                                             conversion: None,
@@ -3524,7 +3524,7 @@
                                             ),
                                         },
                                         condition: Other {
-                                            sem_expr_idx: SemExprIdx(
+                                            expr: SemExprIdx(
                                                 10,
                                             ),
                                             conversion: None,

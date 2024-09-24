@@ -1,7 +1,7 @@
 ## `submodule_name`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

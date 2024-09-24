@@ -16,7 +16,7 @@ pub enum SemCondition {
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there
     Other {
-        sem_expr_idx: SemExprIdx,
+        expr: SemExprIdx,
         conversion: ConditionConversion,
     },
 }
@@ -30,7 +30,9 @@ impl SemCondition {
         match self {
             SemCondition::Be { src, target, .. } => sem_expr_range_region_data[src]
                 .join(syn_expr_range_region[target.syn_pattern_root().syn_pattern_idx()]),
-            SemCondition::Other { sem_expr_idx, .. } => sem_expr_range_region_data[sem_expr_idx],
+            SemCondition::Other {
+                expr: sem_expr_idx, ..
+            } => sem_expr_range_region_data[sem_expr_idx],
         }
     }
 }
