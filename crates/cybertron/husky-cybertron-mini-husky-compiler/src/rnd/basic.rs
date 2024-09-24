@@ -17,10 +17,12 @@ pub struct TokenInfo {
     ast_kind: Option<AstKind>,
     #[serde(serialize_with = "serialize_option_symbol_resolution")]
     symbol_resolution: Option<SymbolResolution>,
-    #[serde(serialize_with = "serialize_option_type_error")]
-    error: Option<TypeError>,
+    // #[serde(serialize_with = "serialize_option_type_error")]
+    // error: Option<TypeError>,
     #[serde(serialize_with = "serialize_option_type")]
     expected_type: Option<Type>,
+    #[serde(serialize_with = "serialize_option_type")]
+    actual_type: Option<Type>,
 }
 
 #[derive(Serialize, Clone, Copy, Debug)]
@@ -279,15 +281,15 @@ impl BasicCodeGenerator {
         token: impl Into<String>,
         ast_kind: Option<AstKind>,
         symbol_resolution: Option<SymbolResolution>,
-        error: Option<TypeError>,
         expected_type: Option<Type>,
+        actual_type: Option<Type>,
     ) {
         self.result.push(token.into());
         self.token_infos.push(TokenInfo {
             ast_kind,
             symbol_resolution,
-            error,
             expected_type,
+            actual_type,
         });
     }
 
@@ -324,7 +326,7 @@ impl BasicCodeGenerator {
             "a",
             Some(AstKind::ParameterIdent),
             None,
-            None,
+            Some(input_ty),
             Some(input_ty),
         );
         self.push_token(":", Some(AstKind::ParameterTypeColon), None, None, None);
@@ -351,16 +353,16 @@ impl BasicCodeGenerator {
         let callee_index = self.rng.rand_range(0..len);
         let callee = &self.functions[callee_index];
         let fn_name = self.used_fn_idx[callee_index].clone();
-        let input_ty = self.functions[callee_index].input_ty.clone();
+        let expected_type = self.functions[callee_index].input_ty.clone();
 
         let has_ty_error = self.rng.randf64() < self.error_rate;
 
         let value_type = if has_ty_error {
             let mut types = vec![Type::Bool, Type::Int, Type::Float];
-            types.retain(|&x| x != input_ty);
+            types.retain(|&x| x != expected_type);
             types[self.rng.rand_range(0..types.len())].clone()
         } else {
-            input_ty
+            expected_type
         };
 
         let (arg_literal, literal_kind) = {
@@ -392,12 +394,8 @@ impl BasicCodeGenerator {
             arg_literal,
             Some(literal_kind),
             None,
-            if has_ty_error {
-                Some(TypeError::Expected)
-            } else {
-                None
-            },
-            Some(input_ty),
+            Some(expected_type),
+            Some(value_type),
         );
         self.push_token(")", Some(AstKind::CallRpar), None, None, None);
         self.push_token(";", Some(AstKind::StmtColon), None, None, None);
