@@ -1,6 +1,10 @@
+import json
 import numpy as np
 import random
+import string
 import torch
+import wandb
+import os
 from torch.nn.utils.rnn import pad_sequence
 
 def set_seed(seed):
@@ -49,3 +53,32 @@ def linear_warmup_decay(total_iters, warmup_iters, min_lr, max_lr, **kwargs):
             # Linear decay
             return max_lr - (max_lr - min_lr) * ((current_iter - warmup_iters) / (total_iters - warmup_iters))
     return lr_lambda
+
+class Logger:
+    def __init__(self, exp_root, exp_name, log_wandb, config):
+        self.log_wandb = log_wandb
+        if log_wandb:
+            wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)
+        
+        while True:
+            rnd_suf = "".join(random.choices(string.ascii_letters + string.digits, k=8))
+            self.exp_path = os.path.join(exp_root, f"{exp_name}_{rnd_suf}")
+
+            if not os.path.exists(self.exp_path):
+                break
+        self.file_path = os.path.join(self.exp_path, "log.jsonl")
+        os.makedirs(self.exp_path, exist_ok=True)
+        with open(os.path.join(self.exp_path, "config.json"), "w") as f:
+            json.dump(config, f)
+        print(f"Logs will be saved to {self.file_path}")
+        
+    def log(self, data):
+        if self.log_wandb:
+            wandb.log(data)
+        with open(self.file_path, "a") as f:
+            f.write(json.dumps(data) + "\n")
+    
+    def finish(self):
+        if self.log_wandb:
+            wandb.finish()
+        print(f"Logs saved to {self.file_path}")
