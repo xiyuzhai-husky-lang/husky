@@ -107,9 +107,9 @@ where
     > {
         match self {
             VmControlFlow::Continue(v) => VmControlFlow::Continue(v.freeze()),
-            VmControlFlow::LoopContinue => todo!(),
-            VmControlFlow::LoopExit(_) => todo!(),
-            VmControlFlow::Return(_) => todo!(),
+            VmControlFlow::LoopContinue => VmControlFlow::LoopContinue,
+            VmControlFlow::LoopExit(v) => VmControlFlow::LoopExit(v.freeze()),
+            VmControlFlow::Return(v) => VmControlFlow::Return(v.freeze()),
             VmControlFlow::Throw(e) => VmControlFlow::Throw(e.clone()),
         }
     }

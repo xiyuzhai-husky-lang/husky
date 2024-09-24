@@ -32,7 +32,7 @@ pub enum KiDomainReprInterface {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct KiRuntimeConstantInterface(ShiftedU32);
+pub struct KiRuntimeComptermInterface(ShiftedU32);
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum KiArgumentReprInterface {
@@ -43,5 +43,5 @@ pub enum KiArgumentReprInterface {
         condition: Option<KiReprInterface>,
         stmts: SmallVec<[KiReprInterface; 4]>,
     },
-    RuntimeConstants(SmallVec<[KiRuntimeConstantInterface; 4]>),
+    RuntimeConstants(SmallVec<[KiRuntimeComptermInterface; 4]>),
 }

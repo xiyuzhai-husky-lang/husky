@@ -111,33 +111,33 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTermSymbolicVariableResoluti
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
+impl TranspileToRustWith<HirEagerExprRegion> for HirCompterm {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
-            HirConstant::Unit(value) => builder.result += "()",
-            HirConstant::Bool(value) => builder.write_display_copyable(value),
-            HirConstant::Char(value) => builder.write_display_copyable(value),
-            HirConstant::I8(value) => builder.write_display_copyable(value),
-            HirConstant::I16(value) => builder.write_display_copyable(value),
-            HirConstant::I32(value) => builder.write_display_copyable(value),
-            HirConstant::I64(value) => builder.write_display_copyable(value),
-            HirConstant::I128(value) => builder.write_display_copyable(value),
-            HirConstant::ISize(value) => builder.write_display_copyable(value),
-            HirConstant::U8(value) => builder.write_display_copyable(value),
-            HirConstant::U16(value) => builder.write_display_copyable(value),
-            HirConstant::U32(value) => builder.write_display_copyable(value),
-            HirConstant::U64(value) => builder.write_display_copyable(value),
-            HirConstant::U128(value) => builder.write_display_copyable(value),
-            HirConstant::USize(value) => builder.write_display_copyable(value),
-            HirConstant::R8(value) => builder.write_display_copyable(value),
-            HirConstant::R16(value) => builder.write_display_copyable(value),
-            HirConstant::R32(value) => builder.write_display_copyable(value),
-            HirConstant::R64(value) => builder.write_display_copyable(value),
-            HirConstant::R128(value) => builder.write_display_copyable(value),
-            HirConstant::RSize(value) => builder.write_display_copyable(value),
-            HirConstant::Symbol(symbol) => builder.hir_template_svar(symbol),
-            HirConstant::TypeVariant(path) => path.transpile_to_rust(builder),
-            HirConstant::StaticLifetime => todo!(),
+            HirCompterm::Unit(value) => builder.result += "()",
+            HirCompterm::Bool(value) => builder.write_display_copyable(value),
+            HirCompterm::Char(value) => builder.write_display_copyable(value),
+            HirCompterm::I8(value) => builder.write_display_copyable(value),
+            HirCompterm::I16(value) => builder.write_display_copyable(value),
+            HirCompterm::I32(value) => builder.write_display_copyable(value),
+            HirCompterm::I64(value) => builder.write_display_copyable(value),
+            HirCompterm::I128(value) => builder.write_display_copyable(value),
+            HirCompterm::ISize(value) => builder.write_display_copyable(value),
+            HirCompterm::U8(value) => builder.write_display_copyable(value),
+            HirCompterm::U16(value) => builder.write_display_copyable(value),
+            HirCompterm::U32(value) => builder.write_display_copyable(value),
+            HirCompterm::U64(value) => builder.write_display_copyable(value),
+            HirCompterm::U128(value) => builder.write_display_copyable(value),
+            HirCompterm::USize(value) => builder.write_display_copyable(value),
+            HirCompterm::R8(value) => builder.write_display_copyable(value),
+            HirCompterm::R16(value) => builder.write_display_copyable(value),
+            HirCompterm::R32(value) => builder.write_display_copyable(value),
+            HirCompterm::R64(value) => builder.write_display_copyable(value),
+            HirCompterm::R128(value) => builder.write_display_copyable(value),
+            HirCompterm::RSize(value) => builder.write_display_copyable(value),
+            HirCompterm::Symbol(symbol) => builder.hir_template_svar(symbol),
+            HirCompterm::TypeVariant(path) => path.transpile_to_rust(builder),
+            HirCompterm::StaticLifetime => todo!(),
         }
     }
 }

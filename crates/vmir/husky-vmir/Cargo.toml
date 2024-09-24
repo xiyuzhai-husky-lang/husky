@@ -33,6 +33,9 @@ husky-expr.workspace = true
 husky-hir-ty.workspace = true
 husky-place.workspace = true
 husky-standard-value = { workspace = true, features = ["constant"] }
+# ki
+husky-ki.workspace = true
+husky-ki-repr.workspace = true
 # linket
 husky-linket.workspace = true
 husky-linket-impl.workspace = true

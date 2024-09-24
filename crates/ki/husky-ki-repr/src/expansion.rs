@@ -17,9 +17,9 @@ use husky_hir_lazy_expr::{
 };
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
-    HirConstant, HirTemplateArgument, HirTemplateVariable, HirTemplateVariableClass,
+    HirCompterm, HirTemplateArgument, HirTemplateVariable, HirTemplateVariableClass,
 };
-use husky_ki::{KiOpn, KiPatternData, KiRuntimeConstant, KiRuntimeConstantData};
+use husky_ki::{KiOpn, KiPatternData, KiRuntimeCompterm, KiRuntimeComptermData};
 use husky_linket::{instantiation::LinInstantiation, linket::Linket};
 use smallvec::{smallvec, SmallVec};
 
@@ -451,20 +451,20 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 unveil_assoc_fn_path,
                 ref instantiation,
             } => {
+                let db = self.db;
                 let opn = KiOpn::Linket(Linket::new_unveil_assoc_fn(
                     unveil_assoc_fn_path,
                     instantiation,
                     &self.lin_instantiation,
                     self.db,
                 ));
-                let mut arguments = smallvec![KiArgumentRepr::Simple(
-                    self.build_expr(ki_domain_repr_guard, opd_hir_expr_idx)
-                )];
-                let db = self.db;
-                arguments.push(KiArgumentRepr::RuntimeConstants(runtime_constants(
-                    instantiation,
-                    db,
-                )));
+                let arguments = smallvec![
+                    KiArgumentRepr::Simple(self.build_expr(ki_domain_repr_guard, opd_hir_expr_idx)),
+                    KiArgumentRepr::RuntimeConstants(ki_runtime_compterms_from_hir_instantiation(
+                        instantiation,
+                        db,
+                    ))
+                ];
                 (opn, arguments)
             }
             HirLazyExprData::Unwrap { opd_hir_expr_idx } => {
@@ -714,10 +714,9 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 )),
             }
         }
-        arguments.push(KiArgumentRepr::RuntimeConstants(runtime_constants(
-            instantiation,
-            db,
-        )));
+        arguments.push(KiArgumentRepr::RuntimeConstants(
+            ki_runtime_compterms_from_hir_instantiation(instantiation, db),
+        ));
     }
 
     fn build_pattern(&mut self, pattern: &HirLazyBeVariablesPattern) -> KiPatternData {
@@ -740,10 +739,10 @@ impl<'a> KiReprExpansionBuilder<'a> {
     }
 }
 
-fn runtime_constants(
+pub fn ki_runtime_compterms_from_hir_instantiation(
     instantiation: &HirInstantiation,
     db: &salsa::Db,
-) -> SmallVec<[KiRuntimeConstant; 4]> {
+) -> SmallVec<[KiRuntimeCompterm; 4]> {
     instantiation
         .iter()
         .filter_map(|&(symbol, res)| match symbol {
@@ -755,33 +754,33 @@ fn runtime_constants(
                         HirTemplateArgument::Vacant => todo!(),
                         HirTemplateArgument::Type(_) => todo!(),
                         HirTemplateArgument::Constant(constant) => match constant {
-                            HirConstant::Unit(_) => todo!(),
-                            HirConstant::Bool(_) => todo!(),
-                            HirConstant::Char(_) => todo!(),
-                            HirConstant::I8(_) => todo!(),
-                            HirConstant::I16(_) => todo!(),
-                            HirConstant::I32(_) => todo!(),
-                            HirConstant::I64(_) => todo!(),
-                            HirConstant::I128(_) => todo!(),
-                            HirConstant::ISize(_) => todo!(),
-                            HirConstant::U8(_) => todo!(),
-                            HirConstant::U16(_) => todo!(),
-                            HirConstant::U32(_) => todo!(),
-                            HirConstant::U64(_) => todo!(),
-                            HirConstant::U128(_) => todo!(),
-                            HirConstant::USize(_) => todo!(),
-                            HirConstant::R8(_) => todo!(),
-                            HirConstant::R16(_) => todo!(),
-                            HirConstant::R32(_) => todo!(),
-                            HirConstant::R64(_) => todo!(),
-                            HirConstant::R128(_) => todo!(),
-                            HirConstant::RSize(_) => todo!(),
-                            HirConstant::Symbol(_) => todo!(),
-                            HirConstant::TypeVariant(path) => KiRuntimeConstant::new(
+                            HirCompterm::Unit(_) => todo!(),
+                            HirCompterm::Bool(_) => todo!(),
+                            HirCompterm::Char(_) => todo!(),
+                            HirCompterm::I8(_) => todo!(),
+                            HirCompterm::I16(_) => todo!(),
+                            HirCompterm::I32(_) => todo!(),
+                            HirCompterm::I64(_) => todo!(),
+                            HirCompterm::I128(_) => todo!(),
+                            HirCompterm::ISize(_) => todo!(),
+                            HirCompterm::U8(_) => todo!(),
+                            HirCompterm::U16(_) => todo!(),
+                            HirCompterm::U32(_) => todo!(),
+                            HirCompterm::U64(_) => todo!(),
+                            HirCompterm::U128(_) => todo!(),
+                            HirCompterm::USize(_) => todo!(),
+                            HirCompterm::R8(_) => todo!(),
+                            HirCompterm::R16(_) => todo!(),
+                            HirCompterm::R32(_) => todo!(),
+                            HirCompterm::R64(_) => todo!(),
+                            HirCompterm::R128(_) => todo!(),
+                            HirCompterm::RSize(_) => todo!(),
+                            HirCompterm::Symbol(_) => todo!(),
+                            HirCompterm::TypeVariant(path) => KiRuntimeCompterm::new(
                                 db,
-                                KiRuntimeConstantData::TypeVariantPath(path),
+                                KiRuntimeComptermData::TypeVariantPath(path),
                             ),
-                            HirConstant::StaticLifetime => todo!(),
+                            HirCompterm::StaticLifetime => todo!(),
                         },
                         HirTemplateArgument::Lifetime(_) => todo!(),
                         HirTemplateArgument::ContractedQuary(_) => todo!(),
