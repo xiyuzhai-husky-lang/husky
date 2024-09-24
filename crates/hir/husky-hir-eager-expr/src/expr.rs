@@ -32,7 +32,7 @@ use husky_hir_ty::{
     HirType,
 };
 use husky_place::place::EthPlace;
-use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
+use husky_sem_expr::{SemExprData, SemExprIdx, SemRitchieArgument};
 use husky_sem_opr::{binary::SemBinaryOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::variable::{InheritedTemplateVariable, InheritedVariableKind};
 use husky_term_prelude::literal::Literal;
@@ -567,7 +567,7 @@ impl ToHirEager for SemExprIdx {
                 self_argument: self_argument.to_hir_eager(builder),
                 items: items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_eager(builder))
+                    .map(|item| item.expr.to_hir_eager(builder))
                     .collect(),
             },
             SemExprData::CompositionWithList { .. } => {
@@ -580,7 +580,7 @@ impl ToHirEager for SemExprIdx {
             } => HirEagerExprData::NewList {
                 exprs: items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_eager(builder))
+                    .map(|item| item.expr.to_hir_eager(builder))
                     .collect(),
                 element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.terms())
                     .unwrap(),

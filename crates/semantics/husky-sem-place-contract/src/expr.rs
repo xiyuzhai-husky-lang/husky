@@ -2,7 +2,7 @@ use crate::{engine::PlaceContractEngine, site::SemPlaceContractSite};
 use husky_fly_term::{dispatch::field::FieldFlySignature, ExpectationOutcome, FlyCoercion};
 #[allow(unused_imports)]
 use husky_sem_expr::emit_note_on_sem_expr_codespan;
-use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
+use husky_sem_expr::{SemExprData, SemExprIdx, SemRitchieArgument};
 use husky_sem_opr::{binary::SemBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::context::SynExprRootKind;
 use husky_term_prelude::Contract;
@@ -158,7 +158,7 @@ impl<'a> PlaceContractEngine<'a> {
             SemExprData::Delimitered { item, .. } => self.infer_expr(item, contract, site.clone()),
             SemExprData::NewTuple { ref items, .. } => {
                 for item in items {
-                    self.infer_expr(item.sem_expr_idx, Contract::Move, Default::default())
+                    self.infer_expr(item.expr, Contract::Move, Default::default())
                 }
             }
             SemExprData::Index {
@@ -168,13 +168,13 @@ impl<'a> PlaceContractEngine<'a> {
             } => {
                 self.infer_expr(self_argument, contract, site.clone());
                 for item in index_sem_list_items {
-                    self.infer_expr(item.sem_expr_idx, Contract::Pure, Default::default());
+                    self.infer_expr(item.expr, Contract::Pure, Default::default());
                 }
             }
             SemExprData::CompositionWithList { .. } => (),
             SemExprData::NewList { ref items, .. } => {
                 for item in items {
-                    self.infer_expr(item.sem_expr_idx, Contract::Move, Default::default())
+                    self.infer_expr(item.expr, Contract::Move, Default::default())
                 }
             }
             SemExprData::BoxColonList { .. } => (),
@@ -203,14 +203,14 @@ impl<'a> PlaceContractEngine<'a> {
 
     fn infer_ritchie_parameter_argument_matches(
         &mut self,
-        ritchie_parameter_argument_matches: &[SemaRitchieArgument],
+        ritchie_parameter_argument_matches: &[SemRitchieArgument],
     ) {
         for m in ritchie_parameter_argument_matches {
             match m {
-                SemaRitchieArgument::Simple(param, arg) => {
+                SemRitchieArgument::Simple(param, arg) => {
                     self.infer_expr(arg.argument_expr_idx, param.contract, Default::default())
                 }
-                SemaRitchieArgument::Variadic(param, args) => {
+                SemRitchieArgument::Variadic(param, args) => {
                     for arg in args {
                         self.infer_expr(
                             arg.argument_expr_idx(),
@@ -219,7 +219,7 @@ impl<'a> PlaceContractEngine<'a> {
                         )
                     }
                 }
-                SemaRitchieArgument::Keyed(param, arg) => {
+                SemRitchieArgument::Keyed(param, arg) => {
                     if let Some(arg) = arg {
                         self.infer_expr(
                             arg.argument_expr_idx(),

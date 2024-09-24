@@ -3442,8 +3442,8 @@
                                         ),
                                     ),
                                     parameter_ty_items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 0,
                                             ),
                                             comma_regional_token_idx: None,
