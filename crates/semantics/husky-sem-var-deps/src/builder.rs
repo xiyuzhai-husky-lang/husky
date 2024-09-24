@@ -23,8 +23,8 @@ use husky_sem_expr::{
     helpers::{region::sem_expr_region_from_region_path, visitor::VisitSemExpr},
     obelisks::closure_parameter::ClosureParameterObelisk,
     stmt::condition::SemCondition,
-    SemExprData, SemExprIdx, SemExprMap, SemExprRegionData, SemStmtData, SemStmtIdx,
-    SemStmtIdxRange, SemStmtMap, SemaRitchieArgument,
+    SemExprData, SemExprIdx, SemExprMap, SemExprRegionData, SemRitchieArgument, SemStmtData,
+    SemStmtIdx, SemStmtIdxRange, SemStmtMap,
 };
 use husky_syn_expr::variable::{CurrentVariableIdx, VariableMap};
 use husky_syn_expr::{region::SynExprRegionData, variable::CurrentVariableIdxRange};
@@ -219,10 +219,10 @@ where
                 deps.merge(&self.expr_value_var_deps_table[function]);
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(_, arg) => {
+                        SemRitchieArgument::Simple(_, arg) => {
                             deps.merge(&self.expr_value_var_deps_table[arg.argument_expr_idx])
                         }
-                        SemaRitchieArgument::Variadic(_, args) => {
+                        SemRitchieArgument::Variadic(_, args) => {
                             for arg in args {
                                 deps.merge(
                                     &self.expr_value_var_deps_table[arg.argument_expr_idx()],
@@ -230,7 +230,7 @@ where
                             }
                         }
                         // todo: handle default argument???
-                        SemaRitchieArgument::Keyed(_, arg) => match arg {
+                        SemRitchieArgument::Keyed(_, arg) => match arg {
                             Some(arg) => {
                                 deps.merge(&self.expr_value_var_deps_table[arg.argument_expr_idx()])
                             }
@@ -240,17 +240,17 @@ where
                 }
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(param, arg) => {
+                        SemRitchieArgument::Simple(param, arg) => {
                             if param.contract == Contract::BorrowMut {
                                 self.expr_value_var_deps_table[arg.argument_expr_idx].merge(&deps)
                             }
                         }
-                        SemaRitchieArgument::Variadic(param, _) => {
+                        SemRitchieArgument::Variadic(param, _) => {
                             if param.contract() == Contract::BorrowMut {
                                 todo!()
                             }
                         }
-                        SemaRitchieArgument::Keyed(param, _) => {
+                        SemRitchieArgument::Keyed(param, _) => {
                             if param.contract() == Contract::BorrowMut {
                                 todo!()
                             }
@@ -295,22 +295,22 @@ where
                 deps.merge((self.f)(instance_dispatch.signature().path().into()));
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(param, arg) => {
+                        SemRitchieArgument::Simple(param, arg) => {
                             deps.merge(&self.expr_value_var_deps_table[arg.argument_expr_idx])
                         }
-                        SemaRitchieArgument::Variadic(_, _) => todo!(),
-                        SemaRitchieArgument::Keyed(_, _) => todo!(),
+                        SemRitchieArgument::Variadic(_, _) => todo!(),
+                        SemRitchieArgument::Keyed(_, _) => todo!(),
                     }
                 }
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(param, arg) => {
+                        SemRitchieArgument::Simple(param, arg) => {
                             if param.contract == Contract::BorrowMut {
                                 self.expr_value_var_deps_table[arg.argument_expr_idx].merge(&deps)
                             }
                         }
-                        SemaRitchieArgument::Variadic(_, _) => todo!(),
-                        SemaRitchieArgument::Keyed(_, _) => todo!(),
+                        SemRitchieArgument::Variadic(_, _) => todo!(),
+                        SemRitchieArgument::Keyed(_, _) => todo!(),
                     }
                 }
                 if self_contract == Contract::BorrowMut {
@@ -336,7 +336,7 @@ where
             } => {
                 let mut deps = self.expr_value_var_deps_table[owner].clone();
                 for item in index_sem_list_items {
-                    deps.merge(&self.expr_value_var_deps_table[item.sem_expr_idx])
+                    deps.merge(&self.expr_value_var_deps_table[item.expr])
                 }
                 match index_dynamic_dispatch.signature() {
                     FlyIndexSignature::Int { element_ty } => (),
@@ -351,7 +351,7 @@ where
             SemExprData::NewList { ref items, .. } => {
                 let mut deps = SemValueVarDeps::default();
                 for item in items {
-                    deps.merge(&self.expr_value_var_deps_table[item.sem_expr_idx]);
+                    deps.merge(&self.expr_value_var_deps_table[item.expr]);
                 }
                 deps
             }
@@ -449,10 +449,10 @@ where
                 let mut deps = self.expr_control_transfer_var_deps_table[function].clone();
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(_, arg) => deps.merge(
+                        SemRitchieArgument::Simple(_, arg) => deps.merge(
                             &self.expr_control_transfer_var_deps_table[arg.argument_expr_idx],
                         ),
-                        SemaRitchieArgument::Variadic(_, args) => {
+                        SemRitchieArgument::Variadic(_, args) => {
                             for arg in args {
                                 deps.merge(
                                     &self.expr_control_transfer_var_deps_table
@@ -460,7 +460,7 @@ where
                                 );
                             }
                         }
-                        SemaRitchieArgument::Keyed(_, arg) => match arg {
+                        SemRitchieArgument::Keyed(_, arg) => match arg {
                             Some(arg) => deps.merge(
                                 &self.expr_control_transfer_var_deps_table[arg.argument_expr_idx()],
                             ),
@@ -498,11 +498,11 @@ where
                 let mut deps = self.expr_control_transfer_var_deps_table[self_argument].clone();
                 for m in ritchie_parameter_argument_matches {
                     match m {
-                        SemaRitchieArgument::Simple(_, arg) => deps.merge(
+                        SemRitchieArgument::Simple(_, arg) => deps.merge(
                             &self.expr_control_transfer_var_deps_table[arg.argument_expr_idx],
                         ),
-                        SemaRitchieArgument::Variadic(_, _) => todo!(),
-                        SemaRitchieArgument::Keyed(_, _) => todo!(),
+                        SemRitchieArgument::Variadic(_, _) => todo!(),
+                        SemRitchieArgument::Keyed(_, _) => todo!(),
                     }
                 }
                 deps
@@ -531,7 +531,7 @@ where
             } => {
                 let mut deps = self.expr_control_transfer_var_deps_table[owner].clone();
                 for item in index_sem_list_items {
-                    deps.merge(&self.expr_control_transfer_var_deps_table[item.sem_expr_idx])
+                    deps.merge(&self.expr_control_transfer_var_deps_table[item.expr])
                 }
                 match index_dynamic_dispatch.signature() {
                     FlyIndexSignature::Int { element_ty } => (),
@@ -549,7 +549,7 @@ where
             SemExprData::NewList { ref items, .. } => {
                 let mut deps = SemControlTransferVarDeps::default();
                 for item in items {
-                    deps.merge(&self.expr_control_transfer_var_deps_table[item.sem_expr_idx]);
+                    deps.merge(&self.expr_control_transfer_var_deps_table[item.expr]);
                 }
                 deps
             }
