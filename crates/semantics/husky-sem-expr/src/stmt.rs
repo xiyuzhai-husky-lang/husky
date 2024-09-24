@@ -17,6 +17,7 @@ use husky_regional_token::{
 };
 use husky_token_data::TokenDataResult;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange, ArenaRef};
+use vec_like::VecPairMap;
 
 use crate::{obelisks::let_variable::LetVariableObelisk, *};
 
@@ -260,6 +261,8 @@ impl IntoIterator for &SemStmtIdxRange {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemStmtMap<V>(ArenaMap<SemStmtEntry, V>);
+
+pub type SemStmtsMap<V> = VecPairMap<SemStmtIdxRange, V>;
 
 impl<V> SemStmtMap<V> {
     pub fn new(sem_stmt_arena: SemStmtArenaRef<'_>) -> SemStmtMap<V> {

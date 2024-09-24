@@ -412,7 +412,7 @@ impl ToHirLazy for SemExprIdx {
                 owner: owner_sem_expr_idx.to_hir_lazy(builder),
                 items: index_sem_list_items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
+                    .map(|item| item.expr.to_hir_lazy(builder))
                     .collect(),
             },
             SemExprData::CompositionWithList { .. } => {
@@ -425,7 +425,7 @@ impl ToHirLazy for SemExprIdx {
             } => HirLazyExprData::ConstructList {
                 items: items
                     .iter()
-                    .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
+                    .map(|item| item.expr.to_hir_lazy(builder))
                     .collect(),
                 element_ty: HirType::from_fly_base(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),

@@ -6,7 +6,7 @@ use husky_hir_lazy_expr::{
 };
 use husky_ki_repr::expansion::KiReprExpansion;
 use husky_sem_expr::{
-    helpers::range::sem_expr_range_region, SemExprData, SemExprRegion, SemaRitchieArgument,
+    helpers::range::sem_expr_range_region, SemExprData, SemExprRegion, SemRitchieArgument,
 };
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -248,7 +248,7 @@ impl LazyExprTraceData {
 fn fn_call_lazy_expr_trace_input_traces(
     trace_path: TracePath,
     trace: Trace,
-    ritchie_parameter_argument_matches: &[SemaRitchieArgument],
+    ritchie_parameter_argument_matches: &[SemRitchieArgument],
     hir_lazy_expr_source_map_data: &HirLazyExprSourceMapData,
     db: &::salsa::Db,
 ) -> Vec<Trace> {
@@ -256,7 +256,7 @@ fn fn_call_lazy_expr_trace_input_traces(
         .iter()
         .map(|m| {
             let data = match m {
-                SemaRitchieArgument::Simple(_, list_item) => {
+                SemRitchieArgument::Simple(_, list_item) => {
                     let sem_expr_idx = list_item.argument_sem_expr_idx();
                     LazyCallInputSketch::Simple {
                         sem_expr_idx,
@@ -264,10 +264,10 @@ fn fn_call_lazy_expr_trace_input_traces(
                             .sem_to_hir_lazy_expr_idx(sem_expr_idx),
                     }
                 }
-                SemaRitchieArgument::Variadic(_, _) => {
+                SemRitchieArgument::Variadic(_, _) => {
                     todo!()
                 }
-                SemaRitchieArgument::Keyed(_, _) => {
+                SemRitchieArgument::Keyed(_, _) => {
                     todo!()
                 }
             };
