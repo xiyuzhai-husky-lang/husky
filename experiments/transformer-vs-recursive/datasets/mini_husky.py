@@ -12,14 +12,8 @@ import pdb
 
 class DatasetStats(NamedTuple):
     max_values: Dict[str, int]
-    ast_kind_dist: Counter
-    symbol_resolution_dist: Counter
-    error_dist: Counter
-    expected_types_dist: Counter
-    ast_kind_percent: Dict[int, float]
-    symbol_resolution_percent: Dict[int, float]
-    error_percent: Dict[int, float]
-    expected_types_percent: Dict[int, float]
+    counters: Dict[str, Counter]
+    percents: Dict[str, Dict[int, float]]
 
 
 class MiniHuskyDataset(Dataset):
@@ -34,7 +28,7 @@ class MiniHuskyDataset(Dataset):
         self.n = n
         self.max_fns = max_fns
         self.error_rate = error_rate
-        self.data, self.stats = self._load_dataset()
+        self.header, self.data, self.stats = self._load_dataset()
         self.max_values = self.stats.max_values  # Add this line
         self.vocab = self._build_vocabulary()
         self.word_to_index = {word: i for i, word in enumerate(self.vocab)}
@@ -61,8 +55,7 @@ class MiniHuskyDataset(Dataset):
 
                     filepath = os.path.join(self.data_dir, filename)
                     print(f"Load dataset from {filepath}")
-                    with open(filepath, "rb") as f:
-                        return self._decode_rnd_codes(f.read())
+                    return self._decode_rnd_codes(filepath)
 
         all_msgpack_files = [
             f for f in os.listdir(self.data_dir) if f.endswith(".msgpack")
@@ -75,60 +68,53 @@ class MiniHuskyDataset(Dataset):
         )
 
     def _decode_rnd_codes(
-        self, packed_data: bytes
+        self, filepath: str
     ) -> Tuple[
+        List[str],
         List[Tuple[List[str], Tuple[List[int], List[int], List[int]]]], DatasetStats
     ]:
-        unpacked_data = msgpack.unpackb(packed_data, raw=False)
+        header, data = None, None
+        with open(filepath, "rb") as f:
+            unpacker = msgpack.Unpacker(f)
+            
+            for unpacked in unpacker:
+                if header is None:
+                    header = unpacked
+                elif data is None:
+                    data = unpacked
+                else:
+                    print("Extra data found:", unpacked)
+                    break
 
         decoded_data = []
-        max_values = {"ast_kind": 0, "symbol_resolution": 0, "error": 0, "expected_type": 0}
-        ast_kind_dist = Counter()
-        symbol_resolution_dist = Counter()
-        error_dist = Counter()
-        expected_types_dist = Counter()
+        max_values = {k: 0 for k in header}
+        counters = {k: Counter() for k in header}
+        percents = {k: {} for k in header}
 
-        for tokens, token_infos in tqdm(unpacked_data):
+        for tokens, token_infos in tqdm(data):
             # Use list comprehension to unpack values efficiently
-            ast_kinds, symbol_resolutions, errors, expected_types = zip(*token_infos)
+            fields = list(zip(*token_infos))
             
-            # Update max values
-            max_values["ast_kind"] = max(max_values["ast_kind"], max(ast_kinds))
-            max_values["symbol_resolution"] = max(max_values["symbol_resolution"], max(symbol_resolutions))
-            max_values["error"] = max(max_values["error"], max(errors))
-            max_values["expected_type"] = max(max_values["expected_type"], max(expected_types))
-
-            # Bulk update the counters
-            ast_kind_dist.update(ast_kinds)
-            symbol_resolution_dist.update(symbol_resolutions)
-            error_dist.update(errors)
-            expected_types_dist.update(expected_types)
-
+            for k, v in zip(header, fields):
+                max_values[k] = max(max_values[k], max(v))
+                counters[k].update(v)
+            
             # Append the unpacked and decoded token infos
-            decoded_data.append((tokens, (list(ast_kinds), list(symbol_resolutions), list(errors), list(expected_types))))
+            decoded_data.append((tokens, tuple(fields)))
 
         # Calculate percentages
-        total_tokens = sum(ast_kind_dist.values())
-        ast_kind_percent = {k: v / total_tokens * 100 for k, v in ast_kind_dist.items()}
-        symbol_resolution_percent = {
-            k: v / total_tokens * 100 for k, v in symbol_resolution_dist.items()
-        }
-        error_percent = {k: v / total_tokens * 100 for k, v in error_dist.items()}
-        expected_types_percent = {k: v / total_tokens * 100 for k, v in expected_types_dist.items()}
+        total_tokens = len(tokens)
+
+        for k in header:
+            percents[k] = {kk: vv / total_tokens * 100 for kk, vv in counters[k].items()}
 
         stats = DatasetStats(
             max_values=max_values,
-            ast_kind_dist=ast_kind_dist,
-            symbol_resolution_dist=symbol_resolution_dist,
-            error_dist=error_dist,
-            expected_types_dist=expected_types_dist,
-            ast_kind_percent=ast_kind_percent,
-            symbol_resolution_percent=symbol_resolution_percent,
-            error_percent=error_percent,
-            expected_types_percent=expected_types_percent,
+            counters=counters,
+            percents=percents,
         )
 
-        return decoded_data, stats
+        return header, decoded_data, stats
 
     def _build_vocabulary(self):
         word_counts = Counter()
@@ -138,7 +124,7 @@ class MiniHuskyDataset(Dataset):
 
     def get_dataset(
         self,
-    ) -> List[Tuple[List[str], Tuple[List[int], List[int], List[int]]]]:
+    ) -> List[Tuple[List[str], Tuple]]:
         return self.data
 
     def __len__(self):
@@ -149,19 +135,13 @@ class MiniHuskyDataset(Dataset):
         word_indices = torch.tensor(
             [self._word_to_index(word) for word in words], dtype=torch.long
         )
-        ast_kinds, symbol_resolutions, errors, expected_type = token_infos
-        return word_indices, (
-            torch.tensor(ast_kinds, dtype=torch.long),
-            torch.tensor(symbol_resolutions, dtype=torch.long),
-            torch.tensor(errors, dtype=torch.long),
-            torch.tensor(expected_type, dtype=torch.long),
-        )
+        return word_indices, tuple(torch.tensor(t, dtype=torch.long) for t in token_infos)
 
     def get_words(self, idx):
         return self.data[idx][0]
 
     def _word_to_index(self, word):
-        return self.word_to_index.get(word, 1)  # 1 is the index for <UNK>
+        return self.word_to_index.get(word, 1)
 
     def get_max_values(self) -> Dict[str, int]:
         return self.max_values
@@ -170,30 +150,22 @@ class MiniHuskyDataset(Dataset):
         return self.stats
 
     def get_output_dims(self):
-        return (
-            self.max_values["ast_kind"] + 1,
-            self.max_values["symbol_resolution"] + 1,
-            self.max_values["error"] + 1,
-            self.max_values["expected_type"] + 1,
-        )
+        return tuple(self.max_values[k] + 1 for k in self.header)
 
 
 # Example usage
 if __name__ == "__main__":
     # Load a specific dataset
-    dataset = MiniHuskyDataset(100000, 20, 0.50, data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic"))
-    print(f"Dataset with 100000 samples, max_fns=20, error_rate=0.50:")
+    dataset = MiniHuskyDataset(10000, 10, 0.50, data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic"))
 
     # Print the output of __getitem__
     print("\n__getitem__ example:")
     idx = 0  # You can change this to any valid index
-    word_indices, (ast_kinds, symbol_resolutions, errors, expected_types) = dataset[idx]
+    word_indices, token_infos = dataset[idx]
     print(f"Sample {idx}:")
     print(f"  Word indices: {word_indices}")
-    print(f"  AST kinds: {ast_kinds}")
-    print(f"  Symbol resolutions: {symbol_resolutions}")
-    print(f"  Errors: {errors}")
-    print(f"  Expected types: {expected_types}")
+    for k, v in zip(dataset.header, token_infos):
+        print(f"  {k}: {v}")
 
     print(f"\nTotal samples: {len(dataset)}")
 

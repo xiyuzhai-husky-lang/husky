@@ -5,8 +5,8 @@ from torch.utils.data import DataLoader, random_split
 import wandb
 from datasets.mini_husky import MiniHuskyDataset
 from models.transformer import EncoderOnlyTransformer, SimpleTransformer
-from train import train_model, eval_model
-from utils import set_seed, custom_collate, linear_warmup_decay
+from train import train_model
+from utils import set_seed, custom_collate, linear_warmup_decay, Logger
 
 import os
 import pdb
@@ -47,8 +47,12 @@ def run(config):
 
     exp_name = f"transformer_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}_bs{config['batch_size']}"
 
-    # Initialize wandb
-    wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)
+    logger = Logger(
+        exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
+        exp_name=exp_name,
+        log_wandb=True,
+        config=config
+    )
 
     # Set device to CUDA if available
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -86,22 +90,23 @@ def run(config):
         scheduler=scheduler,
         num_epochs=config["num_epochs"],
         micro_batch_size=config["micro_batch_size"],
-        device=device,  # Add this line
-        output_dims=output_dims,  # Use the retrieved output_dims
-        log_wandb=True,
+        device=device,
+        output_dims=output_dims,
+        logger=logger,
     )
 
-    wandb.finish()
+    logger.finish()
+    torch.save(best_model.state_dict(), os.path.join(logger.exp_path, "best_model.pth"))
 
-for hidden_dim in [16, 32, 64]:
-    for d_model in [16, 32]:
-        for num_heads in [2, 4]:
-            for num_layers in [2, 4, 8]:
+for hidden_dim in [64, 32, 16]:
+    for d_model in [32, 16]:
+        for num_heads in [4, 2]:
+            for num_layers in [8, 4, 2]:
                 config = {
                     "seed": 42,
                     "batch_size": 512,
                     "micro_batch_size": 64,
-                    "num_epochs": 4,
+                    "num_epochs": 10,
                     "min_lr": 1e-6,
                     "max_lr": 1e-4,
                     "warmup_iters": 990,
