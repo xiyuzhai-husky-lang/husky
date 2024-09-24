@@ -1,13 +1,15 @@
 use std::sync::Arc;
 
-use crate::snapshot::{VmSnapshotKey, VmSnapshotsData};
+use crate::{
+    runtime::IsVmRuntime,
+    snapshot::{VmSnapshotKey, VmSnapshotsData},
+};
 use husky_linket::{linket::Linket, template_argument::qual::LinQual};
+use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlowThawed};
 use husky_linket_impl::{
-    eval_context::IsDevRuntimeInterface,
     linket_impl::{LinketImplSlushValue, LinketImplThawedValue},
     LinketImplVmControlFlowFrozen,
 };
-use husky_linket_impl::{linket_impl::IsLinketImpl, LinketImplVmControlFlowThawed};
 use husky_linktime::{
     helpers::{
         LinktimeSlushValue, LinktimeThawedValue, LinktimeValue, LinktimeVmControlFlow,
@@ -35,7 +37,7 @@ use crate::{
 pub(crate) struct Vm<
     'a,
     LinketImpl: IsLinketImpl,
-    DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+    DevRuntime: IsVmRuntime<LinketImpl>,
     VmirStorage: IsVmirStorage<LinketImpl>,
 > {
     linket: Linket,
@@ -62,7 +64,7 @@ pub enum VmMode {
 impl<
         'a,
         LinketImpl: IsLinketImpl,
-        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        DevRuntime: IsVmRuntime<LinketImpl>,
         VmirStorage: IsVmirStorage<LinketImpl>,
     > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
@@ -141,7 +143,7 @@ impl<
 impl<
         'a,
         LinketImpl: IsLinketImpl,
-        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        DevRuntime: IsVmRuntime<LinketImpl>,
         VmirStorage: IsVmirStorage<LinketImpl>,
     > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
@@ -154,7 +156,7 @@ impl<
 impl<
         'a,
         LinketImpl: IsLinketImpl,
-        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        DevRuntime: IsVmRuntime<LinketImpl>,
         VmirStorage: IsVmirStorage<LinketImpl>,
     > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
@@ -182,7 +184,7 @@ impl<
 impl<
         'a,
         LinketImpl: IsLinketImpl,
-        DevRuntime: IsDevRuntimeInterface<LinketImpl>,
+        DevRuntime: IsVmRuntime<LinketImpl>,
         VmirStorage: IsVmirStorage<LinketImpl>,
     > Vm<'a, LinketImpl, DevRuntime, VmirStorage>
 {
