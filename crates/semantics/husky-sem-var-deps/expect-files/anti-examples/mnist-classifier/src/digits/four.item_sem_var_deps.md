@@ -1,7 +1,7 @@
 ## `left_components`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -13,7 +13,7 @@ SemVarDeps(
 ## `left_coordinate_max`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -21,7 +21,7 @@ SemVarDeps(
 ## `components_max_downwards`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `components_max_heights`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -45,7 +45,7 @@ SemVarDeps(
 ## `is_four`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -57,7 +57,7 @@ SemVarDeps(
 ## `displacement_downwards`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemVarDeps(
 ## `cc_box_heights`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

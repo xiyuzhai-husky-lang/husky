@@ -1,7 +1,7 @@
 ## `simple_seven_match`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -13,7 +13,7 @@ SemVarDeps(
 ## `simple_leftdown_pattern`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -21,7 +21,7 @@ SemVarDeps(
 ## `special_seven_match`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `leftupcc_pattern`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## `leftdowncc_pattern`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemVarDeps(
 ## `is_seven`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),

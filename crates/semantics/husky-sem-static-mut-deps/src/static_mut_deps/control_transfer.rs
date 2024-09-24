@@ -48,7 +48,7 @@ impl SemControlTransferStaticMutDeps {
     pub(crate) fn merge_with_value(&mut self, other: &SemValueStaticMutDeps) {
         match self.0 {
             Some(ref mut slf) => slf.extend(other),
-            None => self.0 = Some(other.0.clone()),
+            None => self.0 = Some((**other).clone()),
         }
     }
 

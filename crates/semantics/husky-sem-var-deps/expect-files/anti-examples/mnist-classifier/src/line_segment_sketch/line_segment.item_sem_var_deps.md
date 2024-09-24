@@ -1,7 +1,7 @@
 ## `LineSegment`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `impl LineSegment`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `LineSegment::displacement`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `LineSegment::dist_to_point`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

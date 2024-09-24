@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct SemValueStaticMutDeps(pub(super) OrderedSmallVecSet<ItemPath, 4>);
+pub struct SemValueStaticMutDeps(OrderedSmallVecSet<ItemPath, 4>);
 
 impl SemValueStaticMutDeps {
     pub(crate) fn merge(&mut self, other: &[ItemPath]) {

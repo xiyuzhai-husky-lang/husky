@@ -1,7 +1,7 @@
 ## `MnistTask`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## ``MnistTask`::#task`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `impl MnistTask`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `MnistTask::new`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

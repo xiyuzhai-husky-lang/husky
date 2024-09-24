@@ -1,7 +1,7 @@
 ## `open_one_match`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
@@ -13,7 +13,7 @@ SemVarDeps(
 ## `almost_closed`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -21,7 +21,7 @@ SemVarDeps(
 ## `is_zero`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [
         SemVarDep::Item(
             ItemPath(`mnist::INPUT`),
