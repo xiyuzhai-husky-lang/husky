@@ -1,7 +1,7 @@
 ## `i8`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## ``i8`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `i16`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## ``i16`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `i32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## ``i32`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemVarDeps(
 ## `i64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemVarDeps(
 ## ``i64`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemVarDeps(
 ## `i128`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemVarDeps(
 ## ``i128`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemVarDeps(
 ## `isize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemVarDeps(
 ## ``isize`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemVarDeps(
 ## `u8`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemVarDeps(
 ## ``u8`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -113,7 +113,7 @@ SemVarDeps(
 ## `u16`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -121,7 +121,7 @@ SemVarDeps(
 ## ``u16`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -129,7 +129,7 @@ SemVarDeps(
 ## `u32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -137,7 +137,7 @@ SemVarDeps(
 ## ``u32`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -145,7 +145,7 @@ SemVarDeps(
 ## `u64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -153,7 +153,7 @@ SemVarDeps(
 ## ``u64`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -161,7 +161,7 @@ SemVarDeps(
 ## `u128`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -169,7 +169,7 @@ SemVarDeps(
 ## ``u128`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -177,7 +177,7 @@ SemVarDeps(
 ## `usize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -185,7 +185,7 @@ SemVarDeps(
 ## ``usize`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -193,7 +193,7 @@ SemVarDeps(
 ## `f32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -201,7 +201,7 @@ SemVarDeps(
 ## ``f32`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -209,7 +209,7 @@ SemVarDeps(
 ## `f64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -217,7 +217,7 @@ SemVarDeps(
 ## ``f64`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -225,7 +225,7 @@ SemVarDeps(
 ## `impl i8`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -233,7 +233,7 @@ SemVarDeps(
 ## `i8::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -241,7 +241,7 @@ SemVarDeps(
 ## `i8::max`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -249,7 +249,7 @@ SemVarDeps(
 ## `impl Add for i8`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -257,7 +257,7 @@ SemVarDeps(
 ## `(i8 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -265,7 +265,7 @@ SemVarDeps(
 ## `impl i16`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -273,7 +273,7 @@ SemVarDeps(
 ## `i16::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -281,7 +281,7 @@ SemVarDeps(
 ## `i16::max`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -289,7 +289,7 @@ SemVarDeps(
 ## `impl Add for i16`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -297,7 +297,7 @@ SemVarDeps(
 ## `(i16 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -305,7 +305,7 @@ SemVarDeps(
 ## `impl i32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -313,7 +313,7 @@ SemVarDeps(
 ## `i32::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -321,7 +321,7 @@ SemVarDeps(
 ## `i32::max`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -329,7 +329,7 @@ SemVarDeps(
 ## `i32::min`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -337,7 +337,7 @@ SemVarDeps(
 ## `impl Add for i32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -345,7 +345,7 @@ SemVarDeps(
 ## `(i32 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -353,7 +353,7 @@ SemVarDeps(
 ## `impl i64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -361,7 +361,7 @@ SemVarDeps(
 ## `i64::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -369,7 +369,7 @@ SemVarDeps(
 ## `impl Add for i64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -377,7 +377,7 @@ SemVarDeps(
 ## `(i64 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -385,7 +385,7 @@ SemVarDeps(
 ## `impl i128`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -393,7 +393,7 @@ SemVarDeps(
 ## `i128::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -401,7 +401,7 @@ SemVarDeps(
 ## `impl Add for i128`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -409,7 +409,7 @@ SemVarDeps(
 ## `(i128 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -417,7 +417,7 @@ SemVarDeps(
 ## `impl isize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -425,7 +425,7 @@ SemVarDeps(
 ## `isize::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -433,7 +433,7 @@ SemVarDeps(
 ## `impl Add for isize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -441,7 +441,7 @@ SemVarDeps(
 ## `(isize as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -449,7 +449,7 @@ SemVarDeps(
 ## `impl Add for u8`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -457,7 +457,7 @@ SemVarDeps(
 ## `(u8 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -465,7 +465,7 @@ SemVarDeps(
 ## `impl Add for u16`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -473,7 +473,7 @@ SemVarDeps(
 ## `(u16 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -481,7 +481,7 @@ SemVarDeps(
 ## `impl Add for u32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -489,7 +489,7 @@ SemVarDeps(
 ## `(u32 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -497,7 +497,7 @@ SemVarDeps(
 ## `impl Add for u64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -505,7 +505,7 @@ SemVarDeps(
 ## `(u64 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -513,7 +513,7 @@ SemVarDeps(
 ## `impl Add for u128`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -521,7 +521,7 @@ SemVarDeps(
 ## `(u128 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -529,7 +529,7 @@ SemVarDeps(
 ## `impl Add for usize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -537,7 +537,7 @@ SemVarDeps(
 ## `(usize as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -545,7 +545,7 @@ SemVarDeps(
 ## `impl f32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -553,7 +553,7 @@ SemVarDeps(
 ## `f32::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -561,7 +561,7 @@ SemVarDeps(
 ## ``f32::abs`::#backprop`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -569,7 +569,7 @@ SemVarDeps(
 ## `f32::sqrt`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -577,7 +577,7 @@ SemVarDeps(
 ## ``f32::sqrt`::#backprop`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -585,7 +585,7 @@ SemVarDeps(
 ## `f32::max`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -593,7 +593,7 @@ SemVarDeps(
 ## ``f32::max`::#backprop`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -601,7 +601,7 @@ SemVarDeps(
 ## `f32::min`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -609,7 +609,7 @@ SemVarDeps(
 ## ``f32::min`::#backprop`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -617,7 +617,7 @@ SemVarDeps(
 ## `f32::sgnx`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -625,7 +625,7 @@ SemVarDeps(
 ## `f32::cos`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -633,7 +633,7 @@ SemVarDeps(
 ## ``f32::cos`::#backprop`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -641,7 +641,7 @@ SemVarDeps(
 ## `f32::sin`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -649,7 +649,7 @@ SemVarDeps(
 ## ``f32::sin`::#backprop`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -657,7 +657,7 @@ SemVarDeps(
 ## `f32::acos`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -665,7 +665,7 @@ SemVarDeps(
 ## `impl Add for f32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -673,7 +673,7 @@ SemVarDeps(
 ## `(f32 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -681,7 +681,7 @@ SemVarDeps(
 ## ``(f32 as Add)::add`::#backprop`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -689,7 +689,7 @@ SemVarDeps(
 ## `impl f64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -697,7 +697,7 @@ SemVarDeps(
 ## `f64::abs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -705,7 +705,7 @@ SemVarDeps(
 ## `f64::acos`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -713,7 +713,7 @@ SemVarDeps(
 ## `impl Add for f64`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -721,7 +721,7 @@ SemVarDeps(
 ## `(f64 as Add)::add`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

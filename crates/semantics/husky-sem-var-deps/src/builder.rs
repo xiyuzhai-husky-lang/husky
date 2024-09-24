@@ -1,6 +1,8 @@
 use crate::{
     region::ItemDefnSemVarDepsRegion,
-    var_deps::{EffectiveMergeCounter, SemControlTransferVarDeps, SemVarDeps},
+    var_deps::{
+        control_transfer::SemControlTransferVarDeps, value::SemValueVarDeps, EffectiveMergeCounter,
+    },
 };
 use husky_entity_path::{
     menu::{item_path_menu, ItemPathMenu},
@@ -27,18 +29,18 @@ use vec_like::OrderedSmallVecSet;
 
 pub(crate) struct SemVarDepsBuilder<'db, 'a, F>
 where
-    F: Fn(ItemPath) -> &'a SemVarDeps,
+    F: Fn(ItemPath) -> &'a SemValueVarDeps,
 {
     db: &'db ::salsa::Db,
     item_path_menu: &'db ItemPathMenu,
     syn_expr_region_data: &'db SynExprRegionData,
     sem_expr_region_data: &'db SemExprRegionData,
-    expr_value_var_deps_table: SemExprMap<SemVarDeps>,
+    expr_value_var_deps_table: SemExprMap<SemValueVarDeps>,
     expr_control_flow_var_deps_table: SemExprMap<SemControlTransferVarDeps>,
-    stmt_value_var_deps_table: SemStmtMap<SemVarDeps>,
+    stmt_value_var_deps_table: SemStmtMap<SemValueVarDeps>,
     stmt_control_flow_var_deps_table: SemStmtMap<SemControlTransferVarDeps>,
-    self_value_var_deps: SemVarDeps,
-    variable_var_deps_table: VariableMap<SemVarDeps>,
+    self_value_var_deps: SemValueVarDeps,
+    variable_var_deps_table: VariableMap<SemValueVarDeps>,
     counter: EffectiveMergeCounter,
     f: F,
 }
@@ -46,7 +48,7 @@ where
 /// # constructor
 impl<'db, 'a, F> SemVarDepsBuilder<'db, 'a, F>
 where
-    F: Fn(ItemPath) -> &'a SemVarDeps,
+    F: Fn(ItemPath) -> &'a SemValueVarDeps,
 {
     pub(crate) fn new(db: &'db ::salsa::Db, region_path: RegionPath, f: F) -> Option<Self> {
         let sem_expr_region = sem_expr_region_from_region_path(region_path, db)?;
@@ -66,7 +68,7 @@ where
             stmt_control_flow_var_deps_table: SemStmtMap::new(
                 sem_expr_region_data.sem_stmt_arena(),
             ),
-            self_value_var_deps: SemVarDeps::default(),
+            self_value_var_deps: SemValueVarDeps::default(),
             variable_var_deps_table: VariableMap::new_initialized(
                 syn_expr_region_data.variable_region(),
                 |_, _| Some(Default::default()),
@@ -79,14 +81,14 @@ where
 }
 
 /// # getters
-impl<'db, 'a, F> SemVarDepsBuilder<'db, 'a, F> where F: Fn(ItemPath) -> &'a SemVarDeps {}
+impl<'db, 'a, F> SemVarDepsBuilder<'db, 'a, F> where F: Fn(ItemPath) -> &'a SemValueVarDeps {}
 
 /// # actions
 impl<'db, 'a, F> SemVarDepsBuilder<'db, 'a, F>
 where
-    F: Fn(ItemPath) -> &'a SemVarDeps,
+    F: Fn(ItemPath) -> &'a SemValueVarDeps,
 {
-    pub(crate) fn calc_root(&mut self) -> SemVarDeps {
+    pub(crate) fn calc_root(&mut self) -> SemValueVarDeps {
         let root_body = self.sem_expr_region_data().root_body();
         self.visit_root_body();
         let mut deps = self.expr_value_var_deps_table[root_body].clone();
@@ -94,7 +96,7 @@ where
         deps
     }
 
-    fn calc_path(&self, path: impl Into<ItemPath>) -> SemVarDeps {
+    fn calc_path(&self, path: impl Into<ItemPath>) -> SemValueVarDeps {
         /// todo: make this expr dependent, because of possible overrides
         let mut deps = (self.f)(path.into()).clone();
         let db = self.db;
@@ -110,7 +112,7 @@ where
     }
 
     // todo: move this out of this module
-    fn calc_expr_value(&mut self, expr: SemExprIdx) -> SemVarDeps {
+    fn calc_expr_value(&mut self, expr: SemExprIdx) -> SemValueVarDeps {
         match *expr.data(self.sem_expr_region_data.sem_expr_arena()) {
             SemExprData::Literal(_, _) | SemExprData::Unit { .. } => Default::default(),
             SemExprData::PrincipalEntityPath { path, .. } => match path {
@@ -195,7 +197,7 @@ where
                 ref ritchie_parameter_argument_matches,
                 ..
             } => {
-                let mut deps = SemVarDeps::default();
+                let mut deps = SemValueVarDeps::default();
                 deps.merge(&self.expr_value_var_deps_table[function]);
                 for m in ritchie_parameter_argument_matches {
                     match m {
@@ -329,7 +331,7 @@ where
                 owner, ref items, ..
             } => todo!(),
             SemExprData::NewList { ref items, .. } => {
-                let mut deps = SemVarDeps::default();
+                let mut deps = SemValueVarDeps::default();
                 for item in items {
                     deps.merge(&self.expr_value_var_deps_table[item.sem_expr_idx]);
                 }
@@ -347,7 +349,7 @@ where
                 ref arguments,
                 empty_htmx_ket: empty_html_ket,
             } => {
-                let mut deps = SemVarDeps::default();
+                let mut deps = SemValueVarDeps::default();
                 for argument in arguments {
                     deps.merge(&self.expr_value_var_deps_table[argument.expr()])
                 }
@@ -558,7 +560,7 @@ where
         }
     }
 
-    fn calc_stmt_value(&mut self, stmt: SemStmtIdx) -> SemVarDeps {
+    fn calc_stmt_value(&mut self, stmt: SemStmtIdx) -> SemValueVarDeps {
         match *stmt.data(self.sem_expr_region_data.sem_stmt_arena()) {
             SemStmtData::Let {
                 let_token,
@@ -605,7 +607,7 @@ where
                 ref elif_branches,
                 ref else_branch,
             } => {
-                let mut deps = SemVarDeps::default();
+                let mut deps = SemValueVarDeps::default();
                 let mut t = |condition: Option<SemCondition>, stmts: SemStmtIdxRange| {
                     condition.map(|condition| deps.merge(&self.calc_condition_value(condition)));
                     deps.merge(&self.calc_stmt_value(stmts.last().unwrap()));
@@ -675,7 +677,7 @@ where
                 if let Some(bound_expr) = particulars.range().final_boundary.bound_expr {
                     self.expr_control_flow_var_deps_table[bound_expr].clone();
                 }
-                let mut condition_value_deps = SemVarDeps::default();
+                let mut condition_value_deps = SemValueVarDeps::default();
                 if let Some(bound_expr) = particulars.range().initial_boundary.bound_expr {
                     condition_value_deps.merge(&self.expr_value_var_deps_table[bound_expr]);
                 }
@@ -774,7 +776,7 @@ where
 
     fn calc_stmts_control_flow(
         &mut self,
-        condition_value_var_deps: Option<SemVarDeps>,
+        condition_value_var_deps: Option<SemValueVarDeps>,
         stmts: SemStmtIdxRange,
         deps: &mut SemControlTransferVarDeps,
     ) {
@@ -795,7 +797,7 @@ where
         }
     }
 
-    fn calc_condition_value(&mut self, condition: SemCondition) -> SemVarDeps {
+    fn calc_condition_value(&mut self, condition: SemCondition) -> SemValueVarDeps {
         match condition {
             SemCondition::Be {
                 src,
@@ -828,13 +830,13 @@ where
     fn populate_into_current_variables(
         &mut self,
         variables: CurrentVariableIdxRange,
-        deps: &SemVarDeps,
+        deps: &SemValueVarDeps,
     ) {
         for variable in variables {
             self.variable_var_deps_table.insert_new_current_or_merge(
                 variable,
                 deps.clone(),
-                |deps0, deps| SemVarDeps::merge(deps0, &deps),
+                |deps0, deps| SemValueVarDeps::merge(deps0, &deps),
             )
         }
     }
@@ -854,7 +856,7 @@ where
 
 impl<'db, 'a, F> VisitSemExpr<'db> for SemVarDepsBuilder<'db, 'a, F>
 where
-    F: Fn(ItemPath) -> &'a SemVarDeps,
+    F: Fn(ItemPath) -> &'a SemValueVarDeps,
 {
     fn db(&self) -> &'db salsa::Db {
         self.db

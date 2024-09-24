@@ -5,7 +5,7 @@ use husky_ki::{Ki, KiArgument, KiOpn};
 use husky_sem_var_deps::{
     item_sem_var_deps,
     region::item_defn_sem_var_deps_region,
-    var_deps::{SemVarDep, SemVarDeps},
+    var_deps::{value::SemValueVarDeps, SemVarDep},
 };
 use source::{KiReprExpansionSource, KiReprSource};
 use vec_like::OrderedSmallVecSet;
@@ -34,8 +34,8 @@ impl IntoIterator for &KiVarDeps {
 }
 
 // ad hoc, maybe some other consideration about template arguments?
-impl From<&SemVarDeps> for KiVarDeps {
-    fn from(value: &SemVarDeps) -> Self {
+impl From<&SemValueVarDeps> for KiVarDeps {
+    fn from(value: &SemValueVarDeps) -> Self {
         Self(
             value
                 .iter()
