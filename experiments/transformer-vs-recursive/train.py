@@ -1,14 +1,11 @@
-import wandb
 import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch.utils.data import DataLoader
 from tqdm import tqdm
 
 import pdb
 
 def train_model(
     model,
+    header,
     train_dataloader,
     val_dataloader,
     criterion,
@@ -17,7 +14,7 @@ def train_model(
     micro_batch_size,
     device,
     output_dims,
-    log_wandb=True,
+    logger,
     patience=5,
     min_delta=0.001,
     scheduler=None,
@@ -31,9 +28,10 @@ def train_model(
     for epoch in range(num_epochs):
         # Training phase
         model.train()
-        train_loss, train_ast_acc, train_symbol_acc, train_error_acc, train_type_acc = run_epoch(
+        train_loss, train_accs = run_epoch(
             epoch_idx=epoch,
             model=model,
+            header=header,
             dataloader=train_dataloader,
             criterion=criterion,
             optimizer=optimizer,
@@ -42,14 +40,15 @@ def train_model(
             output_dims=output_dims,
             is_training=True,
             micro_batch_size=micro_batch_size,
-            log_wandb=log_wandb,
+            logger=logger,
         )
 
         # Validation phase
         model.eval()
-        val_loss, val_ast_acc, val_symbol_acc, val_error_acc, val_type_acc = run_epoch(
+        val_loss, val_accs = run_epoch(
             epoch_idx=epoch,
             model=model,
+            header=header,
             dataloader=val_dataloader,
             criterion=criterion,
             optimizer=optimizer,
@@ -57,7 +56,6 @@ def train_model(
             output_dims=output_dims,
             is_training=False,
             micro_batch_size=micro_batch_size * 4,
-            log_wandb=False,
         )
 
         # Early stopping check
@@ -68,26 +66,20 @@ def train_model(
         else:
             epochs_without_improvement += 1
 
-        if log_wandb:
-            wandb.log(
-                {
-                    f"val/loss": val_loss,
-                    f"val/ast_accuracy": val_ast_acc,
-                    f"val/symbol_accuracy": val_symbol_acc,
-                    f"val/error_accuracy": val_error_acc,
-                    f"val/type_accuracy": val_type_acc,
-                    "train/step": (epoch + 1) * len(train_dataloader),
-                }
-            )
+        logger.log(
+            {
+                f"val/loss": val_loss,
+                **{f"val/{k}_acc": v for k, v in val_accs.items()},
+                "train/step": (epoch + 1) * len(train_dataloader),
+            }
+        )
 
         print(
             f"Epoch [{epoch + 1}/{num_epochs}], "
             f"Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}, "
-            f"Train AST Acc: {train_ast_acc:.4f}, Val AST Acc: {val_ast_acc:.4f}, "
-            f"Train Symbol Acc: {train_symbol_acc:.4f}, Val Symbol Acc: {val_symbol_acc:.4f}, "
-            f"Train Error Acc: {train_error_acc:.4f}, Val Error Acc: {val_error_acc:.4f}, "
-            f"Train Type Acc: {train_type_acc:.4f}, Val Type Acc: {val_type_acc:.4f}"
         )
+        for k in val_accs:
+            print(f"Train {k} acc: {train_accs[k]:.4f}, Val {k} acc: {val_accs[k]:.4f}")
 
         # if epochs_without_improvement >= patience:
         #     print(f"Early stopping triggered after {epoch + 1} epochs")
@@ -100,32 +92,32 @@ def train_model(
 
     return model
 
-def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size):
-    model.eval()
-    val_loss, val_ast_acc, val_symbol_acc, val_error_acc, val_type_acc = run_epoch(
-        epoch_idx=0,
-        model=model,
-        dataloader=val_dataloader,
-        criterion=criterion,
-        optimizer=None,
-        device=device,
-        output_dims=output_dims,
-        is_training=False,
-        micro_batch_size=micro_batch_size,
-        log_wandb=False,
-    )
+# def eval_model(model, val_dataloader, criterion, device, output_dims, micro_batch_size):
+#     model.eval()
+#     val_loss, val_ast_acc, val_symbol_acc, val_error_acc, val_type_acc = run_epoch(
+#         epoch_idx=0,
+#         model=model,
+#         dataloader=val_dataloader,
+#         criterion=criterion,
+#         optimizer=None,
+#         device=device,
+#         output_dims=output_dims,
+#         is_training=False,
+#         micro_batch_size=micro_batch_size,
+#     )
     
-    print(
-        f"Final Val Loss: {val_loss:.4f}, "
-        f"Final Val AST Acc: {val_ast_acc:.4f}, "
-        f"Final Val Symbol Acc: {val_symbol_acc:.4f}, "
-        f"Final Val Error Acc: {val_error_acc:.4f}"
-        f"Final Val Type Acc: {val_type_acc:.4f}"
-    )
+#     print(
+#         f"Final Val Loss: {val_loss:.4f}, "
+#         f"Final Val AST Acc: {val_ast_acc:.4f}, "
+#         f"Final Val Symbol Acc: {val_symbol_acc:.4f}, "
+#         f"Final Val Error Acc: {val_error_acc:.4f}"
+#         f"Final Val Type Acc: {val_type_acc:.4f}"
+#     )
 
 def run_epoch(
     epoch_idx,
     model,
+    header,
     dataloader,
     criterion,
     optimizer,
@@ -133,85 +125,57 @@ def run_epoch(
     output_dims,
     is_training,
     micro_batch_size,
-    log_wandb,
     scheduler=None,
+    logger=None,
 ):
-    ast_dim, symbol_dim, error_dim, type_dim = output_dims
     total_loss = 0.0
-    total_ast_acc, total_symbol_acc, total_error_acc, total_type_acc = 0.0, 0.0, 0.0, 0.0
+    accs = {k: 0.0 for k in header}
 
     for batch_idx, (_inputs, _targets) in tqdm(enumerate(dataloader)):
         current_iter = epoch_idx * len(dataloader) + batch_idx
 
         _inputs = _inputs.to(device)
-        _ast_targets, _symbol_targets, _error_targets, _type_targets = [t.to(device) for t in _targets]
+        _targets = [t.to(device) for t in _targets]
 
         if is_training:
             optimizer.zero_grad()
 
         with torch.set_grad_enabled(is_training):
             combined_loss = 0.0
-            combined_ast_acc, combined_symbol_acc, combined_error_acc, combined_type_acc = 0.0, 0.0, 0.0, 0.0
+            combined_accs = {k: 0.0 for k in header}
             cnt = 0
             for i in range(0, _inputs.shape[0], micro_batch_size):
                 outputs = model(_inputs[i:i + micro_batch_size])
-                ast_outputs = outputs[:, :, :ast_dim]
-                symbol_outputs = outputs[:, :, ast_dim : ast_dim + symbol_dim]
-                error_outputs = outputs[
-                    :, :, ast_dim + symbol_dim : ast_dim + symbol_dim + error_dim
-                ]
-                type_outputs = outputs[
-                    :, :, ast_dim + symbol_dim + error_dim :
-                ]
+                output_by_fields = list(outputs.split(output_dims, dim=-1))
+                for j in range(len(output_by_fields)):
+                    output_by_fields[j] = output_by_fields[j].reshape(-1, output_dims[j])
 
-                ast_outputs = ast_outputs.view(-1, ast_dim)
-                symbol_outputs = symbol_outputs.view(-1, symbol_dim)
-                error_outputs = error_outputs.view(-1, error_dim)
-                type_outputs = type_outputs.view(-1, type_dim)
+                target_by_fields = [t[i:i + micro_batch_size].view(-1) for t in _targets]
 
-                ast_targets = _ast_targets[i:i + micro_batch_size].view(-1)
-                symbol_targets = _symbol_targets[i:i + micro_batch_size].view(-1)
-                error_targets = _error_targets[i:i + micro_batch_size].view(-1)
-                type_targets = _type_targets[i:i + micro_batch_size].view(-1)
-
-                ast_loss = criterion(ast_outputs, ast_targets)
-                symbol_loss = criterion(symbol_outputs, symbol_targets)
-                error_loss = criterion(error_outputs, error_targets)
-                type_loss = criterion(type_outputs, type_targets)
-
-                micro_batch_loss = ast_loss + symbol_loss + error_loss + type_loss
+                loss_by_fields = [criterion(o, t) for o, t in zip(output_by_fields, target_by_fields)]
+                micro_batch_loss = sum(loss_by_fields)
 
                 if is_training:
                     micro_batch_loss.backward()
                 combined_loss += micro_batch_loss.detach()
 
-                mask = ast_targets != -1
-                ast_acc = (ast_outputs.detach().argmax(dim=1) == ast_targets)[mask].float().sum()
-                symbol_acc = (symbol_outputs.detach().argmax(dim=1) == symbol_targets)[mask].float().sum()
-                error_acc = (error_outputs.detach().argmax(dim=1) == error_targets)[mask].float().sum()
-                type_acc = (type_outputs.detach().argmax(dim=1) == type_targets)[mask].float().sum()
+                mask = target_by_fields[0] != -1
 
-                combined_ast_acc += ast_acc
-                combined_symbol_acc += symbol_acc
-                combined_error_acc += error_acc
-                combined_type_acc += type_acc
+                for k, o, t in zip(header, output_by_fields, target_by_fields):
+                    combined_accs[k] += (o.detach().argmax(dim=1) == t)[mask].float().sum()
 
                 cnt += mask.sum()
 
             combined_loss /= cnt
-            combined_ast_acc /= cnt
-            combined_symbol_acc /= cnt
-            combined_error_acc /= cnt
-            combined_type_acc /= cnt
+            for k, v in combined_accs.items():
+                combined_accs[k] = v / cnt
 
-            if log_wandb and is_training:
-                wandb.log(
+            if logger is not None:
+                # must be training
+                logger.log(
                     {
                         f"train/loss": combined_loss.item(),
-                        f"train/ast_accuracy": combined_ast_acc.item(),
-                        f"train/symbol_accuracy": combined_symbol_acc.item(),
-                        f"train/error_accuracy": combined_error_acc.item(),
-                        f"train/type_accuracy": combined_type_acc.item(),
+                        **{f"train/{k}_acc": v.item() for k, v in combined_accs.items()},
                         f"train/learning_rate": optimizer.param_groups[0]["lr"],
                         "train/step": current_iter,
                     }
@@ -223,15 +187,11 @@ def run_epoch(
                     scheduler.step()
 
         total_loss += combined_loss.item()
-        total_ast_acc += combined_ast_acc.item()
-        total_symbol_acc += combined_symbol_acc.item()
-        total_error_acc += combined_error_acc.item()
-        total_type_acc += combined_type_acc.item()
+        for k in accs:
+            accs[k] += combined_accs[k].item()
 
     avg_loss = total_loss / len(dataloader)
-    avg_ast_acc = total_ast_acc / len(dataloader)
-    avg_symbol_acc = total_symbol_acc / len(dataloader)
-    avg_error_acc = total_error_acc / len(dataloader)
-    avg_type_acc = total_type_acc / len(dataloader)
-
-    return avg_loss, avg_ast_acc, avg_symbol_acc, avg_error_acc, avg_type_acc
+    for k in accs:
+        accs[k] /= len(dataloader)
+    
+    return avg_loss, accs
