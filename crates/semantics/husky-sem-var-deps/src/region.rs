@@ -1,7 +1,10 @@
 use crate::{
     builder::SemVarDepsBuilder,
     item_sem_var_deps,
-    var_deps::{control_transfer::SemControlTransferVarDeps, value::SemValueVarDeps},
+    var_deps::{
+        control_flow::SemControlFlowVarDeps, control_transfer::SemControlTransferVarDeps,
+        domain::SemDomainVarDeps, value::SemValueVarDeps,
+    },
 };
 use husky_entity_path::{path::ItemPathId, region::RegionPath};
 use husky_sem_expr::{SemExprMap, SemStmtMap};
@@ -13,11 +16,19 @@ pub struct ItemDefnSemVarDepsRegion {
     #[return_ref]
     pub expr_value_var_deps_table: SemExprMap<SemValueVarDeps>,
     #[return_ref]
-    pub expr_control_flow_var_deps_table: SemExprMap<SemControlTransferVarDeps>,
+    pub expr_control_transfer_var_deps_table: SemExprMap<SemControlTransferVarDeps>,
+    #[return_ref]
+    pub expr_domain_var_deps_table: SemExprMap<SemDomainVarDeps>,
+    #[return_ref]
+    pub expr_control_flow_var_deps_table: SemExprMap<SemControlFlowVarDeps>,
     #[return_ref]
     pub stmt_value_var_deps_table: SemStmtMap<SemValueVarDeps>,
     #[return_ref]
-    pub stmt_control_flow_var_deps_table: SemStmtMap<SemControlTransferVarDeps>,
+    pub stmt_control_transfer_var_deps_table: SemStmtMap<SemControlTransferVarDeps>,
+    #[return_ref]
+    pub stmt_domain_var_deps_table: SemStmtMap<SemDomainVarDeps>,
+    #[return_ref]
+    pub stmt_control_flow_var_deps_table: SemStmtMap<SemControlFlowVarDeps>,
     #[return_ref]
     pub self_value_var_deps: SemValueVarDeps,
     #[return_ref]
