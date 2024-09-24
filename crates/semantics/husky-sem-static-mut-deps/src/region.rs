@@ -1,4 +1,4 @@
-use crate::static_mut_deps::SemValueStaticMutDeps;
+use crate::static_mut_deps::value::SemValueStaticMutDeps;
 use husky_sem_expr::SemExprMap;
 use vec_like::OrderedSmallVecSet;
 

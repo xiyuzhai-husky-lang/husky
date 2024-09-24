@@ -1,7 +1,8 @@
 use crate::{
     region::SemStaticMutDepsRegion,
     static_mut_deps::{
-        EffectiveMergeCounter, SemControlTransferStaticMutDeps, SemValueStaticMutDeps,
+        control_transfer::SemControlTransferStaticMutDeps, value::SemValueStaticMutDeps,
+        EffectiveMergeCounter,
     },
 };
 use husky_entity_path::{
