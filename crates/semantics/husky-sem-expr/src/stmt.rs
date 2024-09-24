@@ -266,6 +266,10 @@ impl<V> SemStmtMap<V> {
         Self(ArenaMap::new2(sem_stmt_arena.0))
     }
 
+    pub fn insert(&mut self, stmt: SemStmtIdx, v: V) -> Option<V> {
+        self.0.insert(stmt.0, v)
+    }
+
     pub fn insert_new(&mut self, stmt: SemStmtIdx, v: V) {
         self.0.insert_new(stmt.0, v)
     }
@@ -622,7 +626,7 @@ impl<'a> SemExprBuilder<'a> {
                 target,
             },
             _ => SemCondition::Other {
-                sem_expr_idx,
+                expr: sem_expr_idx,
                 conversion: match outcome {
                     Some(ExpectConditionTypeOutcome { conversion }) => conversion,
                     None => todo!(),
