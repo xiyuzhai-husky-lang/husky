@@ -4,7 +4,7 @@ use crate::{version_stamp::KiVersionStamp, *};
 pub struct KiJar(
     Ki,
     KiPattern,
-    KiRuntimeConstant,
+    KiRuntimeCompterm,
     KiVersionStamp,
     crate::genki::Genki,
     crate::genki::GenkiRuntimeConstant,
