@@ -1,3 +1,8 @@
+pub mod control_flow;
+pub mod control_transfer;
+pub mod domain;
+pub mod value;
+
 use husky_entity_path::path::ItemPath;
 use vec_like::OrderedSmallVecSet;
 

@@ -1,4 +1,4 @@
-use crate::{builder::SemStaticMutDepsBuilder, static_mut_deps::SemValueStaticMutDeps, *};
+use crate::{builder::SemStaticMutDepsBuilder, static_mut_deps::value::SemValueStaticMutDeps, *};
 use ::graph_dynamics::{
     context::{IsGraphDynamicsContext, IsGraphDynamicsScheme},
     cycle_group::CycleGroupMap,
@@ -82,7 +82,8 @@ impl<'db> IsGraphDynamicsContext<'db> for SemStaticMutDepsGraphDynamicsContext<'
     fn cycle_group_final_values(
         self,
         cycle_group_itd: SemItemPathDepsCyclceGroupItd,
-    ) -> PropagationResultRef<'db, &'db CycleGroupMap<Self::DepsScheme, SemValueStaticMutDeps>> {
+    ) -> PropagationResultRef<'db, &'db CycleGroupMap<Self::DepsScheme, SemValueStaticMutDeps>>
+    {
         item_sem_static_mut_deps_cycle_group_final_values(self.db, cycle_group_itd).as_ref()
     }
 }

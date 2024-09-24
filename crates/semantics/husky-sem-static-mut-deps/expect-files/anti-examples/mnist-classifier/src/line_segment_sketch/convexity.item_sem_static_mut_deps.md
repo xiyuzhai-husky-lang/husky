@@ -1,7 +1,7 @@
 ## `is_convex`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

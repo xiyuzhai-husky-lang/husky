@@ -1,7 +1,7 @@
 ## `Slice`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## `CyclicSlice`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## ``CyclicSlice`::#derive`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `impl Slice`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `Slice::len`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemStaticMutDeps(
 ## `Slice::swap`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemStaticMutDeps(
 ## `impl IntIndex for CyclicSlice`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemStaticMutDeps(
 ## `(CyclicSlice as IntIndex)::Output`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -65,7 +65,7 @@ SemStaticMutDeps(
 ## `impl CyclicSlice`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -73,7 +73,7 @@ SemStaticMutDeps(
 ## `CyclicSlice::ilen`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -81,7 +81,7 @@ SemStaticMutDeps(
 ## `CyclicSlice::start`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -89,7 +89,7 @@ SemStaticMutDeps(
 ## `CyclicSlice::end`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -97,7 +97,7 @@ SemStaticMutDeps(
 ## `CyclicSlice::first`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -105,7 +105,7 @@ SemStaticMutDeps(
 ## `CyclicSlice::last`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```

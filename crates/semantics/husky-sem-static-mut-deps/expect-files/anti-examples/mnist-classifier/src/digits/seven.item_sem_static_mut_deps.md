@@ -1,7 +1,7 @@
 ## `simple_seven_match`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemStaticMutDeps(
 ## `simple_leftdown_pattern`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemStaticMutDeps(
 ## `special_seven_match`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemStaticMutDeps(
 ## `leftupcc_pattern`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemStaticMutDeps(
 ## `leftdowncc_pattern`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemStaticMutDeps(
 ## `is_seven`
 
 ```rust
-SemStaticMutDeps(
+SemValueStaticMutDeps(
     [],
 )
 ```
