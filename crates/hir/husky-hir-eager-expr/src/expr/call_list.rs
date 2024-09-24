@@ -13,16 +13,16 @@ pub enum HirEagerRitchieArgument {
 impl<'a> HirEagerExprBuilder<'a> {
     pub(super) fn new_call_list_arguments(
         &mut self,
-        pams: &[SemaRitchieArgument],
+        pams: &[SemRitchieArgument],
     ) -> SmallVec<[HirEagerRitchieArgument; 4]> {
         pams.iter()
             .map(|pam| self.new_call_list_item_group(pam))
             .collect()
     }
 
-    fn new_call_list_item_group(&mut self, pam: &SemaRitchieArgument) -> HirEagerRitchieArgument {
+    fn new_call_list_item_group(&mut self, pam: &SemRitchieArgument) -> HirEagerRitchieArgument {
         match pam {
-            SemaRitchieArgument::Simple(param, item) => HirEagerRitchieArgument::Simple(
+            SemRitchieArgument::Simple(param, item) => HirEagerRitchieArgument::Simple(
                 HirRitchieSimpleParameter::from_fly(param, self.db(), self.terms()),
                 item.argument_sem_expr_idx().to_hir_eager(self),
                 item.coercion_outcome
@@ -31,8 +31,8 @@ impl<'a> HirEagerExprBuilder<'a> {
                     .coercion()
                     .to_hir_eager(self),
             ),
-            SemaRitchieArgument::Variadic(_, _) => todo!(),
-            SemaRitchieArgument::Keyed(_, _) => todo!(),
+            SemRitchieArgument::Variadic(_, _) => todo!(),
+            SemRitchieArgument::Keyed(_, _) => todo!(),
         }
     }
 }

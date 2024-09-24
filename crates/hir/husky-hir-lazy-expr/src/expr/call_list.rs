@@ -1,5 +1,5 @@
 use super::*;
-use husky_sem_expr::SemaRitchieArgument;
+use husky_sem_expr::SemRitchieArgument;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[enum_class::from_variants]
@@ -12,25 +12,25 @@ pub enum HirLazyCallListArgument {
 impl<'a> HirLazyExprBuilder<'a> {
     pub(super) fn new_call_list_item_groups(
         &mut self,
-        pams: &[SemaRitchieArgument],
+        pams: &[SemRitchieArgument],
     ) -> SmallVec<[HirLazyCallListArgument; 4]> {
         pams.iter()
             .map(|pam| self.new_call_list_item_group(pam))
             .collect()
     }
 
-    fn new_call_list_item_group(&mut self, pam: &SemaRitchieArgument) -> HirLazyCallListArgument {
+    fn new_call_list_item_group(&mut self, pam: &SemRitchieArgument) -> HirLazyCallListArgument {
         match pam {
-            SemaRitchieArgument::Simple(_, item) => {
+            SemRitchieArgument::Simple(_, item) => {
                 HirLazyCallListArgument::Simple(item.argument_sem_expr_idx().to_hir_lazy(self))
             }
-            SemaRitchieArgument::Variadic(_, items) => HirLazyCallListArgument::Variadic(
+            SemRitchieArgument::Variadic(_, items) => HirLazyCallListArgument::Variadic(
                 items
                     .iter()
                     .map(|item| item.argument_expr_idx().to_hir_lazy(self))
                     .collect(),
             ),
-            SemaRitchieArgument::Keyed(param, item) => HirLazyCallListArgument::Keyed(
+            SemRitchieArgument::Keyed(param, item) => HirLazyCallListArgument::Keyed(
                 param.key(),
                 item.as_ref()
                     .map(|item| item.argument_expr_idx().to_hir_lazy(self)),
