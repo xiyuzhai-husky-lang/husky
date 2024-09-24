@@ -2146,7 +2146,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 1,
                                 },
@@ -3097,7 +3097,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 1,
                                 },
@@ -8883,7 +8883,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 2,
                                 },
@@ -9342,7 +9342,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 2,
                                 },
@@ -16784,7 +16784,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 3,
                                 },
@@ -17204,7 +17204,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 3,
                                 },
@@ -46578,7 +46578,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 2,
                                 },
@@ -47037,7 +47037,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 2,
                                 },
@@ -53955,7 +53955,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 3,
                                 },
@@ -54375,7 +54375,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 3,
                                 },
@@ -58805,7 +58805,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 1,
                                 },
@@ -59756,7 +59756,7 @@
                     ),
                     RuntimeConstants(
                         [
-                            KiRuntimeConstant(
+                            KiRuntimeCompterm(
                                 Id {
                                     value: 1,
                                 },

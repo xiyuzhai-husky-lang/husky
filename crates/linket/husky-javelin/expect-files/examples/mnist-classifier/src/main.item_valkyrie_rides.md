@@ -93,7 +93,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::One`),
                                             ),
                                         ),
@@ -164,7 +164,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Six`),
                                             ),
                                         ),
@@ -235,7 +235,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Zero`),
                                             ),
                                         ),
@@ -306,7 +306,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Seven`),
                                             ),
                                         ),
@@ -377,7 +377,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Eight`),
                                             ),
                                         ),
@@ -448,7 +448,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Three`),
                                             ),
                                         ),
@@ -519,7 +519,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Nine`),
                                             ),
                                         ),
@@ -590,7 +590,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Five`),
                                             ),
                                         ),
@@ -661,7 +661,7 @@
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
-                                            HirConstant::TypeVariant(
+                                            HirCompterm::TypeVariant(
                                                 TypeVariantPath(`mnist::MnistLabel::Two`),
                                             ),
                                         ),
