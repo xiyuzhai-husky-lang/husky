@@ -211,8 +211,8 @@
                                         5,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 2,
                                             ),
                                             comma_regional_token_idx: Some(
@@ -221,8 +221,8 @@
                                                 ),
                                             ),
                                         },
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 3,
                                             ),
                                             comma_regional_token_idx: None,
@@ -273,7 +273,7 @@
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieArgument::Simple(
+                                        SemRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
@@ -303,7 +303,7 @@
                                                 ),
                                             },
                                         ),
-                                        SemaRitchieArgument::Simple(
+                                        SemRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
@@ -1483,8 +1483,8 @@
                                         5,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 2,
                                             ),
                                             comma_regional_token_idx: None,
@@ -1535,7 +1535,7 @@
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieArgument::Simple(
+                                        SemRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
@@ -1565,7 +1565,7 @@
                                                 ),
                                             },
                                         ),
-                                        SemaRitchieArgument::Simple(
+                                        SemRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
@@ -2163,8 +2163,8 @@
                                         5,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 2,
                                             ),
                                             comma_regional_token_idx: None,
@@ -2215,7 +2215,7 @@
                                         2,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieArgument::Simple(
+                                        SemRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
@@ -2245,7 +2245,7 @@
                                                 ),
                                             },
                                         ),
-                                        SemaRitchieArgument::Simple(
+                                        SemRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
@@ -2904,8 +2904,8 @@
                                         5,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 2,
                                             ),
                                             comma_regional_token_idx: None,
@@ -3181,8 +3181,8 @@
                                         17,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 7,
                                             ),
                                             comma_regional_token_idx: None,
@@ -3610,8 +3610,8 @@
                                         35,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 14,
                                             ),
                                             comma_regional_token_idx: None,
@@ -3887,8 +3887,8 @@
                                         46,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 19,
                                             ),
                                             comma_regional_token_idx: None,
@@ -4941,8 +4941,8 @@
                                         85,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 37,
                                             ),
                                             comma_regional_token_idx: None,
@@ -5473,8 +5473,8 @@
                                         105,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 46,
                                             ),
                                             comma_regional_token_idx: None,
@@ -6370,8 +6370,8 @@
                                         137,
                                     ),
                                     items: [
-                                        SemaCommaListItem {
-                                            sem_expr_idx: SemExprIdx(
+                                        SemCommaListItem {
+                                            expr: SemExprIdx(
                                                 61,
                                             ),
                                             comma_regional_token_idx: None,
@@ -7578,7 +7578,7 @@
                                         178,
                                     ),
                                     ritchie_parameter_argument_matches: [
-                                        SemaRitchieArgument::Simple(
+                                        SemRitchieArgument::Simple(
                                             FlyRitchieSimpleParameter {
                                                 contract: Contract::Pure,
                                                 ty: FlyTerm {
