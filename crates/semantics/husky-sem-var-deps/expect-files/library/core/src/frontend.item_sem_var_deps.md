@@ -1,7 +1,7 @@
 ## `IsFrontend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `Cv2dFrontend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `Cv3dFrontend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `NlpFrontend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `Rl2dFrontend`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

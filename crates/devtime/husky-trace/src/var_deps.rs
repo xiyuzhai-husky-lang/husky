@@ -2,7 +2,7 @@ use husky_item_path_interface::ItemPathIdInterface;
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
 use husky_sem_var_deps::{
     region::ItemDefnSemVarDepsRegion,
-    var_deps::{SemVarDep, SemVarDeps},
+    var_deps::{value::SemValueVarDeps, SemVarDep},
 };
 use husky_syn_expr::variable::VariableMap;
 use vec_like::SmallVecSet;
@@ -23,7 +23,7 @@ pub type TraceVarDeps = SmallVecSet<ItemPathIdInterface, 2>;
 
 impl TraceVarDepsExpansion {
     pub(crate) fn new(region: ItemDefnSemVarDepsRegion, db: &::salsa::Db) -> Self {
-        let f = |deps: &SemVarDeps| {
+        let f = |deps: &SemValueVarDeps| {
             deps.iter()
                 .map(|&dep| match dep {
                     SemVarDep::Item(item_path) => item_path.into(),

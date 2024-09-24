@@ -1,7 +1,7 @@
 ## `Copy`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `Sized`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `impl Copy for _`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

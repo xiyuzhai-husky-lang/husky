@@ -1,7 +1,7 @@
 ## `nested`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `closure_inline`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `closure_nested`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

@@ -1,7 +1,7 @@
 ## `quick_sort`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `quick_sort_aux`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `partition`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `quick_sort_works_for_integers`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## ``quick_sort_works_for_integers`::#test`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## `quick_sort_works_for_strs`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemVarDeps(
 ## ``quick_sort_works_for_strs`::#test`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

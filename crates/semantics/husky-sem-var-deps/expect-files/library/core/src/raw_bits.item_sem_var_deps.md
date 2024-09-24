@@ -1,7 +1,7 @@
 ## `r32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## ``r32`::#derive`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `impl r32`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -25,7 +25,7 @@ SemVarDeps(
 ## `r32::last_bits`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -33,7 +33,7 @@ SemVarDeps(
 ## `r32::ctz`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -41,7 +41,7 @@ SemVarDeps(
 ## `r32::co`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -49,7 +49,7 @@ SemVarDeps(
 ## `r32::span`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -57,7 +57,7 @@ SemVarDeps(
 ## `r32::right_mass`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

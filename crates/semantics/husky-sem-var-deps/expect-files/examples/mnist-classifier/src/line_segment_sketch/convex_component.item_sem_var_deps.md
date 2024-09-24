@@ -1,7 +1,7 @@
 ## `ConvexComponent`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `impl Visualize for ConvexComponent`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `(ConvexComponent as Visualize)::visualize`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```

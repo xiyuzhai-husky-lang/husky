@@ -1,7 +1,7 @@
 ## `IsMlTask`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -9,7 +9,7 @@ SemVarDeps(
 ## `IsMlTask::Input`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
@@ -17,7 +17,7 @@ SemVarDeps(
 ## `IsMlTask::INPUT`
 
 ```rust
-SemVarDeps(
+SemValueVarDeps(
     [],
 )
 ```
