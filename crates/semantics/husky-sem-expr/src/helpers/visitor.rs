@@ -46,6 +46,7 @@ pub trait VisitSemExpr<'db>: Sized {
     fn visit_loop(&mut self, stmt: SemStmtIdx, f: impl Fn(&mut Self));
     fn visit_branches(&mut self, f: impl Fn(&mut Self));
     fn visit_branch(&mut self, f: impl Fn(&mut Self));
+    fn visit_branch_stmts(&mut self, f: impl Fn(&mut Self));
     fn visit_condition(&mut self, condition: SemCondition, f: impl FnOnce(&mut Self));
     fn visit_condition_inner(&mut self, condition: SemCondition);
     /// final
@@ -375,7 +376,15 @@ impl SemStmtIdx {
                     match_opd.simulate(visitor);
                     visitor.visit_branches(|visitor| {
                         for case_branch in case_branches {
-                            visitor.visit_branch(|visitor| case_branch.stmts.simulate(visitor));
+                            visitor.visit_branch(|visitor| {
+                                // TODO refactor this into a method named simulate for case_branch
+                                if let Some(condition) = case_branch.condition() {
+                                    condition.simulate(visitor);
+                                }
+                                visitor.visit_branch_stmts(|visitor| {
+                                    case_branch.stmts.simulate(visitor)
+                                });
+                            })
                         }
                     })
                 }
@@ -392,7 +401,9 @@ impl SemCondition {
         visitor.visit_condition(self, |visitor| {
             match self {
                 SemCondition::Be { src, .. } => src.simulate(visitor),
-                SemCondition::Other { sem_expr_idx, .. } => sem_expr_idx.simulate(visitor),
+                SemCondition::Other {
+                    expr: sem_expr_idx, ..
+                } => sem_expr_idx.simulate(visitor),
             };
             visitor.visit_condition_inner(self)
         })
@@ -401,24 +412,21 @@ impl SemCondition {
 
 impl SemIfBranch {
     fn simulate<'db>(&self, visitor: &mut impl VisitSemExpr<'db>) {
-        // ad hoc
         self.condition.simulate(visitor);
-        self.stmts.simulate(visitor);
+        visitor.visit_branch_stmts(|visitor| self.stmts.simulate(visitor));
     }
 }
 
 impl SemElifBranch {
     fn simulate<'db>(&self, visitor: &mut impl VisitSemExpr<'db>) {
-        // ad hoc
         self.condition.simulate(visitor);
-        self.stmts.simulate(visitor);
+        visitor.visit_branch_stmts(|visitor| self.stmts.simulate(visitor));
     }
 }
 
 impl SemElseBranch {
     fn simulate<'db>(&self, visitor: &mut impl VisitSemExpr<'db>) {
-        // ad hoc
-        self.stmts.simulate(visitor);
+        visitor.visit_branch_stmts(|visitor| self.stmts.simulate(visitor));
     }
 }
 
@@ -537,6 +545,10 @@ fn visit_sem_expr_works() {
                 .token_idx_range(self.base.unwrap());
             let text_range = self.ranged_token_sheet.tokens_text_range(token_idx_range);
             self.visits.push(self.text.text_within(text_range));
+        }
+
+        fn visit_branch_stmts(&mut self, f: impl Fn(&mut Self)) {
+            f(self)
         }
     }
 

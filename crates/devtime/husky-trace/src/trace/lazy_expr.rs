@@ -236,7 +236,7 @@ impl LazyExprTraceData {
 
     pub fn var_deps(&self, trace: Trace, db: &::salsa::Db) -> TraceVarDeps {
         self.var_deps_expansion(db)
-            .expr_value_var_deps(self.sem_expr_idx, db)
+            .expr_control_flow_var_deps(self.sem_expr_idx, db)
             .clone()
     }
 

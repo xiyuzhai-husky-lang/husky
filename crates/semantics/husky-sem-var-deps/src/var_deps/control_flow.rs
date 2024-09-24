@@ -2,6 +2,7 @@ use super::*;
 use control_transfer::SemControlTransferVarDeps;
 use domain::SemDomainVarDeps;
 use std::ops::Deref;
+use value::SemValueVarDeps;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
@@ -17,7 +18,7 @@ impl Deref for SemControlFlowVarDeps {
 
 impl SemControlFlowVarDeps {
     pub(crate) fn new(
-        value: &SemControlFlowVarDeps,
+        value: &SemValueVarDeps,
         control_transfer: &SemControlTransferVarDeps,
         domain: &SemDomainVarDeps,
     ) -> Self {

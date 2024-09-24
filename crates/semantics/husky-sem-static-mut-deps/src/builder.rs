@@ -824,9 +824,9 @@ where
                 self.populate_into_current_variables(target.variables(), &deps);
                 deps
             }
-            SemCondition::Other {
-                sem_expr_idx: src, ..
-            } => self.expr_value_static_mut_deps_table[src].clone(),
+            SemCondition::Other { expr: src, .. } => {
+                self.expr_value_static_mut_deps_table[src].clone()
+            }
         }
     }
 
@@ -838,9 +838,9 @@ where
             SemCondition::Be { src, .. } => {
                 self.expr_control_transfer_static_mut_deps_table[src].clone()
             }
-            SemCondition::Other {
-                sem_expr_idx: src, ..
-            } => self.expr_control_transfer_static_mut_deps_table[src].clone(),
+            SemCondition::Other { expr: src, .. } => {
+                self.expr_control_transfer_static_mut_deps_table[src].clone()
+            }
         }
     }
 
@@ -959,5 +959,9 @@ where
 
     fn visit_condition_inner(&mut self, condition: SemCondition) {
         ()
+    }
+
+    fn visit_branch_stmts(&mut self, f: impl Fn(&mut Self)) {
+        f(self)
     }
 }

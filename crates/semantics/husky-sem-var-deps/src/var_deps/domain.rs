@@ -27,7 +27,17 @@ impl IntoIterator for &SemDomainVarDeps {
     }
 }
 
-#[derive(Default)]
+impl SemDomainVarDeps {
+    pub(crate) fn merge_counted(&mut self, other: &Self, counter: &mut EffectiveMergeCounter) {
+        let old_len = self.0.len();
+        self.0.extend(&other.0);
+        if old_len != self.0.len() {
+            counter.count += 1
+        }
+    }
+}
+
+#[derive(Default, Clone)]
 pub(crate) struct SemDomainVarDepsGuard {
     deps: OrderedSmallVecSet<SemVarDep, 4>,
 }
@@ -36,12 +46,7 @@ impl SemDomainVarDepsGuard {
         SemDomainVarDeps(self.deps.clone())
     }
 
-    pub(crate) fn extend(
-        &mut self,
-        value: &SemValueVarDeps,
-        control_transfer: &SemControlTransferVarDeps,
-    ) {
-        self.deps.extend(value);
-        self.deps.extend(control_transfer);
+    pub(crate) fn extend(&mut self, var_deps: &[SemVarDep]) {
+        self.deps.extend(var_deps);
     }
 }

@@ -753,7 +753,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                 self[target.syn_pattern_root().syn_pattern_idx()].end()
             }
             SemCondition::Other {
-                sem_expr_idx,
+                expr: sem_expr_idx,
                 conversion,
             } => self[sem_expr_idx].end(),
         }
