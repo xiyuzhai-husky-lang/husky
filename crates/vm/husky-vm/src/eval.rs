@@ -1,22 +1,17 @@
+use crate::runtime::IsVmRuntime;
 use crate::vm::{Vm, VmMode};
 use crate::*;
 use history::VmHistory;
-use husky_linket_impl::{eval_context::IsDevRuntimeInterface, linket_impl::LinketImplThawedValue};
+use husky_linket_impl::linket_impl::LinketImplThawedValue;
 use husky_linktime::helpers::LinktimeThawedValue;
 use husky_vmir::stmt::{VmirStmtIdx, VmirStmtIdxRange};
 
-// ad hoc place, where to move?
-pub trait IsDevRuntime<LinketImpl: IsLinketImpl>: IsDevRuntimeInterface<LinketImpl> {
-    type Linktime: IsLinktime<LinketImpl = LinketImpl>;
-    fn linktime(&self) -> &Self::Linktime;
-}
-
-pub fn eval_linket_on_arguments<LinketImpl, DevRuntime: IsDevRuntime<LinketImpl>>(
+pub fn eval_linket_on_arguments<LinketImpl, VmRuntime: IsVmRuntime<LinketImpl>>(
     linket: Linket,
     arguments: Vec<LinketImpl::Value>,
     mode: VmMode,
     db: &::salsa::Db,
-    runtime: &DevRuntime,
+    runtime: &VmRuntime,
     vmir_storage: &impl IsVmirStorage<LinketImpl>,
 ) -> Option<(
     LinketImplVmControlFlowThawed<LinketImpl>,
@@ -44,7 +39,7 @@ impl<'a, LinketImpl, Runtime, VmirStorage> EvalVmir<'a, LinketImpl>
     for Vm<'a, LinketImpl, Runtime, VmirStorage>
 where
     LinketImpl: IsLinketImpl,
-    Runtime: IsDevRuntime<LinketImpl>,
+    Runtime: IsVmRuntime<LinketImpl>,
     VmirStorage: IsVmirStorage<LinketImpl>,
 {
     fn db(&self) -> &'a ::salsa::Db {
@@ -126,6 +121,6 @@ where
         &self,
         major_form_path: husky_entity_path::path::major_item::form::MajorFormPath,
     ) -> LinketImplVmControlFlowThawed<LinketImpl> {
-        todo!()
+        self.runtime.eval_val(major_form_path)
     }
 }

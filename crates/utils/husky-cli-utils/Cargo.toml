@@ -5,5 +5,3 @@ edition = "2021"
 
 [dependencies]
 colored.workspace = true
-# utils
-husky-screen-utils.workspace = true
