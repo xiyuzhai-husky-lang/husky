@@ -18,7 +18,7 @@ def custom_collate(batch):
     inputs_padded = pad_sequence(inputs, batch_first=True, padding_value=0)
 
     # Unpack the targets tuple
-    ast_kinds, symbol_resolutions, errors = zip(*targets)
+    ast_kinds, symbol_resolutions, errors, expected_types = zip(*targets)
     ast_kinds_padded = pad_sequence(
         [torch.as_tensor(t) for t in ast_kinds], batch_first=True, padding_value=-1
     )
@@ -30,7 +30,12 @@ def custom_collate(batch):
     errors_padded = pad_sequence(
         [torch.as_tensor(t) for t in errors], batch_first=True, padding_value=-1
     )
-    return inputs_padded, (ast_kinds_padded, symbol_resolutions_padded, errors_padded)
+    expected_types_padded = pad_sequence(
+        [torch.as_tensor(t) for t in expected_types],
+        batch_first=True,
+        padding_value=-1,
+    )
+    return inputs_padded, (ast_kinds_padded, symbol_resolutions_padded, errors_padded, expected_types_padded)
 
 def linear_warmup_decay(total_iters, warmup_iters, min_lr, max_lr, **kwargs):
     """
