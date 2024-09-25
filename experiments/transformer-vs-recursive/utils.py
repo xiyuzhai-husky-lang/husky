@@ -56,10 +56,6 @@ def linear_warmup_decay(total_iters, warmup_iters, min_lr, max_lr, **kwargs):
 
 class Logger:
     def __init__(self, exp_root, exp_name, log_wandb, config):
-        self.log_wandb = log_wandb
-        if log_wandb:
-            wandb.init(project="transformer-vs-rnn", name=exp_name, config=config)
-        
         while True:
             rnd_suf = "".join(random.choices(string.ascii_letters + string.digits, k=8))
             self.exp_path = os.path.join(exp_root, f"{exp_name}_{rnd_suf}")
@@ -71,6 +67,10 @@ class Logger:
         with open(os.path.join(self.exp_path, "config.json"), "w") as f:
             json.dump(config, f)
         print(f"Logs will be saved to {self.file_path}")
+
+        self.log_wandb = log_wandb
+        if log_wandb:
+            wandb.init(project="transformer-vs-rnn", name=f"{exp_name}_{rnd_suf}", config=config)
         
     def log(self, data):
         if self.log_wandb:
