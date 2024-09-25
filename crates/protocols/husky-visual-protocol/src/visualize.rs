@@ -2,9 +2,19 @@ mod primitive;
 
 use self::{synchrotron::VisualSynchrotron, visual::Visual};
 use super::*;
+use theme::{ClassId, MemberId};
 
 pub trait Visualize {
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
+
+    fn text_highlight(&self) -> Option<TextHighlight> {
+        None
+    }
+}
+
+pub struct TextHighlight {
+    class_id: ClassId,
+    member_id: MemberId,
 }
 
 impl<T> Visualize for &T
