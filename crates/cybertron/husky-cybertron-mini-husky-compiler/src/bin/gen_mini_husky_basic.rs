@@ -25,21 +25,22 @@ fn main() {
         // (10000, 10, 0.5),
         // (50000, 15, 0.5),
         // (100000, 20, 0.5),
-        (10000, 100, 0.2, 0.2),
+        // (10000, 100, 0.2, 0.2),
+        (100000, 100, 50, 0.2, 0.5),
     ];
 
     // Keep track of files we're going to write
     let mut files_to_keep = Vec::new();
 
-    for (n, max_fns, use_var_rate, error_rate) in &params {
+    for (n, max_fns, min_dist, use_var_rate, error_rate) in &params {
         let dataset_filename = dir.join(format!(
-            "dataset-n{}-f{}-v{:.2}-e{:.2}.msgpack",
-            n, max_fns, use_var_rate, error_rate
+            "dataset-n{}-f{}-d{}-v{:.2}-e{:.2}.msgpack",
+            n, max_fns, min_dist, use_var_rate, error_rate
         ));
         files_to_keep.push(dataset_filename.clone());
 
         // Generate the random codes
-        let data = rnd_codes(*n, *max_fns, *use_var_rate, *error_rate);
+        let data = rnd_codes(*n, *max_fns, *min_dist, *use_var_rate, *error_rate);
 
         preview_data_strings(&data);
 
