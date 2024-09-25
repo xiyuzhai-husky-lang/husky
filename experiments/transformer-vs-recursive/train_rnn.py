@@ -10,12 +10,12 @@ from utils import set_seed, custom_collate, Logger
 
 import os
 import pdb
-
 # Load the dataset
 dataset = MiniHuskyDataset(
-    n=100000,
+    n=10000,
     max_fns=100,
-    error_rate=0.10,
+    use_var_rate=0.2,
+    error_rate=0.2,
     data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
 )
 header = dataset.header
@@ -92,8 +92,8 @@ for hidden_dim in [64, 32, 16, 8, 4]:
         "seed": 42,
         "batch_size": 512,
         "micro_batch_size": 128,  # Assuming a change is needed here
-        "num_epochs": 20,
-        "learning_rate": 1e-4,
+        "num_epochs": 100,
+        "learning_rate": 2e-4,
         "hidden_dim": hidden_dim,
     }
 
