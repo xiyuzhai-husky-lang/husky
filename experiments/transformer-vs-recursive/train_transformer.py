@@ -4,22 +4,17 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, random_split
 import wandb
 from datasets.mini_husky import MiniHuskyDataset
-from models.transformer import EncoderOnlyTransformer, SimpleTransformer
+from models.transformer import EncoderOnlyTransformer, CustomBERTModel
 from train import train_model
 from utils import set_seed, custom_collate, linear_warmup_decay, Logger
 
 import os
 import pdb
 
-# Load the dataset
-dataset = MiniHuskyDataset(
-    n=100000,
-    max_fns=10,
-    min_dist=3,
-    use_var_rate=0.2,
-    error_rate=0.5,
-    data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
-)
+DATASET = "n100000-f10-d3-v0.20-e0.50"
+dataset = MiniHuskyDataset(os.path.join(os.environ["DATA_ROOT"],
+                                        "mini-husky/basic",
+                                        f"dataset-{DATASET}.msgpack"))
 header = dataset.header
 vocab_size = len(dataset.vocab)
 output_dims = dataset.get_output_dims()
@@ -48,7 +43,7 @@ def run(config):
         collate_fn=custom_collate,
     )
 
-    exp_name = f"transformer_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}_bs{config['batch_size']}"
+    exp_name = f"transformer_{config['hidden_dim']}_{config['d_model']}_{config['num_heads']}_{config['num_layers']}_seed{config['seed']}_{DATASET}"
 
     logger = Logger(
         exp_root=os.path.join(os.environ["EXP_ROOT"], "transformer_vs_rnn"),
@@ -62,13 +57,14 @@ def run(config):
     print(f"Using device: {device}")
 
     # Create models
-    model = EncoderOnlyTransformer(
+    # model = EncoderOnlyTransformer(
+    model = CustomBERTModel(
         vocab_size=vocab_size,
         output_dim=output_dim,  # Updated to use output_dims from dataset
         num_layers=config["num_layers"],
         num_heads=config["num_heads"],
         d_model=config["d_model"],
-        max_seq_len=4096,
+        max_seq_len=256,
     ).to(device)
 
     # Loss function and optimizers
@@ -109,7 +105,7 @@ for hidden_dim in [64, 32, 16]:
                 config = {
                     "seed": 42,
                     "batch_size": 512,
-                    "micro_batch_size": 64,
+                    "micro_batch_size": 512,
                     "num_epochs": 20,
                     "min_lr": 2e-6,
                     "max_lr": 2e-4,
