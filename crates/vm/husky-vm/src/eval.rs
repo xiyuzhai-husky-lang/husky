@@ -114,6 +114,13 @@ where
     }
 
     fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>) {
+        use husky_value::IsThawedValue;
+
+        assert!(self.place_thawed_values[place_idx.index()].is_uninit());
+        self.place_thawed_values[place_idx.index()] = value
+    }
+
+    fn set_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>) {
         self.place_thawed_values[place_idx.index()] = value
     }
 

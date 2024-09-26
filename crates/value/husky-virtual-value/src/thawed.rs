@@ -37,6 +37,9 @@ impl IsThawedValue for Value {
     fn new_uninit() -> Self {
         todo!()
     }
+    fn is_uninit(&self) -> bool {
+        todo!()
+    }
 
     fn r#move(&mut self) -> Self {
         unreachable!()
@@ -90,7 +93,15 @@ impl IsThawedValue for Value {
         todo!()
     }
 
-    fn to_isize(self) -> isize {
+    fn to_i64(self) -> i64 {
+        todo!()
+    }
+}
+
+impl std::ops::Add<i64> for Value {
+    type Output = Self;
+
+    fn add(self, rhs: i64) -> Self::Output {
         todo!()
     }
 }
