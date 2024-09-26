@@ -83,3 +83,22 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
         }
     }
 }
+
+impl<LinketImpl: IsLinketImpl> VmirRestructivePattern<LinketImpl> {
+    pub(crate) fn take_value<'comptime>(
+        self,
+        value: LinketImplThawedValue<LinketImpl>,
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) {
+        match self {
+            VmirRestructivePattern::Default(place) => match place {
+                Some(place) => ctx.init_place(place, value),
+                None => (),
+            },
+            VmirRestructivePattern::OneOf(_) => todo!(),
+            VmirRestructivePattern::Other(_) => todo!(),
+            VmirRestructivePattern::Literal => todo!(),
+            VmirRestructivePattern::UnitPath => todo!(),
+        }
+    }
+}
