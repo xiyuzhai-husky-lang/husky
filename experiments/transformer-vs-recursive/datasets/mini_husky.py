@@ -21,6 +21,7 @@ class MiniHuskyDataset(Dataset):
         self,
         n: int,
         max_fns: int,
+        min_dist: int,
         use_var_rate: float,
         error_rate: float,
         data_dir: str = "../../data/mini-husky/basic",
@@ -28,6 +29,7 @@ class MiniHuskyDataset(Dataset):
         self.data_dir = data_dir
         self.n = n
         self.max_fns = max_fns
+        self.min_dist = min_dist
         self.use_var_rate = use_var_rate
         self.error_rate = error_rate
         self.header, self.data, self.stats = self._load_dataset()
@@ -45,16 +47,18 @@ class MiniHuskyDataset(Dataset):
         for filename in os.listdir(self.data_dir):
             if filename.startswith("dataset-") and filename.endswith(".msgpack"):
                 parts = filename[8:-8].split("-")
-                if len(parts) != 4:
+                if len(parts) != 5:
                     continue
                 file_n = int(parts[0][1:])
                 file_max_fns = int(parts[1][1:])
-                file_use_var_rate = float(parts[2][1:])
-                file_error_rate = float(parts[3][1:])
+                file_min_dist = int(parts[2][1:])
+                file_use_var_rate = float(parts[3][1:])
+                file_error_rate = float(parts[4][1:])
 
                 if (
                     file_n == self.n
                     and file_max_fns == self.max_fns
+                    and file_min_dist == self.min_dist
                     and abs(file_use_var_rate - self.use_var_rate) <= tolerance
                     and abs(file_error_rate - self.error_rate) <= tolerance
                 ):
@@ -108,12 +112,10 @@ class MiniHuskyDataset(Dataset):
             # Append the unpacked and decoded token infos
             decoded_data.append((tokens, tuple(fields)))
 
-        # Calculate percentages
-        total_tokens = len(tokens)
-
         for k in header:
-            percents[k] = {kk: vv / total_tokens * 100 for kk, vv in counters[k].items()}
-
+            tot = sum(counters[k].values())
+            percents[k] = {kk: vv / tot * 100 for kk, vv in counters[k].items()}
+        
         stats = DatasetStats(
             max_values=max_values,
             counters=counters,
@@ -162,7 +164,14 @@ class MiniHuskyDataset(Dataset):
 # Example usage
 if __name__ == "__main__":
     # Load a specific dataset
-    dataset = MiniHuskyDataset(10000, 10, 0.50, data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic"))
+    dataset = MiniHuskyDataset(
+        n=100000,
+        max_fns=100,
+        min_dist=20,
+        use_var_rate=0.2,
+        error_rate=0.5,
+        data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
+    )
 
     # Print the output of __getitem__
     print("\n__getitem__ example:")
@@ -192,7 +201,7 @@ if __name__ == "__main__":
         if isinstance(obj, dict):
             return {k: format_stats(v) for k, v in obj.items()}
         elif isinstance(obj, float):
-            return f"{obj:.2f}"
+            return f"{obj: .2f}"
         else:
             return obj
 

@@ -143,7 +143,7 @@ def run_epoch(
         with torch.set_grad_enabled(is_training):
             combined_loss = 0.0
             combined_accs = {k: 0.0 for k in header}
-            cnt = 0
+            cnt = {k: 0 for k in header}
             for i in range(0, _inputs.shape[0], micro_batch_size):
                 outputs = model(_inputs[i:i + micro_batch_size])
                 output_by_fields = list(outputs.split(output_dims, dim=-1))
@@ -152,23 +152,22 @@ def run_epoch(
 
                 target_by_fields = [t[i:i + micro_batch_size].view(-1) for t in _targets]
 
-                loss_by_fields = [criterion(o, t) for o, t in zip(output_by_fields, target_by_fields)]
-                micro_batch_loss = sum(loss_by_fields)
-
+                micro_batch_loss = 0.0
+                for k, o, t in zip(header, output_by_fields, target_by_fields):
+                    mask = t != 0
+                    
+                    combined_accs[k] += (o.detach().argmax(dim=1) == t)[mask].float().sum()
+                    _cnt = mask.sum()
+                    cnt[k] += _cnt
+                    micro_batch_loss += criterion(o, t) / _cnt
+                
+                micro_batch_loss /= (_inputs.shape[0] - 1) // micro_batch_size + 1
                 if is_training:
                     micro_batch_loss.backward()
                 combined_loss += micro_batch_loss.detach()
 
-                mask = target_by_fields[0] != -1
-
-                for k, o, t in zip(header, output_by_fields, target_by_fields):
-                    combined_accs[k] += (o.detach().argmax(dim=1) == t)[mask].float().sum()
-
-                cnt += mask.sum()
-
-            combined_loss /= cnt
             for k, v in combined_accs.items():
-                combined_accs[k] = v / cnt
+                combined_accs[k] = v / cnt[k]
 
             if logger is not None:
                 # must be training
