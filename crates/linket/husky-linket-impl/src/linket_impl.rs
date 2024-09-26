@@ -31,7 +31,7 @@ pub trait IsLinketImpl: std::fmt::Debug + Send + Sync + Copy + 'static {
 
     fn eval_vm(
         self,
-        arguments: Vec<VmArgumentValue<Self>>,
+        arguments: VmArgumentValues<Self>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self>;
 
@@ -93,6 +93,9 @@ pub enum VmArgumentValue<'comptime, LinketImpl: IsLinketImpl> {
     Variadic(Vec<LinketImplThawedValue<LinketImpl>>),
     RuntimeConstants(&'comptime [KiRuntimeComptermInterface]),
 }
+
+pub type VmArgumentValues<'comptime, LinketImpl> =
+    SmallVec<[VmArgumentValue<'comptime, LinketImpl>; 4]>;
 
 impl<'comptime, LinketImpl: IsLinketImpl + Debug> Debug for VmArgumentValue<'comptime, LinketImpl> {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {

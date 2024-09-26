@@ -9,7 +9,7 @@ macro_rules! enum_variant_constructor_linket_impl {
         fn enum_variant_constructor_ki_wrapper(args: &[__KiArgumentReprInterface]) -> __Value {
             todo!()
         }
-        fn enum_variant_constructor_vm_wrapper(_args: Vec<__VmArgumentValue>) -> __ThawedValue {
+        fn enum_variant_constructor_vm_wrapper(_args: __VmArgumentValues) -> __ThawedValue {
             let r: $self_ty = $variant_path;
             r.into_thawed_value()
         }
@@ -22,7 +22,7 @@ macro_rules! enum_variant_constructor_linket_impl {
         fn enum_variant_constructor_ki_wrapper(args: &[__KiArgumentReprInterface]) -> __Value {
             todo!()
         }
-        fn enum_variant_constructor_vm_wrapper(args: Vec<__VmArgumentValue>) -> __ThawedValue {
+        fn enum_variant_constructor_vm_wrapper(args: __VmArgumentValues) -> __ThawedValue {
             todo!()
         }
         __LinketImpl::EnumVariantConstructor {
@@ -34,7 +34,7 @@ macro_rules! enum_variant_constructor_linket_impl {
         fn enum_variant_constructor_ki_wrapper(args: &[__KiArgumentReprInterface]) -> __Value {
             todo!()
         }
-        fn enum_variant_constructor_vm_wrapper(_args: Vec<__VmArgumentValue>) -> __ThawedValue {
+        fn enum_variant_constructor_vm_wrapper(_args: __VmArgumentValues) -> __ThawedValue {
             todo!()
         }
         __LinketImpl::EnumVariantConstructor {
