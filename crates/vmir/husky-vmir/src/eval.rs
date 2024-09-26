@@ -60,4 +60,5 @@ pub trait EvalVmir<'comptime, LinketImpl: IsLinketImpl> {
     ) -> LinketImplThawedValue<LinketImpl>;
 
     fn init_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>);
+    fn set_place(&mut self, place_idx: PlaceIdx, value: LinketImplThawedValue<LinketImpl>);
 }

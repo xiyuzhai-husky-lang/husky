@@ -133,6 +133,7 @@ pub trait IsThawedValue:
     + PartialEq
     + PartialOrd
     + std::ops::Add<Self, Output = Self>
+    + std::ops::Add<i64, Output = Self>
     + std::ops::AddAssign<Self>
     + std::ops::BitAnd<Self, Output = Self>
     + std::ops::BitAndAssign<Self>
@@ -192,6 +193,7 @@ pub trait IsThawedValue:
     type Value: IsValue;
 
     fn new_uninit() -> Self;
+    fn is_uninit(&self) -> bool;
     fn from_r8(r: u8) -> Self;
     fn from_r16(r: u16) -> Self;
     fn from_r32(r: u32) -> Self;
@@ -202,7 +204,7 @@ pub trait IsThawedValue:
     fn from_str_literal(str_value: Arc<str>) -> Self;
     fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self;
     fn to_bool(self) -> bool;
-    fn to_isize(self) -> isize;
+    fn to_i64(self) -> i64;
     fn to_usize(self) -> usize;
     /// should unreachable if not an option
     fn is_none(self) -> bool;
