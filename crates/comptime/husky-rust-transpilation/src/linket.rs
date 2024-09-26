@@ -20,7 +20,7 @@ use husky_linket::{
     linket::{ty::LinLeashClass, LinField},
     template_argument::{
         constant::LinConstant,
-        qual,
+        qual::{self, LinQual},
         ty::{LinRitchieParameter, LinRitchieType, LinType},
         LinTemplateArgument,
     },
@@ -430,9 +430,9 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                         todo!()
                     }
                     LinTermVariableResolution::SelfQual(place) => match place {
-                        qual::LinQual::Ref => ident.transpile_to_rust(builder),
-                        qual::LinQual::RefMut => builder.method_ritchie_ident_mut(ident),
-                        qual::LinQual::Transient => todo!(),
+                        LinQual::Ref => ident.transpile_to_rust(builder),
+                        LinQual::RefMut => builder.method_ritchie_ident_mut(ident),
+                        LinQual::Transient => todo!(),
                     },
                     _ => unreachable!(),
                 }

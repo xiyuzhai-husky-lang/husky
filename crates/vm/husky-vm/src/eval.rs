@@ -127,7 +127,7 @@ where
         match qual {
             LinQual::Ref => self.place_thawed_values[place_idx.index()].ref_access(),
             LinQual::RefMut => todo!(),
-            LinQual::Transient => todo!(),
+            LinQual::Transient => self.place_thawed_values[place_idx.index()].transient_access(),
         }
     }
 
