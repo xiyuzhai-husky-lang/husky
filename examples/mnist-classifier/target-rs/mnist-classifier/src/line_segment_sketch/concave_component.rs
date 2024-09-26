@@ -29,12 +29,12 @@ pub fn find_concave_components(line_segment_sketch: Leash<crate::line_segment_sk
     let L = line_segment_sketch.deleash().strokes.ilen();
     let mut start = 0;
     let mut end = 1;
-    while start > -L && !crate::line_segment_sketch::convexity::is_convex(&line_segment_sketch.deleash(), start) {
+    while start > -L && !crate::line_segment_sketch::convexity::is_convex(line_segment_sketch.deleash(), start) {
         start -= 1
     }
     let ccv_start = start;
     while start < ccv_start + L {
-        while end <= start + L && !crate::line_segment_sketch::convexity::is_convex(&line_segment_sketch.deleash(), end) {
+        while end <= start + L && !crate::line_segment_sketch::convexity::is_convex(line_segment_sketch.deleash(), end) {
             end += 1
         }
         if end > start + 1 {

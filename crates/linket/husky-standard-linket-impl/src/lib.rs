@@ -108,6 +108,7 @@ pub enum StandardLinketImpl {
     Memo {
         init_item_path_id_interface: fn(ItemPathIdInterface),
         ki_wrapper: fn(Value) -> StandardKiControlFlow,
+        vm_wrapper: fn(ThawedValue) -> StandardVmControlFlow,
     },
     StaticVar {
         init_item_path_id_interface: fn(ItemPathIdInterface),
@@ -189,6 +190,7 @@ impl IsLinketImpl for StandardLinketImpl {
             StandardLinketImpl::Memo {
                 ki_wrapper,
                 init_item_path_id_interface: set_item_path_id_interface,
+                ..
             } => {
                 debug_assert_eq!(ki_argument_reprs.len(), 1);
                 let KiArgumentReprInterface::Simple(__self) = ki_argument_reprs[0] else {
@@ -202,7 +204,7 @@ impl IsLinketImpl for StandardLinketImpl {
 
     fn eval_vm(
         self,
-        arguments: VmArgumentValues<LinketImpl>,
+        mut arguments: VmArgumentValues<LinketImpl>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self> {
         match self {
@@ -241,8 +243,15 @@ impl IsLinketImpl for StandardLinketImpl {
             } => ki_wrapper().into_vm().unwrap(), // ad hoc
             StandardLinketImpl::Memo {
                 init_item_path_id_interface,
-                ki_wrapper,
-            } => todo!(),
+                vm_wrapper,
+                ..
+            } => {
+                assert_eq!(arguments.len(), 1);
+                let VmArgumentValue::Simple(argument) = arguments.pop().unwrap() else {
+                    unreachable!()
+                };
+                vm_wrapper(argument)
+            }
             StandardLinketImpl::StaticVar {
                 init_item_path_id_interface,
                 get_var_id,

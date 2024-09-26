@@ -222,6 +222,9 @@ pub trait IsThawedValue:
 
     fn freeze(&self) -> <Self::Value as IsValue>::FrozenValue;
     fn ref_access(&self) -> Self;
+    /// if copyable, then copy;
+    /// else move.
+    fn transient_access(&self) -> Self;
 }
 
 pub trait IsFrozenValue: Clone + Send + Sync + 'static {

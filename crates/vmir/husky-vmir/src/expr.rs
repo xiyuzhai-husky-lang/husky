@@ -268,7 +268,10 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                         todo!()
                     }
                 };
-                let qual = LinQual::from_hir(entry.contracted_quary());
+                let qual = LinQual::variable_qual(
+                    entry.contracted_quary(),
+                    entry.is_base_ty_always_copyable(),
+                );
                 VmirExprData::Variable { place_idx, qual }
             }
             HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary {

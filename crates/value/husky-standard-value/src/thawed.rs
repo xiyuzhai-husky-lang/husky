@@ -311,7 +311,46 @@ impl IsThawedValue for ThawedValue {
     }
 
     fn index(self, index: usize) -> Result<Self, <Self::Value as husky_value::IsValue>::Exception> {
-        todo!()
+        match self {
+            ThawedValue::Uninit => todo!(),
+            ThawedValue::Invalid => todo!(),
+            ThawedValue::Moved => todo!(),
+            ThawedValue::Unit(_) => todo!(),
+            ThawedValue::Bool(_) => todo!(),
+            ThawedValue::Char(_) => todo!(),
+            ThawedValue::I8(_) => todo!(),
+            ThawedValue::I16(_) => todo!(),
+            ThawedValue::I32(_) => todo!(),
+            ThawedValue::I64(_) => todo!(),
+            ThawedValue::I128(_) => todo!(),
+            ThawedValue::ISize(_) => todo!(),
+            ThawedValue::U8(_) => todo!(),
+            ThawedValue::U16(_) => todo!(),
+            ThawedValue::U32(_) => todo!(),
+            ThawedValue::U64(_) => todo!(),
+            ThawedValue::U128(_) => todo!(),
+            ThawedValue::USize(_) => todo!(),
+            ThawedValue::R8(_) => todo!(),
+            ThawedValue::R16(_) => todo!(),
+            ThawedValue::R32(_) => todo!(),
+            ThawedValue::R64(_) => todo!(),
+            ThawedValue::R128(_) => todo!(),
+            ThawedValue::RSize(_) => todo!(),
+            ThawedValue::F32(_) => todo!(),
+            ThawedValue::F64(_) => todo!(),
+            ThawedValue::StringLiteral(string_literal_id) => todo!(),
+            ThawedValue::Owned(owned_thawed_value) => todo!(),
+            ThawedValue::Leash(leashed_value) => {
+                leashed_value.index_leash_dyn(index).map(Into::into)
+            }
+            ThawedValue::Ref(_) => todo!(),
+            ThawedValue::Mut(_) => todo!(),
+            ThawedValue::OptionBox(thawed_dyn) => todo!(),
+            ThawedValue::OptionLeash(_) => todo!(),
+            ThawedValue::OptionSizedRef(_) => todo!(),
+            ThawedValue::OptionSizedMut(_) => todo!(),
+            ThawedValue::EnumUnit { index, presenter } => todo!(),
+        }
     }
 
     fn unwrap(self) -> Result<Self, <Self::Value as husky_value::IsValue>::Exception> {
@@ -413,6 +452,49 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::EnumUnit { index, presenter } => todo!(),
         }
     }
+
+    /// if copyable, then copy;
+    /// else move.
+    fn transient_access(&self) -> Self {
+        match *self {
+            ThawedValue::Uninit => todo!(),
+            ThawedValue::Invalid => todo!(),
+            ThawedValue::Moved => todo!(),
+            ThawedValue::Unit(()) => ThawedValue::Unit(()),
+            ThawedValue::Bool(b) => ThawedValue::Bool(b),
+            ThawedValue::Char(c) => ThawedValue::Char(c),
+            ThawedValue::I8(i) => ThawedValue::I8(i),
+            ThawedValue::I16(i) => ThawedValue::I16(i),
+            ThawedValue::I32(i) => ThawedValue::I32(i),
+            ThawedValue::I64(i) => ThawedValue::I64(i),
+            ThawedValue::I128(i) => ThawedValue::I128(i),
+            ThawedValue::ISize(i) => ThawedValue::ISize(i),
+            ThawedValue::U8(u) => ThawedValue::U8(u),
+            ThawedValue::U16(u) => ThawedValue::U16(u),
+            ThawedValue::U32(u) => ThawedValue::U32(u),
+            ThawedValue::U64(u) => ThawedValue::U64(u),
+            ThawedValue::U128(u) => ThawedValue::U128(u),
+            ThawedValue::USize(u) => ThawedValue::USize(u),
+            ThawedValue::R8(r) => ThawedValue::R8(r),
+            ThawedValue::R16(r) => ThawedValue::R16(r),
+            ThawedValue::R32(r) => ThawedValue::R32(r),
+            ThawedValue::R64(r) => ThawedValue::R64(r),
+            ThawedValue::R128(r) => ThawedValue::R128(r),
+            ThawedValue::RSize(r) => ThawedValue::RSize(r),
+            ThawedValue::F32(f) => ThawedValue::F32(f),
+            ThawedValue::F64(f) => ThawedValue::F64(f),
+            ThawedValue::StringLiteral(_) => todo!(),
+            ThawedValue::Owned(_) => todo!(),
+            ThawedValue::Leash(_) => todo!(),
+            ThawedValue::Ref(_) => todo!(),
+            ThawedValue::Mut(_) => todo!(),
+            ThawedValue::OptionBox(_) => todo!(),
+            ThawedValue::OptionLeash(_) => todo!(),
+            ThawedValue::OptionSizedRef(_) => todo!(),
+            ThawedValue::OptionSizedMut(_) => todo!(),
+            ThawedValue::EnumUnit { .. } => todo!(),
+        }
+    }
 }
 
 impl ThawedValue {
@@ -436,7 +518,11 @@ impl ThawedValue {
     }
 
     pub fn into_leash<T>(self) -> &'static T {
-        todo!()
+        match self {
+            // ad hoc, we maybe encounter &'static Leash<T> here, so can't always just unwrap it
+            ThawedValue::Leash(slf) => (slf as &dyn std::any::Any).downcast_ref().unwrap(),
+            _ => unreachable!(),
+        }
     }
 
     pub fn into_ref<'a, T>(self, slush_values: Option<&mut SlushValues>) -> &'a T
@@ -492,7 +578,7 @@ impl ThawedValue {
             ThawedValue::OptionLeash(_) => todo!(),
             ThawedValue::OptionSizedRef(_) => todo!(),
             ThawedValue::OptionSizedMut(_) => todo!(),
-            ThawedValue::EnumUnit { .. } => todo!(),
+            ThawedValue::EnumUnit { index, presenter } => todo!(),
         }
     }
 }

@@ -641,7 +641,7 @@ impl ToHirEager for SemExprIdx {
         let quary = ty.quary();
         let contracted_quary = quary
             .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
-            .unwrap_or_default();
+            .unwrap_or(HirContractedQuary::new_contractless_transient());
         let coercion = match self.expectation_outcome(builder.sem_expr_region_data) {
             Some(ref outcome) => match outcome {
                 ExpectationOutcome::Coercion(coersion_outcome) => {
@@ -686,9 +686,11 @@ impl ToHirEager for SemExprIdx {
             },
             None => quary,
         };
-        let contracted_quary_after_coercion = quary
-            .map(|quary| HirContractedQuary::from_fly(quary, &place_contract_site))
-            .unwrap_or_default();
+        let contracted_quary_after_coercion = quary_after_coercion
+            .map(|quary_after_coercion| {
+                HirContractedQuary::from_fly(quary_after_coercion, &place_contract_site)
+            })
+            .unwrap_or(HirContractedQuary::new_contractless_transient());
         let entry = HirEagerExprEntry {
             data,
             base_ty,

@@ -47,7 +47,7 @@ impl LinTemplateArgument {
             }
             HirTemplateArgument::Lifetime(_) => LinTemplateArgument::Lifetime,
             HirTemplateArgument::ContractedQuary(contracted_quary) => {
-                LinTemplateArgument::Qual(LinQual::from_hir(contracted_quary))
+                LinTemplateArgument::Qual(LinQual::from_hir_contracted_quary(contracted_quary))
             }
         }
     }
