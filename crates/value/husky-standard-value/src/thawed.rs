@@ -206,6 +206,34 @@ pub type ExceptedThawedValue = Excepted<ThawedValue>;
 impl IsThawedValue for ThawedValue {
     type Value = Value;
 
+    fn new_uninit() -> Self {
+        ThawedValue::Uninit
+    }
+
+    fn from_r8(r: u8) -> Self {
+        ThawedValue::R8(r)
+    }
+
+    fn from_r16(r: u16) -> Self {
+        ThawedValue::R16(r)
+    }
+
+    fn from_r32(r: u32) -> Self {
+        ThawedValue::R32(r)
+    }
+
+    fn from_r64(r: u64) -> Self {
+        ThawedValue::R64(r)
+    }
+
+    fn from_r128(r: u128) -> Self {
+        ThawedValue::R128(r)
+    }
+
+    fn from_rsize(r: u64) -> Self {
+        ThawedValue::RSize(r as usize)
+    }
+
     fn r#move(&mut self) -> Self {
         std::mem::replace(self, ThawedValue::Moved)
     }

@@ -77,15 +77,14 @@ impl<
         runtime: &'a DevRuntime,
         vmir_storage: &'a VmirStorage, // used to access others
     ) -> Self {
-        use husky_value::IsValue;
+        use husky_value::IsThawedValue;
 
         let place_registry = linket
             .place_registry(db)
             .expect("has vmir_region implies that this is some");
         let mut place_values = vec![];
         for _ in place_values.len()..place_registry.len() {
-            todo!()
-            // place_values.push(<LinketImpl as IsLinketImpl>::Value::new_uninit())
+            place_values.push(LinketImplThawedValue::<LinketImpl>::new_uninit())
         }
         Self {
             linket,

@@ -79,6 +79,13 @@ pub trait IsValue:
 {
     type Exception: IsException;
 
+    fn from_r8(r: u8) -> Self;
+    fn from_r16(r: u16) -> Self;
+    fn from_r32(r: u32) -> Self;
+    fn from_r64(r: u64) -> Self;
+    fn from_r128(r: u128) -> Self;
+    fn from_rsize(r: u64) -> Self;
+
     // the followings are methods that should be implemented.
     // they are commented out because they would probably be done in a way outside of rust trait system
     // fn from_owned<T>(t: T) -> Self;
@@ -184,6 +191,13 @@ pub trait IsThawedValue:
 {
     type Value: IsValue;
 
+    fn new_uninit() -> Self;
+    fn from_r8(r: u8) -> Self;
+    fn from_r16(r: u16) -> Self;
+    fn from_r32(r: u32) -> Self;
+    fn from_r64(r: u64) -> Self;
+    fn from_r128(r: u128) -> Self;
+    fn from_rsize(r: u64) -> Self;
     fn r#move(&mut self) -> Self;
     fn from_str_literal(str_value: Arc<str>) -> Self;
     fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self;
