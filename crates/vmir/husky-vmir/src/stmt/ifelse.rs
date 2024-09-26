@@ -84,3 +84,27 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerElseBranch {
         }
     }
 }
+
+impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
+    pub(super) fn eval_if_else<'comptime>(
+        self,
+        if_branch: &VmirIfBranch<LinketImpl>,
+        elif_branches: &VmirElifBranchs<LinketImpl>,
+        else_branch: Option<&VmirElseBranch<LinketImpl>>,
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
+        if if_branch.condition.eval(ctx)? {
+            return if_branch.stmts.eval(ctx);
+        }
+        for elif_branch in elif_branches {
+            if elif_branch.condition.eval(ctx)? {
+                return elif_branch.stmts.eval(ctx);
+            }
+        }
+        if let Some(else_branch) = else_branch {
+            else_branch.stmts.eval(ctx)
+        } else {
+            VmControlFlow::Continue(().into())
+        }
+    }
+}
