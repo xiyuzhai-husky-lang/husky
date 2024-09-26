@@ -153,3 +153,6 @@ quick:
 
 gen-mini-husky-basic:
 	cargo run --bin gen_mini_husky_basic
+
+bibtex:
+	scripts/research/bibtex_finder.py references/papers.txt -o references/papers.bib
