@@ -372,6 +372,47 @@ impl IsThawedValue for ThawedValue {
             ThawedValue::OptionSizedMut(_) => todo!(),
         }
     }
+
+    fn ref_access(&self) -> Self {
+        match self {
+            ThawedValue::Uninit => todo!(),
+            ThawedValue::Invalid => todo!(),
+            ThawedValue::Moved => todo!(),
+            ThawedValue::Unit(_) => todo!(),
+            ThawedValue::Bool(_) => todo!(),
+            ThawedValue::Char(_) => todo!(),
+            ThawedValue::I8(_) => todo!(),
+            ThawedValue::I16(_) => todo!(),
+            ThawedValue::I32(_) => todo!(),
+            ThawedValue::I64(_) => todo!(),
+            ThawedValue::I128(_) => todo!(),
+            ThawedValue::ISize(_) => todo!(),
+            ThawedValue::U8(_) => todo!(),
+            ThawedValue::U16(_) => todo!(),
+            ThawedValue::U32(_) => todo!(),
+            ThawedValue::U64(_) => todo!(),
+            ThawedValue::U128(_) => todo!(),
+            ThawedValue::USize(_) => todo!(),
+            ThawedValue::R8(_) => todo!(),
+            ThawedValue::R16(_) => todo!(),
+            ThawedValue::R32(_) => todo!(),
+            ThawedValue::R64(_) => todo!(),
+            ThawedValue::R128(_) => todo!(),
+            ThawedValue::RSize(_) => todo!(),
+            ThawedValue::F32(_) => todo!(),
+            ThawedValue::F64(_) => todo!(),
+            ThawedValue::StringLiteral(string_literal_id) => todo!(),
+            ThawedValue::Owned(owned_thawed_value) => todo!(),
+            ThawedValue::Leash(_) => todo!(),
+            ThawedValue::Ref(_) => todo!(),
+            ThawedValue::Mut(_) => todo!(),
+            ThawedValue::OptionBox(thawed_dyn) => todo!(),
+            ThawedValue::OptionLeash(_) => todo!(),
+            ThawedValue::OptionSizedRef(_) => todo!(),
+            ThawedValue::OptionSizedMut(_) => todo!(),
+            ThawedValue::EnumUnit { index, presenter } => todo!(),
+        }
+    }
 }
 
 impl ThawedValue {

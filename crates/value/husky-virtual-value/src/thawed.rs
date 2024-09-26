@@ -96,6 +96,10 @@ impl IsThawedValue for Value {
     fn to_i64(self) -> i64 {
         todo!()
     }
+
+    fn ref_access(&self) -> Self {
+        todo!()
+    }
 }
 
 impl std::ops::Add<i64> for Value {
