@@ -221,6 +221,7 @@ pub trait IsThawedValue:
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual;
 
     fn freeze(&self) -> <Self::Value as IsValue>::FrozenValue;
+    fn ref_access(&self) -> Self;
 }
 
 pub trait IsFrozenValue: Clone + Send + Sync + 'static {
