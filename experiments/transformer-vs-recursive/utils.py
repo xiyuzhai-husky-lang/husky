@@ -17,29 +17,22 @@ def set_seed(seed):
     random.seed(seed)
 
 def custom_collate(batch):
+    PADDING_VALUE = 0
+
     inputs, targets = zip(*batch)
     inputs = [torch.as_tensor(x) for x in inputs]  # Convert lists to tensors
     inputs_padded = pad_sequence(inputs, batch_first=True, padding_value=0)
 
     # Unpack the targets tuple
-    ast_kinds, symbol_resolutions, errors, expected_types = zip(*targets)
-    ast_kinds_padded = pad_sequence(
-        [torch.as_tensor(t) for t in ast_kinds], batch_first=True, padding_value=-1
-    )
-    symbol_resolutions_padded = pad_sequence(
-        [torch.as_tensor(t) for t in symbol_resolutions],
-        batch_first=True,
-        padding_value=-1,
-    )
-    errors_padded = pad_sequence(
-        [torch.as_tensor(t) for t in errors], batch_first=True, padding_value=-1
-    )
-    expected_types_padded = pad_sequence(
-        [torch.as_tensor(t) for t in expected_types],
-        batch_first=True,
-        padding_value=-1,
-    )
-    return inputs_padded, (ast_kinds_padded, symbol_resolutions_padded, errors_padded, expected_types_padded)
+    fields = list(zip(*targets))
+    for i in range(len(fields)):
+        fields[i] = pad_sequence(
+            [torch.as_tensor(t) for t in fields[i]],
+            batch_first=True,
+            padding_value=PADDING_VALUE,
+        )
+
+    return inputs_padded, tuple(fields)
 
 def linear_warmup_decay(total_iters, warmup_iters, min_lr, max_lr, **kwargs):
     """

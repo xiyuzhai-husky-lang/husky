@@ -13,10 +13,11 @@ import pdb
 
 # Load the dataset
 dataset = MiniHuskyDataset(
-    n=10000,
-    max_fns=100,
+    n=100000,
+    max_fns=10,
+    min_dist=3,
     use_var_rate=0.2,
-    error_rate=0.2,
+    error_rate=0.5,
     data_dir=os.path.join(os.environ["DATA_ROOT"], "mini-husky/basic")
 )
 header = dataset.header
@@ -71,7 +72,7 @@ def run(config):
     ).to(device)
 
     # Loss function and optimizers
-    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=-1)
+    criterion = nn.CrossEntropyLoss(reduction="sum", ignore_index=0)
     optimizer = optim.Adam(model.parameters(), lr=1)
     scheduler = torch.optim.lr_scheduler.LambdaLR(
         optimizer,
@@ -109,10 +110,10 @@ for hidden_dim in [64, 32, 16]:
                     "seed": 42,
                     "batch_size": 512,
                     "micro_batch_size": 64,
-                    "num_epochs": 50,
+                    "num_epochs": 20,
                     "min_lr": 2e-6,
                     "max_lr": 2e-4,
-                    "warmup_iters": 99,
+                    "warmup_iters": 990,
                     "hidden_dim": hidden_dim,
                     "d_model": d_model,
                     "num_heads": num_heads,

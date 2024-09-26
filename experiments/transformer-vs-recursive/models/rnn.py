@@ -15,10 +15,12 @@ class RNNEncoder(nn.Module):
         return self.fc(output).squeeze(-1)
 
 class SimpleRNN(nn.Module):
-    def __init__(self, input_dim, hidden_dim, output_dim):
+    def __init__(self, input_dim, hidden_dim, output_dim, bidirectional=True):
         super(SimpleRNN, self).__init__()
         self.input_dim = input_dim
-        self.rnn = nn.RNN(input_dim, hidden_dim, batch_first=True)
+        self.rnn = nn.RNN(input_dim, hidden_dim, batch_first=True, bidirectional=bidirectional)
+        if bidirectional:
+            hidden_dim *= 2
         self.fc = nn.Linear(hidden_dim, output_dim)
 
     def forward(self, x):
