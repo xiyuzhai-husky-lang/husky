@@ -586,7 +586,7 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             } => {
                 let opd = opd.eval(None, ctx)?;
                 linket_impl.eval_vm(
-                    vec![
+                    smallvec![
                         VmArgumentValue::Simple(opd),
                         VmArgumentValue::RuntimeConstants(unsafe {
                             std::mem::transmute(runtime_compterms as &[_])
@@ -634,10 +634,10 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             VmirExprData::Val {
                 linket_impl_or_val_path,
             } => match linket_impl_or_val_path {
-                Left(linket_impl) => linket_impl.eval_vm(vec![], db),
+                Left(linket_impl) => linket_impl.eval_vm(smallvec![], db),
                 Right(val_path) => ctx.eval_val(val_path),
             },
-            VmirExprData::UnitTypeVariant { linket_impl } => linket_impl.eval_vm(vec![], db),
+            VmirExprData::UnitTypeVariant { linket_impl } => linket_impl.eval_vm(smallvec![], db),
             VmirExprData::Unwrap { opd } => todo!(),
             VmirExprData::ConstTemplateVariable => todo!(),
             VmirExprData::RitchieItemPath => todo!(),

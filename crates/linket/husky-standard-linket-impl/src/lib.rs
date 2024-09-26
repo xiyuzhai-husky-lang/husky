@@ -23,6 +23,7 @@ use husky_devsoul_interface::devsoul::IsDevsoulInterface;
 use husky_item_path_interface::ItemPathIdInterface;
 use husky_ki_repr_interface::KiReprInterface;
 use husky_ki_repr_interface::{KiArgumentReprInterface, KiDomainReprInterface};
+use husky_linket_impl::linket_impl::VmArgumentValues;
 use husky_linket_impl::{
     eval_context::DevEvalContext,
     exception::TrackedException,
@@ -42,6 +43,7 @@ use linket_impl::{
     LinketImplStaticVarResult, LinketImplTrackedExcepted, LinketImplTrackedExceptedValue,
 };
 use serde::{Deserialize, Serialize};
+use smallvec::SmallVec;
 
 pub type StandardTrackedException = TrackedException<Exception, StandardPedestal>;
 pub type StandardTrackedExcepted<T> = Result<T, TrackedException<Exception, StandardPedestal>>;
@@ -53,13 +55,14 @@ pub type StandardStaticVarResult<T> = StaticVarResult<StandardVarId, T>;
 pub type StandardVmControlFlow<C = ThawedValue, B = ThawedValue> =
     VmControlFlow<C, B, StandardTrackedException>;
 pub type StandardVmArgumentValue<'comptime> = VmArgumentValue<'comptime, StandardLinketImpl>;
+pub type StandardVmArgumentValues<'comptime> = VmArgumentValues<'comptime, StandardLinketImpl>;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum StandardLinketImpl {
     RitchieFn {
         /// it's the wrapper's responsibility to properly set ctx
         fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
-        // todo: fn_vm_wrapper
+        fn_vm_wrapper: fn(SmallVec<[StandardVmArgumentValue; 4]>) -> StandardVmControlFlow,
         fn_pointer: fn(),
     },
     RitchieUnveilFn {
@@ -79,7 +82,7 @@ pub enum StandardLinketImpl {
     // todo: this should be merged into RichieFn?
     EnumVariantConstructor {
         enum_variant_constructor_ki_wrapper: fn(&[KiArgumentReprInterface]) -> Value,
-        enum_variant_constructor_vm_wrapper: fn(Vec<VmArgumentValue<Self>>) -> ThawedValue,
+        enum_variant_constructor_vm_wrapper: fn(VmArgumentValues<Self>) -> ThawedValue,
     },
     EnumVariantDestructor {
         enum_variant_destructor_wrapper: fn(Value) -> Vec<Value>,
@@ -199,14 +202,11 @@ impl IsLinketImpl for StandardLinketImpl {
 
     fn eval_vm(
         self,
-        arguments: Vec<VmArgumentValue<Self>>,
+        arguments: VmArgumentValues<LinketImpl>,
         db: &dyn std::any::Any,
     ) -> LinketImplVmControlFlowThawed<Self> {
         match self {
-            StandardLinketImpl::RitchieFn {
-                fn_ki_wrapper,
-                fn_pointer,
-            } => todo!(),
+            StandardLinketImpl::RitchieFn { fn_vm_wrapper, .. } => fn_vm_wrapper(arguments),
             StandardLinketImpl::RitchieUnveilFn { fn_vm_wrapper, .. } => {
                 assert_eq!(arguments.len(), 2);
                 let mut args = arguments.into_iter();

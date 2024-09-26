@@ -22,6 +22,7 @@ use linket_impl::{
     IsLinketImpl, LinketImplFrozenValue, LinketImplKiControlFlow, LinketImplThawedValue,
     VmArgumentValue,
 };
+use smallvec::SmallVec;
 
 pub type LinketImplVmControlFlowThawed<LinketImpl, C = LinketImplThawedValue<LinketImpl>> =
     VmControlFlow<C, LinketImplThawedValue<LinketImpl>, LinketImplTrackedException<LinketImpl>>;
@@ -33,35 +34,54 @@ pub trait IsFnLinketImplSource<LinketImpl: IsLinketImpl, FnPointer> {
 
     fn into_fn_linket_impl(
         self,
-        fn_wrapper: fn(&[KiArgumentReprInterface]) -> LinketImplKiControlFlow<LinketImpl>,
+        fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> LinketImplKiControlFlow<LinketImpl>,
+        fn_vm_wrapper: fn(
+            SmallVec<[VmArgumentValue<LinketImpl>; 4]>,
+        ) -> LinketImplVmControlFlow<LinketImpl>,
         fn_pointer: FnPointer,
     ) -> LinketImpl;
 
-    fn fn_wrapper_aux(
+    fn fn_ki_wrapper_aux(
         self,
         arguments: &[KiArgumentReprInterface],
     ) -> LinketImplKiControlFlow<LinketImpl, Self::FnOutput>;
+
+    fn fn_vm_wrapper_aux(
+        self,
+        arguments: SmallVec<[VmArgumentValue<LinketImpl>; 4]>,
+    ) -> LinketImplVmControlFlow<LinketImpl, Self::FnOutput>;
 }
 
 #[macro_export]
 macro_rules! fn_linket_impl {
     ($fn_item: expr) => {{
-        fn fn_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
+        fn fn_ki_wrapper(arguments: &[__KiArgumentReprInterface]) -> __KiControlFlow {
             // todo: catch unwind
             __KiControlFlow::Continue(
                 FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
                     std::marker::PhantomData,
                     $fn_item,
                 )
-                .fn_wrapper_aux(arguments)?
+                .fn_ki_wrapper_aux(arguments)?
                 .into_value(),
+            )
+        }
+        fn fn_vm_wrapper(arguments: __SmallVec<[__VmArgumentValue; 4]>) -> __VmControlFlow {
+            // todo: catch unwind
+            __VmControlFlow::Continue(
+                FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(
+                    std::marker::PhantomData,
+                    $fn_item,
+                )
+                .fn_vm_wrapper_aux(arguments)?
+                .into_thawed_value(),
             )
         }
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type
         // - the other time is to actually give the fn pointer with implicit coercion
         FnLinketImplSource::<__Pedestal, __DevsoulInterface, _>(std::marker::PhantomData, $fn_item)
-            .into_fn_linket_impl(fn_wrapper, $fn_item)
+            .into_fn_linket_impl(fn_ki_wrapper, fn_vm_wrapper, $fn_item)
     }};
 }
 
@@ -82,7 +102,7 @@ macro_rules! impl_is_fn_linket_impl_source {
                 LinketImpl = LinketImpl
             >,
             F: Fn($($input,)*) -> $output,
-            $($input: Send + FromValue,)*
+            $($input: Send + FromValue + FromThawedValue,)*
             $output: Send,
         {
             type FnOutput = $output;
@@ -90,17 +110,19 @@ macro_rules! impl_is_fn_linket_impl_source {
             fn into_fn_linket_impl(
                 self,
                 fn_ki_wrapper: fn(&[KiArgumentReprInterface]) -> StandardKiControlFlow,
+                fn_vm_wrapper: fn(SmallVec<[StandardVmArgumentValue; 4]>) -> StandardVmControlFlow,
                 fn_pointer: fn($($input,)*) -> $output
             ) -> LinketImpl {
                 LinketImpl::RitchieFn {
                     fn_ki_wrapper,
+                    fn_vm_wrapper,
                     fn_pointer: unsafe {
                         std::mem::transmute(fn_pointer)
                     },
                 }
             }
 
-            fn fn_wrapper_aux(
+            fn fn_ki_wrapper_aux(
                 self,
                 arguments: &[KiArgumentReprInterface],
             ) -> StandardKiControlFlow<Self::FnOutput> {
@@ -132,6 +154,40 @@ macro_rules! impl_is_fn_linket_impl_source {
                             KiArgumentReprInterface::Branch { .. } => unreachable!(),
                             KiArgumentReprInterface::RuntimeConstants(ref argument) => todo!(),
                         }}),*
+                )
+            }
+
+            fn fn_vm_wrapper_aux(
+                self,
+                arguments: SmallVec<[VmArgumentValue<LinketImpl>;4]>,
+            ) -> StandardVmControlFlow<Self::FnOutput> {
+                let ctx = DevsoulInterface::dev_eval_context();
+                #[allow(unused_variables)]
+                let mut arguments = arguments.into_iter();
+                #[allow(unused_variables)]
+                let slush_values = &mut SlushValues::default();
+                vm_catch_unwind!(
+                    self.1,
+                    $({
+                        let argument = arguments.next().unwrap();
+                        match argument  {
+                            VmArgumentValue::Simple(value) => {
+                                <$input as FromThawedValue>::from_thawed_value_temp(
+                                    value,
+                                    (slush_values)
+                                )
+                            },
+                            VmArgumentValue::Keyed(value_opt) => {
+                                todo!()
+                            },
+                            VmArgumentValue::Variadic(values) => {
+                                todo!()
+                            },
+                            VmArgumentValue::RuntimeConstants(constants) => {
+                                todo!()
+                            },
+                        }
+                    }),*
                 )
             }
         }
