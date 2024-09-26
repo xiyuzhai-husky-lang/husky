@@ -202,6 +202,7 @@ pub trait IsThawedValue:
     fn from_str_literal(str_value: Arc<str>) -> Self;
     fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self;
     fn to_bool(self) -> bool;
+    fn to_isize(self) -> isize;
     fn to_usize(self) -> usize;
     /// should unreachable if not an option
     fn is_none(self) -> bool;

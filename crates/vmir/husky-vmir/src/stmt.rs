@@ -2,6 +2,7 @@ mod ifelse;
 mod r#loop;
 mod r#match;
 
+use self::r#loop::*;
 use crate::{
     coercion::VmirCoercion,
     eval::EvalVmir,
@@ -13,12 +14,13 @@ use crate::{
     },
     *,
 };
-use husky_expr::stmt::ConditionConversion;
+use husky_expr::stmt::{ConditionConversion, LoopBoundaryKind};
 use husky_hir_eager_expr::{HirEagerCondition, HirEagerStmtData, HirEagerStmtIdxRange};
 use husky_linket_impl::{
     linket_impl::{LinketImplThawedValue, LinketImplTrackedException},
     LinketImplVmControlFlowThawed,
 };
+use husky_place::place::idx::PlaceIdx;
 use husky_value::{vm_control_flow::VmControlFlow, IsThawedValue};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
@@ -47,6 +49,7 @@ pub enum VmirStmtData<LinketImpl: IsLinketImpl> {
         discarded: bool,
     },
     ForBetween {
+        particulars: VmirForBetweenParticulars<LinketImpl>,
         stmts: VmirStmtIdxRange<LinketImpl>,
     },
     Forext {
@@ -160,7 +163,9 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerStmtIdxRange {
                 HirEagerStmtData::ForBetween {
                     ref particulars,
                     stmts,
+                    ..
                 } => VmirStmtData::ForBetween {
+                    particulars: particulars.to_vmir(builder),
                     stmts: stmts.to_vmir(builder),
                 },
                 HirEagerStmtData::Forext {
@@ -342,7 +347,10 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                     false => Continue(result),
                 }
             }
-            VmirStmtData::ForBetween { stmts } => todo!(),
+            VmirStmtData::ForBetween {
+                stmts,
+                ref particulars,
+            } => self.eval_for_between(stmts, particulars, ctx),
             VmirStmtData::Forext { stmts } => todo!(),
             VmirStmtData::ForIn { stmts } => todo!(),
             VmirStmtData::While { condition, stmts } => todo!(),
@@ -357,6 +365,38 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                 ref case_branches,
             } => todo!(),
         }
+    }
+
+    fn eval_for_between<'comptime>(
+        &self,
+        stmts: VmirStmtIdxRange<LinketImpl>,
+        particulars: &VmirForBetweenParticulars<LinketImpl>,
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) -> LinketImplVmControlFlowThawed<LinketImpl> {
+        use VmControlFlow::*;
+
+        let range = particulars.range();
+        let initial_bound = range
+            .initial_boundary
+            .bound_expr
+            .map(|expr| expr.eval(None, ctx));
+        let final_bound = particulars
+            .range()
+            .final_boundary
+            .bound_expr
+            .map(|expr| expr.eval(None, ctx));
+        let step = particulars.range().step;
+        let mut frame_var = match initial_bound {
+            Some(initial_bound) => {
+                let initial_bound = initial_bound?;
+                match range.initial_boundary.kind {
+                    LoopBoundaryKind::UpperOpen | LoopBoundaryKind::LowerOpen => todo!(),
+                    LoopBoundaryKind::UpperClosed | LoopBoundaryKind::LowerClosed => todo!(),
+                }
+            }
+            None => 0isize,
+        };
+        todo!()
     }
 }
 

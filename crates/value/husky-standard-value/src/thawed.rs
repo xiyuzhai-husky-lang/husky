@@ -186,7 +186,7 @@ pub enum ThawedValue {
     Owned(OwnedThawedValue),
     // ad hoc
     /// `~T`
-    Leash(&'static dyn ThawedDyn),
+    Leash(&'static dyn ImmortalDyn),
     /// `&T` for T Sized
     Ref(*const dyn ThawedDyn),
     /// `&mut T` for T Sized
@@ -250,8 +250,52 @@ impl IsThawedValue for ThawedValue {
         todo!()
     }
 
+    fn to_isize(self) -> isize {
+        match self {
+            ThawedValue::I8(v) => v as isize,
+            ThawedValue::I16(v) => v as isize,
+            ThawedValue::I32(v) => v as isize,
+            ThawedValue::I64(v) => v as isize,
+            ThawedValue::I128(v) => v as isize,
+            ThawedValue::ISize(v) => v,
+            ThawedValue::U8(v) => v as isize,
+            ThawedValue::U16(v) => v as isize,
+            ThawedValue::U32(v) => v as isize,
+            ThawedValue::U64(v) => v as isize,
+            ThawedValue::U128(v) => v as isize,
+            ThawedValue::USize(v) => v as isize,
+            ThawedValue::R8(v) => v as isize,
+            ThawedValue::R16(v) => v as isize,
+            ThawedValue::R32(v) => v as isize,
+            ThawedValue::R64(v) => v as isize,
+            ThawedValue::R128(v) => v as isize,
+            ThawedValue::RSize(v) => v as isize,
+            _ => panic!("Cannot convert {} to isize", std::any::type_name::<Self>()),
+        }
+    }
+
     fn to_usize(self) -> usize {
-        todo!()
+        match self {
+            ThawedValue::I8(v) => v as usize,
+            ThawedValue::I16(v) => v as usize,
+            ThawedValue::I32(v) => v as usize,
+            ThawedValue::I64(v) => v as usize,
+            ThawedValue::I128(v) => v as usize,
+            ThawedValue::ISize(v) => v as usize,
+            ThawedValue::U8(v) => v as usize,
+            ThawedValue::U16(v) => v as usize,
+            ThawedValue::U32(v) => v as usize,
+            ThawedValue::U64(v) => v as usize,
+            ThawedValue::U128(v) => v as usize,
+            ThawedValue::USize(v) => v,
+            ThawedValue::R8(v) => v as usize,
+            ThawedValue::R16(v) => v as usize,
+            ThawedValue::R32(v) => v as usize,
+            ThawedValue::R64(v) => v as usize,
+            ThawedValue::R128(v) => v as usize,
+            ThawedValue::RSize(v) => v,
+            _ => panic!("Cannot convert {} to usize", std::any::type_name::<Self>()),
+        }
     }
 
     fn is_none(self) -> bool {
@@ -788,7 +832,7 @@ impl From<Value> for ThawedValue {
             Value::F64(f) => ThawedValue::F64(f),
             Value::StringLiteral(id) => ThawedValue::StringLiteral(id),
             Value::Owned(owned_value) => todo!(),
-            Value::Leash(_) => todo!(),
+            Value::Leash(leashed_value) => ThawedValue::Leash(leashed_value),
             Value::OptionBox(immortal_dyn) => todo!(),
             Value::OptionLeash(_) => todo!(),
             Value::EnumUnit { index, presenter } => ThawedValue::EnumUnit { index, presenter },

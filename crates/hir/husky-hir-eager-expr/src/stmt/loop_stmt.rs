@@ -1,7 +1,8 @@
 use super::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
+use husky_place::place::{idx::PlaceIdx, EthPlace};
 use husky_sem_expr::stmt::loop_stmt::{
-    SemaForBetweenLoopBoundary, SemaForBetweenParticulars, SemaForBetweenRange,
+    SemForBetweenParticulars, SemaForBetweenLoopBoundary, SemaForBetweenRange,
     SemaForextParticulars,
 };
 
@@ -9,15 +10,27 @@ use husky_sem_expr::stmt::loop_stmt::{
 #[salsa::derive_debug_with_db]
 pub struct HirEagerForBetweenParticulars {
     pub frame_var_ident: Ident,
+    pub frame_var_place_idx: PlaceIdx,
     pub range: HirEagerForBetweenRange,
 }
 
-impl ToHirEager for SemaForBetweenParticulars {
+impl ToHirEager for SemForBetweenParticulars {
     type Output = HirEagerForBetweenParticulars;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        let EthPlace::Idx(frame_var_place_idx) = self
+            .for_between_loop_var_expr_idx()
+            .ty(builder.sem_expr_arena_ref2())
+            .quary()
+            .unwrap()
+            .place()
+            .unwrap()
+        else {
+            unreachable!()
+        };
         HirEagerForBetweenParticulars {
             frame_var_ident: self.for_between_loop_var_ident(),
+            frame_var_place_idx,
             range: self.range().to_hir_eager(builder),
         }
     }
