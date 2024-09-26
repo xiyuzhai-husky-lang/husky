@@ -20,7 +20,7 @@ use husky_linket_impl::{linket_impl::VmArgumentValue, LinketImplVmControlFlowTha
 use husky_literal_value::LiteralValue;
 use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
-use husky_value::vm_control_flow::VmControlFlow;
+use husky_value::{vm_control_flow::VmControlFlow, IsThawedValue};
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
 use smallvec::{smallvec, SmallVec};
@@ -71,7 +71,10 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
     As {
         opd: VmirExprIdx<LinketImpl>,
     },
-    Index,
+    Index {
+        self_argument: VmirExprIdx<LinketImpl>,
+        items: VmirExprIdxRange<LinketImpl>,
+    },
     Val {
         linket_impl_or_val_path: Either<LinketImpl, MajorFormPath>,
     },
@@ -161,6 +164,21 @@ impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for HirEagerExprIdx {
     ) -> Self::Output {
         let expr_data = builder.build_vmir_expr(self);
         builder.alloc_expr(self, expr_data)
+    }
+}
+
+impl<LinketImpl: IsLinketImpl> ToVmir<LinketImpl> for &SmallVec<[HirEagerExprIdx; 4]> {
+    type Output = VmirExprIdxRange<LinketImpl>;
+
+    fn to_vmir<Linktime: IsLinktime<LinketImpl = LinketImpl>>(
+        self,
+        builder: &mut VmirBuilder<Linktime>,
+    ) -> Self::Output {
+        let mut exprs = Vec::new();
+        for &expr in self.iter() {
+            exprs.push(builder.build_vmir_expr(expr));
+        }
+        builder.alloc_exprs(&self, exprs)
     }
 }
 
@@ -443,9 +461,12 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 arguments: todo!(),
             },
             HirEagerExprData::Index {
-                self_argument: owner,
+                self_argument,
                 ref items,
-            } => VmirExprData::Index,
+            } => VmirExprData::Index {
+                self_argument: self_argument.to_vmir(self),
+                items: items.to_vmir(self),
+            },
             HirEagerExprData::NewList {
                 exprs: ref hir_eager_exprs,
                 element_ty,
@@ -453,14 +474,10 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 let linket =
                     Linket::new_vec_constructor(element_ty, self.lin_instantiation(), self.db());
                 let linket_impl = self.linket_impl(linket);
-                let mut exprs = Vec::new();
-                for &expr in hir_eager_exprs.iter() {
-                    exprs.push(self.build_vmir_expr(expr));
-                }
                 VmirExprData::Linket {
                     linket_impl,
                     arguments: smallvec![VmirArgument::Variadic {
-                        exprs: self.alloc_exprs(hir_eager_exprs, exprs),
+                        exprs: hir_eager_exprs.to_vmir(self),
                     }],
                 }
             }
@@ -630,7 +647,20 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
             VmirExprData::Todo => todo!(),
             VmirExprData::Unreachable => todo!(),
             VmirExprData::As { opd } => todo!(),
-            VmirExprData::Index => todo!(),
+            VmirExprData::Index {
+                self_argument,
+                items,
+            } => {
+                let self_argument = self_argument.eval(None, ctx)?;
+                match items.0.len() {
+                    1 => {
+                        // TODO: ad hoc
+                        let index = VmirExprIdx(items.0.start()).eval(None, ctx)?.to_usize();
+                        self_argument.index(index).map_err(|_| todo!()).into()
+                    }
+                    _ => todo!(),
+                }
+            }
             VmirExprData::Val {
                 linket_impl_or_val_path,
             } => match linket_impl_or_val_path {
