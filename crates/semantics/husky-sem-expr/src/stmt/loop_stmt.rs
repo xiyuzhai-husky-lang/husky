@@ -6,14 +6,14 @@ use husky_regional_token::RegionalTokenIdx;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaForBetweenParticulars {
+pub struct SemForBetweenParticulars {
     for_between_loop_var_regional_token_idx: RegionalTokenIdx,
     for_between_loop_var_ident: Ident,
     for_between_loop_var_expr_idx: SemExprIdx,
     range: SemaForBetweenRange,
 }
 
-impl SemaForBetweenParticulars {
+impl SemForBetweenParticulars {
     pub fn for_between_loop_var_regional_token_idx(&self) -> RegionalTokenIdx {
         self.for_between_loop_var_regional_token_idx
     }
@@ -36,12 +36,12 @@ impl<'a> SemExprBuilder<'a> {
         &mut self,
         particulars: &'a SynForBetweenParticulars,
         for_loop_varible_idx: CurrentVariableIdx,
-    ) -> SynExprResultRef<'a, SemaForBetweenParticulars> {
+    ) -> SynExprResultRef<'a, SemForBetweenParticulars> {
         let Ok(ref range) = particulars.range else {
             todo!()
         };
         let mut expected_frame_var_ty: Option<FlyTerm> = None;
-        let initial_bound_sem_expr_idx = match range.initial_boundary.bound_expr {
+        let initial_bound_expr = match range.initial_boundary.bound_expr {
             Some(bound_expr) => {
                 let (bound_sem_expr_idx, num_ty_outcome) =
                     self.build_expr_with_outcome(bound_expr, ExpectIntType);
@@ -55,7 +55,7 @@ impl<'a> SemExprBuilder<'a> {
             }
             None => None,
         };
-        let final_bound_sem_expr_idx = match range.final_boundary.bound_expr {
+        let final_bound_expr = match range.final_boundary.bound_expr {
             Some(bound_expr) => match expected_frame_var_ty {
                 Some(expected_frame_var_ty) => Some(self.build_expr(
                     bound_expr,
@@ -94,16 +94,16 @@ impl<'a> SemExprBuilder<'a> {
         );
         let range = SemaForBetweenRange {
             initial_boundary: SemaForBetweenLoopBoundary {
-                bound_expr: initial_bound_sem_expr_idx,
+                bound_expr: initial_bound_expr,
                 kind: range.initial_boundary.kind,
             },
             final_boundary: SemaForBetweenLoopBoundary {
-                bound_expr: final_bound_sem_expr_idx,
+                bound_expr: final_bound_expr,
                 kind: range.final_boundary.kind,
             },
             step: range.step,
         };
-        Ok(SemaForBetweenParticulars {
+        Ok(SemForBetweenParticulars {
             for_between_loop_var_regional_token_idx: particulars
                 .for_between_loop_var_regional_token_idx,
             for_between_loop_var_ident: particulars.for_between_loop_var_ident,

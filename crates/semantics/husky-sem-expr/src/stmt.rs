@@ -56,7 +56,7 @@ pub enum SemStmtData {
     },
     ForBetween {
         for_token: StmtForRegionalToken,
-        particulars: SemaForBetweenParticulars,
+        particulars: SemForBetweenParticulars,
         for_loop_varible_idx: CurrentVariableIdx,
         eol_colon: EolRegionalToken,
         stmts: SemStmtIdxRange,

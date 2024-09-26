@@ -89,4 +89,8 @@ impl IsThawedValue for Value {
     fn freeze(&self) -> <Self::Value as IsValue>::FrozenValue {
         todo!()
     }
+
+    fn to_isize(self) -> isize {
+        todo!()
+    }
 }

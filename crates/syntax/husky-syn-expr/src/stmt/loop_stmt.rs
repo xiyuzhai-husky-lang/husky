@@ -217,7 +217,7 @@ impl<'a> SynExprContext<'a> {
                 SynStmtData::ForBetween {
                     for_token,
                     particulars,
-                    for_loop_varible_idx: for_loop_varible_idx,
+                    for_loop_varible_idx,
                     eol_colon,
                     block: self.parse_stmts(body),
                 }

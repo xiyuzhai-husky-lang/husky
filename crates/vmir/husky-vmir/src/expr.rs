@@ -607,7 +607,9 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
                             VmArgumentValue<LinketImpl>,
                         > {
                             match arg {
-                                VmirArgument::SelfValue { expr } => todo!(),
+                                VmirArgument::SelfValue { expr } => VmControlFlow::Continue(
+                                    VmArgumentValue::Simple(expr.eval(None, ctx)?),
+                                ),
                                 VmirArgument::Simple { expr, coercion } => todo!(),
                                 VmirArgument::Variadic { exprs } => {
                                     VmControlFlow::Continue(VmArgumentValue::Variadic(

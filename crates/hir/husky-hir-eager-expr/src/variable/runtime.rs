@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_expr::variable::{
-    AllowSelfValue, CurrentVariableData, CurrentVariableEntry, InheritedVariableEntry,
-    InheritedVariableKind, VariableMap, VariableRegionData,
+    AllowSelfValue, CurrentVariableData, CurrentVariableEntry, CurrentVariableIdx,
+    InheritedVariableEntry, InheritedVariableKind, VariableMap, VariableRegionData,
 };
 use idx_arena::ArenaIdx;
 
@@ -180,5 +180,15 @@ impl HirEagerRuntimeVariableData {
                 Some(HirEagerRuntimeVariableData::LoopVariable)
             }
         }
+    }
+}
+
+impl ToHirEager for CurrentVariableIdx {
+    type Output = HirEagerRuntimeVariableIdx;
+
+    fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
+        builder
+            .current_variable_to_hir_eager_runtime_symbol(*self)
+            .unwrap()
     }
 }
