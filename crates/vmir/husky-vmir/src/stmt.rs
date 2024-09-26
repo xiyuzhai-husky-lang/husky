@@ -424,6 +424,7 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                     particulars.for_loop_variable_place_idx(),
                     for_loop_variable_value,
                 );
+                // TODO: loop snapshot
                 stmts.eval(ctx)?;
                 for_loop_variable += step;
             }
