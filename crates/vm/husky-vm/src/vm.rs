@@ -18,7 +18,7 @@ use husky_linktime::{
     IsLinktime,
 };
 use husky_place::{place::idx::PlaceIdx, PlaceRegistry};
-use husky_value::IsFrozenValue;
+use husky_value::{IsFrozenValue, IsThawedValue};
 use husky_vmir::{
     eval::EvalVmir,
     expr::{VmirExprIdx, VmirExprMap},
@@ -27,7 +27,7 @@ use husky_vmir::{
     storage::IsVmirStorage,
 };
 use rustc_hash::FxHashMap;
-use vec_like::ordered_vec_map::OrderedVecPairMap;
+use vec_like::ordered_vec_map::{OrderedVecMap, OrderedVecPairMap};
 
 use crate::{
     history::{VmHistory, VmRecord},
@@ -216,5 +216,33 @@ impl<
             self.stmt_records,
             self.snapshots,
         )
+    }
+
+    pub(crate) fn quick<R>(&mut self, f: impl FnOnce(&mut Self) -> R) -> R {
+        let mode = self.mode;
+        let r = f(self);
+        self.mode = mode;
+        r
+    }
+
+    pub(crate) fn snapshot(&mut self, stmt: VmirStmtIdx<LinketImpl>, key: VmSnapshotKey) {
+        let t = || {
+            VmSnapshot::new(
+                self.linket,
+                self.place_thawed_values
+                    .iter()
+                    .map(|v| v.freeze())
+                    .collect(),
+            )
+        };
+        self.snapshots.update_value_or_insert_with(
+            stmt,
+            |map| {
+                let Ok(()) = map.insert_new((key, t())) else {
+                    unreachable!()
+                };
+            },
+            || OrderedVecMap::new_one_element_map((key, t())),
+        );
     }
 }

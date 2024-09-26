@@ -330,11 +330,11 @@ impl IsThawedValue for ThawedValue {
         todo!()
     }
 
-    fn freeze(&self) -> <Self::Value as husky_value::IsValue>::FrozenValue {
+    fn freeze(&self) -> FrozenValue {
         match *self {
-            ThawedValue::Uninit => todo!(),
-            ThawedValue::Invalid => todo!(),
-            ThawedValue::Moved => todo!(),
+            ThawedValue::Uninit => FrozenValue::Uninit,
+            ThawedValue::Invalid => FrozenValue::Invalid,
+            ThawedValue::Moved => FrozenValue::Moved,
             ThawedValue::Unit(()) => FrozenValue::Unit(()),
             ThawedValue::Bool(val) => FrozenValue::Bool(val),
             ThawedValue::Char(val) => FrozenValue::Char(val),

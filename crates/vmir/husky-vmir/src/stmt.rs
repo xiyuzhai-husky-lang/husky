@@ -415,6 +415,7 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                 }
                 None => 0,
             };
+            let mut loop_index: usize = 0;
             while for_loop_variable < limit {
                 let for_loop_variable_value = convert_for_loop_variable::<LinketImpl>(
                     for_loop_variable,
@@ -424,9 +425,12 @@ impl<LinketImpl: IsLinketImpl> VmirStmtIdx<LinketImpl> {
                     particulars.for_loop_variable_place_idx(),
                     for_loop_variable_value,
                 );
-                // TODO: loop snapshot
-                stmts.eval(ctx)?;
+                ctx.eval_loop_inner(self, stmts, loop_index, |ctx| {
+                    stmts.eval(ctx)?;
+                    VmControlFlow::Continue(())
+                })?;
                 for_loop_variable += step;
+                loop_index += 1;
             }
         } else if step < 0 {
             todo!()

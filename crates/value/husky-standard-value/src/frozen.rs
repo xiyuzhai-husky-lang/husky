@@ -92,8 +92,6 @@ where
 #[derive(Debug, Clone)]
 #[repr(u8)]
 pub enum FrozenValue {
-    /// useful for snapshot caching on stack
-    None,
     Uninit,
     Invalid,
     Moved,
@@ -149,7 +147,6 @@ impl IsFrozenValue for FrozenValue {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> ValuePresentation {
         match self {
-            FrozenValue::None => todo!(),
             FrozenValue::Uninit => todo!(),
             FrozenValue::Invalid => todo!(),
             FrozenValue::Moved => todo!(),
