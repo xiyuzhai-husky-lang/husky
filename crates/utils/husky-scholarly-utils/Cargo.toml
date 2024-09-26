@@ -1,0 +1,19 @@
+[package]
+name = "husky-scholarly-utils"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+pyo3.workspace = true
+thiserror.workspace = true
+
+[lints]
+workspace = true
