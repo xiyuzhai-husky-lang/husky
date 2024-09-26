@@ -4,6 +4,7 @@ use crate::*;
 use history::VmHistory;
 use husky_linket_impl::linket_impl::LinketImplThawedValue;
 use husky_linktime::helpers::LinktimeThawedValue;
+use husky_value::IsThawedValue;
 use husky_vmir::stmt::{VmirStmtIdx, VmirStmtIdxRange};
 use snapshot::VmSnapshotKey;
 
@@ -124,7 +125,7 @@ where
         qual: LinQual,
     ) -> LinketImplThawedValue<LinketImpl> {
         match qual {
-            LinQual::Ref => todo!(),
+            LinQual::Ref => self.place_thawed_values[place_idx.index()].ref_access(),
             LinQual::RefMut => todo!(),
             LinQual::Transient => todo!(),
         }
