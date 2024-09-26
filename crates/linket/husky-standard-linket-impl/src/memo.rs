@@ -10,6 +10,12 @@ macro_rules! memo_linket_impl {
                     $memo(<_ as __FromValue>::from_value_static(__self)).into_value(),
                 )
             },
+            vm_wrapper: |__self| {
+                __VmControlFlow::Continue(
+                    $memo(<_ as __FromThawedValue>::from_thawed_value_static(__self))
+                        .into_thawed_value(),
+                )
+            },
         }
     };
 }
