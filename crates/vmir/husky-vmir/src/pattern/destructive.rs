@@ -75,3 +75,20 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
         }
     }
 }
+
+impl<LinketImpl: IsLinketImpl> VmirDestructivePattern<LinketImpl> {
+    pub(crate) fn take_value<'comptime>(
+        self,
+        value: LinketImplThawedValue<LinketImpl>,
+        ctx: &mut impl EvalVmir<'comptime, LinketImpl>,
+    ) {
+        match self {
+            VmirDestructivePattern::Default(place) => match place {
+                Some(place) => ctx.init_place(place, value),
+                None => (),
+            },
+            VmirDestructivePattern::Or(_) => todo!(),
+            VmirDestructivePattern::Other(_) => todo!(),
+        }
+    }
+}
