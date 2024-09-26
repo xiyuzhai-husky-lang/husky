@@ -8,6 +8,7 @@ use crate::{
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_hir_ty::{ritchie::HirContract, HirType};
+use husky_place::place::EthPlace;
 use husky_sem_expr::{
     SemExprArena, SemExprArenaRef, SemExprIdx, SemExprMap, SemExprRegion, SemExprRegionData,
     SemStmtArenaRef, SemStmtIdx, SemStmtMap,
@@ -145,11 +146,12 @@ impl<'db> HirEagerExprBuilder<'db> {
     pub(crate) fn alloc_pattern(
         &mut self,
         pattern: HirEagerPatternData,
+        place: EthPlace,
         syn_pattern: SynPatternIdx,
     ) -> HirEagerPatternIdx {
         let contract =
             HirContract::from_contract(self.syn_expr_region_data.pattern_contract(syn_pattern));
-        let entry = HirEagerPatternEntry::new(pattern, contract);
+        let entry = HirEagerPatternEntry::new(pattern, contract, place);
         let pattern = self.hir_eager_pattern_arena.alloc_one(entry);
         self.syn_to_hir_eager_pattern_idx_map
             .insert_new(syn_pattern, pattern);
@@ -158,16 +160,17 @@ impl<'db> HirEagerExprBuilder<'db> {
 
     pub(crate) fn alloc_pattern_exprs(
         &mut self,
-        patterns: Vec<HirEagerPatternData>,
+        patterns: Vec<(HirEagerPatternData, EthPlace)>,
         syn_patterns: impl Iterator<Item = SynPatternIdx> + Clone,
     ) -> HirEagerPatternIdxRange {
-        let entries =
-            std::iter::zip(patterns, syn_patterns.clone()).map(|(pattern, syn_pattern)| {
+        let entries = std::iter::zip(patterns, syn_patterns.clone()).map(
+            |((pattern, place), syn_pattern)| {
                 let contract = HirContract::from_contract(
                     self.syn_expr_region_data.pattern_contract(syn_pattern),
                 );
-                HirEagerPatternEntry::new(pattern, contract)
-            });
+                HirEagerPatternEntry::new(pattern, contract, place)
+            },
+        );
         let patterns = self.hir_eager_pattern_arena.alloc_batch(entries);
         for (pattern, syn_pattern) in std::iter::zip(patterns, syn_patterns) {
             self.syn_to_hir_eager_pattern_idx_map
@@ -270,6 +273,11 @@ impl<'db> HirEagerExprBuilder<'db> {
     pub(crate) fn syn_pattern_ty(&self, syn_pattern: SynPatternIdx) -> EthTerm {
         self.sem_expr_region_data
             .syn_pattern_ty(syn_pattern, self.db)
+    }
+
+    pub(crate) fn syn_pattern_place(&self, syn_pattern: SynPatternIdx) -> EthPlace {
+        self.sem_expr_region_data
+            .syn_pattern_place(syn_pattern, self.db)
     }
 
     pub(crate) fn terms(&self) -> &'db FlyTerms {

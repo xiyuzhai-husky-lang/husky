@@ -4,13 +4,17 @@ use crate::{
     *,
 };
 use either::*;
+use husky_coword::Ident;
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::path::{
     major_item::{form::MajorFormPath, MajorItemPath},
     PrincipalEntityPath,
 };
 use husky_hir_decl::decl::{HasHirDecl, TypeVariantHirDecl};
-use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprIdx, HirEagerRitchieArgument};
+use husky_hir_eager_expr::{
+    variable::runtime::HirEagerRuntimeVariableName, HirEagerExprData, HirEagerExprIdx,
+    HirEagerRitchieArgument,
+};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_ki::KiRuntimeCompterm;
 use husky_ki_repr::expansion::ki_runtime_compterms_from_hir_instantiation;
@@ -32,6 +36,7 @@ pub enum VmirExprData<LinketImpl: IsLinketImpl> {
         value: LiteralValue,
     },
     Variable {
+        name: HirEagerRuntimeVariableName,
         place_idx: PlaceIdx,
         qual: LinQual,
     },
@@ -254,7 +259,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             },
             HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
             HirEagerExprData::ComptimeVariable { ident } => VmirExprData::ConstTemplateVariable,
-            HirEagerExprData::RuntimeVariable(_) => {
+            HirEagerExprData::RuntimeVariable(variable_idx) => {
                 let place_idx = match entry.quary().place() {
                     Some(place) => match place {
                         EthPlace::Idx(place_idx) => place_idx,
@@ -272,7 +277,13 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     entry.contracted_quary(),
                     entry.is_base_ty_always_copyable(),
                 );
-                VmirExprData::Variable { place_idx, qual }
+                VmirExprData::Variable {
+                    place_idx,
+                    qual,
+                    name: variable_idx
+                        .entry(self.hir_eager_runtime_variable_region_data().arena())
+                        .name(),
+                }
             }
             HirEagerExprData::Binary { lopd, opr, ropd } => VmirExprData::Binary {
                 lopd: lopd.to_vmir(self),
@@ -557,7 +568,14 @@ impl<LinketImpl: IsLinketImpl> VmirExprIdx<LinketImpl> {
 
         match *self.entry(ctx.vmir_expr_arena()) {
             VmirExprData::Literal { ref value } => Continue(value.into_thawed_value()),
-            VmirExprData::Variable { place_idx, qual } => {
+            VmirExprData::Variable {
+                place_idx,
+                qual,
+                name,
+            } => {
+                use ::husky_print_utils::p;
+                use ::salsa::DebugWithDb;
+                p!(name.debug(db));
                 Continue(ctx.access_place(place_idx, qual))
             }
             VmirExprData::Binary { lopd, opr, ropd } => {

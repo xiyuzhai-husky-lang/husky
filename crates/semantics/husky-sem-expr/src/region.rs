@@ -5,8 +5,9 @@ use husky_eth_term::{
     fmt::EthTermFmtContext,
     term::{symbolic_variable::EthSymbolicVariable, EthTerm},
 };
-use husky_place::PlaceRegistry;
+use husky_place::{place::EthPlace, PlaceRegistry};
 use husky_term_prelude::symbol::SymbolName;
+use idx_arena::ArenaIdx;
 use salsa::fmt::WithFmtContext;
 use vec_like::{VecMap, VecPairMap};
 
@@ -198,11 +199,7 @@ impl SemExprRegionData {
         &self.sem_expr_terms
     }
 
-    pub fn syn_pattern_ty(
-        &self,
-        syn_pattern_idx: idx_arena::ArenaIdx<SynPatternData>,
-        db: &::salsa::Db,
-    ) -> EthTerm {
+    pub fn syn_pattern_ty(&self, syn_pattern_idx: SynPatternIdx, db: &::salsa::Db) -> EthTerm {
         match self.syn_pattern_expr_ty_infos[syn_pattern_idx].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fly_term_region.terms()) {
                 FlyTermBase::Eth(ty_term) => ty_term,
@@ -210,6 +207,13 @@ impl SemExprRegionData {
                 FlyTermBase::Hol(_) => todo!(),
                 FlyTermBase::Place => todo!(),
             },
+            Err(_) => todo!(),
+        }
+    }
+
+    pub fn syn_pattern_place(&self, syn_pattern_idx: SynPatternIdx, db: &::salsa::Db) -> EthPlace {
+        match self.syn_pattern_expr_ty_infos[syn_pattern_idx].ty {
+            Ok(ty_term) => ty_term.quary().unwrap().place().unwrap(),
             Err(_) => todo!(),
         }
     }

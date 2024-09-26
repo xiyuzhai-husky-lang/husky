@@ -5,6 +5,7 @@ use husky_entity_path::path::{
 };
 use husky_eth_term::term::EthTerm;
 use husky_hir_ty::ritchie::HirContract;
+use husky_place::place::EthPlace;
 use husky_syn_expr::{
     context::SynPatternRoot,
     pattern::{SynPatternData, SynPatternIdx},
@@ -64,12 +65,17 @@ pub enum HirEagerPatternData {
 pub struct HirEagerPatternEntry {
     data: HirEagerPatternData,
     contract: HirContract,
+    place: EthPlace,
 }
 
 /// # constructor
 impl HirEagerPatternEntry {
-    pub fn new(data: HirEagerPatternData, contract: HirContract) -> Self {
-        Self { data, contract }
+    pub fn new(data: HirEagerPatternData, contract: HirContract, place: EthPlace) -> Self {
+        Self {
+            data,
+            contract,
+            place,
+        }
     }
 }
 
@@ -81,6 +87,10 @@ impl HirEagerPatternEntry {
 
     pub fn contract(&self) -> HirContract {
         self.contract
+    }
+
+    pub fn place(&self) -> EthPlace {
+        self.place
     }
 
     pub fn is_destructive(&self) -> bool {
@@ -100,8 +110,9 @@ impl<'a> HirEagerExprBuilder<'a> {
         syn_pattern_root: impl Into<SynPatternRoot>,
     ) -> HirEagerPatternIdx {
         let syn_pattern = syn_pattern_root.into().syn_pattern_idx();
-        let pattern = self.new_pattern_aux(syn_pattern);
-        self.alloc_pattern(pattern, syn_pattern)
+        let pattern_data = self.new_pattern_aux(syn_pattern);
+        let place = self.syn_pattern_place(syn_pattern);
+        self.alloc_pattern(pattern_data, place, syn_pattern)
     }
 
     fn new_pattern_aux(&mut self, syn_pattern: SynPatternIdx) -> HirEagerPatternData {
@@ -193,7 +204,13 @@ impl<'a> HirEagerExprBuilder<'a> {
                 let hir_eager_options = options
                     .elements()
                     .iter()
-                    .map(|option| self.new_pattern_aux(option.syn_pattern()))
+                    .map(|option| {
+                        let syn_pattern = option.syn_pattern();
+                        (
+                            self.new_pattern_aux(syn_pattern),
+                            self.syn_pattern_place(syn_pattern),
+                        )
+                    })
                     .collect();
                 HirEagerPatternData::OneOf {
                     options: self.alloc_pattern_exprs(

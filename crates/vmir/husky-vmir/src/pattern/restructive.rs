@@ -49,12 +49,13 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
         VmirRestructivePattern<Linktime::LinketImpl>,
         VmirRestructivePatternData<Linktime::LinketImpl>,
     > {
-        match *self.hir_eager_pattern_arena()[hir_eager_pattern].data() {
+        let hir_eager_pattern_entry = &self.hir_eager_pattern_arena()[hir_eager_pattern];
+        match *hir_eager_pattern_entry.data() {
             HirEagerPatternData::Literal(_) => Left(VmirRestructivePattern::Literal),
             HirEagerPatternData::Ident {
                 symbol_modifier,
                 ident,
-            } => Left(VmirRestructivePattern::Default(None /* ad hoc */)),
+            } => Left(VmirRestructivePattern::Default(todo!())),
             HirEagerPatternData::UnitPath(path) => Left(VmirRestructivePattern::UnitPath),
             HirEagerPatternData::Tuple { path, fields } => todo!(),
             HirEagerPatternData::Props { path, fields } => todo!(),
